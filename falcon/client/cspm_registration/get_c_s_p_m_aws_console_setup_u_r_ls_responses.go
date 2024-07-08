@@ -90,7 +90,7 @@ type GetCSPMAwsConsoleSetupURLsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountConsoleURL
+	Payload *models.RegistrationAWSConsoleURLResponseV2
 }
 
 // IsSuccess returns true when this get c s p m aws console setup u r ls o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetCSPMAwsConsoleSetupURLsOK) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetCSPMAwsConsoleSetupURLsOK) GetPayload() *models.RegistrationAWSAccountConsoleURL {
+func (o *GetCSPMAwsConsoleSetupURLsOK) GetPayload() *models.RegistrationAWSConsoleURLResponseV2 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetCSPMAwsConsoleSetupURLsOK) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountConsoleURL)
+	o.Payload = new(models.RegistrationAWSConsoleURLResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type GetCSPMAwsConsoleSetupURLsMultiStatus struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountConsoleURL
+	Payload *models.RegistrationAWSConsoleURLResponseV2
 }
 
 // IsSuccess returns true when this get c s p m aws console setup u r ls multi status response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsMultiStatus  %+v", 207, o.Payload)
 }
 
-func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) GetPayload() *models.RegistrationAWSAccountConsoleURL {
+func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) GetPayload() *models.RegistrationAWSConsoleURLResponseV2 {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountConsoleURL)
+	o.Payload = new(models.RegistrationAWSConsoleURLResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type GetCSPMAwsConsoleSetupURLsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountConsoleURL
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws console setup u r ls bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *GetCSPMAwsConsoleSetupURLsBadRequest) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetCSPMAwsConsoleSetupURLsBadRequest) GetPayload() *models.RegistrationAWSAccountConsoleURL {
+func (o *GetCSPMAwsConsoleSetupURLsBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *GetCSPMAwsConsoleSetupURLsBadRequest) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountConsoleURL)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type GetCSPMAwsConsoleSetupURLsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws console setup u r ls forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *GetCSPMAwsConsoleSetupURLsForbidden) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetCSPMAwsConsoleSetupURLsForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetCSPMAwsConsoleSetupURLsForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *GetCSPMAwsConsoleSetupURLsForbidden) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type GetCSPMAwsConsoleSetupURLsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountConsoleURL
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws console setup u r ls internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) GetPayload() *models.RegistrationAWSAccountConsoleURL {
+func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) readResponse(response ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountConsoleURL)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

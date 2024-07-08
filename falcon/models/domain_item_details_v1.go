@@ -20,60 +20,63 @@ import (
 // swagger:model domain.ItemDetailsV1
 type DomainItemDetailsV1 struct {
 
-	// Threat actor associated with the raw intelligence item, if available
+	// The threat actor associated with a raw intelligence item, if available.
 	ActorSlug string `json:"actor_slug,omitempty"`
 
-	// Pointers to attachments items linked to this item
+	// Attachments items linked to the raw intelligence item
 	Attachments []*DomainAttachment `json:"attachments"`
 
-	// The raw intelligence item author username
+	// The author’s username of a raw intelligence item
 	Author string `json:"author,omitempty"`
 
 	// The raw intelligence item author identifier in our system
 	AuthorID string `json:"author_id,omitempty"`
 
-	// Category of the source where the item was found
+	// The type of source where the raw intelligence item was found
 	// Required: true
 	Category *string `json:"category"`
 
-	// The date when the raw intelligence item was scraped from the original source
+	// The date and time the raw intelligence item was scraped from the original source
 	// Format: date-time
 	CollectionDate strfmt.DateTime `json:"collection_date,omitempty"`
 
-	// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a `<cs-highlight>` tag
+	// Highlighted content based on the monitoring rule that generated the notification. Highlights are surrounded with a `<cs-highlight>` tag
 	// Required: true
 	Content *string `json:"content"`
 
-	// The date when the raw intelligence item was created
+	// The date and time when the raw intelligence item was created
 	// Required: true
 	// Format: date-time
 	CreatedDate *strfmt.DateTime `json:"created_date"`
 
-	// Mime type of the file for file type items
+	// The file type of the raw intelligence item, if available
 	FileType string `json:"file_type,omitempty"`
 
-	// Indicates this is a fragment item, and holds all information about the fragmentation
+	// The information available for a fragment item
 	FragmentInfo *DomainFragmentInfo `json:"fragment_info,omitempty"`
 
-	// IOC types available in the raw intelligence item. List of keys populated in the iocs field
+	// The URL to download the full raw text content of the raw intelligence item. It has a limited time to live
+	FullContentURL string `json:"full_content_url,omitempty"`
+
+	// The types of IOCs found in the raw intelligence item. List of keys populated in the iocs field
 	IocTypes []string `json:"ioc_types"`
 
-	// Information about IOCs found in item.
+	// Information about IOCs found in a raw intelligence item
 	Iocs *DomainIOC `json:"iocs,omitempty"`
 
-	// The raw intelligence item labels. These contain hints around what is actually included in the item (malware, IPs, emails, etc).
+	// Labels for the type of information included in a raw intelligence item
 	Labels []string `json:"labels"`
 
-	// The raw intelligence item language
+	// The language of the raw intelligence item
 	Language string `json:"language,omitempty"`
 
 	// Information about marketplace items (cards, hosts, credentials)
 	MarketplaceProduct *DomainMarketplaceProduct `json:"marketplace_product,omitempty"`
 
-	// Mime type of the file for file type items
+	// The mime type of the file
 	MimeType string `json:"mime_type,omitempty"`
 
-	// SHA256 of the file contents for file type items
+	// The SHA256 hash for the file
 	Sha256 string `json:"sha256,omitempty"`
 
 	// The site where the raw intelligence item was found
@@ -83,31 +86,31 @@ type DomainItemDetailsV1 struct {
 	// Required: true
 	SiteID *string `json:"site_id"`
 
-	// Size of the item's content in bytes, if available
+	// The size of the item's content in bytes, if available
 	Size int64 `json:"size,omitempty"`
 
-	// Telegram extra information
+	// Telegram information
 	TelegramInfo *DomainTelegramInfo `json:"telegram_info,omitempty"`
 
-	// Identifier that groups all raw intelligence items belonging to the same 'conversation stream', i.e. chatroom, forum thread, etc.
+	// Identifier that groups all raw intelligence items belonging to the same conversation thread
 	ThreadID string `json:"thread_id,omitempty"`
 
-	// The raw intelligence item title
+	// The title of the raw intelligence item
 	Title string `json:"title,omitempty"`
 
 	// The type of the raw intelligence item
 	// Required: true
 	Type *string `json:"type"`
 
-	// The date when the raw intelligence item was updated
+	// The date and time when the raw intelligence item was updated
 	// Required: true
 	// Format: date-time
 	UpdatedDate *strfmt.DateTime `json:"updated_date"`
 
-	// The raw intelligence item URL
+	// The URL of the raw intelligence item
 	URL string `json:"url,omitempty"`
 
-	// The raw intelligence item author identifier in the original site
+	// The raw intelligence item author identifier in the original source
 	UserID string `json:"user_id,omitempty"`
 }
 

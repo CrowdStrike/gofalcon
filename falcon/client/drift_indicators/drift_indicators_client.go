@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetDriftIndicatorsValuesByDate(params *GetDriftIndicatorsValuesByDateParams, opts ...ClientOption) (*GetDriftIndicatorsValuesByDateOK, error)
 
+	ReadDriftIndicatorEntities(params *ReadDriftIndicatorEntitiesParams, opts ...ClientOption) (*ReadDriftIndicatorEntitiesOK, error)
+
 	ReadDriftIndicatorsCount(params *ReadDriftIndicatorsCountParams, opts ...ClientOption) (*ReadDriftIndicatorsCountOK, error)
 
 	SearchAndReadDriftIndicatorEntities(params *SearchAndReadDriftIndicatorEntitiesParams, opts ...ClientOption) (*SearchAndReadDriftIndicatorEntitiesOK, error)
@@ -76,6 +78,44 @@ func (a *Client) GetDriftIndicatorsValuesByDate(params *GetDriftIndicatorsValues
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetDriftIndicatorsValuesByDate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ReadDriftIndicatorEntities retrieves drift indicator entities identified by the provided i ds
+*/
+func (a *Client) ReadDriftIndicatorEntities(params *ReadDriftIndicatorEntitiesParams, opts ...ClientOption) (*ReadDriftIndicatorEntitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReadDriftIndicatorEntitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ReadDriftIndicatorEntities",
+		Method:             "GET",
+		PathPattern:        "/container-security/entities/drift-indicators/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ReadDriftIndicatorEntitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ReadDriftIndicatorEntitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ReadDriftIndicatorEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

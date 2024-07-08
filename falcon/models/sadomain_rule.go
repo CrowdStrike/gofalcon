@@ -31,6 +31,9 @@ type SadomainRule struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// The UUID of the user that created a given rule or Crowdstrike if the rule was system generated
+	CreatedBy string `json:"created_by,omitempty"`
+
 	// The creation time for a given rule
 	// Required: true
 	// Format: date-time
@@ -72,6 +75,9 @@ type SadomainRule struct {
 	// Whether to monitor for substring matches. Only available for the `Typosquatting` rule topic
 	// Required: true
 	SubstringMatchingEnabled *bool `json:"substring_matching_enabled"`
+
+	// template priority
+	TemplatePriority int32 `json:"template_priority,omitempty"`
 
 	// The topic of a given rule
 	// Required: true

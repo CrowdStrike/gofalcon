@@ -19,6 +19,9 @@ import (
 // swagger:model graph.ConfiguredActivity
 type GraphConfiguredActivity struct {
 
+	// The class of activity. If undefined it is an ActivityClassExternal
+	Class string `json:"class,omitempty"`
+
 	// References to the incoming and outgoing sequence flows attached to the activity.
 	// Required: true
 	Flows *Flows `json:"flows"`

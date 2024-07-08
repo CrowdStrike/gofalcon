@@ -27,9 +27,16 @@ type GraphMulti struct {
 	// Required: true
 	ArrayFieldDisplayName *string `json:"array_field_display_name"`
 
+	// Defines a conditional statement associated with the loop. The next iteration proceeds if the condition is met.
+	Condition *GraphCondition `json:"condition,omitempty"`
+
 	// If true will allow the workflow to continue execution even if some loop iterations fail or when there are no iterations to execute
 	// Required: true
 	ContinueOnPartialExecution *bool `json:"continue_on_partial_execution"`
+
+	// Maximum number of seconds the submodel will run for, if this is exceeded no new iterations will run. If unset a default value is used during execution
+	// Required: true
+	MaxExecutionSeconds *int32 `json:"max_execution_seconds"`
 
 	// Maximum number of iterations allowed in sub model
 	// Required: true
@@ -51,7 +58,15 @@ func (m *GraphMulti) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCondition(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateContinueOnPartialExecution(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMaxExecutionSeconds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -83,9 +98,37 @@ func (m *GraphMulti) validateArrayFieldDisplayName(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *GraphMulti) validateCondition(formats strfmt.Registry) error {
+	if swag.IsZero(m.Condition) { // not required
+		return nil
+	}
+
+	if m.Condition != nil {
+		if err := m.Condition.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("condition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("condition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GraphMulti) validateContinueOnPartialExecution(formats strfmt.Registry) error {
 
 	if err := validate.Required("continue_on_partial_execution", "body", m.ContinueOnPartialExecution); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GraphMulti) validateMaxExecutionSeconds(formats strfmt.Registry) error {
+
+	if err := validate.Required("max_execution_seconds", "body", m.MaxExecutionSeconds); err != nil {
 		return err
 	}
 
@@ -101,8 +144,38 @@ func (m *GraphMulti) validateMaxIterationCount(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this graph multi based on context it is used
+// ContextValidate validate this graph multi based on the context it is used
 func (m *GraphMulti) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCondition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *GraphMulti) contextValidateCondition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Condition != nil {
+
+		if swag.IsZero(m.Condition) { // not required
+			return nil
+		}
+
+		if err := m.Condition.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("condition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("condition")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

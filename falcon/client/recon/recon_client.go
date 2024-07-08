@@ -542,7 +542,9 @@ func (a *Client) GetFileContentForExportJobsV1(params *GetFileContentForExportJo
 }
 
 /*
-GetNotificationsDetailedTranslatedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match this endpoint will return translated notification content the only target language available is english a single notification can be translated per request
+GetNotificationsDetailedTranslatedV1 gets detailed notifications based on their i ds these include the translated raw intelligence content that generated the match or part of it
+
+Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item's content is only partial, a URL is provided under the resource's 'details.full_content_url' path, but the content available at this URL will be the original one.
 */
 func (a *Client) GetNotificationsDetailedTranslatedV1(params *GetNotificationsDetailedTranslatedV1Params, opts ...ClientOption) (*GetNotificationsDetailedTranslatedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -580,7 +582,9 @@ func (a *Client) GetNotificationsDetailedTranslatedV1(params *GetNotificationsDe
 }
 
 /*
-GetNotificationsDetailedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match
+GetNotificationsDetailedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match or part of it
+
+Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource's 'details.full_content_url' path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint.
 */
 func (a *Client) GetNotificationsDetailedV1(params *GetNotificationsDetailedV1Params, opts ...ClientOption) (*GetNotificationsDetailedV1OK, error) {
 	// TODO: Validate the params before sending

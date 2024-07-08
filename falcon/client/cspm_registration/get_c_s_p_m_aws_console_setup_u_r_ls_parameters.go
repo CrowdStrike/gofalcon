@@ -74,6 +74,12 @@ type GetCSPMAwsConsoleSetupURLsParams struct {
 	*/
 	Region *string
 
+	/* Template.
+
+	   Template to be rendered
+	*/
+	Template *string
+
 	// UseExistingCloudtrail.
 	UseExistingCloudtrail *string
 
@@ -152,6 +158,17 @@ func (o *GetCSPMAwsConsoleSetupURLsParams) SetRegion(region *string) {
 	o.Region = region
 }
 
+// WithTemplate adds the template to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) WithTemplate(template *string) *GetCSPMAwsConsoleSetupURLsParams {
+	o.SetTemplate(template)
+	return o
+}
+
+// SetTemplate adds the template to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) SetTemplate(template *string) {
+	o.Template = template
+}
+
 // WithUseExistingCloudtrail adds the useExistingCloudtrail to the get c s p m aws console setup u r ls params
 func (o *GetCSPMAwsConsoleSetupURLsParams) WithUseExistingCloudtrail(useExistingCloudtrail *string) *GetCSPMAwsConsoleSetupURLsParams {
 	o.SetUseExistingCloudtrail(useExistingCloudtrail)
@@ -194,6 +211,23 @@ func (o *GetCSPMAwsConsoleSetupURLsParams) WriteToRequest(r runtime.ClientReques
 		if qRegion != "" {
 
 			if err := r.SetQueryParam("region", qRegion); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Template != nil {
+
+		// query param template
+		var qrTemplate string
+
+		if o.Template != nil {
+			qrTemplate = *o.Template
+		}
+		qTemplate := qrTemplate
+		if qTemplate != "" {
+
+			if err := r.SetQueryParam("template", qTemplate); err != nil {
 				return err
 			}
 		}

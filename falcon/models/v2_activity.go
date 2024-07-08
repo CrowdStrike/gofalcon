@@ -19,6 +19,9 @@ import (
 // swagger:model v2.Activity
 type V2Activity struct {
 
+	// class
+	Class string `json:"class,omitempty"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`

@@ -63,7 +63,7 @@ type ClustersByStatusCountParams struct {
 
 	/* Filter.
 
-	   Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+	   Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
 	*/
 	Filter *string
 

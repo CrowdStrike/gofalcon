@@ -32,7 +32,7 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	CreateDeploymentEntity(params *CreateDeploymentEntityParams, opts ...ClientOption) (*CreateDeploymentEntityOK, error)
 
-	GetCredentialsMixin0Mixin61(params *GetCredentialsMixin0Mixin61Params, opts ...ClientOption) (*GetCredentialsMixin0Mixin61OK, error)
+	GetCredentialsMixin0Mixin60(params *GetCredentialsMixin0Mixin60Params, opts ...ClientOption) (*GetCredentialsMixin0Mixin60OK, error)
 
 	GetScanReport(params *GetScanReportParams, opts ...ClientOption) (*GetScanReportOK, error)
 
@@ -84,22 +84,22 @@ func (a *Client) CreateDeploymentEntity(params *CreateDeploymentEntityParams, op
 }
 
 /*
-GetCredentialsMixin0Mixin61 gets the registry credentials
+GetCredentialsMixin0Mixin60 gets the registry credentials
 */
-func (a *Client) GetCredentialsMixin0Mixin61(params *GetCredentialsMixin0Mixin61Params, opts ...ClientOption) (*GetCredentialsMixin0Mixin61OK, error) {
+func (a *Client) GetCredentialsMixin0Mixin60(params *GetCredentialsMixin0Mixin60Params, opts ...ClientOption) (*GetCredentialsMixin0Mixin60OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCredentialsMixin0Mixin61Params()
+		params = NewGetCredentialsMixin0Mixin60Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetCredentialsMixin0Mixin61",
+		ID:                 "GetCredentialsMixin0Mixin60",
 		Method:             "GET",
 		PathPattern:        "/snapshots/entities/image-registry-credentials/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetCredentialsMixin0Mixin61Reader{formats: a.formats},
+		Reader:             &GetCredentialsMixin0Mixin60Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -111,13 +111,13 @@ func (a *Client) GetCredentialsMixin0Mixin61(params *GetCredentialsMixin0Mixin61
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetCredentialsMixin0Mixin61OK)
+	success, ok := result.(*GetCredentialsMixin0Mixin60OK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCredentialsMixin0Mixin61: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCredentialsMixin0Mixin60: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

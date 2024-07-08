@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -27,8 +28,8 @@ type DomainExternalAssetSSLRecord struct {
 	// certificate
 	Certificate *DomainExternalAssetCertificate `json:"certificate,omitempty"`
 
-	// cipher
-	Cipher *DomainCipher `json:"cipher,omitempty"`
+	// cipher suites
+	CipherSuites []*DomainCipher `json:"cipher_suites"`
 
 	// ja3s
 	Ja3s string `json:"ja3s,omitempty"`
@@ -36,8 +37,8 @@ type DomainExternalAssetSSLRecord struct {
 	// jarm
 	Jarm string `json:"jarm,omitempty"`
 
-	// supported tls versions
-	SupportedTLSVersions []string `json:"supported_tls_versions"`
+	// supported versions
+	SupportedVersions []string `json:"supported_versions"`
 
 	// version
 	Version string `json:"version,omitempty"`
@@ -51,7 +52,7 @@ func (m *DomainExternalAssetSSLRecord) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateCipher(formats); err != nil {
+	if err := m.validateCipherSuites(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -80,20 +81,27 @@ func (m *DomainExternalAssetSSLRecord) validateCertificate(formats strfmt.Regist
 	return nil
 }
 
-func (m *DomainExternalAssetSSLRecord) validateCipher(formats strfmt.Registry) error {
-	if swag.IsZero(m.Cipher) { // not required
+func (m *DomainExternalAssetSSLRecord) validateCipherSuites(formats strfmt.Registry) error {
+	if swag.IsZero(m.CipherSuites) { // not required
 		return nil
 	}
 
-	if m.Cipher != nil {
-		if err := m.Cipher.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("cipher")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("cipher")
-			}
-			return err
+	for i := 0; i < len(m.CipherSuites); i++ {
+		if swag.IsZero(m.CipherSuites[i]) { // not required
+			continue
 		}
+
+		if m.CipherSuites[i] != nil {
+			if err := m.CipherSuites[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cipher_suites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cipher_suites" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -107,7 +115,7 @@ func (m *DomainExternalAssetSSLRecord) ContextValidate(ctx context.Context, form
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateCipher(ctx, formats); err != nil {
+	if err := m.contextValidateCipherSuites(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -138,22 +146,26 @@ func (m *DomainExternalAssetSSLRecord) contextValidateCertificate(ctx context.Co
 	return nil
 }
 
-func (m *DomainExternalAssetSSLRecord) contextValidateCipher(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainExternalAssetSSLRecord) contextValidateCipherSuites(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Cipher != nil {
+	for i := 0; i < len(m.CipherSuites); i++ {
 
-		if swag.IsZero(m.Cipher) { // not required
-			return nil
-		}
+		if m.CipherSuites[i] != nil {
 
-		if err := m.Cipher.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("cipher")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("cipher")
+			if swag.IsZero(m.CipherSuites[i]) { // not required
+				return nil
 			}
-			return err
+
+			if err := m.CipherSuites[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cipher_suites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cipher_suites" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
 		}
+
 	}
 
 	return nil

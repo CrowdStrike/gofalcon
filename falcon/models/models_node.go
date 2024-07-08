@@ -155,6 +155,10 @@ type ModelsNode struct {
 	// Required: true
 	ProviderID *string `json:"provider_id"`
 
+	// resource status
+	// Required: true
+	ResourceStatus *string `json:"resource_status"`
+
 	// storage
 	// Required: true
 	Storage *string `json:"storage"`
@@ -297,6 +301,10 @@ func (m *ModelsNode) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProviderID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResourceStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -620,6 +628,15 @@ func (m *ModelsNode) validatePodCount(formats strfmt.Registry) error {
 func (m *ModelsNode) validateProviderID(formats strfmt.Registry) error {
 
 	if err := validate.Required("provider_id", "body", m.ProviderID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsNode) validateResourceStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("resource_status", "body", m.ResourceStatus); err != nil {
 		return err
 	}
 

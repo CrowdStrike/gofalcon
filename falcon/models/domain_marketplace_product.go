@@ -25,7 +25,7 @@ type DomainMarketplaceProduct struct {
 	CountryCode string `json:"country_code,omitempty"`
 
 	// credentials
-	Credentials *DomainCredentials `json:"credentials,omitempty"`
+	Credentials *DomainMarketplaceCredentials `json:"credentials,omitempty"`
 
 	// host
 	Host *DomainHost `json:"host,omitempty"`

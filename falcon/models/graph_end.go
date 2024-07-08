@@ -26,6 +26,9 @@ type GraphEnd struct {
 	// node ID
 	// Required: true
 	NodeID *string `json:"nodeID"`
+
+	// Keys of the fields that are the output for this model
+	OutputFields []string `json:"output_fields"`
 }
 
 // Validate validates this graph end

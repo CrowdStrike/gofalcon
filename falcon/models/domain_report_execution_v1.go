@@ -54,6 +54,10 @@ type DomainReportExecutionV1 struct {
 	// report file reference
 	ReportFileReference string `json:"report_file_reference,omitempty"`
 
+	// report params
+	// Required: true
+	ReportParams *DomainReportParams `json:"report_params"`
+
 	// result metadata
 	ResultMetadata *DomainResultMetadata `json:"result_metadata,omitempty"`
 
@@ -121,6 +125,10 @@ func (m *DomainReportExecutionV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastUpdatedOn(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReportParams(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -242,6 +250,26 @@ func (m *DomainReportExecutionV1) validateLastUpdatedOn(formats strfmt.Registry)
 	return nil
 }
 
+func (m *DomainReportExecutionV1) validateReportParams(formats strfmt.Registry) error {
+
+	if err := validate.Required("report_params", "body", m.ReportParams); err != nil {
+		return err
+	}
+
+	if m.ReportParams != nil {
+		if err := m.ReportParams.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainReportExecutionV1) validateResultMetadata(formats strfmt.Registry) error {
 	if swag.IsZero(m.ResultMetadata) { // not required
 		return nil
@@ -341,6 +369,10 @@ func (m *DomainReportExecutionV1) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateReportParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateResultMetadata(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -364,6 +396,23 @@ func (m *DomainReportExecutionV1) contextValidateExecutionMetadata(ctx context.C
 				return ve.ValidateName("execution_metadata")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("execution_metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainReportExecutionV1) contextValidateReportParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReportParams != nil {
+
+		if err := m.ReportParams.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
 			}
 			return err
 		}

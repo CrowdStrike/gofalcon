@@ -62,9 +62,15 @@ GetCSPMAwsAccountScriptsAttachmentParams contains all the parameters to send to 
 */
 type GetCSPMAwsAccountScriptsAttachmentParams struct {
 
+	/* AccountType.
+
+	   Type of account, it can be commercial or gov
+	*/
+	AccountType *string
+
 	/* Accounts.
 
-	   The list of accounts to register
+	   The list of accounts to register, values should be in the form: account,profile
 	*/
 	Accounts []string
 
@@ -158,6 +164,17 @@ func (o *GetCSPMAwsAccountScriptsAttachmentParams) WithHTTPClient(client *http.C
 // SetHTTPClient adds the HTTPClient to the get c s p m aws account scripts attachment params
 func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithAccountType adds the accountType to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) WithAccountType(accountType *string) *GetCSPMAwsAccountScriptsAttachmentParams {
+	o.SetAccountType(accountType)
+	return o
+}
+
+// SetAccountType adds the accountType to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetAccountType(accountType *string) {
+	o.AccountType = accountType
 }
 
 // WithAccounts adds the accounts to the get c s p m aws account scripts attachment params
@@ -266,6 +283,23 @@ func (o *GetCSPMAwsAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
+
+	if o.AccountType != nil {
+
+		// query param account_type
+		var qrAccountType string
+
+		if o.AccountType != nil {
+			qrAccountType = *o.AccountType
+		}
+		qAccountType := qrAccountType
+		if qAccountType != "" {
+
+			if err := r.SetQueryParam("account_type", qAccountType); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Accounts != nil {
 

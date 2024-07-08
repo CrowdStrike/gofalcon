@@ -25,6 +25,9 @@ type DomainFemExternalIP struct {
 	// ASN
 	Asn int32 `json:"asn,omitempty"`
 
+	// Cloud Provider
+	CloudProvider string `json:"cloud_provider,omitempty"`
+
 	// Cloud VM attributes
 	CloudVM *DomainExternalAssetCloudVM `json:"cloud_vm,omitempty"`
 

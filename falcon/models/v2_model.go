@@ -32,6 +32,9 @@ type V2Model struct {
 	// Required: true
 	NodeRegistry map[string]string `json:"nodeRegistry"`
 
+	// output fields
+	OutputFields []string `json:"output_fields"`
+
 	// parent
 	// Required: true
 	Parent *V2Model `json:"parent"`

@@ -29,6 +29,12 @@ type RegistrationAWSAccountPatch struct {
 	// cloudtrail region
 	CloudtrailRegion string `json:"cloudtrail_region,omitempty"`
 
+	// dspm enabled
+	DspmEnabled bool `json:"dspm_enabled,omitempty"`
+
+	// dspm role
+	DspmRole string `json:"dspm_role,omitempty"`
+
 	// environment
 	Environment string `json:"environment,omitempty"`
 

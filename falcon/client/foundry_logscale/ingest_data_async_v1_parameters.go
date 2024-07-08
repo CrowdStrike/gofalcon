@@ -62,6 +62,12 @@ IngestDataAsyncV1Params contains all the parameters to send to the API endpoint
 */
 type IngestDataAsyncV1Params struct {
 
+	/* DataContent.
+
+	   JSON data to ingest
+	*/
+	DataContent *string
+
 	/* DataFile.
 
 	   Data file to ingest
@@ -156,6 +162,17 @@ func (o *IngestDataAsyncV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithDataContent adds the dataContent to the ingest data async v1 params
+func (o *IngestDataAsyncV1Params) WithDataContent(dataContent *string) *IngestDataAsyncV1Params {
+	o.SetDataContent(dataContent)
+	return o
+}
+
+// SetDataContent adds the dataContent to the ingest data async v1 params
+func (o *IngestDataAsyncV1Params) SetDataContent(dataContent *string) {
+	o.DataContent = dataContent
+}
+
 // WithDataFile adds the dataFile to the ingest data async v1 params
 func (o *IngestDataAsyncV1Params) WithDataFile(dataFile runtime.NamedReadCloser) *IngestDataAsyncV1Params {
 	o.SetDataFile(dataFile)
@@ -218,9 +235,30 @@ func (o *IngestDataAsyncV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-	// form file param data_file
-	if err := r.SetFileParam("data_file", o.DataFile); err != nil {
-		return err
+
+	if o.DataContent != nil {
+
+		// form param data_content
+		var frDataContent string
+		if o.DataContent != nil {
+			frDataContent = *o.DataContent
+		}
+		fDataContent := frDataContent
+		if fDataContent != "" {
+			if err := r.SetFormParam("data_content", fDataContent); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DataFile != nil {
+
+		if o.DataFile != nil {
+			// form file param data_file
+			if err := r.SetFileParam("data_file", o.DataFile); err != nil {
+				return err
+			}
+		}
 	}
 
 	if o.Repo != nil {

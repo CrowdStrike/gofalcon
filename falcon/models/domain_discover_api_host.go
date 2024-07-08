@@ -391,6 +391,12 @@ type DomainDiscoverAPIHost struct {
 	// The purdue level of IoT Asset
 	PurdueLevel string `json:"purdue_level,omitempty"`
 
+	// Represents the unique identifier of an asset reported by Qualys
+	QualysID string `json:"qualys_id,omitempty"`
+
+	// Represents the network id of an asset reported by Qualys
+	QualysNetworkID string `json:"qualys_network_id,omitempty"`
+
 	// Whether the asset is in reduced functionality mode (Yes or No).
 	ReducedFunctionalityMode string `json:"reduced_functionality_mode,omitempty"`
 

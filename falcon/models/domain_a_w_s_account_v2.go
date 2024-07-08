@@ -88,6 +88,12 @@ type DomainAWSAccountV2 struct {
 	// d4c migrated
 	D4cMigrated bool `json:"d4c_migrated,omitempty"`
 
+	// dspm enabled
+	DspmEnabled bool `json:"dspm_enabled,omitempty"`
+
+	// dspm role arn
+	DspmRoleArn string `json:"dspm_role_arn,omitempty"`
+
 	// environment
 	Environment string `json:"environment,omitempty"`
 
@@ -119,6 +125,9 @@ type DomainAWSAccountV2 struct {
 
 	// Up to 34 character AWS provided unique identifier for the organization.
 	OrganizationID string `json:"organization_id,omitempty"`
+
+	// products
+	Products []string `json:"products"`
 
 	// remediation cloudformation url
 	RemediationCloudformationURL string `json:"remediation_cloudformation_url,omitempty"`
