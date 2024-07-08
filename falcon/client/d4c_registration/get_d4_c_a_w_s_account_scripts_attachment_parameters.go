@@ -101,6 +101,8 @@ type GetD4CAWSAccountScriptsAttachmentParams struct {
 	/* Template.
 
 	   Template to be rendered
+
+	   Default: "aws-bash"
 	*/
 	Template *string
 
@@ -124,7 +126,18 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDefaults() *GetD4CAWSAccou
 //
 // All values with no default are reset to their zero value.
 func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		templateDefault = string("aws-bash")
+	)
+
+	val := GetD4CAWSAccountScriptsAttachmentParams{
+		Template: &templateDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get d4 c a w s account scripts attachment params

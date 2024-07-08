@@ -160,7 +160,7 @@ func (a *Client) CombinedSummaryGet(params *CombinedSummaryGetParams, opts ...Cl
 }
 
 /*
-EntitiesVerticesGet retrieves metadata for a given vertex ID
+EntitiesVerticesGet retrieves metadata for a given vertex ID note this is a legacy endpoint used by crowd strike store partners prior to release of the threat graph o auth 2 0 a p is if you re not currently using this endpoint use the v2 endpoint instead
 */
 func (a *Client) EntitiesVerticesGet(params *EntitiesVerticesGetParams, opts ...ClientOption) (*EntitiesVerticesGetOK, error) {
 	// TODO: Validate the params before sending

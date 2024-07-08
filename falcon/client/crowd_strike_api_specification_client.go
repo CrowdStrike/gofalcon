@@ -12,8 +12,10 @@ import (
 
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
+	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
+	"github.com/crowdstrike/gofalcon/falcon/client/compliance_assessments"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_alerts"
@@ -26,6 +28,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_ioa"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_storage"
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
+	"github.com/crowdstrike/gofalcon/falcon/client/datascanner"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover"
@@ -45,6 +48,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/foundry_logscale"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
+	"github.com/crowdstrike/gofalcon/falcon/client/host_migration"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_entities"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_protection"
@@ -64,7 +68,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
-	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
@@ -135,8 +138,10 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Transport = transport
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
+	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
+	cli.ComplianceAssessments = compliance_assessments.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
 	cli.ContainerAlerts = container_alerts.New(transport, formats)
@@ -149,6 +154,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CustomIoa = custom_ioa.New(transport, formats)
 	cli.CustomStorage = custom_storage.New(transport, formats)
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
+	cli.Datascanner = datascanner.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
 	cli.Discover = discover.New(transport, formats)
@@ -168,6 +174,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
 	cli.FoundryLogscale = foundry_logscale.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
+	cli.HostMigration = host_migration.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
 	cli.IdentityEntities = identity_entities.New(transport, formats)
 	cli.IdentityProtection = identity_protection.New(transport, formats)
@@ -187,7 +194,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
-	cli.Operations = operations.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
@@ -260,9 +266,13 @@ type CrowdStrikeAPISpecification struct {
 
 	APIIntegrations api_integrations.ClientService
 
+	CertificateBasedExclusions certificate_based_exclusions.ClientService
+
 	CloudConnectAws cloud_connect_aws.ClientService
 
 	CloudSnapshots cloud_snapshots.ClientService
+
+	ComplianceAssessments compliance_assessments.ClientService
 
 	ConfigurationAssessment configuration_assessment.ClientService
 
@@ -287,6 +297,8 @@ type CrowdStrikeAPISpecification struct {
 	CustomStorage custom_storage.ClientService
 
 	D4cRegistration d4c_registration.ClientService
+
+	Datascanner datascanner.ClientService
 
 	Detects detects.ClientService
 
@@ -326,6 +338,8 @@ type CrowdStrikeAPISpecification struct {
 
 	HostGroup host_group.ClientService
 
+	HostMigration host_migration.ClientService
+
 	Hosts hosts.ClientService
 
 	IdentityEntities identity_entities.ClientService
@@ -363,8 +377,6 @@ type CrowdStrikeAPISpecification struct {
 	Oauth2 oauth2.ClientService
 
 	Ods ods.ClientService
-
-	Operations operations.ClientService
 
 	OverwatchDashboard overwatch_dashboard.ClientService
 
@@ -422,8 +434,10 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Transport = transport
 	c.Alerts.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
+	c.CertificateBasedExclusions.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
+	c.ComplianceAssessments.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
 	c.ContainerAlerts.SetTransport(transport)
@@ -436,6 +450,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CustomIoa.SetTransport(transport)
 	c.CustomStorage.SetTransport(transport)
 	c.D4cRegistration.SetTransport(transport)
+	c.Datascanner.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
 	c.Discover.SetTransport(transport)
@@ -455,6 +470,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FirewallPolicies.SetTransport(transport)
 	c.FoundryLogscale.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
+	c.HostMigration.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
 	c.IdentityEntities.SetTransport(transport)
 	c.IdentityProtection.SetTransport(transport)
@@ -474,7 +490,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
-	c.Operations.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)

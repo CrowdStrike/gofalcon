@@ -90,7 +90,7 @@ type GetD4CAwsConsoleSetupURLsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountConsoleURL
+	Payload *models.RegistrationAWSConsoleURLResponseV2
 }
 
 // IsSuccess returns true when this get d4 c aws console setup u r ls o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetD4CAwsConsoleSetupURLsOK) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetD4CAwsConsoleSetupURLsOK) GetPayload() *models.RegistrationAWSAccountConsoleURL {
+func (o *GetD4CAwsConsoleSetupURLsOK) GetPayload() *models.RegistrationAWSConsoleURLResponseV2 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetD4CAwsConsoleSetupURLsOK) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountConsoleURL)
+	o.Payload = new(models.RegistrationAWSConsoleURLResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type GetD4CAwsConsoleSetupURLsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountConsoleURL
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c aws console setup u r ls bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *GetD4CAwsConsoleSetupURLsBadRequest) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetD4CAwsConsoleSetupURLsBadRequest) GetPayload() *models.RegistrationAWSAccountConsoleURL {
+func (o *GetD4CAwsConsoleSetupURLsBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *GetD4CAwsConsoleSetupURLsBadRequest) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountConsoleURL)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type GetD4CAwsConsoleSetupURLsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c aws console setup u r ls forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *GetD4CAwsConsoleSetupURLsForbidden) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetD4CAwsConsoleSetupURLsForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetD4CAwsConsoleSetupURLsForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *GetD4CAwsConsoleSetupURLsForbidden) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type GetD4CAwsConsoleSetupURLsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountConsoleURL
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c aws console setup u r ls internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *GetD4CAwsConsoleSetupURLsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetD4CAwsConsoleSetupURLsInternalServerError) GetPayload() *models.RegistrationAWSAccountConsoleURL {
+func (o *GetD4CAwsConsoleSetupURLsInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *GetD4CAwsConsoleSetupURLsInternalServerError) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountConsoleURL)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

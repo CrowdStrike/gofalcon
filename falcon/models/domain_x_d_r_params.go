@@ -27,6 +27,10 @@ type DomainXDRParams struct {
 	// Required: true
 	AssignToUUID *string `json:"assign_to_uuid"`
 
+	// author
+	// Required: true
+	Author *string `json:"author"`
+
 	// comment
 	// Required: true
 	Comment *string `json:"comment"`
@@ -34,6 +38,10 @@ type DomainXDRParams struct {
 	// execution offset
 	// Required: true
 	ExecutionOffset *string `json:"execution_offset"`
+
+	// origin
+	// Required: true
+	Origin *string `json:"origin"`
 
 	// severity
 	// Required: true
@@ -55,6 +63,10 @@ type DomainXDRParams struct {
 	// Required: true
 	Technique *string `json:"technique"`
 
+	// template id
+	// Required: true
+	TemplateID *string `json:"template_id"`
+
 	// type
 	// Required: true
 	Type *string `json:"type"`
@@ -72,11 +84,19 @@ func (m *DomainXDRParams) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAuthor(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateComment(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateExecutionOffset(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOrigin(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -97,6 +117,10 @@ func (m *DomainXDRParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTechnique(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTemplateID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -128,6 +152,15 @@ func (m *DomainXDRParams) validateAssignToUUID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainXDRParams) validateAuthor(formats strfmt.Registry) error {
+
+	if err := validate.Required("author", "body", m.Author); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainXDRParams) validateComment(formats strfmt.Registry) error {
 
 	if err := validate.Required("comment", "body", m.Comment); err != nil {
@@ -140,6 +173,15 @@ func (m *DomainXDRParams) validateComment(formats strfmt.Registry) error {
 func (m *DomainXDRParams) validateExecutionOffset(formats strfmt.Registry) error {
 
 	if err := validate.Required("execution_offset", "body", m.ExecutionOffset); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainXDRParams) validateOrigin(formats strfmt.Registry) error {
+
+	if err := validate.Required("origin", "body", m.Origin); err != nil {
 		return err
 	}
 
@@ -185,6 +227,15 @@ func (m *DomainXDRParams) validateTags(formats strfmt.Registry) error {
 func (m *DomainXDRParams) validateTechnique(formats strfmt.Registry) error {
 
 	if err := validate.Required("technique", "body", m.Technique); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainXDRParams) validateTemplateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("template_id", "body", m.TemplateID); err != nil {
 		return err
 	}
 

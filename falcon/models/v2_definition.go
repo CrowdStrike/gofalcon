@@ -45,6 +45,9 @@ type V2Definition struct {
 	// Required: true
 	NodeRegistry map[string]string `json:"nodeRegistry"`
 
+	// output fields
+	OutputFields []string `json:"output_fields"`
+
 	// parameters
 	Parameters *V2Parameters `json:"parameters,omitempty"`
 

@@ -45,7 +45,7 @@ type DomainDiscoverAPIAccount struct {
 	// The date and time of the account's most recent failed login.
 	LastFailedLoginTimestamp string `json:"last_failed_login_timestamp,omitempty"`
 
-	// The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+	// The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
 	LastFailedLoginType string `json:"last_failed_login_type,omitempty"`
 
 	// The name of the city where the asset is located on which the account last successfully logged in.
@@ -63,7 +63,7 @@ type DomainDiscoverAPIAccount struct {
 	// The date and time of the account's most recent successful login.
 	LastSuccessfulLoginTimestamp string `json:"last_successful_login_timestamp,omitempty"`
 
-	// The type of the account's most recent successful login. <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+	// The type of the account's most recent successful login. <ul><li>Interactive</li><li>Network</li><li>Service</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
 	LastSuccessfulLoginType string `json:"last_successful_login_type,omitempty"`
 
 	// Whether the account has local administrator privileges (Yes, No).

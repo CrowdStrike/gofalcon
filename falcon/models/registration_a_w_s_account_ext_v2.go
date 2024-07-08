@@ -33,6 +33,12 @@ type RegistrationAWSAccountExtV2 struct {
 	// Required: true
 	CloudtrailRegion *string `json:"cloudtrail_region"`
 
+	// dspm enabled
+	DspmEnabled bool `json:"dspm_enabled,omitempty"`
+
+	// dspm role
+	DspmRole string `json:"dspm_role,omitempty"`
+
 	// iam role arn
 	// Required: true
 	IamRoleArn *string `json:"iam_role_arn"`

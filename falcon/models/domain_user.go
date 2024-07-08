@@ -42,6 +42,10 @@ type DomainUser struct {
 	// uid
 	UID string `json:"uid,omitempty"`
 
+	// updated at
+	// Format: date-time
+	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
+
 	// uuid
 	UUID string `json:"uuid,omitempty"`
 }
@@ -55,6 +59,10 @@ func (m *DomainUser) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastLoginAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdatedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -82,6 +90,18 @@ func (m *DomainUser) validateLastLoginAt(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("last_login_at", "body", "date-time", m.LastLoginAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainUser) validateUpdatedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.UpdatedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("updated_at", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
 		return err
 	}
 

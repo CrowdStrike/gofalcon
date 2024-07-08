@@ -86,6 +86,12 @@ type QueryRulesV1Params struct {
 	*/
 	Q *string
 
+	/* SecondarySort.
+
+	   Possible order by fields: created_timestamp, last_updated_timestamp. Ex: `last_updated_timestamp|desc`.
+	*/
+	SecondarySort *string
+
 	/* Sort.
 
 	   Possible order by fields: created_timestamp, last_updated_timestamp. Ex: `last_updated_timestamp|desc`.
@@ -189,6 +195,17 @@ func (o *QueryRulesV1Params) SetQ(q *string) {
 	o.Q = q
 }
 
+// WithSecondarySort adds the secondarySort to the query rules v1 params
+func (o *QueryRulesV1Params) WithSecondarySort(secondarySort *string) *QueryRulesV1Params {
+	o.SetSecondarySort(secondarySort)
+	return o
+}
+
+// SetSecondarySort adds the secondarySort to the query rules v1 params
+func (o *QueryRulesV1Params) SetSecondarySort(secondarySort *string) {
+	o.SecondarySort = secondarySort
+}
+
 // WithSort adds the sort to the query rules v1 params
 func (o *QueryRulesV1Params) WithSort(sort *string) *QueryRulesV1Params {
 	o.SetSort(sort)
@@ -271,6 +288,23 @@ func (o *QueryRulesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if qQ != "" {
 
 			if err := r.SetQueryParam("q", qQ); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.SecondarySort != nil {
+
+		// query param secondarySort
+		var qrSecondarySort string
+
+		if o.SecondarySort != nil {
+			qrSecondarySort = *o.SecondarySort
+		}
+		qSecondarySort := qrSecondarySort
+		if qSecondarySort != "" {
+
+			if err := r.SetQueryParam("secondarySort", qSecondarySort); err != nil {
 				return err
 			}
 		}

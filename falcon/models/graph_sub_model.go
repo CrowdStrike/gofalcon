@@ -37,9 +37,6 @@ type GraphSubModel struct {
 	// node ID
 	// Required: true
 	NodeID *string `json:"nodeID"`
-
-	// Name of the output field that contains the result from sub-model.
-	OutputField string `json:"output_field,omitempty"`
 }
 
 // Validate validates this graph sub model

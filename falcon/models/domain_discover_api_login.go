@@ -79,8 +79,8 @@ type DomainDiscoverAPILogin struct {
 
 	// The type of the login.
 	//
-	// For successful logins: <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
-	// For failed logins: <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+	// For successful logins: <ul><li>Interactive</li><li>Network</li><li>Service</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
+	// For failed logins: <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote Credentials</li><li>Cached credentials</li><li>Auditing</li></ul>
 	LoginType string `json:"login_type,omitempty"`
 
 	// The remote IP address where the login was initiated.

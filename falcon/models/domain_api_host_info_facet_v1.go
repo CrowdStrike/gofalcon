@@ -20,6 +20,9 @@ import (
 // swagger:model domain.APIHostInfoFacetV1
 type DomainAPIHostInfoFacetV1 struct {
 
+	// agent version
+	AgentVersion string `json:"agent_version,omitempty"`
+
 	// asset criticality
 	AssetCriticality *DomainAssetCriticalityInfoV1 `json:"asset_criticality,omitempty"`
 

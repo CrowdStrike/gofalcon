@@ -163,6 +163,10 @@ type ModelsPod struct {
 	// Required: true
 	Privileged *bool `json:"privileged"`
 
+	// resource status
+	// Required: true
+	ResourceStatus *string `json:"resource_status"`
+
 	// root write access
 	// Required: true
 	RootWriteAccess *bool `json:"root_write_access"`
@@ -333,6 +337,10 @@ func (m *ModelsPod) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePrivileged(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResourceStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -724,6 +732,15 @@ func (m *ModelsPod) validatePorts(formats strfmt.Registry) error {
 func (m *ModelsPod) validatePrivileged(formats strfmt.Registry) error {
 
 	if err := validate.Required("privileged", "body", m.Privileged); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsPod) validateResourceStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("resource_status", "body", m.ResourceStatus); err != nil {
 		return err
 	}
 

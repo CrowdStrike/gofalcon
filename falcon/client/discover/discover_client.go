@@ -30,6 +30,10 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CombinedApplications(params *CombinedApplicationsParams, opts ...ClientOption) (*CombinedApplicationsOK, error)
+
+	CombinedHosts(params *CombinedHostsParams, opts ...ClientOption) (*CombinedHostsOK, error)
+
 	GetAccounts(params *GetAccountsParams, opts ...ClientOption) (*GetAccountsOK, error)
 
 	GetApplications(params *GetApplicationsParams, opts ...ClientOption) (*GetApplicationsOK, error)
@@ -47,6 +51,82 @@ type ClientService interface {
 	QueryLogins(params *QueryLoginsParams, opts ...ClientOption) (*QueryLoginsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CombinedApplications searches for applications in your environment by providing an f q l filter and paging details returns details on applications which match the filter criteria
+*/
+func (a *Client) CombinedApplications(params *CombinedApplicationsParams, opts ...ClientOption) (*CombinedApplicationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedApplicationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "combined-applications",
+		Method:             "GET",
+		PathPattern:        "/discover/combined/applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedApplicationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedApplicationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for combined-applications: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CombinedHosts searches for assets in your environment by providing an f q l falcon query language filter and paging details returns details on assets which match the filter criteria
+*/
+func (a *Client) CombinedHosts(params *CombinedHostsParams, opts ...ClientOption) (*CombinedHostsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedHostsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "combined-hosts",
+		Method:             "GET",
+		PathPattern:        "/discover/combined/hosts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedHostsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedHostsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for combined-hosts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
