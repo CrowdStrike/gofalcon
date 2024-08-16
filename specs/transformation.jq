@@ -199,3 +199,24 @@
  | .definitions."models.Container".properties.first_seen.type = "string"
  | .definitions."models.Container".properties.last_seen.type = "string"
 
+# fix arrays of enums who define the enum outside of items
+| .paths."/kubernetes-protection/entities/kubernetes/clusters/v1".get.parameters[1].items.enum = .paths."/kubernetes-protection/entities/kubernetes/clusters/v1".get.parameters[1].enum
+| del(.paths."/kubernetes-protection/entities/kubernetes/clusters/v1".get.parameters[1].enum)
+
+| .paths."/kubernetes-protection/entities/cloud_cluster/v1".get.parameters[2].items.enum = .paths."/kubernetes-protection/entities/cloud_cluster/v1".get.parameters[2].enum
+| del(.paths."/kubernetes-protection/entities/cloud_cluster/v1".get.parameters[2].enum)
+
+| .paths."/kubernetes-protection/entities/cloud_cluster/v1".get.parameters[3].items.enum = .paths."/kubernetes-protection/entities/cloud_cluster/v1".get.parameters[3].enum
+| del(.paths."/kubernetes-protection/entities/cloud_cluster/v1".get.parameters[3].enum)
+
+| .paths."/kubernetes-protection/entities/cloud-locations/v1".get.parameters[0].items.enum = .paths."/kubernetes-protection/entities/cloud-locations/v1".get.parameters[0].enum
+| del(.paths."/kubernetes-protection/entities/cloud-locations/v1".get.parameters[0].enum)
+
+| .paths."/policy/combined/sensor-update-builds/v1".get.parameters[1].items.enum = .paths."/policy/combined/sensor-update-builds/v1".get.parameters[1].enum
+| del(.paths."/policy/combined/sensor-update-builds/v1".get.parameters[1].enum)
+
+# remove duplicate parameters (one upper, one lower)
+| del(.definitions."apidomain.SavedSearchExecuteRequestV1".properties.parameters)
+
+# ensure access token is required to avoid optional typing in typescript
+| .definitions."domain.AccessTokenResponseV1".required = ["access_token"]
