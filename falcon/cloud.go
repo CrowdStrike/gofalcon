@@ -19,6 +19,7 @@ const (
 	CloudUs2
 	CloudEu1
 	CloudUsGov1
+	CloudGov1
 )
 
 // Cloud parses cloud string (example: us-1, us-2, eu-1, us-gov-1, etc). If a string is not recognized CloudUs1 is returned.
@@ -44,6 +45,8 @@ func CloudValidate(cloudString string) (CloudType, error) {
 		return CloudEu1, nil
 	case "us-gov-1":
 		return CloudUsGov1, nil
+	case "gov1":
+		return CloudGov1, nil
 	}
 	return CloudUs1, fmt.Errorf("unrecognized CrowdStrike Falcon Cloud: %s", lower)
 }
@@ -61,6 +64,8 @@ func (c CloudType) Host() string {
 		return "api.eu-1.crowdstrike.com"
 	case CloudUsGov1:
 		return "api.laggar.gcw.crowdstrike.com"
+	case CloudGov1:
+		return "api.laggar.gcw.crowdstrike.com"
 	}
 }
 
@@ -76,6 +81,8 @@ func (c CloudType) String() string {
 		return "eu-1"
 	case CloudUsGov1:
 		return "us-gov-1"
+	case CloudGov1:
+		return "gov1"
 	default:
 		return "UNKNOWN FALCON CLOUD REGION"
 	}
