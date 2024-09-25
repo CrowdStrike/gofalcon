@@ -27,7 +27,9 @@ type Event struct {
 	Success           *bool   `json:"Success,omitempty"`
 	ComputerName      *string `json:"ComputerName,omitempty"`
 	DetectDescription *string `json:"DetectDescription,omitempty"`
+	Description       *string `json:"Description,omitempty"`
 	DetectID          *string `json:"DetectId,omitempty"`
+	CompositeId       *string `json:"CompositeId,omitempty"`
 	FalconHostLink    *string `json:"FalconHostLink,omitempty"`
 
 	IOARuleInstanceId      *string      `json:"IOARuleInstanceId,omitempty"`
@@ -42,6 +44,7 @@ type Event struct {
 	ProcessId                     *IntOrString             `json:"ProcessId,omitempty"`
 	UserName                      *string                  `json:"UserName,omitempty"`
 	DetectName                    *string                  `json:"DetectName,omitempty"`
+	Name                          *string                  `json:"Name,omitempty"`
 	CommandLine                   *string                  `json:"CommandLine,omitempty"`
 	MD5                           *string                  `json:"MD5String,omitempty"`
 	SHA1                          *string                  `json:"SHA1String,omitempty"`
