@@ -26,6 +26,8 @@ func FalconContainerUploadURI(falconCloud CloudType) string {
 		return "container-upload.eu-1.crowdstrike.com"
 	case CloudUsGov1:
 		return "container-upload.laggar.gcw.crowdstrike.com"
+	case CloudGov1:
+		return "container-upload.laggar.gcw.crowdstrike.com"
 	}
 }
 
