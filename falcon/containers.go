@@ -28,6 +28,8 @@ func FalconContainerUploadURI(falconCloud CloudType) string {
 		return "container-upload.laggar.gcw.crowdstrike.com"
 	case CloudGov1:
 		return "container-upload.laggar.gcw.crowdstrike.com"
+	case CloudGov2:
+		return "container-upload.us-gov-2.crowdstrike.mil"
 	}
 }
 
@@ -51,6 +53,10 @@ func registryFQDN(cloud CloudType) string {
 	switch cloud {
 	case CloudUsGov1:
 		return "registry.laggar.gcw.crowdstrike.com"
+	case CloudGov1:
+		return "registry.laggar.gcw.crowdstrike.com"
+	case CloudGov2:
+		return "registry.us-gov-2.crowdstrike.mil"
 	default:
 		return "registry.crowdstrike.com"
 	}
