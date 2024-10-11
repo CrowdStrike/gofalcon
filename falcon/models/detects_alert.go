@@ -26,6 +26,9 @@ type DetectsAlert struct {
 	// Required: true
 	AggregateID *string `json:"aggregate_id"`
 
+	// alleged filetype
+	AllegedFiletype *string `json:"alleged_filetype"`
+
 	// Name of the person this Alert is assigned to
 	AssignedToName string `json:"assigned_to_name,omitempty"`
 
@@ -38,11 +41,17 @@ type DetectsAlert struct {
 	// Unique ID of CrowdStrike customers
 	Cid string `json:"cid,omitempty"`
 
+	// cmdline
+	Cmdline *string `json:"cmdline"`
+
 	// An opaque internal identifier that can uniquely identify an Alert
 	CompositeID string `json:"composite_id,omitempty"`
 
 	// Confidence is a 1-100 integer value denoting the confidence that, when this Alert fires, it is indicative of malicious activity
 	Confidence int64 `json:"confidence,omitempty"`
+
+	// control graph id
+	ControlGraphID *string `json:"control_graph_id"`
 
 	// internal only
 	CrawlEdgeIds map[string][]string `json:"crawl_edge_ids,omitempty"`
@@ -67,6 +76,9 @@ type DetectsAlert struct {
 	// A collection of device details
 	Device *DeviceDevice `json:"device,omitempty"`
 
+	// device id
+	DeviceID *string `json:"device_id"`
+
 	// Customer visible name for the Alert's pattern
 	DisplayName string `json:"display_name,omitempty"`
 
@@ -88,14 +100,44 @@ type DetectsAlert struct {
 	// Boolean indicating if this Alert is internal or external
 	External bool `json:"external,omitempty"`
 
+	// filename
+	Filename *string `json:"filename"`
+
+	// filepath
+	Filepath *string `json:"filepath"`
+
 	// Vertex key which triggers the formation of the Alert
 	ID string `json:"id,omitempty"`
+
+	// ioc description
+	IocDescription *string `json:"ioc_description"`
+
+	// ioc source
+	IocSource *string `json:"ioc_source"`
+
+	// ioc type
+	IocType *string `json:"ioc_type"`
+
+	// ioc value
+	IocValue *string `json:"ioc_value"`
+
+	// md5
+	Md5 *string `json:"md5"`
 
 	// Pattern Name coming either from Taxonomy or directly from the ingested Alert
 	Name string `json:"name,omitempty"`
 
 	// End goal that an attack adversary intends to achieve according to MITRE
 	Objective string `json:"objective,omitempty"`
+
+	// parent details
+	ParentDetails *DetectsParentDetails `json:"parent_details"`
+
+	// pattern disposition
+	PatternDisposition *int32 `json:"pattern_disposition"`
+
+	// pattern disposition details
+	PatternDispositionDetails *PatterndispositionPatternDisposition `json:"pattern_disposition_details"`
 
 	// Taxonomy patternID for this Alert
 	PatternID int64 `json:"pattern_id,omitempty"`
@@ -130,6 +172,9 @@ type DetectsAlert struct {
 	// Severity name is a UI friendly bucketing of the severity integer
 	SeverityName string `json:"severity_name,omitempty"`
 
+	// sha256
+	Sha256 *string `json:"sha256"`
+
 	// Boolean indicating if this Alert will be shown in the UI or if it's hidden'
 	ShowInUI bool `json:"show_in_ui,omitempty"`
 
@@ -161,9 +206,15 @@ type DetectsAlert struct {
 	// Unique ID for the technique seen in the Alert
 	TechniqueID string `json:"technique_id,omitempty"`
 
+	// template instance id
+	TemplateInstanceID string `json:"template_instance_id,omitempty"`
+
 	// stored value coming in directly from the ingested event or set by cloud in the absence of it
 	// Format: date-time
 	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
+
+	// triggering process graph id
+	TriggeringProcessGraphID *string `json:"triggering_process_graph_id"`
 
 	// Type of definition Detections Extensibility use. Keyed-off of Pattern of the incoming events/Alerts
 	// Required: true
@@ -172,6 +223,12 @@ type DetectsAlert struct {
 	// indicates when the Alert was last modified
 	// Format: date-time
 	UpdatedTimestamp strfmt.DateTime `json:"updated_timestamp,omitempty"`
+
+	// user id
+	UserID *string `json:"user_id"`
+
+	// user name
+	UserName *string `json:"user_name"`
 }
 
 // Validate validates this detects alert
@@ -179,6 +236,18 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAggregateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAllegedFiletype(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCmdline(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateControlGraphID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -194,6 +263,46 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDeviceID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParentDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFilename(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFilepath(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIocDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIocSource(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIocType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIocValue(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMd5(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePatternDisposition(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateResolvedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
@@ -206,11 +315,19 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSha256(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateShowInUIUpdatedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTriggeringProcessGraphID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -222,6 +339,14 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateUserID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -229,8 +354,31 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DetectsAlert) validateAggregateID(formats strfmt.Registry) error {
-
 	if err := validate.Required("aggregate_id", "body", m.AggregateID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateAllegedFiletype(formats strfmt.Registry) error {
+	if err := validate.Required("alleged_filetype", "body", m.AllegedFiletype); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCmdline(formats strfmt.Registry) error {
+	if err := validate.Required("cmdline", "body", m.Cmdline); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateControlGraphID(formats strfmt.Registry) error {
+	if err := validate.Required("control_graph_id", "body", m.ControlGraphID); err != nil {
 		return err
 	}
 
@@ -273,6 +421,109 @@ func (m *DetectsAlert) validateDevice(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateDeviceID(formats strfmt.Registry) error {
+	if err := validate.Required("device_id", "body", m.DeviceID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateFilename(formats strfmt.Registry) error {
+	if err := validate.Required("filename", "body", m.Filename); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateFilepath(formats strfmt.Registry) error {
+	if err := validate.Required("filepath", "body", m.Filepath); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateIocDescription(formats strfmt.Registry) error {
+	if err := validate.Required("ioc_description", "body", m.IocDescription); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateIocSource(formats strfmt.Registry) error {
+	if err := validate.Required("ioc_source", "body", m.IocSource); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateIocType(formats strfmt.Registry) error {
+	if err := validate.Required("ioc_type", "body", m.IocType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateIocValue(formats strfmt.Registry) error {
+	if err := validate.Required("ioc_value", "body", m.IocValue); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateMd5(formats strfmt.Registry) error {
+	if err := validate.Required("md5", "body", m.Md5); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateParentDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.ParentDetails) { // not required
+		return nil
+	}
+
+	if err := m.ParentDetails.Validate(formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validatePatternDisposition(formats strfmt.Registry) error {
+	if err := validate.Required("pattern_disposition", "body", m.PatternDisposition); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validatePatternDispositionDetails(formats strfmt.Registry) error {
+	if err := validate.Required("pattern_disposition_details", "body", m.PatternDispositionDetails); err != nil {
+		return err
+	}
+
+	if m.PatternDispositionDetails != nil {
+		if err := m.PatternDispositionDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DetectsAlert) validateResolvedTimestamp(formats strfmt.Registry) error {
 	if swag.IsZero(m.ResolvedTimestamp) { // not required
 		return nil
@@ -303,6 +554,14 @@ func (m *DetectsAlert) validateSecondsToTriaged(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateSha256(formats strfmt.Registry) error {
+	if err := validate.Required("sha256", "body", m.Sha256); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DetectsAlert) validateShowInUIUpdatedTimestamp(formats strfmt.Registry) error {
 	if swag.IsZero(m.ShowInUIUpdatedTimestamp) { // not required
 		return nil
@@ -327,8 +586,15 @@ func (m *DetectsAlert) validateTimestamp(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DetectsAlert) validateType(formats strfmt.Registry) error {
+func (m *DetectsAlert) validateTriggeringProcessGraphID(formats strfmt.Registry) error {
+	if err := validate.Required("triggering_process_graph_id", "body", m.TriggeringProcessGraphID); err != nil {
+		return err
+	}
 
+	return nil
+}
+
+func (m *DetectsAlert) validateType(formats strfmt.Registry) error {
 	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
@@ -348,8 +614,69 @@ func (m *DetectsAlert) validateUpdatedTimestamp(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateUserID(formats strfmt.Registry) error {
+	if err := validate.Required("user_id", "body", m.UserID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateUserName(formats strfmt.Registry) error {
+	if err := validate.Required("user_name", "body", m.UserName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // ContextValidate validates this detects alert based on context it is used
 func (m *DetectsAlert) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateParentDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePatternDispositionDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateParentDetails(ctx context.Context, formats strfmt.Registry) error {
+	if m.ParentDetails != nil {
+
+		if err := m.ParentDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidatePatternDispositionDetails(ctx context.Context, formats strfmt.Registry) error {
+	if m.PatternDispositionDetails != nil {
+
+		if err := m.PatternDispositionDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
