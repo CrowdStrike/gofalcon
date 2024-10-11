@@ -64,6 +64,9 @@ type DetectsAlert struct {
 	// Short, customer-visible summary of the detected activity
 	Description string `json:"description,omitempty"`
 
+	// A collection of device details
+	Device *DeviceDevice `json:"device,omitempty"`
+
 	// Customer visible name for the Alert's pattern
 	DisplayName string `json:"display_name,omitempty"`
 
@@ -187,6 +190,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDevice(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateResolvedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
@@ -248,6 +255,18 @@ func (m *DetectsAlert) validateCreatedTimestamp(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateDevice(formats strfmt.Registry) error {
+	if swag.IsZero(m.Device) { // not required
+		return nil
+	}
+
+	if err := m.Device.Validate(formats); err != nil {
 		return err
 	}
 
