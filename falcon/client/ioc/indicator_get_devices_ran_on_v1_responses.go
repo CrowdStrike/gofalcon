@@ -43,6 +43,12 @@ func (o *IndicatorGetDevicesRanOnV1Reader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 500:
+		result := NewIndicatorGetDevicesRanOnV1InternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[GET /iocs/queries/indicators/devices/v1] indicator.get.devices_ran_on.v1", response, response.Code())
 	}
@@ -381,6 +387,116 @@ func (o *IndicatorGetDevicesRanOnV1TooManyRequests) readResponse(response runtim
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewIndicatorGetDevicesRanOnV1InternalServerError creates a IndicatorGetDevicesRanOnV1InternalServerError with default headers values
+func NewIndicatorGetDevicesRanOnV1InternalServerError() *IndicatorGetDevicesRanOnV1InternalServerError {
+	return &IndicatorGetDevicesRanOnV1InternalServerError{}
+}
+
+/*
+IndicatorGetDevicesRanOnV1InternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type IndicatorGetDevicesRanOnV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this indicator get devices ran on v1 internal server error response has a 2xx status code
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this indicator get devices ran on v1 internal server error response has a 3xx status code
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this indicator get devices ran on v1 internal server error response has a 4xx status code
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this indicator get devices ran on v1 internal server error response has a 5xx status code
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this indicator get devices ran on v1 internal server error response a status code equal to that given
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the indicator get devices ran on v1 internal server error response
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) Code() int {
+	return 500
+}
+
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) Error() string {
+	return fmt.Sprintf("[GET /iocs/queries/indicators/devices/v1][%d] indicatorGetDevicesRanOnV1InternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /iocs/queries/indicators/devices/v1][%d] indicatorGetDevicesRanOnV1InternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *IndicatorGetDevicesRanOnV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

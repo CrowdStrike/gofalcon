@@ -127,7 +127,7 @@ func (a *Client) UpdateDataScannerTasks(params *UpdateDataScannerTasksParams, op
 		ID:                 "update-data-scanner-tasks",
 		Method:             "PATCH",
 		PathPattern:        "/data-security-dspm/entities/scanner-tasks/v1",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"text/plain"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,

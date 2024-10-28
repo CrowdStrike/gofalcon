@@ -62,6 +62,12 @@ GetSavedSearchesExecuteAltV1Params contains all the parameters to send to the AP
 */
 type GetSavedSearchesExecuteAltV1Params struct {
 
+	/* XCSUSERUUID.
+
+	   Requester UUID.
+	*/
+	XCSUSERUUID *string
+
 	/* AppID.
 
 	   Application ID.
@@ -79,6 +85,12 @@ type GetSavedSearchesExecuteAltV1Params struct {
 	   Job ID for a previously executed async query
 	*/
 	JobID string
+
+	/* JobStatusOnly.
+
+	   If set to true, result rows are dropped from the response and only the job status is returned
+	*/
+	JobStatusOnly *bool
 
 	/* Limit.
 
@@ -124,6 +136,8 @@ func (o *GetSavedSearchesExecuteAltV1Params) SetDefaults() {
 	var (
 		inferJSONTypesDefault = bool(false)
 
+		jobStatusOnlyDefault = bool(false)
+
 		matchResponseSchemaDefault = bool(false)
 
 		metadataDefault = bool(false)
@@ -131,6 +145,7 @@ func (o *GetSavedSearchesExecuteAltV1Params) SetDefaults() {
 
 	val := GetSavedSearchesExecuteAltV1Params{
 		InferJSONTypes:      &inferJSONTypesDefault,
+		JobStatusOnly:       &jobStatusOnlyDefault,
 		MatchResponseSchema: &matchResponseSchemaDefault,
 		Metadata:            &metadataDefault,
 	}
@@ -174,6 +189,17 @@ func (o *GetSavedSearchesExecuteAltV1Params) SetHTTPClient(client *http.Client) 
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *GetSavedSearchesExecuteAltV1Params {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithAppID adds the appID to the get saved searches execute alt v1 params
 func (o *GetSavedSearchesExecuteAltV1Params) WithAppID(appID *string) *GetSavedSearchesExecuteAltV1Params {
 	o.SetAppID(appID)
@@ -205,6 +231,17 @@ func (o *GetSavedSearchesExecuteAltV1Params) WithJobID(jobID string) *GetSavedSe
 // SetJobID adds the jobId to the get saved searches execute alt v1 params
 func (o *GetSavedSearchesExecuteAltV1Params) SetJobID(jobID string) {
 	o.JobID = jobID
+}
+
+// WithJobStatusOnly adds the jobStatusOnly to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) WithJobStatusOnly(jobStatusOnly *bool) *GetSavedSearchesExecuteAltV1Params {
+	o.SetJobStatusOnly(jobStatusOnly)
+	return o
+}
+
+// SetJobStatusOnly adds the jobStatusOnly to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) SetJobStatusOnly(jobStatusOnly *bool) {
+	o.JobStatusOnly = jobStatusOnly
 }
 
 // WithLimit adds the limit to the get saved searches execute alt v1 params
@@ -259,6 +296,14 @@ func (o *GetSavedSearchesExecuteAltV1Params) WriteToRequest(r runtime.ClientRequ
 	}
 	var res []error
 
+	if o.XCSUSERUUID != nil {
+
+		// header param X-CS-USERUUID
+		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
+			return err
+		}
+	}
+
 	if o.AppID != nil {
 
 		// query param app_id
@@ -300,6 +345,23 @@ func (o *GetSavedSearchesExecuteAltV1Params) WriteToRequest(r runtime.ClientRequ
 
 		if err := r.SetQueryParam("job_id", qJobID); err != nil {
 			return err
+		}
+	}
+
+	if o.JobStatusOnly != nil {
+
+		// query param job_status_only
+		var qrJobStatusOnly bool
+
+		if o.JobStatusOnly != nil {
+			qrJobStatusOnly = *o.JobStatusOnly
+		}
+		qJobStatusOnly := swag.FormatBool(qrJobStatusOnly)
+		if qJobStatusOnly != "" {
+
+			if err := r.SetQueryParam("job_status_only", qJobStatusOnly); err != nil {
+				return err
+			}
 		}
 	}
 

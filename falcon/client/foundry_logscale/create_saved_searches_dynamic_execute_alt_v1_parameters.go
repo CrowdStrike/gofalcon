@@ -64,6 +64,12 @@ CreateSavedSearchesDynamicExecuteAltV1Params contains all the parameters to send
 */
 type CreateSavedSearchesDynamicExecuteAltV1Params struct {
 
+	/* XCSUSERUUID.
+
+	   Requester UUID.
+	*/
+	XCSUSERUUID *string
+
 	/* AppID.
 
 	   Application ID.
@@ -185,6 +191,17 @@ func (o *CreateSavedSearchesDynamicExecuteAltV1Params) SetHTTPClient(client *htt
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the create saved searches dynamic execute alt v1 params
+func (o *CreateSavedSearchesDynamicExecuteAltV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *CreateSavedSearchesDynamicExecuteAltV1Params {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the create saved searches dynamic execute alt v1 params
+func (o *CreateSavedSearchesDynamicExecuteAltV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithAppID adds the appID to the create saved searches dynamic execute alt v1 params
 func (o *CreateSavedSearchesDynamicExecuteAltV1Params) WithAppID(appID *string) *CreateSavedSearchesDynamicExecuteAltV1Params {
 	o.SetAppID(appID)
@@ -280,6 +297,14 @@ func (o *CreateSavedSearchesDynamicExecuteAltV1Params) WriteToRequest(r runtime.
 		return err
 	}
 	var res []error
+
+	if o.XCSUSERUUID != nil {
+
+		// header param X-CS-USERUUID
+		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
+			return err
+		}
+	}
 
 	if o.AppID != nil {
 

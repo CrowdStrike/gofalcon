@@ -19,6 +19,10 @@ import (
 // swagger:model parameter.ConditionFieldProvisionParameter
 type ParameterConditionFieldProvisionParameter struct {
 
+	// specifies the conditin group id inside the flow node. This is needed since with or support now we can have multiple instances of the same variable
+	// Required: true
+	ConditionGroupID *string `json:"condition_group_id"`
+
 	// Fully qualified name of the field
 	// Required: true
 	Name *string `json:"name"`
@@ -36,6 +40,10 @@ type ParameterConditionFieldProvisionParameter struct {
 func (m *ParameterConditionFieldProvisionParameter) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateConditionGroupID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -51,6 +59,15 @@ func (m *ParameterConditionFieldProvisionParameter) Validate(formats strfmt.Regi
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ParameterConditionFieldProvisionParameter) validateConditionGroupID(formats strfmt.Registry) error {
+
+	if err := validate.Required("condition_group_id", "body", m.ConditionGroupID); err != nil {
+		return err
+	}
+
 	return nil
 }
 

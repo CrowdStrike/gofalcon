@@ -36,17 +36,14 @@ type TypesExecutorNode struct {
 	// name
 	Name string `json:"name,omitempty"`
 
-	// organization id
-	OrganizationID int64 `json:"organization_id,omitempty"`
+	// node type
+	NodeType string `json:"node_type,omitempty"`
 
 	// password
 	Password string `json:"password,omitempty"`
 
 	// pod settings
 	PodSettings *TypesK8SPodSettings `json:"pod_settings,omitempty"`
-
-	// project id
-	ProjectID int64 `json:"project_id,omitempty"`
 
 	// proxy address
 	ProxyAddress string `json:"proxy_address,omitempty"`

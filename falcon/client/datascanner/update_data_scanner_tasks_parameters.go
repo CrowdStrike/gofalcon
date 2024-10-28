@@ -61,6 +61,12 @@ UpdateDataScannerTasksParams contains all the parameters to send to the API endp
 */
 type UpdateDataScannerTasksParams struct {
 
+	/* XMachineID.
+
+	   Provider ID of machine
+	*/
+	XMachineID string
+
 	/* XScannerID.
 
 	   ID of the data scanner
@@ -120,6 +126,17 @@ func (o *UpdateDataScannerTasksParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXMachineID adds the xMachineID to the update data scanner tasks params
+func (o *UpdateDataScannerTasksParams) WithXMachineID(xMachineID string) *UpdateDataScannerTasksParams {
+	o.SetXMachineID(xMachineID)
+	return o
+}
+
+// SetXMachineID adds the xMachineId to the update data scanner tasks params
+func (o *UpdateDataScannerTasksParams) SetXMachineID(xMachineID string) {
+	o.XMachineID = xMachineID
+}
+
 // WithXScannerID adds the xScannerID to the update data scanner tasks params
 func (o *UpdateDataScannerTasksParams) WithXScannerID(xScannerID string) *UpdateDataScannerTasksParams {
 	o.SetXScannerID(xScannerID)
@@ -138,6 +155,11 @@ func (o *UpdateDataScannerTasksParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
+
+	// header param X-Machine-Id
+	if err := r.SetHeaderParam("X-Machine-Id", o.XMachineID); err != nil {
+		return err
+	}
 
 	// header param X-Scanner-Id
 	if err := r.SetHeaderParam("X-Scanner-Id", o.XScannerID); err != nil {

@@ -71,6 +71,9 @@ type DefinitionsDefinitionExt struct {
 	// provision on install
 	ProvisionOnInstall bool `json:"provision_on_install,omitempty"`
 
+	// summary
+	Summary string `json:"summary,omitempty"`
+
 	// trigger
 	// Required: true
 	Trigger *V2Trigger `json:"trigger"`
@@ -81,6 +84,12 @@ type DefinitionsDefinitionExt struct {
 	// uniq node seen
 	// Required: true
 	UniqNodeSeen map[string]bool `json:"uniqNodeSeen"`
+
+	// use cases
+	UseCases []string `json:"use_cases"`
+
+	// vendors
+	Vendors []string `json:"vendors"`
 
 	// Version of the workflow. A given definition ID can have many versions. Each time an update is applied a new version is generated.
 	// Required: true

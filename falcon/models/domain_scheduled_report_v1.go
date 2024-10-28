@@ -64,6 +64,9 @@ type DomainScheduledReportV1 struct {
 	// Required: true
 	Notifications []*DomainNotifications `json:"notifications"`
 
+	// owned by cs
+	OwnedByCs bool `json:"owned_by_cs,omitempty"`
+
 	// report metadata
 	ReportMetadata *DomainReportMetadata `json:"report_metadata,omitempty"`
 

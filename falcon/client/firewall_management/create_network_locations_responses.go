@@ -49,6 +49,12 @@ func (o *CreateNetworkLocationsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 500:
+		result := NewCreateNetworkLocationsInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[POST /fwmgr/entities/network-locations/v1] create-network-locations", response, response.Code())
 	}
@@ -497,6 +503,116 @@ func (o *CreateNetworkLocationsTooManyRequests) readResponse(response runtime.Cl
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateNetworkLocationsInternalServerError creates a CreateNetworkLocationsInternalServerError with default headers values
+func NewCreateNetworkLocationsInternalServerError() *CreateNetworkLocationsInternalServerError {
+	return &CreateNetworkLocationsInternalServerError{}
+}
+
+/*
+CreateNetworkLocationsInternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type CreateNetworkLocationsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this create network locations internal server error response has a 2xx status code
+func (o *CreateNetworkLocationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create network locations internal server error response has a 3xx status code
+func (o *CreateNetworkLocationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create network locations internal server error response has a 4xx status code
+func (o *CreateNetworkLocationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create network locations internal server error response has a 5xx status code
+func (o *CreateNetworkLocationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create network locations internal server error response a status code equal to that given
+func (o *CreateNetworkLocationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the create network locations internal server error response
+func (o *CreateNetworkLocationsInternalServerError) Code() int {
+	return 500
+}
+
+func (o *CreateNetworkLocationsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *CreateNetworkLocationsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *CreateNetworkLocationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *CreateNetworkLocationsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

@@ -47,6 +47,8 @@ type ClientService interface {
 
 	GetMalwareEntities(params *GetMalwareEntitiesParams, opts ...ClientOption) (*GetMalwareEntitiesOK, error)
 
+	GetMalwareMitreReport(params *GetMalwareMitreReportParams, opts ...ClientOption) (*GetMalwareMitreReportOK, error)
+
 	GetMitreReport(params *GetMitreReportParams, opts ...ClientOption) (*GetMitreReportOK, error)
 
 	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
@@ -379,6 +381,44 @@ func (a *Client) GetMalwareEntities(params *GetMalwareEntitiesParams, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetMalwareEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetMalwareMitreReport exports mitre a t t and c k information for a given malware family
+*/
+func (a *Client) GetMalwareMitreReport(params *GetMalwareMitreReportParams, opts ...ClientOption) (*GetMalwareMitreReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetMalwareMitreReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetMalwareMitreReport",
+		Method:             "GET",
+		PathPattern:        "/intel/entities/malware-mitre-reports/v1",
+		ProducesMediaTypes: []string{"application/json", "text/csv"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetMalwareMitreReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetMalwareMitreReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMalwareMitreReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -49,6 +49,12 @@ func (o *RTRExecuteAdminCommandReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 500:
+		result := NewRTRExecuteAdminCommandInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[POST /real-time-response/entities/admin-command/v1] RTR-ExecuteAdminCommand", response, response.Code())
 	}
@@ -497,6 +503,116 @@ func (o *RTRExecuteAdminCommandTooManyRequests) readResponse(response runtime.Cl
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewRTRExecuteAdminCommandInternalServerError creates a RTRExecuteAdminCommandInternalServerError with default headers values
+func NewRTRExecuteAdminCommandInternalServerError() *RTRExecuteAdminCommandInternalServerError {
+	return &RTRExecuteAdminCommandInternalServerError{}
+}
+
+/*
+RTRExecuteAdminCommandInternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type RTRExecuteAdminCommandInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this r t r execute admin command internal server error response has a 2xx status code
+func (o *RTRExecuteAdminCommandInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r execute admin command internal server error response has a 3xx status code
+func (o *RTRExecuteAdminCommandInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r execute admin command internal server error response has a 4xx status code
+func (o *RTRExecuteAdminCommandInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r execute admin command internal server error response has a 5xx status code
+func (o *RTRExecuteAdminCommandInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this r t r execute admin command internal server error response a status code equal to that given
+func (o *RTRExecuteAdminCommandInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the r t r execute admin command internal server error response
+func (o *RTRExecuteAdminCommandInternalServerError) Code() int {
+	return 500
+}
+
+func (o *RTRExecuteAdminCommandInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *RTRExecuteAdminCommandInternalServerError) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *RTRExecuteAdminCommandInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *RTRExecuteAdminCommandInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

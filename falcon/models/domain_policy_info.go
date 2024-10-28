@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -87,17 +88,29 @@ type DomainPolicyInfo struct {
 	// cloud service friendly
 	CloudServiceFriendly string `json:"cloud_service_friendly,omitempty"`
 
+	// cloud service id
+	CloudServiceID int32 `json:"cloud_service_id,omitempty"`
+
 	// cloud service subtype
 	CloudServiceSubtype string `json:"cloud_service_subtype,omitempty"`
 
 	// cloud service type
 	CloudServiceType string `json:"cloud_service_type,omitempty"`
 
+	// compliance
+	Compliance *DomainCompliance `json:"compliance,omitempty"`
+
 	// confidence
 	Confidence string `json:"confidence,omitempty"`
 
+	// controls
+	Controls []*DomainControl `json:"controls"`
+
 	// default severity
 	DefaultSeverity string `json:"default_severity,omitempty"`
+
+	// deprecated
+	Deprecated bool `json:"deprecated,omitempty"`
 
 	// description
 	Description string `json:"description,omitempty"`
@@ -167,6 +180,12 @@ type DomainPolicyInfo struct {
 	// remediation summary
 	RemediationSummary string `json:"remediation_summary,omitempty"`
 
+	// resource type friendly name
+	ResourceTypeFriendlyName string `json:"resource_type_friendly_name,omitempty"`
+
+	// resource type id
+	ResourceTypeID string `json:"resource_type_id,omitempty"`
+
 	// soc2 benchmark ids
 	Soc2BenchmarkIds []int64 `json:"soc2_benchmark_ids"`
 
@@ -210,6 +229,14 @@ func (m *DomainPolicyInfo) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAccountScope(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCompliance(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateControls(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -284,6 +311,51 @@ func (m *DomainPolicyInfo) validateAccountScope(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainPolicyInfo) validateCompliance(formats strfmt.Registry) error {
+	if swag.IsZero(m.Compliance) { // not required
+		return nil
+	}
+
+	if m.Compliance != nil {
+		if err := m.Compliance.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("compliance")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("compliance")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainPolicyInfo) validateControls(formats strfmt.Registry) error {
+	if swag.IsZero(m.Controls) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Controls); i++ {
+		if swag.IsZero(m.Controls[i]) { // not required
+			continue
+		}
+
+		if m.Controls[i] != nil {
+			if err := m.Controls[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("controls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("controls" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainPolicyInfo) validateIsEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_enabled", "body", m.IsEnabled); err != nil {
@@ -302,8 +374,67 @@ func (m *DomainPolicyInfo) validateIsRemediable(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain policy info based on context it is used
+// ContextValidate validate this domain policy info based on the context it is used
 func (m *DomainPolicyInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCompliance(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateControls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainPolicyInfo) contextValidateCompliance(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Compliance != nil {
+
+		if swag.IsZero(m.Compliance) { // not required
+			return nil
+		}
+
+		if err := m.Compliance.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("compliance")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("compliance")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainPolicyInfo) contextValidateControls(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Controls); i++ {
+
+		if m.Controls[i] != nil {
+
+			if swag.IsZero(m.Controls[i]) { // not required
+				return nil
+			}
+
+			if err := m.Controls[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("controls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("controls" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

@@ -63,6 +63,12 @@ SubmitParams contains all the parameters to send to the API endpoint
 */
 type SubmitParams struct {
 
+	/* Aid.
+
+	   Agent ID
+	*/
+	Aid *string
+
 	/* Body.
 
 	     Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.
@@ -164,6 +170,17 @@ func (o *SubmitParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAid adds the aid to the submit params
+func (o *SubmitParams) WithAid(aid *string) *SubmitParams {
+	o.SetAid(aid)
+	return o
+}
+
+// SetAid adds the aid to the submit params
+func (o *SubmitParams) SetAid(aid *string) {
+	o.Aid = aid
+}
+
 // WithBody adds the body to the submit params
 func (o *SubmitParams) WithBody(body *models.FalconxSubmissionParametersV1) *SubmitParams {
 	o.SetBody(body)
@@ -182,6 +199,23 @@ func (o *SubmitParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regist
 		return err
 	}
 	var res []error
+
+	if o.Aid != nil {
+
+		// query param aid
+		var qrAid string
+
+		if o.Aid != nil {
+			qrAid = *o.Aid
+		}
+		qAid := qrAid
+		if qAid != "" {
+
+			if err := r.SetQueryParam("aid", qAid); err != nil {
+				return err
+			}
+		}
+	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

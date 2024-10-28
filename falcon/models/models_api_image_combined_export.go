@@ -19,6 +19,10 @@ import (
 // swagger:model models.APIImageCombinedExport
 type ModelsAPIImageCombinedExport struct {
 
+	// architecture
+	// Required: true
+	Architecture *string `json:"architecture"`
+
 	// base os
 	// Required: true
 	BaseOs *string `json:"base_os"`
@@ -59,6 +63,10 @@ type ModelsAPIImageCombinedExport struct {
 	// Required: true
 	ImageID *string `json:"image_id"`
 
+	// is base image
+	// Required: true
+	IsBaseImage *bool `json:"is_base_image"`
+
 	// last seen
 	// Required: true
 	LastSeen *string `json:"last_seen"`
@@ -74,6 +82,10 @@ type ModelsAPIImageCombinedExport struct {
 	// repository
 	// Required: true
 	Repository *string `json:"repository"`
+
+	// source
+	// Required: true
+	Source *string `json:"source"`
 
 	// started containers
 	// Required: true
@@ -103,6 +115,10 @@ type ModelsAPIImageCombinedExport struct {
 // Validate validates this models API image combined export
 func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateArchitecture(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateBaseOs(formats); err != nil {
 		res = append(res, err)
@@ -144,6 +160,10 @@ func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIsBaseImage(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLastSeen(formats); err != nil {
 		res = append(res, err)
 	}
@@ -157,6 +177,10 @@ func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRepository(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSource(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -187,6 +211,15 @@ func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ModelsAPIImageCombinedExport) validateArchitecture(formats strfmt.Registry) error {
+
+	if err := validate.Required("architecture", "body", m.Architecture); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -280,6 +313,15 @@ func (m *ModelsAPIImageCombinedExport) validateImageID(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *ModelsAPIImageCombinedExport) validateIsBaseImage(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_base_image", "body", m.IsBaseImage); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsAPIImageCombinedExport) validateLastSeen(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_seen", "body", m.LastSeen); err != nil {
@@ -310,6 +352,15 @@ func (m *ModelsAPIImageCombinedExport) validateRegistry(formats strfmt.Registry)
 func (m *ModelsAPIImageCombinedExport) validateRepository(formats strfmt.Registry) error {
 
 	if err := validate.Required("repository", "body", m.Repository); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPIImageCombinedExport) validateSource(formats strfmt.Registry) error {
+
+	if err := validate.Required("source", "body", m.Source); err != nil {
 		return err
 	}
 

@@ -63,7 +63,7 @@ type NodesByDateRangeCountParams struct {
 
 	/* Filter.
 
-	   Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_type,aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+	   Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
 	*/
 	Filter *string
 

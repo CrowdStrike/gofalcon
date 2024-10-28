@@ -82,7 +82,7 @@ type GetCombinedImagesParams struct {
 
 	/* Sort.
 
-	   The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository tag]
+	   The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository source tag]
 	*/
 	Sort *string
 

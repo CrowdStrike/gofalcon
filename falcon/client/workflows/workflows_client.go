@@ -383,7 +383,7 @@ func (a *Client) WorkflowDefinitionsExport(params *WorkflowDefinitionsExportPara
 		ID:                 "WorkflowDefinitionsExport",
 		Method:             "GET",
 		PathPattern:        "/workflows/entities/definitions/export/v1",
-		ProducesMediaTypes: []string{"application/yaml"},
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,

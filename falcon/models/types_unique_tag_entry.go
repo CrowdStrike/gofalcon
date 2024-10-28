@@ -23,8 +23,8 @@ type TypesUniqueTagEntry struct {
 	// name
 	Name string `json:"name,omitempty"`
 
-	// type
-	Type string `json:"type,omitempty"`
+	// tag type
+	TagType string `json:"tag_type,omitempty"`
 
 	// value
 	Value string `json:"value,omitempty"`

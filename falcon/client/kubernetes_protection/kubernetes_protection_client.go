@@ -1431,7 +1431,7 @@ func (a *Client) GetHelmValuesYaml(params *GetHelmValuesYamlParams, opts ...Clie
 		ID:                 "GetHelmValuesYaml",
 		Method:             "GET",
 		PathPattern:        "/kubernetes-protection/entities/integration/agent/v1",
-		ProducesMediaTypes: []string{"application/yaml"},
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
 		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
 		Schemes:            []string{"https"},
 		Params:             params,

@@ -25,6 +25,9 @@ type ParameterConditionFieldParameter struct {
 	// Optional default value used for the condition, type is dynamic depending on the underlying field.
 	DefaultValue ParameterConditionFieldParameterDefaultValue `json:"default_value,omitempty"`
 
+	// Optional text/description which can be used to provide differentiation for parameterized fields during app installation.
+	HelperText string `json:"helperText,omitempty"`
+
 	// Whether the field can be specified multiple times as provisioning parameter. When true, all values or combined via an OR operator.
 	// Required: true
 	Multiple *bool `json:"multiple"`

@@ -35,6 +35,9 @@ type SadomainTyposquattingComponent struct {
 	// Required: true
 	PunycodeFormat *string `json:"punycode_format"`
 
+	// Snapshot for the Subdomain of the infrastructure component. Only available for subdomain result types.
+	Subdomain *SadomainTyposquattingSubdomain `json:"subdomain,omitempty"`
+
 	// submit for blocking info
 	SubmitForBlockingInfo *SadomainSubmissionInformation `json:"submit_for_blocking_info,omitempty"`
 
@@ -63,6 +66,10 @@ func (m *SadomainTyposquattingComponent) Validate(formats strfmt.Registry) error
 	}
 
 	if err := m.validatePunycodeFormat(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubdomain(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -142,6 +149,25 @@ func (m *SadomainTyposquattingComponent) validatePunycodeFormat(formats strfmt.R
 	return nil
 }
 
+func (m *SadomainTyposquattingComponent) validateSubdomain(formats strfmt.Registry) error {
+	if swag.IsZero(m.Subdomain) { // not required
+		return nil
+	}
+
+	if m.Subdomain != nil {
+		if err := m.Subdomain.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("subdomain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("subdomain")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SadomainTyposquattingComponent) validateSubmitForBlockingInfo(formats strfmt.Registry) error {
 	if swag.IsZero(m.SubmitForBlockingInfo) { // not required
 		return nil
@@ -201,6 +227,10 @@ func (m *SadomainTyposquattingComponent) ContextValidate(ctx context.Context, fo
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSubdomain(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSubmitForBlockingInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -241,6 +271,27 @@ func (m *SadomainTyposquattingComponent) contextValidateParentDomain(ctx context
 				return ve.ValidateName("parent_domain")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("parent_domain")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SadomainTyposquattingComponent) contextValidateSubdomain(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Subdomain != nil {
+
+		if swag.IsZero(m.Subdomain) { // not required
+			return nil
+		}
+
+		if err := m.Subdomain.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("subdomain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("subdomain")
 			}
 			return err
 		}

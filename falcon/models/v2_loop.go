@@ -25,6 +25,9 @@ type V2Loop struct {
 	// conditions
 	Conditions map[string]V2Condition `json:"conditions,omitempty"`
 
+	// display
+	Display string `json:"display,omitempty"`
+
 	// for
 	// Required: true
 	For *V2ForLoop `json:"for"`

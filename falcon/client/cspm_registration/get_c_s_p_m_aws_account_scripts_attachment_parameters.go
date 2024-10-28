@@ -89,6 +89,15 @@ type GetCSPMAwsAccountScriptsAttachmentParams struct {
 	*/
 	CustomRoleName *string
 
+	// DspmEnabled.
+	DspmEnabled *string
+
+	// DspmRegions.
+	DspmRegions []string
+
+	// DspmRole.
+	DspmRole *string
+
 	/* Ids.
 
 	   AWS account IDs
@@ -219,6 +228,39 @@ func (o *GetCSPMAwsAccountScriptsAttachmentParams) WithCustomRoleName(customRole
 // SetCustomRoleName adds the customRoleName to the get c s p m aws account scripts attachment params
 func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetCustomRoleName(customRoleName *string) {
 	o.CustomRoleName = customRoleName
+}
+
+// WithDspmEnabled adds the dspmEnabled to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) WithDspmEnabled(dspmEnabled *string) *GetCSPMAwsAccountScriptsAttachmentParams {
+	o.SetDspmEnabled(dspmEnabled)
+	return o
+}
+
+// SetDspmEnabled adds the dspmEnabled to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetDspmEnabled(dspmEnabled *string) {
+	o.DspmEnabled = dspmEnabled
+}
+
+// WithDspmRegions adds the dspmRegions to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) WithDspmRegions(dspmRegions []string) *GetCSPMAwsAccountScriptsAttachmentParams {
+	o.SetDspmRegions(dspmRegions)
+	return o
+}
+
+// SetDspmRegions adds the dspmRegions to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetDspmRegions(dspmRegions []string) {
+	o.DspmRegions = dspmRegions
+}
+
+// WithDspmRole adds the dspmRole to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) WithDspmRole(dspmRole *string) *GetCSPMAwsAccountScriptsAttachmentParams {
+	o.SetDspmRole(dspmRole)
+	return o
+}
+
+// SetDspmRole adds the dspmRole to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetDspmRole(dspmRole *string) {
+	o.DspmRole = dspmRole
 }
 
 // WithIds adds the ids to the get c s p m aws account scripts attachment params
@@ -363,6 +405,51 @@ func (o *GetCSPMAwsAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clie
 		}
 	}
 
+	if o.DspmEnabled != nil {
+
+		// query param dspm_enabled
+		var qrDspmEnabled string
+
+		if o.DspmEnabled != nil {
+			qrDspmEnabled = *o.DspmEnabled
+		}
+		qDspmEnabled := qrDspmEnabled
+		if qDspmEnabled != "" {
+
+			if err := r.SetQueryParam("dspm_enabled", qDspmEnabled); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DspmRegions != nil {
+
+		// binding items for dspm_regions
+		joinedDspmRegions := o.bindParamDspmRegions(reg)
+
+		// query array param dspm_regions
+		if err := r.SetQueryParam("dspm_regions", joinedDspmRegions...); err != nil {
+			return err
+		}
+	}
+
+	if o.DspmRole != nil {
+
+		// query param dspm_role
+		var qrDspmRole string
+
+		if o.DspmRole != nil {
+			qrDspmRole = *o.DspmRole
+		}
+		qDspmRole := qrDspmRole
+		if qDspmRole != "" {
+
+			if err := r.SetQueryParam("dspm_role", qDspmRole); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.Ids != nil {
 
 		// binding items for ids
@@ -463,6 +550,23 @@ func (o *GetCSPMAwsAccountScriptsAttachmentParams) bindParamAccounts(formats str
 	accountsIS := swag.JoinByFormat(accountsIC, "multi")
 
 	return accountsIS
+}
+
+// bindParamGetCSPMAwsAccountScriptsAttachment binds the parameter dspm_regions
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) bindParamDspmRegions(formats strfmt.Registry) []string {
+	dspmRegionsIR := o.DspmRegions
+
+	var dspmRegionsIC []string
+	for _, dspmRegionsIIR := range dspmRegionsIR { // explode []string
+
+		dspmRegionsIIV := dspmRegionsIIR // string as string
+		dspmRegionsIC = append(dspmRegionsIC, dspmRegionsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	dspmRegionsIS := swag.JoinByFormat(dspmRegionsIC, "csv")
+
+	return dspmRegionsIS
 }
 
 // bindParamGetCSPMAwsAccountScriptsAttachment binds the parameter ids

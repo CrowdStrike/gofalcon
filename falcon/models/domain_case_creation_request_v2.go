@@ -32,6 +32,14 @@ type DomainCaseCreationRequestV2 struct {
 	// Required: true
 	Incidents []*MessagesIncident `json:"incidents"`
 
+	// malware submission id
+	// Required: true
+	MalwareSubmissionID *string `json:"malware_submission_id"`
+
+	// recon rule type
+	// Required: true
+	ReconRuleType *string `json:"recon_rule_type"`
+
 	// title
 	// Required: true
 	Title *string `json:"title"`
@@ -57,6 +65,14 @@ func (m *DomainCaseCreationRequestV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIncidents(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMalwareSubmissionID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReconRuleType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -132,6 +148,24 @@ func (m *DomainCaseCreationRequestV2) validateIncidents(formats strfmt.Registry)
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainCaseCreationRequestV2) validateMalwareSubmissionID(formats strfmt.Registry) error {
+
+	if err := validate.Required("malware_submission_id", "body", m.MalwareSubmissionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCaseCreationRequestV2) validateReconRuleType(formats strfmt.Registry) error {
+
+	if err := validate.Required("recon_rule_type", "body", m.ReconRuleType); err != nil {
+		return err
 	}
 
 	return nil

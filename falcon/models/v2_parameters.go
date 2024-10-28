@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -23,7 +24,7 @@ type V2Parameters struct {
 	Actions *V2ActivityParameters `json:"actions,omitempty"`
 
 	// conditions
-	Conditions map[string]V2ConditionParameters `json:"conditions,omitempty"`
+	Conditions map[string][]V2ConditionGroups `json:"conditions,omitempty"`
 
 	// Installation instructions for the template.
 	InstallInstructions string `json:"install_instructions,omitempty"`
@@ -83,15 +84,18 @@ func (m *V2Parameters) validateConditions(formats strfmt.Registry) error {
 		if err := validate.Required("conditions"+"."+k, "body", m.Conditions[k]); err != nil {
 			return err
 		}
-		if val, ok := m.Conditions[k]; ok {
-			if err := val.Validate(formats); err != nil {
+
+		for i := 0; i < len(m.Conditions[k]); i++ {
+
+			if err := m.Conditions[k][i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("conditions" + "." + k)
+					return ve.ValidateName("conditions" + "." + k + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("conditions" + "." + k)
+					return ce.ValidateName("conditions" + "." + k + "." + strconv.Itoa(i))
 				}
 				return err
 			}
+
 		}
 
 	}
@@ -165,10 +169,21 @@ func (m *V2Parameters) contextValidateConditions(ctx context.Context, formats st
 
 	for k := range m.Conditions {
 
-		if val, ok := m.Conditions[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
+		for i := 0; i < len(m.Conditions[k]); i++ {
+
+			if swag.IsZero(m.Conditions[k][i]) { // not required
+				return nil
+			}
+
+			if err := m.Conditions[k][i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + k + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + k + "." + strconv.Itoa(i))
+				}
 				return err
 			}
+
 		}
 
 	}

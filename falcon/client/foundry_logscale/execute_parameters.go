@@ -64,6 +64,12 @@ ExecuteParams contains all the parameters to send to the API endpoint
 */
 type ExecuteParams struct {
 
+	/* XCSUSERUUID.
+
+	   Requester UUID.
+	*/
+	XCSUSERUUID *string
+
 	/* AppID.
 
 	   Application ID.
@@ -179,6 +185,17 @@ func (o *ExecuteParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the execute params
+func (o *ExecuteParams) WithXCSUSERUUID(xCSUSERUUID *string) *ExecuteParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the execute params
+func (o *ExecuteParams) SetXCSUSERUUID(xCSUSERUUID *string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithAppID adds the appID to the execute params
 func (o *ExecuteParams) WithAppID(appID *string) *ExecuteParams {
 	o.SetAppID(appID)
@@ -263,6 +280,14 @@ func (o *ExecuteParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 		return err
 	}
 	var res []error
+
+	if o.XCSUSERUUID != nil {
+
+		// header param X-CS-USERUUID
+		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
+			return err
+		}
+	}
 
 	if o.AppID != nil {
 

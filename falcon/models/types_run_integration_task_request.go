@@ -26,14 +26,8 @@ type TypesRunIntegrationTaskRequest struct {
 	// data
 	Data string `json:"data,omitempty"`
 
-	// organization id
-	OrganizationID int64 `json:"organization_id,omitempty"`
-
 	// override
 	Override bool `json:"override,omitempty"`
-
-	// project id
-	ProjectID int64 `json:"project_id,omitempty"`
 
 	// scheduled
 	Scheduled bool `json:"scheduled,omitempty"`

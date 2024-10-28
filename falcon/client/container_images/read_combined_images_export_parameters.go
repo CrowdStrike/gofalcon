@@ -76,7 +76,7 @@ type ReadCombinedImagesExportParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,layer_digest,package_name_version,registry,repository,tag,vulnerability_count,vulnerability_severity
+	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
 	*/
 	Filter *string
 
@@ -94,7 +94,7 @@ type ReadCombinedImagesExportParams struct {
 
 	/* Sort.
 
-	   The fields to sort the records on. Supported columns:  [base_os cid detections firstScanned first_seen highest_cps_current_rating highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository tag vulnerabilities]
+	   The fields to sort the records on. Supported columns:  [base_os cid detections firstScanned first_seen highest_cps_current_rating highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository source tag vulnerabilities]
 	*/
 	Sort *string
 

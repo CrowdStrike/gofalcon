@@ -7,6 +7,8 @@ package models
 
 import (
 	"context"
+	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -20,98 +22,197 @@ import (
 type DetectsAlert struct {
 
 	// Device or sensor ID for which the Alert was generated
-	AgentID string `json:"agent_id,omitempty"`
+	// Required: true
+	AgentID *string `json:"agent_id"`
 
 	// Common linkage between multiple Alerts that belong to the same detection bouquet
 	// Required: true
 	AggregateID *string `json:"aggregate_id"`
 
+	// alleged filetype
+	AllegedFiletype string `json:"alleged_filetype,omitempty"`
+
 	// Name of the person this Alert is assigned to
-	AssignedToName string `json:"assigned_to_name,omitempty"`
+	// Required: true
+	AssignedToName *string `json:"assigned_to_name"`
 
 	// UserID to which this Alert is assigned to
-	AssignedToUID string `json:"assigned_to_uid,omitempty"`
+	// Required: true
+	AssignedToUID *string `json:"assigned_to_uid"`
 
 	// UUID to which this Alert is assigned to
-	AssignedToUUID string `json:"assigned_to_uuid,omitempty"`
+	// Required: true
+	AssignedToUUID *string `json:"assigned_to_uuid"`
 
 	// Unique ID of CrowdStrike customers
-	Cid string `json:"cid,omitempty"`
+	// Required: true
+	Cid *string `json:"cid"`
+
+	// cloud indicator
+	CloudIndicator string `json:"cloud_indicator,omitempty"`
+
+	// cmdline
+	Cmdline string `json:"cmdline,omitempty"`
 
 	// An opaque internal identifier that can uniquely identify an Alert
-	CompositeID string `json:"composite_id,omitempty"`
+	// Required: true
+	CompositeID *string `json:"composite_id"`
 
 	// Confidence is a 1-100 integer value denoting the confidence that, when this Alert fires, it is indicative of malicious activity
-	Confidence int64 `json:"confidence,omitempty"`
+	// Required: true
+	Confidence *int64 `json:"confidence"`
 
-	// internal only
-	CrawlEdgeIds map[string][]string `json:"crawl_edge_ids,omitempty"`
+	// context timestamp
+	// Format: date-time
+	ContextTimestamp strfmt.DateTime `json:"context_timestamp,omitempty"`
 
-	// internal only
-	CrawlVertexIds map[string][]string `json:"crawl_vertex_ids,omitempty"`
+	// control graph id
+	ControlGraphID string `json:"control_graph_id,omitempty"`
+
+	// crawl edge ids
+	CrawlEdgeIds *DetectsAlertCrawlEdgeIds `json:"crawl_edge_ids,omitempty"`
+
+	// crawl vertex ids
+	CrawlVertexIds *DetectsAlertCrawlVertexIds `json:"crawl_vertex_ids,omitempty"`
 
 	// indicates when ThreatGraph was crawled to gather info for this alert creation/update
+	// Required: true
 	// Format: date-time
-	CrawledTimestamp strfmt.DateTime `json:"crawled_timestamp,omitempty"`
+	CrawledTimestamp *strfmt.DateTime `json:"crawled_timestamp"`
 
 	// indicates when the Alert was first written to backend store
+	// Required: true
 	// Format: date-time
-	CreatedTimestamp strfmt.DateTime `json:"created_timestamp,omitempty"`
+	CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
 
 	// Data Domains represents domains to which this alert belongs to
+	// Required: true
 	DataDomains []string `json:"data_domains"`
 
 	// Short, customer-visible summary of the detected activity
-	Description string `json:"description,omitempty"`
+	// Required: true
+	Description *string `json:"description"`
+
+	// device
+	Device *DetectsAlertDevice `json:"device,omitempty"`
 
 	// Customer visible name for the Alert's pattern
-	DisplayName string `json:"display_name,omitempty"`
+	// Required: true
+	DisplayName *string `json:"display_name"`
 
 	// Boolean to know if we sent email regarding this Alert
-	EmailSent bool `json:"email_sent,omitempty"`
-
-	// internal only
-	EsDocID string `json:"es_doc_id,omitempty"`
-
-	// internal only
-	EsDocVersion int64 `json:"es_doc_version,omitempty"`
-
-	// internal only
-	EsRoutingID string `json:"es_routing_id,omitempty"`
-
-	// internal only
-	EsSourceSize int32 `json:"es_source_size,omitempty"`
+	// Required: true
+	EmailSent *bool `json:"email_sent"`
 
 	// Boolean indicating if this Alert is internal or external
-	External bool `json:"external,omitempty"`
+	// Required: true
+	External *bool `json:"external"`
+
+	// falcon host link
+	FalconHostLink string `json:"falcon_host_link,omitempty"`
+
+	// filename
+	Filename string `json:"filename,omitempty"`
+
+	// filepath
+	Filepath string `json:"filepath,omitempty"`
+
+	// grandparent details
+	GrandparentDetails *DetectsAlertGrandparentDetails `json:"grandparent_details,omitempty"`
+
+	// has script or module ioce
+	HasScriptOrModuleIoce bool `json:"has_script_or_module_ioce,omitempty"`
 
 	// Vertex key which triggers the formation of the Alert
-	ID string `json:"id,omitempty"`
+	// Required: true
+	ID *string `json:"id"`
+
+	// indicator id
+	IndicatorID string `json:"indicator_id,omitempty"`
+
+	// ioc context
+	IocContext []*DetectsAlertIocContextItems0 `json:"ioc_context"`
+
+	// ioc description
+	IocDescription string `json:"ioc_description,omitempty"`
+
+	// ioc source
+	IocSource string `json:"ioc_source,omitempty"`
+
+	// ioc type
+	IocType string `json:"ioc_type,omitempty"`
+
+	// ioc value
+	IocValue string `json:"ioc_value,omitempty"`
+
+	// ioc values
+	IocValues []string `json:"ioc_values"`
+
+	// is synthetic quarantine disposition
+	IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
+
+	// local process id
+	LocalProcessID string `json:"local_process_id,omitempty"`
+
+	// logon domain
+	LogonDomain string `json:"logon_domain,omitempty"`
+
+	// md5
+	Md5 string `json:"md5,omitempty"`
 
 	// Pattern Name coming either from Taxonomy or directly from the ingested Alert
-	Name string `json:"name,omitempty"`
+	// Required: true
+	Name *string `json:"name"`
 
 	// End goal that an attack adversary intends to achieve according to MITRE
-	Objective string `json:"objective,omitempty"`
+	// Required: true
+	Objective *string `json:"objective"`
+
+	// parent details
+	ParentDetails *DetectsAlertParentDetails `json:"parent_details,omitempty"`
+
+	// parent process id
+	ParentProcessID string `json:"parent_process_id,omitempty"`
+
+	// pattern disposition
+	PatternDisposition *int64 `json:"pattern_disposition,omitempty"`
+
+	// pattern disposition description
+	PatternDispositionDescription string `json:"pattern_disposition_description,omitempty"`
+
+	// pattern disposition details
+	PatternDispositionDetails *DetectsAlertPatternDispositionDetails `json:"pattern_disposition_details,omitempty"`
 
 	// Taxonomy patternID for this Alert
-	PatternID int64 `json:"pattern_id,omitempty"`
+	// Required: true
+	PatternID *int64 `json:"pattern_id"`
 
 	// Platform that this Alert was triggered on e.g. Android, Windows, etc..
-	Platform string `json:"platform,omitempty"`
+	// Required: true
+	Platform *string `json:"platform"`
 
 	// poly id
 	PolyID string `json:"poly_id,omitempty"`
 
-	// Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
-	Product string `json:"product,omitempty"`
+	// process end time
+	ProcessEndTime string `json:"process_end_time,omitempty"`
 
-	// indicates when the Alert was marked as 'Resolved'
-	// Format: date-time
-	ResolvedTimestamp strfmt.DateTime `json:"resolved_timestamp,omitempty"`
+	// process id
+	ProcessID string `json:"process_id,omitempty"`
+
+	// process start time
+	ProcessStartTime string `json:"process_start_time,omitempty"`
+
+	// Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
+	// Required: true
+	Product *string `json:"product"`
+
+	// quarantined files
+	QuarantinedFiles []*DetectsAlertQuarantinedFilesItems0 `json:"quarantined_files"`
 
 	// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
-	Scenario string `json:"scenario,omitempty"`
+	// Required: true
+	Scenario *string `json:"scenario"`
 
 	// Seconds To Resolved represents the seconds elapsed since this alert has been resolved
 	// Required: true
@@ -122,60 +223,994 @@ type DetectsAlert struct {
 	SecondsToTriaged *int64 `json:"seconds_to_triaged"`
 
 	// Severity is also a 1-100 integer value, but unlike confidence severity impacts how a Alert is displayed in the UI
-	Severity int64 `json:"severity,omitempty"`
+	// Required: true
+	Severity *int64 `json:"severity"`
 
 	// Severity name is a UI friendly bucketing of the severity integer
-	SeverityName string `json:"severity_name,omitempty"`
+	// Required: true
+	SeverityName *string `json:"severity_name"`
+
+	// sha1
+	Sha1 string `json:"sha1,omitempty"`
+
+	// sha256
+	Sha256 string `json:"sha256,omitempty"`
 
 	// Boolean indicating if this Alert will be shown in the UI or if it's hidden'
-	ShowInUI bool `json:"show_in_ui,omitempty"`
-
-	// show in ui updated timestamp
-	// Format: date-time
-	ShowInUIUpdatedTimestamp strfmt.DateTime `json:"show_in_ui_updated_timestamp,omitempty"`
+	// Required: true
+	ShowInUI *bool `json:"show_in_ui"`
 
 	// Source Products are products that produced events which contributed to this alert
+	// Required: true
 	SourceProducts []string `json:"source_products"`
 
 	// Source Vendors are vendors that produced events which contributed to this alert
+	// Required: true
 	SourceVendors []string `json:"source_vendors"`
 
 	// Could be one of the following - New, closed, in_progress, reopened
-	Status string `json:"status,omitempty"`
+	// Required: true
+	Status *string `json:"status"`
 
 	// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
-	Tactic string `json:"tactic,omitempty"`
+	// Required: true
+	Tactic *string `json:"tactic"`
 
 	// Unique ID for the tactic seen in the Alert
-	TacticID string `json:"tactic_id,omitempty"`
+	// Required: true
+	TacticID *string `json:"tactic_id"`
 
 	// Tags are string values associated with the alert that can be added or removed through the API
+	// Required: true
 	Tags []string `json:"tags"`
 
 	// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
-	Technique string `json:"technique,omitempty"`
+	// Required: true
+	Technique *string `json:"technique"`
 
 	// Unique ID for the technique seen in the Alert
-	TechniqueID string `json:"technique_id,omitempty"`
+	// Required: true
+	TechniqueID *string `json:"technique_id"`
 
 	// stored value coming in directly from the ingested event or set by cloud in the absence of it
+	// Required: true
 	// Format: date-time
-	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
+	Timestamp *strfmt.DateTime `json:"timestamp"`
+
+	// tree id
+	TreeID string `json:"tree_id,omitempty"`
+
+	// tree root
+	TreeRoot string `json:"tree_root,omitempty"`
+
+	// triggering process graph id
+	TriggeringProcessGraphID string `json:"triggering_process_graph_id,omitempty"`
 
 	// Type of definition Detections Extensibility use. Keyed-off of Pattern of the incoming events/Alerts
 	// Required: true
 	Type *string `json:"type"`
 
 	// indicates when the Alert was last modified
+	// Required: true
 	// Format: date-time
-	UpdatedTimestamp strfmt.DateTime `json:"updated_timestamp,omitempty"`
+	UpdatedTimestamp *strfmt.DateTime `json:"updated_timestamp"`
+
+	// user id
+	UserID string `json:"user_id,omitempty"`
+
+	// user name
+	UserName string `json:"user_name,omitempty"`
+
+	// detects alert additional properties
+	DetectsAlertAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// Device or sensor ID for which the Alert was generated
+		// Required: true
+		AgentID *string `json:"agent_id"`
+
+		// Common linkage between multiple Alerts that belong to the same detection bouquet
+		// Required: true
+		AggregateID *string `json:"aggregate_id"`
+
+		// alleged filetype
+		AllegedFiletype string `json:"alleged_filetype,omitempty"`
+
+		// Name of the person this Alert is assigned to
+		// Required: true
+		AssignedToName *string `json:"assigned_to_name"`
+
+		// UserID to which this Alert is assigned to
+		// Required: true
+		AssignedToUID *string `json:"assigned_to_uid"`
+
+		// UUID to which this Alert is assigned to
+		// Required: true
+		AssignedToUUID *string `json:"assigned_to_uuid"`
+
+		// Unique ID of CrowdStrike customers
+		// Required: true
+		Cid *string `json:"cid"`
+
+		// cloud indicator
+		CloudIndicator string `json:"cloud_indicator,omitempty"`
+
+		// cmdline
+		Cmdline string `json:"cmdline,omitempty"`
+
+		// An opaque internal identifier that can uniquely identify an Alert
+		// Required: true
+		CompositeID *string `json:"composite_id"`
+
+		// Confidence is a 1-100 integer value denoting the confidence that, when this Alert fires, it is indicative of malicious activity
+		// Required: true
+		Confidence *int64 `json:"confidence"`
+
+		// context timestamp
+		// Format: date-time
+		ContextTimestamp strfmt.DateTime `json:"context_timestamp,omitempty"`
+
+		// control graph id
+		ControlGraphID string `json:"control_graph_id,omitempty"`
+
+		// crawl edge ids
+		CrawlEdgeIds *DetectsAlertCrawlEdgeIds `json:"crawl_edge_ids,omitempty"`
+
+		// crawl vertex ids
+		CrawlVertexIds *DetectsAlertCrawlVertexIds `json:"crawl_vertex_ids,omitempty"`
+
+		// indicates when ThreatGraph was crawled to gather info for this alert creation/update
+		// Required: true
+		// Format: date-time
+		CrawledTimestamp *strfmt.DateTime `json:"crawled_timestamp"`
+
+		// indicates when the Alert was first written to backend store
+		// Required: true
+		// Format: date-time
+		CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
+
+		// Data Domains represents domains to which this alert belongs to
+		// Required: true
+		DataDomains []string `json:"data_domains"`
+
+		// Short, customer-visible summary of the detected activity
+		// Required: true
+		Description *string `json:"description"`
+
+		// device
+		Device *DetectsAlertDevice `json:"device,omitempty"`
+
+		// Customer visible name for the Alert's pattern
+		// Required: true
+		DisplayName *string `json:"display_name"`
+
+		// Boolean to know if we sent email regarding this Alert
+		// Required: true
+		EmailSent *bool `json:"email_sent"`
+
+		// Boolean indicating if this Alert is internal or external
+		// Required: true
+		External *bool `json:"external"`
+
+		// falcon host link
+		FalconHostLink string `json:"falcon_host_link,omitempty"`
+
+		// filename
+		Filename string `json:"filename,omitempty"`
+
+		// filepath
+		Filepath string `json:"filepath,omitempty"`
+
+		// grandparent details
+		GrandparentDetails *DetectsAlertGrandparentDetails `json:"grandparent_details,omitempty"`
+
+		// has script or module ioce
+		HasScriptOrModuleIoce bool `json:"has_script_or_module_ioce,omitempty"`
+
+		// Vertex key which triggers the formation of the Alert
+		// Required: true
+		ID *string `json:"id"`
+
+		// indicator id
+		IndicatorID string `json:"indicator_id,omitempty"`
+
+		// ioc context
+		IocContext []*DetectsAlertIocContextItems0 `json:"ioc_context"`
+
+		// ioc description
+		IocDescription string `json:"ioc_description,omitempty"`
+
+		// ioc source
+		IocSource string `json:"ioc_source,omitempty"`
+
+		// ioc type
+		IocType string `json:"ioc_type,omitempty"`
+
+		// ioc value
+		IocValue string `json:"ioc_value,omitempty"`
+
+		// ioc values
+		IocValues []string `json:"ioc_values"`
+
+		// is synthetic quarantine disposition
+		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
+
+		// local process id
+		LocalProcessID string `json:"local_process_id,omitempty"`
+
+		// logon domain
+		LogonDomain string `json:"logon_domain,omitempty"`
+
+		// md5
+		Md5 string `json:"md5,omitempty"`
+
+		// Pattern Name coming either from Taxonomy or directly from the ingested Alert
+		// Required: true
+		Name *string `json:"name"`
+
+		// End goal that an attack adversary intends to achieve according to MITRE
+		// Required: true
+		Objective *string `json:"objective"`
+
+		// parent details
+		ParentDetails *DetectsAlertParentDetails `json:"parent_details,omitempty"`
+
+		// parent process id
+		ParentProcessID string `json:"parent_process_id,omitempty"`
+
+		// pattern disposition
+		PatternDisposition *int64 `json:"pattern_disposition,omitempty"`
+
+		// pattern disposition description
+		PatternDispositionDescription string `json:"pattern_disposition_description,omitempty"`
+
+		// pattern disposition details
+		PatternDispositionDetails *DetectsAlertPatternDispositionDetails `json:"pattern_disposition_details,omitempty"`
+
+		// Taxonomy patternID for this Alert
+		// Required: true
+		PatternID *int64 `json:"pattern_id"`
+
+		// Platform that this Alert was triggered on e.g. Android, Windows, etc..
+		// Required: true
+		Platform *string `json:"platform"`
+
+		// poly id
+		PolyID string `json:"poly_id,omitempty"`
+
+		// process end time
+		ProcessEndTime string `json:"process_end_time,omitempty"`
+
+		// process id
+		ProcessID string `json:"process_id,omitempty"`
+
+		// process start time
+		ProcessStartTime string `json:"process_start_time,omitempty"`
+
+		// Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
+		// Required: true
+		Product *string `json:"product"`
+
+		// quarantined files
+		QuarantinedFiles []*DetectsAlertQuarantinedFilesItems0 `json:"quarantined_files"`
+
+		// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
+		// Required: true
+		Scenario *string `json:"scenario"`
+
+		// Seconds To Resolved represents the seconds elapsed since this alert has been resolved
+		// Required: true
+		SecondsToResolved *int64 `json:"seconds_to_resolved"`
+
+		// Seconds To Triage represents the seconds elapsed since this alert has been triaged
+		// Required: true
+		SecondsToTriaged *int64 `json:"seconds_to_triaged"`
+
+		// Severity is also a 1-100 integer value, but unlike confidence severity impacts how a Alert is displayed in the UI
+		// Required: true
+		Severity *int64 `json:"severity"`
+
+		// Severity name is a UI friendly bucketing of the severity integer
+		// Required: true
+		SeverityName *string `json:"severity_name"`
+
+		// sha1
+		Sha1 string `json:"sha1,omitempty"`
+
+		// sha256
+		Sha256 string `json:"sha256,omitempty"`
+
+		// Boolean indicating if this Alert will be shown in the UI or if it's hidden'
+		// Required: true
+		ShowInUI *bool `json:"show_in_ui"`
+
+		// Source Products are products that produced events which contributed to this alert
+		// Required: true
+		SourceProducts []string `json:"source_products"`
+
+		// Source Vendors are vendors that produced events which contributed to this alert
+		// Required: true
+		SourceVendors []string `json:"source_vendors"`
+
+		// Could be one of the following - New, closed, in_progress, reopened
+		// Required: true
+		Status *string `json:"status"`
+
+		// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+		// Required: true
+		Tactic *string `json:"tactic"`
+
+		// Unique ID for the tactic seen in the Alert
+		// Required: true
+		TacticID *string `json:"tactic_id"`
+
+		// Tags are string values associated with the alert that can be added or removed through the API
+		// Required: true
+		Tags []string `json:"tags"`
+
+		// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+		// Required: true
+		Technique *string `json:"technique"`
+
+		// Unique ID for the technique seen in the Alert
+		// Required: true
+		TechniqueID *string `json:"technique_id"`
+
+		// stored value coming in directly from the ingested event or set by cloud in the absence of it
+		// Required: true
+		// Format: date-time
+		Timestamp *strfmt.DateTime `json:"timestamp"`
+
+		// tree id
+		TreeID string `json:"tree_id,omitempty"`
+
+		// tree root
+		TreeRoot string `json:"tree_root,omitempty"`
+
+		// triggering process graph id
+		TriggeringProcessGraphID string `json:"triggering_process_graph_id,omitempty"`
+
+		// Type of definition Detections Extensibility use. Keyed-off of Pattern of the incoming events/Alerts
+		// Required: true
+		Type *string `json:"type"`
+
+		// indicates when the Alert was last modified
+		// Required: true
+		// Format: date-time
+		UpdatedTimestamp *strfmt.DateTime `json:"updated_timestamp"`
+
+		// user id
+		UserID string `json:"user_id,omitempty"`
+
+		// user name
+		UserName string `json:"user_name,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv DetectsAlert
+
+	rcv.AgentID = stage1.AgentID
+	rcv.AggregateID = stage1.AggregateID
+	rcv.AllegedFiletype = stage1.AllegedFiletype
+	rcv.AssignedToName = stage1.AssignedToName
+	rcv.AssignedToUID = stage1.AssignedToUID
+	rcv.AssignedToUUID = stage1.AssignedToUUID
+	rcv.Cid = stage1.Cid
+	rcv.CloudIndicator = stage1.CloudIndicator
+	rcv.Cmdline = stage1.Cmdline
+	rcv.CompositeID = stage1.CompositeID
+	rcv.Confidence = stage1.Confidence
+	rcv.ContextTimestamp = stage1.ContextTimestamp
+	rcv.ControlGraphID = stage1.ControlGraphID
+	rcv.CrawlEdgeIds = stage1.CrawlEdgeIds
+	rcv.CrawlVertexIds = stage1.CrawlVertexIds
+	rcv.CrawledTimestamp = stage1.CrawledTimestamp
+	rcv.CreatedTimestamp = stage1.CreatedTimestamp
+	rcv.DataDomains = stage1.DataDomains
+	rcv.Description = stage1.Description
+	rcv.Device = stage1.Device
+	rcv.DisplayName = stage1.DisplayName
+	rcv.EmailSent = stage1.EmailSent
+	rcv.External = stage1.External
+	rcv.FalconHostLink = stage1.FalconHostLink
+	rcv.Filename = stage1.Filename
+	rcv.Filepath = stage1.Filepath
+	rcv.GrandparentDetails = stage1.GrandparentDetails
+	rcv.HasScriptOrModuleIoce = stage1.HasScriptOrModuleIoce
+	rcv.ID = stage1.ID
+	rcv.IndicatorID = stage1.IndicatorID
+	rcv.IocContext = stage1.IocContext
+	rcv.IocDescription = stage1.IocDescription
+	rcv.IocSource = stage1.IocSource
+	rcv.IocType = stage1.IocType
+	rcv.IocValue = stage1.IocValue
+	rcv.IocValues = stage1.IocValues
+	rcv.IsSyntheticQuarantineDisposition = stage1.IsSyntheticQuarantineDisposition
+	rcv.LocalProcessID = stage1.LocalProcessID
+	rcv.LogonDomain = stage1.LogonDomain
+	rcv.Md5 = stage1.Md5
+	rcv.Name = stage1.Name
+	rcv.Objective = stage1.Objective
+	rcv.ParentDetails = stage1.ParentDetails
+	rcv.ParentProcessID = stage1.ParentProcessID
+	rcv.PatternDisposition = stage1.PatternDisposition
+	rcv.PatternDispositionDescription = stage1.PatternDispositionDescription
+	rcv.PatternDispositionDetails = stage1.PatternDispositionDetails
+	rcv.PatternID = stage1.PatternID
+	rcv.Platform = stage1.Platform
+	rcv.PolyID = stage1.PolyID
+	rcv.ProcessEndTime = stage1.ProcessEndTime
+	rcv.ProcessID = stage1.ProcessID
+	rcv.ProcessStartTime = stage1.ProcessStartTime
+	rcv.Product = stage1.Product
+	rcv.QuarantinedFiles = stage1.QuarantinedFiles
+	rcv.Scenario = stage1.Scenario
+	rcv.SecondsToResolved = stage1.SecondsToResolved
+	rcv.SecondsToTriaged = stage1.SecondsToTriaged
+	rcv.Severity = stage1.Severity
+	rcv.SeverityName = stage1.SeverityName
+	rcv.Sha1 = stage1.Sha1
+	rcv.Sha256 = stage1.Sha256
+	rcv.ShowInUI = stage1.ShowInUI
+	rcv.SourceProducts = stage1.SourceProducts
+	rcv.SourceVendors = stage1.SourceVendors
+	rcv.Status = stage1.Status
+	rcv.Tactic = stage1.Tactic
+	rcv.TacticID = stage1.TacticID
+	rcv.Tags = stage1.Tags
+	rcv.Technique = stage1.Technique
+	rcv.TechniqueID = stage1.TechniqueID
+	rcv.Timestamp = stage1.Timestamp
+	rcv.TreeID = stage1.TreeID
+	rcv.TreeRoot = stage1.TreeRoot
+	rcv.TriggeringProcessGraphID = stage1.TriggeringProcessGraphID
+	rcv.Type = stage1.Type
+	rcv.UpdatedTimestamp = stage1.UpdatedTimestamp
+	rcv.UserID = stage1.UserID
+	rcv.UserName = stage1.UserName
+	*m = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "agent_id")
+	delete(stage2, "aggregate_id")
+	delete(stage2, "alleged_filetype")
+	delete(stage2, "assigned_to_name")
+	delete(stage2, "assigned_to_uid")
+	delete(stage2, "assigned_to_uuid")
+	delete(stage2, "cid")
+	delete(stage2, "cloud_indicator")
+	delete(stage2, "cmdline")
+	delete(stage2, "composite_id")
+	delete(stage2, "confidence")
+	delete(stage2, "context_timestamp")
+	delete(stage2, "control_graph_id")
+	delete(stage2, "crawl_edge_ids")
+	delete(stage2, "crawl_vertex_ids")
+	delete(stage2, "crawled_timestamp")
+	delete(stage2, "created_timestamp")
+	delete(stage2, "data_domains")
+	delete(stage2, "description")
+	delete(stage2, "device")
+	delete(stage2, "display_name")
+	delete(stage2, "email_sent")
+	delete(stage2, "external")
+	delete(stage2, "falcon_host_link")
+	delete(stage2, "filename")
+	delete(stage2, "filepath")
+	delete(stage2, "grandparent_details")
+	delete(stage2, "has_script_or_module_ioce")
+	delete(stage2, "id")
+	delete(stage2, "indicator_id")
+	delete(stage2, "ioc_context")
+	delete(stage2, "ioc_description")
+	delete(stage2, "ioc_source")
+	delete(stage2, "ioc_type")
+	delete(stage2, "ioc_value")
+	delete(stage2, "ioc_values")
+	delete(stage2, "is_synthetic_quarantine_disposition")
+	delete(stage2, "local_process_id")
+	delete(stage2, "logon_domain")
+	delete(stage2, "md5")
+	delete(stage2, "name")
+	delete(stage2, "objective")
+	delete(stage2, "parent_details")
+	delete(stage2, "parent_process_id")
+	delete(stage2, "pattern_disposition")
+	delete(stage2, "pattern_disposition_description")
+	delete(stage2, "pattern_disposition_details")
+	delete(stage2, "pattern_id")
+	delete(stage2, "platform")
+	delete(stage2, "poly_id")
+	delete(stage2, "process_end_time")
+	delete(stage2, "process_id")
+	delete(stage2, "process_start_time")
+	delete(stage2, "product")
+	delete(stage2, "quarantined_files")
+	delete(stage2, "scenario")
+	delete(stage2, "seconds_to_resolved")
+	delete(stage2, "seconds_to_triaged")
+	delete(stage2, "severity")
+	delete(stage2, "severity_name")
+	delete(stage2, "sha1")
+	delete(stage2, "sha256")
+	delete(stage2, "show_in_ui")
+	delete(stage2, "source_products")
+	delete(stage2, "source_vendors")
+	delete(stage2, "status")
+	delete(stage2, "tactic")
+	delete(stage2, "tactic_id")
+	delete(stage2, "tags")
+	delete(stage2, "technique")
+	delete(stage2, "technique_id")
+	delete(stage2, "timestamp")
+	delete(stage2, "tree_id")
+	delete(stage2, "tree_root")
+	delete(stage2, "triggering_process_graph_id")
+	delete(stage2, "type")
+	delete(stage2, "updated_timestamp")
+	delete(stage2, "user_id")
+	delete(stage2, "user_name")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		m.DetectsAlertAdditionalProperties = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (m DetectsAlert) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// Device or sensor ID for which the Alert was generated
+		// Required: true
+		AgentID *string `json:"agent_id"`
+
+		// Common linkage between multiple Alerts that belong to the same detection bouquet
+		// Required: true
+		AggregateID *string `json:"aggregate_id"`
+
+		// alleged filetype
+		AllegedFiletype string `json:"alleged_filetype,omitempty"`
+
+		// Name of the person this Alert is assigned to
+		// Required: true
+		AssignedToName *string `json:"assigned_to_name"`
+
+		// UserID to which this Alert is assigned to
+		// Required: true
+		AssignedToUID *string `json:"assigned_to_uid"`
+
+		// UUID to which this Alert is assigned to
+		// Required: true
+		AssignedToUUID *string `json:"assigned_to_uuid"`
+
+		// Unique ID of CrowdStrike customers
+		// Required: true
+		Cid *string `json:"cid"`
+
+		// cloud indicator
+		CloudIndicator string `json:"cloud_indicator,omitempty"`
+
+		// cmdline
+		Cmdline string `json:"cmdline,omitempty"`
+
+		// An opaque internal identifier that can uniquely identify an Alert
+		// Required: true
+		CompositeID *string `json:"composite_id"`
+
+		// Confidence is a 1-100 integer value denoting the confidence that, when this Alert fires, it is indicative of malicious activity
+		// Required: true
+		Confidence *int64 `json:"confidence"`
+
+		// context timestamp
+		// Format: date-time
+		ContextTimestamp strfmt.DateTime `json:"context_timestamp,omitempty"`
+
+		// control graph id
+		ControlGraphID string `json:"control_graph_id,omitempty"`
+
+		// crawl edge ids
+		CrawlEdgeIds *DetectsAlertCrawlEdgeIds `json:"crawl_edge_ids,omitempty"`
+
+		// crawl vertex ids
+		CrawlVertexIds *DetectsAlertCrawlVertexIds `json:"crawl_vertex_ids,omitempty"`
+
+		// indicates when ThreatGraph was crawled to gather info for this alert creation/update
+		// Required: true
+		// Format: date-time
+		CrawledTimestamp *strfmt.DateTime `json:"crawled_timestamp"`
+
+		// indicates when the Alert was first written to backend store
+		// Required: true
+		// Format: date-time
+		CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
+
+		// Data Domains represents domains to which this alert belongs to
+		// Required: true
+		DataDomains []string `json:"data_domains"`
+
+		// Short, customer-visible summary of the detected activity
+		// Required: true
+		Description *string `json:"description"`
+
+		// device
+		Device *DetectsAlertDevice `json:"device,omitempty"`
+
+		// Customer visible name for the Alert's pattern
+		// Required: true
+		DisplayName *string `json:"display_name"`
+
+		// Boolean to know if we sent email regarding this Alert
+		// Required: true
+		EmailSent *bool `json:"email_sent"`
+
+		// Boolean indicating if this Alert is internal or external
+		// Required: true
+		External *bool `json:"external"`
+
+		// falcon host link
+		FalconHostLink string `json:"falcon_host_link,omitempty"`
+
+		// filename
+		Filename string `json:"filename,omitempty"`
+
+		// filepath
+		Filepath string `json:"filepath,omitempty"`
+
+		// grandparent details
+		GrandparentDetails *DetectsAlertGrandparentDetails `json:"grandparent_details,omitempty"`
+
+		// has script or module ioce
+		HasScriptOrModuleIoce bool `json:"has_script_or_module_ioce,omitempty"`
+
+		// Vertex key which triggers the formation of the Alert
+		// Required: true
+		ID *string `json:"id"`
+
+		// indicator id
+		IndicatorID string `json:"indicator_id,omitempty"`
+
+		// ioc context
+		IocContext []*DetectsAlertIocContextItems0 `json:"ioc_context"`
+
+		// ioc description
+		IocDescription string `json:"ioc_description,omitempty"`
+
+		// ioc source
+		IocSource string `json:"ioc_source,omitempty"`
+
+		// ioc type
+		IocType string `json:"ioc_type,omitempty"`
+
+		// ioc value
+		IocValue string `json:"ioc_value,omitempty"`
+
+		// ioc values
+		IocValues []string `json:"ioc_values"`
+
+		// is synthetic quarantine disposition
+		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
+
+		// local process id
+		LocalProcessID string `json:"local_process_id,omitempty"`
+
+		// logon domain
+		LogonDomain string `json:"logon_domain,omitempty"`
+
+		// md5
+		Md5 string `json:"md5,omitempty"`
+
+		// Pattern Name coming either from Taxonomy or directly from the ingested Alert
+		// Required: true
+		Name *string `json:"name"`
+
+		// End goal that an attack adversary intends to achieve according to MITRE
+		// Required: true
+		Objective *string `json:"objective"`
+
+		// parent details
+		ParentDetails *DetectsAlertParentDetails `json:"parent_details,omitempty"`
+
+		// parent process id
+		ParentProcessID string `json:"parent_process_id,omitempty"`
+
+		// pattern disposition
+		PatternDisposition *int64 `json:"pattern_disposition,omitempty"`
+
+		// pattern disposition description
+		PatternDispositionDescription string `json:"pattern_disposition_description,omitempty"`
+
+		// pattern disposition details
+		PatternDispositionDetails *DetectsAlertPatternDispositionDetails `json:"pattern_disposition_details,omitempty"`
+
+		// Taxonomy patternID for this Alert
+		// Required: true
+		PatternID *int64 `json:"pattern_id"`
+
+		// Platform that this Alert was triggered on e.g. Android, Windows, etc..
+		// Required: true
+		Platform *string `json:"platform"`
+
+		// poly id
+		PolyID string `json:"poly_id,omitempty"`
+
+		// process end time
+		ProcessEndTime string `json:"process_end_time,omitempty"`
+
+		// process id
+		ProcessID string `json:"process_id,omitempty"`
+
+		// process start time
+		ProcessStartTime string `json:"process_start_time,omitempty"`
+
+		// Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
+		// Required: true
+		Product *string `json:"product"`
+
+		// quarantined files
+		QuarantinedFiles []*DetectsAlertQuarantinedFilesItems0 `json:"quarantined_files"`
+
+		// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
+		// Required: true
+		Scenario *string `json:"scenario"`
+
+		// Seconds To Resolved represents the seconds elapsed since this alert has been resolved
+		// Required: true
+		SecondsToResolved *int64 `json:"seconds_to_resolved"`
+
+		// Seconds To Triage represents the seconds elapsed since this alert has been triaged
+		// Required: true
+		SecondsToTriaged *int64 `json:"seconds_to_triaged"`
+
+		// Severity is also a 1-100 integer value, but unlike confidence severity impacts how a Alert is displayed in the UI
+		// Required: true
+		Severity *int64 `json:"severity"`
+
+		// Severity name is a UI friendly bucketing of the severity integer
+		// Required: true
+		SeverityName *string `json:"severity_name"`
+
+		// sha1
+		Sha1 string `json:"sha1,omitempty"`
+
+		// sha256
+		Sha256 string `json:"sha256,omitempty"`
+
+		// Boolean indicating if this Alert will be shown in the UI or if it's hidden'
+		// Required: true
+		ShowInUI *bool `json:"show_in_ui"`
+
+		// Source Products are products that produced events which contributed to this alert
+		// Required: true
+		SourceProducts []string `json:"source_products"`
+
+		// Source Vendors are vendors that produced events which contributed to this alert
+		// Required: true
+		SourceVendors []string `json:"source_vendors"`
+
+		// Could be one of the following - New, closed, in_progress, reopened
+		// Required: true
+		Status *string `json:"status"`
+
+		// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+		// Required: true
+		Tactic *string `json:"tactic"`
+
+		// Unique ID for the tactic seen in the Alert
+		// Required: true
+		TacticID *string `json:"tactic_id"`
+
+		// Tags are string values associated with the alert that can be added or removed through the API
+		// Required: true
+		Tags []string `json:"tags"`
+
+		// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+		// Required: true
+		Technique *string `json:"technique"`
+
+		// Unique ID for the technique seen in the Alert
+		// Required: true
+		TechniqueID *string `json:"technique_id"`
+
+		// stored value coming in directly from the ingested event or set by cloud in the absence of it
+		// Required: true
+		// Format: date-time
+		Timestamp *strfmt.DateTime `json:"timestamp"`
+
+		// tree id
+		TreeID string `json:"tree_id,omitempty"`
+
+		// tree root
+		TreeRoot string `json:"tree_root,omitempty"`
+
+		// triggering process graph id
+		TriggeringProcessGraphID string `json:"triggering_process_graph_id,omitempty"`
+
+		// Type of definition Detections Extensibility use. Keyed-off of Pattern of the incoming events/Alerts
+		// Required: true
+		Type *string `json:"type"`
+
+		// indicates when the Alert was last modified
+		// Required: true
+		// Format: date-time
+		UpdatedTimestamp *strfmt.DateTime `json:"updated_timestamp"`
+
+		// user id
+		UserID string `json:"user_id,omitempty"`
+
+		// user name
+		UserName string `json:"user_name,omitempty"`
+	}
+
+	stage1.AgentID = m.AgentID
+	stage1.AggregateID = m.AggregateID
+	stage1.AllegedFiletype = m.AllegedFiletype
+	stage1.AssignedToName = m.AssignedToName
+	stage1.AssignedToUID = m.AssignedToUID
+	stage1.AssignedToUUID = m.AssignedToUUID
+	stage1.Cid = m.Cid
+	stage1.CloudIndicator = m.CloudIndicator
+	stage1.Cmdline = m.Cmdline
+	stage1.CompositeID = m.CompositeID
+	stage1.Confidence = m.Confidence
+	stage1.ContextTimestamp = m.ContextTimestamp
+	stage1.ControlGraphID = m.ControlGraphID
+	stage1.CrawlEdgeIds = m.CrawlEdgeIds
+	stage1.CrawlVertexIds = m.CrawlVertexIds
+	stage1.CrawledTimestamp = m.CrawledTimestamp
+	stage1.CreatedTimestamp = m.CreatedTimestamp
+	stage1.DataDomains = m.DataDomains
+	stage1.Description = m.Description
+	stage1.Device = m.Device
+	stage1.DisplayName = m.DisplayName
+	stage1.EmailSent = m.EmailSent
+	stage1.External = m.External
+	stage1.FalconHostLink = m.FalconHostLink
+	stage1.Filename = m.Filename
+	stage1.Filepath = m.Filepath
+	stage1.GrandparentDetails = m.GrandparentDetails
+	stage1.HasScriptOrModuleIoce = m.HasScriptOrModuleIoce
+	stage1.ID = m.ID
+	stage1.IndicatorID = m.IndicatorID
+	stage1.IocContext = m.IocContext
+	stage1.IocDescription = m.IocDescription
+	stage1.IocSource = m.IocSource
+	stage1.IocType = m.IocType
+	stage1.IocValue = m.IocValue
+	stage1.IocValues = m.IocValues
+	stage1.IsSyntheticQuarantineDisposition = m.IsSyntheticQuarantineDisposition
+	stage1.LocalProcessID = m.LocalProcessID
+	stage1.LogonDomain = m.LogonDomain
+	stage1.Md5 = m.Md5
+	stage1.Name = m.Name
+	stage1.Objective = m.Objective
+	stage1.ParentDetails = m.ParentDetails
+	stage1.ParentProcessID = m.ParentProcessID
+	stage1.PatternDisposition = m.PatternDisposition
+	stage1.PatternDispositionDescription = m.PatternDispositionDescription
+	stage1.PatternDispositionDetails = m.PatternDispositionDetails
+	stage1.PatternID = m.PatternID
+	stage1.Platform = m.Platform
+	stage1.PolyID = m.PolyID
+	stage1.ProcessEndTime = m.ProcessEndTime
+	stage1.ProcessID = m.ProcessID
+	stage1.ProcessStartTime = m.ProcessStartTime
+	stage1.Product = m.Product
+	stage1.QuarantinedFiles = m.QuarantinedFiles
+	stage1.Scenario = m.Scenario
+	stage1.SecondsToResolved = m.SecondsToResolved
+	stage1.SecondsToTriaged = m.SecondsToTriaged
+	stage1.Severity = m.Severity
+	stage1.SeverityName = m.SeverityName
+	stage1.Sha1 = m.Sha1
+	stage1.Sha256 = m.Sha256
+	stage1.ShowInUI = m.ShowInUI
+	stage1.SourceProducts = m.SourceProducts
+	stage1.SourceVendors = m.SourceVendors
+	stage1.Status = m.Status
+	stage1.Tactic = m.Tactic
+	stage1.TacticID = m.TacticID
+	stage1.Tags = m.Tags
+	stage1.Technique = m.Technique
+	stage1.TechniqueID = m.TechniqueID
+	stage1.Timestamp = m.Timestamp
+	stage1.TreeID = m.TreeID
+	stage1.TreeRoot = m.TreeRoot
+	stage1.TriggeringProcessGraphID = m.TriggeringProcessGraphID
+	stage1.Type = m.Type
+	stage1.UpdatedTimestamp = m.UpdatedTimestamp
+	stage1.UserID = m.UserID
+	stage1.UserName = m.UserName
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(m.DetectsAlertAdditionalProperties) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(m.DetectsAlertAdditionalProperties)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
 }
 
 // Validate validates this detects alert
 func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAgentID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAggregateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAssignedToName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAssignedToUID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAssignedToUUID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCompositeID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConfidence(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContextTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCrawlEdgeIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCrawlVertexIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -187,7 +1222,75 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateResolvedTimestamp(formats); err != nil {
+	if err := m.validateDataDomains(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDevice(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDisplayName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEmailSent(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExternal(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGrandparentDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIocContext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateObjective(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParentDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePatternDispositionDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePatternID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlatform(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProduct(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQuarantinedFiles(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScenario(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -199,7 +1302,47 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateShowInUIUpdatedTimestamp(formats); err != nil {
+	if err := m.validateSeverity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSeverityName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateShowInUI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSourceProducts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSourceVendors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTactic(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTacticID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTags(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTechnique(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTechniqueID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -221,6 +1364,15 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateAgentID(formats strfmt.Registry) error {
+
+	if err := validate.Required("agent_id", "body", m.AgentID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DetectsAlert) validateAggregateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("aggregate_id", "body", m.AggregateID); err != nil {
@@ -230,9 +1382,114 @@ func (m *DetectsAlert) validateAggregateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DetectsAlert) validateCrawledTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.CrawledTimestamp) { // not required
+func (m *DetectsAlert) validateAssignedToName(formats strfmt.Registry) error {
+
+	if err := validate.Required("assigned_to_name", "body", m.AssignedToName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateAssignedToUID(formats strfmt.Registry) error {
+
+	if err := validate.Required("assigned_to_uid", "body", m.AssignedToUID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateAssignedToUUID(formats strfmt.Registry) error {
+
+	if err := validate.Required("assigned_to_uuid", "body", m.AssignedToUUID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCompositeID(formats strfmt.Registry) error {
+
+	if err := validate.Required("composite_id", "body", m.CompositeID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateConfidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("confidence", "body", m.Confidence); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateContextTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.ContextTimestamp) { // not required
 		return nil
+	}
+
+	if err := validate.FormatOf("context_timestamp", "body", "date-time", m.ContextTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCrawlEdgeIds(formats strfmt.Registry) error {
+	if swag.IsZero(m.CrawlEdgeIds) { // not required
+		return nil
+	}
+
+	if m.CrawlEdgeIds != nil {
+		if err := m.CrawlEdgeIds.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("crawl_edge_ids")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crawl_edge_ids")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCrawlVertexIds(formats strfmt.Registry) error {
+	if swag.IsZero(m.CrawlVertexIds) { // not required
+		return nil
+	}
+
+	if m.CrawlVertexIds != nil {
+		if err := m.CrawlVertexIds.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("crawl_vertex_ids")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crawl_vertex_ids")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCrawledTimestamp(formats strfmt.Registry) error {
+
+	if err := validate.Required("crawled_timestamp", "body", m.CrawledTimestamp); err != nil {
+		return err
 	}
 
 	if err := validate.FormatOf("crawled_timestamp", "body", "date-time", m.CrawledTimestamp.String(), formats); err != nil {
@@ -243,8 +1500,9 @@ func (m *DetectsAlert) validateCrawledTimestamp(formats strfmt.Registry) error {
 }
 
 func (m *DetectsAlert) validateCreatedTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.CreatedTimestamp) { // not required
-		return nil
+
+	if err := validate.Required("created_timestamp", "body", m.CreatedTimestamp); err != nil {
+		return err
 	}
 
 	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
@@ -254,12 +1512,236 @@ func (m *DetectsAlert) validateCreatedTimestamp(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DetectsAlert) validateResolvedTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.ResolvedTimestamp) { // not required
+func (m *DetectsAlert) validateDataDomains(formats strfmt.Registry) error {
+
+	if err := validate.Required("data_domains", "body", m.DataDomains); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateDescription(formats strfmt.Registry) error {
+
+	if err := validate.Required("description", "body", m.Description); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateDevice(formats strfmt.Registry) error {
+	if swag.IsZero(m.Device) { // not required
 		return nil
 	}
 
-	if err := validate.FormatOf("resolved_timestamp", "body", "date-time", m.ResolvedTimestamp.String(), formats); err != nil {
+	if m.Device != nil {
+		if err := m.Device.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateDisplayName(formats strfmt.Registry) error {
+
+	if err := validate.Required("display_name", "body", m.DisplayName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateEmailSent(formats strfmt.Registry) error {
+
+	if err := validate.Required("email_sent", "body", m.EmailSent); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateExternal(formats strfmt.Registry) error {
+
+	if err := validate.Required("external", "body", m.External); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateGrandparentDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.GrandparentDetails) { // not required
+		return nil
+	}
+
+	if m.GrandparentDetails != nil {
+		if err := m.GrandparentDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("grandparent_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("grandparent_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateIocContext(formats strfmt.Registry) error {
+	if swag.IsZero(m.IocContext) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.IocContext); i++ {
+		if swag.IsZero(m.IocContext[i]) { // not required
+			continue
+		}
+
+		if m.IocContext[i] != nil {
+			if err := m.IocContext[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ioc_context" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ioc_context" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateName(formats strfmt.Registry) error {
+
+	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateObjective(formats strfmt.Registry) error {
+
+	if err := validate.Required("objective", "body", m.Objective); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateParentDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.ParentDetails) { // not required
+		return nil
+	}
+
+	if m.ParentDetails != nil {
+		if err := m.ParentDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validatePatternDispositionDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.PatternDispositionDetails) { // not required
+		return nil
+	}
+
+	if m.PatternDispositionDetails != nil {
+		if err := m.PatternDispositionDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validatePatternID(formats strfmt.Registry) error {
+
+	if err := validate.Required("pattern_id", "body", m.PatternID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validatePlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("platform", "body", m.Platform); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateProduct(formats strfmt.Registry) error {
+
+	if err := validate.Required("product", "body", m.Product); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateQuarantinedFiles(formats strfmt.Registry) error {
+	if swag.IsZero(m.QuarantinedFiles) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.QuarantinedFiles); i++ {
+		if swag.IsZero(m.QuarantinedFiles[i]) { // not required
+			continue
+		}
+
+		if m.QuarantinedFiles[i] != nil {
+			if err := m.QuarantinedFiles[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateScenario(formats strfmt.Registry) error {
+
+	if err := validate.Required("scenario", "body", m.Scenario); err != nil {
 		return err
 	}
 
@@ -284,12 +1766,99 @@ func (m *DetectsAlert) validateSecondsToTriaged(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DetectsAlert) validateShowInUIUpdatedTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.ShowInUIUpdatedTimestamp) { // not required
-		return nil
+func (m *DetectsAlert) validateSeverity(formats strfmt.Registry) error {
+
+	if err := validate.Required("severity", "body", m.Severity); err != nil {
+		return err
 	}
 
-	if err := validate.FormatOf("show_in_ui_updated_timestamp", "body", "date-time", m.ShowInUIUpdatedTimestamp.String(), formats); err != nil {
+	return nil
+}
+
+func (m *DetectsAlert) validateSeverityName(formats strfmt.Registry) error {
+
+	if err := validate.Required("severity_name", "body", m.SeverityName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateShowInUI(formats strfmt.Registry) error {
+
+	if err := validate.Required("show_in_ui", "body", m.ShowInUI); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateSourceProducts(formats strfmt.Registry) error {
+
+	if err := validate.Required("source_products", "body", m.SourceProducts); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateSourceVendors(formats strfmt.Registry) error {
+
+	if err := validate.Required("source_vendors", "body", m.SourceVendors); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateTactic(formats strfmt.Registry) error {
+
+	if err := validate.Required("tactic", "body", m.Tactic); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateTacticID(formats strfmt.Registry) error {
+
+	if err := validate.Required("tactic_id", "body", m.TacticID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateTags(formats strfmt.Registry) error {
+
+	if err := validate.Required("tags", "body", m.Tags); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateTechnique(formats strfmt.Registry) error {
+
+	if err := validate.Required("technique", "body", m.Technique); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateTechniqueID(formats strfmt.Registry) error {
+
+	if err := validate.Required("technique_id", "body", m.TechniqueID); err != nil {
 		return err
 	}
 
@@ -297,8 +1866,9 @@ func (m *DetectsAlert) validateShowInUIUpdatedTimestamp(formats strfmt.Registry)
 }
 
 func (m *DetectsAlert) validateTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.Timestamp) { // not required
-		return nil
+
+	if err := validate.Required("timestamp", "body", m.Timestamp); err != nil {
+		return err
 	}
 
 	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
@@ -318,8 +1888,9 @@ func (m *DetectsAlert) validateType(formats strfmt.Registry) error {
 }
 
 func (m *DetectsAlert) validateUpdatedTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.UpdatedTimestamp) { // not required
-		return nil
+
+	if err := validate.Required("updated_timestamp", "body", m.UpdatedTimestamp); err != nil {
+		return err
 	}
 
 	if err := validate.FormatOf("updated_timestamp", "body", "date-time", m.UpdatedTimestamp.String(), formats); err != nil {
@@ -329,8 +1900,221 @@ func (m *DetectsAlert) validateUpdatedTimestamp(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this detects alert based on context it is used
+// ContextValidate validate this detects alert based on the context it is used
 func (m *DetectsAlert) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCrawlEdgeIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCrawlVertexIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDevice(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGrandparentDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIocContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParentDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePatternDispositionDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuarantinedFiles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateCrawlEdgeIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CrawlEdgeIds != nil {
+
+		if swag.IsZero(m.CrawlEdgeIds) { // not required
+			return nil
+		}
+
+		if err := m.CrawlEdgeIds.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("crawl_edge_ids")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crawl_edge_ids")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateCrawlVertexIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CrawlVertexIds != nil {
+
+		if swag.IsZero(m.CrawlVertexIds) { // not required
+			return nil
+		}
+
+		if err := m.CrawlVertexIds.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("crawl_vertex_ids")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crawl_vertex_ids")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateDevice(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Device != nil {
+
+		if swag.IsZero(m.Device) { // not required
+			return nil
+		}
+
+		if err := m.Device.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateGrandparentDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GrandparentDetails != nil {
+
+		if swag.IsZero(m.GrandparentDetails) { // not required
+			return nil
+		}
+
+		if err := m.GrandparentDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("grandparent_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("grandparent_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateIocContext(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IocContext); i++ {
+
+		if m.IocContext[i] != nil {
+
+			if swag.IsZero(m.IocContext[i]) { // not required
+				return nil
+			}
+
+			if err := m.IocContext[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ioc_context" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ioc_context" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateParentDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ParentDetails != nil {
+
+		if swag.IsZero(m.ParentDetails) { // not required
+			return nil
+		}
+
+		if err := m.ParentDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidatePatternDispositionDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PatternDispositionDetails != nil {
+
+		if swag.IsZero(m.PatternDispositionDetails) { // not required
+			return nil
+		}
+
+		if err := m.PatternDispositionDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateQuarantinedFiles(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuarantinedFiles); i++ {
+
+		if m.QuarantinedFiles[i] != nil {
+
+			if swag.IsZero(m.QuarantinedFiles[i]) { // not required
+				return nil
+			}
+
+			if err := m.QuarantinedFiles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -345,6 +2129,766 @@ func (m *DetectsAlert) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (m *DetectsAlert) UnmarshalBinary(b []byte) error {
 	var res DetectsAlert
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertCrawlEdgeIds detects alert crawl edge ids
+//
+// swagger:model DetectsAlertCrawlEdgeIds
+type DetectsAlertCrawlEdgeIds struct {
+
+	// sensor
+	Sensor []string `json:"Sensor"`
+}
+
+// Validate validates this detects alert crawl edge ids
+func (m *DetectsAlertCrawlEdgeIds) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this detects alert crawl edge ids based on context it is used
+func (m *DetectsAlertCrawlEdgeIds) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertCrawlEdgeIds) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertCrawlEdgeIds) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertCrawlEdgeIds
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertCrawlVertexIds detects alert crawl vertex ids
+//
+// swagger:model DetectsAlertCrawlVertexIds
+type DetectsAlertCrawlVertexIds struct {
+
+	// sensor
+	Sensor []string `json:"Sensor"`
+}
+
+// Validate validates this detects alert crawl vertex ids
+func (m *DetectsAlertCrawlVertexIds) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this detects alert crawl vertex ids based on context it is used
+func (m *DetectsAlertCrawlVertexIds) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertCrawlVertexIds) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertCrawlVertexIds) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertCrawlVertexIds
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertDevice detects alert device
+//
+// swagger:model DetectsAlertDevice
+type DetectsAlertDevice struct {
+
+	// agent load flags
+	AgentLoadFlags string `json:"agent_load_flags,omitempty"`
+
+	// agent local time
+	// Format: date-time
+	AgentLocalTime strfmt.DateTime `json:"agent_local_time,omitempty"`
+
+	// agent version
+	AgentVersion string `json:"agent_version,omitempty"`
+
+	// The manufacturer of the device's BIOS
+	BiosManufacturer string `json:"bios_manufacturer,omitempty"`
+
+	// Version of the device's BIOS
+	BiosVersion string `json:"bios_version,omitempty"`
+
+	// cid
+	Cid string `json:"cid,omitempty"`
+
+	// config id base
+	ConfigIDBase string `json:"config_id_base,omitempty"`
+
+	// config id build
+	ConfigIDBuild string `json:"config_id_build,omitempty"`
+
+	// config id platform
+	ConfigIDPlatform string `json:"config_id_platform,omitempty"`
+
+	// device id
+	DeviceID string `json:"device_id,omitempty"`
+
+	// external ip
+	ExternalIP string `json:"external_ip,omitempty"`
+
+	// Timestamp indicating when the device was first seen
+	// Format: date-time
+	FirstSeen strfmt.DateTime `json:"first_seen,omitempty"`
+
+	// groups
+	Groups []string `json:"groups"`
+
+	// hostinfo
+	Hostinfo *DetectsAlertDeviceHostinfo `json:"hostinfo,omitempty"`
+
+	// hostname
+	Hostname string `json:"hostname,omitempty"`
+
+	// id
+	ID string `json:"id,omitempty"`
+
+	// last seen
+	// Format: date-time
+	LastSeen strfmt.DateTime `json:"last_seen,omitempty"`
+
+	// Local IP address of the device
+	LocalIP string `json:"local_ip,omitempty"`
+
+	// MAC address of the device
+	MacAddress string `json:"mac_address,omitempty"`
+
+	// Domain name of the device's machine
+	MachineDomain string `json:"machine_domain,omitempty"`
+
+	// major version
+	MajorVersion string `json:"major_version,omitempty"`
+
+	// minor version
+	MinorVersion string `json:"minor_version,omitempty"`
+
+	// Timestamp indicating when the device information was last modified
+	// Format: date-time
+	ModifiedTimestamp strfmt.DateTime `json:"modified_timestamp,omitempty"`
+
+	// Operating system version running on the device
+	OsVersion string `json:"os_version,omitempty"`
+
+	// Organizational units the device belongs to
+	Ou []string `json:"ou"`
+
+	// ID of the platform the device is running on
+	PlatformID string `json:"platform_id,omitempty"`
+
+	// Name of the platform the device is running on
+	PlatformName string `json:"platform_name,omitempty"`
+
+	// pod labels
+	PodLabels []string `json:"pod_labels"`
+
+	// Product type identifier for the device
+	ProductType string `json:"product_type,omitempty"`
+
+	// Description of the product type for the device
+	ProductTypeDesc string `json:"product_type_desc,omitempty"`
+
+	// Site name where the device is located
+	SiteName string `json:"site_name,omitempty"`
+
+	// Current status of the device (e.g., normal, inactive)
+	Status string `json:"status,omitempty"`
+
+	// manufacturer of the system hardware
+	SystemManufacturer string `json:"system_manufacturer,omitempty"`
+
+	// product name of the system hardware
+	SystemProductName string `json:"system_product_name,omitempty"`
+
+	// tags
+	Tags []string `json:"tags"`
+}
+
+// Validate validates this detects alert device
+func (m *DetectsAlertDevice) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateAgentLocalTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFirstSeen(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHostinfo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastSeen(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateModifiedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectsAlertDevice) validateAgentLocalTime(formats strfmt.Registry) error {
+	if swag.IsZero(m.AgentLocalTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("device"+"."+"agent_local_time", "body", "date-time", m.AgentLocalTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlertDevice) validateFirstSeen(formats strfmt.Registry) error {
+	if swag.IsZero(m.FirstSeen) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("device"+"."+"first_seen", "body", "date-time", m.FirstSeen.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlertDevice) validateHostinfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.Hostinfo) { // not required
+		return nil
+	}
+
+	if m.Hostinfo != nil {
+		if err := m.Hostinfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device" + "." + "hostinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device" + "." + "hostinfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsAlertDevice) validateLastSeen(formats strfmt.Registry) error {
+	if swag.IsZero(m.LastSeen) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("device"+"."+"last_seen", "body", "date-time", m.LastSeen.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlertDevice) validateModifiedTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.ModifiedTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("device"+"."+"modified_timestamp", "body", "date-time", m.ModifiedTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this detects alert device based on the context it is used
+func (m *DetectsAlertDevice) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateHostinfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectsAlertDevice) contextValidateHostinfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Hostinfo != nil {
+
+		if swag.IsZero(m.Hostinfo) { // not required
+			return nil
+		}
+
+		if err := m.Hostinfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device" + "." + "hostinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device" + "." + "hostinfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertDevice) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertDevice) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertDevice
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertDeviceHostinfo detects alert device hostinfo
+//
+// swagger:model DetectsAlertDeviceHostinfo
+type DetectsAlertDeviceHostinfo struct {
+
+	// active directory dn display
+	ActiveDirectoryDnDisplay []string `json:"active_directory_dn_display"`
+
+	// domain
+	Domain string `json:"domain,omitempty"`
+}
+
+// Validate validates this detects alert device hostinfo
+func (m *DetectsAlertDeviceHostinfo) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this detects alert device hostinfo based on context it is used
+func (m *DetectsAlertDeviceHostinfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertDeviceHostinfo) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertDeviceHostinfo) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertDeviceHostinfo
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertGrandparentDetails detects alert grandparent details
+//
+// swagger:model DetectsAlertGrandparentDetails
+type DetectsAlertGrandparentDetails struct {
+
+	// cmdline
+	Cmdline string `json:"cmdline,omitempty"`
+
+	// filename
+	Filename string `json:"filename,omitempty"`
+
+	// filepath
+	Filepath string `json:"filepath,omitempty"`
+
+	// local process id
+	LocalProcessID string `json:"local_process_id,omitempty"`
+
+	// md5
+	Md5 string `json:"md5,omitempty"`
+
+	// process graph id
+	ProcessGraphID string `json:"process_graph_id,omitempty"`
+
+	// process id
+	ProcessID string `json:"process_id,omitempty"`
+
+	// sha256
+	Sha256 string `json:"sha256,omitempty"`
+
+	// timestamp
+	// Format: date-time
+	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
+
+	// user graph id
+	UserGraphID string `json:"user_graph_id,omitempty"`
+
+	// user id
+	UserID string `json:"user_id,omitempty"`
+
+	// user name
+	UserName string `json:"user_name,omitempty"`
+}
+
+// Validate validates this detects alert grandparent details
+func (m *DetectsAlertGrandparentDetails) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectsAlertGrandparentDetails) validateTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.Timestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("grandparent_details"+"."+"timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validates this detects alert grandparent details based on context it is used
+func (m *DetectsAlertGrandparentDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertGrandparentDetails) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertGrandparentDetails) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertGrandparentDetails
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertIocContextItems0 detects alert ioc context items0
+//
+// swagger:model DetectsAlertIocContextItems0
+type DetectsAlertIocContextItems0 struct {
+
+	// ioc description
+	IocDescription string `json:"ioc_description,omitempty"`
+
+	// ioc source
+	IocSource string `json:"ioc_source,omitempty"`
+
+	// ioc type
+	IocType string `json:"ioc_type,omitempty"`
+
+	// ioc value
+	IocValue string `json:"ioc_value,omitempty"`
+
+	// md5
+	Md5 string `json:"md5,omitempty"`
+
+	// sha256
+	Sha256 string `json:"sha256,omitempty"`
+
+	// type
+	Type string `json:"type,omitempty"`
+}
+
+// Validate validates this detects alert ioc context items0
+func (m *DetectsAlertIocContextItems0) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this detects alert ioc context items0 based on context it is used
+func (m *DetectsAlertIocContextItems0) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertIocContextItems0) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertIocContextItems0) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertIocContextItems0
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertParentDetails detects alert parent details
+//
+// swagger:model DetectsAlertParentDetails
+type DetectsAlertParentDetails struct {
+
+	// cmdline
+	Cmdline string `json:"cmdline,omitempty"`
+
+	// filename
+	Filename string `json:"filename,omitempty"`
+
+	// filepath
+	Filepath string `json:"filepath,omitempty"`
+
+	// local process id
+	LocalProcessID string `json:"local_process_id,omitempty"`
+
+	// md5
+	Md5 string `json:"md5,omitempty"`
+
+	// process graph id
+	ProcessGraphID string `json:"process_graph_id,omitempty"`
+
+	// process id
+	ProcessID string `json:"process_id,omitempty"`
+
+	// sha256
+	Sha256 string `json:"sha256,omitempty"`
+
+	// timestamp
+	Timestamp string `json:"timestamp,omitempty"`
+
+	// user graph id
+	UserGraphID string `json:"user_graph_id,omitempty"`
+
+	// user id
+	UserID string `json:"user_id,omitempty"`
+
+	// user name
+	UserName string `json:"user_name,omitempty"`
+}
+
+// Validate validates this detects alert parent details
+func (m *DetectsAlertParentDetails) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this detects alert parent details based on context it is used
+func (m *DetectsAlertParentDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertParentDetails) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertParentDetails) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertParentDetails
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertPatternDispositionDetails detects alert pattern disposition details
+//
+// swagger:model DetectsAlertPatternDispositionDetails
+type DetectsAlertPatternDispositionDetails struct {
+
+	// blocking unsupported or disabled
+	BlockingUnsupportedOrDisabled *bool `json:"blocking_unsupported_or_disabled,omitempty"`
+
+	// bootup safeguard enabled
+	BootupSafeguardEnabled *bool `json:"bootup_safeguard_enabled,omitempty"`
+
+	// containment file system
+	ContainmentFileSystem *bool `json:"containment_file_system,omitempty"`
+
+	// critical process disabled
+	CriticalProcessDisabled *bool `json:"critical_process_disabled,omitempty"`
+
+	// detect
+	Detect *bool `json:"detect,omitempty"`
+
+	// fs operation blocked
+	FsOperationBlocked *bool `json:"fs_operation_blocked,omitempty"`
+
+	// handle operation downgraded
+	HandleOperationDowngraded *bool `json:"handle_operation_downgraded,omitempty"`
+
+	// inddet mask
+	InddetMask *bool `json:"inddet_mask,omitempty"`
+
+	// indicator
+	Indicator *bool `json:"indicator,omitempty"`
+
+	// kill action failed
+	KillActionFailed *bool `json:"kill_action_failed,omitempty"`
+
+	// kill parent
+	KillParent *bool `json:"kill_parent,omitempty"`
+
+	// kill process
+	KillProcess *bool `json:"kill_process,omitempty"`
+
+	// kill subprocess
+	KillSubprocess *bool `json:"kill_subprocess,omitempty"`
+
+	// mfa required
+	MfaRequired *bool `json:"mfa_required,omitempty"`
+
+	// operation blocked
+	OperationBlocked *bool `json:"operation_blocked,omitempty"`
+
+	// policy disabled
+	PolicyDisabled *bool `json:"policy_disabled,omitempty"`
+
+	// prevention provisioning enabled
+	PreventionProvisioningEnabled *bool `json:"prevention_provisioning_enabled,omitempty"`
+
+	// process blocked
+	ProcessBlocked *bool `json:"process_blocked,omitempty"`
+
+	// quarantine file
+	QuarantineFile *bool `json:"quarantine_file,omitempty"`
+
+	// quarantine machine
+	QuarantineMachine *bool `json:"quarantine_machine,omitempty"`
+
+	// registry operation blocked
+	RegistryOperationBlocked *bool `json:"registry_operation_blocked,omitempty"`
+
+	// response action already applied
+	ResponseActionAlreadyApplied *bool `json:"response_action_already_applied,omitempty"`
+
+	// response action failed
+	ResponseActionFailed *bool `json:"response_action_failed,omitempty"`
+
+	// response action triggered
+	ResponseActionTriggered *bool `json:"response_action_triggered,omitempty"`
+
+	// rooting
+	Rooting *bool `json:"rooting,omitempty"`
+
+	// sensor only
+	SensorOnly *bool `json:"sensor_only,omitempty"`
+
+	// suspend parent
+	SuspendParent *bool `json:"suspend_parent,omitempty"`
+
+	// suspend process
+	SuspendProcess *bool `json:"suspend_process,omitempty"`
+}
+
+// Validate validates this detects alert pattern disposition details
+func (m *DetectsAlertPatternDispositionDetails) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this detects alert pattern disposition details based on context it is used
+func (m *DetectsAlertPatternDispositionDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertPatternDispositionDetails) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertPatternDispositionDetails) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertPatternDispositionDetails
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DetectsAlertQuarantinedFilesItems0 detects alert quarantined files items0
+//
+// swagger:model DetectsAlertQuarantinedFilesItems0
+type DetectsAlertQuarantinedFilesItems0 struct {
+
+	// filename
+	Filename string `json:"filename,omitempty"`
+
+	// id
+	ID string `json:"id,omitempty"`
+
+	// sha256
+	Sha256 string `json:"sha256,omitempty"`
+
+	// state
+	State string `json:"state,omitempty"`
+}
+
+// Validate validates this detects alert quarantined files items0
+func (m *DetectsAlertQuarantinedFilesItems0) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this detects alert quarantined files items0 based on context it is used
+func (m *DetectsAlertQuarantinedFilesItems0) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DetectsAlertQuarantinedFilesItems0) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DetectsAlertQuarantinedFilesItems0) UnmarshalBinary(b []byte) error {
+	var res DetectsAlertQuarantinedFilesItems0
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

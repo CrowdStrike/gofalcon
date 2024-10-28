@@ -59,10 +59,6 @@ type EntitiesODSScanRequest struct {
 	// Required: true
 	MaxDuration *int32 `json:"max_duration"`
 
-	// max file size
-	// Required: true
-	MaxFileSize *int32 `json:"max_file_size"`
-
 	// pause duration
 	// Required: true
 	PauseDuration *int32 `json:"pause_duration"`
@@ -129,10 +125,6 @@ func (m *EntitiesODSScanRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMaxDuration(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMaxFileSize(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -250,15 +242,6 @@ func (m *EntitiesODSScanRequest) validateInitiatedFrom(formats strfmt.Registry) 
 func (m *EntitiesODSScanRequest) validateMaxDuration(formats strfmt.Registry) error {
 
 	if err := validate.Required("max_duration", "body", m.MaxDuration); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *EntitiesODSScanRequest) validateMaxFileSize(formats strfmt.Registry) error {
-
-	if err := validate.Required("max_file_size", "body", m.MaxFileSize); err != nil {
 		return err
 	}
 

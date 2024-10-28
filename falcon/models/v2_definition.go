@@ -58,6 +58,9 @@ type V2Definition struct {
 	// provision on install
 	ProvisionOnInstall bool `json:"provision_on_install,omitempty"`
 
+	// summary
+	Summary string `json:"summary,omitempty"`
+
 	// trigger
 	// Required: true
 	Trigger *V2Trigger `json:"trigger"`
@@ -68,6 +71,12 @@ type V2Definition struct {
 	// uniq node seen
 	// Required: true
 	UniqNodeSeen map[string]bool `json:"uniqNodeSeen"`
+
+	// use cases
+	UseCases []string `json:"use_cases"`
+
+	// vendors
+	Vendors []string `json:"vendors"`
 }
 
 // Validate validates this v2 definition

@@ -70,13 +70,13 @@ type QueryDevicesByFilterScrollParams struct {
 
 	/* Limit.
 
-	   The maximum records to return. [1-5000]
+	   The maximum records to return. [1-10000]
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   The offset to page from, for the next result set
+	   The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
 	*/
 	Offset *string
 

@@ -31,6 +31,18 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	DeleteVersionedObject(params *DeleteVersionedObjectParams, opts ...ClientOption) (*DeleteVersionedObjectOK, error)
+
+	GetVersionedObject(params *GetVersionedObjectParams, writer io.Writer, opts ...ClientOption) (*GetVersionedObjectOK, error)
+
+	GetVersionedObjectMetadata(params *GetVersionedObjectMetadataParams, opts ...ClientOption) (*GetVersionedObjectMetadataOK, error)
+
+	ListObjectsByVersion(params *ListObjectsByVersionParams, opts ...ClientOption) (*ListObjectsByVersionOK, error)
+
+	PutObjectByVersion(params *PutObjectByVersionParams, opts ...ClientOption) (*PutObjectByVersionOK, error)
+
+	SearchObjectsByVersion(params *SearchObjectsByVersionParams, opts ...ClientOption) (*SearchObjectsByVersionOK, error)
+
 	Delete(params *DeleteParams, opts ...ClientOption) (*DeleteOK, error)
 
 	Get(params *GetParams, writer io.Writer, opts ...ClientOption) (*GetOK, error)
@@ -44,6 +56,234 @@ type ClientService interface {
 	Upload(params *UploadParams, opts ...ClientOption) (*UploadOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+DeleteVersionedObject deletes the specified versioned object
+*/
+func (a *Client) DeleteVersionedObject(params *DeleteVersionedObjectParams, opts ...ClientOption) (*DeleteVersionedObjectOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteVersionedObjectParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteVersionedObject",
+		Method:             "DELETE",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteVersionedObjectReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteVersionedObjectOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteVersionedObject: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetVersionedObject gets the bytes for the specified object
+*/
+func (a *Client) GetVersionedObject(params *GetVersionedObjectParams, writer io.Writer, opts ...ClientOption) (*GetVersionedObjectOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetVersionedObjectParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetVersionedObject",
+		Method:             "GET",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}",
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetVersionedObjectReader{formats: a.formats, writer: writer},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetVersionedObjectOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetVersionedObject: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetVersionedObjectMetadata gets the metadata for the specified object
+*/
+func (a *Client) GetVersionedObjectMetadata(params *GetVersionedObjectMetadataParams, opts ...ClientOption) (*GetVersionedObjectMetadataOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetVersionedObjectMetadataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetVersionedObjectMetadata",
+		Method:             "GET",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetVersionedObjectMetadataReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetVersionedObjectMetadataOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetVersionedObjectMetadata: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ListObjectsByVersion lists the object keys in the specified collection in alphabetical order
+*/
+func (a *Client) ListObjectsByVersion(params *ListObjectsByVersionParams, opts ...ClientOption) (*ListObjectsByVersionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListObjectsByVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListObjectsByVersion",
+		Method:             "GET",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/{collection_version}/objects",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListObjectsByVersionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListObjectsByVersionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListObjectsByVersion: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutObjectByVersion puts the specified new object at the given key or overwrite an existing object at the given key
+*/
+func (a *Client) PutObjectByVersion(params *PutObjectByVersionParams, opts ...ClientOption) (*PutObjectByVersionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutObjectByVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutObjectByVersion",
+		Method:             "PUT",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutObjectByVersionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutObjectByVersionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutObjectByVersion: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SearchObjectsByVersion searches for objects that match the specified filter criteria returns metadata not actual objects
+*/
+func (a *Client) SearchObjectsByVersion(params *SearchObjectsByVersionParams, opts ...ClientOption) (*SearchObjectsByVersionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSearchObjectsByVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SearchObjectsByVersion",
+		Method:             "POST",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/{collection_version}/objects",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SearchObjectsByVersionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SearchObjectsByVersionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SearchObjectsByVersion: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

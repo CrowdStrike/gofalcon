@@ -48,6 +48,9 @@ type ExecutionsExecutionResult struct {
 	// Required: true
 	Loops []*ExecutionsLoopResult `json:"loops"`
 
+	// Output from this workflow execution
+	Output interface{} `json:"output,omitempty"`
+
 	// A boolean value indicating whether the failed workflow execution is retryable
 	// Required: true
 	Retryable *bool `json:"retryable"`

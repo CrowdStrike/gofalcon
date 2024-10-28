@@ -25,6 +25,9 @@ type ParameterActivityConfigParameterValue struct {
 	// Specifies whether the given activity configuration property can be overridden at provisioning time.
 	DenyOverride bool `json:"deny_override,omitempty"`
 
+	// Optional text/description which can be used to provide differentiation for parameterized fields during app installation.
+	HelperText string `json:"helperText,omitempty"`
+
 	// Indication of whether the property must be specified as a parameter during template provisioning.
 	// Required: true
 	Required *bool `json:"required"`

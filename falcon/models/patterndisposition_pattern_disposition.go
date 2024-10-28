@@ -27,6 +27,10 @@ type PatterndispositionPatternDisposition struct {
 	// Required: true
 	BootupSafeguardEnabled *bool `json:"bootup_safeguard_enabled"`
 
+	// containment file system
+	// Required: true
+	ContainmentFileSystem *bool `json:"containment_file_system"`
+
 	// critical process disabled
 	// Required: true
 	CriticalProcessDisabled *bool `json:"critical_process_disabled"`
@@ -67,6 +71,10 @@ type PatterndispositionPatternDisposition struct {
 	// Required: true
 	KillSubprocess *bool `json:"kill_subprocess"`
 
+	// mfa required
+	// Required: true
+	MfaRequired *bool `json:"mfa_required"`
+
 	// operation blocked
 	// Required: true
 	OperationBlocked *bool `json:"operation_blocked"`
@@ -74,6 +82,10 @@ type PatterndispositionPatternDisposition struct {
 	// policy disabled
 	// Required: true
 	PolicyDisabled *bool `json:"policy_disabled"`
+
+	// prevention provisioning enabled
+	// Required: true
+	PreventionProvisioningEnabled *bool `json:"prevention_provisioning_enabled"`
 
 	// process blocked
 	// Required: true
@@ -90,6 +102,18 @@ type PatterndispositionPatternDisposition struct {
 	// registry operation blocked
 	// Required: true
 	RegistryOperationBlocked *bool `json:"registry_operation_blocked"`
+
+	// response action already applied
+	// Required: true
+	ResponseActionAlreadyApplied *bool `json:"response_action_already_applied"`
+
+	// response action failed
+	// Required: true
+	ResponseActionFailed *bool `json:"response_action_failed"`
+
+	// response action triggered
+	// Required: true
+	ResponseActionTriggered *bool `json:"response_action_triggered"`
 
 	// rooting
 	// Required: true
@@ -117,6 +141,10 @@ func (m *PatterndispositionPatternDisposition) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateBootupSafeguardEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContainmentFileSystem(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -160,11 +188,19 @@ func (m *PatterndispositionPatternDisposition) Validate(formats strfmt.Registry)
 		res = append(res, err)
 	}
 
+	if err := m.validateMfaRequired(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateOperationBlocked(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validatePolicyDisabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePreventionProvisioningEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -181,6 +217,18 @@ func (m *PatterndispositionPatternDisposition) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateRegistryOperationBlocked(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResponseActionAlreadyApplied(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResponseActionFailed(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResponseActionTriggered(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -218,6 +266,15 @@ func (m *PatterndispositionPatternDisposition) validateBlockingUnsupportedOrDisa
 func (m *PatterndispositionPatternDisposition) validateBootupSafeguardEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("bootup_safeguard_enabled", "body", m.BootupSafeguardEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatterndispositionPatternDisposition) validateContainmentFileSystem(formats strfmt.Registry) error {
+
+	if err := validate.Required("containment_file_system", "body", m.ContainmentFileSystem); err != nil {
 		return err
 	}
 
@@ -314,6 +371,15 @@ func (m *PatterndispositionPatternDisposition) validateKillSubprocess(formats st
 	return nil
 }
 
+func (m *PatterndispositionPatternDisposition) validateMfaRequired(formats strfmt.Registry) error {
+
+	if err := validate.Required("mfa_required", "body", m.MfaRequired); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *PatterndispositionPatternDisposition) validateOperationBlocked(formats strfmt.Registry) error {
 
 	if err := validate.Required("operation_blocked", "body", m.OperationBlocked); err != nil {
@@ -326,6 +392,15 @@ func (m *PatterndispositionPatternDisposition) validateOperationBlocked(formats 
 func (m *PatterndispositionPatternDisposition) validatePolicyDisabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("policy_disabled", "body", m.PolicyDisabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatterndispositionPatternDisposition) validatePreventionProvisioningEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("prevention_provisioning_enabled", "body", m.PreventionProvisioningEnabled); err != nil {
 		return err
 	}
 
@@ -362,6 +437,33 @@ func (m *PatterndispositionPatternDisposition) validateQuarantineMachine(formats
 func (m *PatterndispositionPatternDisposition) validateRegistryOperationBlocked(formats strfmt.Registry) error {
 
 	if err := validate.Required("registry_operation_blocked", "body", m.RegistryOperationBlocked); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatterndispositionPatternDisposition) validateResponseActionAlreadyApplied(formats strfmt.Registry) error {
+
+	if err := validate.Required("response_action_already_applied", "body", m.ResponseActionAlreadyApplied); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatterndispositionPatternDisposition) validateResponseActionFailed(formats strfmt.Registry) error {
+
+	if err := validate.Required("response_action_failed", "body", m.ResponseActionFailed); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatterndispositionPatternDisposition) validateResponseActionTriggered(formats strfmt.Registry) error {
+
+	if err := validate.Required("response_action_triggered", "body", m.ResponseActionTriggered); err != nil {
 		return err
 	}
 

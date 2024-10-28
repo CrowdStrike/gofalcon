@@ -63,7 +63,7 @@ type DeploymentCountParams struct {
 
 	/* Filter.
 
-	   Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count,resource_status
+	   Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
 	*/
 	Filter *string
 

@@ -17,6 +17,9 @@ import (
 // swagger:model graph.Condition
 type GraphCondition struct {
 
+	// CEL expression for the condition, should evaluate to a boolean.
+	CelExpression string `json:"cel_expression,omitempty"`
+
 	// User friendly description of the FQL expression. This would be supplied by the UI/caller and is not set by the API.
 	Display []string `json:"display"`
 

@@ -27,11 +27,17 @@ type DeviceMappedDevicePolicies struct {
 	// aws verified access
 	AwsVerifiedAccess *DeviceDevicePolicy `json:"aws-verified-access,omitempty"`
 
+	// customer entitlements
+	CustomerEntitlements *DeviceDevicePolicy `json:"customer-entitlements,omitempty"`
+
 	// data protection
 	DataProtection *DeviceDevicePolicy `json:"data-protection,omitempty"`
 
 	// device control
 	DeviceControl *DeviceDevicePolicy `json:"device_control,omitempty"`
+
+	// falcon for it
+	FalconForIt *DeviceDevicePolicy `json:"falcon-for-it,omitempty"`
 
 	// fim
 	Fim *DeviceDevicePolicy `json:"fim,omitempty"`
@@ -53,6 +59,9 @@ type DeviceMappedDevicePolicies struct {
 
 	// kubernetes admission control
 	KubernetesAdmissionControl *DeviceDevicePolicy `json:"kubernetes-admission-control,omitempty"`
+
+	// legacy os
+	LegacyOs *DeviceDevicePolicy `json:"legacy-os,omitempty"`
 
 	// mobile
 	Mobile *DeviceDevicePolicy `json:"mobile,omitempty"`
@@ -98,11 +107,19 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCustomerEntitlements(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDataProtection(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateDeviceControl(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFalconForIt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -131,6 +148,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateKubernetesAdmissionControl(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLegacyOs(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -233,6 +254,25 @@ func (m *DeviceMappedDevicePolicies) validateAwsVerifiedAccess(formats strfmt.Re
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateCustomerEntitlements(formats strfmt.Registry) error {
+	if swag.IsZero(m.CustomerEntitlements) { // not required
+		return nil
+	}
+
+	if m.CustomerEntitlements != nil {
+		if err := m.CustomerEntitlements.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customer-entitlements")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customer-entitlements")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateDataProtection(formats strfmt.Registry) error {
 	if swag.IsZero(m.DataProtection) { // not required
 		return nil
@@ -263,6 +303,25 @@ func (m *DeviceMappedDevicePolicies) validateDeviceControl(formats strfmt.Regist
 				return ve.ValidateName("device_control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("device_control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateFalconForIt(formats strfmt.Registry) error {
+	if swag.IsZero(m.FalconForIt) { // not required
+		return nil
+	}
+
+	if m.FalconForIt != nil {
+		if err := m.FalconForIt.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("falcon-for-it")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("falcon-for-it")
 			}
 			return err
 		}
@@ -396,6 +455,25 @@ func (m *DeviceMappedDevicePolicies) validateKubernetesAdmissionControl(formats 
 				return ve.ValidateName("kubernetes-admission-control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kubernetes-admission-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateLegacyOs(formats strfmt.Registry) error {
+	if swag.IsZero(m.LegacyOs) { // not required
+		return nil
+	}
+
+	if m.LegacyOs != nil {
+		if err := m.LegacyOs.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("legacy-os")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("legacy-os")
 			}
 			return err
 		}
@@ -591,11 +669,19 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCustomerEntitlements(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDataProtection(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateDeviceControl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFalconForIt(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -624,6 +710,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateKubernetesAdmissionControl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLegacyOs(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -732,6 +822,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateAwsVerifiedAccess(ctx contex
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) contextValidateCustomerEntitlements(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CustomerEntitlements != nil {
+
+		if swag.IsZero(m.CustomerEntitlements) { // not required
+			return nil
+		}
+
+		if err := m.CustomerEntitlements.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customer-entitlements")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customer-entitlements")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) contextValidateDataProtection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DataProtection != nil {
@@ -766,6 +877,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateDeviceControl(ctx context.Co
 				return ve.ValidateName("device_control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("device_control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateFalconForIt(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FalconForIt != nil {
+
+		if swag.IsZero(m.FalconForIt) { // not required
+			return nil
+		}
+
+		if err := m.FalconForIt.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("falcon-for-it")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("falcon-for-it")
 			}
 			return err
 		}
@@ -913,6 +1045,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateKubernetesAdmissionControl(c
 				return ve.ValidateName("kubernetes-admission-control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kubernetes-admission-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateLegacyOs(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LegacyOs != nil {
+
+		if swag.IsZero(m.LegacyOs) { // not required
+			return nil
+		}
+
+		if err := m.LegacyOs.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("legacy-os")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("legacy-os")
 			}
 			return err
 		}

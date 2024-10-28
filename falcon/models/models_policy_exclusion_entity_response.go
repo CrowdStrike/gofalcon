@@ -20,25 +20,21 @@ import (
 // swagger:model models.PolicyExclusionEntityResponse
 type ModelsPolicyExclusionEntityResponse struct {
 
-	// resources
-	// Required: true
-	Resources []*ModelsAPIPolicyExclusion `json:"Resources"`
-
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*ModelsAPIPolicyExclusion `json:"resources"`
 }
 
 // Validate validates this models policy exclusion entity response
 func (m *ModelsPolicyExclusionEntityResponse) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateResources(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateErrors(formats); err != nil {
 		res = append(res, err)
@@ -48,36 +44,13 @@ func (m *ModelsPolicyExclusionEntityResponse) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
+	if err := m.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *ModelsPolicyExclusionEntityResponse) validateResources(formats strfmt.Registry) error {
-
-	if err := validate.Required("Resources", "body", m.Resources); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -127,13 +100,36 @@ func (m *ModelsPolicyExclusionEntityResponse) validateMeta(formats strfmt.Regist
 	return nil
 }
 
+func (m *ModelsPolicyExclusionEntityResponse) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this models policy exclusion entity response based on the context it is used
 func (m *ModelsPolicyExclusionEntityResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.contextValidateResources(ctx, formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
 		res = append(res, err)
@@ -143,34 +139,13 @@ func (m *ModelsPolicyExclusionEntityResponse) ContextValidate(ctx context.Contex
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *ModelsPolicyExclusionEntityResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Resources); i++ {
-
-		if m.Resources[i] != nil {
-
-			if swag.IsZero(m.Resources[i]) { // not required
-				return nil
-			}
-
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -211,6 +186,31 @@ func (m *ModelsPolicyExclusionEntityResponse) contextValidateMeta(ctx context.Co
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *ModelsPolicyExclusionEntityResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

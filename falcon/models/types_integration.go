@@ -27,17 +27,14 @@ type TypesIntegration struct {
 	// id
 	ID int64 `json:"id,omitempty"`
 
+	// integration type
+	IntegrationType *TypesIntegrationType `json:"integration_type,omitempty"`
+
 	// name
 	Name string `json:"name,omitempty"`
 
 	// node
 	Node *TypesExecutorNode `json:"node,omitempty"`
-
-	// organization id
-	OrganizationID int64 `json:"organization_id,omitempty"`
-
-	// project id
-	ProjectID int64 `json:"project_id,omitempty"`
 
 	// type
 	Type *TypesIntegrationType `json:"type,omitempty"`
@@ -50,6 +47,10 @@ type TypesIntegration struct {
 func (m *TypesIntegration) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateIntegrationType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateNode(formats); err != nil {
 		res = append(res, err)
 	}
@@ -61,6 +62,25 @@ func (m *TypesIntegration) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *TypesIntegration) validateIntegrationType(formats strfmt.Registry) error {
+	if swag.IsZero(m.IntegrationType) { // not required
+		return nil
+	}
+
+	if m.IntegrationType != nil {
+		if err := m.IntegrationType.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration_type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration_type")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -106,6 +126,10 @@ func (m *TypesIntegration) validateType(formats strfmt.Registry) error {
 func (m *TypesIntegration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateIntegrationType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateNode(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -117,6 +141,27 @@ func (m *TypesIntegration) ContextValidate(ctx context.Context, formats strfmt.R
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *TypesIntegration) contextValidateIntegrationType(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IntegrationType != nil {
+
+		if swag.IsZero(m.IntegrationType) { // not required
+			return nil
+		}
+
+		if err := m.IntegrationType.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration_type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration_type")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

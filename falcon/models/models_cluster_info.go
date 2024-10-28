@@ -26,6 +26,9 @@ type ModelsClusterInfo struct {
 	// cloud region
 	CloudRegion string `json:"cloud_region,omitempty"`
 
+	// cloud service
+	CloudService string `json:"cloud_service,omitempty"`
+
 	// cluster id
 	ClusterID string `json:"cluster_id,omitempty"`
 

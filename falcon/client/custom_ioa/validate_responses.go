@@ -43,8 +43,20 @@ func (o *ValidateReader) ReadResponse(response runtime.ClientResponse, consumer 
 			return nil, err
 		}
 		return nil, result
+	case 422:
+		result := NewValidateUnprocessableEntity()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewValidateTooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewValidateInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -384,6 +396,116 @@ func (o *ValidateNotFound) readResponse(response runtime.ClientResponse, consume
 	return nil
 }
 
+// NewValidateUnprocessableEntity creates a ValidateUnprocessableEntity with default headers values
+func NewValidateUnprocessableEntity() *ValidateUnprocessableEntity {
+	return &ValidateUnprocessableEntity{}
+}
+
+/*
+ValidateUnprocessableEntity describes a response with status code 422, with default header values.
+
+Unprocessable Entity
+*/
+type ValidateUnprocessableEntity struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this validate unprocessable entity response has a 2xx status code
+func (o *ValidateUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this validate unprocessable entity response has a 3xx status code
+func (o *ValidateUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this validate unprocessable entity response has a 4xx status code
+func (o *ValidateUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this validate unprocessable entity response has a 5xx status code
+func (o *ValidateUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this validate unprocessable entity response a status code equal to that given
+func (o *ValidateUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
+// Code gets the status code for the validate unprocessable entity response
+func (o *ValidateUnprocessableEntity) Code() int {
+	return 422
+}
+
+func (o *ValidateUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *ValidateUnprocessableEntity) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *ValidateUnprocessableEntity) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ValidateUnprocessableEntity) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewValidateTooManyRequests creates a ValidateTooManyRequests with default headers values
 func NewValidateTooManyRequests() *ValidateTooManyRequests {
 	return &ValidateTooManyRequests{}
@@ -497,6 +619,116 @@ func (o *ValidateTooManyRequests) readResponse(response runtime.ClientResponse, 
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewValidateInternalServerError creates a ValidateInternalServerError with default headers values
+func NewValidateInternalServerError() *ValidateInternalServerError {
+	return &ValidateInternalServerError{}
+}
+
+/*
+ValidateInternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type ValidateInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this validate internal server error response has a 2xx status code
+func (o *ValidateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this validate internal server error response has a 3xx status code
+func (o *ValidateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this validate internal server error response has a 4xx status code
+func (o *ValidateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this validate internal server error response has a 5xx status code
+func (o *ValidateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this validate internal server error response a status code equal to that given
+func (o *ValidateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the validate internal server error response
+func (o *ValidateInternalServerError) Code() int {
+	return 500
+}
+
+func (o *ValidateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ValidateInternalServerError) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ValidateInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ValidateInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

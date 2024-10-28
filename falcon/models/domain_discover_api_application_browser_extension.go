@@ -20,6 +20,9 @@ import (
 // swagger:model domain.DiscoverAPIApplicationBrowserExtension
 type DomainDiscoverAPIApplicationBrowserExtension struct {
 
+	// The architecture of the browser extension
+	Architecture string `json:"architecture,omitempty"`
+
 	// The name of the browser that's running the extension
 	BrowserName string `json:"browser_name,omitempty"`
 
