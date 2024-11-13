@@ -64,6 +64,12 @@ CreateSavedSearchesExecuteAltV1Params contains all the parameters to send to the
 */
 type CreateSavedSearchesExecuteAltV1Params struct {
 
+	/* XCSUSERUUID.
+
+	   Requester UUID.
+	*/
+	XCSUSERUUID *string
+
 	/* AppID.
 
 	   Application ID.
@@ -179,6 +185,17 @@ func (o *CreateSavedSearchesExecuteAltV1Params) SetHTTPClient(client *http.Clien
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the create saved searches execute alt v1 params
+func (o *CreateSavedSearchesExecuteAltV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *CreateSavedSearchesExecuteAltV1Params {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the create saved searches execute alt v1 params
+func (o *CreateSavedSearchesExecuteAltV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithAppID adds the appID to the create saved searches execute alt v1 params
 func (o *CreateSavedSearchesExecuteAltV1Params) WithAppID(appID *string) *CreateSavedSearchesExecuteAltV1Params {
 	o.SetAppID(appID)
@@ -263,6 +280,14 @@ func (o *CreateSavedSearchesExecuteAltV1Params) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
+
+	if o.XCSUSERUUID != nil {
+
+		// header param X-CS-USERUUID
+		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
+			return err
+		}
+	}
 
 	if o.AppID != nil {
 

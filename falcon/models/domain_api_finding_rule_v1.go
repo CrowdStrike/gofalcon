@@ -29,6 +29,9 @@ type DomainAPIFindingRuleV1 struct {
 	// cce
 	Cce string `json:"cce,omitempty"`
 
+	// compliance mappings
+	ComplianceMappings []*DomainAPIComplianceMappingV1 `json:"compliance_mappings"`
+
 	// edited
 	// Required: true
 	Edited *bool `json:"edited"`
@@ -72,6 +75,10 @@ type DomainAPIFindingRuleV1 struct {
 func (m *DomainAPIFindingRuleV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateComplianceMappings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEdited(formats); err != nil {
 		res = append(res, err)
 	}
@@ -87,6 +94,32 @@ func (m *DomainAPIFindingRuleV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainAPIFindingRuleV1) validateComplianceMappings(formats strfmt.Registry) error {
+	if swag.IsZero(m.ComplianceMappings) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ComplianceMappings); i++ {
+		if swag.IsZero(m.ComplianceMappings[i]) { // not required
+			continue
+		}
+
+		if m.ComplianceMappings[i] != nil {
+			if err := m.ComplianceMappings[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -138,6 +171,10 @@ func (m *DomainAPIFindingRuleV1) validateMitreAttackTactics(formats strfmt.Regis
 func (m *DomainAPIFindingRuleV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateComplianceMappings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMitreAttackTactics(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -145,6 +182,31 @@ func (m *DomainAPIFindingRuleV1) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainAPIFindingRuleV1) contextValidateComplianceMappings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ComplianceMappings); i++ {
+
+		if m.ComplianceMappings[i] != nil {
+
+			if swag.IsZero(m.ComplianceMappings[i]) { // not required
+				return nil
+			}
+
+			if err := m.ComplianceMappings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

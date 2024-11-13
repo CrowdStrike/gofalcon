@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	ExecuteCommand(params *ExecuteCommandParams, opts ...ClientOption) (*ExecuteCommandOK, error)
 
+	ExecuteCommandProxy(params *ExecuteCommandProxyParams, opts ...ClientOption) (*ExecuteCommandProxyOK, error)
+
 	GetCombinedPluginConfigs(params *GetCombinedPluginConfigsParams, opts ...ClientOption) (*GetCombinedPluginConfigsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -50,7 +52,7 @@ func (a *Client) ExecuteCommand(params *ExecuteCommandParams, opts ...ClientOpti
 		Method:             "POST",
 		PathPattern:        "/plugins/entities/execute/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "multipart/form-data"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ExecuteCommandReader{formats: a.formats},
@@ -72,6 +74,44 @@ func (a *Client) ExecuteCommand(params *ExecuteCommandParams, opts ...ClientOpti
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ExecuteCommand: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExecuteCommandProxy executes a command and proxy the response directly
+*/
+func (a *Client) ExecuteCommandProxy(params *ExecuteCommandProxyParams, opts ...ClientOption) (*ExecuteCommandProxyOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteCommandProxyParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExecuteCommandProxy",
+		Method:             "POST",
+		PathPattern:        "/plugins/entities/execute-proxy/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteCommandProxyReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExecuteCommandProxyOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExecuteCommandProxy: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

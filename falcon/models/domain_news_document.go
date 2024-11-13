@@ -68,6 +68,9 @@ type DomainNewsDocument struct {
 	// Rich text description with markup
 	RichTextDescription string `json:"rich_text_description,omitempty"`
 
+	// Rich text short description with markup
+	RichTextShortDescription string `json:"rich_text_short_description,omitempty"`
+
 	// Short description of the report content
 	ShortDescription string `json:"short_description,omitempty"`
 

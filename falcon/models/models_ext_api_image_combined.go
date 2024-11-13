@@ -19,6 +19,10 @@ import (
 // swagger:model models.ExtAPIImageCombined
 type ModelsExtAPIImageCombined struct {
 
+	// architecture
+	// Required: true
+	Architecture *string `json:"architecture"`
+
 	// base os
 	// Required: true
 	BaseOs *string `json:"base_os"`
@@ -100,6 +104,10 @@ type ModelsExtAPIImageCombined struct {
 func (m *ModelsExtAPIImageCombined) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateArchitecture(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateBaseOs(formats); err != nil {
 		res = append(res, err)
 	}
@@ -179,6 +187,15 @@ func (m *ModelsExtAPIImageCombined) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ModelsExtAPIImageCombined) validateArchitecture(formats strfmt.Registry) error {
+
+	if err := validate.Required("architecture", "body", m.Architecture); err != nil {
+		return err
+	}
+
 	return nil
 }
 

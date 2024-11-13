@@ -76,11 +76,13 @@
   # Make message-center use consistent return type
   | if .paths."/message-center/aggregates/cases/GET/v1".post.responses."403".schema."$ref" = "#/definitions/msa.ReplyMetaOnly" then 
       .paths."/message-center/aggregates/cases/GET/v1".post.responses."403".schema = {"$ref": "#/definitions/msaspec.ResponseFields"} 
-    else . end
+    else . end 
 
   # Custom Storage "custom-type" rename
   | .definitions."CustomStorageObjectKeys" = .definitions."CustomType_1255839303"
   | del(.definitions."CustomType_1255839303")
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then 
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end 
   | if .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then 
       .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end 
 
@@ -94,8 +96,14 @@
       .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".delete.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
   | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
       .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  
-   
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".post.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".post.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".put.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".put.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".delete.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".delete.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
   
   # Better operationId for workflows collection
   | .paths."/workflows/entities/execute/v1".post.operationId = "Execute"
@@ -196,6 +204,359 @@
 | .paths."/real-time-response/entities/queued-sessions/command/v1".delete.responses."200" = .paths."/real-time-response/entities/put-files/v1".delete.responses."200"
 
 # last_seen and first_seen should be a string
- | .definitions."models.Container".properties.first_seen.type = "string"
- | .definitions."models.Container".properties.last_seen.type = "string"
+| .definitions."models.Container".properties.first_seen.type = "string"
+| .definitions."models.Container".properties.last_seen.type = "string"
 
+# add intel.CVSSv2 model definition
+| .definitions."intel.CVSSv2" = {
+    "properties": {
+        "access_complexity": {"type": "string"},
+        "access_vector": {"type": "string"},
+        "authentication": {"type": "string"},
+        "availability_impact": {"type": "string"},
+        "score": {"type": "number", "format": "double"},
+        "confidentiality_impact": {"type": "string"},
+        "integrity_impact": {"type": "string"},
+        "severity": {"type": "string"}
+    }
+}
+
+# add intel.CVSSv3 model definition
+| .definitions."intel.CVSSv3" = {
+    "properties": {
+        "attack_complexity": {"type": "string"},
+        "attack_vector": {"type": "string"},
+        "availability_impact": {"type": "string"},
+        "score": {"type": "number", "format": "double"},
+        "confidentiality_impact": {"type": "string"},
+        "integrity_impact": {"type": "string"},
+        "privileges_required": {"type": "string"},
+        "scope": {"type": "string"},
+        "severity": {"type": "string"},
+        "user_interaction": {"type": "string"}
+    }
+}
+
+# update Intel.GetVulnerabilities to use intel.CVSS models
+| .definitions."domain.Vulnerability".properties."cvss_v2_base" = {
+    "description": "Vulnerability severity score, according to Common Vulnerability Scoring System V2",
+    "$ref": "#/definitions/intel.CVSSv2"
+}
+| .definitions."domain.Vulnerability".properties."cvss_v3_base" = {
+    "description": "Vulnerability severity score, according to Common Vulnerability Scoring System V3",
+    "$ref": "#/definitions/intel.CVSSv3"
+}
+
+# fix Alerts service collection
+| .definitions."detectsapi.PostEntitiesAlertsV1Response" = .definitions."detectsapi.PostEntitiesAlertsV1ResponseSwagger"
+| del(.definitions."detectsapi.PostEntitiesAlertsV1ResponseSwagger")
+| .definitions."detectsapi.PostEntitiesAlertsV1Response".properties.resources.items = {"$ref": "#/definitions/detects.Alert"}
+| .paths."/alerts/entities/alerts/v1".post.responses."200".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV1Response"}
+| .paths."/alerts/entities/alerts/v1".post.responses."400".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV1Response"}
+| .paths."/alerts/entities/alerts/v1".post.responses."500".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV1Response"}
+| .definitions."detectsapi.PostEntitiesAlertsV2Response" = .definitions."detectsapi.PostEntitiesAlertsV2ResponseSwagger"
+| del(.definitions."detectsapi.PostEntitiesAlertsV2ResponseSwagger")
+| .definitions."detectsapi.PostEntitiesAlertsV2Response".properties.resources.items = {"$ref": "#/definitions/detects.Alert"}
+| .paths."/alerts/entities/alerts/v2".post.responses."200".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV2Response"}
+| .paths."/alerts/entities/alerts/v2".post.responses."400".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV2Response"}
+| .paths."/alerts/entities/alerts/v2".post.responses."500".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV2Response"}
+| .definitions."detects.Alert" = .definitions."detects.ExternalAlert"
+| del(.definitions."detects.ExternalAlert")
+| .definitions."detects.Alert".additionalProperties = true
+| .definitions."detects.Alert".properties += {
+  "alleged_filetype": {"type": "string"},
+  "cmdline": {"type": "string"},
+  "control_graph_id": {"type": "string"},
+  "filename": {"type": "string"},
+  "filepath": {"type": "string"},
+  "ioc_description": {"type": "string"},
+  "ioc_source": {"type": "string"},
+  "ioc_type": {"type": "string"},
+  "ioc_value": {"type": "string"},
+  "md5": {"type": "string"},
+  "cloud_indicator": {"type": "string"},
+  "context_timestamp": {"type": "string", "format": "date-time"},
+  "control_graph_id": {"type": "string"},
+  "crawl_edge_ids": {"type": "object", "properties": {"Sensor": {"type": "array", "items": {"type": "string"}}}},
+  "crawl_vertex_ids": {"type": "object", "properties": {"Sensor": {"type": "array", "items": {"type": "string"}}}},
+  "falcon_host_link": {"type": "string"},
+  "filename": {"type": "string"},
+  "filepath": {"type": "string"},
+  "grandparent_details": {
+    "type": "object",
+    "properties": {
+      "filename": { "type": "string" },
+      "cmdline": { "type": "string" },
+      "filepath": { "type": "string" },
+      "local_process_id": { "type": "string" },
+      "md5": { "type": "string" },
+      "process_graph_id": { "type": "string" },
+      "process_id": { "type": "string" },
+      "sha256": { "type": "string" },
+      "timestamp": { "type": "string", "format": "date-time" },
+      "user_graph_id": { "type": "string" },
+      "user_id": { "type": "string" },
+      "user_name": { "type": "string" }
+    }
+  },
+  "has_script_or_module_ioce": {"type": "boolean"},
+  "indicator_id": {"type": "string"},
+  "ioc_context": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "ioc_description": { "type": "string" },
+        "ioc_source": { "type": "string" },
+        "ioc_type": { "type": "string" },
+        "ioc_value": { "type": "string" },
+        "md5": { "type": "string" },
+        "sha256": { "type": "string" },
+        "type": { "type": "string" }
+      }
+    }
+  },
+  "ioc_values": {
+    "type": "array",
+    "items": { "type": "string" }
+  },
+  "is_synthetic_quarantine_disposition": {"type": "boolean"},
+  "local_process_id": {"type": "string"},
+  "logon_domain": {"type": "string"},
+  "parent_details": {
+    "type": "object",
+    "properties": {
+      "cmdline": { "type": "string" },
+      "filename": { "type": "string" },
+      "filepath": { "type": "string" },
+      "local_process_id": { "type": "string" },
+      "md5": { "type": "string" },
+      "process_graph_id": { "type": "string" },
+      "process_id": { "type": "string" },
+      "sha256": { "type": "string" },
+      "timestamp": { "type": "string" },
+      "user_graph_id": { "type": "string" },
+      "user_id": { "type": "string" },
+      "user_name": { "type": "string" }
+    }
+  },
+  "pattern_disposition": { "type": "integer", "x-nullable": true},
+  "pattern_disposition_description": { "type": "string" },
+  "pattern_disposition_details": {
+    "type": "object",
+    "properties": {
+      "blocking_unsupported_or_disabled": { "type": "boolean", "x-nullable": true },
+      "bootup_safeguard_enabled": { "type": "boolean", "x-nullable": true },
+      "containment_file_system": { "type": "boolean", "x-nullable": true },
+      "critical_process_disabled": { "type": "boolean", "x-nullable": true },
+      "detect": { "type": "boolean", "x-nullable": true },
+      "fs_operation_blocked": { "type": "boolean", "x-nullable": true },
+      "handle_operation_downgraded": { "type": "boolean", "x-nullable": true },
+      "inddet_mask": { "type": "boolean", "x-nullable": true },
+      "indicator": { "type": "boolean", "x-nullable": true },
+      "kill_action_failed": { "type": "boolean", "x-nullable": true },
+      "kill_parent": { "type": "boolean", "x-nullable": true },
+      "kill_process": { "type": "boolean", "x-nullable": true },
+      "kill_subprocess": { "type": "boolean", "x-nullable": true },
+      "mfa_required": { "type": "boolean", "x-nullable": true },
+      "operation_blocked": { "type": "boolean", "x-nullable": true },
+      "policy_disabled": { "type": "boolean", "x-nullable": true },
+      "prevention_provisioning_enabled": { "type": "boolean", "x-nullable": true },
+      "process_blocked": { "type": "boolean", "x-nullable": true },
+      "quarantine_file": { "type": "boolean", "x-nullable": true },
+      "quarantine_machine": { "type": "boolean", "x-nullable": true },
+      "registry_operation_blocked": { "type": "boolean", "x-nullable": true },
+      "response_action_already_applied": { "type": "boolean", "x-nullable": true },
+      "response_action_failed": { "type": "boolean", "x-nullable": true },
+      "response_action_triggered": { "type": "boolean", "x-nullable": true },
+      "rooting": { "type": "boolean", "x-nullable": true },
+      "sensor_only": { "type": "boolean", "x-nullable": true },
+      "suspend_parent": { "type": "boolean", "x-nullable": true },
+      "suspend_process": { "type": "boolean", "x-nullable": true }
+    },
+    "x-nullable": true
+  },
+  "parent_process_id": { "type": "string" },
+  "poly_id": { "type": "string" },
+  "process_end_time": { "type": "string"},
+  "process_id": { "type": "string" },
+  "process_start_time": { "type": "string"},
+  "quarantined_files": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "filename": { "type": "string" },
+        "id": { "type": "string" },
+        "sha256": { "type": "string" },
+        "state": { "type": "string" }
+      }
+    }
+  },
+  "sha1": { "type": "string" },
+  "sha256": { "type": "string" },
+  "tree_id": { "type": "string" },
+  "tree_root": { "type": "string" },
+  "triggering_process_graph_id": { "type": "string" },
+  "user_id": { "type": "string" },
+  "user_name": { "type": "string" },
+  "device": {
+    "type": "object",
+    "properties": {
+      "agent_load_flags": {
+          "type": "string"
+      },
+      "agent_local_time": {
+          "type": "string",
+          "format": "date-time"
+      },
+      "agent_version": {
+          "type": "string"
+      },
+      "bios_manufacturer": {
+          "description": "The manufacturer of the device's BIOS",
+          "type": "string"
+      },
+      "bios_version": {
+          "description": "Version of the device's BIOS",
+          "type": "string"
+      },
+      "cid": {
+          "type": "string"
+      },
+      "config_id_base": {
+          "type": "string"
+      },
+      "config_id_build": {
+          "type": "string"
+      },
+      "config_id_platform": {
+          "type": "string"
+      },
+      "device_id": {
+        "type": "string"
+      },
+      "external_ip": {
+          "type": "string"
+      },
+      "first_seen": {
+          "description": "Timestamp indicating when the device was first seen",
+          "type": "string",
+          "format": "date-time"
+      },
+      "groups": {
+          "type": "array",
+          "items": {
+              "type": "string"
+          }
+      },
+      "hostinfo": {
+          "type": "object",
+          "properties": {
+              "active_directory_dn_display": {
+                  "type": "array",
+                  "items": {
+                      "type": "string"
+                  }
+              },
+              "domain": {
+                  "type": "string"
+              }
+          }
+      },
+      "hostname": {
+          "type": "string"
+      },
+      "id": {
+          "type": "string"
+      },
+      "last_seen": {
+          "type": "string",
+          "format": "date-time"
+      },
+      "local_ip": {
+          "description": "Local IP address of the device",
+          "type": "string"
+      },
+      "mac_address": {
+          "description": "MAC address of the device",
+          "type": "string"
+      },
+      "machine_domain": {
+          "description": "Domain name of the device's machine",
+          "type": "string"
+      },
+      "major_version": {
+          "type": "string"
+      },
+      "minor_version": {
+          "type": "string"
+      },
+      "modified_timestamp": {
+          "description": "Timestamp indicating when the device information was last modified",
+          "type": "string",
+          "format": "date-time"
+      },
+      "os_version": {
+          "description": "Operating system version running on the device",
+          "type": "string"
+      },
+      "ou": {
+          "description": "Organizational units the device belongs to",
+          "type": "array",
+          "items": {
+              "type": "string"
+          }
+      },
+      "platform_id": {
+          "description": "ID of the platform the device is running on",
+          "type": "string"
+      },
+      "platform_name": {
+          "description": "Name of the platform the device is running on",
+          "type": "string"
+      },
+      "pod_labels": {"type": "array", "items": {"type": "string"}},
+      "tags": {"type": "array", "items": {"type": "string"}},
+      "product_type": {
+          "description": "Product type identifier for the device",
+          "type": "string"
+      },
+      "product_type_desc": {
+          "description": "Description of the product type for the device",
+          "type": "string"
+      },
+      "site_name": {
+          "description": "Site name where the device is located",
+          "type": "string"
+      },
+      "status": {
+          "description": "Current status of the device (e.g., normal, inactive)",
+          "type": "string"
+      },
+      "system_manufacturer": {
+          "description": "manufacturer of the system hardware",
+          "type": "string"
+      },
+      "system_product_name": {
+          "description": "product name of the system hardware",
+          "type": "string"
+      }
+    }
+  }
+}
+
+# Prevent unnecessary renaming 
+| .paths."/snapshots/entities/image-registry-credentials/v1".get.operationId = "GetCredentialsMixin0Mixin60"
+| .paths."/falconx/queries/submissions/v1".get.operationId = "QuerySubmissions"
+| .paths."/scanner/queries/scans/v1".get.operationId = "QuerySubmissionsMixin0"
+| .paths."/quickscanpro/entities/files/v1".post.operationId = "UploadFileMixin0Mixin93"
+| .paths."/oauth2/token".post.responses."400".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+| .paths."/oauth2/token".post.responses."403".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+| .paths."/oauth2/token".post.responses."500".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+| .paths."/oauth2/revoke".post.responses."200".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+| .paths."/oauth2/revoke".post.responses."400".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+| .paths."/oauth2/revoke".post.responses."403".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+| .paths."/oauth2/revoke".post.responses."500".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+
+| del(.definitions."apidomain.SavedSearchExecuteRequestV1".properties."parameters")

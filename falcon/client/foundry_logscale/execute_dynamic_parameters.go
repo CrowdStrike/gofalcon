@@ -64,6 +64,12 @@ ExecuteDynamicParams contains all the parameters to send to the API endpoint
 */
 type ExecuteDynamicParams struct {
 
+	/* XCSUSERUUID.
+
+	   Requester UUID.
+	*/
+	XCSUSERUUID *string
+
 	/* AppID.
 
 	   Application ID.
@@ -185,6 +191,17 @@ func (o *ExecuteDynamicParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the execute dynamic params
+func (o *ExecuteDynamicParams) WithXCSUSERUUID(xCSUSERUUID *string) *ExecuteDynamicParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the execute dynamic params
+func (o *ExecuteDynamicParams) SetXCSUSERUUID(xCSUSERUUID *string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithAppID adds the appID to the execute dynamic params
 func (o *ExecuteDynamicParams) WithAppID(appID *string) *ExecuteDynamicParams {
 	o.SetAppID(appID)
@@ -280,6 +297,14 @@ func (o *ExecuteDynamicParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
+
+	if o.XCSUSERUUID != nil {
+
+		// header param X-CS-USERUUID
+		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
+			return err
+		}
+	}
 
 	if o.AppID != nil {
 

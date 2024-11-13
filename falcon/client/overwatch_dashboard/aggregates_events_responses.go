@@ -43,6 +43,12 @@ func (o *AggregatesEventsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 500:
+		result := NewAggregatesEventsInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[POST /overwatch-dashboards/aggregates/events/GET/v1] AggregatesEvents", response, response.Code())
 	}
@@ -381,6 +387,116 @@ func (o *AggregatesEventsTooManyRequests) readResponse(response runtime.ClientRe
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAggregatesEventsInternalServerError creates a AggregatesEventsInternalServerError with default headers values
+func NewAggregatesEventsInternalServerError() *AggregatesEventsInternalServerError {
+	return &AggregatesEventsInternalServerError{}
+}
+
+/*
+AggregatesEventsInternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type AggregatesEventsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this aggregates events internal server error response has a 2xx status code
+func (o *AggregatesEventsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregates events internal server error response has a 3xx status code
+func (o *AggregatesEventsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregates events internal server error response has a 4xx status code
+func (o *AggregatesEventsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregates events internal server error response has a 5xx status code
+func (o *AggregatesEventsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this aggregates events internal server error response a status code equal to that given
+func (o *AggregatesEventsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the aggregates events internal server error response
+func (o *AggregatesEventsInternalServerError) Code() int {
+	return 500
+}
+
+func (o *AggregatesEventsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events/GET/v1][%d] aggregatesEventsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *AggregatesEventsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events/GET/v1][%d] aggregatesEventsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *AggregatesEventsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *AggregatesEventsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

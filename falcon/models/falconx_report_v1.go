@@ -19,6 +19,9 @@ import (
 // swagger:model falconx.ReportV1
 type FalconxReportV1 struct {
 
+	// aid
+	Aid string `json:"aid,omitempty"`
+
 	// cid
 	Cid string `json:"cid,omitempty"`
 

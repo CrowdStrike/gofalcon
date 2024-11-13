@@ -39,6 +39,9 @@ type TypesIntegrationTask struct {
 	// integration
 	Integration *TypesIntegration `json:"integration,omitempty"`
 
+	// integration task type
+	IntegrationTaskType *TypesIntegrationTaskType `json:"integration_task_type,omitempty"`
+
 	// latest task run
 	LatestTaskRun *TypesActionRun `json:"latest_task_run,omitempty"`
 
@@ -48,14 +51,8 @@ type TypesIntegrationTask struct {
 	// next run
 	NextRun *TypesTimestamp `json:"next_run,omitempty"`
 
-	// organization id
-	OrganizationID int64 `json:"organization_id,omitempty"`
-
 	// progress
 	Progress int32 `json:"progress,omitempty"`
-
-	// project id
-	ProjectID int64 `json:"project_id,omitempty"`
 
 	// schedule
 	Schedule *TypesComposedSchedule `json:"schedule,omitempty"`
@@ -75,6 +72,10 @@ func (m *TypesIntegrationTask) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateIntegration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIntegrationTaskType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -111,6 +112,25 @@ func (m *TypesIntegrationTask) validateIntegration(formats strfmt.Registry) erro
 				return ve.ValidateName("integration")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("integration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TypesIntegrationTask) validateIntegrationTaskType(formats strfmt.Registry) error {
+	if swag.IsZero(m.IntegrationTaskType) { // not required
+		return nil
+	}
+
+	if m.IntegrationTaskType != nil {
+		if err := m.IntegrationTaskType.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration_task_type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration_task_type")
 			}
 			return err
 		}
@@ -203,6 +223,10 @@ func (m *TypesIntegrationTask) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIntegrationTaskType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLatestTaskRun(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -238,6 +262,27 @@ func (m *TypesIntegrationTask) contextValidateIntegration(ctx context.Context, f
 				return ve.ValidateName("integration")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("integration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TypesIntegrationTask) contextValidateIntegrationTaskType(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IntegrationTaskType != nil {
+
+		if swag.IsZero(m.IntegrationTaskType) { // not required
+			return nil
+		}
+
+		if err := m.IntegrationTaskType.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration_task_type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration_task_type")
 			}
 			return err
 		}

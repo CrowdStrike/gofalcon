@@ -515,7 +515,7 @@ func (a *Client) GetFileContentForExportJobsV1(params *GetFileContentForExportJo
 		ID:                 "GetFileContentForExportJobsV1",
 		Method:             "GET",
 		PathPattern:        "/recon/entities/export-files/v1",
-		ProducesMediaTypes: []string{"application/octet-stream"},
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,

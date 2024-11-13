@@ -10,6 +10,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
+	"github.com/crowdstrike/gofalcon/falcon/client/a_s_p_m"
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
 	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
@@ -29,10 +30,12 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_storage"
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/datascanner"
+	"github.com/crowdstrike/gofalcon/falcon/client/delivery_settings"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover_iot"
+	"github.com/crowdstrike/gofalcon/falcon/client/downloads_api"
 	"github.com/crowdstrike/gofalcon/falcon/client/drift_indicators"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_schema"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
@@ -47,9 +50,11 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/foundry_logscale"
+	"github.com/crowdstrike/gofalcon/falcon/client/handle"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_migration"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
+	"github.com/crowdstrike/gofalcon/falcon/client/humio_auth_proxy"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_entities"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/image_assessment_policies"
@@ -68,10 +73,12 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
+	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
+	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan_pro"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_audit"
@@ -83,6 +90,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/scheduled_reports"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/sensor_usage_api"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
@@ -136,6 +144,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 
 	cli := new(CrowdStrikeAPISpecification)
 	cli.Transport = transport
+	cli.Aspm = a_s_p_m.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
@@ -155,10 +164,12 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CustomStorage = custom_storage.New(transport, formats)
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
 	cli.Datascanner = datascanner.New(transport, formats)
+	cli.DeliverySettings = delivery_settings.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
 	cli.Discover = discover.New(transport, formats)
 	cli.DiscoverIot = discover_iot.New(transport, formats)
+	cli.DownloadsAPI = downloads_api.New(transport, formats)
 	cli.DriftIndicators = drift_indicators.New(transport, formats)
 	cli.EventSchema = event_schema.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
@@ -173,9 +184,11 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FirewallManagement = firewall_management.New(transport, formats)
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
 	cli.FoundryLogscale = foundry_logscale.New(transport, formats)
+	cli.Handle = handle.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
 	cli.HostMigration = host_migration.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
+	cli.HumioAuthProxy = humio_auth_proxy.New(transport, formats)
 	cli.IdentityEntities = identity_entities.New(transport, formats)
 	cli.IdentityProtection = identity_protection.New(transport, formats)
 	cli.ImageAssessmentPolicies = image_assessment_policies.New(transport, formats)
@@ -194,10 +207,12 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
+	cli.Operations = operations.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
+	cli.QuickScanPro = quick_scan_pro.New(transport, formats)
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
 	cli.RealTimeResponseAdmin = real_time_response_admin.New(transport, formats)
 	cli.RealTimeResponseAudit = real_time_response_audit.New(transport, formats)
@@ -209,6 +224,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ScheduledReports = scheduled_reports.New(transport, formats)
 	cli.SensorDownload = sensor_download.New(transport, formats)
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
+	cli.SensorUsageAPI = sensor_usage_api.New(transport, formats)
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
@@ -262,6 +278,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // CrowdStrikeAPISpecification is a client for crowd strike API specification
 type CrowdStrikeAPISpecification struct {
+	Aspm a_s_p_m.ClientService
+
 	Alerts alerts.ClientService
 
 	APIIntegrations api_integrations.ClientService
@@ -300,6 +318,8 @@ type CrowdStrikeAPISpecification struct {
 
 	Datascanner datascanner.ClientService
 
+	DeliverySettings delivery_settings.ClientService
+
 	Detects detects.ClientService
 
 	DeviceControlPolicies device_control_policies.ClientService
@@ -307,6 +327,8 @@ type CrowdStrikeAPISpecification struct {
 	Discover discover.ClientService
 
 	DiscoverIot discover_iot.ClientService
+
+	DownloadsAPI downloads_api.ClientService
 
 	DriftIndicators drift_indicators.ClientService
 
@@ -336,11 +358,15 @@ type CrowdStrikeAPISpecification struct {
 
 	FoundryLogscale foundry_logscale.ClientService
 
+	Handle handle.ClientService
+
 	HostGroup host_group.ClientService
 
 	HostMigration host_migration.ClientService
 
 	Hosts hosts.ClientService
+
+	HumioAuthProxy humio_auth_proxy.ClientService
 
 	IdentityEntities identity_entities.ClientService
 
@@ -378,6 +404,8 @@ type CrowdStrikeAPISpecification struct {
 
 	Ods ods.ClientService
 
+	Operations operations.ClientService
+
 	OverwatchDashboard overwatch_dashboard.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
@@ -385,6 +413,8 @@ type CrowdStrikeAPISpecification struct {
 	Quarantine quarantine.ClientService
 
 	QuickScan quick_scan.ClientService
+
+	QuickScanPro quick_scan_pro.ClientService
 
 	RealTimeResponse real_time_response.ClientService
 
@@ -407,6 +437,8 @@ type CrowdStrikeAPISpecification struct {
 	SensorDownload sensor_download.ClientService
 
 	SensorUpdatePolicies sensor_update_policies.ClientService
+
+	SensorUsageAPI sensor_usage_api.ClientService
 
 	SensorVisibilityExclusions sensor_visibility_exclusions.ClientService
 
@@ -432,6 +464,7 @@ type CrowdStrikeAPISpecification struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
+	c.Aspm.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
 	c.CertificateBasedExclusions.SetTransport(transport)
@@ -451,10 +484,12 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CustomStorage.SetTransport(transport)
 	c.D4cRegistration.SetTransport(transport)
 	c.Datascanner.SetTransport(transport)
+	c.DeliverySettings.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
 	c.Discover.SetTransport(transport)
 	c.DiscoverIot.SetTransport(transport)
+	c.DownloadsAPI.SetTransport(transport)
 	c.DriftIndicators.SetTransport(transport)
 	c.EventSchema.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
@@ -469,9 +504,11 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FirewallManagement.SetTransport(transport)
 	c.FirewallPolicies.SetTransport(transport)
 	c.FoundryLogscale.SetTransport(transport)
+	c.Handle.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
 	c.HostMigration.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
+	c.HumioAuthProxy.SetTransport(transport)
 	c.IdentityEntities.SetTransport(transport)
 	c.IdentityProtection.SetTransport(transport)
 	c.ImageAssessmentPolicies.SetTransport(transport)
@@ -490,10 +527,12 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
+	c.Operations.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)
+	c.QuickScanPro.SetTransport(transport)
 	c.RealTimeResponse.SetTransport(transport)
 	c.RealTimeResponseAdmin.SetTransport(transport)
 	c.RealTimeResponseAudit.SetTransport(transport)
@@ -505,6 +544,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ScheduledReports.SetTransport(transport)
 	c.SensorDownload.SetTransport(transport)
 	c.SensorUpdatePolicies.SetTransport(transport)
+	c.SensorUsageAPI.SetTransport(transport)
 	c.SensorVisibilityExclusions.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)

@@ -80,9 +80,6 @@ type DomainScan struct {
 	// max duration
 	MaxDuration int32 `json:"max_duration,omitempty"`
 
-	// max file size
-	MaxFileSize int32 `json:"max_file_size,omitempty"`
-
 	// metadata
 	Metadata []*DomainScanMetadata `json:"metadata"`
 
@@ -106,6 +103,9 @@ type DomainScan struct {
 
 	// quarantine
 	Quarantine bool `json:"quarantine,omitempty"`
+
+	// rollup version
+	RollupVersion int32 `json:"rollup_version,omitempty"`
 
 	// scan completed on
 	// Format: date-time

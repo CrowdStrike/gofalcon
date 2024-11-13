@@ -99,7 +99,7 @@ type QueryV2Params struct {
 
 	/* Q.
 
-	   Search all detection metadata for the provided string
+	   Search all alert metadata for the provided string
 	*/
 	Q *string
 

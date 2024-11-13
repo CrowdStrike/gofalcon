@@ -83,6 +83,15 @@ type GetD4CAWSAccountScriptsAttachmentParams struct {
 	*/
 	CustomRoleName *string
 
+	// DspmEnabled.
+	DspmEnabled *string
+
+	// DspmRegions.
+	DspmRegions []string
+
+	// DspmRole.
+	DspmRole *string
+
 	/* Ids.
 
 	   AWS account IDs
@@ -217,6 +226,39 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) SetCustomRoleName(customRoleNa
 	o.CustomRoleName = customRoleName
 }
 
+// WithDspmEnabled adds the dspmEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDspmEnabled(dspmEnabled *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetDspmEnabled(dspmEnabled)
+	return o
+}
+
+// SetDspmEnabled adds the dspmEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDspmEnabled(dspmEnabled *string) {
+	o.DspmEnabled = dspmEnabled
+}
+
+// WithDspmRegions adds the dspmRegions to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDspmRegions(dspmRegions []string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetDspmRegions(dspmRegions)
+	return o
+}
+
+// SetDspmRegions adds the dspmRegions to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDspmRegions(dspmRegions []string) {
+	o.DspmRegions = dspmRegions
+}
+
+// WithDspmRole adds the dspmRole to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDspmRole(dspmRole *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetDspmRole(dspmRole)
+	return o
+}
+
+// SetDspmRole adds the dspmRole to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDspmRole(dspmRole *string) {
+	o.DspmRole = dspmRole
+}
+
 // WithIds adds the ids to the get d4 c a w s account scripts attachment params
 func (o *GetD4CAWSAccountScriptsAttachmentParams) WithIds(ids []string) *GetD4CAWSAccountScriptsAttachmentParams {
 	o.SetIds(ids)
@@ -342,6 +384,51 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		}
 	}
 
+	if o.DspmEnabled != nil {
+
+		// query param dspm_enabled
+		var qrDspmEnabled string
+
+		if o.DspmEnabled != nil {
+			qrDspmEnabled = *o.DspmEnabled
+		}
+		qDspmEnabled := qrDspmEnabled
+		if qDspmEnabled != "" {
+
+			if err := r.SetQueryParam("dspm_enabled", qDspmEnabled); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DspmRegions != nil {
+
+		// binding items for dspm_regions
+		joinedDspmRegions := o.bindParamDspmRegions(reg)
+
+		// query array param dspm_regions
+		if err := r.SetQueryParam("dspm_regions", joinedDspmRegions...); err != nil {
+			return err
+		}
+	}
+
+	if o.DspmRole != nil {
+
+		// query param dspm_role
+		var qrDspmRole string
+
+		if o.DspmRole != nil {
+			qrDspmRole = *o.DspmRole
+		}
+		qDspmRole := qrDspmRole
+		if qDspmRole != "" {
+
+			if err := r.SetQueryParam("dspm_role", qDspmRole); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.Ids != nil {
 
 		// binding items for ids
@@ -442,6 +529,23 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) bindParamAccounts(formats strf
 	accountsIS := swag.JoinByFormat(accountsIC, "multi")
 
 	return accountsIS
+}
+
+// bindParamGetD4CAWSAccountScriptsAttachment binds the parameter dspm_regions
+func (o *GetD4CAWSAccountScriptsAttachmentParams) bindParamDspmRegions(formats strfmt.Registry) []string {
+	dspmRegionsIR := o.DspmRegions
+
+	var dspmRegionsIC []string
+	for _, dspmRegionsIIR := range dspmRegionsIR { // explode []string
+
+		dspmRegionsIIV := dspmRegionsIIR // string as string
+		dspmRegionsIC = append(dspmRegionsIC, dspmRegionsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	dspmRegionsIS := swag.JoinByFormat(dspmRegionsIC, "csv")
+
+	return dspmRegionsIS
 }
 
 // bindParamGetD4CAWSAccountScriptsAttachment binds the parameter ids

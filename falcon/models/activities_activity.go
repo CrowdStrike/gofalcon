@@ -23,6 +23,16 @@ type ActivitiesActivity struct {
 	// Required api scope to use this activity.
 	APIScope string `json:"api_scope,omitempty"`
 
+	// Optional ID if the activity is exposed through an app from Store
+	AppID string `json:"app_id,omitempty"`
+
+	// The CID that owns this activity, if this is empty it is a global activity
+	// Required: true
+	Cid *string `json:"cid"`
+
+	// Activity class to identify how it should be orchestrated. E.g. External, Break, CreateVariable and UpdateVariable
+	Class string `json:"class,omitempty"`
+
 	// A detailed description of what this action does
 	// Required: true
 	Description *string `json:"description"`
@@ -41,6 +51,9 @@ type ActivitiesActivity struct {
 
 	// Input fields required for configuring activity
 	InputFields []*ActivitiesActivityExtField `json:"input_fields"`
+
+	// JSON Schema describing the structured input of the activity for execution
+	InputSchema *JsonschemaSchema `json:"input_schema,omitempty"`
 
 	// A machine or developer-generated output, which should conform to the activity's output schema.
 	MockOutput ActivitiesActivityMockOutput `json:"mock_output,omitempty"`
@@ -65,6 +78,12 @@ type ActivitiesActivity struct {
 	// Format: date-time
 	Updated strfmt.DateTime `json:"updated,omitempty"`
 
+	// UseCases used by this activity
+	UseCases []string `json:"use_cases"`
+
+	// Vendors used by this activity
+	Vendor string `json:"vendor,omitempty"`
+
 	// An incrementing version number
 	Version int32 `json:"version,omitempty"`
 }
@@ -72,6 +91,10 @@ type ActivitiesActivity struct {
 // Validate validates this activities activity
 func (m *ActivitiesActivity) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
@@ -90,6 +113,10 @@ func (m *ActivitiesActivity) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateInputFields(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInputSchema(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -112,6 +139,15 @@ func (m *ActivitiesActivity) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ActivitiesActivity) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -172,6 +208,25 @@ func (m *ActivitiesActivity) validateInputFields(formats strfmt.Registry) error 
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *ActivitiesActivity) validateInputSchema(formats strfmt.Registry) error {
+	if swag.IsZero(m.InputSchema) { // not required
+		return nil
+	}
+
+	if m.InputSchema != nil {
+		if err := m.InputSchema.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("input_schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("input_schema")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -251,6 +306,10 @@ func (m *ActivitiesActivity) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateInputSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateOutputFields(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -285,6 +344,27 @@ func (m *ActivitiesActivity) contextValidateInputFields(ctx context.Context, for
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *ActivitiesActivity) contextValidateInputSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputSchema != nil {
+
+		if swag.IsZero(m.InputSchema) { // not required
+			return nil
+		}
+
+		if err := m.InputSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("input_schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("input_schema")
+			}
+			return err
+		}
 	}
 
 	return nil

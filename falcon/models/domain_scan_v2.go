@@ -82,9 +82,6 @@ type DomainScanV2 struct {
 	// max duration
 	MaxDuration int32 `json:"max_duration,omitempty"`
 
-	// max file size
-	MaxFileSize int32 `json:"max_file_size,omitempty"`
-
 	// metadata
 	Metadata []string `json:"metadata"`
 

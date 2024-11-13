@@ -19,6 +19,9 @@ import (
 // swagger:model v2.Condition
 type V2Condition struct {
 
+	// cel expression
+	CelExpression string `json:"cel_expression,omitempty"`
+
 	// display
 	Display []string `json:"display"`
 
@@ -29,8 +32,7 @@ type V2Condition struct {
 	ElseIf string `json:"else_if,omitempty"`
 
 	// expression
-	// Required: true
-	Expression *string `json:"expression"`
+	Expression string `json:"expression,omitempty"`
 
 	// next
 	// Required: true
@@ -41,10 +43,6 @@ type V2Condition struct {
 func (m *V2Condition) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateExpression(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateNext(formats); err != nil {
 		res = append(res, err)
 	}
@@ -52,15 +50,6 @@ func (m *V2Condition) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *V2Condition) validateExpression(formats strfmt.Registry) error {
-
-	if err := validate.Required("expression", "body", m.Expression); err != nil {
-		return err
-	}
-
 	return nil
 }
 

@@ -38,6 +38,8 @@ type ClientService interface {
 
 	AggregateImageCountByState(params *AggregateImageCountByStateParams, opts ...ClientOption) (*AggregateImageCountByStateOK, error)
 
+	CombinedBaseImages(params *CombinedBaseImagesParams, opts ...ClientOption) (*CombinedBaseImagesOK, error)
+
 	CombinedImageByVulnerabilityCount(params *CombinedImageByVulnerabilityCountParams, opts ...ClientOption) (*CombinedImageByVulnerabilityCountOK, error)
 
 	CombinedImageDetail(params *CombinedImageDetailParams, opts ...ClientOption) (*CombinedImageDetailOK, error)
@@ -45,6 +47,10 @@ type ClientService interface {
 	CombinedImageIssuesSummary(params *CombinedImageIssuesSummaryParams, opts ...ClientOption) (*CombinedImageIssuesSummaryOK, error)
 
 	CombinedImageVulnerabilitySummary(params *CombinedImageVulnerabilitySummaryParams, opts ...ClientOption) (*CombinedImageVulnerabilitySummaryOK, error)
+
+	CreateBaseImagesEntities(params *CreateBaseImagesEntitiesParams, opts ...ClientOption) (*CreateBaseImagesEntitiesOK, error)
+
+	DeleteBaseImages(params *DeleteBaseImagesParams, opts ...ClientOption) (*DeleteBaseImagesOK, error)
 
 	GetCombinedImages(params *GetCombinedImagesParams, opts ...ClientOption) (*GetCombinedImagesOK, error)
 
@@ -206,6 +212,44 @@ func (a *Client) AggregateImageCountByState(params *AggregateImageCountByStatePa
 }
 
 /*
+CombinedBaseImages retrieves base images for provided filter
+*/
+func (a *Client) CombinedBaseImages(params *CombinedBaseImagesParams, opts ...ClientOption) (*CombinedBaseImagesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedBaseImagesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CombinedBaseImages",
+		Method:             "GET",
+		PathPattern:        "/container-security/combined/base-images/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedBaseImagesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedBaseImagesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CombinedBaseImages: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CombinedImageByVulnerabilityCount retrieves top x images with the most vulnerabilities
 */
 func (a *Client) CombinedImageByVulnerabilityCount(params *CombinedImageByVulnerabilityCountParams, opts ...ClientOption) (*CombinedImageByVulnerabilityCountOK, error) {
@@ -354,6 +398,82 @@ func (a *Client) CombinedImageVulnerabilitySummary(params *CombinedImageVulnerab
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for CombinedImageVulnerabilitySummary: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateBaseImagesEntities creates base images using the provided details
+*/
+func (a *Client) CreateBaseImagesEntities(params *CreateBaseImagesEntitiesParams, opts ...ClientOption) (*CreateBaseImagesEntitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateBaseImagesEntitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateBaseImagesEntities",
+		Method:             "POST",
+		PathPattern:        "/container-security/entities/base-images/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateBaseImagesEntitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateBaseImagesEntitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateBaseImagesEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteBaseImages deletes base images by base image uuid
+*/
+func (a *Client) DeleteBaseImages(params *DeleteBaseImagesParams, opts ...ClientOption) (*DeleteBaseImagesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteBaseImagesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteBaseImages",
+		Method:             "DELETE",
+		PathPattern:        "/container-security/entities/base-images/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteBaseImagesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteBaseImagesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteBaseImages: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

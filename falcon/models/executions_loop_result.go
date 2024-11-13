@@ -49,6 +49,9 @@ type ExecutionsLoopResult struct {
 	// Required: true
 	NodeID *string `json:"node_id"`
 
+	// Outputs from all the iterations of the sub model
+	Outputs []ExecutionsLoopResultOutputs `json:"outputs"`
+
 	// Timestamp of when the execution first started.
 	// Required: true
 	// Format: date-time

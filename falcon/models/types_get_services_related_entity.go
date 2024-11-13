@@ -21,14 +21,14 @@ type TypesGetServicesRelatedEntity struct {
 	// aggregation type
 	AggregationType int32 `json:"aggregation_type,omitempty"`
 
+	// entity type
+	EntityType int32 `json:"entity_type,omitempty"`
+
 	// filters
 	Filters *TypesGetServicesRelatedEntityFilters `json:"filters,omitempty"`
 
 	// group by fields
 	GroupByFields *TypesGetServicesRelatedEntityGroupByFields `json:"groupByFields,omitempty"`
-
-	// type
-	Type int32 `json:"type,omitempty"`
 }
 
 // Validate validates this types get services related entity

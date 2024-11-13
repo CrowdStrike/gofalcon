@@ -67,6 +67,10 @@ type DomainXDRParams struct {
 	// Required: true
 	TemplateID *string `json:"template_id"`
 
+	// trigger mode
+	// Required: true
+	TriggerMode *string `json:"trigger_mode"`
+
 	// type
 	// Required: true
 	Type *string `json:"type"`
@@ -121,6 +125,10 @@ func (m *DomainXDRParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTemplateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTriggerMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -236,6 +244,15 @@ func (m *DomainXDRParams) validateTechnique(formats strfmt.Registry) error {
 func (m *DomainXDRParams) validateTemplateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("template_id", "body", m.TemplateID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainXDRParams) validateTriggerMode(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger_mode", "body", m.TriggerMode); err != nil {
 		return err
 	}
 

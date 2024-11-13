@@ -29,6 +29,9 @@ type GraphEnd struct {
 
 	// Keys of the fields that are the output for this model
 	OutputFields []string `json:"output_fields"`
+
+	// Summary of the workflow is free form text with possibly embedded variables
+	Summary string `json:"summary,omitempty"`
 }
 
 // Validate validates this graph end

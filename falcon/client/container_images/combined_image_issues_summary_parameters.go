@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewCombinedImageIssuesSummaryParams creates a new CombinedImageIssuesSummaryParams object,
@@ -66,6 +67,12 @@ type CombinedImageIssuesSummaryParams struct {
 	   CID
 	*/
 	Cid string
+
+	/* IncludeBaseImageVuln.
+
+	   include base image vulnerabilities
+	*/
+	IncludeBaseImageVuln *bool
 
 	/* Registry.
 
@@ -149,6 +156,17 @@ func (o *CombinedImageIssuesSummaryParams) SetCid(cid string) {
 	o.Cid = cid
 }
 
+// WithIncludeBaseImageVuln adds the includeBaseImageVuln to the combined image issues summary params
+func (o *CombinedImageIssuesSummaryParams) WithIncludeBaseImageVuln(includeBaseImageVuln *bool) *CombinedImageIssuesSummaryParams {
+	o.SetIncludeBaseImageVuln(includeBaseImageVuln)
+	return o
+}
+
+// SetIncludeBaseImageVuln adds the includeBaseImageVuln to the combined image issues summary params
+func (o *CombinedImageIssuesSummaryParams) SetIncludeBaseImageVuln(includeBaseImageVuln *bool) {
+	o.IncludeBaseImageVuln = includeBaseImageVuln
+}
+
 // WithRegistry adds the registry to the combined image issues summary params
 func (o *CombinedImageIssuesSummaryParams) WithRegistry(registry string) *CombinedImageIssuesSummaryParams {
 	o.SetRegistry(registry)
@@ -197,6 +215,23 @@ func (o *CombinedImageIssuesSummaryParams) WriteToRequest(r runtime.ClientReques
 
 		if err := r.SetQueryParam("cid", qCid); err != nil {
 			return err
+		}
+	}
+
+	if o.IncludeBaseImageVuln != nil {
+
+		// query param include_base_image_vuln
+		var qrIncludeBaseImageVuln bool
+
+		if o.IncludeBaseImageVuln != nil {
+			qrIncludeBaseImageVuln = *o.IncludeBaseImageVuln
+		}
+		qIncludeBaseImageVuln := swag.FormatBool(qrIncludeBaseImageVuln)
+		if qIncludeBaseImageVuln != "" {
+
+			if err := r.SetQueryParam("include_base_image_vuln", qIncludeBaseImageVuln); err != nil {
+				return err
+			}
 		}
 	}
 

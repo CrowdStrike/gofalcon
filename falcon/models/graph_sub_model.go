@@ -31,7 +31,7 @@ type GraphSubModel struct {
 	// Required: true
 	Multi *GraphMulti `json:"multi"`
 
-	// Optional user provided name for the activity, if not specified a name based on the array field is used.
+	// Optional user provided name for the submodel.
 	Name string `json:"name,omitempty"`
 
 	// node ID

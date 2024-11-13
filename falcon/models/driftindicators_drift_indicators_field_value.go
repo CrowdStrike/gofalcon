@@ -20,25 +20,21 @@ import (
 // swagger:model driftindicators.driftIndicatorsFieldValue
 type DriftindicatorsDriftIndicatorsFieldValue struct {
 
-	// resources
-	// Required: true
-	Resources []*ModelsAPIFilterResponse `json:"Resources"`
-
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*ModelsAPIFilterResponse `json:"resources"`
 }
 
 // Validate validates this driftindicators drift indicators field value
 func (m *DriftindicatorsDriftIndicatorsFieldValue) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateResources(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateErrors(formats); err != nil {
 		res = append(res, err)
@@ -48,36 +44,13 @@ func (m *DriftindicatorsDriftIndicatorsFieldValue) Validate(formats strfmt.Regis
 		res = append(res, err)
 	}
 
+	if err := m.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DriftindicatorsDriftIndicatorsFieldValue) validateResources(formats strfmt.Registry) error {
-
-	if err := validate.Required("Resources", "body", m.Resources); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -127,13 +100,36 @@ func (m *DriftindicatorsDriftIndicatorsFieldValue) validateMeta(formats strfmt.R
 	return nil
 }
 
+func (m *DriftindicatorsDriftIndicatorsFieldValue) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this driftindicators drift indicators field value based on the context it is used
 func (m *DriftindicatorsDriftIndicatorsFieldValue) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.contextValidateResources(ctx, formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
 		res = append(res, err)
@@ -143,34 +139,13 @@ func (m *DriftindicatorsDriftIndicatorsFieldValue) ContextValidate(ctx context.C
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DriftindicatorsDriftIndicatorsFieldValue) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Resources); i++ {
-
-		if m.Resources[i] != nil {
-
-			if swag.IsZero(m.Resources[i]) { // not required
-				return nil
-			}
-
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -211,6 +186,31 @@ func (m *DriftindicatorsDriftIndicatorsFieldValue) contextValidateMeta(ctx conte
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DriftindicatorsDriftIndicatorsFieldValue) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

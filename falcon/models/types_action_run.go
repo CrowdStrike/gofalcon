@@ -34,14 +34,8 @@ type TypesActionRun struct {
 	// metadata
 	Metadata *TypesActionRunMetadata `json:"metadata,omitempty"`
 
-	// organization id
-	OrganizationID int64 `json:"organization_id,omitempty"`
-
 	// progress
 	Progress int32 `json:"progress,omitempty"`
-
-	// project id
-	ProjectID int64 `json:"project_id,omitempty"`
 
 	// scheduled
 	Scheduled bool `json:"scheduled,omitempty"`

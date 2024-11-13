@@ -53,7 +53,7 @@ func (a *Client) ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGet
 		ID:                 "report-executions-download.get",
 		Method:             "GET",
 		PathPattern:        "/reports/entities/report-executions-download/v1",
-		ProducesMediaTypes: []string{"*/*"},
+		ProducesMediaTypes: []string{"*/*", "application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,

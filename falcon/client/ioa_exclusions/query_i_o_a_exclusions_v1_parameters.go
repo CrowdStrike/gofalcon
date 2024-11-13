@@ -62,11 +62,23 @@ QueryIOAExclusionsV1Params contains all the parameters to send to the API endpoi
 */
 type QueryIOAExclusionsV1Params struct {
 
+	/* ClRegex.
+
+	   The `cl_regex` expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+	*/
+	ClRegex *string
+
 	/* Filter.
 
-	   The filter expression that should be used to limit the results.
+	   The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the `ifn_regex` and `cl_regex` parameters.
 	*/
 	Filter *string
+
+	/* IfnRegex.
+
+	   The `ifn_regex` expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+	*/
+	IfnRegex *string
 
 	/* Limit.
 
@@ -139,6 +151,17 @@ func (o *QueryIOAExclusionsV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithClRegex adds the clRegex to the query i o a exclusions v1 params
+func (o *QueryIOAExclusionsV1Params) WithClRegex(clRegex *string) *QueryIOAExclusionsV1Params {
+	o.SetClRegex(clRegex)
+	return o
+}
+
+// SetClRegex adds the clRegex to the query i o a exclusions v1 params
+func (o *QueryIOAExclusionsV1Params) SetClRegex(clRegex *string) {
+	o.ClRegex = clRegex
+}
+
 // WithFilter adds the filter to the query i o a exclusions v1 params
 func (o *QueryIOAExclusionsV1Params) WithFilter(filter *string) *QueryIOAExclusionsV1Params {
 	o.SetFilter(filter)
@@ -148,6 +171,17 @@ func (o *QueryIOAExclusionsV1Params) WithFilter(filter *string) *QueryIOAExclusi
 // SetFilter adds the filter to the query i o a exclusions v1 params
 func (o *QueryIOAExclusionsV1Params) SetFilter(filter *string) {
 	o.Filter = filter
+}
+
+// WithIfnRegex adds the ifnRegex to the query i o a exclusions v1 params
+func (o *QueryIOAExclusionsV1Params) WithIfnRegex(ifnRegex *string) *QueryIOAExclusionsV1Params {
+	o.SetIfnRegex(ifnRegex)
+	return o
+}
+
+// SetIfnRegex adds the ifnRegex to the query i o a exclusions v1 params
+func (o *QueryIOAExclusionsV1Params) SetIfnRegex(ifnRegex *string) {
+	o.IfnRegex = ifnRegex
 }
 
 // WithLimit adds the limit to the query i o a exclusions v1 params
@@ -191,6 +225,23 @@ func (o *QueryIOAExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, reg
 	}
 	var res []error
 
+	if o.ClRegex != nil {
+
+		// query param cl_regex
+		var qrClRegex string
+
+		if o.ClRegex != nil {
+			qrClRegex = *o.ClRegex
+		}
+		qClRegex := qrClRegex
+		if qClRegex != "" {
+
+			if err := r.SetQueryParam("cl_regex", qClRegex); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.Filter != nil {
 
 		// query param filter
@@ -203,6 +254,23 @@ func (o *QueryIOAExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, reg
 		if qFilter != "" {
 
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IfnRegex != nil {
+
+		// query param ifn_regex
+		var qrIfnRegex string
+
+		if o.IfnRegex != nil {
+			qrIfnRegex = *o.IfnRegex
+		}
+		qIfnRegex := qrIfnRegex
+		if qIfnRegex != "" {
+
+			if err := r.SetQueryParam("ifn_regex", qIfnRegex); err != nil {
 				return err
 			}
 		}

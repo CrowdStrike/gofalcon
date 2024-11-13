@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -42,6 +43,9 @@ type DomainAPIRuleDetailsV1 struct {
 	// benchmark title
 	// Required: true
 	BenchmarkTitle *string `json:"benchmark_title"`
+
+	// compliance mappings
+	ComplianceMappings []*DomainAPIComplianceMappingV1 `json:"compliance_mappings"`
 
 	// description
 	// Required: true
@@ -104,6 +108,10 @@ func (m *DomainAPIRuleDetailsV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateBenchmarkTitle(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateComplianceMappings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -199,6 +207,32 @@ func (m *DomainAPIRuleDetailsV1) validateBenchmarkTitle(formats strfmt.Registry)
 	return nil
 }
 
+func (m *DomainAPIRuleDetailsV1) validateComplianceMappings(formats strfmt.Registry) error {
+	if swag.IsZero(m.ComplianceMappings) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ComplianceMappings); i++ {
+		if swag.IsZero(m.ComplianceMappings[i]) { // not required
+			continue
+		}
+
+		if m.ComplianceMappings[i] != nil {
+			if err := m.ComplianceMappings[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainAPIRuleDetailsV1) validateDescription(formats strfmt.Registry) error {
 
 	if err := validate.Required("description", "body", m.Description); err != nil {
@@ -271,8 +305,42 @@ func (m *DomainAPIRuleDetailsV1) validateTitle(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain API rule details v1 based on context it is used
+// ContextValidate validate this domain API rule details v1 based on the context it is used
 func (m *DomainAPIRuleDetailsV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateComplianceMappings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainAPIRuleDetailsV1) contextValidateComplianceMappings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ComplianceMappings); i++ {
+
+		if m.ComplianceMappings[i] != nil {
+
+			if swag.IsZero(m.ComplianceMappings[i]) { // not required
+				return nil
+			}
+
+			if err := m.ComplianceMappings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("compliance_mappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

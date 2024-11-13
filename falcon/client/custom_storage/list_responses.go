@@ -43,6 +43,12 @@ func (o *ListReader) ReadResponse(response runtime.ClientResponse, consumer runt
 			return nil, err
 		}
 		return nil, result
+	case 500:
+		result := NewListInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[GET /customobjects/v1/collections/{collection_name}/objects] list", response, response.Code())
 	}
@@ -381,6 +387,116 @@ func (o *ListTooManyRequests) readResponse(response runtime.ClientResponse, cons
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListInternalServerError creates a ListInternalServerError with default headers values
+func NewListInternalServerError() *ListInternalServerError {
+	return &ListInternalServerError{}
+}
+
+/*
+ListInternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type ListInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this list internal server error response has a 2xx status code
+func (o *ListInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list internal server error response has a 3xx status code
+func (o *ListInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list internal server error response has a 4xx status code
+func (o *ListInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list internal server error response has a 5xx status code
+func (o *ListInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this list internal server error response a status code equal to that given
+func (o *ListInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the list internal server error response
+func (o *ListInternalServerError) Code() int {
+	return 500
+}
+
+func (o *ListInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ListInternalServerError) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ListInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ListInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

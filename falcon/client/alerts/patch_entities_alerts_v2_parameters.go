@@ -65,7 +65,35 @@ type PatchEntitiesAlertsV2Params struct {
 
 	/* Body.
 
-	   request body takes a list of action parameter request that is applied against all "ids" provided
+	     `ids`
+	- IDs of Alerts to modify.
+
+	`action_parameters` values
+	- `assign_to_uuid`
+		- Assign Alert to user UUID, such as `00000000-0000-0000-0000-000000000000`
+	- `assign_to_user_id`
+		- Assign Alert to user ID, such as `user@example.com`
+	- `assign_to_name`
+		- Assign Alert to username, such as `John Doe`
+	- `unassign`
+		- Unassign Alert clears out the assigned user UUID, user ID, and username.
+	- `add_tag`
+	 	- Add a tag to the Alert.
+	- `remove_tag`
+		- Remove a tag from the Alert.
+	- `remove_tags_by_prefix`
+		- Remove tags from the Alert based on the prefix.
+	- `append_comment`
+		- Comments are displayed with the Alert in Falcon and are usually used to provide context or notes for other Falcon users. An Alert can have multiple comments over time.
+	- `update_status` values
+		- `new`
+		- `in_progress`
+		- `reopened`
+		- `closed`
+	- `show_in_ui` values
+		- `true`: This alert is displayed in Falcon
+		- `false`: This alert is not displayed in Falcon.
+
 	*/
 	Body *models.DetectsapiPatchEntitiesAlertsV2Request
 

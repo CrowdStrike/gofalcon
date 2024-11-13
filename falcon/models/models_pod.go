@@ -52,6 +52,10 @@ type ModelsPod struct {
 	// Required: true
 	CloudRegion *string `json:"cloud_region"`
 
+	// cloud service
+	// Required: true
+	CloudService *string `json:"cloud_service"`
+
 	// cluster id
 	// Required: true
 	ClusterID *string `json:"cluster_id"`
@@ -102,6 +106,10 @@ type ModelsPod struct {
 	// ipv6
 	// Required: true
 	IPV6 *string `json:"ipv6"`
+
+	// kac agent id
+	// Required: true
+	KacAgentID *string `json:"kac_agent_id"`
 
 	// labels
 	// Required: true
@@ -232,6 +240,10 @@ func (m *ModelsPod) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCloudService(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateClusterID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -277,6 +289,10 @@ func (m *ModelsPod) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIPV6(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKacAgentID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -465,6 +481,15 @@ func (m *ModelsPod) validateCloudRegion(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ModelsPod) validateCloudService(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_service", "body", m.CloudService); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsPod) validateClusterID(formats strfmt.Registry) error {
 
 	if err := validate.Required("cluster_id", "body", m.ClusterID); err != nil {
@@ -582,6 +607,15 @@ func (m *ModelsPod) validateIPV4(formats strfmt.Registry) error {
 func (m *ModelsPod) validateIPV6(formats strfmt.Registry) error {
 
 	if err := validate.Required("ipv6", "body", m.IPV6); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsPod) validateKacAgentID(formats strfmt.Registry) error {
+
+	if err := validate.Required("kac_agent_id", "body", m.KacAgentID); err != nil {
 		return err
 	}
 

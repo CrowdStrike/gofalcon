@@ -23,6 +23,9 @@ type APIObjectMetadata struct {
 	// Required: true
 	CollectionName *string `json:"collection_name"`
 
+	// collection version
+	CollectionVersion string `json:"collection_version,omitempty"`
+
 	// last modified time
 	// Format: date-time
 	LastModifiedTime strfmt.DateTime `json:"last_modified_time,omitempty"`

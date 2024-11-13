@@ -30,9 +30,131 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	APIPreemptProxyDeletePolicyRules(params *APIPreemptProxyDeletePolicyRulesParams, opts ...ClientOption) (*APIPreemptProxyDeletePolicyRulesOK, error)
+
+	APIPreemptProxyGetPolicyRules(params *APIPreemptProxyGetPolicyRulesParams, opts ...ClientOption) (*APIPreemptProxyGetPolicyRulesOK, error)
+
+	APIPreemptProxyGetPolicyRulesQuery(params *APIPreemptProxyGetPolicyRulesQueryParams, opts ...ClientOption) (*APIPreemptProxyGetPolicyRulesQueryOK, error)
+
 	APIPreemptProxyPostGraphql(params *APIPreemptProxyPostGraphqlParams, opts ...ClientOption) (*APIPreemptProxyPostGraphqlOK, error)
 
+	APIPreemptProxyPostPolicyRules(params *APIPreemptProxyPostPolicyRulesParams, opts ...ClientOption) (*APIPreemptProxyPostPolicyRulesOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+APIPreemptProxyDeletePolicyRules deletes policy rules
+*/
+func (a *Client) APIPreemptProxyDeletePolicyRules(params *APIPreemptProxyDeletePolicyRulesParams, opts ...ClientOption) (*APIPreemptProxyDeletePolicyRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAPIPreemptProxyDeletePolicyRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "api.preempt.proxy.delete.policy-rules",
+		Method:             "DELETE",
+		PathPattern:        "/identity-protection/entities/policy-rules/v1",
+		ProducesMediaTypes: []string{"application/json", "application/json; charset=utf-8"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &APIPreemptProxyDeletePolicyRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*APIPreemptProxyDeletePolicyRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for api.preempt.proxy.delete.policy-rules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+APIPreemptProxyGetPolicyRules gets policy rules
+*/
+func (a *Client) APIPreemptProxyGetPolicyRules(params *APIPreemptProxyGetPolicyRulesParams, opts ...ClientOption) (*APIPreemptProxyGetPolicyRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAPIPreemptProxyGetPolicyRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "api.preempt.proxy.get.policy-rules",
+		Method:             "GET",
+		PathPattern:        "/identity-protection/entities/policy-rules/v1",
+		ProducesMediaTypes: []string{"application/json", "application/json; charset=utf-8"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &APIPreemptProxyGetPolicyRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*APIPreemptProxyGetPolicyRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for api.preempt.proxy.get.policy-rules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+APIPreemptProxyGetPolicyRulesQuery queries policy rule i ds
+*/
+func (a *Client) APIPreemptProxyGetPolicyRulesQuery(params *APIPreemptProxyGetPolicyRulesQueryParams, opts ...ClientOption) (*APIPreemptProxyGetPolicyRulesQueryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAPIPreemptProxyGetPolicyRulesQueryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "api.preempt.proxy.get.policy-rules.query",
+		Method:             "GET",
+		PathPattern:        "/identity-protection/queries/policy-rules/v1",
+		ProducesMediaTypes: []string{"application/json", "application/json; charset=utf-8"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &APIPreemptProxyGetPolicyRulesQueryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*APIPreemptProxyGetPolicyRulesQueryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for api.preempt.proxy.get.policy-rules.query: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -70,6 +192,44 @@ func (a *Client) APIPreemptProxyPostGraphql(params *APIPreemptProxyPostGraphqlPa
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for api.preempt.proxy.post.graphql: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+APIPreemptProxyPostPolicyRules creates policy rule
+*/
+func (a *Client) APIPreemptProxyPostPolicyRules(params *APIPreemptProxyPostPolicyRulesParams, opts ...ClientOption) (*APIPreemptProxyPostPolicyRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAPIPreemptProxyPostPolicyRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "api.preempt.proxy.post.policy-rules",
+		Method:             "POST",
+		PathPattern:        "/identity-protection/entities/policy-rules/v1",
+		ProducesMediaTypes: []string{"application/json", "application/json; charset=utf-8"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &APIPreemptProxyPostPolicyRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*APIPreemptProxyPostPolicyRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for api.preempt.proxy.post.policy-rules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

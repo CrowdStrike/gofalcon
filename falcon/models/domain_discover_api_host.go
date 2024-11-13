@@ -325,6 +325,9 @@ type DomainDiscoverAPIHost struct {
 	// The asset's network interfaces (Cannot be used for filtering, sorting, or querying).
 	NetworkInterfaces []*DomainDiscoverAPINetworkInterface `json:"network_interfaces"`
 
+	// The set of unique identifiers for the asset scanned by the Falcon sensor.
+	NetworkScannedIds []string `json:"network_scanned_ids"`
+
 	// The number of active physical drives available on the system.
 	NumberOfDiskDrives int32 `json:"number_of_disk_drives,omitempty"`
 

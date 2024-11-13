@@ -43,6 +43,12 @@ func (o *QueryRuleTypesReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 500:
+		result := NewQueryRuleTypesInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[GET /ioarules/queries/rule-types/v1] query-rule-types", response, response.Code())
 	}
@@ -381,6 +387,116 @@ func (o *QueryRuleTypesTooManyRequests) readResponse(response runtime.ClientResp
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryRuleTypesInternalServerError creates a QueryRuleTypesInternalServerError with default headers values
+func NewQueryRuleTypesInternalServerError() *QueryRuleTypesInternalServerError {
+	return &QueryRuleTypesInternalServerError{}
+}
+
+/*
+QueryRuleTypesInternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type QueryRuleTypesInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this query rule types internal server error response has a 2xx status code
+func (o *QueryRuleTypesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule types internal server error response has a 3xx status code
+func (o *QueryRuleTypesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule types internal server error response has a 4xx status code
+func (o *QueryRuleTypesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query rule types internal server error response has a 5xx status code
+func (o *QueryRuleTypesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query rule types internal server error response a status code equal to that given
+func (o *QueryRuleTypesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the query rule types internal server error response
+func (o *QueryRuleTypesInternalServerError) Code() int {
+	return 500
+}
+
+func (o *QueryRuleTypesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *QueryRuleTypesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *QueryRuleTypesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *QueryRuleTypesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

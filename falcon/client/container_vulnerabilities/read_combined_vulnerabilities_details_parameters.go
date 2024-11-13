@@ -64,7 +64,7 @@ type ReadCombinedVulnerabilitiesDetailsParams struct {
 
 	/* Filter.
 
-	   Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,is_zero_day,remediation_available,severity
+	   Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity
 	*/
 	Filter *string
 

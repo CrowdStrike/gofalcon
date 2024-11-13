@@ -72,6 +72,18 @@ type MessagesCase struct {
 	// Required: true
 	LastModifiedTime *string `json:"last_modified_time"`
 
+	// malware submission id
+	// Required: true
+	MalwareSubmissionID *string `json:"malware_submission_id"`
+
+	// malware submission url
+	// Required: true
+	MalwareSubmissionURL *string `json:"malware_submission_url"`
+
+	// recon rule type
+	// Required: true
+	ReconRuleType *string `json:"recon_rule_type"`
+
 	// status
 	// Required: true
 	Status *string `json:"status"`
@@ -138,6 +150,18 @@ func (m *MessagesCase) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastModifiedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMalwareSubmissionID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMalwareSubmissionURL(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReconRuleType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -335,6 +359,33 @@ func (m *MessagesCase) validateKey(formats strfmt.Registry) error {
 func (m *MessagesCase) validateLastModifiedTime(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_modified_time", "body", m.LastModifiedTime); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagesCase) validateMalwareSubmissionID(formats strfmt.Registry) error {
+
+	if err := validate.Required("malware_submission_id", "body", m.MalwareSubmissionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagesCase) validateMalwareSubmissionURL(formats strfmt.Registry) error {
+
+	if err := validate.Required("malware_submission_url", "body", m.MalwareSubmissionURL); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagesCase) validateReconRuleType(formats strfmt.Registry) error {
+
+	if err := validate.Required("recon_rule_type", "body", m.ReconRuleType); err != nil {
 		return err
 	}
 

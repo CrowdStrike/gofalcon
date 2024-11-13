@@ -31,6 +31,12 @@ type DomainAPIRemediationV2 struct {
 	// Required: true
 	Link *string `json:"link"`
 
+	// The timestamp that this remediation was published
+	PatchPublicationDate string `json:"patch_publication_date,omitempty"`
+
+	// The type of recommendation for this remediation, usually either 'recommended' or 'minimum'
+	RecommendationType string `json:"recommendation_type,omitempty"`
+
 	// Relevant reference for the remediation that can be used to get additional details for the remediation. For example, a KB number that needs to be installed for a KB_SECURITY_UPDATE
 	// Required: true
 	Reference *string `json:"reference"`

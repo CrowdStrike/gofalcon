@@ -55,6 +55,12 @@ func (o *AddUserGroupMembersReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 500:
+		result := NewAddUserGroupMembersInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[POST /mssp/entities/user-group-members/v1] addUserGroupMembers", response, response.Code())
 	}
@@ -613,6 +619,116 @@ func (o *AddUserGroupMembersTooManyRequests) readResponse(response runtime.Clien
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAddUserGroupMembersInternalServerError creates a AddUserGroupMembersInternalServerError with default headers values
+func NewAddUserGroupMembersInternalServerError() *AddUserGroupMembersInternalServerError {
+	return &AddUserGroupMembersInternalServerError{}
+}
+
+/*
+AddUserGroupMembersInternalServerError describes a response with status code 500, with default header values.
+
+Unexpected Error
+*/
+type AddUserGroupMembersInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this add user group members internal server error response has a 2xx status code
+func (o *AddUserGroupMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this add user group members internal server error response has a 3xx status code
+func (o *AddUserGroupMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this add user group members internal server error response has a 4xx status code
+func (o *AddUserGroupMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this add user group members internal server error response has a 5xx status code
+func (o *AddUserGroupMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this add user group members internal server error response a status code equal to that given
+func (o *AddUserGroupMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the add user group members internal server error response
+func (o *AddUserGroupMembersInternalServerError) Code() int {
+	return 500
+}
+
+func (o *AddUserGroupMembersInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *AddUserGroupMembersInternalServerError) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *AddUserGroupMembersInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *AddUserGroupMembersInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)

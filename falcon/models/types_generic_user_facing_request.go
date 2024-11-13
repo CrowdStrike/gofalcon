@@ -24,12 +24,6 @@ type TypesGenericUserFacingRequest struct {
 	// optional time
 	OptionalTime int64 `json:"optionalTime,omitempty"`
 
-	// organization id
-	OrganizationID int64 `json:"organization_id,omitempty"`
-
-	// project id
-	ProjectID int64 `json:"project_id,omitempty"`
-
 	// revision Id
 	RevisionID int64 `json:"revisionId,omitempty"`
 }

@@ -39,6 +39,9 @@ type V2Model struct {
 	// Required: true
 	Parent *V2Model `json:"parent"`
 
+	// summary
+	Summary string `json:"summary,omitempty"`
+
 	// trigger
 	// Required: true
 	Trigger *V2Trigger `json:"trigger"`

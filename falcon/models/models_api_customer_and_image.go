@@ -19,6 +19,9 @@ import (
 // swagger:model models.APICustomerAndImage
 type ModelsAPICustomerAndImage struct {
 
+	// base image id
+	BaseImageID string `json:"base_image_id,omitempty"`
+
 	// base os
 	// Required: true
 	BaseOs *string `json:"base_os"`
@@ -66,6 +69,10 @@ type ModelsAPICustomerAndImage struct {
 	// Required: true
 	ImageSize *int64 `json:"image_size"`
 
+	// is base image
+	// Required: true
+	IsBaseImage *bool `json:"is_base_image"`
+
 	// registry
 	// Required: true
 	Registry *string `json:"registry"`
@@ -73,6 +80,14 @@ type ModelsAPICustomerAndImage struct {
 	// repository
 	// Required: true
 	Repository *string `json:"repository"`
+
+	// source
+	// Required: true
+	Source *string `json:"source"`
+
+	// source base image
+	// Required: true
+	SourceBaseImage *ModelsImageDetails `json:"source_base_image"`
 
 	// tag
 	// Required: true
@@ -143,11 +158,23 @@ func (m *ModelsAPICustomerAndImage) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIsBaseImage(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateRegistry(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateRepository(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSource(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSourceBaseImage(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -291,6 +318,15 @@ func (m *ModelsAPICustomerAndImage) validateImageSize(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *ModelsAPICustomerAndImage) validateIsBaseImage(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_base_image", "body", m.IsBaseImage); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsAPICustomerAndImage) validateRegistry(formats strfmt.Registry) error {
 
 	if err := validate.Required("registry", "body", m.Registry); err != nil {
@@ -304,6 +340,35 @@ func (m *ModelsAPICustomerAndImage) validateRepository(formats strfmt.Registry) 
 
 	if err := validate.Required("repository", "body", m.Repository); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPICustomerAndImage) validateSource(formats strfmt.Registry) error {
+
+	if err := validate.Required("source", "body", m.Source); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPICustomerAndImage) validateSourceBaseImage(formats strfmt.Registry) error {
+
+	if err := validate.Required("source_base_image", "body", m.SourceBaseImage); err != nil {
+		return err
+	}
+
+	if m.SourceBaseImage != nil {
+		if err := m.SourceBaseImage.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("source_base_image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("source_base_image")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -353,6 +418,10 @@ func (m *ModelsAPICustomerAndImage) ContextValidate(ctx context.Context, formats
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSourceBaseImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -372,6 +441,23 @@ func (m *ModelsAPICustomerAndImage) contextValidateConfig(ctx context.Context, f
 				return ve.ValidateName("config")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ModelsAPICustomerAndImage) contextValidateSourceBaseImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SourceBaseImage != nil {
+
+		if err := m.SourceBaseImage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("source_base_image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("source_base_image")
 			}
 			return err
 		}

@@ -53,6 +53,9 @@ type DomainReportParams struct {
 	// sort
 	// Required: true
 	Sort *string `json:"sort"`
+
+	// spotlight params
+	SpotlightParams *DomainSpotlightParams `json:"spotlight_params,omitempty"`
 }
 
 // Validate validates this domain report params
@@ -88,6 +91,10 @@ func (m *DomainReportParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSort(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSpotlightParams(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -169,8 +176,57 @@ func (m *DomainReportParams) validateSort(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain report params based on context it is used
+func (m *DomainReportParams) validateSpotlightParams(formats strfmt.Registry) error {
+	if swag.IsZero(m.SpotlightParams) { // not required
+		return nil
+	}
+
+	if m.SpotlightParams != nil {
+		if err := m.SpotlightParams.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("spotlight_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spotlight_params")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain report params based on the context it is used
 func (m *DomainReportParams) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSpotlightParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainReportParams) contextValidateSpotlightParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SpotlightParams != nil {
+
+		if swag.IsZero(m.SpotlightParams) { // not required
+			return nil
+		}
+
+		if err := m.SpotlightParams.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("spotlight_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spotlight_params")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

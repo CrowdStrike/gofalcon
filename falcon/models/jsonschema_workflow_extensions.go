@@ -20,6 +20,9 @@ type JsonschemaWorkflowExtensions struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// max file size allowed in bytes
+	MaxFileSize int32 `json:"max_file_size,omitempty"`
+
 	// name
 	Name string `json:"name,omitempty"`
 
