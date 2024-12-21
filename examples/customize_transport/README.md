@@ -17,4 +17,4 @@ $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
       FALCON_RATE_LIMIT_THRESHOLD="100" customize_transport
 ```
 
-The Falcon API rate limit information provided by the `falcon.TransportDecorator` in this example will be the beginning out the output.
+The Falcon API rate limit information provided by the falcon.TransportDecorator in this example will appear at the beginning of the output.
