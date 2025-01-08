@@ -18,6 +18,21 @@ const (
 	SHRAExecutor   SensorType = "falcon-registryassessmentexecutor"
 )
 
+// AllSensorTypes returns all available sensor types
+func AllSensorTypes() []SensorType {
+    return []SensorType{
+        SidecarSensor,
+        ImageSensor,
+        KacSensor,
+        NodeSensor,
+        Snapshot,
+        KPAgent,
+        FCSCli,
+        SHRAController,
+        SHRAExecutor,
+    }
+}
+
 // FalconContainerUploadURI parses cloud string (example: us-1, us-2, eu-1, us-gov-1, etc) and returns a URI for uploading a container image for ImageAssessment.
 func FalconContainerUploadURI(falconCloud CloudType) string {
 	switch falconCloud {
