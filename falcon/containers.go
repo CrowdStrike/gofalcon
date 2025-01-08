@@ -7,10 +7,15 @@ import (
 type SensorType string
 
 const (
-	SidecarSensor SensorType = "falcon-container"
-	ImageSensor   SensorType = "falcon-imageanalyzer"
-	KacSensor     SensorType = "falcon-kac"
-	NodeSensor    SensorType = "falcon-sensor"
+	SidecarSensor  SensorType = "falcon-container"
+	ImageSensor    SensorType = "falcon-imageanalyzer"
+	KacSensor      SensorType = "falcon-kac"
+	NodeSensor     SensorType = "falcon-sensor"
+	Snapshot       SensorType = "falcon-snapshot"
+	KPAgent        SensorType = "kpagent"
+	FCSCli         SensorType = "fcs"
+	SHRAController SensorType = "falcon-jobcontroller"
+	SHRAExecutor   SensorType = "falcon-registryassessmentexecutor"
 )
 
 // FalconContainerUploadURI parses cloud string (example: us-1, us-2, eu-1, us-gov-1, etc) and returns a URI for uploading a container image for ImageAssessment.
@@ -44,6 +49,16 @@ func FalconContainerSensorImageURI(falconCloud CloudType, sensorType SensorType)
 		return fmt.Sprintf("%s/falcon-kac/%s/release/falcon-kac", registryFQDN(falconCloud), registryCloud(falconCloud))
 	case NodeSensor:
 		return fmt.Sprintf("%s/falcon-sensor/%s/release/falcon-sensor", registryFQDN(falconCloud), registryCloud(falconCloud))
+	case Snapshot:
+		return fmt.Sprintf("%s/falcon-snapshot/%s/release/cs-snapshotscanner", registryFQDN(falconCloud), registryCloud(falconCloud))
+	case KPAgent:
+		return fmt.Sprintf("%s/kubernetes_protection/kpagent", registryFQDN(falconCloud))
+	case FCSCli:
+		return fmt.Sprintf("%s/fcs/%s/release/cs-fcs", registryFQDN(falconCloud), registryCloud(falconCloud))
+	case SHRAController:
+		return fmt.Sprintf("%s/falcon-selfhostedregistryassessment/%s/release/falcon-jobcontroller", registryFQDN(falconCloud), registryCloud(falconCloud))
+	case SHRAExecutor:
+		return fmt.Sprintf("%s/falcon-selfhostedregistryassessment/%s/release/falcon-registryassessmentexecutor", registryFQDN(falconCloud), registryCloud(falconCloud))
 	default:
 		return fmt.Sprintf("%s/falcon-sensor/%s/release/falcon-sensor", registryFQDN(falconCloud), registryCloud(falconCloud))
 	}
