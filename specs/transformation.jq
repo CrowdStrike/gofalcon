@@ -38,7 +38,7 @@
 
   # Add response code "202" to "/devices/entities/devices/tags/v1" endpoint
   | .paths."/devices/entities/devices/tags/v1".patch.responses."202" = .paths."/devices/entities/devices/tags/v1".patch.responses."200"
-  
+
 
   # CGP should be Gcp
   | .paths."/cloud-connect-gcp/entities/account/v1".get.operationId = "GetD4CGcpAccount"
@@ -49,14 +49,14 @@
   # looks like spotlight is staying to reverting it again... keeping this code incase it can be used some other time.
   # | walk(
   #     if type == "object" and .tags and (.tags | index("spotlight-vulnerabilities")) then
-  #       .tags |= map(gsub("spotlight-vulnerabilities"; "vulnerabilities")) 
+  #       .tags |= map(gsub("spotlight-vulnerabilities"; "vulnerabilities"))
   #     elif type == "object" and .tags and (.tags | index("spotlight-evaluation-logic")) then
-  #       .tags |= map(gsub("spotlight-evaluation-logic"; "vulnerabilities-evaluation-logic")) 
-  #     else 
+  #       .tags |= map(gsub("spotlight-evaluation-logic"; "vulnerabilities-evaluation-logic"))
+  #     else
   #       .
   #     end
   #   )
-  
+
   # Revert msaspec.QueryResponse back to msa.QueryResponse for falconcomplete-dashboard
   | if .paths."/falcon-complete-dashboards/queries/alerts/v1".get.responses."200".schema."$ref" = "#/definitions/msaspec.QueryResponse" then .paths."/falcon-complete-dashboards/queries/alerts/v1".get.responses."200".schema |= {"$ref": "#/definitions/msa.QueryResponse"} else . end
   | if .paths."/falcon-complete-dashboards/queries/devicecount-collections/v1".get.responses."200".schema."$ref" = "#/definitions/msaspec.QueryResponse" then .paths."/falcon-complete-dashboards/queries/devicecount-collections/v1".get.responses."200".schema |= {"$ref": "#/definitions/msa.QueryResponse"} else . end
@@ -68,43 +68,43 @@
   | if .paths."/falcon-complete-dashboards/queries/remediations/v1".get.responses."200".schema."$ref" = "#/definitions/msaspec.QueryResponse" then .paths."/falcon-complete-dashboards/queries/remediations/v1".get.responses."200".schema |= {"$ref": "#/definitions/msa.QueryResponse"} else . end
 
   # Revert changes.GetChangesResponse back to public.GetChangesResponse for filevantage
-  | if .paths."/filevantage/entities/changes/v2".get.responses."200".schema."$ref" = "#/definitions/changes.GetChangesResponse" then 
-      .paths."/filevantage/entities/changes/v2".get.responses."200".schema = {"$ref": "#/definitions/public.GetChangesResponse"} 
-      |.definitions."public.GetChangesResponse" = .definitions."changes.GetChangesResponse" 
+  | if .paths."/filevantage/entities/changes/v2".get.responses."200".schema."$ref" = "#/definitions/changes.GetChangesResponse" then
+      .paths."/filevantage/entities/changes/v2".get.responses."200".schema = {"$ref": "#/definitions/public.GetChangesResponse"}
+      |.definitions."public.GetChangesResponse" = .definitions."changes.GetChangesResponse"
       |del(.definitions."changes.GetChangesResponse") else . end
 
   # Make message-center use consistent return type
-  | if .paths."/message-center/aggregates/cases/GET/v1".post.responses."403".schema."$ref" = "#/definitions/msa.ReplyMetaOnly" then 
-      .paths."/message-center/aggregates/cases/GET/v1".post.responses."403".schema = {"$ref": "#/definitions/msaspec.ResponseFields"} 
-    else . end 
+  | if .paths."/message-center/aggregates/cases/GET/v1".post.responses."403".schema."$ref" = "#/definitions/msa.ReplyMetaOnly" then
+      .paths."/message-center/aggregates/cases/GET/v1".post.responses."403".schema = {"$ref": "#/definitions/msaspec.ResponseFields"}
+    else . end
 
   # Custom Storage "custom-type" rename
   | .definitions."CustomStorageObjectKeys" = .definitions."CustomType_1255839303"
   | del(.definitions."CustomType_1255839303")
-  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then 
-      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end 
-  | if .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then 
-      .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end 
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then
+      .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end
 
   | .definitions."CustomStorageResponse" = .definitions."CustomType_3191042536"
   | del(.definitions."CustomType_3191042536")
-  | if .paths."/customobjects/v1/collections/{collection_name}/objects".post.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
+  | if .paths."/customobjects/v1/collections/{collection_name}/objects".post.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
       .paths."/customobjects/v1/collections/{collection_name}/objects".post.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
-  | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".put.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
-      .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".put.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".delete.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
-      .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".delete.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
-      .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".post.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
-      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".post.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".put.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
-      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".put.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".delete.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
-      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".delete.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then 
-      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end 
-  
+  | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".put.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
+      .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".put.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".delete.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
+      .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".delete.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
+      .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".post.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".post.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".put.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".put.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".delete.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}".delete.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
+      .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
+
   # Better operationId for workflows collection
   | .paths."/workflows/entities/execute/v1".post.operationId = "Execute"
   | .paths."/workflows/entities/execution-actions/v1".post.operationId = "ExecutionAction"
@@ -123,7 +123,7 @@
   | .paths."/loggingapi/entities/saved-searches/job-results-download/v1".get.operationId = "DownloadResults"
   | .paths."/loggingapi/entities/views/v1".get.operationId = "ListViews"
 
-  # Better operationId for custom-storage collection  
+  # Better operationId for custom-storage collection
   | .paths."/customobjects/v1/collections/{collection_name}/objects".get.operationId = "list"
   | .paths."/customobjects/v1/collections/{collection_name}/objects".post.operationId = "search"
   | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".get.operationId = "get"
@@ -546,7 +546,53 @@
   }
 }
 
-# Prevent unnecessary renaming 
+# Add new credential definitions for nested response structure
+| .definitions."common.Credentials" = {
+    "type": "object",
+    "properties": {
+        "meta": {
+            "$ref": "#/definitions/msa.MetaInfo"
+        },
+        "resources": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            },
+            "required": ["token"]
+        },
+        "errors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/msa.APIError"
+            }
+        }
+    }
+}
+| .definitions."common.RegistryCredentialsResponse" = {
+    "required": [
+        "errors",
+        "meta",
+        "resources"
+    ],
+    "properties": {
+        "errors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/msa.APIError"
+            }
+        },
+        "meta": {
+            "$ref": "#/definitions/msa.MetaInfo"
+        },
+        "resources": {
+            "$ref": "#/definitions/common.Credentials"
+        }
+    }
+}
+
+# Prevent unnecessary renaming
 | .paths."/snapshots/entities/image-registry-credentials/v1".get.operationId = "GetCredentialsMixin0Mixin60"
 | .paths."/falconx/queries/submissions/v1".get.operationId = "QuerySubmissions"
 | .paths."/scanner/queries/scans/v1".get.operationId = "QuerySubmissionsMixin0"
