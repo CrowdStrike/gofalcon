@@ -10,7 +10,7 @@ require (
 	github.com/go-openapi/swag v0.22.9
 	github.com/go-openapi/validate v0.23.1
 	github.com/sirupsen/logrus v1.9.3
-	golang.org/x/oauth2 v0.24.0
+	golang.org/x/oauth2 v0.25.0
 )
 
 require (
