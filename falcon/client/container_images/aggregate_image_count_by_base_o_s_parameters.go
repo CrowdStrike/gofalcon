@@ -63,7 +63,10 @@ type AggregateImageCountByBaseOSParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,registry,repository,tag
+	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `registry`
+	- `repository`
+	- `tag`
 	*/
 	Filter *string
 

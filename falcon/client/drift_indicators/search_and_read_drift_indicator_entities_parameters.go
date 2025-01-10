@@ -64,13 +64,31 @@ type SearchAndReadDriftIndicatorEntitiesParams struct {
 
 	/* Filter.
 
-	   Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name
+	     Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `cloud_name`
+	- `command_line`
+	- `container_id`
+	- `file_name`
+	- `file_sha256`
+	- `host_id`
+	- `indicator_process_id`
+	- `namespace`
+	- `occurred_at`
+	- `parent_process_id`
+	- `pod_name`
+	- `prevented`
+	- `scheduler_name`
+	- `severity`
+	- `worker_node_name`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -103,7 +121,18 @@ func (o *SearchAndReadDriftIndicatorEntitiesParams) WithDefaults() *SearchAndRea
 //
 // All values with no default are reset to their zero value.
 func (o *SearchAndReadDriftIndicatorEntitiesParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := SearchAndReadDriftIndicatorEntitiesParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the search and read drift indicator entities params

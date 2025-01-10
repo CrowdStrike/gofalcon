@@ -64,13 +64,20 @@ type SearchAndReadContainerAlertsParams struct {
 
 	/* Filter.
 
-	   Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen,name,severity
+	     Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `container_id`
+	- `last_seen`
+	- `name`
+	- `severity`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -103,7 +110,18 @@ func (o *SearchAndReadContainerAlertsParams) WithDefaults() *SearchAndReadContai
 //
 // All values with no default are reset to their zero value.
 func (o *SearchAndReadContainerAlertsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := SearchAndReadContainerAlertsParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the search and read container alerts params

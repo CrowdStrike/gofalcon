@@ -70,7 +70,8 @@ type ContainerEnrichmentParams struct {
 
 	/* Filter.
 
-	   Supported filters:  last_seen
+	     Supported filter fields:
+	- `last_seen`
 	*/
 	Filter *string
 

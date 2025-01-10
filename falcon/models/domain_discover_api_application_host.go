@@ -62,6 +62,9 @@ type DomainDiscoverAPIApplicationHost struct {
 	// The organizational unit of the asset.
 	Ou string `json:"ou,omitempty"`
 
+	// The organizational units of the asset.
+	Ous []string `json:"ous"`
+
 	// The platform name of the asset (Windows, Mac, Linux).
 	PlatformName string `json:"platform_name,omitempty"`
 

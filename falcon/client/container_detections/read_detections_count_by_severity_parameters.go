@@ -63,7 +63,12 @@ type ReadDetectionsCountBySeverityParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+	     Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `detection_type`
+	- `image_registry`
+	- `image_repository`
+	- `image_tag`
 	*/
 	Filter *string
 

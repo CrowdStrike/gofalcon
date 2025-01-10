@@ -83,8 +83,6 @@ type ReportExecutionsDownloadGetOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
-
-	Payload []int64
 }
 
 // IsSuccess returns true when this report executions download get o k response has a 2xx status code
@@ -118,15 +116,11 @@ func (o *ReportExecutionsDownloadGetOK) Code() int {
 }
 
 func (o *ReportExecutionsDownloadGetOK) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK ", 200)
 }
 
 func (o *ReportExecutionsDownloadGetOK) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK  %+v", 200, o.Payload)
-}
-
-func (o *ReportExecutionsDownloadGetOK) GetPayload() []int64 {
-	return o.Payload
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK ", 200)
 }
 
 func (o *ReportExecutionsDownloadGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -158,11 +152,6 @@ func (o *ReportExecutionsDownloadGetOK) readResponse(response runtime.ClientResp
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
-		return err
 	}
 
 	return nil

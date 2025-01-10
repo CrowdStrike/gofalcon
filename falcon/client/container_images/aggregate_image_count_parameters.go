@@ -63,7 +63,31 @@ type AggregateImageCountParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
+	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `ai_related`
+	- `arch`
+	- `base_os`
+	- `cid`
+	- `container_id`
+	- `container_running_status`
+	- `cps_rating`
+	- `crowdstrike_user`
+	- `cve_id`
+	- `detection_count`
+	- `detection_name`
+	- `detection_severity`
+	- `first_seen`
+	- `image_digest`
+	- `image_id`
+	- `include_base_image_vuln`
+	- `layer_digest`
+	- `package_name_version`
+	- `registry`
+	- `repository`
+	- `source`
+	- `tag`
+	- `vulnerability_count`
+	- `vulnerability_severity`
 	*/
 	Filter *string
 

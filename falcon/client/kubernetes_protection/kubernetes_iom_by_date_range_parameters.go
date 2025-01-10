@@ -63,7 +63,12 @@ type KubernetesIomByDateRangeParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
+	     Filter Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `created_timestamp`
+	- `detect_timestamp`
+	- `prevented`
+	- `severity`
 	*/
 	Filter *string
 

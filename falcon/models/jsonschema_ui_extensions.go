@@ -36,6 +36,9 @@ type JsonschemaUIExtensions struct {
 
 	// helper text
 	HelperText string `json:"helperText,omitempty"`
+
+	// local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response
+	SchemaReference string `json:"schema_reference,omitempty"`
 }
 
 // Validate validates this jsonschema UI extensions

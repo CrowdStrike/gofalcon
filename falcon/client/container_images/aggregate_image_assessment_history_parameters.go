@@ -63,7 +63,10 @@ type AggregateImageAssessmentHistoryParams struct {
 
 	/* Filter.
 
-	   Filter using a query in Falcon Query Language (FQL). Supported filters:  cid,registry,repository
+	     Filter using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `registry`
+	- `repository`
 	*/
 	Filter *string
 

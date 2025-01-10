@@ -21,7 +21,6 @@ import (
 type RegistrationAzureDownloadCertificateResponseV1 struct {
 
 	// errors
-	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
@@ -56,9 +55,8 @@ func (m *RegistrationAzureDownloadCertificateResponseV1) Validate(formats strfmt
 }
 
 func (m *RegistrationAzureDownloadCertificateResponseV1) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {

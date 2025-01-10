@@ -27,6 +27,9 @@ type QuickscanproQueryScanResultsResponse struct {
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
+	// quota
+	Quota *QuickscanproQuotaResource `json:"quota,omitempty"`
+
 	// scan IDs
 	// Required: true
 	Resources []string `json:"resources"`
@@ -41,6 +44,10 @@ func (m *QuickscanproQueryScanResultsResponse) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQuota(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -100,6 +107,25 @@ func (m *QuickscanproQueryScanResultsResponse) validateMeta(formats strfmt.Regis
 	return nil
 }
 
+func (m *QuickscanproQueryScanResultsResponse) validateQuota(formats strfmt.Registry) error {
+	if swag.IsZero(m.Quota) { // not required
+		return nil
+	}
+
+	if m.Quota != nil {
+		if err := m.Quota.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *QuickscanproQueryScanResultsResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
@@ -118,6 +144,10 @@ func (m *QuickscanproQueryScanResultsResponse) ContextValidate(ctx context.Conte
 	}
 
 	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuota(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -161,6 +191,27 @@ func (m *QuickscanproQueryScanResultsResponse) contextValidateMeta(ctx context.C
 				return ve.ValidateName("meta")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *QuickscanproQueryScanResultsResponse) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Quota != nil {
+
+		if swag.IsZero(m.Quota) { // not required
+			return nil
+		}
+
+		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}

@@ -19,6 +19,9 @@ import (
 // swagger:model v2.ForLoop
 type V2ForLoop struct {
 
+	// cel condition
+	CelCondition string `json:"cel_condition,omitempty"`
+
 	// condition
 	Condition string `json:"condition,omitempty"`
 

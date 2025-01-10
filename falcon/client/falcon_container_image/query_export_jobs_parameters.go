@@ -63,9 +63,9 @@ type QueryExportJobsParams struct {
 
 	/* Filter.
 
-	     FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters:
-	- `resource`: (string)
-	- `status`: (string)
+	     Filter exports using a query in Falcon Query Language (FQL). Only the last 100 jobs are returned. Supported filter fields:
+	- `resource`
+	- `status`
 	*/
 	Filter *string
 

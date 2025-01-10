@@ -15,6 +15,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
 	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_assets"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
 	"github.com/crowdstrike/gofalcon/falcon/client/compliance_assessments"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
@@ -24,6 +25,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/container_images"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_packages"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/content_update_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/correlation_rules"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspg_iacapi"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspm_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_ioa"
@@ -32,6 +35,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/datascanner"
 	"github.com/crowdstrike/gofalcon/falcon/client/delivery_settings"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
+	"github.com/crowdstrike/gofalcon/falcon/client/device_content"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover_iot"
@@ -66,6 +70,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
+	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/message_center"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
@@ -149,6 +154,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.APIIntegrations = api_integrations.New(transport, formats)
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
+	cli.CloudSecurityAssets = cloud_security_assets.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
 	cli.ComplianceAssessments = compliance_assessments.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
@@ -158,6 +164,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ContainerImages = container_images.New(transport, formats)
 	cli.ContainerPackages = container_packages.New(transport, formats)
 	cli.ContainerVulnerabilities = container_vulnerabilities.New(transport, formats)
+	cli.ContentUpdatePolicies = content_update_policies.New(transport, formats)
+	cli.CorrelationRules = correlation_rules.New(transport, formats)
 	cli.CspgIacapi = cspg_iacapi.New(transport, formats)
 	cli.CspmRegistration = cspm_registration.New(transport, formats)
 	cli.CustomIoa = custom_ioa.New(transport, formats)
@@ -166,6 +174,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Datascanner = datascanner.New(transport, formats)
 	cli.DeliverySettings = delivery_settings.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
+	cli.DeviceContent = device_content.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
 	cli.Discover = discover.New(transport, formats)
 	cli.DiscoverIot = discover_iot.New(transport, formats)
@@ -200,6 +209,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
+	cli.LookupFiles = lookup_files.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MessageCenter = message_center.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
@@ -288,6 +298,8 @@ type CrowdStrikeAPISpecification struct {
 
 	CloudConnectAws cloud_connect_aws.ClientService
 
+	CloudSecurityAssets cloud_security_assets.ClientService
+
 	CloudSnapshots cloud_snapshots.ClientService
 
 	ComplianceAssessments compliance_assessments.ClientService
@@ -306,6 +318,10 @@ type CrowdStrikeAPISpecification struct {
 
 	ContainerVulnerabilities container_vulnerabilities.ClientService
 
+	ContentUpdatePolicies content_update_policies.ClientService
+
+	CorrelationRules correlation_rules.ClientService
+
 	CspgIacapi cspg_iacapi.ClientService
 
 	CspmRegistration cspm_registration.ClientService
@@ -321,6 +337,8 @@ type CrowdStrikeAPISpecification struct {
 	DeliverySettings delivery_settings.ClientService
 
 	Detects detects.ClientService
+
+	DeviceContent device_content.ClientService
 
 	DeviceControlPolicies device_control_policies.ClientService
 
@@ -389,6 +407,8 @@ type CrowdStrikeAPISpecification struct {
 	Iocs iocs.ClientService
 
 	KubernetesProtection kubernetes_protection.ClientService
+
+	LookupFiles lookup_files.ClientService
 
 	Malquery malquery.ClientService
 
@@ -469,6 +489,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.APIIntegrations.SetTransport(transport)
 	c.CertificateBasedExclusions.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
+	c.CloudSecurityAssets.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
 	c.ComplianceAssessments.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
@@ -478,6 +499,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ContainerImages.SetTransport(transport)
 	c.ContainerPackages.SetTransport(transport)
 	c.ContainerVulnerabilities.SetTransport(transport)
+	c.ContentUpdatePolicies.SetTransport(transport)
+	c.CorrelationRules.SetTransport(transport)
 	c.CspgIacapi.SetTransport(transport)
 	c.CspmRegistration.SetTransport(transport)
 	c.CustomIoa.SetTransport(transport)
@@ -486,6 +509,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Datascanner.SetTransport(transport)
 	c.DeliverySettings.SetTransport(transport)
 	c.Detects.SetTransport(transport)
+	c.DeviceContent.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
 	c.Discover.SetTransport(transport)
 	c.DiscoverIot.SetTransport(transport)
@@ -520,6 +544,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
+	c.LookupFiles.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
 	c.MessageCenter.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)

@@ -65,8 +65,29 @@ type GetIntegrationTasksParams struct {
 	// Category.
 	Category *string
 
+	// Direction.
+	Direction *string
+
+	// Ids.
+	Ids *int64
+
 	// IntegrationTaskType.
 	IntegrationTaskType *int64
+
+	// IntegrationTaskTypes.
+	IntegrationTaskTypes *int64
+
+	// Limit.
+	Limit *int64
+
+	// Names.
+	Names *string
+
+	// Offset.
+	Offset *int64
+
+	// OrderBy.
+	OrderBy *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -132,6 +153,28 @@ func (o *GetIntegrationTasksParams) SetCategory(category *string) {
 	o.Category = category
 }
 
+// WithDirection adds the direction to the get integration tasks params
+func (o *GetIntegrationTasksParams) WithDirection(direction *string) *GetIntegrationTasksParams {
+	o.SetDirection(direction)
+	return o
+}
+
+// SetDirection adds the direction to the get integration tasks params
+func (o *GetIntegrationTasksParams) SetDirection(direction *string) {
+	o.Direction = direction
+}
+
+// WithIds adds the ids to the get integration tasks params
+func (o *GetIntegrationTasksParams) WithIds(ids *int64) *GetIntegrationTasksParams {
+	o.SetIds(ids)
+	return o
+}
+
+// SetIds adds the ids to the get integration tasks params
+func (o *GetIntegrationTasksParams) SetIds(ids *int64) {
+	o.Ids = ids
+}
+
 // WithIntegrationTaskType adds the integrationTaskType to the get integration tasks params
 func (o *GetIntegrationTasksParams) WithIntegrationTaskType(integrationTaskType *int64) *GetIntegrationTasksParams {
 	o.SetIntegrationTaskType(integrationTaskType)
@@ -141,6 +184,61 @@ func (o *GetIntegrationTasksParams) WithIntegrationTaskType(integrationTaskType 
 // SetIntegrationTaskType adds the integrationTaskType to the get integration tasks params
 func (o *GetIntegrationTasksParams) SetIntegrationTaskType(integrationTaskType *int64) {
 	o.IntegrationTaskType = integrationTaskType
+}
+
+// WithIntegrationTaskTypes adds the integrationTaskTypes to the get integration tasks params
+func (o *GetIntegrationTasksParams) WithIntegrationTaskTypes(integrationTaskTypes *int64) *GetIntegrationTasksParams {
+	o.SetIntegrationTaskTypes(integrationTaskTypes)
+	return o
+}
+
+// SetIntegrationTaskTypes adds the integrationTaskTypes to the get integration tasks params
+func (o *GetIntegrationTasksParams) SetIntegrationTaskTypes(integrationTaskTypes *int64) {
+	o.IntegrationTaskTypes = integrationTaskTypes
+}
+
+// WithLimit adds the limit to the get integration tasks params
+func (o *GetIntegrationTasksParams) WithLimit(limit *int64) *GetIntegrationTasksParams {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the get integration tasks params
+func (o *GetIntegrationTasksParams) SetLimit(limit *int64) {
+	o.Limit = limit
+}
+
+// WithNames adds the names to the get integration tasks params
+func (o *GetIntegrationTasksParams) WithNames(names *string) *GetIntegrationTasksParams {
+	o.SetNames(names)
+	return o
+}
+
+// SetNames adds the names to the get integration tasks params
+func (o *GetIntegrationTasksParams) SetNames(names *string) {
+	o.Names = names
+}
+
+// WithOffset adds the offset to the get integration tasks params
+func (o *GetIntegrationTasksParams) WithOffset(offset *int64) *GetIntegrationTasksParams {
+	o.SetOffset(offset)
+	return o
+}
+
+// SetOffset adds the offset to the get integration tasks params
+func (o *GetIntegrationTasksParams) SetOffset(offset *int64) {
+	o.Offset = offset
+}
+
+// WithOrderBy adds the orderBy to the get integration tasks params
+func (o *GetIntegrationTasksParams) WithOrderBy(orderBy *string) *GetIntegrationTasksParams {
+	o.SetOrderBy(orderBy)
+	return o
+}
+
+// SetOrderBy adds the orderBy to the get integration tasks params
+func (o *GetIntegrationTasksParams) SetOrderBy(orderBy *string) {
+	o.OrderBy = orderBy
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -168,6 +266,40 @@ func (o *GetIntegrationTasksParams) WriteToRequest(r runtime.ClientRequest, reg 
 		}
 	}
 
+	if o.Direction != nil {
+
+		// query param direction
+		var qrDirection string
+
+		if o.Direction != nil {
+			qrDirection = *o.Direction
+		}
+		qDirection := qrDirection
+		if qDirection != "" {
+
+			if err := r.SetQueryParam("direction", qDirection); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Ids != nil {
+
+		// query param ids
+		var qrIds int64
+
+		if o.Ids != nil {
+			qrIds = *o.Ids
+		}
+		qIds := swag.FormatInt64(qrIds)
+		if qIds != "" {
+
+			if err := r.SetQueryParam("ids", qIds); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.IntegrationTaskType != nil {
 
 		// query param integration_task_type
@@ -180,6 +312,91 @@ func (o *GetIntegrationTasksParams) WriteToRequest(r runtime.ClientRequest, reg 
 		if qIntegrationTaskType != "" {
 
 			if err := r.SetQueryParam("integration_task_type", qIntegrationTaskType); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IntegrationTaskTypes != nil {
+
+		// query param integration_task_types
+		var qrIntegrationTaskTypes int64
+
+		if o.IntegrationTaskTypes != nil {
+			qrIntegrationTaskTypes = *o.IntegrationTaskTypes
+		}
+		qIntegrationTaskTypes := swag.FormatInt64(qrIntegrationTaskTypes)
+		if qIntegrationTaskTypes != "" {
+
+			if err := r.SetQueryParam("integration_task_types", qIntegrationTaskTypes); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Limit != nil {
+
+		// query param limit
+		var qrLimit int64
+
+		if o.Limit != nil {
+			qrLimit = *o.Limit
+		}
+		qLimit := swag.FormatInt64(qrLimit)
+		if qLimit != "" {
+
+			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Names != nil {
+
+		// query param names
+		var qrNames string
+
+		if o.Names != nil {
+			qrNames = *o.Names
+		}
+		qNames := qrNames
+		if qNames != "" {
+
+			if err := r.SetQueryParam("names", qNames); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Offset != nil {
+
+		// query param offset
+		var qrOffset int64
+
+		if o.Offset != nil {
+			qrOffset = *o.Offset
+		}
+		qOffset := swag.FormatInt64(qrOffset)
+		if qOffset != "" {
+
+			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.OrderBy != nil {
+
+		// query param orderBy
+		var qrOrderBy string
+
+		if o.OrderBy != nil {
+			qrOrderBy = *o.OrderBy
+		}
+		qOrderBy := qrOrderBy
+		if qOrderBy != "" {
+
+			if err := r.SetQueryParam("orderBy", qOrderBy); err != nil {
 				return err
 			}
 		}

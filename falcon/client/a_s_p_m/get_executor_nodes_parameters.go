@@ -62,11 +62,47 @@ GetExecutorNodesParams contains all the parameters to send to the API endpoint
 */
 type GetExecutorNodesParams struct {
 
+	// Direction.
+	Direction *string
+
+	/* ExecutorNodeIds.
+
+	   executor node ids
+	*/
+	ExecutorNodeIds []string
+
+	/* ExecutorNodeNames.
+
+	   executor node names
+	*/
+	ExecutorNodeNames []string
+
+	/* ExecutorNodeStates.
+
+	   executor node states
+	*/
+	ExecutorNodeStates []int64
+
+	/* ExecutorNodeTypes.
+
+	   executor node types
+	*/
+	ExecutorNodeTypes []string
+
 	// IntegrationType.
 	IntegrationType *int64
 
+	// Limit.
+	Limit *int64
+
 	// NodeType.
 	NodeType string
+
+	// Offset.
+	Offset *int64
+
+	// OrderBy.
+	OrderBy *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -121,6 +157,61 @@ func (o *GetExecutorNodesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithDirection adds the direction to the get executor nodes params
+func (o *GetExecutorNodesParams) WithDirection(direction *string) *GetExecutorNodesParams {
+	o.SetDirection(direction)
+	return o
+}
+
+// SetDirection adds the direction to the get executor nodes params
+func (o *GetExecutorNodesParams) SetDirection(direction *string) {
+	o.Direction = direction
+}
+
+// WithExecutorNodeIds adds the executorNodeIds to the get executor nodes params
+func (o *GetExecutorNodesParams) WithExecutorNodeIds(executorNodeIds []string) *GetExecutorNodesParams {
+	o.SetExecutorNodeIds(executorNodeIds)
+	return o
+}
+
+// SetExecutorNodeIds adds the executorNodeIds to the get executor nodes params
+func (o *GetExecutorNodesParams) SetExecutorNodeIds(executorNodeIds []string) {
+	o.ExecutorNodeIds = executorNodeIds
+}
+
+// WithExecutorNodeNames adds the executorNodeNames to the get executor nodes params
+func (o *GetExecutorNodesParams) WithExecutorNodeNames(executorNodeNames []string) *GetExecutorNodesParams {
+	o.SetExecutorNodeNames(executorNodeNames)
+	return o
+}
+
+// SetExecutorNodeNames adds the executorNodeNames to the get executor nodes params
+func (o *GetExecutorNodesParams) SetExecutorNodeNames(executorNodeNames []string) {
+	o.ExecutorNodeNames = executorNodeNames
+}
+
+// WithExecutorNodeStates adds the executorNodeStates to the get executor nodes params
+func (o *GetExecutorNodesParams) WithExecutorNodeStates(executorNodeStates []int64) *GetExecutorNodesParams {
+	o.SetExecutorNodeStates(executorNodeStates)
+	return o
+}
+
+// SetExecutorNodeStates adds the executorNodeStates to the get executor nodes params
+func (o *GetExecutorNodesParams) SetExecutorNodeStates(executorNodeStates []int64) {
+	o.ExecutorNodeStates = executorNodeStates
+}
+
+// WithExecutorNodeTypes adds the executorNodeTypes to the get executor nodes params
+func (o *GetExecutorNodesParams) WithExecutorNodeTypes(executorNodeTypes []string) *GetExecutorNodesParams {
+	o.SetExecutorNodeTypes(executorNodeTypes)
+	return o
+}
+
+// SetExecutorNodeTypes adds the executorNodeTypes to the get executor nodes params
+func (o *GetExecutorNodesParams) SetExecutorNodeTypes(executorNodeTypes []string) {
+	o.ExecutorNodeTypes = executorNodeTypes
+}
+
 // WithIntegrationType adds the integrationType to the get executor nodes params
 func (o *GetExecutorNodesParams) WithIntegrationType(integrationType *int64) *GetExecutorNodesParams {
 	o.SetIntegrationType(integrationType)
@@ -130,6 +221,17 @@ func (o *GetExecutorNodesParams) WithIntegrationType(integrationType *int64) *Ge
 // SetIntegrationType adds the integrationType to the get executor nodes params
 func (o *GetExecutorNodesParams) SetIntegrationType(integrationType *int64) {
 	o.IntegrationType = integrationType
+}
+
+// WithLimit adds the limit to the get executor nodes params
+func (o *GetExecutorNodesParams) WithLimit(limit *int64) *GetExecutorNodesParams {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the get executor nodes params
+func (o *GetExecutorNodesParams) SetLimit(limit *int64) {
+	o.Limit = limit
 }
 
 // WithNodeType adds the nodeType to the get executor nodes params
@@ -143,6 +245,28 @@ func (o *GetExecutorNodesParams) SetNodeType(nodeType string) {
 	o.NodeType = nodeType
 }
 
+// WithOffset adds the offset to the get executor nodes params
+func (o *GetExecutorNodesParams) WithOffset(offset *int64) *GetExecutorNodesParams {
+	o.SetOffset(offset)
+	return o
+}
+
+// SetOffset adds the offset to the get executor nodes params
+func (o *GetExecutorNodesParams) SetOffset(offset *int64) {
+	o.Offset = offset
+}
+
+// WithOrderBy adds the orderBy to the get executor nodes params
+func (o *GetExecutorNodesParams) WithOrderBy(orderBy *string) *GetExecutorNodesParams {
+	o.SetOrderBy(orderBy)
+	return o
+}
+
+// SetOrderBy adds the orderBy to the get executor nodes params
+func (o *GetExecutorNodesParams) SetOrderBy(orderBy *string) {
+	o.OrderBy = orderBy
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetExecutorNodesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -150,6 +274,67 @@ func (o *GetExecutorNodesParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
+
+	if o.Direction != nil {
+
+		// query param direction
+		var qrDirection string
+
+		if o.Direction != nil {
+			qrDirection = *o.Direction
+		}
+		qDirection := qrDirection
+		if qDirection != "" {
+
+			if err := r.SetQueryParam("direction", qDirection); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ExecutorNodeIds != nil {
+
+		// binding items for executor_node_ids
+		joinedExecutorNodeIds := o.bindParamExecutorNodeIds(reg)
+
+		// query array param executor_node_ids
+		if err := r.SetQueryParam("executor_node_ids", joinedExecutorNodeIds...); err != nil {
+			return err
+		}
+	}
+
+	if o.ExecutorNodeNames != nil {
+
+		// binding items for executor_node_names
+		joinedExecutorNodeNames := o.bindParamExecutorNodeNames(reg)
+
+		// query array param executor_node_names
+		if err := r.SetQueryParam("executor_node_names", joinedExecutorNodeNames...); err != nil {
+			return err
+		}
+	}
+
+	if o.ExecutorNodeStates != nil {
+
+		// binding items for executor_node_states
+		joinedExecutorNodeStates := o.bindParamExecutorNodeStates(reg)
+
+		// query array param executor_node_states
+		if err := r.SetQueryParam("executor_node_states", joinedExecutorNodeStates...); err != nil {
+			return err
+		}
+	}
+
+	if o.ExecutorNodeTypes != nil {
+
+		// binding items for executor_node_types
+		joinedExecutorNodeTypes := o.bindParamExecutorNodeTypes(reg)
+
+		// query array param executor_node_types
+		if err := r.SetQueryParam("executor_node_types", joinedExecutorNodeTypes...); err != nil {
+			return err
+		}
+	}
 
 	if o.IntegrationType != nil {
 
@@ -168,6 +353,23 @@ func (o *GetExecutorNodesParams) WriteToRequest(r runtime.ClientRequest, reg str
 		}
 	}
 
+	if o.Limit != nil {
+
+		// query param limit
+		var qrLimit int64
+
+		if o.Limit != nil {
+			qrLimit = *o.Limit
+		}
+		qLimit := swag.FormatInt64(qrLimit)
+		if qLimit != "" {
+
+			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
 	// query param node_type
 	qrNodeType := o.NodeType
 	qNodeType := qrNodeType
@@ -178,8 +380,110 @@ func (o *GetExecutorNodesParams) WriteToRequest(r runtime.ClientRequest, reg str
 		}
 	}
 
+	if o.Offset != nil {
+
+		// query param offset
+		var qrOffset int64
+
+		if o.Offset != nil {
+			qrOffset = *o.Offset
+		}
+		qOffset := swag.FormatInt64(qrOffset)
+		if qOffset != "" {
+
+			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.OrderBy != nil {
+
+		// query param order_by
+		var qrOrderBy string
+
+		if o.OrderBy != nil {
+			qrOrderBy = *o.OrderBy
+		}
+		qOrderBy := qrOrderBy
+		if qOrderBy != "" {
+
+			if err := r.SetQueryParam("order_by", qOrderBy); err != nil {
+				return err
+			}
+		}
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetExecutorNodes binds the parameter executor_node_ids
+func (o *GetExecutorNodesParams) bindParamExecutorNodeIds(formats strfmt.Registry) []string {
+	executorNodeIdsIR := o.ExecutorNodeIds
+
+	var executorNodeIdsIC []string
+	for _, executorNodeIdsIIR := range executorNodeIdsIR { // explode []string
+
+		executorNodeIdsIIV := executorNodeIdsIIR // string as string
+		executorNodeIdsIC = append(executorNodeIdsIC, executorNodeIdsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	executorNodeIdsIS := swag.JoinByFormat(executorNodeIdsIC, "csv")
+
+	return executorNodeIdsIS
+}
+
+// bindParamGetExecutorNodes binds the parameter executor_node_names
+func (o *GetExecutorNodesParams) bindParamExecutorNodeNames(formats strfmt.Registry) []string {
+	executorNodeNamesIR := o.ExecutorNodeNames
+
+	var executorNodeNamesIC []string
+	for _, executorNodeNamesIIR := range executorNodeNamesIR { // explode []string
+
+		executorNodeNamesIIV := executorNodeNamesIIR // string as string
+		executorNodeNamesIC = append(executorNodeNamesIC, executorNodeNamesIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	executorNodeNamesIS := swag.JoinByFormat(executorNodeNamesIC, "csv")
+
+	return executorNodeNamesIS
+}
+
+// bindParamGetExecutorNodes binds the parameter executor_node_states
+func (o *GetExecutorNodesParams) bindParamExecutorNodeStates(formats strfmt.Registry) []string {
+	executorNodeStatesIR := o.ExecutorNodeStates
+
+	var executorNodeStatesIC []string
+	for _, executorNodeStatesIIR := range executorNodeStatesIR { // explode []int64
+
+		executorNodeStatesIIV := swag.FormatInt64(executorNodeStatesIIR) // int64 as string
+		executorNodeStatesIC = append(executorNodeStatesIC, executorNodeStatesIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	executorNodeStatesIS := swag.JoinByFormat(executorNodeStatesIC, "csv")
+
+	return executorNodeStatesIS
+}
+
+// bindParamGetExecutorNodes binds the parameter executor_node_types
+func (o *GetExecutorNodesParams) bindParamExecutorNodeTypes(formats strfmt.Registry) []string {
+	executorNodeTypesIR := o.ExecutorNodeTypes
+
+	var executorNodeTypesIC []string
+	for _, executorNodeTypesIIR := range executorNodeTypesIR { // explode []string
+
+		executorNodeTypesIIV := executorNodeTypesIIR // string as string
+		executorNodeTypesIC = append(executorNodeTypesIC, executorNodeTypesIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	executorNodeTypesIS := swag.JoinByFormat(executorNodeTypesIC, "csv")
+
+	return executorNodeTypesIS
 }

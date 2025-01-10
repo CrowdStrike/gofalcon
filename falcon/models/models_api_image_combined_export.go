@@ -55,6 +55,9 @@ type ModelsAPIImageCombinedExport struct {
 	// Required: true
 	FirstSeen *string `json:"first_seen"`
 
+	// groups
+	Groups []string `json:"groups"`
+
 	// image digest
 	// Required: true
 	ImageDigest *string `json:"image_digest"`

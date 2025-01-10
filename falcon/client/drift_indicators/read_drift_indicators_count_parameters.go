@@ -63,7 +63,23 @@ type ReadDriftIndicatorsCountParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name
+	     Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `cloud_name`
+	- `command_line`
+	- `container_id`
+	- `file_name`
+	- `file_sha256`
+	- `host_id`
+	- `indicator_process_id`
+	- `namespace`
+	- `occurred_at`
+	- `parent_process_id`
+	- `pod_name`
+	- `prevented`
+	- `scheduler_name`
+	- `severity`
+	- `worker_node_name`
 	*/
 	Filter *string
 

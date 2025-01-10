@@ -25,6 +25,12 @@ type JsonschemaSignalsExtensions struct {
 
 	// path name
 	PathName string `json:"path_name,omitempty"`
+
+	// use case
+	UseCase string `json:"use_case,omitempty"`
+
+	// vendor
+	Vendor string `json:"vendor,omitempty"`
 }
 
 // Validate validates this jsonschema signals extensions

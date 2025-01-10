@@ -26,6 +26,9 @@ type DomainDiscoverAPIIoTHost struct {
 	// The user account control properties in Active Directory.
 	AdUserAccountControl int32 `json:"ad_user_account_control,omitempty"`
 
+	// Whether the asset is a virtual server or not (Yes, No)
+	AdVirtualServer string `json:"ad_virtual_server,omitempty"`
+
 	// The version of the Falcon sensor that's installed on the asset.
 	AgentVersion string `json:"agent_version,omitempty"`
 
@@ -80,6 +83,9 @@ type DomainDiscoverAPIIoTHost struct {
 
 	// How the server is classified, such as production, development, disaster recovery, or user acceptance testing.
 	Classification string `json:"classification,omitempty"`
+
+	// The composite internet exposure of the asset
+	CompositeInternetExposure string `json:"composite_internet_exposure,omitempty"`
 
 	// The asset role or roles assigned to the asset automatically (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
 	ComputedAssetRoles []string `json:"computed_asset_roles"`
@@ -336,6 +342,9 @@ type DomainDiscoverAPIIoTHost struct {
 
 	// The organizational unit of the asset.
 	Ou string `json:"ou,omitempty"`
+
+	// The organizational units of the asset.
+	Ous []string `json:"ous"`
 
 	// Whether a user overrode automatically assigned asset roles to manually assign a role to the asset (true or false).
 	OverrideAssetRoles bool `json:"override_asset_roles,omitempty"`

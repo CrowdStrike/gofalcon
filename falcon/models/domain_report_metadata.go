@@ -30,6 +30,9 @@ type DomainReportMetadata struct {
 	// discover params
 	DiscoverParams *DomainDiscoverParams `json:"discover_params,omitempty"`
 
+	// kestrel params
+	KestrelParams *DomainKestrelParams `json:"kestrel_params,omitempty"`
+
 	// last scheduled execution
 	LastScheduledExecution *DomainLastScheduledExecution `json:"last_scheduled_execution,omitempty"`
 
@@ -58,6 +61,10 @@ func (m *DomainReportMetadata) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDiscoverParams(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKestrelParams(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -112,6 +119,25 @@ func (m *DomainReportMetadata) validateDiscoverParams(formats strfmt.Registry) e
 				return ve.ValidateName("discover_params")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("discover_params")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainReportMetadata) validateKestrelParams(formats strfmt.Registry) error {
+	if swag.IsZero(m.KestrelParams) { // not required
+		return nil
+	}
+
+	if m.KestrelParams != nil {
+		if err := m.KestrelParams.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("kestrel_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kestrel_params")
 			}
 			return err
 		}
@@ -195,6 +221,10 @@ func (m *DomainReportMetadata) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateKestrelParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLastScheduledExecution(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -226,6 +256,27 @@ func (m *DomainReportMetadata) contextValidateDiscoverParams(ctx context.Context
 				return ve.ValidateName("discover_params")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("discover_params")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainReportMetadata) contextValidateKestrelParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KestrelParams != nil {
+
+		if swag.IsZero(m.KestrelParams) { // not required
+			return nil
+		}
+
+		if err := m.KestrelParams.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("kestrel_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kestrel_params")
 			}
 			return err
 		}

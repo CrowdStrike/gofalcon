@@ -42,8 +42,6 @@ type ClientService interface {
 
 	DeleteD4CGCPAccount(params *DeleteD4CGCPAccountParams, opts ...ClientOption) (*DeleteD4CGCPAccountOK, *DeleteD4CGCPAccountMultiStatus, error)
 
-	DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzureDownloadCertificateParams, opts ...ClientOption) (*DiscoverCloudAzureDownloadCertificateOK, error)
-
 	GetD4CAWSAccountScriptsAttachment(params *GetD4CAWSAccountScriptsAttachmentParams, opts ...ClientOption) (*GetD4CAWSAccountScriptsAttachmentOK, error)
 
 	GetD4CAwsAccount(params *GetD4CAwsAccountParams, opts ...ClientOption) (*GetD4CAwsAccountOK, *GetD4CAwsAccountMultiStatus, error)
@@ -306,44 +304,6 @@ func (a *Client) DeleteD4CGCPAccount(params *DeleteD4CGCPAccountParams, opts ...
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DiscoverCloudAzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
-*/
-func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzureDownloadCertificateParams, opts ...ClientOption) (*DiscoverCloudAzureDownloadCertificateOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDiscoverCloudAzureDownloadCertificateParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "DiscoverCloudAzureDownloadCertificate",
-		Method:             "GET",
-		PathPattern:        "/cloud-connect-azure/entities/download-certificate/v1",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DiscoverCloudAzureDownloadCertificateReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*DiscoverCloudAzureDownloadCertificateOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DiscoverCloudAzureDownloadCertificate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

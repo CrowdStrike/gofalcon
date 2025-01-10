@@ -64,13 +64,26 @@ type ReadPackagesByFixableVulnCountParams struct {
 
 	/* Filter.
 
-	   Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
+	     Filter packages using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `ai_related`
+	- `cid`
+	- `container_id`
+	- `cveid`
+	- `fix_status`
+	- `image_digest`
+	- `license`
+	- `package_name_version`
+	- `severity`
+	- `type`
+	- `vulnerability_count`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -97,7 +110,18 @@ func (o *ReadPackagesByFixableVulnCountParams) WithDefaults() *ReadPackagesByFix
 //
 // All values with no default are reset to their zero value.
 func (o *ReadPackagesByFixableVulnCountParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := ReadPackagesByFixableVulnCountParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the read packages by fixable vuln count params

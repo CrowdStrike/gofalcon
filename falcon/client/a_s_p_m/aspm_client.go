@@ -48,7 +48,11 @@ type ClientService interface {
 
 	GetExecutorNodes(params *GetExecutorNodesParams, opts ...ClientOption) (*GetExecutorNodesOK, error)
 
+	GetExecutorNodesMetadata(params *GetExecutorNodesMetadataParams, opts ...ClientOption) (*GetExecutorNodesMetadataOK, error)
+
 	GetIntegrationTasks(params *GetIntegrationTasksParams, opts ...ClientOption) (*GetIntegrationTasksOK, error)
+
+	GetIntegrationTasksMetadata(params *GetIntegrationTasksMetadataParams, opts ...ClientOption) (*GetIntegrationTasksMetadataOK, error)
 
 	GetIntegrationTypes(params *GetIntegrationTypesParams, opts ...ClientOption) (*GetIntegrationTypesOK, error)
 
@@ -422,6 +426,44 @@ func (a *Client) GetExecutorNodes(params *GetExecutorNodesParams, opts ...Client
 }
 
 /*
+GetExecutorNodesMetadata gets metadata about all executor nodes
+*/
+func (a *Client) GetExecutorNodesMetadata(params *GetExecutorNodesMetadataParams, opts ...ClientOption) (*GetExecutorNodesMetadataOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetExecutorNodesMetadataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetExecutorNodesMetadata",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/executor_nodes/metadata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExecutorNodesMetadataReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetExecutorNodesMetadataOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetExecutorNodesMetadata: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetIntegrationTasks gets all the integration tasks
 */
 func (a *Client) GetIntegrationTasks(params *GetIntegrationTasksParams, opts ...ClientOption) (*GetIntegrationTasksOK, error) {
@@ -456,6 +498,44 @@ func (a *Client) GetIntegrationTasks(params *GetIntegrationTasksParams, opts ...
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetIntegrationTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetIntegrationTasksMetadata gets metadata about all integration tasks
+*/
+func (a *Client) GetIntegrationTasksMetadata(params *GetIntegrationTasksMetadataParams, opts ...ClientOption) (*GetIntegrationTasksMetadataOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetIntegrationTasksMetadataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetIntegrationTasksMetadata",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/integration_tasks/metadata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIntegrationTasksMetadataReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetIntegrationTasksMetadataOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetIntegrationTasksMetadata: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

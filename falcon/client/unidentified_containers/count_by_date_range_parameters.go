@@ -63,7 +63,19 @@ type CountByDateRangeParams struct {
 
 	/* Filter.
 
-	   Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+	     Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `assessed_images_count`
+	- `cid`
+	- `cluster_name`
+	- `containers_impacted_count`
+	- `detections_count`
+	- `image_assessment_detections_count`
+	- `last_seen`
+	- `namespace`
+	- `node_name`
+	- `severity`
+	- `unassessed_images_count`
+	- `visible_to_k8s`
 	*/
 	Filter *string
 

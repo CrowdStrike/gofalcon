@@ -64,13 +64,26 @@ type ReadPackagesCombinedParams struct {
 
 	/* Filter.
 
-	   Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
+	     Filter packages using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `ai_related`
+	- `cid`
+	- `container_id`
+	- `cveid`
+	- `fix_status`
+	- `image_digest`
+	- `license`
+	- `package_name_version`
+	- `severity`
+	- `type`
+	- `vulnerability_count`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -82,13 +95,16 @@ type ReadPackagesCombinedParams struct {
 
 	/* OnlyZeroDayAffected.
 
-	   (true/false) load zero day affected packages, default is false
+	   (true/false) load zero day affected packages
 	*/
 	OnlyZeroDayAffected *bool
 
 	/* Sort.
 
-	   The fields to sort the records on. Supported columns:  [license package_name_version type]
+	     The fields to sort the records on. Supported columns:
+	- `license`
+	- `package_name_version`
+	- `type`
 	*/
 	Sort *string
 
@@ -109,7 +125,21 @@ func (o *ReadPackagesCombinedParams) WithDefaults() *ReadPackagesCombinedParams 
 //
 // All values with no default are reset to their zero value.
 func (o *ReadPackagesCombinedParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+
+		onlyZeroDayAffectedDefault = bool(false)
+	)
+
+	val := ReadPackagesCombinedParams{
+		Limit:               &limitDefault,
+		OnlyZeroDayAffected: &onlyZeroDayAffectedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the read packages combined params

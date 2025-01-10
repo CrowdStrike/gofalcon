@@ -19,6 +19,10 @@ import (
 // swagger:model models.APICustomerAndImage
 type ModelsAPICustomerAndImage struct {
 
+	// ai related
+	// Required: true
+	AiRelated *bool `json:"ai_related"`
+
 	// base image id
 	BaseImageID string `json:"base_image_id,omitempty"`
 
@@ -110,6 +114,10 @@ type ModelsAPICustomerAndImage struct {
 func (m *ModelsAPICustomerAndImage) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAiRelated(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateBaseOs(formats); err != nil {
 		res = append(res, err)
 	}
@@ -197,6 +205,15 @@ func (m *ModelsAPICustomerAndImage) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ModelsAPICustomerAndImage) validateAiRelated(formats strfmt.Registry) error {
+
+	if err := validate.Required("ai_related", "body", m.AiRelated); err != nil {
+		return err
+	}
+
 	return nil
 }
 

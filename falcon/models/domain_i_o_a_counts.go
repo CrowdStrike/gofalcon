@@ -30,6 +30,9 @@ type DomainIOACounts struct {
 	// informational
 	Informational float64 `json:"informational,omitempty"`
 
+	// low
+	Low float64 `json:"low,omitempty"`
+
 	// medium
 	Medium float64 `json:"medium,omitempty"`
 }

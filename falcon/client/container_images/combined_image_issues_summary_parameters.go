@@ -64,31 +64,31 @@ type CombinedImageIssuesSummaryParams struct {
 
 	/* Cid.
 
-	   CID
+	   CS Customer ID
 	*/
 	Cid string
 
 	/* IncludeBaseImageVuln.
 
-	   include base image vulnerabilities
+	   Include base image vulnerabilities.
 	*/
 	IncludeBaseImageVuln *bool
 
 	/* Registry.
 
-	   registry name
+	   Registry
 	*/
 	Registry string
 
 	/* Repository.
 
-	   repository name
+	   Repository name
 	*/
 	Repository string
 
 	/* Tag.
 
-	   tag name
+	   Tag name
 	*/
 	Tag string
 
@@ -109,7 +109,18 @@ func (o *CombinedImageIssuesSummaryParams) WithDefaults() *CombinedImageIssuesSu
 //
 // All values with no default are reset to their zero value.
 func (o *CombinedImageIssuesSummaryParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		includeBaseImageVulnDefault = bool(false)
+	)
+
+	val := CombinedImageIssuesSummaryParams{
+		IncludeBaseImageVuln: &includeBaseImageVulnDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the combined image issues summary params

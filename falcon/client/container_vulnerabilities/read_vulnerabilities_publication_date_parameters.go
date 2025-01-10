@@ -64,13 +64,20 @@ type ReadVulnerabilitiesPublicationDateParams struct {
 
 	/* Filter.
 
-	   Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: cid,cve_id,registry,repository,tag
+	     Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `cve_id`
+	- `registry`
+	- `repository`
+	- `tag`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -97,7 +104,18 @@ func (o *ReadVulnerabilitiesPublicationDateParams) WithDefaults() *ReadVulnerabi
 //
 // All values with no default are reset to their zero value.
 func (o *ReadVulnerabilitiesPublicationDateParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := ReadVulnerabilitiesPublicationDateParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the read vulnerabilities publication date params

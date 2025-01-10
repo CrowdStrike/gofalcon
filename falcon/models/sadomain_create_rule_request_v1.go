@@ -31,6 +31,10 @@ type SadomainCreateRuleRequestV1 struct {
 	// Required: true
 	Filter *string `json:"filter"`
 
+	// Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic. Possible values: [`basedomains`, `subdomains`]
+	// Required: true
+	MatchOnTsqResultTypes []string `json:"match_on_tsq_result_types"`
+
 	// The name of a given rule
 	// Required: true
 	Name *string `json:"name"`
@@ -47,7 +51,7 @@ type SadomainCreateRuleRequestV1 struct {
 	// Required: true
 	Priority *string `json:"priority"`
 
-	// Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
+	// Whether to monitor for substring matches. Only available for the `Typosquatting` rule topic.
 	// Required: true
 	SubstringMatchingEnabled *bool `json:"substring_matching_enabled"`
 
@@ -69,6 +73,10 @@ func (m *SadomainCreateRuleRequestV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMatchOnTsqResultTypes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -123,6 +131,15 @@ func (m *SadomainCreateRuleRequestV1) validateBreachMonitoringEnabled(formats st
 func (m *SadomainCreateRuleRequestV1) validateFilter(formats strfmt.Registry) error {
 
 	if err := validate.Required("filter", "body", m.Filter); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SadomainCreateRuleRequestV1) validateMatchOnTsqResultTypes(formats strfmt.Registry) error {
+
+	if err := validate.Required("match_on_tsq_result_types", "body", m.MatchOnTsqResultTypes); err != nil {
 		return err
 	}
 

@@ -20,6 +20,10 @@ import (
 // swagger:model domain.ScheduledReportV1
 type DomainScheduledReportV1 struct {
 
+	// api client id
+	// Required: true
+	APIClientID *string `json:"api_client_id"`
+
 	// can write
 	CanWrite bool `json:"can_write,omitempty"`
 
@@ -117,6 +121,10 @@ type DomainScheduledReportV1 struct {
 func (m *DomainScheduledReportV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAPIClientID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedOn(formats); err != nil {
 		res = append(res, err)
 	}
@@ -200,6 +208,15 @@ func (m *DomainScheduledReportV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainScheduledReportV1) validateAPIClientID(formats strfmt.Registry) error {
+
+	if err := validate.Required("api_client_id", "body", m.APIClientID); err != nil {
+		return err
+	}
+
 	return nil
 }
 

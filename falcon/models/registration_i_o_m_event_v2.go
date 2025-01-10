@@ -59,6 +59,9 @@ type RegistrationIOMEventV2 struct {
 	// Required: true
 	Findings []RegistrationIOMEventV2Findings `json:"findings"`
 
+	// groups
+	Groups []string `json:"groups"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`

@@ -358,7 +358,7 @@ func (a *Client) ReadVulnerabilityCountByCPSRating(params *ReadVulnerabilityCoun
 }
 
 /*
-ReadVulnerabilityCountByCVSSScore aggregates count of vulnerabilities grouped by cvss score
+ReadVulnerabilityCountByCVSSScore aggregates count of vulnerabilities grouped by c v s s score
 */
 func (a *Client) ReadVulnerabilityCountByCVSSScore(params *ReadVulnerabilityCountByCVSSScoreParams, opts ...ClientOption) (*ReadVulnerabilityCountByCVSSScoreOK, error) {
 	// TODO: Validate the params before sending

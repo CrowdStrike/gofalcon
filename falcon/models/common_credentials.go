@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,16 +20,29 @@ import (
 // swagger:model common.Credentials
 type CommonCredentials struct {
 
-	// token
-	// Required: true
-	Token *string `json:"token"`
+	// errors
+	Errors []*MsaAPIError `json:"errors"`
+
+	// meta
+	Meta *MsaMetaInfo `json:"meta,omitempty"`
+
+	// resources
+	Resources *CommonCredentialsResources `json:"resources,omitempty"`
 }
 
 // Validate validates this common credentials
 func (m *CommonCredentials) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateToken(formats); err != nil {
+	if err := m.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResources(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -38,17 +52,156 @@ func (m *CommonCredentials) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonCredentials) validateToken(formats strfmt.Registry) error {
+func (m *CommonCredentials) validateErrors(formats strfmt.Registry) error {
+	if swag.IsZero(m.Errors) { // not required
+		return nil
+	}
 
-	if err := validate.Required("token", "body", m.Token); err != nil {
-		return err
+	for i := 0; i < len(m.Errors); i++ {
+		if swag.IsZero(m.Errors[i]) { // not required
+			continue
+		}
+
+		if m.Errors[i] != nil {
+			if err := m.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
 }
 
-// ContextValidate validates this common credentials based on context it is used
+func (m *CommonCredentials) validateMeta(formats strfmt.Registry) error {
+	if swag.IsZero(m.Meta) { // not required
+		return nil
+	}
+
+	if m.Meta != nil {
+		if err := m.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CommonCredentials) validateResources(formats strfmt.Registry) error {
+	if swag.IsZero(m.Resources) { // not required
+		return nil
+	}
+
+	if m.Resources != nil {
+		if err := m.Resources.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resources")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resources")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this common credentials based on the context it is used
 func (m *CommonCredentials) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CommonCredentials) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Errors); i++ {
+
+		if m.Errors[i] != nil {
+
+			if swag.IsZero(m.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CommonCredentials) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Meta != nil {
+
+		if swag.IsZero(m.Meta) { // not required
+			return nil
+		}
+
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CommonCredentials) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Resources != nil {
+
+		if swag.IsZero(m.Resources) { // not required
+			return nil
+		}
+
+		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resources")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resources")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -63,6 +216,62 @@ func (m *CommonCredentials) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (m *CommonCredentials) UnmarshalBinary(b []byte) error {
 	var res CommonCredentials
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// CommonCredentialsResources common credentials resources
+//
+// swagger:model CommonCredentialsResources
+type CommonCredentialsResources struct {
+
+	// token
+	// Required: true
+	Token *string `json:"token"`
+}
+
+// Validate validates this common credentials resources
+func (m *CommonCredentialsResources) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateToken(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CommonCredentialsResources) validateToken(formats strfmt.Registry) error {
+
+	if err := validate.Required("resources"+"."+"token", "body", m.Token); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validates this common credentials resources based on context it is used
+func (m *CommonCredentialsResources) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *CommonCredentialsResources) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *CommonCredentialsResources) UnmarshalBinary(b []byte) error {
+	var res CommonCredentialsResources
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
