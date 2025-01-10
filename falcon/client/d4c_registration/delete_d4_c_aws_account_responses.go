@@ -90,7 +90,7 @@ type DeleteD4CAwsAccountOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaBaseEntitiesResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete d4 c aws account o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *DeleteD4CAwsAccountOK) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/account/v2][%d] deleteD4CAwsAccountOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteD4CAwsAccountOK) GetPayload() *models.MsaBaseEntitiesResponse {
+func (o *DeleteD4CAwsAccountOK) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *DeleteD4CAwsAccountOK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaBaseEntitiesResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type DeleteD4CAwsAccountMultiStatus struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaBaseEntitiesResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete d4 c aws account multi status response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *DeleteD4CAwsAccountMultiStatus) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/account/v2][%d] deleteD4CAwsAccountMultiStatus  %+v", 207, o.Payload)
 }
 
-func (o *DeleteD4CAwsAccountMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
+func (o *DeleteD4CAwsAccountMultiStatus) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *DeleteD4CAwsAccountMultiStatus) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaBaseEntitiesResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type DeleteD4CAwsAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaBaseEntitiesResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete d4 c aws account bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *DeleteD4CAwsAccountBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/account/v2][%d] deleteD4CAwsAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteD4CAwsAccountBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
+func (o *DeleteD4CAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *DeleteD4CAwsAccountBadRequest) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaBaseEntitiesResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type DeleteD4CAwsAccountForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete d4 c aws account forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *DeleteD4CAwsAccountForbidden) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/account/v2][%d] deleteD4CAwsAccountForbidden  %+v", 403, o.Payload)
 }
 
-func (o *DeleteD4CAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *DeleteD4CAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *DeleteD4CAwsAccountForbidden) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type DeleteD4CAwsAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaBaseEntitiesResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete d4 c aws account internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *DeleteD4CAwsAccountInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/account/v2][%d] deleteD4CAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DeleteD4CAwsAccountInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {
+func (o *DeleteD4CAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *DeleteD4CAwsAccountInternalServerError) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaBaseEntitiesResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

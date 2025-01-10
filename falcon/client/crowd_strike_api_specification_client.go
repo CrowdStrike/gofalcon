@@ -34,6 +34,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/datascanner"
 	"github.com/crowdstrike/gofalcon/falcon/client/delivery_settings"
+	"github.com/crowdstrike/gofalcon/falcon/client/deployments"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_content"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
@@ -88,6 +89,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_audit"
 	"github.com/crowdstrike/gofalcon/falcon/client/recon"
+	"github.com/crowdstrike/gofalcon/falcon/client/release_notes"
+	"github.com/crowdstrike/gofalcon/falcon/client/releases"
 	"github.com/crowdstrike/gofalcon/falcon/client/report_executions"
 	"github.com/crowdstrike/gofalcon/falcon/client/response_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/runtime_detections"
@@ -173,6 +176,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
 	cli.Datascanner = datascanner.New(transport, formats)
 	cli.DeliverySettings = delivery_settings.New(transport, formats)
+	cli.Deployments = deployments.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceContent = device_content.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
@@ -227,6 +231,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.RealTimeResponseAdmin = real_time_response_admin.New(transport, formats)
 	cli.RealTimeResponseAudit = real_time_response_audit.New(transport, formats)
 	cli.Recon = recon.New(transport, formats)
+	cli.ReleaseNotes = release_notes.New(transport, formats)
+	cli.Releases = releases.New(transport, formats)
 	cli.ReportExecutions = report_executions.New(transport, formats)
 	cli.ResponsePolicies = response_policies.New(transport, formats)
 	cli.RuntimeDetections = runtime_detections.New(transport, formats)
@@ -336,6 +342,8 @@ type CrowdStrikeAPISpecification struct {
 
 	DeliverySettings delivery_settings.ClientService
 
+	Deployments deployments.ClientService
+
 	Detects detects.ClientService
 
 	DeviceContent device_content.ClientService
@@ -444,6 +452,10 @@ type CrowdStrikeAPISpecification struct {
 
 	Recon recon.ClientService
 
+	ReleaseNotes release_notes.ClientService
+
+	Releases releases.ClientService
+
 	ReportExecutions report_executions.ClientService
 
 	ResponsePolicies response_policies.ClientService
@@ -508,6 +520,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.D4cRegistration.SetTransport(transport)
 	c.Datascanner.SetTransport(transport)
 	c.DeliverySettings.SetTransport(transport)
+	c.Deployments.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceContent.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
@@ -562,6 +575,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.RealTimeResponseAdmin.SetTransport(transport)
 	c.RealTimeResponseAudit.SetTransport(transport)
 	c.Recon.SetTransport(transport)
+	c.ReleaseNotes.SetTransport(transport)
+	c.Releases.SetTransport(transport)
 	c.ReportExecutions.SetTransport(transport)
 	c.ResponsePolicies.SetTransport(transport)
 	c.RuntimeDetections.SetTransport(transport)

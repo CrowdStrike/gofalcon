@@ -19,6 +19,9 @@ import (
 // swagger:model domain.Benchmark
 type DomainBenchmark struct {
 
+	// applicable profiles
+	ApplicableProfiles []string `json:"applicable_profiles"`
+
 	// benchmark short
 	// Required: true
 	BenchmarkShort *string `json:"benchmark_short"`

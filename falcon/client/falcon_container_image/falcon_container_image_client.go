@@ -280,7 +280,7 @@ func (a *Client) ReadExportJobs(params *ReadExportJobsParams, opts ...ClientOpti
 }
 
 /*
-ReadRegistryEntities retrieves registry entities identified by the customer id
+ReadRegistryEntities retrieves a list of registry entities identified by the customer id maximum page size 5 000
 */
 func (a *Client) ReadRegistryEntities(params *ReadRegistryEntitiesParams, opts ...ClientOption) (*ReadRegistryEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -318,7 +318,7 @@ func (a *Client) ReadRegistryEntities(params *ReadRegistryEntitiesParams, opts .
 }
 
 /*
-ReadRegistryEntitiesByUUID retrieves the registry entity identified by the entity UUID
+ReadRegistryEntitiesByUUID retrieves a list of registry entities by the provided u UI ds maximum page size 100
 */
 func (a *Client) ReadRegistryEntitiesByUUID(params *ReadRegistryEntitiesByUUIDParams, opts ...ClientOption) (*ReadRegistryEntitiesByUUIDOK, error) {
 	// TODO: Validate the params before sending

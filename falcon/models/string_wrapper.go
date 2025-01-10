@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RegistrationAWSAccountResponseV2 registration a w s account response v2
+// StringWrapper string wrapper
 //
-// swagger:model registration.AWSAccountResponseV2
-type RegistrationAWSAccountResponseV2 struct {
+// swagger:model stringWrapper
+type StringWrapper struct {
 
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
@@ -29,11 +29,11 @@ type RegistrationAWSAccountResponseV2 struct {
 
 	// resources
 	// Required: true
-	Resources []*DomainAWSAccountV2 `json:"resources"`
+	Resources []string `json:"resources"`
 }
 
-// Validate validates this registration a w s account response v2
-func (m *RegistrationAWSAccountResponseV2) Validate(formats strfmt.Registry) error {
+// Validate validates this string wrapper
+func (m *StringWrapper) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *RegistrationAWSAccountResponseV2) Validate(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *RegistrationAWSAccountResponseV2) validateErrors(formats strfmt.Registry) error {
+func (m *StringWrapper) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -80,7 +80,7 @@ func (m *RegistrationAWSAccountResponseV2) validateErrors(formats strfmt.Registr
 	return nil
 }
 
-func (m *RegistrationAWSAccountResponseV2) validateMeta(formats strfmt.Registry) error {
+func (m *StringWrapper) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,35 +100,17 @@ func (m *RegistrationAWSAccountResponseV2) validateMeta(formats strfmt.Registry)
 	return nil
 }
 
-func (m *RegistrationAWSAccountResponseV2) validateResources(formats strfmt.Registry) error {
+func (m *StringWrapper) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
-	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
-// ContextValidate validate this registration a w s account response v2 based on the context it is used
-func (m *RegistrationAWSAccountResponseV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this string wrapper based on the context it is used
+func (m *StringWrapper) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -139,17 +121,13 @@ func (m *RegistrationAWSAccountResponseV2) ContextValidate(ctx context.Context, 
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateResources(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *RegistrationAWSAccountResponseV2) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *StringWrapper) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -174,7 +152,7 @@ func (m *RegistrationAWSAccountResponseV2) contextValidateErrors(ctx context.Con
 	return nil
 }
 
-func (m *RegistrationAWSAccountResponseV2) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *StringWrapper) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -191,33 +169,8 @@ func (m *RegistrationAWSAccountResponseV2) contextValidateMeta(ctx context.Conte
 	return nil
 }
 
-func (m *RegistrationAWSAccountResponseV2) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Resources); i++ {
-
-		if m.Resources[i] != nil {
-
-			if swag.IsZero(m.Resources[i]) { // not required
-				return nil
-			}
-
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
 // MarshalBinary interface implementation
-func (m *RegistrationAWSAccountResponseV2) MarshalBinary() ([]byte, error) {
+func (m *StringWrapper) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -225,8 +178,8 @@ func (m *RegistrationAWSAccountResponseV2) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *RegistrationAWSAccountResponseV2) UnmarshalBinary(b []byte) error {
-	var res RegistrationAWSAccountResponseV2
+func (m *StringWrapper) UnmarshalBinary(b []byte) error {
+	var res StringWrapper
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

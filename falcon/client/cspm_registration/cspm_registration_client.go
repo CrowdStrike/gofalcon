@@ -88,7 +88,7 @@ type ClientService interface {
 
 	GetConfigurationDetections(params *GetConfigurationDetectionsParams, opts ...ClientOption) (*GetConfigurationDetectionsOK, error)
 
-	PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountCreated, *PatchCSPMAwsAccountMultiStatus, error)
+	PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountOK, *PatchCSPMAwsAccountMultiStatus, error)
 
 	UpdateCSPMAzureAccount(params *UpdateCSPMAzureAccountParams, opts ...ClientOption) (*UpdateCSPMAzureAccountCreated, *UpdateCSPMAzureAccountMultiStatus, error)
 
@@ -1231,7 +1231,7 @@ func (a *Client) GetConfigurationDetections(params *GetConfigurationDetectionsPa
 /*
 PatchCSPMAwsAccount patches a existing account in our system for a customer
 */
-func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountCreated, *PatchCSPMAwsAccountMultiStatus, error) {
+func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountOK, *PatchCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchCSPMAwsAccountParams()
@@ -1257,7 +1257,7 @@ func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *PatchCSPMAwsAccountCreated:
+	case *PatchCSPMAwsAccountOK:
 		return value, nil, nil
 	case *PatchCSPMAwsAccountMultiStatus:
 		return nil, value, nil

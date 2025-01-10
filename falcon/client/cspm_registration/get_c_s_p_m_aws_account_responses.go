@@ -310,7 +310,7 @@ type GetCSPMAwsAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws account bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *GetCSPMAwsAccountBadRequest) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] getCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetCSPMAwsAccountBadRequest) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *GetCSPMAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *GetCSPMAwsAccountBadRequest) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type GetCSPMAwsAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws account internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *GetCSPMAwsAccountInternalServerError) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] getCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetCSPMAwsAccountInternalServerError) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *GetCSPMAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *GetCSPMAwsAccountInternalServerError) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

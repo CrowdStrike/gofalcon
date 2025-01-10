@@ -65,6 +65,7 @@ type GetCombinedImagesParams struct {
 	/* Filter.
 
 	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `ai_related`
 	- `container_id`
 	- `container_running_status`
 	- `cve_id`

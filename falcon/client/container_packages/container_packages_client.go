@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-ReadPackagesByFixableVulnCount retrieves top x app packages with the most fixable vulnerabilities
+ReadPackagesByFixableVulnCount maximums offset 9900
 */
 func (a *Client) ReadPackagesByFixableVulnCount(params *ReadPackagesByFixableVulnCountParams, opts ...ClientOption) (*ReadPackagesByFixableVulnCountOK, error) {
 	// TODO: Validate the params before sending
@@ -84,7 +84,7 @@ func (a *Client) ReadPackagesByFixableVulnCount(params *ReadPackagesByFixableVul
 }
 
 /*
-ReadPackagesByVulnCount retrieves top x packages with the most vulnerabilities
+ReadPackagesByVulnCount maximums offset 9900
 */
 func (a *Client) ReadPackagesByVulnCount(params *ReadPackagesByVulnCountParams, opts ...ClientOption) (*ReadPackagesByVulnCountOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ func (a *Client) ReadPackagesByVulnCount(params *ReadPackagesByVulnCountParams, 
 }
 
 /*
-ReadPackagesCombined retrieves packages identified by the provided filter criteria
+ReadPackagesCombined maximums offset 9900
 */
 func (a *Client) ReadPackagesCombined(params *ReadPackagesCombinedParams, opts ...ClientOption) (*ReadPackagesCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -160,7 +160,7 @@ func (a *Client) ReadPackagesCombined(params *ReadPackagesCombinedParams, opts .
 }
 
 /*
-ReadPackagesCombinedExport retrieves packages identified by the provided filter criteria for the purpose of export
+ReadPackagesCombinedExport maximums offset 9900
 */
 func (a *Client) ReadPackagesCombinedExport(params *ReadPackagesCombinedExportParams, opts ...ClientOption) (*ReadPackagesCombinedExportOK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +198,7 @@ func (a *Client) ReadPackagesCombinedExport(params *ReadPackagesCombinedExportPa
 }
 
 /*
-ReadPackagesCombinedV2 retrieves packages identified by the provided filter criteria
+ReadPackagesCombinedV2 maximums offset 9900
 */
 func (a *Client) ReadPackagesCombinedV2(params *ReadPackagesCombinedV2Params, opts ...ClientOption) (*ReadPackagesCombinedV2OK, error) {
 	// TODO: Validate the params before sending
