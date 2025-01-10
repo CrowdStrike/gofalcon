@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-ReadCombinedDetections retrieves image assessment detections identified by the provided filter criteria
+ReadCombinedDetections maximums offset 9900
 */
 func (a *Client) ReadCombinedDetections(params *ReadCombinedDetectionsParams, opts ...ClientOption) (*ReadCombinedDetectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -84,7 +84,7 @@ func (a *Client) ReadCombinedDetections(params *ReadCombinedDetectionsParams, op
 }
 
 /*
-ReadDetections retrieves image assessment detection entities identified by the provided filter criteria
+ReadDetections maximums offset 9900
 */
 func (a *Client) ReadDetections(params *ReadDetectionsParams, opts ...ClientOption) (*ReadDetectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) ReadDetectionsCountByType(params *ReadDetectionsCountByTypePara
 }
 
 /*
-SearchDetections retrieves image assessment detection entities identified by the provided filter criteria
+SearchDetections maximums offset 9900
 */
 func (a *Client) SearchDetections(params *SearchDetectionsParams, opts ...ClientOption) (*SearchDetectionsOK, error) {
 	// TODO: Validate the params before sending

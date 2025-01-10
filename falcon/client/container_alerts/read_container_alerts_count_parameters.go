@@ -63,7 +63,10 @@ type ReadContainerAlertsCountParams struct {
 
 	/* Filter.
 
-	   Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen
+	     Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `container_id`
+	- `last_seen`
 	*/
 	Filter *string
 

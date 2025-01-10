@@ -198,7 +198,7 @@ func (a *Client) LaunchScan(params *LaunchScanParams, opts ...ClientOption) (*La
 }
 
 /*
-QueryScanResults gets quick scan pro scan jobs for a given f q l filter
+QueryScanResults fs q l query specifying the filter parameters
 */
 func (a *Client) QueryScanResults(params *QueryScanResultsParams, opts ...ClientOption) (*QueryScanResultsOK, error) {
 	// TODO: Validate the params before sending

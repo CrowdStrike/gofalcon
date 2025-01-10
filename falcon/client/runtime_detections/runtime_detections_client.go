@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-GetRuntimeDetectionsCombinedV2 retrieves container runtime detections by the provided search criteria
+GetRuntimeDetectionsCombinedV2 maximums offset 9900
 */
 func (a *Client) GetRuntimeDetectionsCombinedV2(params *GetRuntimeDetectionsCombinedV2Params, opts ...ClientOption) (*GetRuntimeDetectionsCombinedV2OK, error) {
 	// TODO: Validate the params before sending

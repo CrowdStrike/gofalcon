@@ -63,7 +63,8 @@ type ReadPackagesCountByZeroDayParams struct {
 
 	/* Filter.
 
-	   Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid
+	     Filter packages using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
 	*/
 	Filter *string
 

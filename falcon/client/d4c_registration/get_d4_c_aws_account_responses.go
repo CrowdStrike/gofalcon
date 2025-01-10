@@ -310,7 +310,7 @@ type GetD4CAwsAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c aws account bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *GetD4CAwsAccountBadRequest) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetD4CAwsAccountBadRequest) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *GetD4CAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *GetD4CAwsAccountBadRequest) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type GetD4CAwsAccountForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c aws account forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *GetD4CAwsAccountForbidden) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetD4CAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetD4CAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *GetD4CAwsAccountForbidden) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type GetD4CAwsAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c aws account internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *GetD4CAwsAccountInternalServerError) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetD4CAwsAccountInternalServerError) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *GetD4CAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *GetD4CAwsAccountInternalServerError) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

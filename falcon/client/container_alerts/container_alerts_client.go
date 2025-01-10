@@ -116,7 +116,7 @@ func (a *Client) ReadContainerAlertsCountBySeverity(params *ReadContainerAlertsC
 }
 
 /*
-SearchAndReadContainerAlerts searches container alerts by the provided search criteria
+SearchAndReadContainerAlerts maximums offset 9900
 */
 func (a *Client) SearchAndReadContainerAlerts(params *SearchAndReadContainerAlertsParams, opts ...ClientOption) (*SearchAndReadContainerAlertsOK, error) {
 	// TODO: Validate the params before sending

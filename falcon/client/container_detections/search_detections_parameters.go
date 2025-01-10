@@ -64,13 +64,20 @@ type SearchDetectionsParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+	     Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `detection_type`
+	- `image_registry`
+	- `image_repository`
+	- `image_tag`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -97,7 +104,18 @@ func (o *SearchDetectionsParams) WithDefaults() *SearchDetectionsParams {
 //
 // All values with no default are reset to their zero value.
 func (o *SearchDetectionsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := SearchDetectionsParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the search detections params

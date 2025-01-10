@@ -49,7 +49,7 @@ type ExecutionsExecutionResult struct {
 	Loops []*ExecutionsLoopResult `json:"loops"`
 
 	// Output from this workflow execution
-	Output interface{} `json:"output,omitempty"`
+	OutputData interface{} `json:"output_data,omitempty"`
 
 	// A boolean value indicating whether the failed workflow execution is retryable
 	// Required: true
@@ -63,6 +63,9 @@ type ExecutionsExecutionResult struct {
 	// Overall status for the execution.
 	// Required: true
 	Status *string `json:"status"`
+
+	// Execution summary if defined in the workflow definition
+	Summary string `json:"summary,omitempty"`
 
 	// Details for the result of the trigger node
 	// Required: true

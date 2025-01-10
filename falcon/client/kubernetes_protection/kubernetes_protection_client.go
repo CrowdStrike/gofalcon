@@ -156,7 +156,7 @@ type ClientService interface {
 }
 
 /*
-ClusterCombined retrieves kubernetes clusters identified by the provided filter criteria
+ClusterCombined maximums offset 9800
 */
 func (a *Client) ClusterCombined(params *ClusterCombinedParams, opts ...ClientOption) (*ClusterCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -384,7 +384,7 @@ func (a *Client) ClustersByStatusCount(params *ClustersByStatusCountParams, opts
 }
 
 /*
-ContainerCombined retrieves containers identified by the provided filter criteria
+ContainerCombined maximums offset 9800
 */
 func (a *Client) ContainerCombined(params *ContainerCombinedParams, opts ...ClientOption) (*ContainerCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -460,7 +460,7 @@ func (a *Client) ContainerCount(params *ContainerCountParams, opts ...ClientOpti
 }
 
 /*
-ContainerCountByRegistry retrieves top container image registries
+ContainerCountByRegistry retrieves a list with the top container image registries maximum page size 200
 */
 func (a *Client) ContainerCountByRegistry(params *ContainerCountByRegistryParams, opts ...ClientOption) (*ContainerCountByRegistryOK, error) {
 	// TODO: Validate the params before sending
@@ -920,7 +920,7 @@ func (a *Client) DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, 
 }
 
 /*
-DeploymentCombined retrieves kubernetes deployments identified by the provided filter criteria
+DeploymentCombined maximums offset 9800
 */
 func (a *Client) DeploymentCombined(params *DeploymentCombinedParams, opts ...ClientOption) (*DeploymentCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -1110,7 +1110,7 @@ func (a *Client) DistinctContainerImageCount(params *DistinctContainerImageCount
 }
 
 /*
-FindContainersByContainerRunTimeVersion retrieves containers by container runtime version
+FindContainersByContainerRunTimeVersion maximums offset 9800
 */
 func (a *Client) FindContainersByContainerRunTimeVersion(params *FindContainersByContainerRunTimeVersionParams, opts ...ClientOption) (*FindContainersByContainerRunTimeVersionOK, error) {
 	// TODO: Validate the params before sending
@@ -1688,7 +1688,7 @@ func (a *Client) KubernetesIomEntities(params *KubernetesIomEntitiesParams, opts
 }
 
 /*
-KubernetesIomEntitiesCombined searches kubernetes i o m by the provided search criteria
+KubernetesIomEntitiesCombined maximums offset 9900
 */
 func (a *Client) KubernetesIomEntitiesCombined(params *KubernetesIomEntitiesCombinedParams, opts ...ClientOption) (*KubernetesIomEntitiesCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -1765,7 +1765,7 @@ func (a *Client) ListAzureAccounts(params *ListAzureAccountsParams, opts ...Clie
 }
 
 /*
-NodeCombined retrieves kubernetes nodes identified by the provided filter criteria
+NodeCombined maximums offset 9800
 */
 func (a *Client) NodeCombined(params *NodeCombinedParams, opts ...ClientOption) (*NodeCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -2032,7 +2032,7 @@ func (a *Client) PatchAzureServicePrincipal(params *PatchAzureServicePrincipalPa
 }
 
 /*
-PodCombined retrieves kubernetes pods identified by the provided filter criteria
+PodCombined maximums offset 9800
 */
 func (a *Client) PodCombined(params *PodCombinedParams, opts ...ClientOption) (*PodCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -2184,7 +2184,7 @@ func (a *Client) PodsByDateRangeCount(params *PodsByDateRangeCountParams, opts .
 }
 
 /*
-QueryKubernetesIoms searches kubernetes i o ms by the provided search criteria this endpoint returns a list of kubernetes i o m u UI ds matching the query
+QueryKubernetesIoms maximums offset 9900
 */
 func (a *Client) QueryKubernetesIoms(params *QueryKubernetesIomsParams, opts ...ClientOption) (*QueryKubernetesIomsOK, error) {
 	// TODO: Validate the params before sending
@@ -2337,7 +2337,7 @@ func (a *Client) RegenerateAPIKey(params *RegenerateAPIKeyParams, opts ...Client
 }
 
 /*
-RunningContainerImages retrieves images on running containers
+RunningContainerImages maximums offset 9800
 */
 func (a *Client) RunningContainerImages(params *RunningContainerImagesParams, opts ...ClientOption) (*RunningContainerImagesOK, error) {
 	// TODO: Validate the params before sending

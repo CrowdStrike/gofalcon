@@ -47,6 +47,10 @@ type SadomainRule struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic.
+	// Required: true
+	MatchOnTsqResultTypes []string `json:"match_on_tsq_result_types"`
+
 	// The name of a given rule
 	// Required: true
 	Name *string `json:"name"`
@@ -124,6 +128,10 @@ func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMatchOnTsqResultTypes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -221,6 +229,15 @@ func (m *SadomainRule) validateFilter(formats strfmt.Registry) error {
 func (m *SadomainRule) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SadomainRule) validateMatchOnTsqResultTypes(formats strfmt.Registry) error {
+
+	if err := validate.Required("match_on_tsq_result_types", "body", m.MatchOnTsqResultTypes); err != nil {
 		return err
 	}
 

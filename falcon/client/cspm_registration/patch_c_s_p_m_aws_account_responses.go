@@ -25,8 +25,8 @@ type PatchCSPMAwsAccountReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *PatchCSPMAwsAccountReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 201:
-		result := NewPatchCSPMAwsAccountCreated()
+	case 200:
+		result := NewPatchCSPMAwsAccountOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -66,17 +66,17 @@ func (o *PatchCSPMAwsAccountReader) ReadResponse(response runtime.ClientResponse
 	}
 }
 
-// NewPatchCSPMAwsAccountCreated creates a PatchCSPMAwsAccountCreated with default headers values
-func NewPatchCSPMAwsAccountCreated() *PatchCSPMAwsAccountCreated {
-	return &PatchCSPMAwsAccountCreated{}
+// NewPatchCSPMAwsAccountOK creates a PatchCSPMAwsAccountOK with default headers values
+func NewPatchCSPMAwsAccountOK() *PatchCSPMAwsAccountOK {
+	return &PatchCSPMAwsAccountOK{}
 }
 
 /*
-PatchCSPMAwsAccountCreated describes a response with status code 201, with default header values.
+PatchCSPMAwsAccountOK describes a response with status code 200, with default header values.
 
-Created
+OK
 */
-type PatchCSPMAwsAccountCreated struct {
+type PatchCSPMAwsAccountOK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -93,49 +93,49 @@ type PatchCSPMAwsAccountCreated struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
-// IsSuccess returns true when this patch c s p m aws account created response has a 2xx status code
-func (o *PatchCSPMAwsAccountCreated) IsSuccess() bool {
+// IsSuccess returns true when this patch c s p m aws account o k response has a 2xx status code
+func (o *PatchCSPMAwsAccountOK) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this patch c s p m aws account created response has a 3xx status code
-func (o *PatchCSPMAwsAccountCreated) IsRedirect() bool {
+// IsRedirect returns true when this patch c s p m aws account o k response has a 3xx status code
+func (o *PatchCSPMAwsAccountOK) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this patch c s p m aws account created response has a 4xx status code
-func (o *PatchCSPMAwsAccountCreated) IsClientError() bool {
+// IsClientError returns true when this patch c s p m aws account o k response has a 4xx status code
+func (o *PatchCSPMAwsAccountOK) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this patch c s p m aws account created response has a 5xx status code
-func (o *PatchCSPMAwsAccountCreated) IsServerError() bool {
+// IsServerError returns true when this patch c s p m aws account o k response has a 5xx status code
+func (o *PatchCSPMAwsAccountOK) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this patch c s p m aws account created response a status code equal to that given
-func (o *PatchCSPMAwsAccountCreated) IsCode(code int) bool {
-	return code == 201
+// IsCode returns true when this patch c s p m aws account o k response a status code equal to that given
+func (o *PatchCSPMAwsAccountOK) IsCode(code int) bool {
+	return code == 200
 }
 
-// Code gets the status code for the patch c s p m aws account created response
-func (o *PatchCSPMAwsAccountCreated) Code() int {
-	return 201
+// Code gets the status code for the patch c s p m aws account o k response
+func (o *PatchCSPMAwsAccountOK) Code() int {
+	return 200
 }
 
-func (o *PatchCSPMAwsAccountCreated) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountCreated  %+v", 201, o.Payload)
+func (o *PatchCSPMAwsAccountOK) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountOK  %+v", 200, o.Payload)
 }
 
-func (o *PatchCSPMAwsAccountCreated) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountCreated  %+v", 201, o.Payload)
+func (o *PatchCSPMAwsAccountOK) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountOK  %+v", 200, o.Payload)
 }
 
-func (o *PatchCSPMAwsAccountCreated) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *PatchCSPMAwsAccountOK) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }
 
-func (o *PatchCSPMAwsAccountCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *PatchCSPMAwsAccountOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -310,7 +310,7 @@ type PatchCSPMAwsAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this patch c s p m aws account bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *PatchCSPMAwsAccountBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PatchCSPMAwsAccountBadRequest) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *PatchCSPMAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *PatchCSPMAwsAccountBadRequest) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type PatchCSPMAwsAccountForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this patch c s p m aws account forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *PatchCSPMAwsAccountForbidden) String() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountForbidden  %+v", 403, o.Payload)
 }
 
-func (o *PatchCSPMAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *PatchCSPMAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *PatchCSPMAwsAccountForbidden) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type PatchCSPMAwsAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this patch c s p m aws account internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *PatchCSPMAwsAccountInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PatchCSPMAwsAccountInternalServerError) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *PatchCSPMAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *PatchCSPMAwsAccountInternalServerError) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

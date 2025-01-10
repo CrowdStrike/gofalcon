@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-ReadCombinedVulnerabilities retrieves vulnerability and aggregate data filtered by the provided f q l
+ReadCombinedVulnerabilities maximums offset 9900
 */
 func (a *Client) ReadCombinedVulnerabilities(params *ReadCombinedVulnerabilitiesParams, opts ...ClientOption) (*ReadCombinedVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) ReadCombinedVulnerabilities(params *ReadCombinedVulnerabilities
 }
 
 /*
-ReadCombinedVulnerabilitiesDetails retrieves vulnerability details related to an image
+ReadCombinedVulnerabilitiesDetails maximums offset 9900
 */
 func (a *Client) ReadCombinedVulnerabilitiesDetails(params *ReadCombinedVulnerabilitiesDetailsParams, opts ...ClientOption) (*ReadCombinedVulnerabilitiesDetailsOK, error) {
 	// TODO: Validate the params before sending
@@ -130,7 +130,7 @@ func (a *Client) ReadCombinedVulnerabilitiesDetails(params *ReadCombinedVulnerab
 }
 
 /*
-ReadCombinedVulnerabilitiesInfo retrieves vulnerability and package related info for this customer
+ReadCombinedVulnerabilitiesInfo maximums offset 9900
 */
 func (a *Client) ReadCombinedVulnerabilitiesInfo(params *ReadCombinedVulnerabilitiesInfoParams, opts ...ClientOption) (*ReadCombinedVulnerabilitiesInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -168,7 +168,7 @@ func (a *Client) ReadCombinedVulnerabilitiesInfo(params *ReadCombinedVulnerabili
 }
 
 /*
-ReadVulnerabilitiesByImageCount retrieves top x vulnerabilities with the most impacted images
+ReadVulnerabilitiesByImageCount maximums offset 9900
 */
 func (a *Client) ReadVulnerabilitiesByImageCount(params *ReadVulnerabilitiesByImageCountParams, opts ...ClientOption) (*ReadVulnerabilitiesByImageCountOK, error) {
 	// TODO: Validate the params before sending
@@ -206,7 +206,7 @@ func (a *Client) ReadVulnerabilitiesByImageCount(params *ReadVulnerabilitiesByIm
 }
 
 /*
-ReadVulnerabilitiesPublicationDate retrieves top x vulnerabilities with the most recent publication date
+ReadVulnerabilitiesPublicationDate maximums offset 9900
 */
 func (a *Client) ReadVulnerabilitiesPublicationDate(params *ReadVulnerabilitiesPublicationDateParams, opts ...ClientOption) (*ReadVulnerabilitiesPublicationDateOK, error) {
 	// TODO: Validate the params before sending
@@ -244,7 +244,7 @@ func (a *Client) ReadVulnerabilitiesPublicationDate(params *ReadVulnerabilitiesP
 }
 
 /*
-ReadVulnerabilityCount aggregates count of vulnerabilities
+ReadVulnerabilityCount maximums offset 9900
 */
 func (a *Client) ReadVulnerabilityCount(params *ReadVulnerabilityCountParams, opts ...ClientOption) (*ReadVulnerabilityCountOK, error) {
 	// TODO: Validate the params before sending
@@ -282,7 +282,7 @@ func (a *Client) ReadVulnerabilityCount(params *ReadVulnerabilityCountParams, op
 }
 
 /*
-ReadVulnerabilityCountByActivelyExploited aggregates count of vulnerabilities grouped by actively exploited
+ReadVulnerabilityCountByActivelyExploited maximums offset 9900
 */
 func (a *Client) ReadVulnerabilityCountByActivelyExploited(params *ReadVulnerabilityCountByActivelyExploitedParams, opts ...ClientOption) (*ReadVulnerabilityCountByActivelyExploitedOK, error) {
 	// TODO: Validate the params before sending
@@ -320,7 +320,7 @@ func (a *Client) ReadVulnerabilityCountByActivelyExploited(params *ReadVulnerabi
 }
 
 /*
-ReadVulnerabilityCountByCPSRating aggregates count of vulnerabilities grouped by csp rating
+ReadVulnerabilityCountByCPSRating maximums offset 9900
 */
 func (a *Client) ReadVulnerabilityCountByCPSRating(params *ReadVulnerabilityCountByCPSRatingParams, opts ...ClientOption) (*ReadVulnerabilityCountByCPSRatingOK, error) {
 	// TODO: Validate the params before sending
@@ -358,7 +358,7 @@ func (a *Client) ReadVulnerabilityCountByCPSRating(params *ReadVulnerabilityCoun
 }
 
 /*
-ReadVulnerabilityCountByCVSSScore aggregates count of vulnerabilities grouped by cvss score
+ReadVulnerabilityCountByCVSSScore maximums offset 9900
 */
 func (a *Client) ReadVulnerabilityCountByCVSSScore(params *ReadVulnerabilityCountByCVSSScoreParams, opts ...ClientOption) (*ReadVulnerabilityCountByCVSSScoreOK, error) {
 	// TODO: Validate the params before sending
@@ -396,7 +396,7 @@ func (a *Client) ReadVulnerabilityCountByCVSSScore(params *ReadVulnerabilityCoun
 }
 
 /*
-ReadVulnerabilityCountBySeverity aggregates count of vulnerabilities grouped by severity
+ReadVulnerabilityCountBySeverity maximums offset 9900
 */
 func (a *Client) ReadVulnerabilityCountBySeverity(params *ReadVulnerabilityCountBySeverityParams, opts ...ClientOption) (*ReadVulnerabilityCountBySeverityOK, error) {
 	// TODO: Validate the params before sending

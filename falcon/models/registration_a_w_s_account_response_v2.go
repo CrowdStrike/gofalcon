@@ -21,7 +21,6 @@ import (
 type RegistrationAWSAccountResponseV2 struct {
 
 	// errors
-	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
@@ -56,9 +55,8 @@ func (m *RegistrationAWSAccountResponseV2) Validate(formats strfmt.Registry) err
 }
 
 func (m *RegistrationAWSAccountResponseV2) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {

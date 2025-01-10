@@ -33,6 +33,9 @@ type RegistrationAWSAccountExtV2 struct {
 	// Required: true
 	CloudtrailRegion *string `json:"cloudtrail_region"`
 
+	// deployment method
+	DeploymentMethod string `json:"deployment_method,omitempty"`
+
 	// dspm enabled
 	DspmEnabled bool `json:"dspm_enabled,omitempty"`
 

@@ -37,6 +37,9 @@ type ModelsApplicationLibrary struct {
 
 	// version
 	Version string `json:"Version,omitempty"`
+
+	// ai related
+	AiRelated bool `json:"ai_related,omitempty"`
 }
 
 // Validate validates this models application library

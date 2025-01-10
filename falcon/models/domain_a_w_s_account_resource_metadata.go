@@ -8,14 +8,35 @@ package models
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DomainAWSAccountResourceMetadata domain a w s account resource metadata
 //
 // swagger:model domain.AWSAccountResourceMetadata
 type DomainAWSAccountResourceMetadata struct {
+
+	// created at
+	// Required: true
+	// Format: date-time
+	CreatedAt *strfmt.DateTime `json:"CreatedAt"`
+
+	// deleted at
+	// Required: true
+	// Format: date-time
+	DeletedAt *strfmt.DateTime `json:"DeletedAt"`
+
+	// ID
+	// Required: true
+	ID *int64 `json:"ID"`
+
+	// updated at
+	// Required: true
+	// Format: date-time
+	UpdatedAt *strfmt.DateTime `json:"UpdatedAt"`
 
 	// AWS CloudTrail bucket name to store logs.
 	AwsCloudtrailBucketName string `json:"aws_cloudtrail_bucket_name,omitempty"`
@@ -25,6 +46,9 @@ type DomainAWSAccountResourceMetadata struct {
 
 	// AWS Eventbus ARN.
 	AwsEventbusArn string `json:"aws_eventbus_arn,omitempty"`
+
+	// cid
+	Cid string `json:"cid,omitempty"`
 
 	// eventbus name
 	EventbusName string `json:"eventbus_name,omitempty"`
@@ -41,6 +65,75 @@ type DomainAWSAccountResourceMetadata struct {
 
 // Validate validates this domain a w s account resource metadata
 func (m *DomainAWSAccountResourceMetadata) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeletedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainAWSAccountResourceMetadata) validateCreatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("CreatedAt", "body", m.CreatedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("CreatedAt", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountResourceMetadata) validateDeletedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("DeletedAt", "body", m.DeletedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("DeletedAt", "body", "date-time", m.DeletedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountResourceMetadata) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("ID", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountResourceMetadata) validateUpdatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("UpdatedAt", "body", m.UpdatedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("UpdatedAt", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -70,7 +70,7 @@ type ContainerCountByRegistryParams struct {
 
 	/* UnderAssessment.
 
-	   (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered
+	   (true/false) whether to return registries under assessment or not under assessment. If not provided all registries are considered
 	*/
 	UnderAssessment *bool
 
@@ -91,7 +91,18 @@ func (o *ContainerCountByRegistryParams) WithDefaults() *ContainerCountByRegistr
 //
 // All values with no default are reset to their zero value.
 func (o *ContainerCountByRegistryParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		underAssessmentDefault = bool(false)
+	)
+
+	val := ContainerCountByRegistryParams{
+		UnderAssessment: &underAssessmentDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the container count by registry params

@@ -64,13 +64,29 @@ type KubernetesIomEntitiesCombinedParams struct {
 
 	/* Filter.
 
-	   Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
+	     Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `cid`
+	- `cis_id`
+	- `cluster_id`
+	- `cluster_name`
+	- `containers_impacted_count`
+	- `containers_impacted_ids`
+	- `detection_type`
+	- `name`
+	- `namespace`
+	- `prevented`
+	- `resource_id`
+	- `resource_name`
+	- `resource_type`
+	- `severity`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -103,7 +119,18 @@ func (o *KubernetesIomEntitiesCombinedParams) WithDefaults() *KubernetesIomEntit
 //
 // All values with no default are reset to their zero value.
 func (o *KubernetesIomEntitiesCombinedParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := KubernetesIomEntitiesCombinedParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the kubernetes iom entities combined params

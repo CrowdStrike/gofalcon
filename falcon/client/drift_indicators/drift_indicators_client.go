@@ -158,7 +158,7 @@ func (a *Client) ReadDriftIndicatorsCount(params *ReadDriftIndicatorsCountParams
 }
 
 /*
-SearchAndReadDriftIndicatorEntities retrieves drift indicators by the provided search criteria
+SearchAndReadDriftIndicatorEntities maximums offset 9900
 */
 func (a *Client) SearchAndReadDriftIndicatorEntities(params *SearchAndReadDriftIndicatorEntitiesParams, opts ...ClientOption) (*SearchAndReadDriftIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -196,7 +196,7 @@ func (a *Client) SearchAndReadDriftIndicatorEntities(params *SearchAndReadDriftI
 }
 
 /*
-SearchDriftIndicators retrieves all drift indicators that match the given query
+SearchDriftIndicators maximums offset 9900
 */
 func (a *Client) SearchDriftIndicators(params *SearchDriftIndicatorsParams, opts ...ClientOption) (*SearchDriftIndicatorsOK, error) {
 	// TODO: Validate the params before sending

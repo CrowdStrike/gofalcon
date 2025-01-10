@@ -63,7 +63,12 @@ type CombinedBaseImagesParams struct {
 
 	/* Filter.
 
-	   Search base images using a query in Falcon Query Language (FQL). Supported filters:  image_digest,image_id,registry,repository,tag
+	     Search base images using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `image_digest`
+	- `image_id`
+	- `registry`
+	- `repository`
+	- `tag`
 	*/
 	Filter *string
 

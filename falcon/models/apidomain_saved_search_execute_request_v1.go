@@ -12,7 +12,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // ApidomainSavedSearchExecuteRequestV1 apidomain saved search execute request v1
@@ -20,32 +19,8 @@ import (
 // swagger:model apidomain.SavedSearchExecuteRequestV1
 type ApidomainSavedSearchExecuteRequestV1 struct {
 
-	// extra rename
-	// Required: true
-	ExtraRename *string `json:"ExtraRename"`
-
-	// extra search
-	// Required: true
-	ExtraSearch *string `json:"ExtraSearch"`
-
-	// extra sort
-	// Required: true
-	ExtraSort *string `json:"ExtraSort"`
-
-	// extra where
-	// Required: true
-	ExtraWhere *string `json:"ExtraWhere"`
-
-	// parameters
-	// Required: true
-	Parameters map[string]string `json:"Parameters"`
-
 	// end
 	End string `json:"end,omitempty"`
-
-	// fql statements
-	// Required: true
-	FqlStatements map[string]ClientFQLStatement `json:"fql_statements"`
 
 	// id
 	ID string `json:"id,omitempty"`
@@ -79,30 +54,6 @@ type ApidomainSavedSearchExecuteRequestV1 struct {
 func (m *ApidomainSavedSearchExecuteRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateExtraRename(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateExtraSearch(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateExtraSort(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateExtraWhere(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateParameters(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFqlStatements(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateWithIn(formats); err != nil {
 		res = append(res, err)
 	}
@@ -122,78 +73,6 @@ func (m *ApidomainSavedSearchExecuteRequestV1) Validate(formats strfmt.Registry)
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *ApidomainSavedSearchExecuteRequestV1) validateExtraRename(formats strfmt.Registry) error {
-
-	if err := validate.Required("ExtraRename", "body", m.ExtraRename); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApidomainSavedSearchExecuteRequestV1) validateExtraSearch(formats strfmt.Registry) error {
-
-	if err := validate.Required("ExtraSearch", "body", m.ExtraSearch); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApidomainSavedSearchExecuteRequestV1) validateExtraSort(formats strfmt.Registry) error {
-
-	if err := validate.Required("ExtraSort", "body", m.ExtraSort); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApidomainSavedSearchExecuteRequestV1) validateExtraWhere(formats strfmt.Registry) error {
-
-	if err := validate.Required("ExtraWhere", "body", m.ExtraWhere); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApidomainSavedSearchExecuteRequestV1) validateParameters(formats strfmt.Registry) error {
-
-	if err := validate.Required("Parameters", "body", m.Parameters); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApidomainSavedSearchExecuteRequestV1) validateFqlStatements(formats strfmt.Registry) error {
-
-	if err := validate.Required("fql_statements", "body", m.FqlStatements); err != nil {
-		return err
-	}
-
-	for k := range m.FqlStatements {
-
-		if err := validate.Required("fql_statements"+"."+k, "body", m.FqlStatements[k]); err != nil {
-			return err
-		}
-		if val, ok := m.FqlStatements[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("fql_statements" + "." + k)
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("fql_statements" + "." + k)
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -284,10 +163,6 @@ func (m *ApidomainSavedSearchExecuteRequestV1) validateWithSort(formats strfmt.R
 func (m *ApidomainSavedSearchExecuteRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateFqlStatements(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateWithIn(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -307,25 +182,6 @@ func (m *ApidomainSavedSearchExecuteRequestV1) ContextValidate(ctx context.Conte
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *ApidomainSavedSearchExecuteRequestV1) contextValidateFqlStatements(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.Required("fql_statements", "body", m.FqlStatements); err != nil {
-		return err
-	}
-
-	for k := range m.FqlStatements {
-
-		if val, ok := m.FqlStatements[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 

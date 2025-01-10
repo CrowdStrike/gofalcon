@@ -64,7 +64,13 @@ type QueryScanResultsParams struct {
 
 	/* Filter.
 
-	   FQL query which mentions the SHA256 field
+	     Empty value means to not filter on anything
+	Available filter fields that supports match (~): _all, mitre_attacks.description
+	Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique
+	Available filter fields that supports wildcard (*): mitre_attacks.description
+	Available filter fields that supports range comparisons (>, <, >=, <=): created_timestamp, updated_timestamp
+	All filter fields and operations supports negation (!).
+	_all field is used to search between all fields.
 	*/
 	Filter string
 

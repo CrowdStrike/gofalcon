@@ -76,7 +76,7 @@ type ReadRegistryEntitiesParams struct {
 
 	/* Sort.
 
-	   The field to sort on, e.g. id.desc or id.asc.
+	   The fields to sort the records on.
 	*/
 	Sort *string
 

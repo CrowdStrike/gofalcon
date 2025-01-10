@@ -412,7 +412,7 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*
 		ID:                 "GetSampleV3",
 		Method:             "GET",
 		PathPattern:        "/samples/entities/samples/v3",
-		ProducesMediaTypes: []string{"application/octet-stream"},
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,

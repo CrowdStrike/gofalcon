@@ -62,6 +62,12 @@ CombinedEcosystemSubsidiariesParams contains all the parameters to send to the A
 */
 type CombinedEcosystemSubsidiariesParams struct {
 
+	/* Filter.
+
+	   Filter ecosystem subsidiaries
+	*/
+	Filter *string
+
 	/* Limit.
 
 	   The maximum number of subsidiaries to return in the response.
@@ -155,6 +161,17 @@ func (o *CombinedEcosystemSubsidiariesParams) SetHTTPClient(client *http.Client)
 	o.HTTPClient = client
 }
 
+// WithFilter adds the filter to the combined ecosystem subsidiaries params
+func (o *CombinedEcosystemSubsidiariesParams) WithFilter(filter *string) *CombinedEcosystemSubsidiariesParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the combined ecosystem subsidiaries params
+func (o *CombinedEcosystemSubsidiariesParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WithLimit adds the limit to the combined ecosystem subsidiaries params
 func (o *CombinedEcosystemSubsidiariesParams) WithLimit(limit *int64) *CombinedEcosystemSubsidiariesParams {
 	o.SetLimit(limit)
@@ -206,6 +223,23 @@ func (o *CombinedEcosystemSubsidiariesParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Limit != nil {
 

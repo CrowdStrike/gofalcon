@@ -62,6 +62,12 @@ QueryEcosystemSubsidiariesParams contains all the parameters to send to the API 
 */
 type QueryEcosystemSubsidiariesParams struct {
 
+	/* Filter.
+
+	   Filter ecosystem subsidiaries
+	*/
+	Filter *string
+
 	/* Limit.
 
 	   The maximum number of IDs to return in the response.
@@ -155,6 +161,17 @@ func (o *QueryEcosystemSubsidiariesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithFilter adds the filter to the query ecosystem subsidiaries params
+func (o *QueryEcosystemSubsidiariesParams) WithFilter(filter *string) *QueryEcosystemSubsidiariesParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the query ecosystem subsidiaries params
+func (o *QueryEcosystemSubsidiariesParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WithLimit adds the limit to the query ecosystem subsidiaries params
 func (o *QueryEcosystemSubsidiariesParams) WithLimit(limit *int64) *QueryEcosystemSubsidiariesParams {
 	o.SetLimit(limit)
@@ -206,6 +223,23 @@ func (o *QueryEcosystemSubsidiariesParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Limit != nil {
 

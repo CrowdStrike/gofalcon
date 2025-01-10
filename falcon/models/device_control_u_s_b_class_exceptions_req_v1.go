@@ -21,9 +21,9 @@ import (
 // swagger:model device_control.USBClassExceptionsReqV1
 type DeviceControlUSBClassExceptionsReqV1 struct {
 
-	// Policy action
+	// Policy action. Note: BLOCK_EXECUTE is only valid for MASS_STORAGE devices.
 	// Required: true
-	// Enum: [FULL_ACCESS FULL_BLOCK READ_ONLY]
+	// Enum: [FULL_ACCESS FULL_BLOCK BLOCK_EXECUTE READ_ONLY]
 	Action *string `json:"action"`
 
 	// Exceptions to the rules of this policy setting
@@ -61,7 +61,7 @@ var deviceControlUSBClassExceptionsReqV1TypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["FULL_ACCESS","FULL_BLOCK","READ_ONLY"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["FULL_ACCESS","FULL_BLOCK","BLOCK_EXECUTE","READ_ONLY"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -76,6 +76,9 @@ const (
 
 	// DeviceControlUSBClassExceptionsReqV1ActionFULLBLOCK captures enum value "FULL_BLOCK"
 	DeviceControlUSBClassExceptionsReqV1ActionFULLBLOCK string = "FULL_BLOCK"
+
+	// DeviceControlUSBClassExceptionsReqV1ActionBLOCKEXECUTE captures enum value "BLOCK_EXECUTE"
+	DeviceControlUSBClassExceptionsReqV1ActionBLOCKEXECUTE string = "BLOCK_EXECUTE"
 
 	// DeviceControlUSBClassExceptionsReqV1ActionREADONLY captures enum value "READ_ONLY"
 	DeviceControlUSBClassExceptionsReqV1ActionREADONLY string = "READ_ONLY"

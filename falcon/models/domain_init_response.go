@@ -25,6 +25,9 @@ type DomainInitResponse struct {
 	// Format: date-time
 	CreatedAt *strfmt.DateTime `json:"created_at"`
 
+	// device id
+	DeviceID string `json:"device_id,omitempty"`
+
 	// existing aid sessions
 	// Required: true
 	ExistingAidSessions *int32 `json:"existing_aid_sessions"`
@@ -32,6 +35,9 @@ type DomainInitResponse struct {
 	// offline queued
 	// Required: true
 	OfflineQueued *bool `json:"offline_queued"`
+
+	// platform
+	Platform string `json:"platform,omitempty"`
 
 	// previous commands
 	PreviousCommands []string `json:"previous_commands"`

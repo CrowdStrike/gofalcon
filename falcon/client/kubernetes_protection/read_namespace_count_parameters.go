@@ -63,7 +63,23 @@ type ReadNamespaceCountParams struct {
 
 	/* Filter.
 
-	   Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,first_seen,kac_agent_id,last_seen,namespace_id,namespace_name,resource_status
+	     Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filter fields:
+	- `agent_id`
+	- `agent_type`
+	- `annotations_list`
+	- `cid`
+	- `cloud_account_id`
+	- `cloud_name`
+	- `cloud_region`
+	- `cloud_service`
+	- `cluster_id`
+	- `cluster_name`
+	- `first_seen`
+	- `kac_agent_id`
+	- `last_seen`
+	- `namespace_id`
+	- `namespace_name`
+	- `resource_status`
 	*/
 	Filter *string
 

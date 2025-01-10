@@ -20,6 +20,10 @@ import (
 // swagger:model models.APIPackageCombined
 type ModelsAPIPackageCombined struct {
 
+	// ai related
+	// Required: true
+	AiRelated *bool `json:"ai_related"`
+
 	// all images
 	// Required: true
 	AllImages *int64 `json:"all_images"`
@@ -57,6 +61,10 @@ type ModelsAPIPackageCombined struct {
 func (m *ModelsAPIPackageCombined) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAiRelated(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAllImages(formats); err != nil {
 		res = append(res, err)
 	}
@@ -92,6 +100,15 @@ func (m *ModelsAPIPackageCombined) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ModelsAPIPackageCombined) validateAiRelated(formats strfmt.Registry) error {
+
+	if err := validate.Required("ai_related", "body", m.AiRelated); err != nil {
+		return err
+	}
+
 	return nil
 }
 

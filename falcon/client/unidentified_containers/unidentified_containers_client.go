@@ -116,7 +116,7 @@ func (a *Client) CountByDateRange(params *CountByDateRangeParams, opts ...Client
 }
 
 /*
-Search searches unidentified containers by the provided search criteria
+Search maximums offset 9900
 */
 func (a *Client) Search(params *SearchParams, opts ...ClientOption) (*SearchOK, error) {
 	// TODO: Validate the params before sending

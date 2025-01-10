@@ -73,7 +73,9 @@ type LaunchExportJobParams struct {
 	- `assets.namespaces`
 	- `assets.nodes`
 	- `assets.pods`
+	- `images.images-assessment-detections-expanded`
 	- `images.images-assessment-expanded`
+	- `images.images-assessment-vulnerabilities-expanded`
 	- `images.images-assessment`
 	- `images.images-detections`
 	- `images.packages`

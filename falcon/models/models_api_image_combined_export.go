@@ -19,6 +19,10 @@ import (
 // swagger:model models.APIImageCombinedExport
 type ModelsAPIImageCombinedExport struct {
 
+	// ai related
+	// Required: true
+	AiRelated *bool `json:"ai_related"`
+
 	// architecture
 	// Required: true
 	Architecture *string `json:"architecture"`
@@ -54,6 +58,9 @@ type ModelsAPIImageCombinedExport struct {
 	// first seen
 	// Required: true
 	FirstSeen *string `json:"first_seen"`
+
+	// groups
+	Groups []string `json:"groups"`
 
 	// image digest
 	// Required: true
@@ -115,6 +122,10 @@ type ModelsAPIImageCombinedExport struct {
 // Validate validates this models API image combined export
 func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAiRelated(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateArchitecture(formats); err != nil {
 		res = append(res, err)
@@ -211,6 +222,15 @@ func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ModelsAPIImageCombinedExport) validateAiRelated(formats strfmt.Registry) error {
+
+	if err := validate.Required("ai_related", "body", m.AiRelated); err != nil {
+		return err
+	}
+
 	return nil
 }
 

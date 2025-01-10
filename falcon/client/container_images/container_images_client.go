@@ -212,7 +212,7 @@ func (a *Client) AggregateImageCountByState(params *AggregateImageCountByStatePa
 }
 
 /*
-CombinedBaseImages retrieves base images for provided filter
+CombinedBaseImages retrieves a list of base images for the provided filter maximum page size 100
 */
 func (a *Client) CombinedBaseImages(params *CombinedBaseImagesParams, opts ...ClientOption) (*CombinedBaseImagesOK, error) {
 	// TODO: Validate the params before sending
@@ -288,7 +288,7 @@ func (a *Client) CombinedImageByVulnerabilityCount(params *CombinedImageByVulner
 }
 
 /*
-CombinedImageDetail retrieves image entities identified by the provided filter criteria
+CombinedImageDetail maximums offset 9900
 */
 func (a *Client) CombinedImageDetail(params *CombinedImageDetailParams, opts ...ClientOption) (*CombinedImageDetailOK, error) {
 	// TODO: Validate the params before sending
@@ -478,7 +478,7 @@ func (a *Client) DeleteBaseImages(params *DeleteBaseImagesParams, opts ...Client
 }
 
 /*
-GetCombinedImages gets image assessment results by providing an f q l filter and paging details
+GetCombinedImages maximums offset 9900
 */
 func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...ClientOption) (*GetCombinedImagesOK, error) {
 	// TODO: Validate the params before sending
@@ -516,7 +516,7 @@ func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...Clie
 }
 
 /*
-ReadCombinedImagesExport retrieves images with an option to expand aggregated vulnerabilities detections
+ReadCombinedImagesExport maximums offset 9900
 */
 func (a *Client) ReadCombinedImagesExport(params *ReadCombinedImagesExportParams, opts ...ClientOption) (*ReadCombinedImagesExportOK, error) {
 	// TODO: Validate the params before sending

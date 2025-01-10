@@ -64,13 +64,34 @@ type DeploymentCombinedParams struct {
 
 	/* Filter.
 
-	   Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
+	     Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `agent_id`
+	- `agent_type`
+	- `annotations_list`
+	- `cid`
+	- `cloud_account_id`
+	- `cloud_name`
+	- `cloud_region`
+	- `cloud_service`
+	- `cluster_id`
+	- `cluster_name`
+	- `deployment_id`
+	- `deployment_name`
+	- `deployment_status`
+	- `first_seen`
+	- `kac_agent_id`
+	- `last_seen`
+	- `namespace`
+	- `pod_count`
+	- `resource_status`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 200
 	*/
 	Limit *int64
 
@@ -82,7 +103,7 @@ type DeploymentCombinedParams struct {
 
 	/* Sort.
 
-	   Field to sort results by
+	   The fields to sort the records on.
 	*/
 	Sort *string
 
@@ -103,7 +124,18 @@ func (o *DeploymentCombinedParams) WithDefaults() *DeploymentCombinedParams {
 //
 // All values with no default are reset to their zero value.
 func (o *DeploymentCombinedParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(200)
+	)
+
+	val := DeploymentCombinedParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the deployment combined params

@@ -64,13 +64,31 @@ type GetRuntimeDetectionsCombinedV2Params struct {
 
 	/* Filter.
 
-	   Filter Container Runtime Detections using a query in Falcon Query Language (FQL). Supported filters:  action_taken,aid,cid,cloud,cluster_name,command_line,computer_name,container_id,detect_timestamp,detection_description,detection_id,file_name,file_path,host_id,host_type,image_id,name,namespace,pod_name,severity,tactic
+	     Filter Container Runtime Detections using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `agent_type`
+	- `aid`
+	- `cid`
+	- `cloud_name`
+	- `cloud`
+	- `cluster_name`
+	- `computer_name`
+	- `container_id`
+	- `detect_timestamp`
+	- `host_id`
+	- `host_type`
+	- `image_id`
+	- `name`
+	- `namespace`
+	- `pod_name`
+	- `severity`
 	*/
 	Filter *string
 
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
+
+	   Default: 100
 	*/
 	Limit *int64
 
@@ -82,7 +100,7 @@ type GetRuntimeDetectionsCombinedV2Params struct {
 
 	/* Sort.
 
-	   The field to sort the records on.
+	   The fields to sort the records on.
 	*/
 	Sort *string
 
@@ -103,7 +121,18 @@ func (o *GetRuntimeDetectionsCombinedV2Params) WithDefaults() *GetRuntimeDetecti
 //
 // All values with no default are reset to their zero value.
 func (o *GetRuntimeDetectionsCombinedV2Params) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := GetRuntimeDetectionsCombinedV2Params{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get runtime detections combined v2 params
