@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-ReadCombinedDetections maximums offset 9900
+ReadCombinedDetections maximums offset 10000 limit
 */
 func (a *Client) ReadCombinedDetections(params *ReadCombinedDetectionsParams, opts ...ClientOption) (*ReadCombinedDetectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -84,7 +84,7 @@ func (a *Client) ReadCombinedDetections(params *ReadCombinedDetectionsParams, op
 }
 
 /*
-ReadDetections maximums offset 9900
+ReadDetections maximums offset 10000 limit
 */
 func (a *Client) ReadDetections(params *ReadDetectionsParams, opts ...ClientOption) (*ReadDetectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) ReadDetectionsCountByType(params *ReadDetectionsCountByTypePara
 }
 
 /*
-SearchDetections maximums offset 9900
+SearchDetections maximums offset 10000 limit
 */
 func (a *Client) SearchDetections(params *SearchDetectionsParams, opts ...ClientOption) (*SearchDetectionsOK, error) {
 	// TODO: Validate the params before sending

@@ -288,7 +288,7 @@ func (a *Client) CombinedImageByVulnerabilityCount(params *CombinedImageByVulner
 }
 
 /*
-CombinedImageDetail maximums offset 9900
+CombinedImageDetail maximums offset 10000 limit
 */
 func (a *Client) CombinedImageDetail(params *CombinedImageDetailParams, opts ...ClientOption) (*CombinedImageDetailOK, error) {
 	// TODO: Validate the params before sending
@@ -478,7 +478,7 @@ func (a *Client) DeleteBaseImages(params *DeleteBaseImagesParams, opts ...Client
 }
 
 /*
-GetCombinedImages maximums offset 9900
+GetCombinedImages maximums offset 10000 limit
 */
 func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...ClientOption) (*GetCombinedImagesOK, error) {
 	// TODO: Validate the params before sending
@@ -516,7 +516,7 @@ func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...Clie
 }
 
 /*
-ReadCombinedImagesExport maximums offset 9900
+ReadCombinedImagesExport maximums offset 10000 limit
 */
 func (a *Client) ReadCombinedImagesExport(params *ReadCombinedImagesExportParams, opts ...ClientOption) (*ReadCombinedImagesExportOK, error) {
 	// TODO: Validate the params before sending

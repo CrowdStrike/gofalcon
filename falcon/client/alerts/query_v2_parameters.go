@@ -87,7 +87,7 @@ type QueryV2Params struct {
 
 	/* Limit.
 
-	   The maximum number of detections to return in this response (default: 100; max: 10000). Use with the `offset` parameter to manage pagination of results.
+	   The maximum number of detections to return in this response (default: 100; max: 10000). Use this parameter together with the `offset` parameter to manage pagination of the results.
 	*/
 	Limit *int64
 

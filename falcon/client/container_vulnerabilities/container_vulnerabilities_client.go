@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-ReadCombinedVulnerabilities maximums offset 9900
+ReadCombinedVulnerabilities maximums offset 10000 limit
 */
 func (a *Client) ReadCombinedVulnerabilities(params *ReadCombinedVulnerabilitiesParams, opts ...ClientOption) (*ReadCombinedVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) ReadCombinedVulnerabilities(params *ReadCombinedVulnerabilities
 }
 
 /*
-ReadCombinedVulnerabilitiesDetails maximums offset 9900
+ReadCombinedVulnerabilitiesDetails maximums offset 10000 limit
 */
 func (a *Client) ReadCombinedVulnerabilitiesDetails(params *ReadCombinedVulnerabilitiesDetailsParams, opts ...ClientOption) (*ReadCombinedVulnerabilitiesDetailsOK, error) {
 	// TODO: Validate the params before sending
@@ -130,7 +130,7 @@ func (a *Client) ReadCombinedVulnerabilitiesDetails(params *ReadCombinedVulnerab
 }
 
 /*
-ReadCombinedVulnerabilitiesInfo maximums offset 9900
+ReadCombinedVulnerabilitiesInfo maximums offset 10000 limit
 */
 func (a *Client) ReadCombinedVulnerabilitiesInfo(params *ReadCombinedVulnerabilitiesInfoParams, opts ...ClientOption) (*ReadCombinedVulnerabilitiesInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -168,7 +168,7 @@ func (a *Client) ReadCombinedVulnerabilitiesInfo(params *ReadCombinedVulnerabili
 }
 
 /*
-ReadVulnerabilitiesByImageCount maximums offset 9900
+ReadVulnerabilitiesByImageCount maximums offset 10000 limit
 */
 func (a *Client) ReadVulnerabilitiesByImageCount(params *ReadVulnerabilitiesByImageCountParams, opts ...ClientOption) (*ReadVulnerabilitiesByImageCountOK, error) {
 	// TODO: Validate the params before sending
@@ -206,7 +206,7 @@ func (a *Client) ReadVulnerabilitiesByImageCount(params *ReadVulnerabilitiesByIm
 }
 
 /*
-ReadVulnerabilitiesPublicationDate maximums offset 9900
+ReadVulnerabilitiesPublicationDate maximums offset 10000 limit
 */
 func (a *Client) ReadVulnerabilitiesPublicationDate(params *ReadVulnerabilitiesPublicationDateParams, opts ...ClientOption) (*ReadVulnerabilitiesPublicationDateOK, error) {
 	// TODO: Validate the params before sending
@@ -244,7 +244,7 @@ func (a *Client) ReadVulnerabilitiesPublicationDate(params *ReadVulnerabilitiesP
 }
 
 /*
-ReadVulnerabilityCount maximums offset 9900
+ReadVulnerabilityCount maximums offset 10000 limit
 */
 func (a *Client) ReadVulnerabilityCount(params *ReadVulnerabilityCountParams, opts ...ClientOption) (*ReadVulnerabilityCountOK, error) {
 	// TODO: Validate the params before sending
@@ -282,7 +282,7 @@ func (a *Client) ReadVulnerabilityCount(params *ReadVulnerabilityCountParams, op
 }
 
 /*
-ReadVulnerabilityCountByActivelyExploited maximums offset 9900
+ReadVulnerabilityCountByActivelyExploited maximums offset 10000 limit
 */
 func (a *Client) ReadVulnerabilityCountByActivelyExploited(params *ReadVulnerabilityCountByActivelyExploitedParams, opts ...ClientOption) (*ReadVulnerabilityCountByActivelyExploitedOK, error) {
 	// TODO: Validate the params before sending
@@ -320,7 +320,7 @@ func (a *Client) ReadVulnerabilityCountByActivelyExploited(params *ReadVulnerabi
 }
 
 /*
-ReadVulnerabilityCountByCPSRating maximums offset 9900
+ReadVulnerabilityCountByCPSRating maximums offset 10000 limit
 */
 func (a *Client) ReadVulnerabilityCountByCPSRating(params *ReadVulnerabilityCountByCPSRatingParams, opts ...ClientOption) (*ReadVulnerabilityCountByCPSRatingOK, error) {
 	// TODO: Validate the params before sending
@@ -358,7 +358,7 @@ func (a *Client) ReadVulnerabilityCountByCPSRating(params *ReadVulnerabilityCoun
 }
 
 /*
-ReadVulnerabilityCountByCVSSScore maximums offset 9900
+ReadVulnerabilityCountByCVSSScore maximums offset 10000 limit
 */
 func (a *Client) ReadVulnerabilityCountByCVSSScore(params *ReadVulnerabilityCountByCVSSScoreParams, opts ...ClientOption) (*ReadVulnerabilityCountByCVSSScoreOK, error) {
 	// TODO: Validate the params before sending
@@ -396,7 +396,7 @@ func (a *Client) ReadVulnerabilityCountByCVSSScore(params *ReadVulnerabilityCoun
 }
 
 /*
-ReadVulnerabilityCountBySeverity maximums offset 9900
+ReadVulnerabilityCountBySeverity maximums offset 10000 limit
 */
 func (a *Client) ReadVulnerabilityCountBySeverity(params *ReadVulnerabilityCountBySeverityParams, opts ...ClientOption) (*ReadVulnerabilityCountBySeverityOK, error) {
 	// TODO: Validate the params before sending

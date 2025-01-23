@@ -68,6 +68,7 @@ type GroupContainersByManagedParams struct {
 	- `allow_privilege_escalation`
 	- `cid`
 	- `cloud_account_id`
+	- `cloud_instance_id`
 	- `cloud_name`
 	- `cloud_region`
 	- `cloud_service`

@@ -53,6 +53,9 @@ type RegistrationAWSAccountExtV2 struct {
 	// Required: true
 	OrganizationID *string `json:"organization_id"`
 
+	// root stack id
+	RootStackID string `json:"root_stack_id,omitempty"`
+
 	// sensor management enabled
 	SensorManagementEnabled bool `json:"sensor_management_enabled,omitempty"`
 

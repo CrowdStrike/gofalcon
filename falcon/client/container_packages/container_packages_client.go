@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-ReadPackagesByFixableVulnCount maximums offset 9900
+ReadPackagesByFixableVulnCount maximums offset 10000 limit
 */
 func (a *Client) ReadPackagesByFixableVulnCount(params *ReadPackagesByFixableVulnCountParams, opts ...ClientOption) (*ReadPackagesByFixableVulnCountOK, error) {
 	// TODO: Validate the params before sending
@@ -84,7 +84,7 @@ func (a *Client) ReadPackagesByFixableVulnCount(params *ReadPackagesByFixableVul
 }
 
 /*
-ReadPackagesByVulnCount maximums offset 9900
+ReadPackagesByVulnCount maximums offset 10000 limit
 */
 func (a *Client) ReadPackagesByVulnCount(params *ReadPackagesByVulnCountParams, opts ...ClientOption) (*ReadPackagesByVulnCountOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ func (a *Client) ReadPackagesByVulnCount(params *ReadPackagesByVulnCountParams, 
 }
 
 /*
-ReadPackagesCombined maximums offset 9900
+ReadPackagesCombined maximums offset 10000 limit
 */
 func (a *Client) ReadPackagesCombined(params *ReadPackagesCombinedParams, opts ...ClientOption) (*ReadPackagesCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -160,7 +160,7 @@ func (a *Client) ReadPackagesCombined(params *ReadPackagesCombinedParams, opts .
 }
 
 /*
-ReadPackagesCombinedExport maximums offset 9900
+ReadPackagesCombinedExport maximums offset 10000 limit
 */
 func (a *Client) ReadPackagesCombinedExport(params *ReadPackagesCombinedExportParams, opts ...ClientOption) (*ReadPackagesCombinedExportOK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +198,7 @@ func (a *Client) ReadPackagesCombinedExport(params *ReadPackagesCombinedExportPa
 }
 
 /*
-ReadPackagesCombinedV2 maximums offset 9900
+ReadPackagesCombinedV2 maximums offset 10000 limit
 */
 func (a *Client) ReadPackagesCombinedV2(params *ReadPackagesCombinedV2Params, opts ...ClientOption) (*ReadPackagesCombinedV2OK, error) {
 	// TODO: Validate the params before sending
