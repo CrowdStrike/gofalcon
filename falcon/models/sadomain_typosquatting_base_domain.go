@@ -35,6 +35,12 @@ type SadomainTyposquattingBaseDomain struct {
 	// Required: true
 	PunycodeFormat *string `json:"punycode_format"`
 
+	// submit for blocking info
+	SubmitForBlockingInfo *SadomainSubmissionInformation `json:"submit_for_blocking_info,omitempty"`
+
+	// submit for takedown info
+	SubmitForTakedownInfo *SadomainSubmissionInformation `json:"submit_for_takedown_info,omitempty"`
+
 	// The Unicode representation of the domain
 	// Required: true
 	UnicodeFormat *string `json:"unicode_format"`
@@ -60,6 +66,14 @@ func (m *SadomainTyposquattingBaseDomain) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validatePunycodeFormat(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubmitForBlockingInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubmitForTakedownInfo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -116,6 +130,44 @@ func (m *SadomainTyposquattingBaseDomain) validatePunycodeFormat(formats strfmt.
 	return nil
 }
 
+func (m *SadomainTyposquattingBaseDomain) validateSubmitForBlockingInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.SubmitForBlockingInfo) { // not required
+		return nil
+	}
+
+	if m.SubmitForBlockingInfo != nil {
+		if err := m.SubmitForBlockingInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("submit_for_blocking_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submit_for_blocking_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SadomainTyposquattingBaseDomain) validateSubmitForTakedownInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.SubmitForTakedownInfo) { // not required
+		return nil
+	}
+
+	if m.SubmitForTakedownInfo != nil {
+		if err := m.SubmitForTakedownInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("submit_for_takedown_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submit_for_takedown_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SadomainTyposquattingBaseDomain) validateUnicodeFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("unicode_format", "body", m.UnicodeFormat); err != nil {
@@ -148,6 +200,14 @@ func (m *SadomainTyposquattingBaseDomain) validateWhois(formats strfmt.Registry)
 func (m *SadomainTyposquattingBaseDomain) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateSubmitForBlockingInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubmitForTakedownInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateWhois(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -155,6 +215,48 @@ func (m *SadomainTyposquattingBaseDomain) ContextValidate(ctx context.Context, f
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SadomainTyposquattingBaseDomain) contextValidateSubmitForBlockingInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SubmitForBlockingInfo != nil {
+
+		if swag.IsZero(m.SubmitForBlockingInfo) { // not required
+			return nil
+		}
+
+		if err := m.SubmitForBlockingInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("submit_for_blocking_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submit_for_blocking_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SadomainTyposquattingBaseDomain) contextValidateSubmitForTakedownInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SubmitForTakedownInfo != nil {
+
+		if swag.IsZero(m.SubmitForTakedownInfo) { // not required
+			return nil
+		}
+
+		if err := m.SubmitForTakedownInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("submit_for_takedown_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submit_for_takedown_info")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -158,7 +158,7 @@ func (a *Client) ReadDriftIndicatorsCount(params *ReadDriftIndicatorsCountParams
 }
 
 /*
-SearchAndReadDriftIndicatorEntities maximums offset 9900
+SearchAndReadDriftIndicatorEntities maximums offset 10000 limit
 */
 func (a *Client) SearchAndReadDriftIndicatorEntities(params *SearchAndReadDriftIndicatorEntitiesParams, opts ...ClientOption) (*SearchAndReadDriftIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -196,7 +196,7 @@ func (a *Client) SearchAndReadDriftIndicatorEntities(params *SearchAndReadDriftI
 }
 
 /*
-SearchDriftIndicators maximums offset 9900
+SearchDriftIndicators maximums offset 10000 limit
 */
 func (a *Client) SearchDriftIndicators(params *SearchDriftIndicatorsParams, opts ...ClientOption) (*SearchDriftIndicatorsOK, error) {
 	// TODO: Validate the params before sending

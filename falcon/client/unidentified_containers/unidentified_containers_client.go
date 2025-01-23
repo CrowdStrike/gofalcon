@@ -116,7 +116,7 @@ func (a *Client) CountByDateRange(params *CountByDateRangeParams, opts ...Client
 }
 
 /*
-Search maximums offset 9900
+Search maximums offset 10000 limit
 */
 func (a *Client) Search(params *SearchParams, opts ...ClientOption) (*SearchOK, error) {
 	// TODO: Validate the params before sending

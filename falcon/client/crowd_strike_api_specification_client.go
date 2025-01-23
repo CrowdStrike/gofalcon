@@ -14,6 +14,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
 	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_aws_registration"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_azure_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_assets"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
@@ -79,7 +81,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
-	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
@@ -106,6 +107,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
+	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/workflows"
 	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
 )
@@ -156,6 +158,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
+	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
+	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
 	cli.CloudSecurityAssets = cloud_security_assets.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
@@ -221,7 +225,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
-	cli.Operations = operations.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
@@ -248,6 +251,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
+	cli.Vulnerabilities = vulnerabilities.New(transport, formats)
 	cli.Workflows = workflows.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
 	return cli
@@ -301,6 +305,10 @@ type CrowdStrikeAPISpecification struct {
 	APIIntegrations api_integrations.ClientService
 
 	CertificateBasedExclusions certificate_based_exclusions.ClientService
+
+	CloudAwsRegistration cloud_aws_registration.ClientService
+
+	CloudAzureRegistration cloud_azure_registration.ClientService
 
 	CloudConnectAws cloud_connect_aws.ClientService
 
@@ -432,8 +440,6 @@ type CrowdStrikeAPISpecification struct {
 
 	Ods ods.ClientService
 
-	Operations operations.ClientService
-
 	OverwatchDashboard overwatch_dashboard.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
@@ -486,6 +492,8 @@ type CrowdStrikeAPISpecification struct {
 
 	UserManagement user_management.ClientService
 
+	Vulnerabilities vulnerabilities.ClientService
+
 	Workflows workflows.ClientService
 
 	ZeroTrustAssessment zero_trust_assessment.ClientService
@@ -500,6 +508,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Alerts.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
 	c.CertificateBasedExclusions.SetTransport(transport)
+	c.CloudAwsRegistration.SetTransport(transport)
+	c.CloudAzureRegistration.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
 	c.CloudSecurityAssets.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
@@ -565,7 +575,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
-	c.Operations.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
@@ -592,6 +601,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
+	c.Vulnerabilities.SetTransport(transport)
 	c.Workflows.SetTransport(transport)
 	c.ZeroTrustAssessment.SetTransport(transport)
 }

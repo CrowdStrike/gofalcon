@@ -52,6 +52,9 @@ type RegistrationAWSAccountPatch struct {
 	// Format: date-time
 	RemediationTouAccepted strfmt.DateTime `json:"remediation_tou_accepted,omitempty"`
 
+	// root stack id
+	RootStackID string `json:"root_stack_id,omitempty"`
+
 	// sensor management enabled
 	SensorManagementEnabled bool `json:"sensor_management_enabled,omitempty"`
 

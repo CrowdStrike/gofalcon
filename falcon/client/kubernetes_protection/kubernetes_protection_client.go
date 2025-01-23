@@ -156,7 +156,7 @@ type ClientService interface {
 }
 
 /*
-ClusterCombined maximums offset 9800
+ClusterCombined maximums offset 10000 limit
 */
 func (a *Client) ClusterCombined(params *ClusterCombinedParams, opts ...ClientOption) (*ClusterCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -384,7 +384,7 @@ func (a *Client) ClustersByStatusCount(params *ClustersByStatusCountParams, opts
 }
 
 /*
-ContainerCombined maximums offset 9800
+ContainerCombined maximums offset 10000 limit
 */
 func (a *Client) ContainerCombined(params *ContainerCombinedParams, opts ...ClientOption) (*ContainerCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -920,7 +920,7 @@ func (a *Client) DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, 
 }
 
 /*
-DeploymentCombined maximums offset 9800
+DeploymentCombined maximums offset 10000 limit
 */
 func (a *Client) DeploymentCombined(params *DeploymentCombinedParams, opts ...ClientOption) (*DeploymentCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -1110,7 +1110,7 @@ func (a *Client) DistinctContainerImageCount(params *DistinctContainerImageCount
 }
 
 /*
-FindContainersByContainerRunTimeVersion maximums offset 9800
+FindContainersByContainerRunTimeVersion maximums offset 10000 limit
 */
 func (a *Client) FindContainersByContainerRunTimeVersion(params *FindContainersByContainerRunTimeVersionParams, opts ...ClientOption) (*FindContainersByContainerRunTimeVersionOK, error) {
 	// TODO: Validate the params before sending
@@ -1688,7 +1688,7 @@ func (a *Client) KubernetesIomEntities(params *KubernetesIomEntitiesParams, opts
 }
 
 /*
-KubernetesIomEntitiesCombined maximums offset 9900
+KubernetesIomEntitiesCombined maximums offset 10000 limit
 */
 func (a *Client) KubernetesIomEntitiesCombined(params *KubernetesIomEntitiesCombinedParams, opts ...ClientOption) (*KubernetesIomEntitiesCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -1765,7 +1765,7 @@ func (a *Client) ListAzureAccounts(params *ListAzureAccountsParams, opts ...Clie
 }
 
 /*
-NodeCombined maximums offset 9800
+NodeCombined maximums offset 10000 limit
 */
 func (a *Client) NodeCombined(params *NodeCombinedParams, opts ...ClientOption) (*NodeCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -2032,7 +2032,7 @@ func (a *Client) PatchAzureServicePrincipal(params *PatchAzureServicePrincipalPa
 }
 
 /*
-PodCombined maximums offset 9800
+PodCombined maximums offset 10000 limit
 */
 func (a *Client) PodCombined(params *PodCombinedParams, opts ...ClientOption) (*PodCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -2184,7 +2184,7 @@ func (a *Client) PodsByDateRangeCount(params *PodsByDateRangeCountParams, opts .
 }
 
 /*
-QueryKubernetesIoms maximums offset 9900
+QueryKubernetesIoms maximums offset 10000 limit
 */
 func (a *Client) QueryKubernetesIoms(params *QueryKubernetesIomsParams, opts ...ClientOption) (*QueryKubernetesIomsOK, error) {
 	// TODO: Validate the params before sending
@@ -2337,7 +2337,7 @@ func (a *Client) RegenerateAPIKey(params *RegenerateAPIKeyParams, opts ...Client
 }
 
 /*
-RunningContainerImages maximums offset 9800
+RunningContainerImages maximums offset 10000 limit
 */
 func (a *Client) RunningContainerImages(params *RunningContainerImagesParams, opts ...ClientOption) (*RunningContainerImagesOK, error) {
 	// TODO: Validate the params before sending
