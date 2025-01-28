@@ -43,6 +43,12 @@ func (o *CombinedQueryVulnerabilitiesReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewCombinedQueryVulnerabilitiesNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewCombinedQueryVulnerabilitiesTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -387,6 +393,116 @@ func (o *CombinedQueryVulnerabilitiesForbidden) readResponse(response runtime.Cl
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCombinedQueryVulnerabilitiesNotFound creates a CombinedQueryVulnerabilitiesNotFound with default headers values
+func NewCombinedQueryVulnerabilitiesNotFound() *CombinedQueryVulnerabilitiesNotFound {
+	return &CombinedQueryVulnerabilitiesNotFound{}
+}
+
+/*
+CombinedQueryVulnerabilitiesNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type CombinedQueryVulnerabilitiesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.DomainSPAPICombinedVulnerabilitiesResponse
+}
+
+// IsSuccess returns true when this combined query vulnerabilities not found response has a 2xx status code
+func (o *CombinedQueryVulnerabilitiesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query vulnerabilities not found response has a 3xx status code
+func (o *CombinedQueryVulnerabilitiesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query vulnerabilities not found response has a 4xx status code
+func (o *CombinedQueryVulnerabilitiesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined query vulnerabilities not found response has a 5xx status code
+func (o *CombinedQueryVulnerabilitiesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query vulnerabilities not found response a status code equal to that given
+func (o *CombinedQueryVulnerabilitiesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the combined query vulnerabilities not found response
+func (o *CombinedQueryVulnerabilitiesNotFound) Code() int {
+	return 404
+}
+
+func (o *CombinedQueryVulnerabilitiesNotFound) Error() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CombinedQueryVulnerabilitiesNotFound) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CombinedQueryVulnerabilitiesNotFound) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
+	return o.Payload
+}
+
+func (o *CombinedQueryVulnerabilitiesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.DomainSPAPICombinedVulnerabilitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
