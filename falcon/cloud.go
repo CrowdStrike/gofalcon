@@ -32,19 +32,21 @@ func Cloud(cloudString string) CloudType {
 // CloudValidate parses cloud string (example: us-1, us-2, eu-1, us-gov-1, etc.). Error is returned when string cannot be recognized.
 func CloudValidate(cloudString string) (CloudType, error) {
 	trimmed := strings.TrimSpace(cloudString)
-	lower := strings.ToLower(trimmed)
+	stripped := strings.ReplaceAll(trimmed, "-", "")
+	lower := strings.ToLower(stripped)
+
 	switch lower {
 	case "":
 		fallthrough
 	case "autodiscover":
 		return CloudAutoDiscover, nil
-	case "us-1":
+	case "us1":
 		return CloudUs1, nil
-	case "us-2":
+	case "us2":
 		return CloudUs2, nil
-	case "eu-1":
+	case "eu1":
 		return CloudEu1, nil
-	case "us-gov-1":
+	case "usgov1":
 		return CloudUsGov1, nil
 	case "gov1":
 		return CloudGov1, nil

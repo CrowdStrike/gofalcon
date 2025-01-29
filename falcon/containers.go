@@ -38,6 +38,8 @@ func FalconContainerUploadURI(falconCloud CloudType) string {
 }
 
 // FalconContainerSensorImageURI returns a URI for downloading a container sensor image. Defaults to the falcon-sensor image.
+// When the Falcon Cloud CloudType is set to CloudAutoDiscover, be sure to provide the results of ApiConfig.Cloud after the client
+// has been initialized to ensure the correct CloudType is used and not CloudAutoDiscover.
 func FalconContainerSensorImageURI(falconCloud CloudType, sensorType SensorType) string {
 	switch sensorType {
 	case SidecarSensor:
