@@ -27,6 +27,15 @@ type DeviceMappedDevicePolicies struct {
 	// aws verified access
 	AwsVerifiedAccess *DeviceDevicePolicy `json:"aws-verified-access,omitempty"`
 
+	// browser extension
+	BrowserExtension *DeviceDevicePolicy `json:"browser-extension,omitempty"`
+
+	// consumer subscription
+	ConsumerSubscription *DeviceDevicePolicy `json:"consumer-subscription,omitempty"`
+
+	// content update
+	ContentUpdate *DeviceDevicePolicy `json:"content-update,omitempty"`
+
 	// customer entitlements
 	CustomerEntitlements *DeviceDevicePolicy `json:"customer-entitlements,omitempty"`
 
@@ -35,9 +44,6 @@ type DeviceMappedDevicePolicies struct {
 
 	// device control
 	DeviceControl *DeviceDevicePolicy `json:"device_control,omitempty"`
-
-	// falcon for it
-	FalconForIt *DeviceDevicePolicy `json:"falcon-for-it,omitempty"`
 
 	// fim
 	Fim *DeviceDevicePolicy `json:"fim,omitempty"`
@@ -54,20 +60,23 @@ type DeviceMappedDevicePolicies struct {
 	// identity protection
 	IdentityProtection *DeviceDevicePolicy `json:"identity-protection,omitempty"`
 
+	// it automation
+	ItAutomation *DeviceDevicePolicy `json:"it-automation,omitempty"`
+
 	// jumpcloud
 	Jumpcloud *DeviceDevicePolicy `json:"jumpcloud,omitempty"`
 
 	// kubernetes admission control
 	KubernetesAdmissionControl *DeviceDevicePolicy `json:"kubernetes-admission-control,omitempty"`
 
-	// legacy os
-	LegacyOs *DeviceDevicePolicy `json:"legacy-os,omitempty"`
-
 	// mobile
 	Mobile *DeviceDevicePolicy `json:"mobile,omitempty"`
 
 	// netskope
 	Netskope *DeviceDevicePolicy `json:"netskope,omitempty"`
+
+	// network scan content
+	NetworkScanContent *DeviceDevicePolicy `json:"network-scan-content,omitempty"`
 
 	// prevention
 	Prevention *DeviceDevicePolicy `json:"prevention,omitempty"`
@@ -107,6 +116,18 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConsumerSubscription(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContentUpdate(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCustomerEntitlements(formats); err != nil {
 		res = append(res, err)
 	}
@@ -116,10 +137,6 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDeviceControl(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFalconForIt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -143,6 +160,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateItAutomation(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateJumpcloud(formats); err != nil {
 		res = append(res, err)
 	}
@@ -151,15 +172,15 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateLegacyOs(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateMobile(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateNetskope(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNetworkScanContent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -254,6 +275,63 @@ func (m *DeviceMappedDevicePolicies) validateAwsVerifiedAccess(formats strfmt.Re
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateBrowserExtension(formats strfmt.Registry) error {
+	if swag.IsZero(m.BrowserExtension) { // not required
+		return nil
+	}
+
+	if m.BrowserExtension != nil {
+		if err := m.BrowserExtension.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("browser-extension")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateConsumerSubscription(formats strfmt.Registry) error {
+	if swag.IsZero(m.ConsumerSubscription) { // not required
+		return nil
+	}
+
+	if m.ConsumerSubscription != nil {
+		if err := m.ConsumerSubscription.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("consumer-subscription")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("consumer-subscription")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateContentUpdate(formats strfmt.Registry) error {
+	if swag.IsZero(m.ContentUpdate) { // not required
+		return nil
+	}
+
+	if m.ContentUpdate != nil {
+		if err := m.ContentUpdate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("content-update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("content-update")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateCustomerEntitlements(formats strfmt.Registry) error {
 	if swag.IsZero(m.CustomerEntitlements) { // not required
 		return nil
@@ -303,25 +381,6 @@ func (m *DeviceMappedDevicePolicies) validateDeviceControl(formats strfmt.Regist
 				return ve.ValidateName("device_control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("device_control")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DeviceMappedDevicePolicies) validateFalconForIt(formats strfmt.Registry) error {
-	if swag.IsZero(m.FalconForIt) { // not required
-		return nil
-	}
-
-	if m.FalconForIt != nil {
-		if err := m.FalconForIt.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("falcon-for-it")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("falcon-for-it")
 			}
 			return err
 		}
@@ -425,6 +484,25 @@ func (m *DeviceMappedDevicePolicies) validateIdentityProtection(formats strfmt.R
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateItAutomation(formats strfmt.Registry) error {
+	if swag.IsZero(m.ItAutomation) { // not required
+		return nil
+	}
+
+	if m.ItAutomation != nil {
+		if err := m.ItAutomation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("it-automation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("it-automation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateJumpcloud(formats strfmt.Registry) error {
 	if swag.IsZero(m.Jumpcloud) { // not required
 		return nil
@@ -463,25 +541,6 @@ func (m *DeviceMappedDevicePolicies) validateKubernetesAdmissionControl(formats 
 	return nil
 }
 
-func (m *DeviceMappedDevicePolicies) validateLegacyOs(formats strfmt.Registry) error {
-	if swag.IsZero(m.LegacyOs) { // not required
-		return nil
-	}
-
-	if m.LegacyOs != nil {
-		if err := m.LegacyOs.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("legacy-os")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("legacy-os")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *DeviceMappedDevicePolicies) validateMobile(formats strfmt.Registry) error {
 	if swag.IsZero(m.Mobile) { // not required
 		return nil
@@ -512,6 +571,25 @@ func (m *DeviceMappedDevicePolicies) validateNetskope(formats strfmt.Registry) e
 				return ve.ValidateName("netskope")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("netskope")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateNetworkScanContent(formats strfmt.Registry) error {
+	if swag.IsZero(m.NetworkScanContent) { // not required
+		return nil
+	}
+
+	if m.NetworkScanContent != nil {
+		if err := m.NetworkScanContent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("network-scan-content")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("network-scan-content")
 			}
 			return err
 		}
@@ -669,6 +747,18 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateBrowserExtension(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConsumerSubscription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContentUpdate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCustomerEntitlements(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -678,10 +768,6 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateDeviceControl(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateFalconForIt(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -705,6 +791,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateItAutomation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateJumpcloud(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -713,15 +803,15 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateLegacyOs(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateMobile(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateNetskope(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNetworkScanContent(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -822,6 +912,69 @@ func (m *DeviceMappedDevicePolicies) contextValidateAwsVerifiedAccess(ctx contex
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) contextValidateBrowserExtension(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BrowserExtension != nil {
+
+		if swag.IsZero(m.BrowserExtension) { // not required
+			return nil
+		}
+
+		if err := m.BrowserExtension.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("browser-extension")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateConsumerSubscription(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConsumerSubscription != nil {
+
+		if swag.IsZero(m.ConsumerSubscription) { // not required
+			return nil
+		}
+
+		if err := m.ConsumerSubscription.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("consumer-subscription")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("consumer-subscription")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateContentUpdate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContentUpdate != nil {
+
+		if swag.IsZero(m.ContentUpdate) { // not required
+			return nil
+		}
+
+		if err := m.ContentUpdate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("content-update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("content-update")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) contextValidateCustomerEntitlements(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CustomerEntitlements != nil {
@@ -877,27 +1030,6 @@ func (m *DeviceMappedDevicePolicies) contextValidateDeviceControl(ctx context.Co
 				return ve.ValidateName("device_control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("device_control")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DeviceMappedDevicePolicies) contextValidateFalconForIt(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.FalconForIt != nil {
-
-		if swag.IsZero(m.FalconForIt) { // not required
-			return nil
-		}
-
-		if err := m.FalconForIt.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("falcon-for-it")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("falcon-for-it")
 			}
 			return err
 		}
@@ -1011,6 +1143,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateIdentityProtection(ctx conte
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) contextValidateItAutomation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ItAutomation != nil {
+
+		if swag.IsZero(m.ItAutomation) { // not required
+			return nil
+		}
+
+		if err := m.ItAutomation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("it-automation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("it-automation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) contextValidateJumpcloud(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Jumpcloud != nil {
@@ -1053,27 +1206,6 @@ func (m *DeviceMappedDevicePolicies) contextValidateKubernetesAdmissionControl(c
 	return nil
 }
 
-func (m *DeviceMappedDevicePolicies) contextValidateLegacyOs(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.LegacyOs != nil {
-
-		if swag.IsZero(m.LegacyOs) { // not required
-			return nil
-		}
-
-		if err := m.LegacyOs.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("legacy-os")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("legacy-os")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *DeviceMappedDevicePolicies) contextValidateMobile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Mobile != nil {
@@ -1108,6 +1240,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateNetskope(ctx context.Context
 				return ve.ValidateName("netskope")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("netskope")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateNetworkScanContent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NetworkScanContent != nil {
+
+		if swag.IsZero(m.NetworkScanContent) { // not required
+			return nil
+		}
+
+		if err := m.NetworkScanContent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("network-scan-content")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("network-scan-content")
 			}
 			return err
 		}

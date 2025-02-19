@@ -41,6 +41,9 @@ type RegistrationAWSAccountPatch struct {
 	// environment
 	Environment string `json:"environment,omitempty"`
 
+	// falcon client id
+	FalconClientID string `json:"falcon_client_id,omitempty"`
+
 	// iam role arn
 	// Required: true
 	IamRoleArn *string `json:"iam_role_arn"`

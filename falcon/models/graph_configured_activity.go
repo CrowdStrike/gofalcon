@@ -30,6 +30,9 @@ type GraphConfiguredActivity struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// Inline activity configuration required by an inline action.
+	InlineConfiguration *GraphInlineActivityConfig `json:"inline_configuration,omitempty"`
+
 	// Maximum seconds to wait for an async process to finish. Overrides default async_max_seconds on Activity seed.
 	MaxSeconds string `json:"max_seconds,omitempty"`
 
@@ -44,6 +47,9 @@ type GraphConfiguredActivity struct {
 	// Dynamic payload providing values needed to configure the activity for execution. The structure of this data is dictated by the JSON Schema defined for the selected Activity.
 	// Required: true
 	Properties interface{} `json:"properties"`
+
+	// Version of the activity, if unspecified the latest is used
+	Version int32 `json:"version,omitempty"`
 }
 
 // Validate validates this graph configured activity
@@ -55,6 +61,10 @@ func (m *GraphConfiguredActivity) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInlineConfiguration(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -105,6 +115,25 @@ func (m *GraphConfiguredActivity) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *GraphConfiguredActivity) validateInlineConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.InlineConfiguration) { // not required
+		return nil
+	}
+
+	if m.InlineConfiguration != nil {
+		if err := m.InlineConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inline_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inline_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GraphConfiguredActivity) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -140,6 +169,10 @@ func (m *GraphConfiguredActivity) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateInlineConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -155,6 +188,27 @@ func (m *GraphConfiguredActivity) contextValidateFlows(ctx context.Context, form
 				return ve.ValidateName("flows")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("flows")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphConfiguredActivity) contextValidateInlineConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InlineConfiguration != nil {
+
+		if swag.IsZero(m.InlineConfiguration) { // not required
+			return nil
+		}
+
+		if err := m.InlineConfiguration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inline_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inline_configuration")
 			}
 			return err
 		}

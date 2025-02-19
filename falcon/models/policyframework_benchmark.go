@@ -19,6 +19,9 @@ import (
 // swagger:model policyframework.Benchmark
 type PolicyframeworkBenchmark struct {
 
+	// id
+	ID string `json:"id,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`

@@ -68,6 +68,12 @@ type CombinedImageIssuesSummaryParams struct {
 	*/
 	Cid string
 
+	/* ImageDigest.
+
+	   Digest ID
+	*/
+	ImageDigest *string
+
 	/* IncludeBaseImageVuln.
 
 	   Include base image vulnerabilities.
@@ -167,6 +173,17 @@ func (o *CombinedImageIssuesSummaryParams) SetCid(cid string) {
 	o.Cid = cid
 }
 
+// WithImageDigest adds the imageDigest to the combined image issues summary params
+func (o *CombinedImageIssuesSummaryParams) WithImageDigest(imageDigest *string) *CombinedImageIssuesSummaryParams {
+	o.SetImageDigest(imageDigest)
+	return o
+}
+
+// SetImageDigest adds the imageDigest to the combined image issues summary params
+func (o *CombinedImageIssuesSummaryParams) SetImageDigest(imageDigest *string) {
+	o.ImageDigest = imageDigest
+}
+
 // WithIncludeBaseImageVuln adds the includeBaseImageVuln to the combined image issues summary params
 func (o *CombinedImageIssuesSummaryParams) WithIncludeBaseImageVuln(includeBaseImageVuln *bool) *CombinedImageIssuesSummaryParams {
 	o.SetIncludeBaseImageVuln(includeBaseImageVuln)
@@ -226,6 +243,23 @@ func (o *CombinedImageIssuesSummaryParams) WriteToRequest(r runtime.ClientReques
 
 		if err := r.SetQueryParam("cid", qCid); err != nil {
 			return err
+		}
+	}
+
+	if o.ImageDigest != nil {
+
+		// query param image_digest
+		var qrImageDigest string
+
+		if o.ImageDigest != nil {
+			qrImageDigest = *o.ImageDigest
+		}
+		qImageDigest := qrImageDigest
+		if qImageDigest != "" {
+
+			if err := r.SetQueryParam("image_digest", qImageDigest); err != nil {
+				return err
+			}
 		}
 	}
 

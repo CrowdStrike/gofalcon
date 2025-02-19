@@ -73,6 +73,9 @@ type DomainAWSAccountV2 struct {
 	// cloud scopes
 	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
 
+	// cloudformation update url
+	CloudformationUpdateURL string `json:"cloudformation_update_url,omitempty"`
+
 	// cloudformation url
 	CloudformationURL string `json:"cloudformation_url,omitempty"`
 
@@ -102,6 +105,9 @@ type DomainAWSAccountV2 struct {
 
 	// ID assigned for use with cross account IAM role access.
 	ExternalID string `json:"external_id,omitempty"`
+
+	// falcon client id
+	FalconClientID string `json:"falcon_client_id,omitempty"`
 
 	// The full arn of the IAM role created in this account to control access.
 	IamRoleArn string `json:"iam_role_arn,omitempty"`
@@ -144,6 +150,9 @@ type DomainAWSAccountV2 struct {
 
 	// root iam role
 	RootIamRole bool `json:"root_iam_role,omitempty"`
+
+	// s3 url
+	S3URL string `json:"s3_url,omitempty"`
 
 	// secondary role arn
 	SecondaryRoleArn string `json:"secondary_role_arn,omitempty"`

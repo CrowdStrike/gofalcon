@@ -74,13 +74,16 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
+	- `azure.vm_id`
 	- `business_impact`
 	- `cloud_group`
 	- `cloud_label`
 	- `cloud_label_id`
 	- `cloud_provider`
+	- `cloud_scope`
 	- `cluster_id`
 	- `cluster_name`
+	- `compartment_ocid`
 	- `compliant.benchmark_name`
 	- `compliant.benchmark_version`
 	- `compliant.framework`

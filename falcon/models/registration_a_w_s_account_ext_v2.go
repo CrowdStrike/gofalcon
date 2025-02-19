@@ -42,6 +42,9 @@ type RegistrationAWSAccountExtV2 struct {
 	// dspm role
 	DspmRole string `json:"dspm_role,omitempty"`
 
+	// falcon client id
+	FalconClientID string `json:"falcon_client_id,omitempty"`
+
 	// iam role arn
 	// Required: true
 	IamRoleArn *string `json:"iam_role_arn"`

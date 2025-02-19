@@ -105,6 +105,7 @@ type ReadPackagesCombinedV2Params struct {
 	- `license`
 	- `package_name_version`
 	- `type`
+	- `vulnerability_count`
 	*/
 	Sort *string
 

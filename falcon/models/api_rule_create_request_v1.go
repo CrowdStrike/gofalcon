@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -32,6 +33,9 @@ type APIRuleCreateRequestV1 struct {
 	// name
 	// Required: true
 	Name *string `json:"name"`
+
+	// notifications
+	Notifications []*APICreateRuleNotifications `json:"notifications"`
 
 	// operation
 	// Required: true
@@ -71,6 +75,10 @@ func (m *APIRuleCreateRequestV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateNotifications(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateOperation(formats); err != nil {
 		res = append(res, err)
 	}
@@ -106,6 +114,32 @@ func (m *APIRuleCreateRequestV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleCreateRequestV1) validateNotifications(formats strfmt.Registry) error {
+	if swag.IsZero(m.Notifications) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Notifications); i++ {
+		if swag.IsZero(m.Notifications[i]) { // not required
+			continue
+		}
+
+		if m.Notifications[i] != nil {
+			if err := m.Notifications[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -173,6 +207,10 @@ func (m *APIRuleCreateRequestV1) validateStatus(formats strfmt.Registry) error {
 func (m *APIRuleCreateRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateNotifications(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateOperation(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -184,6 +222,31 @@ func (m *APIRuleCreateRequestV1) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIRuleCreateRequestV1) contextValidateNotifications(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Notifications); i++ {
+
+		if m.Notifications[i] != nil {
+
+			if swag.IsZero(m.Notifications[i]) { // not required
+				return nil
+			}
+
+			if err := m.Notifications[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

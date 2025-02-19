@@ -42,6 +42,9 @@ type GraphConfiguredTrigger struct {
 
 	// Denotes the type of trigger, signal based, scheduled, on demand, etc
 	TriggerType string `json:"trigger_type,omitempty"`
+
+	// Semantic version of the trigger, if unspecified the evaluator will use the last version before trigger alternate names was introduced
+	Version string `json:"version,omitempty"`
 }
 
 // Validate validates this graph configured trigger

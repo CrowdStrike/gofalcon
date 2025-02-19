@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	ReadPackagesByFixableVulnCount(params *ReadPackagesByFixableVulnCountParams, opts ...ClientOption) (*ReadPackagesByFixableVulnCountOK, error)
 
+	ReadPackagesByImageCount(params *ReadPackagesByImageCountParams, opts ...ClientOption) (*ReadPackagesByImageCountOK, error)
+
 	ReadPackagesByVulnCount(params *ReadPackagesByVulnCountParams, opts ...ClientOption) (*ReadPackagesByVulnCountOK, error)
 
 	ReadPackagesCombined(params *ReadPackagesCombinedParams, opts ...ClientOption) (*ReadPackagesCombinedOK, error)
@@ -80,6 +82,44 @@ func (a *Client) ReadPackagesByFixableVulnCount(params *ReadPackagesByFixableVul
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ReadPackagesByFixableVulnCount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ReadPackagesByImageCount retrieves the n most frequently used packages across images
+*/
+func (a *Client) ReadPackagesByImageCount(params *ReadPackagesByImageCountParams, opts ...ClientOption) (*ReadPackagesByImageCountOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReadPackagesByImageCountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ReadPackagesByImageCount",
+		Method:             "GET",
+		PathPattern:        "/container-security/aggregates/packages/by-image-count/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ReadPackagesByImageCountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ReadPackagesByImageCountOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ReadPackagesByImageCount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

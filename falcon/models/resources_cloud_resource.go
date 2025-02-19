@@ -133,6 +133,9 @@ type ResourcesCloudResource struct {
 	// tags
 	Tags map[string]string `json:"tags,omitempty"`
 
+	// tenancy ocid
+	TenancyOcid string `json:"tenancy_ocid,omitempty"`
+
 	// tenant id
 	TenantID string `json:"tenant_id,omitempty"`
 

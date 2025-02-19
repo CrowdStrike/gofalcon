@@ -40,6 +40,8 @@ type ClientService interface {
 
 	PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, opts ...ClientOption) (*PostAggregatesAlertsV1OK, error)
 
+	PostCombinedAlertsV1(params *PostCombinedAlertsV1Params, opts ...ClientOption) (*PostCombinedAlertsV1OK, error)
+
 	PostEntitiesAlertsV1(params *PostEntitiesAlertsV1Params, opts ...ClientOption) (*PostEntitiesAlertsV1OK, error)
 
 	QueryV2(params *QueryV2Params, opts ...ClientOption) (*QueryV2OK, error)
@@ -236,6 +238,44 @@ func (a *Client) PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for PostAggregatesAlertsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostCombinedAlertsV1 retrieves all alerts that match a particular f q l filter this API is intended for retrieval of large amounts of alerts 10k using a pagination based on a after token if you need to use offset pagination consider using g e t alerts queries alerts and p o s t alerts entities alerts a p is
+*/
+func (a *Client) PostCombinedAlertsV1(params *PostCombinedAlertsV1Params, opts ...ClientOption) (*PostCombinedAlertsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostCombinedAlertsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostCombinedAlertsV1",
+		Method:             "POST",
+		PathPattern:        "/alerts/combined/alerts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostCombinedAlertsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostCombinedAlertsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostCombinedAlertsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

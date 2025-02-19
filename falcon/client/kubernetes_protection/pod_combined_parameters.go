@@ -69,6 +69,7 @@ type PodCombinedParams struct {
 	- `agent_type`
 	- `allow_privilege_escalation`
 	- `annotations_list`
+	- `app_name`
 	- `cid`
 	- `cloud_account_id`
 	- `cloud_name`

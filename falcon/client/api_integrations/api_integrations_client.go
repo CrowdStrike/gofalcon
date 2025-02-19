@@ -89,7 +89,7 @@ func (a *Client) ExecuteCommandProxy(params *ExecuteCommandProxyParams, opts ...
 		ID:                 "ExecuteCommandProxy",
 		Method:             "POST",
 		PathPattern:        "/plugins/entities/execute-proxy/v1",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"*/*", "application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,

@@ -65,6 +65,7 @@ type AggregateImageCountParams struct {
 
 	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `ai_related`
+	- `ai_vulnerability_count`
 	- `arch`
 	- `base_os`
 	- `cid`

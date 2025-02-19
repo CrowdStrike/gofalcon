@@ -51,6 +51,9 @@ type ReleasesRelease struct {
 	// Required: true
 	ReleaseContents []*ReleasecontentsReleaseContent `json:"release_contents"`
 
+	// release notes ticket
+	ReleaseNotesTicket string `json:"release_notes_ticket,omitempty"`
+
 	// status
 	// Required: true
 	Status *string `json:"status"`
