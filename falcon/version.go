@@ -5,5 +5,5 @@ import (
 )
 
 var (
-	Version = semver.MustParse("0.11.1")
+	Version = semver.MustParse("0.12.0")
 )
