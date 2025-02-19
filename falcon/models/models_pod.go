@@ -32,6 +32,10 @@ type ModelsPod struct {
 	// Required: true
 	AnnotationsList []string `json:"annotations_list"`
 
+	// app name
+	// Required: true
+	AppName *string `json:"app_name"`
+
 	// automount service token
 	// Required: true
 	AutomountServiceToken *bool `json:"automount_service_token"`
@@ -217,6 +221,10 @@ func (m *ModelsPod) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAnnotationsList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAppName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -430,6 +438,15 @@ func (m *ModelsPod) validateAllowPrivilegeEscalation(formats strfmt.Registry) er
 func (m *ModelsPod) validateAnnotationsList(formats strfmt.Registry) error {
 
 	if err := validate.Required("annotations_list", "body", m.AnnotationsList); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsPod) validateAppName(formats strfmt.Registry) error {
+
+	if err := validate.Required("app_name", "body", m.AppName); err != nil {
 		return err
 	}
 

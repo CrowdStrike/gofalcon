@@ -44,6 +44,8 @@ type ClientService interface {
 
 	WorkflowActivitiesCombined(params *WorkflowActivitiesCombinedParams, opts ...ClientOption) (*WorkflowActivitiesCombinedOK, error)
 
+	WorkflowActivitiesContentCombined(params *WorkflowActivitiesContentCombinedParams, opts ...ClientOption) (*WorkflowActivitiesContentCombinedOK, error)
+
 	WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombinedParams, opts ...ClientOption) (*WorkflowDefinitionsCombinedOK, error)
 
 	WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error)
@@ -330,6 +332,44 @@ func (a *Client) WorkflowActivitiesCombined(params *WorkflowActivitiesCombinedPa
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for WorkflowActivitiesCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowActivitiesContentCombined searches for activities by name returns all supported activities if no filter specified
+*/
+func (a *Client) WorkflowActivitiesContentCombined(params *WorkflowActivitiesContentCombinedParams, opts ...ClientOption) (*WorkflowActivitiesContentCombinedOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowActivitiesContentCombinedParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowActivitiesContentCombined",
+		Method:             "GET",
+		PathPattern:        "/workflows/combined/activity-content/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowActivitiesContentCombinedReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowActivitiesContentCombinedOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowActivitiesContentCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

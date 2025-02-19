@@ -31,8 +31,20 @@ func (o *CombinedImageIssuesSummaryReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewCombinedImageIssuesSummaryBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewCombinedImageIssuesSummaryForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 404:
+		result := NewCombinedImageIssuesSummaryNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -164,6 +176,116 @@ func (o *CombinedImageIssuesSummaryOK) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewCombinedImageIssuesSummaryBadRequest creates a CombinedImageIssuesSummaryBadRequest with default headers values
+func NewCombinedImageIssuesSummaryBadRequest() *CombinedImageIssuesSummaryBadRequest {
+	return &CombinedImageIssuesSummaryBadRequest{}
+}
+
+/*
+CombinedImageIssuesSummaryBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type CombinedImageIssuesSummaryBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CoreEntitiesResponse
+}
+
+// IsSuccess returns true when this combined image issues summary bad request response has a 2xx status code
+func (o *CombinedImageIssuesSummaryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined image issues summary bad request response has a 3xx status code
+func (o *CombinedImageIssuesSummaryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined image issues summary bad request response has a 4xx status code
+func (o *CombinedImageIssuesSummaryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined image issues summary bad request response has a 5xx status code
+func (o *CombinedImageIssuesSummaryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined image issues summary bad request response a status code equal to that given
+func (o *CombinedImageIssuesSummaryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the combined image issues summary bad request response
+func (o *CombinedImageIssuesSummaryBadRequest) Code() int {
+	return 400
+}
+
+func (o *CombinedImageIssuesSummaryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /container-security/combined/images/issues-summary/v1][%d] combinedImageIssuesSummaryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *CombinedImageIssuesSummaryBadRequest) String() string {
+	return fmt.Sprintf("[GET /container-security/combined/images/issues-summary/v1][%d] combinedImageIssuesSummaryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *CombinedImageIssuesSummaryBadRequest) GetPayload() *models.CoreEntitiesResponse {
+	return o.Payload
+}
+
+func (o *CombinedImageIssuesSummaryBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CoreEntitiesResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewCombinedImageIssuesSummaryForbidden creates a CombinedImageIssuesSummaryForbidden with default headers values
 func NewCombinedImageIssuesSummaryForbidden() *CombinedImageIssuesSummaryForbidden {
 	return &CombinedImageIssuesSummaryForbidden{}
@@ -265,6 +387,116 @@ func (o *CombinedImageIssuesSummaryForbidden) readResponse(response runtime.Clie
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCombinedImageIssuesSummaryNotFound creates a CombinedImageIssuesSummaryNotFound with default headers values
+func NewCombinedImageIssuesSummaryNotFound() *CombinedImageIssuesSummaryNotFound {
+	return &CombinedImageIssuesSummaryNotFound{}
+}
+
+/*
+CombinedImageIssuesSummaryNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type CombinedImageIssuesSummaryNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CoreEntitiesResponse
+}
+
+// IsSuccess returns true when this combined image issues summary not found response has a 2xx status code
+func (o *CombinedImageIssuesSummaryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined image issues summary not found response has a 3xx status code
+func (o *CombinedImageIssuesSummaryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined image issues summary not found response has a 4xx status code
+func (o *CombinedImageIssuesSummaryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined image issues summary not found response has a 5xx status code
+func (o *CombinedImageIssuesSummaryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined image issues summary not found response a status code equal to that given
+func (o *CombinedImageIssuesSummaryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the combined image issues summary not found response
+func (o *CombinedImageIssuesSummaryNotFound) Code() int {
+	return 404
+}
+
+func (o *CombinedImageIssuesSummaryNotFound) Error() string {
+	return fmt.Sprintf("[GET /container-security/combined/images/issues-summary/v1][%d] combinedImageIssuesSummaryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CombinedImageIssuesSummaryNotFound) String() string {
+	return fmt.Sprintf("[GET /container-security/combined/images/issues-summary/v1][%d] combinedImageIssuesSummaryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CombinedImageIssuesSummaryNotFound) GetPayload() *models.CoreEntitiesResponse {
+	return o.Payload
+}
+
+func (o *CombinedImageIssuesSummaryNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CoreEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

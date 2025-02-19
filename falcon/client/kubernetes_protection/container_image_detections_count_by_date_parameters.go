@@ -67,6 +67,7 @@ type ContainerImageDetectionsCountByDateParams struct {
 	- `agent_id`
 	- `agent_type`
 	- `allow_privilege_escalation`
+	- `app_name`
 	- `cid`
 	- `cloud_account_id`
 	- `cloud_instance_id`

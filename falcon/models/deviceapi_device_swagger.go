@@ -86,7 +86,7 @@ type DeviceapiDeviceSwagger struct {
 	DeviceID *string `json:"device_id"`
 
 	// device policies
-	DevicePolicies *DeviceMappedDevicePolicies `json:"device_policies,omitempty"`
+	DevicePolicies *DeviceapiMappedDevicePoliciesSwagger `json:"device_policies,omitempty"`
 
 	// email
 	Email string `json:"email,omitempty"`

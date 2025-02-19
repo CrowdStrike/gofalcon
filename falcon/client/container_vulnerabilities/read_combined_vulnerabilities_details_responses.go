@@ -31,8 +31,20 @@ func (o *ReadCombinedVulnerabilitiesDetailsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewReadCombinedVulnerabilitiesDetailsBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewReadCombinedVulnerabilitiesDetailsForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 404:
+		result := NewReadCombinedVulnerabilitiesDetailsNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -164,6 +176,116 @@ func (o *ReadCombinedVulnerabilitiesDetailsOK) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewReadCombinedVulnerabilitiesDetailsBadRequest creates a ReadCombinedVulnerabilitiesDetailsBadRequest with default headers values
+func NewReadCombinedVulnerabilitiesDetailsBadRequest() *ReadCombinedVulnerabilitiesDetailsBadRequest {
+	return &ReadCombinedVulnerabilitiesDetailsBadRequest{}
+}
+
+/*
+ReadCombinedVulnerabilitiesDetailsBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type ReadCombinedVulnerabilitiesDetailsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CoreEntitiesResponse
+}
+
+// IsSuccess returns true when this read combined vulnerabilities details bad request response has a 2xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this read combined vulnerabilities details bad request response has a 3xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this read combined vulnerabilities details bad request response has a 4xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this read combined vulnerabilities details bad request response has a 5xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this read combined vulnerabilities details bad request response a status code equal to that given
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the read combined vulnerabilities details bad request response
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) Code() int {
+	return 400
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/details/v1][%d] readCombinedVulnerabilitiesDetailsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) String() string {
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/details/v1][%d] readCombinedVulnerabilitiesDetailsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) GetPayload() *models.CoreEntitiesResponse {
+	return o.Payload
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CoreEntitiesResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewReadCombinedVulnerabilitiesDetailsForbidden creates a ReadCombinedVulnerabilitiesDetailsForbidden with default headers values
 func NewReadCombinedVulnerabilitiesDetailsForbidden() *ReadCombinedVulnerabilitiesDetailsForbidden {
 	return &ReadCombinedVulnerabilitiesDetailsForbidden{}
@@ -265,6 +387,116 @@ func (o *ReadCombinedVulnerabilitiesDetailsForbidden) readResponse(response runt
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewReadCombinedVulnerabilitiesDetailsNotFound creates a ReadCombinedVulnerabilitiesDetailsNotFound with default headers values
+func NewReadCombinedVulnerabilitiesDetailsNotFound() *ReadCombinedVulnerabilitiesDetailsNotFound {
+	return &ReadCombinedVulnerabilitiesDetailsNotFound{}
+}
+
+/*
+ReadCombinedVulnerabilitiesDetailsNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type ReadCombinedVulnerabilitiesDetailsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CoreEntitiesResponse
+}
+
+// IsSuccess returns true when this read combined vulnerabilities details not found response has a 2xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this read combined vulnerabilities details not found response has a 3xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this read combined vulnerabilities details not found response has a 4xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this read combined vulnerabilities details not found response has a 5xx status code
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this read combined vulnerabilities details not found response a status code equal to that given
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the read combined vulnerabilities details not found response
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) Code() int {
+	return 404
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) Error() string {
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/details/v1][%d] readCombinedVulnerabilitiesDetailsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) String() string {
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/details/v1][%d] readCombinedVulnerabilitiesDetailsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) GetPayload() *models.CoreEntitiesResponse {
+	return o.Payload
+}
+
+func (o *ReadCombinedVulnerabilitiesDetailsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CoreEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

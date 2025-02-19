@@ -45,6 +45,9 @@ type ResourcesCloudContext struct {
 	// host
 	Host *ResourcesHost `json:"host,omitempty"`
 
+	// insights
+	Insights *ResourcesInsights `json:"insights,omitempty"`
+
 	// instance id
 	InstanceID string `json:"instance_id,omitempty"`
 
@@ -87,6 +90,10 @@ func (m *ResourcesCloudContext) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateHost(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInsights(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -172,6 +179,25 @@ func (m *ResourcesCloudContext) validateHost(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ResourcesCloudContext) validateInsights(formats strfmt.Registry) error {
+	if swag.IsZero(m.Insights) { // not required
+		return nil
+	}
+
+	if m.Insights != nil {
+		if err := m.Insights.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("insights")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("insights")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this resources cloud context based on the context it is used
 func (m *ResourcesCloudContext) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -189,6 +215,10 @@ func (m *ResourcesCloudContext) ContextValidate(ctx context.Context, formats str
 	}
 
 	if err := m.contextValidateHost(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInsights(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -274,6 +304,27 @@ func (m *ResourcesCloudContext) contextValidateHost(ctx context.Context, formats
 				return ve.ValidateName("host")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("host")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesCloudContext) contextValidateInsights(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Insights != nil {
+
+		if swag.IsZero(m.Insights) { // not required
+			return nil
+		}
+
+		if err := m.Insights.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("insights")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("insights")
 			}
 			return err
 		}

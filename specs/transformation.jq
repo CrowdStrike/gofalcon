@@ -261,6 +261,7 @@
 | .paths."/alerts/entities/alerts/v2".post.responses."400".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV2Response"}
 | .paths."/alerts/entities/alerts/v2".post.responses."500".schema = {"$ref": "#/definitions/detectsapi.PostEntitiesAlertsV2Response"}
 | .definitions."detects.Alert" = .definitions."detects.ExternalAlert"
+| .definitions."detectsapi.PostCombinedAlertsV1ResponseSwagger".properties.resources.items = {"$ref": "#/definitions/detects.Alert"}
 | del(.definitions."detects.ExternalAlert")
 | .definitions."detects.Alert".additionalProperties = true
 | .definitions."detects.Alert".properties += {

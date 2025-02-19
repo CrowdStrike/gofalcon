@@ -78,6 +78,7 @@ type ReadCombinedImagesExportParams struct {
 
 	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `ai_related`
+	- `ai_vulnerability_count`
 	- `arch`
 	- `base_os`
 	- `cid`
@@ -121,6 +122,7 @@ type ReadCombinedImagesExportParams struct {
 	/* Sort.
 
 	     The fields to sort the records on. Supported columns:
+	- `ai_vulnerabilities`
 	- `base_os`
 	- `cid`
 	- `detections`

@@ -30,6 +30,10 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CombinedDevicesByFilter(params *CombinedDevicesByFilterParams, opts ...ClientOption) (*CombinedDevicesByFilterOK, error)
+
+	CombinedHiddenDevicesByFilter(params *CombinedHiddenDevicesByFilterParams, opts ...ClientOption) (*CombinedHiddenDevicesByFilterOK, error)
+
 	GetDeviceDetailsV2(params *GetDeviceDetailsV2Params, opts ...ClientOption) (*GetDeviceDetailsV2OK, error)
 
 	GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...ClientOption) (*GetOnlineStateV1OK, error)
@@ -55,6 +59,82 @@ type ClientService interface {
 	EntitiesPerformAction(params *EntitiesPerformActionParams, opts ...ClientOption) (*EntitiesPerformActionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CombinedDevicesByFilter searches for hosts in your environment by platform hostname IP and other criteria returns full device records
+*/
+func (a *Client) CombinedDevicesByFilter(params *CombinedDevicesByFilterParams, opts ...ClientOption) (*CombinedDevicesByFilterOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedDevicesByFilterParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CombinedDevicesByFilter",
+		Method:             "GET",
+		PathPattern:        "/devices/combined/devices/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedDevicesByFilterReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedDevicesByFilterOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CombinedDevicesByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CombinedHiddenDevicesByFilter searches for hidden hosts in your environment by platform hostname IP and other criteria returns full device records
+*/
+func (a *Client) CombinedHiddenDevicesByFilter(params *CombinedHiddenDevicesByFilterParams, opts ...ClientOption) (*CombinedHiddenDevicesByFilterOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedHiddenDevicesByFilterParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CombinedHiddenDevicesByFilter",
+		Method:             "GET",
+		PathPattern:        "/devices/combined/devices-hidden/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedHiddenDevicesByFilterReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedHiddenDevicesByFilterOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CombinedHiddenDevicesByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

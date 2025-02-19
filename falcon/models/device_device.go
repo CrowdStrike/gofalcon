@@ -160,6 +160,9 @@ type DeviceDevice struct {
 	// last seen
 	LastSeen string `json:"last_seen,omitempty"`
 
+	// license activation state
+	LicenseActivationState string `json:"license_activation_state,omitempty"`
+
 	// linux sensor mode
 	LinuxSensorMode string `json:"linux_sensor_mode,omitempty"`
 

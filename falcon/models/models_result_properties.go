@@ -55,6 +55,10 @@ type ModelsResultProperties struct {
 	// Required: true
 	IsSupported *bool `json:"isSupported"`
 
+	// last analyzed at
+	// Required: true
+	LastAnalyzedAt *int64 `json:"last_analyzed_at"`
+
 	// region
 	// Required: true
 	Region *string `json:"region"`
@@ -97,6 +101,10 @@ func (m *ModelsResultProperties) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIsSupported(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastAnalyzedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -185,6 +193,15 @@ func (m *ModelsResultProperties) validateFunctionType(formats strfmt.Registry) e
 func (m *ModelsResultProperties) validateIsSupported(formats strfmt.Registry) error {
 
 	if err := validate.Required("isSupported", "body", m.IsSupported); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsResultProperties) validateLastAnalyzedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("last_analyzed_at", "body", m.LastAnalyzedAt); err != nil {
 		return err
 	}
 

@@ -14,6 +14,8 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
 // NewStartSearchV1Params creates a new StartSearchV1Params object,
@@ -60,6 +62,12 @@ StartSearchV1Params contains all the parameters to send to the API endpoint
 	Typically these are written to a http.Request.
 */
 type StartSearchV1Params struct {
+
+	/* Body.
+
+	   Query Job JSON request body
+	*/
+	Body *models.APIQueryJobInput
 
 	/* Repository.
 
@@ -120,6 +128,17 @@ func (o *StartSearchV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithBody adds the body to the start search v1 params
+func (o *StartSearchV1Params) WithBody(body *models.APIQueryJobInput) *StartSearchV1Params {
+	o.SetBody(body)
+	return o
+}
+
+// SetBody adds the body to the start search v1 params
+func (o *StartSearchV1Params) SetBody(body *models.APIQueryJobInput) {
+	o.Body = body
+}
+
 // WithRepository adds the repository to the start search v1 params
 func (o *StartSearchV1Params) WithRepository(repository string) *StartSearchV1Params {
 	o.SetRepository(repository)
@@ -138,6 +157,11 @@ func (o *StartSearchV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
+			return err
+		}
+	}
 
 	// path param repository
 	if err := r.SetPathParam("repository", o.Repository); err != nil {

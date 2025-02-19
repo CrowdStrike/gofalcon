@@ -36,6 +36,8 @@ type ClientService interface {
 
 	EntitiesRulesGetV1(params *EntitiesRulesGetV1Params, opts ...ClientOption) (*EntitiesRulesGetV1OK, error)
 
+	EntitiesRulesPatchV1(params *EntitiesRulesPatchV1Params, opts ...ClientOption) (*EntitiesRulesPatchV1OK, error)
+
 	EntitiesRulesPostV1(params *EntitiesRulesPostV1Params, opts ...ClientOption) (*EntitiesRulesPostV1OK, error)
 
 	QueriesRulesGetV1(params *QueriesRulesGetV1Params, opts ...ClientOption) (*QueriesRulesGetV1OK, error)
@@ -154,6 +156,44 @@ func (a *Client) EntitiesRulesGetV1(params *EntitiesRulesGetV1Params, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities_rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRulesPatchV1 updates rules
+*/
+func (a *Client) EntitiesRulesPatchV1(params *EntitiesRulesPatchV1Params, opts ...ClientOption) (*EntitiesRulesPatchV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRulesPatchV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities_rules.patch.v1",
+		Method:             "PATCH",
+		PathPattern:        "/correlation-rules/entities/rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRulesPatchV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRulesPatchV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities_rules.patch.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

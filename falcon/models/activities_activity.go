@@ -33,6 +33,9 @@ type ActivitiesActivity struct {
 	// Activity class to identify how it should be orchestrated. E.g. External, Break, CreateVariable and UpdateVariable
 	Class string `json:"class,omitempty"`
 
+	// List of dependencies(store apps or foundry app templates) of the activity
+	Dependencies []*ActivitiesDependencies `json:"dependencies"`
+
 	// A detailed description of what this action does
 	// Required: true
 	Description *string `json:"description"`
@@ -96,6 +99,10 @@ func (m *ActivitiesActivity) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDependencies(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
@@ -146,6 +153,32 @@ func (m *ActivitiesActivity) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ActivitiesActivity) validateDependencies(formats strfmt.Registry) error {
+	if swag.IsZero(m.Dependencies) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Dependencies); i++ {
+		if swag.IsZero(m.Dependencies[i]) { // not required
+			continue
+		}
+
+		if m.Dependencies[i] != nil {
+			if err := m.Dependencies[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dependencies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dependencies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -302,6 +335,10 @@ func (m *ActivitiesActivity) validateUpdated(formats strfmt.Registry) error {
 func (m *ActivitiesActivity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateDependencies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateInputFields(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -321,6 +358,31 @@ func (m *ActivitiesActivity) ContextValidate(ctx context.Context, formats strfmt
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ActivitiesActivity) contextValidateDependencies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Dependencies); i++ {
+
+		if m.Dependencies[i] != nil {
+
+			if swag.IsZero(m.Dependencies[i]) { // not required
+				return nil
+			}
+
+			if err := m.Dependencies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dependencies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dependencies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

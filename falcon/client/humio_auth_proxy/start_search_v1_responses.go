@@ -89,6 +89,8 @@ type StartSearchV1OK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload *models.APIQueryJobResponse
 }
 
 // IsSuccess returns true when this start search v1 o k response has a 2xx status code
@@ -122,11 +124,15 @@ func (o *StartSearchV1OK) Code() int {
 }
 
 func (o *StartSearchV1OK) Error() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK ", 200)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK  %+v", 200, o.Payload)
 }
 
 func (o *StartSearchV1OK) String() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK ", 200)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK  %+v", 200, o.Payload)
+}
+
+func (o *StartSearchV1OK) GetPayload() *models.APIQueryJobResponse {
+	return o.Payload
 }
 
 func (o *StartSearchV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -158,6 +164,13 @@ func (o *StartSearchV1OK) readResponse(response runtime.ClientResponse, consumer
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIQueryJobResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil

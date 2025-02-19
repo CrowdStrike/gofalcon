@@ -61,6 +61,12 @@ UploadLookupV1Params contains all the parameters to send to the API endpoint
 */
 type UploadLookupV1Params struct {
 
+	/* File.
+
+	   file to upload
+	*/
+	File runtime.NamedReadCloser
+
 	/* Repository.
 
 	   name of repository
@@ -120,6 +126,17 @@ func (o *UploadLookupV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithFile adds the file to the upload lookup v1 params
+func (o *UploadLookupV1Params) WithFile(file runtime.NamedReadCloser) *UploadLookupV1Params {
+	o.SetFile(file)
+	return o
+}
+
+// SetFile adds the file to the upload lookup v1 params
+func (o *UploadLookupV1Params) SetFile(file runtime.NamedReadCloser) {
+	o.File = file
+}
+
 // WithRepository adds the repository to the upload lookup v1 params
 func (o *UploadLookupV1Params) WithRepository(repository string) *UploadLookupV1Params {
 	o.SetRepository(repository)
@@ -138,6 +155,10 @@ func (o *UploadLookupV1Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
+	// form file param file
+	if err := r.SetFileParam("file", o.File); err != nil {
+		return err
+	}
 
 	// path param repository
 	if err := r.SetPathParam("repository", o.Repository); err != nil {

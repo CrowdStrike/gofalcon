@@ -90,7 +90,7 @@ type GetSearchStatusV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecResponseFields
+	Payload *models.APIQueryJobsResults
 }
 
 // IsSuccess returns true when this get search status v1 o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetSearchStatusV1OK) String() string {
 	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] getSearchStatusV1OK  %+v", 200, o.Payload)
 }
 
-func (o *GetSearchStatusV1OK) GetPayload() *models.MsaspecResponseFields {
+func (o *GetSearchStatusV1OK) GetPayload() *models.APIQueryJobsResults {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetSearchStatusV1OK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecResponseFields)
+	o.Payload = new(models.APIQueryJobsResults)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
