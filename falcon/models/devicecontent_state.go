@@ -23,6 +23,12 @@ type DevicecontentState struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// content update policy applied date
+	ContentUpdatePolicyAppliedDate string `json:"content_update_policy_applied_date,omitempty"`
+
+	// content update policy id
+	ContentUpdatePolicyID string `json:"content_update_policy_id,omitempty"`
+
 	// device id
 	// Required: true
 	DeviceID *string `json:"device_id"`

@@ -69,6 +69,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens"
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens_settings"
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
+	"github.com/crowdstrike/gofalcon/falcon/client/intelligence_feeds"
+	"github.com/crowdstrike/gofalcon/falcon/client/intelligence_indicator_graph"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
@@ -213,6 +215,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.InstallationTokens = installation_tokens.New(transport, formats)
 	cli.InstallationTokensSettings = installation_tokens_settings.New(transport, formats)
 	cli.Intel = intel.New(transport, formats)
+	cli.IntelligenceFeeds = intelligence_feeds.New(transport, formats)
+	cli.IntelligenceIndicatorGraph = intelligence_indicator_graph.New(transport, formats)
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
 	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
@@ -416,6 +420,10 @@ type CrowdStrikeAPISpecification struct {
 
 	Intel intel.ClientService
 
+	IntelligenceFeeds intelligence_feeds.ClientService
+
+	IntelligenceIndicatorGraph intelligence_indicator_graph.ClientService
+
 	IoaExclusions ioa_exclusions.ClientService
 
 	Ioc ioc.ClientService
@@ -563,6 +571,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.InstallationTokens.SetTransport(transport)
 	c.InstallationTokensSettings.SetTransport(transport)
 	c.Intel.SetTransport(transport)
+	c.IntelligenceFeeds.SetTransport(transport)
+	c.IntelligenceIndicatorGraph.SetTransport(transport)
 	c.IoaExclusions.SetTransport(transport)
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)

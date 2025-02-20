@@ -28,6 +28,10 @@ type ModelsContainer struct {
 	// Required: true
 	AllowPrivilegeEscalation *bool `json:"allow_privilege_escalation"`
 
+	// app name
+	// Required: true
+	AppName *string `json:"app_name"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
@@ -35,6 +39,10 @@ type ModelsContainer struct {
 	// cloud account id
 	// Required: true
 	CloudAccountID *string `json:"cloud_account_id"`
+
+	// cloud instance id
+	// Required: true
+	CloudInstanceID *string `json:"cloud_instance_id"`
 
 	// cloud name
 	// Required: true
@@ -225,11 +233,19 @@ func (m *ModelsContainer) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAppName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateCloudAccountID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudInstanceID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -448,6 +464,15 @@ func (m *ModelsContainer) validateAllowPrivilegeEscalation(formats strfmt.Regist
 	return nil
 }
 
+func (m *ModelsContainer) validateAppName(formats strfmt.Registry) error {
+
+	if err := validate.Required("app_name", "body", m.AppName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsContainer) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
@@ -460,6 +485,15 @@ func (m *ModelsContainer) validateCid(formats strfmt.Registry) error {
 func (m *ModelsContainer) validateCloudAccountID(formats strfmt.Registry) error {
 
 	if err := validate.Required("cloud_account_id", "body", m.CloudAccountID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsContainer) validateCloudInstanceID(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_instance_id", "body", m.CloudInstanceID); err != nil {
 		return err
 	}
 

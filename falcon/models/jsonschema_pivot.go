@@ -23,11 +23,17 @@ type JsonschemaPivot struct {
 	// entity
 	Entity string `json:"entity,omitempty"`
 
+	// entity on load
+	EntityOnLoad string `json:"entityOnLoad,omitempty"`
+
 	// entity value
 	EntityValue string `json:"entityValue,omitempty"`
 
 	// query string
 	QueryString string `json:"queryString,omitempty"`
+
+	// query string on load
+	QueryStringOnLoad string `json:"queryStringOnLoad,omitempty"`
 
 	// searchable
 	Searchable bool `json:"searchable,omitempty"`
