@@ -36,6 +36,9 @@ type ModelsContainer struct {
 	// cloud account id
 	CloudAccountID string `json:"cloud_account_id,omitempty"`
 
+	// cloud instance id 
+	CloudInstanceID string `json:"cloud_instance_id,omitempty"`
+
 	// cloud region
 	CloudRegion string `json:"cloud_region,omitempty"`
 
