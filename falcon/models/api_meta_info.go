@@ -19,17 +19,17 @@ import (
 // swagger:model api.MetaInfo
 type APIMetaInfo struct {
 
-	// pagination
-	Pagination *APIPaging `json:"pagination,omitempty"`
+	// Pagination-related metadata
+	Pagination *APIResponsePagination `json:"pagination,omitempty"`
 
-	// powered by
+	// The alias of the service which handled the request
 	PoweredBy string `json:"powered_by,omitempty"`
 
-	// query time
+	// The duration (in seconds) that the service took to handle the request
 	// Required: true
 	QueryTime *float64 `json:"query_time"`
 
-	// trace id
+	// Identifier used to debug the request
 	// Required: true
 	TraceID *string `json:"trace_id"`
 }

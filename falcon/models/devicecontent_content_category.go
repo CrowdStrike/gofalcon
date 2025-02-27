@@ -19,6 +19,12 @@ type DevicecontentContentCategory struct {
 
 	// last update
 	LastUpdate string `json:"last_update,omitempty"`
+
+	// override
+	Override string `json:"override,omitempty"`
+
+	// policy setting
+	PolicySetting string `json:"policy_setting,omitempty"`
 }
 
 // Validate validates this devicecontent content category

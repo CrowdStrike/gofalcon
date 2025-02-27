@@ -37,8 +37,14 @@ type JsonschemaUIExtensions struct {
 	// helper text
 	HelperText string `json:"helperText,omitempty"`
 
+	// generate a hidden card during mobiledoc generation
+	Hide bool `json:"hide,omitempty"`
+
 	// local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response
 	SchemaReference string `json:"schema_reference,omitempty"`
+
+	// skip generating a card during mobiledoc generation
+	Skip bool `json:"skip,omitempty"`
 }
 
 // Validate validates this jsonschema UI extensions

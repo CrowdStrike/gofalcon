@@ -43,6 +43,9 @@ type DomainExecuteCommandV1 struct {
 	// Required: true
 	Request *DomainRequest `json:"request"`
 
+	// The flag indicates if we need to validate the response body with the response schema if it exist.
+	SkipResponseValidation bool `json:"skip_response_validation,omitempty"`
+
 	// The version of the definition to execute.
 	// Required: true
 	Version *int32 `json:"version"`
