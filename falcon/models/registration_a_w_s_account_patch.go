@@ -24,7 +24,7 @@ type RegistrationAWSAccountPatch struct {
 	AccountID *string `json:"account_id"`
 
 	// behavior assessment enabled
-	BehaviorAssessmentEnabled bool `json:"behavior_assessment_enabled,omitempty"`
+	BehaviorAssessmentEnabled *bool `json:"behavior_assessment_enabled"`
 
 	// cloudtrail region
 	CloudtrailRegion string `json:"cloudtrail_region,omitempty"`
@@ -33,7 +33,7 @@ type RegistrationAWSAccountPatch struct {
 	DeploymentMethod string `json:"deployment_method,omitempty"`
 
 	// dspm enabled
-	DspmEnabled bool `json:"dspm_enabled,omitempty"`
+	DspmEnabled *bool `json:"dspm_enabled"`
 
 	// dspm role
 	DspmRole string `json:"dspm_role,omitempty"`
@@ -59,7 +59,7 @@ type RegistrationAWSAccountPatch struct {
 	RootStackID string `json:"root_stack_id,omitempty"`
 
 	// sensor management enabled
-	SensorManagementEnabled bool `json:"sensor_management_enabled,omitempty"`
+	SensorManagementEnabled *bool `json:"sensor_management_enabled"`
 
 	// target ous
 	TargetOus []string `json:"target_ous"`
