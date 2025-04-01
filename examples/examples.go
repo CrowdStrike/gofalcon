@@ -7,7 +7,7 @@ import (
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
-// CommonAuthFlags is a struct that holds common authentication flags used for most examples
+// CommonAuthFlags is a struct that holds common authentication flags used for most examples.
 type CommonAuthFlags struct {
 	ClientId     string
 	ClientSecret string
@@ -25,7 +25,7 @@ func (c *CommonAuthFlags) PromptForRequiredFlags() {
 	}
 }
 
-// SetupAuthFlags parses command line flags and returns a CommonAuthFlags struct
+// SetupAuthFlags parses command line flags and returns a CommonAuthFlags struct.
 func SetupAuthFlags() *CommonAuthFlags {
 	commonAuthFlags := CommonAuthFlags{}
 	flag.StringVar(&commonAuthFlags.ClientId, "client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
@@ -36,7 +36,7 @@ func SetupAuthFlags() *CommonAuthFlags {
 	return &commonAuthFlags
 }
 
-// HandleError panics when err is not nil
+// HandleError panics when err is not nil.
 func HandleError(err error) {
 	if err != nil {
 		panic(err)

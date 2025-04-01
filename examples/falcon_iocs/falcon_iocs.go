@@ -18,7 +18,7 @@ import (
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
-// getCrowdstrikeIOCs returns a list of all the Custom IOC values in the system
+// getCrowdstrikeIOCs returns a list of all the Custom IOC values in the system.
 func getCrowdstrikeIOCs(client *client.CrowdStrikeAPISpecification) ([]string, error) {
 	iocs := []string{}
 	var limit, offset, total int64
@@ -49,7 +49,7 @@ func getCrowdstrikeIOCs(client *client.CrowdStrikeAPISpecification) ([]string, e
 	return iocs, nil
 }
 
-// getIOCType returns the IOC type as supported by crowdstrike (domain, ipv4, ipv6, md5, sha256)
+// getIOCType returns the IOC type as supported by crowdstrike (domain, ipv4, ipv6, md5, sha256).
 func getIOCType(iocStr string) (string, error) {
 	var RegexIPv4 = regexp.MustCompile(`^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$`)
 	var RegexIPv6 = regexp.MustCompile(`(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))`)
@@ -79,7 +79,7 @@ func getIOCType(iocStr string) (string, error) {
 	}
 }
 
-// addCrowdStrikeIOC will add a supported iocs with an optional description
+// addCrowdStrikeIOC will add a supported iocs with an optional description.
 // defaults to an expiration date of 10 years & a severity of medium.
 // will detect on domains/ips and block on hashes. Retro detection enabled by default.
 func addCrowdStrikeIOCs(
@@ -149,7 +149,7 @@ func addCrowdStrikeIOC(
 }
 
 // searchCrowdStrikeIOC searches custom IOCs for an IOC and returns an id if found.
-// if no IOC is found, an empty string is returned
+// if no IOC is found, an empty string is returned.
 func _getCrowdStrikeIOCID(
 	iocStr string,
 	client *client.CrowdStrikeAPISpecification,
@@ -174,7 +174,7 @@ func _getCrowdStrikeIOCID(
 	return resources[0], nil
 }
 
-// deleteCrowdStrikeIOCs deletes IOCs from the system
+// deleteCrowdStrikeIOCs deletes IOCs from the system.
 func deleteCrowdStrikeIOCs(iocs []string, client *client.CrowdStrikeAPISpecification) error {
 	iocIDs := []string{}
 	for _, iocStr := range iocs {
@@ -195,7 +195,7 @@ func deleteCrowdStrikeIOCs(iocs []string, client *client.CrowdStrikeAPISpecifica
 	return nil
 }
 
-// deleteCrowdStrikeIOCs deletes a single IOC from the system
+// deleteCrowdStrikeIOCs deletes a single IOC from the system.
 func deleteCrowdStrikeIOC(iocStr string, client *client.CrowdStrikeAPISpecification) error {
 	return deleteCrowdStrikeIOCs([]string{iocStr}, client)
 }
@@ -252,12 +252,12 @@ func main() {
 	list := flag.Bool("list", false, "list all IOC values in the IOC management panel")
 	add := flag.String("add", "", "block an IOC (valid types: md5, sha256, domain, ipv4, ipv6)")
 	description := flag.String("description", "", "add a IOC description for blocking")
-	delete := flag.String("delete", "", "unblock an IOC, if present in the IOC management panel")
+	deleteIOC := flag.String("delete", "", "unblock an IOC, if present in the IOC management panel")
 	show := flag.String("show", "", "show details of given IOC")
 
 	flag.Parse()
 
-	if !*list && *add == "" && *delete == "" && *show == "" {
+	if !*list && *add == "" && *deleteIOC == "" && *show == "" {
 		flag.Usage()
 		return
 	}
@@ -295,8 +295,8 @@ func main() {
 		}
 	}
 
-	if *delete != "" {
-		err := deleteCrowdStrikeIOC(*delete, client)
+	if *deleteIOC != "" {
+		err := deleteCrowdStrikeIOC(*deleteIOC, client)
 		if err != nil {
 			panic(err)
 		}

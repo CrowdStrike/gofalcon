@@ -22,7 +22,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		return nil, err
 	}
 	if ac.Context == nil {
-		return nil, errors.New("Invalid Context for falcon.ApiConfig.Context. Make that ApiConfig.Context is set.")
+		return nil, errors.New("invalid context for falcon.ApiConfig.Context. Make that ApiConfig.Context is set")
 	}
 
 	// If HostOverride is provided we do not need to discover the cloud
@@ -33,7 +33,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 			}
 		} else if ac.Cloud == CloudAutoDiscover {
 			// There is nothing in the access token (JWT) which identifies the cloud.
-			return nil, errors.New("Cannot autodiscover cloud when using an access token. Please specify the cloud explicitly.")
+			return nil, errors.New("cannot autodiscover cloud when using an access token. Please specify the cloud explicitly")
 		}
 	}
 
@@ -57,7 +57,7 @@ func credentialsOk(ac *ApiConfig) (bool, error) {
 	hasClientIDSecret := ac.ClientId != "" && ac.ClientSecret != ""
 
 	if (hasAccessToken && hasClientIDSecret) || (!hasAccessToken && !hasClientIDSecret) {
-		return false, errors.New("Must provide either an access token or a client ID and secret, but not both and not neither.")
+		return false, errors.New("must provide either an access token or a client ID and secret, but not both and not neither")
 	}
 	return true, nil
 }
@@ -126,7 +126,7 @@ type workaround struct {
 // This temporary workaround is needed as the recent go-openapi/runtime middleware
 // won't send the content-type while the CrowdStrike service requires it for a time being
 // https://github.com/go-openapi/runtime/commit/753b551e6b4a36e461ac877874fd0a79d0ffcf53
-// Streaming session refresh within examples/falcon_event_stream can be used trigger this code
+// Streaming session refresh within examples/falcon_event_stream can be used trigger this code.
 func (w *workaround) RoundTrip(req *http.Request) (*http.Response, error) {
 	contentType := req.Header.Get("Content-Type")
 	if contentType == "" {

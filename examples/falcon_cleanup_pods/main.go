@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"math"
 	"os"
 	"time"
 
@@ -60,7 +61,7 @@ func hideHosts(client *client.CrowdStrikeAPISpecification, podIds <-chan string,
 	for podId := range podIds {
 		details := getHostDetails(client, podId)
 		fmt.Printf("%sRemoving pod %s (name=%s, inactive_since=%s)\n", dryRunString, podId, details.PodName, details.LastSeen)
-		if dryRun == false {
+		if !dryRun {
 			err := hideHost(client, podId)
 			if err != nil {
 				return err
@@ -103,7 +104,13 @@ func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays 
 	hostIds := make(chan string)
 
 	go func() {
-		cutOffDate := time.Now().AddDate(0, 0, -1*int(inactiveDays)).Format("2006-01-02")
+		var days int
+		if inactiveDays > math.MaxInt32 {
+			days = math.MaxInt32 // Cap at maximum safe value
+		} else {
+			days = int(inactiveDays)
+		}
+		cutOffDate := time.Now().AddDate(0, 0, -days).Format("2006-01-02")
 		filter := fmt.Sprintf("product_type_desc:'Pod'+last_seen:<'%s'", cutOffDate)
 		fmt.Printf("Querying Pods that has not been active since %s\n", cutOffDate)
 

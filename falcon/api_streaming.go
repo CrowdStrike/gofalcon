@@ -14,7 +14,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models/streaming_models"
 )
 
-// StreamingHandle is higher order type that allows for easy use of CrowdStrike Falcon Streaming API
+// StreamingHandle is higher order type that allows for easy use of CrowdStrike Falcon Streaming API.
 type StreamingHandle struct {
 	ctx           context.Context
 	ctxCancelFunc context.CancelFunc
@@ -152,7 +152,7 @@ func (sh *StreamingHandle) open() error {
 	return nil
 }
 
-// Close the StreamingHandle after use
+// Close the StreamingHandle after use.
 func (sh *StreamingHandle) Close() {
 	sh.ctxCancelFunc()
 	if sh.HTTPClient != nil {
@@ -167,7 +167,7 @@ func (sh *StreamingHandle) url() string {
 	return *sh.stream.DataFeedURL
 }
 
-// StreamingError structure that holds original error and indicates whether the Error is likely fatal or not
+// StreamingError structure that holds original error and indicates whether the Error is likely fatal or not.
 type StreamingError struct {
 	Fatal bool
 	Err   error

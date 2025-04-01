@@ -11,7 +11,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
-// AssertNoError converts MsaAPIError to golang errors
+// AssertNoError converts MsaAPIError to golang errors.
 // Falcon API oftentimes returns payload structure that may include application errors within MsaAPIError list.
 // For the users of the API it is often times desirable to convert the application errors from CrowdStrike platform to golang native errors to inform application flow.
 func AssertNoError(payloadErrors []*models.MsaAPIError) error {

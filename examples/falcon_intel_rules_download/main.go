@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -92,10 +93,13 @@ func DownloadLatestRuleFile(client *client.CrowdStrikeAPISpecification, intelTyp
 	}, bufio.NewWriter(&buffer))
 
 	if err != nil {
-		if success := err.(*intel.GetLatestIntelRuleFileNotModified); success != nil {
+		var notModifiedErr *intel.GetLatestIntelRuleFileNotModified
+		if errors.As(err, &notModifiedErr) {
 			// File has not changed, return empty buffer
-			return nil, nil
+			return nil, nil //nolint:nilerr
 		}
+		// Handle other error cases
+		return nil, err
 	}
 	return &buffer, err
 }
