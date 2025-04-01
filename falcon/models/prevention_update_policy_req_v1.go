@@ -21,7 +21,7 @@ import (
 type PreventionUpdatePolicyReqV1 struct {
 
 	// The new description to assign to the policy
-	Description string `json:"description,omitempty"`
+	Description string `json:"description"`
 
 	// The id of the policy to update
 	// Required: true
