@@ -22,6 +22,10 @@ jobs:
         go-version: ${{ matrix.go-version }}
       id: go
 
+    - name: Force Windows Git to use LF for newlines
+      if: matrix.os == 'windows-latest'
+      run: git config --global core.autocrlf false
+
     - name: Check out code into the Go module directory
       uses: actions/checkout@v4
 

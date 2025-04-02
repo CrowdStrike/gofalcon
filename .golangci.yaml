@@ -26,16 +26,11 @@ linters:
       - legacy
       - std-error-handling
     paths:
-      - third_party$
-      - builtin$
-      - examples$
-      - falcon/models/*
+      - falcon/
 formatters:
   enable:
     - gofmt
   exclusions:
     generated: lax
     paths:
-      - third_party$
-      - builtin$
-      - examples$
+      - falcon/
