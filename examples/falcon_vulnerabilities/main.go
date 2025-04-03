@@ -115,7 +115,8 @@ func queryVulnerabilities(client *client.CrowdStrikeAPISpecification, filter str
 			if response.Payload.Meta == nil && response.Payload.Meta.Pagination == nil && response.Payload.Meta.Pagination.Limit == nil {
 				panic("Cannot paginate Vulnerabilities, pagination information missing")
 			}
-			if *response.Payload.Meta.Pagination.Limit > int32(len(vulns)) {
+			// Convert limit to int (the wider type) to avoid overflow
+			if int(*response.Payload.Meta.Pagination.Limit) > len(vulns) {
 				// We have got less items than what was the limit. Meaning, this is last batch, continuation is futile.
 				break
 			} else {

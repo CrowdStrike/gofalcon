@@ -266,7 +266,7 @@ func (r *RTR) NewSession(ctx context.Context, deviceID string) (*RTRSession, err
 		return nil, err
 	}
 	if len(response.Payload.Resources) != 1 {
-		return nil, fmt.Errorf("Unexpected return from RTRInitSession: %v", response)
+		return nil, fmt.Errorf("unexpected return from RTRInitSession: %v", response)
 	}
 	return &RTRSession{
 		client:      r.client,
@@ -315,7 +315,7 @@ func (s *RTRSession) Execute(ctx context.Context, baseCommand, commandString str
 		return nil, err
 	}
 	if len(response.Payload.Resources) != 1 {
-		return nil, fmt.Errorf("Expected one RTRExecuteResponse object got %d: %v", len(response.Payload.Resources), response.Payload.Resources)
+		return nil, fmt.Errorf("expected one RTRExecuteResponse object got %d: %v", len(response.Payload.Resources), response.Payload.Resources)
 	}
 	return response.Payload.Resources[0], nil
 }
@@ -336,7 +336,7 @@ func (s *RTRSession) ActiveResponderExecute(ctx context.Context, baseCommand, co
 		return nil, err
 	}
 	if len(response.Payload.Resources) != 1 {
-		return nil, fmt.Errorf("Expected one RTRExecuteActiveResponderResponse object got %d: %v", len(response.Payload.Resources), response.Payload.Resources)
+		return nil, fmt.Errorf("expected one RTRExecuteActiveResponderResponse object got %d: %v", len(response.Payload.Resources), response.Payload.Resources)
 	}
 	return response.Payload.Resources[0], nil
 }
@@ -357,7 +357,7 @@ func (s *RTRSession) AdminExecute(ctx context.Context, baseCommand, commandStrin
 		return nil, err
 	}
 	if len(response.Payload.Resources) != 1 {
-		return nil, fmt.Errorf("Expected one RTRExecuteActiveResponderResponse object got %d: %v", len(response.Payload.Resources), response.Payload.Resources)
+		return nil, fmt.Errorf("expected one RTRExecuteActiveResponderResponse object got %d: %v", len(response.Payload.Resources), response.Payload.Resources)
 	}
 	return response.Payload.Resources[0], nil
 }
@@ -382,7 +382,7 @@ func (s *RTRSession) WaitForExecution(ctx context.Context, cloudRequestId string
 			return nil, err
 		}
 		if len(response.Payload.Resources) != 1 {
-			return nil, fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
+			return nil, fmt.Errorf("unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
 		}
 		resource := *response.Payload.Resources[0]
 		*completeResponse.Stderr += falcon_util.DerefString(resource.Stderr)
@@ -419,7 +419,7 @@ func (s *RTRSession) ActiveResponderWaitForExecution(ctx context.Context, cloudR
 			return nil, err
 		}
 		if len(response.Payload.Resources) != 1 {
-			return nil, fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
+			return nil, fmt.Errorf("unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
 		}
 		resource := *response.Payload.Resources[0]
 		*completeResponse.Stderr += falcon_util.DerefString(resource.Stderr)
@@ -456,7 +456,7 @@ func (s *RTRSession) AdminWaitForExecution(ctx context.Context, cloudRequestId s
 			return nil, err
 		}
 		if len(response.Payload.Resources) != 1 {
-			return nil, fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
+			return nil, fmt.Errorf("unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
 		}
 		resource := *response.Payload.Resources[0]
 		*completeResponse.Stderr += falcon_util.DerefString(resource.Stderr)
@@ -639,7 +639,7 @@ func (r *RTR) PulseSession(ctx context.Context, request *models.DomainInitReques
 		return nil, err
 	}
 	if len(response.Payload.Resources) != 1 {
-		return nil, fmt.Errorf("Unexpected return from RTRPulseSession: %v", response)
+		return nil, fmt.Errorf("unexpected return from RTRPulseSession: %v", response)
 	}
 	return &RTRSession{
 		client:      r.client,

@@ -48,5 +48,3 @@ Falcon Client Secret`)
 	fmt.Printf("As of %s your CrowdScore is %d.\n",
 		payload.Resources[0].Timestamp.String(), *payload.Resources[0].Score)
 }
-
-type void struct{}

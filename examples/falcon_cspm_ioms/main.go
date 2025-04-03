@@ -85,7 +85,7 @@ func GetIOMs(client *client.CrowdStrikeAPISpecification) (ioms []models.Registra
 		}
 
 		if res.Payload.Meta == nil && res.Payload.Meta.Pagination == nil && res.Payload.Meta.Pagination.NextToken == "" {
-			return ioms, errors.New("Cannot paginate IOMs, pagination information missing")
+			return ioms, errors.New("cannot paginate IOMs, pagination information missing")
 		}
 
 		nextToken = res.Payload.Meta.Pagination.NextToken

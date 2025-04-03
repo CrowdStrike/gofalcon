@@ -73,7 +73,7 @@ Falcon Client Secret`,
 		panic(err)
 	}
 
-	if *all == true {
+	if *all {
 		downloadAllSensors(client)
 	} else {
 		if *osName == "" {
@@ -294,12 +294,12 @@ func oneSensorPerOsVersion(
 
 func openFileForWriting(dir, filename string) (*os.File, error) {
 	if strings.Contains(filename, "/") {
-		return nil, fmt.Errorf("Refusing to download: '%s' includes '/' character", filename)
+		return nil, fmt.Errorf("refusing to download: '%s' includes '/' character", filename)
 	}
 	path := filepath.Join(dir, filename)
 	safeLocation := filepath.Clean(path)
 	if strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
-		return nil, fmt.Errorf("Refusing to download: Path '%s' looks suspicious", safeLocation)
+		return nil, fmt.Errorf("refusing to download: Path '%s' looks suspicious", safeLocation)
 	}
 	return os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
 }
