@@ -31,6 +31,9 @@ type ApidomainSavedSearchExecuteRequestV1 struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// parameters
+	Parameters interface{} `json:"parameters,omitempty"`
+
 	// start
 	Start string `json:"start,omitempty"`
 

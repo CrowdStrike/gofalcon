@@ -85,6 +85,10 @@
       .paths."/customobjects/v1/collections/{collection_name}/{collection_version}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end
   | if .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then
       .paths."/customobjects/v1/collections/{collection_name}/objects".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end
+  | if .paths."/customobjects/v1/collections".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then
+      .paths."/customobjects/v1/collections".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end
+  | if .paths."/customobjects/v1/collections/{collection_name}/schemas".get.responses."200".schema."$ref" = "#/definitions/CustomType_1255839303" then
+      .paths."/customobjects/v1/collections/{collection_name}/schemas".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageObjectKeys"}  else . end
 
   | .definitions."CustomStorageResponse" = .definitions."CustomType_3191042536"
   | del(.definitions."CustomType_3191042536")
@@ -605,5 +609,3 @@
 | .paths."/oauth2/revoke".post.responses."400".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
 | .paths."/oauth2/revoke".post.responses."403".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
 | .paths."/oauth2/revoke".post.responses."500".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
-
-| del(.definitions."apidomain.SavedSearchExecuteRequestV1".properties."parameters")
