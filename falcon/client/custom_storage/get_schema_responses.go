@@ -17,58 +17,58 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// GetReader is a Reader for the Get structure.
-type GetReader struct {
+// GetSchemaReader is a Reader for the GetSchema structure.
+type GetSchemaReader struct {
 	formats strfmt.Registry
 	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetSchemaReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetOK(o.writer)
+		result := NewGetSchemaOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 403:
-		result := NewGetForbidden()
+		result := NewGetSchemaForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 429:
-		result := NewGetTooManyRequests()
+		result := NewGetSchemaTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 500:
-		result := NewGetInternalServerError()
+		result := NewGetSchemaInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}] get", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}] GetSchema", response, response.Code())
 	}
 }
 
-// NewGetOK creates a GetOK with default headers values
-func NewGetOK(writer io.Writer) *GetOK {
-	return &GetOK{
+// NewGetSchemaOK creates a GetSchemaOK with default headers values
+func NewGetSchemaOK(writer io.Writer) *GetSchemaOK {
+	return &GetSchemaOK{
 
 		Payload: writer,
 	}
 }
 
 /*
-GetOK describes a response with status code 200, with default header values.
+GetSchemaOK describes a response with status code 200, with default header values.
 
 OK
 */
-type GetOK struct {
+type GetSchemaOK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -85,49 +85,49 @@ type GetOK struct {
 	Payload io.Writer
 }
 
-// IsSuccess returns true when this get o k response has a 2xx status code
-func (o *GetOK) IsSuccess() bool {
+// IsSuccess returns true when this get schema o k response has a 2xx status code
+func (o *GetSchemaOK) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this get o k response has a 3xx status code
-func (o *GetOK) IsRedirect() bool {
+// IsRedirect returns true when this get schema o k response has a 3xx status code
+func (o *GetSchemaOK) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this get o k response has a 4xx status code
-func (o *GetOK) IsClientError() bool {
+// IsClientError returns true when this get schema o k response has a 4xx status code
+func (o *GetSchemaOK) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this get o k response has a 5xx status code
-func (o *GetOK) IsServerError() bool {
+// IsServerError returns true when this get schema o k response has a 5xx status code
+func (o *GetSchemaOK) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this get o k response a status code equal to that given
-func (o *GetOK) IsCode(code int) bool {
+// IsCode returns true when this get schema o k response a status code equal to that given
+func (o *GetSchemaOK) IsCode(code int) bool {
 	return code == 200
 }
 
-// Code gets the status code for the get o k response
-func (o *GetOK) Code() int {
+// Code gets the status code for the get schema o k response
+func (o *GetSchemaOK) Code() int {
 	return 200
 }
 
-func (o *GetOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getOK  %+v", 200, o.Payload)
+func (o *GetSchemaOK) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaOK  %+v", 200, o.Payload)
 }
 
-func (o *GetOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getOK  %+v", 200, o.Payload)
+func (o *GetSchemaOK) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaOK  %+v", 200, o.Payload)
 }
 
-func (o *GetOK) GetPayload() io.Writer {
+func (o *GetSchemaOK) GetPayload() io.Writer {
 	return o.Payload
 }
 
-func (o *GetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetSchemaOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -166,17 +166,17 @@ func (o *GetOK) readResponse(response runtime.ClientResponse, consumer runtime.C
 	return nil
 }
 
-// NewGetForbidden creates a GetForbidden with default headers values
-func NewGetForbidden() *GetForbidden {
-	return &GetForbidden{}
+// NewGetSchemaForbidden creates a GetSchemaForbidden with default headers values
+func NewGetSchemaForbidden() *GetSchemaForbidden {
+	return &GetSchemaForbidden{}
 }
 
 /*
-GetForbidden describes a response with status code 403, with default header values.
+GetSchemaForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
-type GetForbidden struct {
+type GetSchemaForbidden struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -193,49 +193,49 @@ type GetForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this get forbidden response has a 2xx status code
-func (o *GetForbidden) IsSuccess() bool {
+// IsSuccess returns true when this get schema forbidden response has a 2xx status code
+func (o *GetSchemaForbidden) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this get forbidden response has a 3xx status code
-func (o *GetForbidden) IsRedirect() bool {
+// IsRedirect returns true when this get schema forbidden response has a 3xx status code
+func (o *GetSchemaForbidden) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this get forbidden response has a 4xx status code
-func (o *GetForbidden) IsClientError() bool {
+// IsClientError returns true when this get schema forbidden response has a 4xx status code
+func (o *GetSchemaForbidden) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this get forbidden response has a 5xx status code
-func (o *GetForbidden) IsServerError() bool {
+// IsServerError returns true when this get schema forbidden response has a 5xx status code
+func (o *GetSchemaForbidden) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this get forbidden response a status code equal to that given
-func (o *GetForbidden) IsCode(code int) bool {
+// IsCode returns true when this get schema forbidden response a status code equal to that given
+func (o *GetSchemaForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
-// Code gets the status code for the get forbidden response
-func (o *GetForbidden) Code() int {
+// Code gets the status code for the get schema forbidden response
+func (o *GetSchemaForbidden) Code() int {
 	return 403
 }
 
-func (o *GetForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getForbidden  %+v", 403, o.Payload)
+func (o *GetSchemaForbidden) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getForbidden  %+v", 403, o.Payload)
+func (o *GetSchemaForbidden) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetSchemaForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *GetForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetSchemaForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -276,17 +276,17 @@ func (o *GetForbidden) readResponse(response runtime.ClientResponse, consumer ru
 	return nil
 }
 
-// NewGetTooManyRequests creates a GetTooManyRequests with default headers values
-func NewGetTooManyRequests() *GetTooManyRequests {
-	return &GetTooManyRequests{}
+// NewGetSchemaTooManyRequests creates a GetSchemaTooManyRequests with default headers values
+func NewGetSchemaTooManyRequests() *GetSchemaTooManyRequests {
+	return &GetSchemaTooManyRequests{}
 }
 
 /*
-GetTooManyRequests describes a response with status code 429, with default header values.
+GetSchemaTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
-type GetTooManyRequests struct {
+type GetSchemaTooManyRequests struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -307,49 +307,49 @@ type GetTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this get too many requests response has a 2xx status code
-func (o *GetTooManyRequests) IsSuccess() bool {
+// IsSuccess returns true when this get schema too many requests response has a 2xx status code
+func (o *GetSchemaTooManyRequests) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this get too many requests response has a 3xx status code
-func (o *GetTooManyRequests) IsRedirect() bool {
+// IsRedirect returns true when this get schema too many requests response has a 3xx status code
+func (o *GetSchemaTooManyRequests) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this get too many requests response has a 4xx status code
-func (o *GetTooManyRequests) IsClientError() bool {
+// IsClientError returns true when this get schema too many requests response has a 4xx status code
+func (o *GetSchemaTooManyRequests) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this get too many requests response has a 5xx status code
-func (o *GetTooManyRequests) IsServerError() bool {
+// IsServerError returns true when this get schema too many requests response has a 5xx status code
+func (o *GetSchemaTooManyRequests) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this get too many requests response a status code equal to that given
-func (o *GetTooManyRequests) IsCode(code int) bool {
+// IsCode returns true when this get schema too many requests response a status code equal to that given
+func (o *GetSchemaTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
-// Code gets the status code for the get too many requests response
-func (o *GetTooManyRequests) Code() int {
+// Code gets the status code for the get schema too many requests response
+func (o *GetSchemaTooManyRequests) Code() int {
 	return 429
 }
 
-func (o *GetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getTooManyRequests  %+v", 429, o.Payload)
+func (o *GetSchemaTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getTooManyRequests  %+v", 429, o.Payload)
+func (o *GetSchemaTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetSchemaTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *GetTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetSchemaTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -401,17 +401,17 @@ func (o *GetTooManyRequests) readResponse(response runtime.ClientResponse, consu
 	return nil
 }
 
-// NewGetInternalServerError creates a GetInternalServerError with default headers values
-func NewGetInternalServerError() *GetInternalServerError {
-	return &GetInternalServerError{}
+// NewGetSchemaInternalServerError creates a GetSchemaInternalServerError with default headers values
+func NewGetSchemaInternalServerError() *GetSchemaInternalServerError {
+	return &GetSchemaInternalServerError{}
 }
 
 /*
-GetInternalServerError describes a response with status code 500, with default header values.
+GetSchemaInternalServerError describes a response with status code 500, with default header values.
 
 Unexpected Error
 */
-type GetInternalServerError struct {
+type GetSchemaInternalServerError struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -428,49 +428,49 @@ type GetInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this get internal server error response has a 2xx status code
-func (o *GetInternalServerError) IsSuccess() bool {
+// IsSuccess returns true when this get schema internal server error response has a 2xx status code
+func (o *GetSchemaInternalServerError) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this get internal server error response has a 3xx status code
-func (o *GetInternalServerError) IsRedirect() bool {
+// IsRedirect returns true when this get schema internal server error response has a 3xx status code
+func (o *GetSchemaInternalServerError) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this get internal server error response has a 4xx status code
-func (o *GetInternalServerError) IsClientError() bool {
+// IsClientError returns true when this get schema internal server error response has a 4xx status code
+func (o *GetSchemaInternalServerError) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this get internal server error response has a 5xx status code
-func (o *GetInternalServerError) IsServerError() bool {
+// IsServerError returns true when this get schema internal server error response has a 5xx status code
+func (o *GetSchemaInternalServerError) IsServerError() bool {
 	return true
 }
 
-// IsCode returns true when this get internal server error response a status code equal to that given
-func (o *GetInternalServerError) IsCode(code int) bool {
+// IsCode returns true when this get schema internal server error response a status code equal to that given
+func (o *GetSchemaInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
-// Code gets the status code for the get internal server error response
-func (o *GetInternalServerError) Code() int {
+// Code gets the status code for the get schema internal server error response
+func (o *GetSchemaInternalServerError) Code() int {
 	return 500
 }
 
-func (o *GetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getInternalServerError  %+v", 500, o.Payload)
+func (o *GetSchemaInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getInternalServerError  %+v", 500, o.Payload)
+func (o *GetSchemaInternalServerError) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetSchemaInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *GetInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetSchemaInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

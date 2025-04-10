@@ -17,54 +17,58 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// SearchReader is a Reader for the Search structure.
-type SearchReader struct {
+// GetObjectReader is a Reader for the GetObject structure.
+type GetObjectReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *SearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetObjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewSearchOK()
+		result := NewGetObjectOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 403:
-		result := NewSearchForbidden()
+		result := NewGetObjectForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 429:
-		result := NewSearchTooManyRequests()
+		result := NewGetObjectTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 500:
-		result := NewSearchInternalServerError()
+		result := NewGetObjectInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[POST /customobjects/v1/collections/{collection_name}/objects] search", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}] GetObject", response, response.Code())
 	}
 }
 
-// NewSearchOK creates a SearchOK with default headers values
-func NewSearchOK() *SearchOK {
-	return &SearchOK{}
+// NewGetObjectOK creates a GetObjectOK with default headers values
+func NewGetObjectOK(writer io.Writer) *GetObjectOK {
+	return &GetObjectOK{
+
+		Payload: writer,
+	}
 }
 
 /*
-SearchOK describes a response with status code 200, with default header values.
+GetObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
-type SearchOK struct {
+type GetObjectOK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -78,52 +82,52 @@ type SearchOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CustomStorageResponse
+	Payload io.Writer
 }
 
-// IsSuccess returns true when this search o k response has a 2xx status code
-func (o *SearchOK) IsSuccess() bool {
+// IsSuccess returns true when this get object o k response has a 2xx status code
+func (o *GetObjectOK) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this search o k response has a 3xx status code
-func (o *SearchOK) IsRedirect() bool {
+// IsRedirect returns true when this get object o k response has a 3xx status code
+func (o *GetObjectOK) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this search o k response has a 4xx status code
-func (o *SearchOK) IsClientError() bool {
+// IsClientError returns true when this get object o k response has a 4xx status code
+func (o *GetObjectOK) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this search o k response has a 5xx status code
-func (o *SearchOK) IsServerError() bool {
+// IsServerError returns true when this get object o k response has a 5xx status code
+func (o *GetObjectOK) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this search o k response a status code equal to that given
-func (o *SearchOK) IsCode(code int) bool {
+// IsCode returns true when this get object o k response a status code equal to that given
+func (o *GetObjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
-// Code gets the status code for the search o k response
-func (o *SearchOK) Code() int {
+// Code gets the status code for the get object o k response
+func (o *GetObjectOK) Code() int {
 	return 200
 }
 
-func (o *SearchOK) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchOK  %+v", 200, o.Payload)
+func (o *GetObjectOK) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *SearchOK) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchOK  %+v", 200, o.Payload)
+func (o *GetObjectOK) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *SearchOK) GetPayload() *models.CustomStorageResponse {
+func (o *GetObjectOK) GetPayload() io.Writer {
 	return o.Payload
 }
 
-func (o *SearchOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetObjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -154,8 +158,6 @@ func (o *SearchOK) readResponse(response runtime.ClientResponse, consumer runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CustomStorageResponse)
-
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
@@ -164,17 +166,17 @@ func (o *SearchOK) readResponse(response runtime.ClientResponse, consumer runtim
 	return nil
 }
 
-// NewSearchForbidden creates a SearchForbidden with default headers values
-func NewSearchForbidden() *SearchForbidden {
-	return &SearchForbidden{}
+// NewGetObjectForbidden creates a GetObjectForbidden with default headers values
+func NewGetObjectForbidden() *GetObjectForbidden {
+	return &GetObjectForbidden{}
 }
 
 /*
-SearchForbidden describes a response with status code 403, with default header values.
+GetObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
-type SearchForbidden struct {
+type GetObjectForbidden struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -191,49 +193,49 @@ type SearchForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this search forbidden response has a 2xx status code
-func (o *SearchForbidden) IsSuccess() bool {
+// IsSuccess returns true when this get object forbidden response has a 2xx status code
+func (o *GetObjectForbidden) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this search forbidden response has a 3xx status code
-func (o *SearchForbidden) IsRedirect() bool {
+// IsRedirect returns true when this get object forbidden response has a 3xx status code
+func (o *GetObjectForbidden) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this search forbidden response has a 4xx status code
-func (o *SearchForbidden) IsClientError() bool {
+// IsClientError returns true when this get object forbidden response has a 4xx status code
+func (o *GetObjectForbidden) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this search forbidden response has a 5xx status code
-func (o *SearchForbidden) IsServerError() bool {
+// IsServerError returns true when this get object forbidden response has a 5xx status code
+func (o *GetObjectForbidden) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this search forbidden response a status code equal to that given
-func (o *SearchForbidden) IsCode(code int) bool {
+// IsCode returns true when this get object forbidden response a status code equal to that given
+func (o *GetObjectForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
-// Code gets the status code for the search forbidden response
-func (o *SearchForbidden) Code() int {
+// Code gets the status code for the get object forbidden response
+func (o *GetObjectForbidden) Code() int {
 	return 403
 }
 
-func (o *SearchForbidden) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchForbidden  %+v", 403, o.Payload)
+func (o *GetObjectForbidden) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectForbidden  %+v", 403, o.Payload)
 }
 
-func (o *SearchForbidden) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchForbidden  %+v", 403, o.Payload)
+func (o *GetObjectForbidden) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectForbidden  %+v", 403, o.Payload)
 }
 
-func (o *SearchForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetObjectForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *SearchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetObjectForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -274,17 +276,17 @@ func (o *SearchForbidden) readResponse(response runtime.ClientResponse, consumer
 	return nil
 }
 
-// NewSearchTooManyRequests creates a SearchTooManyRequests with default headers values
-func NewSearchTooManyRequests() *SearchTooManyRequests {
-	return &SearchTooManyRequests{}
+// NewGetObjectTooManyRequests creates a GetObjectTooManyRequests with default headers values
+func NewGetObjectTooManyRequests() *GetObjectTooManyRequests {
+	return &GetObjectTooManyRequests{}
 }
 
 /*
-SearchTooManyRequests describes a response with status code 429, with default header values.
+GetObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
-type SearchTooManyRequests struct {
+type GetObjectTooManyRequests struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -305,49 +307,49 @@ type SearchTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this search too many requests response has a 2xx status code
-func (o *SearchTooManyRequests) IsSuccess() bool {
+// IsSuccess returns true when this get object too many requests response has a 2xx status code
+func (o *GetObjectTooManyRequests) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this search too many requests response has a 3xx status code
-func (o *SearchTooManyRequests) IsRedirect() bool {
+// IsRedirect returns true when this get object too many requests response has a 3xx status code
+func (o *GetObjectTooManyRequests) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this search too many requests response has a 4xx status code
-func (o *SearchTooManyRequests) IsClientError() bool {
+// IsClientError returns true when this get object too many requests response has a 4xx status code
+func (o *GetObjectTooManyRequests) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this search too many requests response has a 5xx status code
-func (o *SearchTooManyRequests) IsServerError() bool {
+// IsServerError returns true when this get object too many requests response has a 5xx status code
+func (o *GetObjectTooManyRequests) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this search too many requests response a status code equal to that given
-func (o *SearchTooManyRequests) IsCode(code int) bool {
+// IsCode returns true when this get object too many requests response a status code equal to that given
+func (o *GetObjectTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
-// Code gets the status code for the search too many requests response
-func (o *SearchTooManyRequests) Code() int {
+// Code gets the status code for the get object too many requests response
+func (o *GetObjectTooManyRequests) Code() int {
 	return 429
 }
 
-func (o *SearchTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchTooManyRequests  %+v", 429, o.Payload)
+func (o *GetObjectTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *SearchTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchTooManyRequests  %+v", 429, o.Payload)
+func (o *GetObjectTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *SearchTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetObjectTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *SearchTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetObjectTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -399,17 +401,17 @@ func (o *SearchTooManyRequests) readResponse(response runtime.ClientResponse, co
 	return nil
 }
 
-// NewSearchInternalServerError creates a SearchInternalServerError with default headers values
-func NewSearchInternalServerError() *SearchInternalServerError {
-	return &SearchInternalServerError{}
+// NewGetObjectInternalServerError creates a GetObjectInternalServerError with default headers values
+func NewGetObjectInternalServerError() *GetObjectInternalServerError {
+	return &GetObjectInternalServerError{}
 }
 
 /*
-SearchInternalServerError describes a response with status code 500, with default header values.
+GetObjectInternalServerError describes a response with status code 500, with default header values.
 
 Unexpected Error
 */
-type SearchInternalServerError struct {
+type GetObjectInternalServerError struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -426,49 +428,49 @@ type SearchInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this search internal server error response has a 2xx status code
-func (o *SearchInternalServerError) IsSuccess() bool {
+// IsSuccess returns true when this get object internal server error response has a 2xx status code
+func (o *GetObjectInternalServerError) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this search internal server error response has a 3xx status code
-func (o *SearchInternalServerError) IsRedirect() bool {
+// IsRedirect returns true when this get object internal server error response has a 3xx status code
+func (o *GetObjectInternalServerError) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this search internal server error response has a 4xx status code
-func (o *SearchInternalServerError) IsClientError() bool {
+// IsClientError returns true when this get object internal server error response has a 4xx status code
+func (o *GetObjectInternalServerError) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this search internal server error response has a 5xx status code
-func (o *SearchInternalServerError) IsServerError() bool {
+// IsServerError returns true when this get object internal server error response has a 5xx status code
+func (o *GetObjectInternalServerError) IsServerError() bool {
 	return true
 }
 
-// IsCode returns true when this search internal server error response a status code equal to that given
-func (o *SearchInternalServerError) IsCode(code int) bool {
+// IsCode returns true when this get object internal server error response a status code equal to that given
+func (o *GetObjectInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
-// Code gets the status code for the search internal server error response
-func (o *SearchInternalServerError) Code() int {
+// Code gets the status code for the get object internal server error response
+func (o *GetObjectInternalServerError) Code() int {
 	return 500
 }
 
-func (o *SearchInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchInternalServerError  %+v", 500, o.Payload)
+func (o *GetObjectInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *SearchInternalServerError) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchInternalServerError  %+v", 500, o.Payload)
+func (o *GetObjectInternalServerError) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *SearchInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetObjectInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *SearchInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetObjectInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

@@ -17,54 +17,54 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// ListReader is a Reader for the List structure.
-type ListReader struct {
+// ListObjectsReader is a Reader for the ListObjects structure.
+type ListObjectsReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListObjectsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewListOK()
+		result := NewListObjectsOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 403:
-		result := NewListForbidden()
+		result := NewListObjectsForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 429:
-		result := NewListTooManyRequests()
+		result := NewListObjectsTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 500:
-		result := NewListInternalServerError()
+		result := NewListObjectsInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /customobjects/v1/collections/{collection_name}/objects] list", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /customobjects/v1/collections/{collection_name}/objects] ListObjects", response, response.Code())
 	}
 }
 
-// NewListOK creates a ListOK with default headers values
-func NewListOK() *ListOK {
-	return &ListOK{}
+// NewListObjectsOK creates a ListObjectsOK with default headers values
+func NewListObjectsOK() *ListObjectsOK {
+	return &ListObjectsOK{}
 }
 
 /*
-ListOK describes a response with status code 200, with default header values.
+ListObjectsOK describes a response with status code 200, with default header values.
 
 OK
 */
-type ListOK struct {
+type ListObjectsOK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -81,49 +81,49 @@ type ListOK struct {
 	Payload *models.CustomStorageObjectKeys
 }
 
-// IsSuccess returns true when this list o k response has a 2xx status code
-func (o *ListOK) IsSuccess() bool {
+// IsSuccess returns true when this list objects o k response has a 2xx status code
+func (o *ListObjectsOK) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this list o k response has a 3xx status code
-func (o *ListOK) IsRedirect() bool {
+// IsRedirect returns true when this list objects o k response has a 3xx status code
+func (o *ListObjectsOK) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this list o k response has a 4xx status code
-func (o *ListOK) IsClientError() bool {
+// IsClientError returns true when this list objects o k response has a 4xx status code
+func (o *ListObjectsOK) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this list o k response has a 5xx status code
-func (o *ListOK) IsServerError() bool {
+// IsServerError returns true when this list objects o k response has a 5xx status code
+func (o *ListObjectsOK) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this list o k response a status code equal to that given
-func (o *ListOK) IsCode(code int) bool {
+// IsCode returns true when this list objects o k response a status code equal to that given
+func (o *ListObjectsOK) IsCode(code int) bool {
 	return code == 200
 }
 
-// Code gets the status code for the list o k response
-func (o *ListOK) Code() int {
+// Code gets the status code for the list objects o k response
+func (o *ListObjectsOK) Code() int {
 	return 200
 }
 
-func (o *ListOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listOK  %+v", 200, o.Payload)
+func (o *ListObjectsOK) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsOK  %+v", 200, o.Payload)
 }
 
-func (o *ListOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listOK  %+v", 200, o.Payload)
+func (o *ListObjectsOK) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsOK  %+v", 200, o.Payload)
 }
 
-func (o *ListOK) GetPayload() *models.CustomStorageObjectKeys {
+func (o *ListObjectsOK) GetPayload() *models.CustomStorageObjectKeys {
 	return o.Payload
 }
 
-func (o *ListOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *ListObjectsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -164,17 +164,17 @@ func (o *ListOK) readResponse(response runtime.ClientResponse, consumer runtime.
 	return nil
 }
 
-// NewListForbidden creates a ListForbidden with default headers values
-func NewListForbidden() *ListForbidden {
-	return &ListForbidden{}
+// NewListObjectsForbidden creates a ListObjectsForbidden with default headers values
+func NewListObjectsForbidden() *ListObjectsForbidden {
+	return &ListObjectsForbidden{}
 }
 
 /*
-ListForbidden describes a response with status code 403, with default header values.
+ListObjectsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
-type ListForbidden struct {
+type ListObjectsForbidden struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -191,49 +191,49 @@ type ListForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this list forbidden response has a 2xx status code
-func (o *ListForbidden) IsSuccess() bool {
+// IsSuccess returns true when this list objects forbidden response has a 2xx status code
+func (o *ListObjectsForbidden) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this list forbidden response has a 3xx status code
-func (o *ListForbidden) IsRedirect() bool {
+// IsRedirect returns true when this list objects forbidden response has a 3xx status code
+func (o *ListObjectsForbidden) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this list forbidden response has a 4xx status code
-func (o *ListForbidden) IsClientError() bool {
+// IsClientError returns true when this list objects forbidden response has a 4xx status code
+func (o *ListObjectsForbidden) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this list forbidden response has a 5xx status code
-func (o *ListForbidden) IsServerError() bool {
+// IsServerError returns true when this list objects forbidden response has a 5xx status code
+func (o *ListObjectsForbidden) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this list forbidden response a status code equal to that given
-func (o *ListForbidden) IsCode(code int) bool {
+// IsCode returns true when this list objects forbidden response a status code equal to that given
+func (o *ListObjectsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
-// Code gets the status code for the list forbidden response
-func (o *ListForbidden) Code() int {
+// Code gets the status code for the list objects forbidden response
+func (o *ListObjectsForbidden) Code() int {
 	return 403
 }
 
-func (o *ListForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listForbidden  %+v", 403, o.Payload)
+func (o *ListObjectsForbidden) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *ListForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listForbidden  %+v", 403, o.Payload)
+func (o *ListObjectsForbidden) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *ListForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ListObjectsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *ListForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *ListObjectsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -274,17 +274,17 @@ func (o *ListForbidden) readResponse(response runtime.ClientResponse, consumer r
 	return nil
 }
 
-// NewListTooManyRequests creates a ListTooManyRequests with default headers values
-func NewListTooManyRequests() *ListTooManyRequests {
-	return &ListTooManyRequests{}
+// NewListObjectsTooManyRequests creates a ListObjectsTooManyRequests with default headers values
+func NewListObjectsTooManyRequests() *ListObjectsTooManyRequests {
+	return &ListObjectsTooManyRequests{}
 }
 
 /*
-ListTooManyRequests describes a response with status code 429, with default header values.
+ListObjectsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
-type ListTooManyRequests struct {
+type ListObjectsTooManyRequests struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -305,49 +305,49 @@ type ListTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this list too many requests response has a 2xx status code
-func (o *ListTooManyRequests) IsSuccess() bool {
+// IsSuccess returns true when this list objects too many requests response has a 2xx status code
+func (o *ListObjectsTooManyRequests) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this list too many requests response has a 3xx status code
-func (o *ListTooManyRequests) IsRedirect() bool {
+// IsRedirect returns true when this list objects too many requests response has a 3xx status code
+func (o *ListObjectsTooManyRequests) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this list too many requests response has a 4xx status code
-func (o *ListTooManyRequests) IsClientError() bool {
+// IsClientError returns true when this list objects too many requests response has a 4xx status code
+func (o *ListObjectsTooManyRequests) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this list too many requests response has a 5xx status code
-func (o *ListTooManyRequests) IsServerError() bool {
+// IsServerError returns true when this list objects too many requests response has a 5xx status code
+func (o *ListObjectsTooManyRequests) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this list too many requests response a status code equal to that given
-func (o *ListTooManyRequests) IsCode(code int) bool {
+// IsCode returns true when this list objects too many requests response a status code equal to that given
+func (o *ListObjectsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
-// Code gets the status code for the list too many requests response
-func (o *ListTooManyRequests) Code() int {
+// Code gets the status code for the list objects too many requests response
+func (o *ListObjectsTooManyRequests) Code() int {
 	return 429
 }
 
-func (o *ListTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listTooManyRequests  %+v", 429, o.Payload)
+func (o *ListObjectsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *ListTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listTooManyRequests  %+v", 429, o.Payload)
+func (o *ListObjectsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *ListTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ListObjectsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *ListTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *ListObjectsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -399,17 +399,17 @@ func (o *ListTooManyRequests) readResponse(response runtime.ClientResponse, cons
 	return nil
 }
 
-// NewListInternalServerError creates a ListInternalServerError with default headers values
-func NewListInternalServerError() *ListInternalServerError {
-	return &ListInternalServerError{}
+// NewListObjectsInternalServerError creates a ListObjectsInternalServerError with default headers values
+func NewListObjectsInternalServerError() *ListObjectsInternalServerError {
+	return &ListObjectsInternalServerError{}
 }
 
 /*
-ListInternalServerError describes a response with status code 500, with default header values.
+ListObjectsInternalServerError describes a response with status code 500, with default header values.
 
 Unexpected Error
 */
-type ListInternalServerError struct {
+type ListObjectsInternalServerError struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -426,49 +426,49 @@ type ListInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this list internal server error response has a 2xx status code
-func (o *ListInternalServerError) IsSuccess() bool {
+// IsSuccess returns true when this list objects internal server error response has a 2xx status code
+func (o *ListObjectsInternalServerError) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this list internal server error response has a 3xx status code
-func (o *ListInternalServerError) IsRedirect() bool {
+// IsRedirect returns true when this list objects internal server error response has a 3xx status code
+func (o *ListObjectsInternalServerError) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this list internal server error response has a 4xx status code
-func (o *ListInternalServerError) IsClientError() bool {
+// IsClientError returns true when this list objects internal server error response has a 4xx status code
+func (o *ListObjectsInternalServerError) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this list internal server error response has a 5xx status code
-func (o *ListInternalServerError) IsServerError() bool {
+// IsServerError returns true when this list objects internal server error response has a 5xx status code
+func (o *ListObjectsInternalServerError) IsServerError() bool {
 	return true
 }
 
-// IsCode returns true when this list internal server error response a status code equal to that given
-func (o *ListInternalServerError) IsCode(code int) bool {
+// IsCode returns true when this list objects internal server error response a status code equal to that given
+func (o *ListObjectsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
-// Code gets the status code for the list internal server error response
-func (o *ListInternalServerError) Code() int {
+// Code gets the status code for the list objects internal server error response
+func (o *ListObjectsInternalServerError) Code() int {
 	return 500
 }
 
-func (o *ListInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listInternalServerError  %+v", 500, o.Payload)
+func (o *ListObjectsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *ListInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listInternalServerError  %+v", 500, o.Payload)
+func (o *ListObjectsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects][%d] listObjectsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *ListInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ListObjectsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *ListInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *ListObjectsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

@@ -17,54 +17,54 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// MetadataReader is a Reader for the Metadata structure.
-type MetadataReader struct {
+// PutObjectReader is a Reader for the PutObject structure.
+type PutObjectReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *MetadataReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PutObjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewMetadataOK()
+		result := NewPutObjectOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 403:
-		result := NewMetadataForbidden()
+		result := NewPutObjectForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 429:
-		result := NewMetadataTooManyRequests()
+		result := NewPutObjectTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 500:
-		result := NewMetadataInternalServerError()
+		result := NewPutObjectInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata] metadata", response, response.Code())
+		return nil, runtime.NewAPIError("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}] PutObject", response, response.Code())
 	}
 }
 
-// NewMetadataOK creates a MetadataOK with default headers values
-func NewMetadataOK() *MetadataOK {
-	return &MetadataOK{}
+// NewPutObjectOK creates a PutObjectOK with default headers values
+func NewPutObjectOK() *PutObjectOK {
+	return &PutObjectOK{}
 }
 
 /*
-MetadataOK describes a response with status code 200, with default header values.
+PutObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
-type MetadataOK struct {
+type PutObjectOK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -81,49 +81,49 @@ type MetadataOK struct {
 	Payload *models.CustomStorageResponse
 }
 
-// IsSuccess returns true when this metadata o k response has a 2xx status code
-func (o *MetadataOK) IsSuccess() bool {
+// IsSuccess returns true when this put object o k response has a 2xx status code
+func (o *PutObjectOK) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this metadata o k response has a 3xx status code
-func (o *MetadataOK) IsRedirect() bool {
+// IsRedirect returns true when this put object o k response has a 3xx status code
+func (o *PutObjectOK) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this metadata o k response has a 4xx status code
-func (o *MetadataOK) IsClientError() bool {
+// IsClientError returns true when this put object o k response has a 4xx status code
+func (o *PutObjectOK) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this metadata o k response has a 5xx status code
-func (o *MetadataOK) IsServerError() bool {
+// IsServerError returns true when this put object o k response has a 5xx status code
+func (o *PutObjectOK) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this metadata o k response a status code equal to that given
-func (o *MetadataOK) IsCode(code int) bool {
+// IsCode returns true when this put object o k response a status code equal to that given
+func (o *PutObjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
-// Code gets the status code for the metadata o k response
-func (o *MetadataOK) Code() int {
+// Code gets the status code for the put object o k response
+func (o *PutObjectOK) Code() int {
 	return 200
 }
 
-func (o *MetadataOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataOK  %+v", 200, o.Payload)
+func (o *PutObjectOK) Error() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *MetadataOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataOK  %+v", 200, o.Payload)
+func (o *PutObjectOK) String() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *MetadataOK) GetPayload() *models.CustomStorageResponse {
+func (o *PutObjectOK) GetPayload() *models.CustomStorageResponse {
 	return o.Payload
 }
 
-func (o *MetadataOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *PutObjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -164,17 +164,17 @@ func (o *MetadataOK) readResponse(response runtime.ClientResponse, consumer runt
 	return nil
 }
 
-// NewMetadataForbidden creates a MetadataForbidden with default headers values
-func NewMetadataForbidden() *MetadataForbidden {
-	return &MetadataForbidden{}
+// NewPutObjectForbidden creates a PutObjectForbidden with default headers values
+func NewPutObjectForbidden() *PutObjectForbidden {
+	return &PutObjectForbidden{}
 }
 
 /*
-MetadataForbidden describes a response with status code 403, with default header values.
+PutObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
-type MetadataForbidden struct {
+type PutObjectForbidden struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -191,49 +191,49 @@ type MetadataForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this metadata forbidden response has a 2xx status code
-func (o *MetadataForbidden) IsSuccess() bool {
+// IsSuccess returns true when this put object forbidden response has a 2xx status code
+func (o *PutObjectForbidden) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this metadata forbidden response has a 3xx status code
-func (o *MetadataForbidden) IsRedirect() bool {
+// IsRedirect returns true when this put object forbidden response has a 3xx status code
+func (o *PutObjectForbidden) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this metadata forbidden response has a 4xx status code
-func (o *MetadataForbidden) IsClientError() bool {
+// IsClientError returns true when this put object forbidden response has a 4xx status code
+func (o *PutObjectForbidden) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this metadata forbidden response has a 5xx status code
-func (o *MetadataForbidden) IsServerError() bool {
+// IsServerError returns true when this put object forbidden response has a 5xx status code
+func (o *PutObjectForbidden) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this metadata forbidden response a status code equal to that given
-func (o *MetadataForbidden) IsCode(code int) bool {
+// IsCode returns true when this put object forbidden response a status code equal to that given
+func (o *PutObjectForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
-// Code gets the status code for the metadata forbidden response
-func (o *MetadataForbidden) Code() int {
+// Code gets the status code for the put object forbidden response
+func (o *PutObjectForbidden) Code() int {
 	return 403
 }
 
-func (o *MetadataForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataForbidden  %+v", 403, o.Payload)
+func (o *PutObjectForbidden) Error() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectForbidden  %+v", 403, o.Payload)
 }
 
-func (o *MetadataForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataForbidden  %+v", 403, o.Payload)
+func (o *PutObjectForbidden) String() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectForbidden  %+v", 403, o.Payload)
 }
 
-func (o *MetadataForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *PutObjectForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *MetadataForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *PutObjectForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -274,17 +274,17 @@ func (o *MetadataForbidden) readResponse(response runtime.ClientResponse, consum
 	return nil
 }
 
-// NewMetadataTooManyRequests creates a MetadataTooManyRequests with default headers values
-func NewMetadataTooManyRequests() *MetadataTooManyRequests {
-	return &MetadataTooManyRequests{}
+// NewPutObjectTooManyRequests creates a PutObjectTooManyRequests with default headers values
+func NewPutObjectTooManyRequests() *PutObjectTooManyRequests {
+	return &PutObjectTooManyRequests{}
 }
 
 /*
-MetadataTooManyRequests describes a response with status code 429, with default header values.
+PutObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
-type MetadataTooManyRequests struct {
+type PutObjectTooManyRequests struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -305,49 +305,49 @@ type MetadataTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this metadata too many requests response has a 2xx status code
-func (o *MetadataTooManyRequests) IsSuccess() bool {
+// IsSuccess returns true when this put object too many requests response has a 2xx status code
+func (o *PutObjectTooManyRequests) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this metadata too many requests response has a 3xx status code
-func (o *MetadataTooManyRequests) IsRedirect() bool {
+// IsRedirect returns true when this put object too many requests response has a 3xx status code
+func (o *PutObjectTooManyRequests) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this metadata too many requests response has a 4xx status code
-func (o *MetadataTooManyRequests) IsClientError() bool {
+// IsClientError returns true when this put object too many requests response has a 4xx status code
+func (o *PutObjectTooManyRequests) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this metadata too many requests response has a 5xx status code
-func (o *MetadataTooManyRequests) IsServerError() bool {
+// IsServerError returns true when this put object too many requests response has a 5xx status code
+func (o *PutObjectTooManyRequests) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this metadata too many requests response a status code equal to that given
-func (o *MetadataTooManyRequests) IsCode(code int) bool {
+// IsCode returns true when this put object too many requests response a status code equal to that given
+func (o *PutObjectTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
-// Code gets the status code for the metadata too many requests response
-func (o *MetadataTooManyRequests) Code() int {
+// Code gets the status code for the put object too many requests response
+func (o *PutObjectTooManyRequests) Code() int {
 	return 429
 }
 
-func (o *MetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataTooManyRequests  %+v", 429, o.Payload)
+func (o *PutObjectTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *MetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataTooManyRequests  %+v", 429, o.Payload)
+func (o *PutObjectTooManyRequests) String() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *MetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+func (o *PutObjectTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *MetadataTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *PutObjectTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -399,17 +399,17 @@ func (o *MetadataTooManyRequests) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
-// NewMetadataInternalServerError creates a MetadataInternalServerError with default headers values
-func NewMetadataInternalServerError() *MetadataInternalServerError {
-	return &MetadataInternalServerError{}
+// NewPutObjectInternalServerError creates a PutObjectInternalServerError with default headers values
+func NewPutObjectInternalServerError() *PutObjectInternalServerError {
+	return &PutObjectInternalServerError{}
 }
 
 /*
-MetadataInternalServerError describes a response with status code 500, with default header values.
+PutObjectInternalServerError describes a response with status code 500, with default header values.
 
 Unexpected Error
 */
-type MetadataInternalServerError struct {
+type PutObjectInternalServerError struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -426,49 +426,49 @@ type MetadataInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this metadata internal server error response has a 2xx status code
-func (o *MetadataInternalServerError) IsSuccess() bool {
+// IsSuccess returns true when this put object internal server error response has a 2xx status code
+func (o *PutObjectInternalServerError) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this metadata internal server error response has a 3xx status code
-func (o *MetadataInternalServerError) IsRedirect() bool {
+// IsRedirect returns true when this put object internal server error response has a 3xx status code
+func (o *PutObjectInternalServerError) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this metadata internal server error response has a 4xx status code
-func (o *MetadataInternalServerError) IsClientError() bool {
+// IsClientError returns true when this put object internal server error response has a 4xx status code
+func (o *PutObjectInternalServerError) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this metadata internal server error response has a 5xx status code
-func (o *MetadataInternalServerError) IsServerError() bool {
+// IsServerError returns true when this put object internal server error response has a 5xx status code
+func (o *PutObjectInternalServerError) IsServerError() bool {
 	return true
 }
 
-// IsCode returns true when this metadata internal server error response a status code equal to that given
-func (o *MetadataInternalServerError) IsCode(code int) bool {
+// IsCode returns true when this put object internal server error response a status code equal to that given
+func (o *PutObjectInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
-// Code gets the status code for the metadata internal server error response
-func (o *MetadataInternalServerError) Code() int {
+// Code gets the status code for the put object internal server error response
+func (o *PutObjectInternalServerError) Code() int {
 	return 500
 }
 
-func (o *MetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataInternalServerError  %+v", 500, o.Payload)
+func (o *PutObjectInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *MetadataInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] metadataInternalServerError  %+v", 500, o.Payload)
+func (o *PutObjectInternalServerError) String() string {
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *MetadataInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *PutObjectInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *MetadataInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *PutObjectInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
