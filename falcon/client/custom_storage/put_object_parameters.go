@@ -18,50 +18,50 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewUploadParams creates a new UploadParams object,
+// NewPutObjectParams creates a new PutObjectParams object,
 // with the default timeout for this client.
 //
 // Default values are not hydrated, since defaults are normally applied by the API server side.
 //
 // To enforce default values in parameter, use SetDefaults or WithDefaults.
-func NewUploadParams() *UploadParams {
-	return &UploadParams{
+func NewPutObjectParams() *PutObjectParams {
+	return &PutObjectParams{
 		timeout: cr.DefaultTimeout,
 	}
 }
 
-// NewUploadParamsWithTimeout creates a new UploadParams object
+// NewPutObjectParamsWithTimeout creates a new PutObjectParams object
 // with the ability to set a timeout on a request.
-func NewUploadParamsWithTimeout(timeout time.Duration) *UploadParams {
-	return &UploadParams{
+func NewPutObjectParamsWithTimeout(timeout time.Duration) *PutObjectParams {
+	return &PutObjectParams{
 		timeout: timeout,
 	}
 }
 
-// NewUploadParamsWithContext creates a new UploadParams object
+// NewPutObjectParamsWithContext creates a new PutObjectParams object
 // with the ability to set a context for a request.
-func NewUploadParamsWithContext(ctx context.Context) *UploadParams {
-	return &UploadParams{
+func NewPutObjectParamsWithContext(ctx context.Context) *PutObjectParams {
+	return &PutObjectParams{
 		Context: ctx,
 	}
 }
 
-// NewUploadParamsWithHTTPClient creates a new UploadParams object
+// NewPutObjectParamsWithHTTPClient creates a new PutObjectParams object
 // with the ability to set a custom HTTPClient for a request.
-func NewUploadParamsWithHTTPClient(client *http.Client) *UploadParams {
-	return &UploadParams{
+func NewPutObjectParamsWithHTTPClient(client *http.Client) *PutObjectParams {
+	return &PutObjectParams{
 		HTTPClient: client,
 	}
 }
 
 /*
-UploadParams contains all the parameters to send to the API endpoint
+PutObjectParams contains all the parameters to send to the API endpoint
 
-	for the upload operation.
+	for the put object operation.
 
 	Typically these are written to a http.Request.
 */
-type UploadParams struct {
+type PutObjectParams struct {
 
 	// Body.
 	//
@@ -97,111 +97,111 @@ type UploadParams struct {
 	HTTPClient *http.Client
 }
 
-// WithDefaults hydrates default values in the upload params (not the query body).
+// WithDefaults hydrates default values in the put object params (not the query body).
 //
 // All values with no default are reset to their zero value.
-func (o *UploadParams) WithDefaults() *UploadParams {
+func (o *PutObjectParams) WithDefaults() *PutObjectParams {
 	o.SetDefaults()
 	return o
 }
 
-// SetDefaults hydrates default values in the upload params (not the query body).
+// SetDefaults hydrates default values in the put object params (not the query body).
 //
 // All values with no default are reset to their zero value.
-func (o *UploadParams) SetDefaults() {
+func (o *PutObjectParams) SetDefaults() {
 	// no default values defined for this parameter
 }
 
-// WithTimeout adds the timeout to the upload params
-func (o *UploadParams) WithTimeout(timeout time.Duration) *UploadParams {
+// WithTimeout adds the timeout to the put object params
+func (o *PutObjectParams) WithTimeout(timeout time.Duration) *PutObjectParams {
 	o.SetTimeout(timeout)
 	return o
 }
 
-// SetTimeout adds the timeout to the upload params
-func (o *UploadParams) SetTimeout(timeout time.Duration) {
+// SetTimeout adds the timeout to the put object params
+func (o *PutObjectParams) SetTimeout(timeout time.Duration) {
 	o.timeout = timeout
 }
 
-// WithContext adds the context to the upload params
-func (o *UploadParams) WithContext(ctx context.Context) *UploadParams {
+// WithContext adds the context to the put object params
+func (o *PutObjectParams) WithContext(ctx context.Context) *PutObjectParams {
 	o.SetContext(ctx)
 	return o
 }
 
-// SetContext adds the context to the upload params
-func (o *UploadParams) SetContext(ctx context.Context) {
+// SetContext adds the context to the put object params
+func (o *PutObjectParams) SetContext(ctx context.Context) {
 	o.Context = ctx
 }
 
-// WithHTTPClient adds the HTTPClient to the upload params
-func (o *UploadParams) WithHTTPClient(client *http.Client) *UploadParams {
+// WithHTTPClient adds the HTTPClient to the put object params
+func (o *PutObjectParams) WithHTTPClient(client *http.Client) *PutObjectParams {
 	o.SetHTTPClient(client)
 	return o
 }
 
-// SetHTTPClient adds the HTTPClient to the upload params
-func (o *UploadParams) SetHTTPClient(client *http.Client) {
+// SetHTTPClient adds the HTTPClient to the put object params
+func (o *PutObjectParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithBody adds the body to the upload params
-func (o *UploadParams) WithBody(body io.ReadCloser) *UploadParams {
+// WithBody adds the body to the put object params
+func (o *PutObjectParams) WithBody(body io.ReadCloser) *PutObjectParams {
 	o.SetBody(body)
 	return o
 }
 
-// SetBody adds the body to the upload params
-func (o *UploadParams) SetBody(body io.ReadCloser) {
+// SetBody adds the body to the put object params
+func (o *PutObjectParams) SetBody(body io.ReadCloser) {
 	o.Body = body
 }
 
-// WithCollectionName adds the collectionName to the upload params
-func (o *UploadParams) WithCollectionName(collectionName string) *UploadParams {
+// WithCollectionName adds the collectionName to the put object params
+func (o *PutObjectParams) WithCollectionName(collectionName string) *PutObjectParams {
 	o.SetCollectionName(collectionName)
 	return o
 }
 
-// SetCollectionName adds the collectionName to the upload params
-func (o *UploadParams) SetCollectionName(collectionName string) {
+// SetCollectionName adds the collectionName to the put object params
+func (o *PutObjectParams) SetCollectionName(collectionName string) {
 	o.CollectionName = collectionName
 }
 
-// WithDryRun adds the dryRun to the upload params
-func (o *UploadParams) WithDryRun(dryRun bool) *UploadParams {
+// WithDryRun adds the dryRun to the put object params
+func (o *PutObjectParams) WithDryRun(dryRun bool) *PutObjectParams {
 	o.SetDryRun(dryRun)
 	return o
 }
 
-// SetDryRun adds the dryRun to the upload params
-func (o *UploadParams) SetDryRun(dryRun bool) {
+// SetDryRun adds the dryRun to the put object params
+func (o *PutObjectParams) SetDryRun(dryRun bool) {
 	o.DryRun = dryRun
 }
 
-// WithObjectKey adds the objectKey to the upload params
-func (o *UploadParams) WithObjectKey(objectKey string) *UploadParams {
+// WithObjectKey adds the objectKey to the put object params
+func (o *PutObjectParams) WithObjectKey(objectKey string) *PutObjectParams {
 	o.SetObjectKey(objectKey)
 	return o
 }
 
-// SetObjectKey adds the objectKey to the upload params
-func (o *UploadParams) SetObjectKey(objectKey string) {
+// SetObjectKey adds the objectKey to the put object params
+func (o *PutObjectParams) SetObjectKey(objectKey string) {
 	o.ObjectKey = objectKey
 }
 
-// WithSchemaVersion adds the schemaVersion to the upload params
-func (o *UploadParams) WithSchemaVersion(schemaVersion *string) *UploadParams {
+// WithSchemaVersion adds the schemaVersion to the put object params
+func (o *PutObjectParams) WithSchemaVersion(schemaVersion *string) *PutObjectParams {
 	o.SetSchemaVersion(schemaVersion)
 	return o
 }
 
-// SetSchemaVersion adds the schemaVersion to the upload params
-func (o *UploadParams) SetSchemaVersion(schemaVersion *string) {
+// SetSchemaVersion adds the schemaVersion to the put object params
+func (o *PutObjectParams) SetSchemaVersion(schemaVersion *string) {
 	o.SchemaVersion = schemaVersion
 }
 
 // WriteToRequest writes these params to a swagger request
-func (o *UploadParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
+func (o *PutObjectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
 	if err := r.SetTimeout(o.timeout); err != nil {
 		return err
