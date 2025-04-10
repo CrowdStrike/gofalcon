@@ -127,14 +127,6 @@
   | .paths."/loggingapi/entities/saved-searches/job-results-download/v1".get.operationId = "DownloadResults"
   | .paths."/loggingapi/entities/views/v1".get.operationId = "ListViews"
 
-  # Better operationId for custom-storage collection
-  | .paths."/customobjects/v1/collections/{collection_name}/objects".get.operationId = "list"
-  | .paths."/customobjects/v1/collections/{collection_name}/objects".post.operationId = "search"
-  | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".get.operationId = "get"
-  | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".put.operationId = "upload"
-  | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".delete.operationId = "delete"
-  | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.operationId = "metadata"
-
   # Better operationId for unidentified-containers collection
   | .paths."/container-security/aggregates/unidentified-containers/count-by-date/v1".get.operationId = "CountByDateRange"
   | .paths."/container-security/aggregates/unidentified-containers/count/v1".get.operationId = "Count"
