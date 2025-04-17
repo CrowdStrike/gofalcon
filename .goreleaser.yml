@@ -1,3 +1,5 @@
+version: 1
+
 builds:
   - id: falcon_sensor_download
     binary: falcon_sensor_download
@@ -251,7 +253,7 @@ checksum:
   name_template: 'checksums.txt'
   algorithm: sha256
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  version_template: "{{ .Tag }}-next"
 changelog:
   sort: asc
   filters:
