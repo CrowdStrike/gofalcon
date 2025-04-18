@@ -253,7 +253,7 @@ checksum:
   name_template: 'checksums.txt'
   algorithm: sha256
 snapshot:
-  version_template: "{{ .Tag }}-next"
+  name_template: "{{ .Tag }}-next"
 changelog:
   sort: asc
   filters:
