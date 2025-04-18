@@ -115,14 +115,18 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 			if e.Payload != nil && len(e.Payload.Errors) == 1 && e.Payload.Errors[0] != nil && e.Payload.Errors[0].Message != nil && *e.Payload.Errors[0].Message == "access denied, authorization failed" {
 				return fmt.Errorf("please check the settings of IP-based allowlisting in CrowdStrike Falcon Console. %s", e)
 			}
-			return fmt.Errorf("insufficient CrowdStrike privileges, please grant [Falcon Images Download: Read] to CrowdStrike API Key. Error was: %s", err)
+			return fmt.Errorf("Client authentication failed, ensure your client id and client secret are valid and are part of the same key pair. Error was: %s", err)
 		}
 		return fmt.Errorf("could not autodiscover Falcon cloud region: %v", err)
 	}
 	// (2) Parse & save the cloud-region information
 	cld, err := CloudValidate(token.XCSRegion)
 	if err != nil {
-		return fmt.Errorf("could not validate Falcon cloud region '%s' during autodiscover: %v", token.XCSRegion, err)
+		return fmt.Errorf(
+			"could not validate Falcon cloud region '%s' during autodiscover: %v",
+			token.XCSRegion,
+			err,
+		)
 	}
 	(*c) = cld
 
