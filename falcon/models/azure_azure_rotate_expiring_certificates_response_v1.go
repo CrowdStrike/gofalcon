@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// MsaspecResponseFields msaspec response fields
+// AzureAzureRotateExpiringCertificatesResponseV1 azure azure rotate expiring certificates response v1
 //
-// swagger:model msaspec.ResponseFields
-type MsaspecResponseFields struct {
+// swagger:model azure.AzureRotateExpiringCertificatesResponseV1
+type AzureAzureRotateExpiringCertificatesResponseV1 struct {
 
 	// errors
 	Errors []*MsaspecError `json:"errors"`
@@ -26,10 +26,14 @@ type MsaspecResponseFields struct {
 	// meta
 	// Required: true
 	Meta *MsaspecMetaInfo `json:"meta"`
+
+	// service principal ids
+	// Required: true
+	ServicePrincipalIds []string `json:"service_principal_ids"`
 }
 
-// Validate validates this msaspec response fields
-func (m *MsaspecResponseFields) Validate(formats strfmt.Registry) error {
+// Validate validates this azure azure rotate expiring certificates response v1
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -40,13 +44,17 @@ func (m *MsaspecResponseFields) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateServicePrincipalIds(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *MsaspecResponseFields) validateErrors(formats strfmt.Registry) error {
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -72,7 +80,7 @@ func (m *MsaspecResponseFields) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *MsaspecResponseFields) validateMeta(formats strfmt.Registry) error {
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -92,8 +100,17 @@ func (m *MsaspecResponseFields) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this msaspec response fields based on the context it is used
-func (m *MsaspecResponseFields) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) validateServicePrincipalIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("service_principal_ids", "body", m.ServicePrincipalIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this azure azure rotate expiring certificates response v1 based on the context it is used
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -110,7 +127,7 @@ func (m *MsaspecResponseFields) ContextValidate(ctx context.Context, formats str
 	return nil
 }
 
-func (m *MsaspecResponseFields) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -135,7 +152,7 @@ func (m *MsaspecResponseFields) contextValidateErrors(ctx context.Context, forma
 	return nil
 }
 
-func (m *MsaspecResponseFields) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -153,7 +170,7 @@ func (m *MsaspecResponseFields) contextValidateMeta(ctx context.Context, formats
 }
 
 // MarshalBinary interface implementation
-func (m *MsaspecResponseFields) MarshalBinary() ([]byte, error) {
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -161,8 +178,8 @@ func (m *MsaspecResponseFields) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *MsaspecResponseFields) UnmarshalBinary(b []byte) error {
-	var res MsaspecResponseFields
+func (m *AzureAzureRotateExpiringCertificatesResponseV1) UnmarshalBinary(b []byte) error {
+	var res AzureAzureRotateExpiringCertificatesResponseV1
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
