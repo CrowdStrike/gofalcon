@@ -63,8 +63,14 @@ CloudRegistrationAzureDownloadScriptParams contains all the parameters to send t
 */
 type CloudRegistrationAzureDownloadScriptParams struct {
 
+	/* XCSCUSTID.
+
+	   Customer ID
+	*/
+	XCSCUSTID string
+
 	// Body.
-	Body *models.RestAzureDownloadScriptRequestV1
+	Body *models.AzureAzureDownloadScriptRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -119,14 +125,25 @@ func (o *CloudRegistrationAzureDownloadScriptParams) SetHTTPClient(client *http.
 	o.HTTPClient = client
 }
 
+// WithXCSCUSTID adds the xCSCUSTID to the cloud registration azure download script params
+func (o *CloudRegistrationAzureDownloadScriptParams) WithXCSCUSTID(xCSCUSTID string) *CloudRegistrationAzureDownloadScriptParams {
+	o.SetXCSCUSTID(xCSCUSTID)
+	return o
+}
+
+// SetXCSCUSTID adds the xCSCUSTId to the cloud registration azure download script params
+func (o *CloudRegistrationAzureDownloadScriptParams) SetXCSCUSTID(xCSCUSTID string) {
+	o.XCSCUSTID = xCSCUSTID
+}
+
 // WithBody adds the body to the cloud registration azure download script params
-func (o *CloudRegistrationAzureDownloadScriptParams) WithBody(body *models.RestAzureDownloadScriptRequestV1) *CloudRegistrationAzureDownloadScriptParams {
+func (o *CloudRegistrationAzureDownloadScriptParams) WithBody(body *models.AzureAzureDownloadScriptRequestV1) *CloudRegistrationAzureDownloadScriptParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the cloud registration azure download script params
-func (o *CloudRegistrationAzureDownloadScriptParams) SetBody(body *models.RestAzureDownloadScriptRequestV1) {
+func (o *CloudRegistrationAzureDownloadScriptParams) SetBody(body *models.AzureAzureDownloadScriptRequestV1) {
 	o.Body = body
 }
 
@@ -137,6 +154,11 @@ func (o *CloudRegistrationAzureDownloadScriptParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
+
+	// header param X-CS-CUSTID
+	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
+		return err
+	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
