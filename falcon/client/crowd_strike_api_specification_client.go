@@ -29,7 +29,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/container_images"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_packages"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_vulnerabilities"
-	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/content_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/correlation_rules"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspg_iacapi"
@@ -87,7 +86,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ngsiem"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
-
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
@@ -114,6 +112,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
+	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/workflows"
 	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
 )
