@@ -105,6 +105,8 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `first_seen`
 	- `highest_severity`
 	- `id`
+	- `insights.boolean_value`
+	- `insights.id`
 	- `instance_id`
 	- `instance_state`
 	- `ioa_count`
@@ -119,6 +121,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `non_compliant.requirement`
 	- `non_compliant.rule`
 	- `non_compliant.section`
+	- `non_compliant.severity`
 	- `organization_Id`
 	- `os_version`
 	- `platform_name`
@@ -130,6 +133,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `resource_type_name`
 	- `sensor_priority`
 	- `service`
+	- `service_category`
 	- `severity`
 	- `snapshot_detections`
 	- `ssm_managed`
@@ -192,6 +196,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `resource_type`
 	- `resource_type_name`
 	- `service`
+	- `service_category`
 	- `ssm_managed`
 	- `status`
 	- `tenant_id`

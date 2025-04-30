@@ -24,6 +24,7 @@ type RegistrationAWSAccountPatch struct {
 	AccountID *string `json:"account_id"`
 
 	// behavior assessment enabled
+	// Required: true
 	BehaviorAssessmentEnabled *bool `json:"behavior_assessment_enabled"`
 
 	// cloudtrail region
@@ -33,6 +34,7 @@ type RegistrationAWSAccountPatch struct {
 	DeploymentMethod string `json:"deployment_method,omitempty"`
 
 	// dspm enabled
+	// Required: true
 	DspmEnabled *bool `json:"dspm_enabled"`
 
 	// dspm role
@@ -59,6 +61,7 @@ type RegistrationAWSAccountPatch struct {
 	RootStackID string `json:"root_stack_id,omitempty"`
 
 	// sensor management enabled
+	// Required: true
 	SensorManagementEnabled *bool `json:"sensor_management_enabled"`
 
 	// target ous
@@ -73,11 +76,23 @@ func (m *RegistrationAWSAccountPatch) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateBehaviorAssessmentEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIamRoleArn(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateRemediationTouAccepted(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSensorManagementEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -90,6 +105,24 @@ func (m *RegistrationAWSAccountPatch) Validate(formats strfmt.Registry) error {
 func (m *RegistrationAWSAccountPatch) validateAccountID(formats strfmt.Registry) error {
 
 	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountPatch) validateBehaviorAssessmentEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("behavior_assessment_enabled", "body", m.BehaviorAssessmentEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountPatch) validateDspmEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("dspm_enabled", "body", m.DspmEnabled); err != nil {
 		return err
 	}
 
@@ -111,6 +144,15 @@ func (m *RegistrationAWSAccountPatch) validateRemediationTouAccepted(formats str
 	}
 
 	if err := validate.FormatOf("remediation_tou_accepted", "body", "date-time", m.RemediationTouAccepted.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountPatch) validateSensorManagementEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("sensor_management_enabled", "body", m.SensorManagementEnabled); err != nil {
 		return err
 	}
 

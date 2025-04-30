@@ -19,13 +19,13 @@ import (
 type TypesIntegrationTask struct {
 
 	// access token
-	AccessToken string `json:"access_token,omitempty"`
+	AccessToken string `json:"accessToken,omitempty"`
 
 	// additional header
-	AdditionalHeader string `json:"additional_header,omitempty"`
+	AdditionalHeader string `json:"additionalHeader,omitempty"`
 
 	// business application
-	BusinessApplication string `json:"business_application,omitempty"`
+	BusinessApplication string `json:"businessApplication,omitempty"`
 
 	// data
 	Data string `json:"data,omitempty"`
@@ -34,22 +34,22 @@ type TypesIntegrationTask struct {
 	Enabled bool `json:"enabled,omitempty"`
 
 	// id
-	ID int64 `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	// integration
 	Integration *TypesIntegration `json:"integration,omitempty"`
 
 	// integration task type
-	IntegrationTaskType *TypesIntegrationTaskType `json:"integration_task_type,omitempty"`
+	IntegrationTaskType *TypesIntegrationTaskType `json:"integrationTaskType,omitempty"`
 
 	// latest task run
-	LatestTaskRun *TypesActionRun `json:"latest_task_run,omitempty"`
+	LatestTaskRun *TypesActionRun `json:"latestTaskRun,omitempty"`
 
 	// name
 	Name string `json:"name,omitempty"`
 
 	// next run
-	NextRun *TypesTimestamp `json:"next_run,omitempty"`
+	NextRun *TypesTimestamp `json:"nextRun,omitempty"`
 
 	// progress
 	Progress int32 `json:"progress,omitempty"`
@@ -58,7 +58,7 @@ type TypesIntegrationTask struct {
 	Schedule *TypesComposedSchedule `json:"schedule,omitempty"`
 
 	// schedule every unit display name
-	ScheduleEveryUnitDisplayName string `json:"schedule_every_unit_display_name,omitempty"`
+	ScheduleEveryUnitDisplayName string `json:"scheduleEveryUnitDisplayName,omitempty"`
 
 	// trigger
 	Trigger string `json:"trigger,omitempty"`
@@ -128,9 +128,9 @@ func (m *TypesIntegrationTask) validateIntegrationTaskType(formats strfmt.Regist
 	if m.IntegrationTaskType != nil {
 		if err := m.IntegrationTaskType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("integration_task_type")
+				return ve.ValidateName("integrationTaskType")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("integration_task_type")
+				return ce.ValidateName("integrationTaskType")
 			}
 			return err
 		}
@@ -147,9 +147,9 @@ func (m *TypesIntegrationTask) validateLatestTaskRun(formats strfmt.Registry) er
 	if m.LatestTaskRun != nil {
 		if err := m.LatestTaskRun.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("latest_task_run")
+				return ve.ValidateName("latestTaskRun")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("latest_task_run")
+				return ce.ValidateName("latestTaskRun")
 			}
 			return err
 		}
@@ -166,9 +166,9 @@ func (m *TypesIntegrationTask) validateNextRun(formats strfmt.Registry) error {
 	if m.NextRun != nil {
 		if err := m.NextRun.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("next_run")
+				return ve.ValidateName("nextRun")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("next_run")
+				return ce.ValidateName("nextRun")
 			}
 			return err
 		}
@@ -280,9 +280,9 @@ func (m *TypesIntegrationTask) contextValidateIntegrationTaskType(ctx context.Co
 
 		if err := m.IntegrationTaskType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("integration_task_type")
+				return ve.ValidateName("integrationTaskType")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("integration_task_type")
+				return ce.ValidateName("integrationTaskType")
 			}
 			return err
 		}
@@ -301,9 +301,9 @@ func (m *TypesIntegrationTask) contextValidateLatestTaskRun(ctx context.Context,
 
 		if err := m.LatestTaskRun.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("latest_task_run")
+				return ve.ValidateName("latestTaskRun")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("latest_task_run")
+				return ce.ValidateName("latestTaskRun")
 			}
 			return err
 		}
@@ -322,9 +322,9 @@ func (m *TypesIntegrationTask) contextValidateNextRun(ctx context.Context, forma
 
 		if err := m.NextRun.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("next_run")
+				return ve.ValidateName("nextRun")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("next_run")
+				return ce.ValidateName("nextRun")
 			}
 			return err
 		}

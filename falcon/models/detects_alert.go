@@ -160,6 +160,10 @@ type DetectsAlert struct {
 	// md5
 	Md5 string `json:"md5,omitempty"`
 
+	// References to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+	// Required: true
+	MitreAttack []*DetectsMitreAttackMapping `json:"mitre_attack"`
+
 	// Pattern Name coming either from Taxonomy or directly from the ingested Alert
 	// Required: true
 	Name *string `json:"name"`
@@ -209,6 +213,10 @@ type DetectsAlert struct {
 
 	// quarantined files
 	QuarantinedFiles []*DetectsAlertQuarantinedFilesItems0 `json:"quarantined_files"`
+
+	// Alert resolution. Could be one of the following values: true_positive, false_positive, ignored
+	// Required: true
+	Resolution *string `json:"resolution"`
 
 	// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
 	// Required: true
@@ -449,6 +457,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// md5
 		Md5 string `json:"md5,omitempty"`
 
+		// References to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+		// Required: true
+		MitreAttack []*DetectsMitreAttackMapping `json:"mitre_attack"`
+
 		// Pattern Name coming either from Taxonomy or directly from the ingested Alert
 		// Required: true
 		Name *string `json:"name"`
@@ -498,6 +510,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 
 		// quarantined files
 		QuarantinedFiles []*DetectsAlertQuarantinedFilesItems0 `json:"quarantined_files"`
+
+		// Alert resolution. Could be one of the following values: true_positive, false_positive, ignored
+		// Required: true
+		Resolution *string `json:"resolution"`
 
 		// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
 		// Required: true
@@ -635,6 +651,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.LocalProcessID = stage1.LocalProcessID
 	rcv.LogonDomain = stage1.LogonDomain
 	rcv.Md5 = stage1.Md5
+	rcv.MitreAttack = stage1.MitreAttack
 	rcv.Name = stage1.Name
 	rcv.Objective = stage1.Objective
 	rcv.ParentDetails = stage1.ParentDetails
@@ -650,6 +667,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.ProcessStartTime = stage1.ProcessStartTime
 	rcv.Product = stage1.Product
 	rcv.QuarantinedFiles = stage1.QuarantinedFiles
+	rcv.Resolution = stage1.Resolution
 	rcv.Scenario = stage1.Scenario
 	rcv.SecondsToResolved = stage1.SecondsToResolved
 	rcv.SecondsToTriaged = stage1.SecondsToTriaged
@@ -722,6 +740,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "local_process_id")
 	delete(stage2, "logon_domain")
 	delete(stage2, "md5")
+	delete(stage2, "mitre_attack")
 	delete(stage2, "name")
 	delete(stage2, "objective")
 	delete(stage2, "parent_details")
@@ -737,6 +756,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "process_start_time")
 	delete(stage2, "product")
 	delete(stage2, "quarantined_files")
+	delete(stage2, "resolution")
 	delete(stage2, "scenario")
 	delete(stage2, "seconds_to_resolved")
 	delete(stage2, "seconds_to_triaged")
@@ -920,6 +940,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 		// md5
 		Md5 string `json:"md5,omitempty"`
 
+		// References to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+		// Required: true
+		MitreAttack []*DetectsMitreAttackMapping `json:"mitre_attack"`
+
 		// Pattern Name coming either from Taxonomy or directly from the ingested Alert
 		// Required: true
 		Name *string `json:"name"`
@@ -969,6 +993,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 
 		// quarantined files
 		QuarantinedFiles []*DetectsAlertQuarantinedFilesItems0 `json:"quarantined_files"`
+
+		// Alert resolution. Could be one of the following values: true_positive, false_positive, ignored
+		// Required: true
+		Resolution *string `json:"resolution"`
 
 		// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
 		// Required: true
@@ -1102,6 +1130,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.LocalProcessID = m.LocalProcessID
 	stage1.LogonDomain = m.LogonDomain
 	stage1.Md5 = m.Md5
+	stage1.MitreAttack = m.MitreAttack
 	stage1.Name = m.Name
 	stage1.Objective = m.Objective
 	stage1.ParentDetails = m.ParentDetails
@@ -1117,6 +1146,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.ProcessStartTime = m.ProcessStartTime
 	stage1.Product = m.Product
 	stage1.QuarantinedFiles = m.QuarantinedFiles
+	stage1.Resolution = m.Resolution
 	stage1.Scenario = m.Scenario
 	stage1.SecondsToResolved = m.SecondsToResolved
 	stage1.SecondsToTriaged = m.SecondsToTriaged
@@ -1258,6 +1288,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMitreAttack(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -1287,6 +1321,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateQuarantinedFiles(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResolution(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1630,6 +1668,33 @@ func (m *DetectsAlert) validateIocContext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateMitreAttack(formats strfmt.Registry) error {
+
+	if err := validate.Required("mitre_attack", "body", m.MitreAttack); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.MitreAttack); i++ {
+		if swag.IsZero(m.MitreAttack[i]) { // not required
+			continue
+		}
+
+		if m.MitreAttack[i] != nil {
+			if err := m.MitreAttack[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DetectsAlert) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -1734,6 +1799,15 @@ func (m *DetectsAlert) validateQuarantinedFiles(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateResolution(formats strfmt.Registry) error {
+
+	if err := validate.Required("resolution", "body", m.Resolution); err != nil {
+		return err
 	}
 
 	return nil
@@ -1924,6 +1998,10 @@ func (m *DetectsAlert) ContextValidate(ctx context.Context, formats strfmt.Regis
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateMitreAttack(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateParentDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -2041,6 +2119,31 @@ func (m *DetectsAlert) contextValidateIocContext(ctx context.Context, formats st
 					return ve.ValidateName("ioc_context" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("ioc_context" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) contextValidateMitreAttack(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MitreAttack); i++ {
+
+		if m.MitreAttack[i] != nil {
+
+			if swag.IsZero(m.MitreAttack[i]) { // not required
+				return nil
+			}
+
+			if err := m.MitreAttack[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

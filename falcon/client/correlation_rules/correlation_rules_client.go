@@ -30,11 +30,27 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AggregatesRuleVersionsPostV1(params *AggregatesRuleVersionsPostV1Params, opts ...ClientOption) (*AggregatesRuleVersionsPostV1OK, error)
+
 	CombinedRulesGetV1(params *CombinedRulesGetV1Params, opts ...ClientOption) (*CombinedRulesGetV1OK, error)
+
+	CombinedRulesGetV2(params *CombinedRulesGetV2Params, opts ...ClientOption) (*CombinedRulesGetV2OK, error)
+
+	EntitiesLatestRulesGetV1(params *EntitiesLatestRulesGetV1Params, opts ...ClientOption) (*EntitiesLatestRulesGetV1OK, error)
+
+	EntitiesRuleVersionsDeleteV1(params *EntitiesRuleVersionsDeleteV1Params, opts ...ClientOption) (*EntitiesRuleVersionsDeleteV1OK, error)
+
+	EntitiesRuleVersionsExportPostV1(params *EntitiesRuleVersionsExportPostV1Params, opts ...ClientOption) (*EntitiesRuleVersionsExportPostV1OK, error)
+
+	EntitiesRuleVersionsImportPostV1(params *EntitiesRuleVersionsImportPostV1Params, opts ...ClientOption) (*EntitiesRuleVersionsImportPostV1OK, error)
+
+	EntitiesRuleVersionsPublishPatchV1(params *EntitiesRuleVersionsPublishPatchV1Params, opts ...ClientOption) (*EntitiesRuleVersionsPublishPatchV1OK, error)
 
 	EntitiesRulesDeleteV1(params *EntitiesRulesDeleteV1Params, opts ...ClientOption) (*EntitiesRulesDeleteV1OK, error)
 
 	EntitiesRulesGetV1(params *EntitiesRulesGetV1Params, opts ...ClientOption) (*EntitiesRulesGetV1OK, error)
+
+	EntitiesRulesGetV2(params *EntitiesRulesGetV2Params, opts ...ClientOption) (*EntitiesRulesGetV2OK, error)
 
 	EntitiesRulesPatchV1(params *EntitiesRulesPatchV1Params, opts ...ClientOption) (*EntitiesRulesPatchV1OK, error)
 
@@ -42,7 +58,47 @@ type ClientService interface {
 
 	QueriesRulesGetV1(params *QueriesRulesGetV1Params, opts ...ClientOption) (*QueriesRulesGetV1OK, error)
 
+	QueriesRulesGetV2(params *QueriesRulesGetV2Params, opts ...ClientOption) (*QueriesRulesGetV2OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+AggregatesRuleVersionsPostV1 gets rules aggregates as specified via json in the request body
+*/
+func (a *Client) AggregatesRuleVersionsPostV1(params *AggregatesRuleVersionsPostV1Params, opts ...ClientOption) (*AggregatesRuleVersionsPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAggregatesRuleVersionsPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "aggregates.rule-versions.post.v1",
+		Method:             "POST",
+		PathPattern:        "/correlation-rules/aggregates/rule-versions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AggregatesRuleVersionsPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AggregatesRuleVersionsPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for aggregates.rule-versions.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -54,7 +110,7 @@ func (a *Client) CombinedRulesGetV1(params *CombinedRulesGetV1Params, opts ...Cl
 		params = NewCombinedRulesGetV1Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "combined_rules.get.v1",
+		ID:                 "combined.rules.get.v1",
 		Method:             "GET",
 		PathPattern:        "/correlation-rules/combined/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
@@ -79,7 +135,235 @@ func (a *Client) CombinedRulesGetV1(params *CombinedRulesGetV1Params, opts ...Cl
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for combined_rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for combined.rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CombinedRulesGetV2 finds all rules matching the query and filter supported filters customer id user id user uuid status name created on last updated on supported range filters created on last updated on
+*/
+func (a *Client) CombinedRulesGetV2(params *CombinedRulesGetV2Params, opts ...ClientOption) (*CombinedRulesGetV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedRulesGetV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "combined.rules.get.v2",
+		Method:             "GET",
+		PathPattern:        "/correlation-rules/combined/rules/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedRulesGetV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedRulesGetV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for combined.rules.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLatestRulesGetV1 retrieves latest rule versions by rule i ds
+*/
+func (a *Client) EntitiesLatestRulesGetV1(params *EntitiesLatestRulesGetV1Params, opts ...ClientOption) (*EntitiesLatestRulesGetV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLatestRulesGetV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.latest-rules.get.v1",
+		Method:             "GET",
+		PathPattern:        "/correlation-rules/entities/latest-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesLatestRulesGetV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLatestRulesGetV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.latest-rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRuleVersionsDeleteV1 deletes versions by i ds
+*/
+func (a *Client) EntitiesRuleVersionsDeleteV1(params *EntitiesRuleVersionsDeleteV1Params, opts ...ClientOption) (*EntitiesRuleVersionsDeleteV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRuleVersionsDeleteV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.rule-versions.delete.v1",
+		Method:             "DELETE",
+		PathPattern:        "/correlation-rules/entities/rule-versions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRuleVersionsDeleteV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRuleVersionsDeleteV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.rule-versions.delete.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRuleVersionsExportPostV1 exports rule versions
+*/
+func (a *Client) EntitiesRuleVersionsExportPostV1(params *EntitiesRuleVersionsExportPostV1Params, opts ...ClientOption) (*EntitiesRuleVersionsExportPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRuleVersionsExportPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.rule-versions_export.post.v1",
+		Method:             "POST",
+		PathPattern:        "/correlation-rules/entities/rule-versions/export/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRuleVersionsExportPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRuleVersionsExportPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.rule-versions_export.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRuleVersionsImportPostV1 imports rule versions
+*/
+func (a *Client) EntitiesRuleVersionsImportPostV1(params *EntitiesRuleVersionsImportPostV1Params, opts ...ClientOption) (*EntitiesRuleVersionsImportPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRuleVersionsImportPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.rule-versions_import.post.v1",
+		Method:             "POST",
+		PathPattern:        "/correlation-rules/entities/rule-versions/import/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRuleVersionsImportPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRuleVersionsImportPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.rule-versions_import.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRuleVersionsPublishPatchV1 publishes existing rule version
+*/
+func (a *Client) EntitiesRuleVersionsPublishPatchV1(params *EntitiesRuleVersionsPublishPatchV1Params, opts ...ClientOption) (*EntitiesRuleVersionsPublishPatchV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRuleVersionsPublishPatchV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.rule-versions_publish.patch.v1",
+		Method:             "PATCH",
+		PathPattern:        "/correlation-rules/entities/rule-versions/publish/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRuleVersionsPublishPatchV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRuleVersionsPublishPatchV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.rule-versions_publish.patch.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -92,7 +376,7 @@ func (a *Client) EntitiesRulesDeleteV1(params *EntitiesRulesDeleteV1Params, opts
 		params = NewEntitiesRulesDeleteV1Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "entities_rules.delete.v1",
+		ID:                 "entities.rules.delete.v1",
 		Method:             "DELETE",
 		PathPattern:        "/correlation-rules/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
@@ -117,7 +401,7 @@ func (a *Client) EntitiesRulesDeleteV1(params *EntitiesRulesDeleteV1Params, opts
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities_rules.delete.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for entities.rules.delete.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -130,7 +414,7 @@ func (a *Client) EntitiesRulesGetV1(params *EntitiesRulesGetV1Params, opts ...Cl
 		params = NewEntitiesRulesGetV1Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "entities_rules.get.v1",
+		ID:                 "entities.rules.get.v1",
 		Method:             "GET",
 		PathPattern:        "/correlation-rules/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
@@ -155,7 +439,45 @@ func (a *Client) EntitiesRulesGetV1(params *EntitiesRulesGetV1Params, opts ...Cl
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities_rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for entities.rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRulesGetV2 retrieves rule versions by i ds
+*/
+func (a *Client) EntitiesRulesGetV2(params *EntitiesRulesGetV2Params, opts ...ClientOption) (*EntitiesRulesGetV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRulesGetV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.rules.get.v2",
+		Method:             "GET",
+		PathPattern:        "/correlation-rules/entities/rules/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRulesGetV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRulesGetV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.rules.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -168,7 +490,7 @@ func (a *Client) EntitiesRulesPatchV1(params *EntitiesRulesPatchV1Params, opts .
 		params = NewEntitiesRulesPatchV1Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "entities_rules.patch.v1",
+		ID:                 "entities.rules.patch.v1",
 		Method:             "PATCH",
 		PathPattern:        "/correlation-rules/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
@@ -193,7 +515,7 @@ func (a *Client) EntitiesRulesPatchV1(params *EntitiesRulesPatchV1Params, opts .
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities_rules.patch.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for entities.rules.patch.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -206,7 +528,7 @@ func (a *Client) EntitiesRulesPostV1(params *EntitiesRulesPostV1Params, opts ...
 		params = NewEntitiesRulesPostV1Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "entities_rules.post.v1",
+		ID:                 "entities.rules.post.v1",
 		Method:             "POST",
 		PathPattern:        "/correlation-rules/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
@@ -231,7 +553,7 @@ func (a *Client) EntitiesRulesPostV1(params *EntitiesRulesPostV1Params, opts ...
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities_rules.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for entities.rules.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -244,7 +566,7 @@ func (a *Client) QueriesRulesGetV1(params *QueriesRulesGetV1Params, opts ...Clie
 		params = NewQueriesRulesGetV1Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "queries_rules.get.v1",
+		ID:                 "queries.rules.get.v1",
 		Method:             "GET",
 		PathPattern:        "/correlation-rules/queries/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
@@ -269,7 +591,45 @@ func (a *Client) QueriesRulesGetV1(params *QueriesRulesGetV1Params, opts ...Clie
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for queries_rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for queries.rules.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueriesRulesGetV2 finds all rule version i ds matching the query and filter supported filters customer id user id user uuid status name created on last updated on state version rule id supported range filters created on last updated on
+*/
+func (a *Client) QueriesRulesGetV2(params *QueriesRulesGetV2Params, opts ...ClientOption) (*QueriesRulesGetV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesRulesGetV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queries.rules.get.v2",
+		Method:             "GET",
+		PathPattern:        "/correlation-rules/queries/rules/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueriesRulesGetV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesRulesGetV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queries.rules.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

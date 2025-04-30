@@ -68,7 +68,7 @@ func (o *EntitiesRulesDeleteV1Reader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[DELETE /correlation-rules/entities/rules/v1] entities_rules.delete.v1", response, response.Code())
+		return nil, runtime.NewAPIError("[DELETE /correlation-rules/entities/rules/v1] entities.rules.delete.v1", response, response.Code())
 	}
 }
 

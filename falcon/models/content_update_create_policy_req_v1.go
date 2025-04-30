@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -27,13 +26,8 @@ type ContentUpdateCreatePolicyReqV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// The name of the platform
-	// Required: true
-	// Enum: [Windows Mac Linux]
-	PlatformName *string `json:"platform_name"`
-
 	// The settings to create the policy with
-	Settings *ContentUpdateSettingsV1 `json:"settings,omitempty"`
+	Settings *ContentUpdateContentUpdateSettingsReqV1 `json:"settings,omitempty"`
 }
 
 // Validate validates this content update create policy req v1
@@ -41,10 +35,6 @@ func (m *ContentUpdateCreatePolicyReqV1) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePlatformName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -61,52 +51,6 @@ func (m *ContentUpdateCreatePolicyReqV1) Validate(formats strfmt.Registry) error
 func (m *ContentUpdateCreatePolicyReqV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-var contentUpdateCreatePolicyReqV1TypePlatformNamePropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["Windows","Mac","Linux"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		contentUpdateCreatePolicyReqV1TypePlatformNamePropEnum = append(contentUpdateCreatePolicyReqV1TypePlatformNamePropEnum, v)
-	}
-}
-
-const (
-
-	// ContentUpdateCreatePolicyReqV1PlatformNameWindows captures enum value "Windows"
-	ContentUpdateCreatePolicyReqV1PlatformNameWindows string = "Windows"
-
-	// ContentUpdateCreatePolicyReqV1PlatformNameMac captures enum value "Mac"
-	ContentUpdateCreatePolicyReqV1PlatformNameMac string = "Mac"
-
-	// ContentUpdateCreatePolicyReqV1PlatformNameLinux captures enum value "Linux"
-	ContentUpdateCreatePolicyReqV1PlatformNameLinux string = "Linux"
-)
-
-// prop value enum
-func (m *ContentUpdateCreatePolicyReqV1) validatePlatformNameEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, contentUpdateCreatePolicyReqV1TypePlatformNamePropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *ContentUpdateCreatePolicyReqV1) validatePlatformName(formats strfmt.Registry) error {
-
-	if err := validate.Required("platform_name", "body", m.PlatformName); err != nil {
-		return err
-	}
-
-	// value enum
-	if err := m.validatePlatformNameEnum("platform_name", "body", *m.PlatformName); err != nil {
 		return err
 	}
 

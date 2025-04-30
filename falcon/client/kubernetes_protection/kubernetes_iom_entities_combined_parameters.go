@@ -69,6 +69,7 @@ type KubernetesIomEntitiesCombinedParams struct {
 	- `cis_id`
 	- `cluster_id`
 	- `cluster_name`
+	- `containers_impacted_ai_related`
 	- `containers_impacted_count`
 	- `containers_impacted_ids`
 	- `detection_type`

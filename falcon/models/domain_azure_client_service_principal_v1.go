@@ -34,7 +34,7 @@ type DomainAzureClientServicePrincipalV1 struct {
 	ClientID string `json:"client_id,omitempty"`
 
 	// conditions
-	Conditions []*DomainCondition `json:"conditions"`
+	Conditions []*StatemgmtCondition `json:"conditions"`
 
 	// If the account has CSPM enabled.
 	// Required: true
@@ -46,6 +46,10 @@ type DomainAzureClientServicePrincipalV1 struct {
 	// encrypted private key
 	EncryptedPrivateKey string `json:"encrypted_private_key,omitempty"`
 
+	// is shared client
+	// Required: true
+	IsSharedClient *bool `json:"is_shared_client"`
+
 	// object id
 	ObjectID string `json:"object_id,omitempty"`
 
@@ -53,7 +57,7 @@ type DomainAzureClientServicePrincipalV1 struct {
 	PublicCertificate string `json:"public_certificate,omitempty"`
 
 	// resource permissions
-	ResourcePermissions []*DomainAzureResourcePermission `json:"resource_permissions"`
+	ResourcePermissions []*AzureResourcePermission `json:"resource_permissions"`
 
 	// tenant id
 	// Required: true
@@ -76,6 +80,10 @@ func (m *DomainAzureClientServicePrincipalV1) Validate(formats strfmt.Registry) 
 	}
 
 	if err := m.validateCspmEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsSharedClient(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -131,6 +139,15 @@ func (m *DomainAzureClientServicePrincipalV1) validateConditions(formats strfmt.
 func (m *DomainAzureClientServicePrincipalV1) validateCspmEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("cspm_enabled", "body", m.CspmEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAzureClientServicePrincipalV1) validateIsSharedClient(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_shared_client", "body", m.IsSharedClient); err != nil {
 		return err
 	}
 

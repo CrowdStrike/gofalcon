@@ -19,6 +19,9 @@ import (
 // swagger:model domain.ExecuteCommandV1
 type DomainExecuteCommandV1 struct {
 
+	// Contains the authentication data needed to execute a request against the third party API
+	Config *DomainConfigData `json:"config,omitempty"`
+
 	// Config auth type for plugin to execute. Only applicable for oneOf security scheme plugins. If not provided, it will use the default auth type on the config
 	// Required: true
 	ConfigAuthType *string `json:"config_auth_type"`
@@ -55,6 +58,10 @@ type DomainExecuteCommandV1 struct {
 func (m *DomainExecuteCommandV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateConfig(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConfigAuthType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -86,6 +93,25 @@ func (m *DomainExecuteCommandV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainExecuteCommandV1) validateConfig(formats strfmt.Registry) error {
+	if swag.IsZero(m.Config) { // not required
+		return nil
+	}
+
+	if m.Config != nil {
+		if err := m.Config.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("config")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -167,6 +193,10 @@ func (m *DomainExecuteCommandV1) validateVersion(formats strfmt.Registry) error 
 func (m *DomainExecuteCommandV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateRequest(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -174,6 +204,27 @@ func (m *DomainExecuteCommandV1) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainExecuteCommandV1) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Config != nil {
+
+		if swag.IsZero(m.Config) { // not required
+			return nil
+		}
+
+		if err := m.Config.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("config")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -21,7 +21,7 @@ import (
 type RegistrationGCPAccountValidatedV1 struct {
 
 	// Account conditions
-	Conditions []*DomainCondition `json:"conditions"`
+	Conditions []*StatemgmtCondition `json:"conditions"`
 
 	// Permissions status
 	// Required: true
@@ -32,7 +32,7 @@ type RegistrationGCPAccountValidatedV1 struct {
 	ParentID *string `json:"parent_id"`
 
 	// service account conditions
-	ServiceAccountConditions []*DomainCondition `json:"service_account_conditions"`
+	ServiceAccountConditions []*StatemgmtCondition `json:"service_account_conditions"`
 
 	// Service account ID
 	ServiceAccountID int64 `json:"service_account_id,omitempty"`

@@ -38,6 +38,10 @@ type DomainHost struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// sensitive data
+	// Required: true
+	SensitiveData *bool `json:"sensitive_data"`
+
 	// total count
 	// Required: true
 	TotalCount *float64 `json:"total_count"`
@@ -67,6 +71,10 @@ func (m *DomainHost) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSensitiveData(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -163,6 +171,15 @@ func (m *DomainHost) validateExtraInfo(formats strfmt.Registry) error {
 func (m *DomainHost) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainHost) validateSensitiveData(formats strfmt.Registry) error {
+
+	if err := validate.Required("sensitive_data", "body", m.SensitiveData); err != nil {
 		return err
 	}
 

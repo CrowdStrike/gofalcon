@@ -64,7 +64,7 @@ type QueryUserV1Params struct {
 
 	/* Filter.
 
-	   Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid
+	   Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, uid
 	*/
 	Filter *string
 

@@ -66,6 +66,7 @@ type VulnerableContainerImageCountParams struct {
 	     Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields:
 	- `agent_id`
 	- `agent_type`
+	- `ai_related`
 	- `allow_privilege_escalation`
 	- `app_name`
 	- `cid`

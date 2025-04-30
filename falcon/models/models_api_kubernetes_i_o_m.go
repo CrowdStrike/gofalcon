@@ -47,6 +47,9 @@ type ModelsAPIKubernetesIOM struct {
 	// Required: true
 	ClusterName *string `json:"cluster_name"`
 
+	// containers impacted ai related
+	ContainersImpactedAiRelated bool `json:"containers_impacted_ai_related,omitempty"`
+
 	// containers impacted count
 	// Required: true
 	ContainersImpactedCount *string `json:"containers_impacted_count"`

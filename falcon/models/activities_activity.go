@@ -33,8 +33,8 @@ type ActivitiesActivity struct {
 	// Activity class to identify how it should be orchestrated. E.g. External, Break, CreateVariable and UpdateVariable
 	Class string `json:"class,omitempty"`
 
-	// List of dependencies(store apps or foundry app templates) of the activity
-	Dependencies []*ActivitiesDependencies `json:"dependencies"`
+	// List of dependencies (store apps or foundry app templates) of the activity
+	Dependencies []*ActivitiesDependency `json:"dependencies"`
 
 	// A detailed description of what this action does
 	// Required: true

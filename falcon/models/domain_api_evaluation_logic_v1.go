@@ -45,6 +45,9 @@ type DomainAPIEvaluationLogicV1 struct {
 	// Refers to the identifier of the scanner that generated the evaluation logic
 	ScannerID string `json:"scanner_id,omitempty"`
 
+	// Refers to the simplified evaluation logic data
+	SimplifiedLogic []*DomainAPISimplifiedEvaluationLogicItemV1 `json:"simplified_logic"`
+
 	// Refers to a point in time when evaluation logic data was updated in the system
 	UpdatedTimestamp string `json:"updated_timestamp,omitempty"`
 }
@@ -62,6 +65,10 @@ func (m *DomainAPIEvaluationLogicV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLogic(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSimplifiedLogic(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -125,6 +132,32 @@ func (m *DomainAPIEvaluationLogicV1) validateLogic(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *DomainAPIEvaluationLogicV1) validateSimplifiedLogic(formats strfmt.Registry) error {
+	if swag.IsZero(m.SimplifiedLogic) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SimplifiedLogic); i++ {
+		if swag.IsZero(m.SimplifiedLogic[i]) { // not required
+			continue
+		}
+
+		if m.SimplifiedLogic[i] != nil {
+			if err := m.SimplifiedLogic[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("simplified_logic" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("simplified_logic" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this domain API evaluation logic v1 based on the context it is used
 func (m *DomainAPIEvaluationLogicV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -134,6 +167,10 @@ func (m *DomainAPIEvaluationLogicV1) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateLogic(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSimplifiedLogic(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -179,6 +216,31 @@ func (m *DomainAPIEvaluationLogicV1) contextValidateLogic(ctx context.Context, f
 					return ve.ValidateName("logic" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("logic" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainAPIEvaluationLogicV1) contextValidateSimplifiedLogic(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SimplifiedLogic); i++ {
+
+		if m.SimplifiedLogic[i] != nil {
+
+			if swag.IsZero(m.SimplifiedLogic[i]) { // not required
+				return nil
+			}
+
+			if err := m.SimplifiedLogic[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("simplified_logic" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("simplified_logic" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

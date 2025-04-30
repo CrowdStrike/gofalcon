@@ -68,7 +68,7 @@ func (o *EntitiesRulesGetV1Reader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /correlation-rules/entities/rules/v1] entities_rules.get.v1", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /correlation-rules/entities/rules/v1] entities.rules.get.v1", response, response.Code())
 	}
 }
 

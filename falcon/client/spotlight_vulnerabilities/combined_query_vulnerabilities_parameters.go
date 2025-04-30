@@ -80,9 +80,9 @@ type CombinedQueryVulnerabilitiesParams struct {
 
 	     Filter items using a query in Falcon Query Language (FQL). Wildcards * and empty filter values are unsupported.
 				Available filter fields that supports match (~): N/A
-				Available filter fields that supports exact match: aid, cid, last_seen_within, status, cve.id, cve.is_cisa_kev, cve.remediation_level, cve.cps_rating, cve.exprt_rating, cve.exploit_status_to_include, cve.severity, cve.types, host_info.asset_criticality, host_info.asset_roles, host_info.internet_exposure, host_info.tags, host_info.groups, host_info.product_type_desc, host_info.platform_name, suppression_info.is_suppressed, suppression_info.reason
+				Available filter fields that supports exact match: aid, cid, last_seen_within, status, cve.id, cve.is_cisa_kev, cve.remediation_level, cve.cps_rating, cve.exprt_rating, cve.exploit_status_to_include, cve.severity, cve.base_score, cve.types, host_info.asset_criticality, host_info.asset_roles, host_info.internet_exposure, host_info.tags, host_info.groups, host_info.product_type_desc, host_info.platform_name, suppression_info.is_suppressed, suppression_info.reason, host_info.instance_state
 				Available filter fields that supports wildcard (*): N/A
-				Available filter fields that supports range comparisons (>, <, >=, <=): created_timestamp, closed_timestamp, updated_timestamp
+				Available filter fields that supports range comparisons (>, <, >=, <=): created_timestamp, closed_timestamp, updated_timestamp, cve.base_score
 
 	*/
 	Filter string

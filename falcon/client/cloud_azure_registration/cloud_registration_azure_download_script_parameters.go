@@ -64,7 +64,7 @@ CloudRegistrationAzureDownloadScriptParams contains all the parameters to send t
 type CloudRegistrationAzureDownloadScriptParams struct {
 
 	// Body.
-	Body *models.RestAzureDownloadScriptRequestV1
+	Body *models.AzureAzureDownloadScriptRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CloudRegistrationAzureDownloadScriptParams) SetHTTPClient(client *http.
 }
 
 // WithBody adds the body to the cloud registration azure download script params
-func (o *CloudRegistrationAzureDownloadScriptParams) WithBody(body *models.RestAzureDownloadScriptRequestV1) *CloudRegistrationAzureDownloadScriptParams {
+func (o *CloudRegistrationAzureDownloadScriptParams) WithBody(body *models.AzureAzureDownloadScriptRequestV1) *CloudRegistrationAzureDownloadScriptParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the cloud registration azure download script params
-func (o *CloudRegistrationAzureDownloadScriptParams) SetBody(body *models.RestAzureDownloadScriptRequestV1) {
+func (o *CloudRegistrationAzureDownloadScriptParams) SetBody(body *models.AzureAzureDownloadScriptRequestV1) {
 	o.Body = body
 }
 

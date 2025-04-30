@@ -15,6 +15,7 @@ import (
 )
 
 // DomainDiscoverAPIActiveDiscoveryNetwork Information about an active discovery network this asset is associated with.
+// Information about the corresponding Site ID .
 //
 // swagger:model domain.DiscoverAPIActiveDiscoveryNetwork
 type DomainDiscoverAPIActiveDiscoveryNetwork struct {
@@ -22,6 +23,9 @@ type DomainDiscoverAPIActiveDiscoveryNetwork struct {
 	// The id of the network
 	// Required: true
 	ID *string `json:"id"`
+
+	// The id of the site
+	SiteID string `json:"site_id,omitempty"`
 }
 
 // Validate validates this domain discover API active discovery network

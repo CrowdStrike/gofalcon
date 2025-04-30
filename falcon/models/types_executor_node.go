@@ -28,7 +28,7 @@ type TypesExecutorNode struct {
 	DashboardURL string `json:"dashboard_url,omitempty"`
 
 	// id
-	ID int64 `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	// last health check
 	LastHealthCheck int64 `json:"last_health_check,omitempty"`

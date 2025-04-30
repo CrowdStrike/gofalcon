@@ -90,7 +90,7 @@ type CreateIntegrationOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.TypesIntegrationResponse
+	Payload *models.TypesCreateIntegrationResponse
 }
 
 // IsSuccess returns true when this create integration o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *CreateIntegrationOK) String() string {
 	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integrations][%d] createIntegrationOK  %+v", 200, o.Payload)
 }
 
-func (o *CreateIntegrationOK) GetPayload() *models.TypesIntegrationResponse {
+func (o *CreateIntegrationOK) GetPayload() *models.TypesCreateIntegrationResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *CreateIntegrationOK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.TypesIntegrationResponse)
+	o.Payload = new(models.TypesCreateIntegrationResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

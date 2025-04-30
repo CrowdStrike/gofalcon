@@ -49,6 +49,12 @@ func (o *CreateCSPMAwsAccountReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewCreateCSPMAwsAccountConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewCreateCSPMAwsAccountTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -466,6 +472,116 @@ func (o *CreateCSPMAwsAccountForbidden) GetPayload() *models.MsaspecResponseFiel
 }
 
 func (o *CreateCSPMAwsAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateCSPMAwsAccountConflict creates a CreateCSPMAwsAccountConflict with default headers values
+func NewCreateCSPMAwsAccountConflict() *CreateCSPMAwsAccountConflict {
+	return &CreateCSPMAwsAccountConflict{}
+}
+
+/*
+CreateCSPMAwsAccountConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type CreateCSPMAwsAccountConflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this create c s p m aws account conflict response has a 2xx status code
+func (o *CreateCSPMAwsAccountConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m aws account conflict response has a 3xx status code
+func (o *CreateCSPMAwsAccountConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m aws account conflict response has a 4xx status code
+func (o *CreateCSPMAwsAccountConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m aws account conflict response has a 5xx status code
+func (o *CreateCSPMAwsAccountConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m aws account conflict response a status code equal to that given
+func (o *CreateCSPMAwsAccountConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the create c s p m aws account conflict response
+func (o *CreateCSPMAwsAccountConflict) Code() int {
+	return 409
+}
+
+func (o *CreateCSPMAwsAccountConflict) Error() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountConflict  %+v", 409, o.Payload)
+}
+
+func (o *CreateCSPMAwsAccountConflict) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountConflict  %+v", 409, o.Payload)
+}
+
+func (o *CreateCSPMAwsAccountConflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CreateCSPMAwsAccountConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

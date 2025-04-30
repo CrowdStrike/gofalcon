@@ -14,8 +14,6 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-
-	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
 // NewExecuteFunctionsQueryCountParams creates a new ExecuteFunctionsQueryCountParams object,
@@ -62,9 +60,6 @@ ExecuteFunctionsQueryCountParams contains all the parameters to send to the API 
 	Typically these are written to a http.Request.
 */
 type ExecuteFunctionsQueryCountParams struct {
-
-	// Body.
-	Body *models.TypesMSAQueryRequest
 
 	// Field.
 	Field string
@@ -122,17 +117,6 @@ func (o *ExecuteFunctionsQueryCountParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithBody adds the body to the execute functions query count params
-func (o *ExecuteFunctionsQueryCountParams) WithBody(body *models.TypesMSAQueryRequest) *ExecuteFunctionsQueryCountParams {
-	o.SetBody(body)
-	return o
-}
-
-// SetBody adds the body to the execute functions query count params
-func (o *ExecuteFunctionsQueryCountParams) SetBody(body *models.TypesMSAQueryRequest) {
-	o.Body = body
-}
-
 // WithField adds the field to the execute functions query count params
 func (o *ExecuteFunctionsQueryCountParams) WithField(field string) *ExecuteFunctionsQueryCountParams {
 	o.SetField(field)
@@ -151,11 +135,6 @@ func (o *ExecuteFunctionsQueryCountParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-	if o.Body != nil {
-		if err := r.SetBodyParam(o.Body); err != nil {
-			return err
-		}
-	}
 
 	// query param field
 	qrField := o.Field

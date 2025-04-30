@@ -13,20 +13,23 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/a_s_p_m"
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
+	"github.com/crowdstrike/gofalcon/falcon/client/cao_hunting"
 	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_aws_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_azure_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_oci_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_assets"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
-	"github.com/crowdstrike/gofalcon/falcon/client/compliance_assessments"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_detections"
+	"github.com/crowdstrike/gofalcon/falcon/client/container_image_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_images"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_packages"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/content_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/correlation_rules"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspg_iacapi"
@@ -40,6 +43,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_content"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/device_control_with_bluetooth"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover_iot"
 	"github.com/crowdstrike/gofalcon/falcon/client/downloads_api"
@@ -61,7 +65,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_migration"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
-	"github.com/crowdstrike/gofalcon/falcon/client/humio_auth_proxy"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_entities"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/image_assessment_policies"
@@ -81,8 +84,10 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/mobile_enrollment"
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
+	"github.com/crowdstrike/gofalcon/falcon/client/ngsiem"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
+
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
@@ -109,7 +114,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
-	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/workflows"
 	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
 )
@@ -159,17 +163,19 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Aspm = a_s_p_m.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
+	cli.CaoHunting = cao_hunting.New(transport, formats)
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
 	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
 	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
+	cli.CloudOciRegistration = cloud_oci_registration.New(transport, formats)
 	cli.CloudSecurityAssets = cloud_security_assets.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
-	cli.ComplianceAssessments = compliance_assessments.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
 	cli.ContainerAlerts = container_alerts.New(transport, formats)
 	cli.ContainerDetections = container_detections.New(transport, formats)
+	cli.ContainerImageCompliance = container_image_compliance.New(transport, formats)
 	cli.ContainerImages = container_images.New(transport, formats)
 	cli.ContainerPackages = container_packages.New(transport, formats)
 	cli.ContainerVulnerabilities = container_vulnerabilities.New(transport, formats)
@@ -186,6 +192,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceContent = device_content.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
+	cli.DeviceControlWithBluetooth = device_control_with_bluetooth.New(transport, formats)
 	cli.Discover = discover.New(transport, formats)
 	cli.DiscoverIot = discover_iot.New(transport, formats)
 	cli.DownloadsAPI = downloads_api.New(transport, formats)
@@ -207,7 +214,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.HostGroup = host_group.New(transport, formats)
 	cli.HostMigration = host_migration.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
-	cli.HumioAuthProxy = humio_auth_proxy.New(transport, formats)
 	cli.IdentityEntities = identity_entities.New(transport, formats)
 	cli.IdentityProtection = identity_protection.New(transport, formats)
 	cli.ImageAssessmentPolicies = image_assessment_policies.New(transport, formats)
@@ -227,6 +233,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
 	cli.MobileEnrollment = mobile_enrollment.New(transport, formats)
 	cli.Mssp = mssp.New(transport, formats)
+	cli.Ngsiem = ngsiem.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
@@ -308,6 +315,8 @@ type CrowdStrikeAPISpecification struct {
 
 	APIIntegrations api_integrations.ClientService
 
+	CaoHunting cao_hunting.ClientService
+
 	CertificateBasedExclusions certificate_based_exclusions.ClientService
 
 	CloudAwsRegistration cloud_aws_registration.ClientService
@@ -316,11 +325,11 @@ type CrowdStrikeAPISpecification struct {
 
 	CloudConnectAws cloud_connect_aws.ClientService
 
+	CloudOciRegistration cloud_oci_registration.ClientService
+
 	CloudSecurityAssets cloud_security_assets.ClientService
 
 	CloudSnapshots cloud_snapshots.ClientService
-
-	ComplianceAssessments compliance_assessments.ClientService
 
 	ConfigurationAssessment configuration_assessment.ClientService
 
@@ -329,6 +338,8 @@ type CrowdStrikeAPISpecification struct {
 	ContainerAlerts container_alerts.ClientService
 
 	ContainerDetections container_detections.ClientService
+
+	ContainerImageCompliance container_image_compliance.ClientService
 
 	ContainerImages container_images.ClientService
 
@@ -361,6 +372,8 @@ type CrowdStrikeAPISpecification struct {
 	DeviceContent device_content.ClientService
 
 	DeviceControlPolicies device_control_policies.ClientService
+
+	DeviceControlWithBluetooth device_control_with_bluetooth.ClientService
 
 	Discover discover.ClientService
 
@@ -404,8 +417,6 @@ type CrowdStrikeAPISpecification struct {
 
 	Hosts hosts.ClientService
 
-	HumioAuthProxy humio_auth_proxy.ClientService
-
 	IdentityEntities identity_entities.ClientService
 
 	IdentityProtection identity_protection.ClientService
@@ -443,6 +454,8 @@ type CrowdStrikeAPISpecification struct {
 	MobileEnrollment mobile_enrollment.ClientService
 
 	Mssp mssp.ClientService
+
+	Ngsiem ngsiem.ClientService
 
 	Oauth2 oauth2.ClientService
 
@@ -515,17 +528,19 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Aspm.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
+	c.CaoHunting.SetTransport(transport)
 	c.CertificateBasedExclusions.SetTransport(transport)
 	c.CloudAwsRegistration.SetTransport(transport)
 	c.CloudAzureRegistration.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
+	c.CloudOciRegistration.SetTransport(transport)
 	c.CloudSecurityAssets.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
-	c.ComplianceAssessments.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
 	c.ContainerAlerts.SetTransport(transport)
 	c.ContainerDetections.SetTransport(transport)
+	c.ContainerImageCompliance.SetTransport(transport)
 	c.ContainerImages.SetTransport(transport)
 	c.ContainerPackages.SetTransport(transport)
 	c.ContainerVulnerabilities.SetTransport(transport)
@@ -542,6 +557,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Detects.SetTransport(transport)
 	c.DeviceContent.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
+	c.DeviceControlWithBluetooth.SetTransport(transport)
 	c.Discover.SetTransport(transport)
 	c.DiscoverIot.SetTransport(transport)
 	c.DownloadsAPI.SetTransport(transport)
@@ -563,7 +579,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.HostGroup.SetTransport(transport)
 	c.HostMigration.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
-	c.HumioAuthProxy.SetTransport(transport)
 	c.IdentityEntities.SetTransport(transport)
 	c.IdentityProtection.SetTransport(transport)
 	c.ImageAssessmentPolicies.SetTransport(transport)
@@ -583,6 +598,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.MlExclusions.SetTransport(transport)
 	c.MobileEnrollment.SetTransport(transport)
 	c.Mssp.SetTransport(transport)
+	c.Ngsiem.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)

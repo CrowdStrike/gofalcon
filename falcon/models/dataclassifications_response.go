@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -18,6 +19,9 @@ import (
 //
 // swagger:model dataclassifications.Response
 type DataclassificationsResponse struct {
+
+	// findings
+	Findings []*DataclassificationsDataClassificationFinding `json:"findings"`
 
 	// found
 	// Required: true
@@ -42,6 +46,10 @@ type DataclassificationsResponse struct {
 func (m *DataclassificationsResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateFindings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFound(formats); err != nil {
 		res = append(res, err)
 	}
@@ -61,6 +69,32 @@ func (m *DataclassificationsResponse) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DataclassificationsResponse) validateFindings(formats strfmt.Registry) error {
+	if swag.IsZero(m.Findings) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Findings); i++ {
+		if swag.IsZero(m.Findings[i]) { // not required
+			continue
+		}
+
+		if m.Findings[i] != nil {
+			if err := m.Findings[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("findings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("findings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -124,6 +158,10 @@ func (m *DataclassificationsResponse) validateTags(formats strfmt.Registry) erro
 func (m *DataclassificationsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateFindings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateTags(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -131,6 +169,31 @@ func (m *DataclassificationsResponse) ContextValidate(ctx context.Context, forma
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DataclassificationsResponse) contextValidateFindings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Findings); i++ {
+
+		if m.Findings[i] != nil {
+
+			if swag.IsZero(m.Findings[i]) { // not required
+				return nil
+			}
+
+			if err := m.Findings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("findings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("findings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

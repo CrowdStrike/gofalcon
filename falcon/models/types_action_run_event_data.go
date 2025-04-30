@@ -19,7 +19,7 @@ import (
 type TypesActionRunEventData struct {
 
 	// additional info
-	AdditionalInfo string `json:"additional_info,omitempty"`
+	AdditionalInfo string `json:"additionalInfo,omitempty"`
 
 	// aws
 	Aws *TypesAWSMetadata `json:"aws,omitempty"`
@@ -31,10 +31,10 @@ type TypesActionRunEventData struct {
 	AzureVM *TypesAzureVMMetadata `json:"azureVm,omitempty"`
 
 	// cloud function
-	CloudFunction *TypesCloudFunctionMetadata `json:"cloud_function,omitempty"`
+	CloudFunction *TypesCloudFunctionMetadata `json:"cloudFunction,omitempty"`
 
 	// crowdstrike cloud security
-	CrowdstrikeCloudSecurity *TypesCrowdStrikeCloudSecurityMetadata `json:"crowdstrike_cloud_security,omitempty"`
+	CrowdstrikeCloudSecurity *TypesCrowdStrikeCloudSecurityMetadata `json:"crowdstrikeCloudSecurity,omitempty"`
 
 	// ec2
 	Ec2 *TypesEC2Metadata `json:"ec2,omitempty"`
@@ -195,9 +195,9 @@ func (m *TypesActionRunEventData) validateCloudFunction(formats strfmt.Registry)
 	if m.CloudFunction != nil {
 		if err := m.CloudFunction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("cloud_function")
+				return ve.ValidateName("cloudFunction")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("cloud_function")
+				return ce.ValidateName("cloudFunction")
 			}
 			return err
 		}
@@ -214,9 +214,9 @@ func (m *TypesActionRunEventData) validateCrowdstrikeCloudSecurity(formats strfm
 	if m.CrowdstrikeCloudSecurity != nil {
 		if err := m.CrowdstrikeCloudSecurity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("crowdstrike_cloud_security")
+				return ve.ValidateName("crowdstrikeCloudSecurity")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("crowdstrike_cloud_security")
+				return ce.ValidateName("crowdstrikeCloudSecurity")
 			}
 			return err
 		}
@@ -535,9 +535,9 @@ func (m *TypesActionRunEventData) contextValidateCloudFunction(ctx context.Conte
 
 		if err := m.CloudFunction.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("cloud_function")
+				return ve.ValidateName("cloudFunction")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("cloud_function")
+				return ce.ValidateName("cloudFunction")
 			}
 			return err
 		}
@@ -556,9 +556,9 @@ func (m *TypesActionRunEventData) contextValidateCrowdstrikeCloudSecurity(ctx co
 
 		if err := m.CrowdstrikeCloudSecurity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("crowdstrike_cloud_security")
+				return ve.ValidateName("crowdstrikeCloudSecurity")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("crowdstrike_cloud_security")
+				return ce.ValidateName("crowdstrikeCloudSecurity")
 			}
 			return err
 		}

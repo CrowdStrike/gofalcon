@@ -68,7 +68,7 @@ func (o *CombinedRulesGetV1Reader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /correlation-rules/combined/rules/v1] combined_rules.get.v1", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /correlation-rules/combined/rules/v1] combined.rules.get.v1", response, response.Code())
 	}
 }
 

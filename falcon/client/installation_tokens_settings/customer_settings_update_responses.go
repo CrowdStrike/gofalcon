@@ -90,7 +90,7 @@ type CustomerSettingsUpdateOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecQueryResponse
+	Payload *models.APICustomerSettingsResponseV1
 }
 
 // IsSuccess returns true when this customer settings update o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *CustomerSettingsUpdateOK) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateOK  %+v", 200, o.Payload)
 }
 
-func (o *CustomerSettingsUpdateOK) GetPayload() *models.MsaspecQueryResponse {
+func (o *CustomerSettingsUpdateOK) GetPayload() *models.APICustomerSettingsResponseV1 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *CustomerSettingsUpdateOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecQueryResponse)
+	o.Payload = new(models.APICustomerSettingsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

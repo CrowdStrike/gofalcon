@@ -129,8 +129,6 @@ func (o *CreateSavedSearchesExecuteAltV1Params) SetDefaults() {
 	var (
 		detailedDefault = bool(false)
 
-		includeTestDataDefault = bool(false)
-
 		inferJSONTypesDefault = bool(false)
 
 		matchResponseSchemaDefault = bool(false)
@@ -140,7 +138,6 @@ func (o *CreateSavedSearchesExecuteAltV1Params) SetDefaults() {
 
 	val := CreateSavedSearchesExecuteAltV1Params{
 		Detailed:            &detailedDefault,
-		IncludeTestData:     &includeTestDataDefault,
 		InferJSONTypes:      &inferJSONTypesDefault,
 		MatchResponseSchema: &matchResponseSchemaDefault,
 		Metadata:            &metadataDefault,

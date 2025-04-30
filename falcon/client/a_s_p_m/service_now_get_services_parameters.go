@@ -65,6 +65,9 @@ type ServiceNowGetServicesParams struct {
 	// Direction.
 	Direction *string
 
+	// ExcludeArtifacts.
+	ExcludeArtifacts *bool
+
 	// Limit.
 	Limit *int64
 
@@ -141,6 +144,17 @@ func (o *ServiceNowGetServicesParams) SetDirection(direction *string) {
 	o.Direction = direction
 }
 
+// WithExcludeArtifacts adds the excludeArtifacts to the service now get services params
+func (o *ServiceNowGetServicesParams) WithExcludeArtifacts(excludeArtifacts *bool) *ServiceNowGetServicesParams {
+	o.SetExcludeArtifacts(excludeArtifacts)
+	return o
+}
+
+// SetExcludeArtifacts adds the excludeArtifacts to the service now get services params
+func (o *ServiceNowGetServicesParams) SetExcludeArtifacts(excludeArtifacts *bool) {
+	o.ExcludeArtifacts = excludeArtifacts
+}
+
 // WithLimit adds the limit to the service now get services params
 func (o *ServiceNowGetServicesParams) WithLimit(limit *int64) *ServiceNowGetServicesParams {
 	o.SetLimit(limit)
@@ -205,6 +219,23 @@ func (o *ServiceNowGetServicesParams) WriteToRequest(r runtime.ClientRequest, re
 		if qDirection != "" {
 
 			if err := r.SetQueryParam("direction", qDirection); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ExcludeArtifacts != nil {
+
+		// query param exclude_artifacts
+		var qrExcludeArtifacts bool
+
+		if o.ExcludeArtifacts != nil {
+			qrExcludeArtifacts = *o.ExcludeArtifacts
+		}
+		qExcludeArtifacts := swag.FormatBool(qrExcludeArtifacts)
+		if qExcludeArtifacts != "" {
+
+			if err := r.SetQueryParam("exclude_artifacts", qExcludeArtifacts); err != nil {
 				return err
 			}
 		}

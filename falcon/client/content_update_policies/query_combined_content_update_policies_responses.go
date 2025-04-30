@@ -84,7 +84,7 @@ type QueryCombinedContentUpdatePoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainContentUpdatePolicyRespV1
+	Payload *models.ContentUpdateRespV1
 }
 
 // IsSuccess returns true when this query combined content update policies o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *QueryCombinedContentUpdatePoliciesOK) String() string {
 	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryCombinedContentUpdatePoliciesOK) GetPayload() *models.DomainContentUpdatePolicyRespV1 {
+func (o *QueryCombinedContentUpdatePoliciesOK) GetPayload() *models.ContentUpdateRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *QueryCombinedContentUpdatePoliciesOK) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainContentUpdatePolicyRespV1)
+	o.Payload = new(models.ContentUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type QueryCombinedContentUpdatePoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainContentUpdatePolicyRespV1
+	Payload *models.ContentUpdateRespV1
 }
 
 // IsSuccess returns true when this query combined content update policies bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *QueryCombinedContentUpdatePoliciesBadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryCombinedContentUpdatePoliciesBadRequest) GetPayload() *models.DomainContentUpdatePolicyRespV1 {
+func (o *QueryCombinedContentUpdatePoliciesBadRequest) GetPayload() *models.ContentUpdateRespV1 {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *QueryCombinedContentUpdatePoliciesBadRequest) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainContentUpdatePolicyRespV1)
+	o.Payload = new(models.ContentUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type QueryCombinedContentUpdatePoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainContentUpdatePolicyRespV1
+	Payload *models.ContentUpdateRespV1
 }
 
 // IsSuccess returns true when this query combined content update policies internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *QueryCombinedContentUpdatePoliciesInternalServerError) String() string 
 	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryCombinedContentUpdatePoliciesInternalServerError) GetPayload() *models.DomainContentUpdatePolicyRespV1 {
+func (o *QueryCombinedContentUpdatePoliciesInternalServerError) GetPayload() *models.ContentUpdateRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *QueryCombinedContentUpdatePoliciesInternalServerError) readResponse(res
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainContentUpdatePolicyRespV1)
+	o.Payload = new(models.ContentUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

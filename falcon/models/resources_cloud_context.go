@@ -46,7 +46,7 @@ type ResourcesCloudContext struct {
 	Host *ResourcesHost `json:"host,omitempty"`
 
 	// insights
-	Insights *ResourcesInsights `json:"insights,omitempty"`
+	Insights *InsightsInsight `json:"insights,omitempty"`
 
 	// instance id
 	InstanceID string `json:"instance_id,omitempty"`

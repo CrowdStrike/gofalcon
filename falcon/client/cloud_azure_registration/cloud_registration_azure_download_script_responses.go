@@ -84,7 +84,7 @@ type CloudRegistrationAzureDownloadScriptOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RestAzureProvisionGetAccountScriptResponseV1
+	Payload *models.AzureAzureProvisionGetAccountScriptResponseV1
 }
 
 // IsSuccess returns true when this cloud registration azure download script o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CloudRegistrationAzureDownloadScriptOK) String() string {
 	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptOK  %+v", 200, o.Payload)
 }
 
-func (o *CloudRegistrationAzureDownloadScriptOK) GetPayload() *models.RestAzureProvisionGetAccountScriptResponseV1 {
+func (o *CloudRegistrationAzureDownloadScriptOK) GetPayload() *models.AzureAzureProvisionGetAccountScriptResponseV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CloudRegistrationAzureDownloadScriptOK) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RestAzureProvisionGetAccountScriptResponseV1)
+	o.Payload = new(models.AzureAzureProvisionGetAccountScriptResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

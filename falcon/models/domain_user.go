@@ -26,6 +26,9 @@ type DomainUser struct {
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`
 
+	// factors
+	Factors []string `json:"factors"`
+
 	// first name
 	FirstName string `json:"first_name,omitempty"`
 

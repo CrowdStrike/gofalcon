@@ -135,8 +135,6 @@ func (o *ExecuteDynamicParams) SetDefaults() {
 	var (
 		includeSchemaGenerationDefault = bool(false)
 
-		includeTestDataDefault = bool(false)
-
 		inferJSONTypesDefault = bool(false)
 
 		matchResponseSchemaDefault = bool(false)
@@ -146,7 +144,6 @@ func (o *ExecuteDynamicParams) SetDefaults() {
 
 	val := ExecuteDynamicParams{
 		IncludeSchemaGeneration: &includeSchemaGenerationDefault,
-		IncludeTestData:         &includeTestDataDefault,
 		InferJSONTypes:          &inferJSONTypesDefault,
 		MatchResponseSchema:     &matchResponseSchemaDefault,
 		Metadata:                &metadataDefault,

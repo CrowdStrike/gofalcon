@@ -78,7 +78,7 @@ type QueryQuarantineFilesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query quarantine files o k response has a 2xx status code
@@ -119,7 +119,7 @@ func (o *QueryQuarantineFilesOK) String() string {
 	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryQuarantineFilesOK) GetPayload() *models.MsaQueryResponse {
+func (o *QueryQuarantineFilesOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -154,7 +154,7 @@ func (o *QueryQuarantineFilesOK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

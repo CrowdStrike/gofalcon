@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -38,6 +39,9 @@ type DomainXDRParams struct {
 	// execution offset
 	// Required: true
 	ExecutionOffset *string `json:"execution_offset"`
+
+	// mitre attack
+	MitreAttack []*DomainMitreAttackMapping `json:"mitre_attack"`
 
 	// origin
 	// Required: true
@@ -97,6 +101,10 @@ func (m *DomainXDRParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateExecutionOffset(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMitreAttack(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -187,6 +195,32 @@ func (m *DomainXDRParams) validateExecutionOffset(formats strfmt.Registry) error
 	return nil
 }
 
+func (m *DomainXDRParams) validateMitreAttack(formats strfmt.Registry) error {
+	if swag.IsZero(m.MitreAttack) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MitreAttack); i++ {
+		if swag.IsZero(m.MitreAttack[i]) { // not required
+			continue
+		}
+
+		if m.MitreAttack[i] != nil {
+			if err := m.MitreAttack[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainXDRParams) validateOrigin(formats strfmt.Registry) error {
 
 	if err := validate.Required("origin", "body", m.Origin); err != nil {
@@ -268,8 +302,42 @@ func (m *DomainXDRParams) validateType(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain x d r params based on context it is used
+// ContextValidate validate this domain x d r params based on the context it is used
 func (m *DomainXDRParams) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMitreAttack(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainXDRParams) contextValidateMitreAttack(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MitreAttack); i++ {
+
+		if m.MitreAttack[i] != nil {
+
+			if swag.IsZero(m.MitreAttack[i]) { // not required
+				return nil
+			}
+
+			if err := m.MitreAttack[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

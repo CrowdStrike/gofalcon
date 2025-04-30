@@ -19,9 +19,21 @@ import (
 // swagger:model content_update.RingAssignmentSettingsV1
 type ContentUpdateRingAssignmentSettingsV1 struct {
 
+	// delay hours
+	// Required: true
+	DelayHours *string `json:"delay_hours"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`
+
+	// override
+	// Required: true
+	Override *ContentUpdateRingAssignmentOverrideSettingV1 `json:"override"`
+
+	// pinned content version
+	// Required: true
+	PinnedContentVersion *string `json:"pinned_content_version"`
 
 	// ring assignment
 	// Required: true
@@ -32,7 +44,19 @@ type ContentUpdateRingAssignmentSettingsV1 struct {
 func (m *ContentUpdateRingAssignmentSettingsV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDelayHours(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOverride(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePinnedContentVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -46,9 +70,47 @@ func (m *ContentUpdateRingAssignmentSettingsV1) Validate(formats strfmt.Registry
 	return nil
 }
 
+func (m *ContentUpdateRingAssignmentSettingsV1) validateDelayHours(formats strfmt.Registry) error {
+
+	if err := validate.Required("delay_hours", "body", m.DelayHours); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ContentUpdateRingAssignmentSettingsV1) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ContentUpdateRingAssignmentSettingsV1) validateOverride(formats strfmt.Registry) error {
+
+	if err := validate.Required("override", "body", m.Override); err != nil {
+		return err
+	}
+
+	if m.Override != nil {
+		if err := m.Override.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("override")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("override")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ContentUpdateRingAssignmentSettingsV1) validatePinnedContentVersion(formats strfmt.Registry) error {
+
+	if err := validate.Required("pinned_content_version", "body", m.PinnedContentVersion); err != nil {
 		return err
 	}
 
@@ -64,8 +126,34 @@ func (m *ContentUpdateRingAssignmentSettingsV1) validateRingAssignment(formats s
 	return nil
 }
 
-// ContextValidate validates this content update ring assignment settings v1 based on context it is used
+// ContextValidate validate this content update ring assignment settings v1 based on the context it is used
 func (m *ContentUpdateRingAssignmentSettingsV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOverride(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContentUpdateRingAssignmentSettingsV1) contextValidateOverride(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Override != nil {
+
+		if err := m.Override.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("override")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("override")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

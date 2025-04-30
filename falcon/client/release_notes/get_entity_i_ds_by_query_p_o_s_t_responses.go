@@ -31,6 +31,12 @@ func (o *GetEntityIDsByQueryPOSTReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewGetEntityIDsByQueryPOSTBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetEntityIDsByQueryPOSTForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -84,7 +90,7 @@ type GetEntityIDsByQueryPOSTOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ReleasenotesEntitiesGetResponseWrapper
+	Payload *models.ReleasenotesReleaseNoteWrapperV1
 }
 
 // IsSuccess returns true when this get entity i ds by query p o s t o k response has a 2xx status code
@@ -125,7 +131,7 @@ func (o *GetEntityIDsByQueryPOSTOK) String() string {
 	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v1][%d] getEntityIDsByQueryPOSTOK  %+v", 200, o.Payload)
 }
 
-func (o *GetEntityIDsByQueryPOSTOK) GetPayload() *models.ReleasenotesEntitiesGetResponseWrapper {
+func (o *GetEntityIDsByQueryPOSTOK) GetPayload() *models.ReleasenotesReleaseNoteWrapperV1 {
 	return o.Payload
 }
 
@@ -160,7 +166,117 @@ func (o *GetEntityIDsByQueryPOSTOK) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ReleasenotesEntitiesGetResponseWrapper)
+	o.Payload = new(models.ReleasenotesReleaseNoteWrapperV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetEntityIDsByQueryPOSTBadRequest creates a GetEntityIDsByQueryPOSTBadRequest with default headers values
+func NewGetEntityIDsByQueryPOSTBadRequest() *GetEntityIDsByQueryPOSTBadRequest {
+	return &GetEntityIDsByQueryPOSTBadRequest{}
+}
+
+/*
+GetEntityIDsByQueryPOSTBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type GetEntityIDsByQueryPOSTBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this get entity i ds by query p o s t bad request response has a 2xx status code
+func (o *GetEntityIDsByQueryPOSTBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get entity i ds by query p o s t bad request response has a 3xx status code
+func (o *GetEntityIDsByQueryPOSTBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get entity i ds by query p o s t bad request response has a 4xx status code
+func (o *GetEntityIDsByQueryPOSTBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get entity i ds by query p o s t bad request response has a 5xx status code
+func (o *GetEntityIDsByQueryPOSTBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get entity i ds by query p o s t bad request response a status code equal to that given
+func (o *GetEntityIDsByQueryPOSTBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the get entity i ds by query p o s t bad request response
+func (o *GetEntityIDsByQueryPOSTBadRequest) Code() int {
+	return 400
+}
+
+func (o *GetEntityIDsByQueryPOSTBadRequest) Error() string {
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v1][%d] getEntityIDsByQueryPOSTBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetEntityIDsByQueryPOSTBadRequest) String() string {
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v1][%d] getEntityIDsByQueryPOSTBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetEntityIDsByQueryPOSTBadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *GetEntityIDsByQueryPOSTBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +310,7 @@ type GetEntityIDsByQueryPOSTForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ReleasenotesReleaseNoteWrapperV1
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get entity i ds by query p o s t forbidden response has a 2xx status code
@@ -235,7 +351,7 @@ func (o *GetEntityIDsByQueryPOSTForbidden) String() string {
 	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v1][%d] getEntityIDsByQueryPOSTForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetEntityIDsByQueryPOSTForbidden) GetPayload() *models.ReleasenotesReleaseNoteWrapperV1 {
+func (o *GetEntityIDsByQueryPOSTForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +386,7 @@ func (o *GetEntityIDsByQueryPOSTForbidden) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ReleasenotesReleaseNoteWrapperV1)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +420,7 @@ type GetEntityIDsByQueryPOSTNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ReleasenotesReleaseNoteWrapperV1
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get entity i ds by query p o s t not found response has a 2xx status code
@@ -345,7 +461,7 @@ func (o *GetEntityIDsByQueryPOSTNotFound) String() string {
 	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v1][%d] getEntityIDsByQueryPOSTNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetEntityIDsByQueryPOSTNotFound) GetPayload() *models.ReleasenotesReleaseNoteWrapperV1 {
+func (o *GetEntityIDsByQueryPOSTNotFound) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +496,7 @@ func (o *GetEntityIDsByQueryPOSTNotFound) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ReleasenotesReleaseNoteWrapperV1)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +655,7 @@ type GetEntityIDsByQueryPOSTInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ReleasenotesReleaseNoteWrapperV1
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get entity i ds by query p o s t internal server error response has a 2xx status code
@@ -580,7 +696,7 @@ func (o *GetEntityIDsByQueryPOSTInternalServerError) String() string {
 	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v1][%d] getEntityIDsByQueryPOSTInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetEntityIDsByQueryPOSTInternalServerError) GetPayload() *models.ReleasenotesReleaseNoteWrapperV1 {
+func (o *GetEntityIDsByQueryPOSTInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +731,7 @@ func (o *GetEntityIDsByQueryPOSTInternalServerError) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ReleasenotesReleaseNoteWrapperV1)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

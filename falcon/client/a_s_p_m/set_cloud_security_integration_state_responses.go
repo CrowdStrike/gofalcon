@@ -25,6 +25,12 @@ type SetCloudSecurityIntegrationStateReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *SetCloudSecurityIntegrationStateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
+	case 200:
+		result := NewSetCloudSecurityIntegrationStateOK()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 204:
 		result := NewSetCloudSecurityIntegrationStateNoContent()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -64,6 +70,103 @@ func (o *SetCloudSecurityIntegrationStateReader) ReadResponse(response runtime.C
 	default:
 		return nil, runtime.NewAPIError("[POST /aspm-api-gateway/api/v1/cloud_security_config] SetCloudSecurityIntegrationState", response, response.Code())
 	}
+}
+
+// NewSetCloudSecurityIntegrationStateOK creates a SetCloudSecurityIntegrationStateOK with default headers values
+func NewSetCloudSecurityIntegrationStateOK() *SetCloudSecurityIntegrationStateOK {
+	return &SetCloudSecurityIntegrationStateOK{}
+}
+
+/*
+SetCloudSecurityIntegrationStateOK describes a response with status code 200, with default header values.
+
+OK
+*/
+type SetCloudSecurityIntegrationStateOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+}
+
+// IsSuccess returns true when this set cloud security integration state o k response has a 2xx status code
+func (o *SetCloudSecurityIntegrationStateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this set cloud security integration state o k response has a 3xx status code
+func (o *SetCloudSecurityIntegrationStateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set cloud security integration state o k response has a 4xx status code
+func (o *SetCloudSecurityIntegrationStateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set cloud security integration state o k response has a 5xx status code
+func (o *SetCloudSecurityIntegrationStateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set cloud security integration state o k response a status code equal to that given
+func (o *SetCloudSecurityIntegrationStateOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the set cloud security integration state o k response
+func (o *SetCloudSecurityIntegrationStateOK) Code() int {
+	return 200
+}
+
+func (o *SetCloudSecurityIntegrationStateOK) Error() string {
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateOK ", 200)
+}
+
+func (o *SetCloudSecurityIntegrationStateOK) String() string {
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateOK ", 200)
+}
+
+func (o *SetCloudSecurityIntegrationStateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	return nil
 }
 
 // NewSetCloudSecurityIntegrationStateNoContent creates a SetCloudSecurityIntegrationStateNoContent with default headers values

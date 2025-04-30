@@ -42,8 +42,6 @@ type ClientService interface {
 
 	GetLogins(params *GetLoginsParams, opts ...ClientOption) (*GetLoginsOK, error)
 
-	PostExternalAssetsInventoryV1(params *PostExternalAssetsInventoryV1Params, opts ...ClientOption) (*PostExternalAssetsInventoryV1OK, error)
-
 	QueryAccounts(params *QueryAccountsParams, opts ...ClientOption) (*QueryAccountsOK, error)
 
 	QueryApplications(params *QueryApplicationsParams, opts ...ClientOption) (*QueryApplicationsOK, error)
@@ -280,44 +278,6 @@ func (a *Client) GetLogins(params *GetLoginsParams, opts ...ClientOption) (*GetL
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for get-logins: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-PostExternalAssetsInventoryV1 adds external assets for external asset scanning
-*/
-func (a *Client) PostExternalAssetsInventoryV1(params *PostExternalAssetsInventoryV1Params, opts ...ClientOption) (*PostExternalAssetsInventoryV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPostExternalAssetsInventoryV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "post-external-assets-inventory-v1",
-		Method:             "POST",
-		PathPattern:        "/fem/entities/external-asset-inventory/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostExternalAssetsInventoryV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*PostExternalAssetsInventoryV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for post-external-assets-inventory-v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

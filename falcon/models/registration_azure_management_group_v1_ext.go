@@ -57,7 +57,7 @@ type RegistrationAzureManagementGroupV1Ext struct {
 	ClientID string `json:"client_id,omitempty"`
 
 	// conditions
-	Conditions []*DomainCondition `json:"conditions"`
+	Conditions []*StatemgmtCondition `json:"conditions"`
 
 	// credentials end date
 	// Format: date-time
@@ -79,7 +79,7 @@ type RegistrationAzureManagementGroupV1Ext struct {
 	PublicCertificateRaw string `json:"public_certificate_raw,omitempty"`
 
 	// role assignments
-	RoleAssignments []*DomainAzureManagementGroupRoleAssignment `json:"role_assignments"`
+	RoleAssignments []*AzureDBRoleAssignment `json:"role_assignments"`
 
 	// Account registration status.
 	Status string `json:"status,omitempty"`

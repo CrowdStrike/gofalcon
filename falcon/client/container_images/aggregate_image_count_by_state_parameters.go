@@ -64,8 +64,15 @@ type AggregateImageCountByStateParams struct {
 	/* Filter.
 
 	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
+	- `arch`
+	- `base_os`
+	- `cid`
+	- `first_seen`
+	- `image_digest`
+	- `image_id`
 	- `registry`
 	- `repository`
+	- `source`
 	- `tag`
 	*/
 	Filter *string

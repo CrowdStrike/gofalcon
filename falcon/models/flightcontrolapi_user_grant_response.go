@@ -29,7 +29,7 @@ type FlightcontrolapiUserGrantResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*DomainUserGrants `json:"resources"`
+	Resources []*DomainUserGrant `json:"resources"`
 }
 
 // Validate validates this flightcontrolapi user grant response

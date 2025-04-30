@@ -26,44 +26,68 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// account type
 	AccountType string `json:"account_type,omitempty"`
 
+	// cloudformation stack arn
+	CloudformationStackArn string `json:"cloudformation_stack_arn,omitempty"`
+
+	// cloudtrail region
+	CloudtrailRegion string `json:"cloudtrail_region,omitempty"`
+
 	// csp events
 	CspEvents bool `json:"csp_events,omitempty"`
+
+	// deployment method
+	DeploymentMethod string `json:"deployment_method,omitempty"`
+
+	// dspm role
+	DspmRole string `json:"dspm_role,omitempty"`
+
+	// falcon client id
+	FalconClientID string `json:"falcon_client_id,omitempty"`
+
+	// iam role arn
+	IamRoleArn string `json:"iam_role_arn,omitempty"`
 
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
 
 	// organization id
-	// Required: true
-	OrganizationID *string `json:"organization_id"`
+	OrganizationID string `json:"organization_id,omitempty"`
 
 	// products
 	Products []*RestAccountProductUpsertRequestExtV1 `json:"products"`
+
+	// resource name prefix
+	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
+
+	// resource name suffix
+	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
+
+	// root stack id
+	RootStackID string `json:"root_stack_id,omitempty"`
+
+	// target ous
+	TargetOus []string `json:"target_ous"`
+
+	// use existing cloudtrail
+	// Required: true
+	UseExistingCloudtrail *bool `json:"use_existing_cloudtrail"`
 }
 
 // Validate validates this rest cloud a w s account create ext v1
 func (m *RestCloudAWSAccountCreateExtV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateOrganizationID(formats); err != nil {
+	if err := m.validateProducts(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateProducts(formats); err != nil {
+	if err := m.validateUseExistingCloudtrail(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *RestCloudAWSAccountCreateExtV1) validateOrganizationID(formats strfmt.Registry) error {
-
-	if err := validate.Required("organization_id", "body", m.OrganizationID); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -88,6 +112,15 @@ func (m *RestCloudAWSAccountCreateExtV1) validateProducts(formats strfmt.Registr
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RestCloudAWSAccountCreateExtV1) validateUseExistingCloudtrail(formats strfmt.Registry) error {
+
+	if err := validate.Required("use_existing_cloudtrail", "body", m.UseExistingCloudtrail); err != nil {
+		return err
 	}
 
 	return nil

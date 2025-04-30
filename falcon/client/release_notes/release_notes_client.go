@@ -78,7 +78,7 @@ func (a *Client) CombinedReleaseNotesV1(params *CombinedReleaseNotesV1Params, op
 }
 
 /*
-GetEntityIDsByQueryPOST returns the i ds of all entities in the database for the given page
+GetEntityIDsByQueryPOST returns the release notes for the i ds in the request
 */
 func (a *Client) GetEntityIDsByQueryPOST(params *GetEntityIDsByQueryPOSTParams, opts ...ClientOption) (*GetEntityIDsByQueryPOSTOK, error) {
 	// TODO: Validate the params before sending

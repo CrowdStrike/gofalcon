@@ -22,6 +22,9 @@ type FigapiIndicator struct {
 	// adversaries
 	Adversaries []*FigapiAdversary `json:"Adversaries"`
 
+	// Total range of customers affected by this indicator
+	AffectedCustomers string `json:"AffectedCustomers,omitempty"`
+
 	// certificates
 	Certificates []*FigapiX509Certificate `json:"Certificates"`
 
@@ -81,9 +84,6 @@ type FigapiIndicator struct {
 
 	// Structure for URL type indicator
 	URLDetails *FigapiURL `json:"URLDetails,omitempty"`
-
-	// TBD
-	Victimology string `json:"Victimology,omitempty"`
 
 	// vulnerabilities
 	Vulnerabilities []*FigapiVulnerability `json:"Vulnerabilities"`

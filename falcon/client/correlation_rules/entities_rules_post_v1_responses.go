@@ -68,7 +68,7 @@ func (o *EntitiesRulesPostV1Reader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[POST /correlation-rules/entities/rules/v1] entities_rules.post.v1", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /correlation-rules/entities/rules/v1] entities.rules.post.v1", response, response.Code())
 	}
 }
 

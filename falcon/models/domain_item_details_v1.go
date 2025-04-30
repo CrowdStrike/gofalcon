@@ -76,6 +76,9 @@ type DomainItemDetailsV1 struct {
 	// The mime type of the file
 	MimeType string `json:"mime_type,omitempty"`
 
+	// Screenshots of the raw intelligence item
+	Screenshots []*DomainScreenshot `json:"screenshots"`
+
 	// The SHA256 hash for the file
 	Sha256 string `json:"sha256,omitempty"`
 
@@ -147,6 +150,10 @@ func (m *DomainItemDetailsV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMarketplaceProduct(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScreenshots(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -298,6 +305,32 @@ func (m *DomainItemDetailsV1) validateMarketplaceProduct(formats strfmt.Registry
 	return nil
 }
 
+func (m *DomainItemDetailsV1) validateScreenshots(formats strfmt.Registry) error {
+	if swag.IsZero(m.Screenshots) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Screenshots); i++ {
+		if swag.IsZero(m.Screenshots[i]) { // not required
+			continue
+		}
+
+		if m.Screenshots[i] != nil {
+			if err := m.Screenshots[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("screenshots" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("screenshots" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainItemDetailsV1) validateSiteID(formats strfmt.Registry) error {
 
 	if err := validate.Required("site_id", "body", m.SiteID); err != nil {
@@ -365,6 +398,10 @@ func (m *DomainItemDetailsV1) ContextValidate(ctx context.Context, formats strfm
 	}
 
 	if err := m.contextValidateMarketplaceProduct(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScreenshots(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -461,6 +498,31 @@ func (m *DomainItemDetailsV1) contextValidateMarketplaceProduct(ctx context.Cont
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainItemDetailsV1) contextValidateScreenshots(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Screenshots); i++ {
+
+		if m.Screenshots[i] != nil {
+
+			if swag.IsZero(m.Screenshots[i]) { // not required
+				return nil
+			}
+
+			if err := m.Screenshots[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("screenshots" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("screenshots" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

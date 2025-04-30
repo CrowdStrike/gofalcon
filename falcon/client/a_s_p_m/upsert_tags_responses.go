@@ -25,6 +25,12 @@ type UpsertTagsReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *UpsertTagsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
+	case 200:
+		result := NewUpsertTagsOK()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 201:
 		result := NewUpsertTagsCreated()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -70,6 +76,103 @@ func (o *UpsertTagsReader) ReadResponse(response runtime.ClientResponse, consume
 	default:
 		return nil, runtime.NewAPIError("[PUT /aspm-api-gateway/api/v1/tags] UpsertTags", response, response.Code())
 	}
+}
+
+// NewUpsertTagsOK creates a UpsertTagsOK with default headers values
+func NewUpsertTagsOK() *UpsertTagsOK {
+	return &UpsertTagsOK{}
+}
+
+/*
+UpsertTagsOK describes a response with status code 200, with default header values.
+
+OK
+*/
+type UpsertTagsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+}
+
+// IsSuccess returns true when this upsert tags o k response has a 2xx status code
+func (o *UpsertTagsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this upsert tags o k response has a 3xx status code
+func (o *UpsertTagsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upsert tags o k response has a 4xx status code
+func (o *UpsertTagsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this upsert tags o k response has a 5xx status code
+func (o *UpsertTagsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upsert tags o k response a status code equal to that given
+func (o *UpsertTagsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the upsert tags o k response
+func (o *UpsertTagsOK) Code() int {
+	return 200
+}
+
+func (o *UpsertTagsOK) Error() string {
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsOK ", 200)
+}
+
+func (o *UpsertTagsOK) String() string {
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsOK ", 200)
+}
+
+func (o *UpsertTagsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	return nil
 }
 
 // NewUpsertTagsCreated creates a UpsertTagsCreated with default headers values

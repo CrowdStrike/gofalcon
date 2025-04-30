@@ -19,27 +19,35 @@ import (
 // swagger:model sadomain.TyposquattingSubdomain
 type SadomainTyposquattingSubdomain struct {
 
-	// first seen
+	// First time the subdomain was observed
 	// Format: date-time
 	FirstSeen strfmt.DateTime `json:"first_seen,omitempty"`
 
-	// id
+	// Subdomain's leftmost domain label is one of www, mail, ns1, ns2
+	// Required: true
+	HasNoisyDomainPrefix *bool `json:"has_noisy_domain_prefix"`
+
+	// The ID of the subdomain
 	// Required: true
 	ID *string `json:"id"`
 
-	// is registered
-	// Required: true
-	IsRegistered *bool `json:"is_registered"`
-
-	// last seen
+	// Last time the subdomain was observed
 	// Format: date-time
 	LastSeen strfmt.DateTime `json:"last_seen,omitempty"`
 
-	// punycode format
+	// Subdomain's leftmost domain label, in punycode format
+	// Required: true
+	PunycodeDomainPrefix *string `json:"punycode_domain_prefix"`
+
+	// The Punycode representation of the subdomain, i.e. starting with `xn--`
 	// Required: true
 	PunycodeFormat *string `json:"punycode_format"`
 
-	// unicode format
+	// Subdomain's leftmost domain label, in Unicode format
+	// Required: true
+	UnicodeDomainPrefix *string `json:"unicode_domain_prefix"`
+
+	// The Unicode representation of the subdomain
 	// Required: true
 	UnicodeFormat *string `json:"unicode_format"`
 }
@@ -52,11 +60,11 @@ func (m *SadomainTyposquattingSubdomain) Validate(formats strfmt.Registry) error
 		res = append(res, err)
 	}
 
-	if err := m.validateID(formats); err != nil {
+	if err := m.validateHasNoisyDomainPrefix(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIsRegistered(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -64,7 +72,15 @@ func (m *SadomainTyposquattingSubdomain) Validate(formats strfmt.Registry) error
 		res = append(res, err)
 	}
 
+	if err := m.validatePunycodeDomainPrefix(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePunycodeFormat(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUnicodeDomainPrefix(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -90,18 +106,18 @@ func (m *SadomainTyposquattingSubdomain) validateFirstSeen(formats strfmt.Regist
 	return nil
 }
 
-func (m *SadomainTyposquattingSubdomain) validateID(formats strfmt.Registry) error {
+func (m *SadomainTyposquattingSubdomain) validateHasNoisyDomainPrefix(formats strfmt.Registry) error {
 
-	if err := validate.Required("id", "body", m.ID); err != nil {
+	if err := validate.Required("has_noisy_domain_prefix", "body", m.HasNoisyDomainPrefix); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *SadomainTyposquattingSubdomain) validateIsRegistered(formats strfmt.Registry) error {
+func (m *SadomainTyposquattingSubdomain) validateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("is_registered", "body", m.IsRegistered); err != nil {
+	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 
@@ -120,9 +136,27 @@ func (m *SadomainTyposquattingSubdomain) validateLastSeen(formats strfmt.Registr
 	return nil
 }
 
+func (m *SadomainTyposquattingSubdomain) validatePunycodeDomainPrefix(formats strfmt.Registry) error {
+
+	if err := validate.Required("punycode_domain_prefix", "body", m.PunycodeDomainPrefix); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *SadomainTyposquattingSubdomain) validatePunycodeFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("punycode_format", "body", m.PunycodeFormat); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SadomainTyposquattingSubdomain) validateUnicodeDomainPrefix(formats strfmt.Registry) error {
+
+	if err := validate.Required("unicode_domain_prefix", "body", m.UnicodeDomainPrefix); err != nil {
 		return err
 	}
 

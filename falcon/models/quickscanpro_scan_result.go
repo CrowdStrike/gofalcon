@@ -36,7 +36,7 @@ type QuickscanproScanResult struct {
 
 	// verdict
 	// Required: true
-	// Enum: [clean suspicious malicious unknown]
+	// Enum: [clean likely_benign suspicious malicious unknown]
 	Verdict *string `json:"verdict"`
 
 	// verdict reason
@@ -160,7 +160,7 @@ var quickscanproScanResultTypeVerdictPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["clean","suspicious","malicious","unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["clean","likely_benign","suspicious","malicious","unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -172,6 +172,9 @@ const (
 
 	// QuickscanproScanResultVerdictClean captures enum value "clean"
 	QuickscanproScanResultVerdictClean string = "clean"
+
+	// QuickscanproScanResultVerdictLikelyBenign captures enum value "likely_benign"
+	QuickscanproScanResultVerdictLikelyBenign string = "likely_benign"
 
 	// QuickscanproScanResultVerdictSuspicious captures enum value "suspicious"
 	QuickscanproScanResultVerdictSuspicious string = "suspicious"

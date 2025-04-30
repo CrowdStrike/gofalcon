@@ -98,6 +98,9 @@ type DomainScheduledReportV1 struct {
 	// Format: date-time
 	StopOn strfmt.DateTime `json:"stop_on,omitempty"`
 
+	// stopped by cs
+	StoppedByCs bool `json:"stopped_by_cs,omitempty"`
+
 	// tracking
 	Tracking string `json:"tracking,omitempty"`
 

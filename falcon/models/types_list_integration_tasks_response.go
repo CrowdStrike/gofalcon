@@ -20,7 +20,7 @@ import (
 type TypesListIntegrationTasksResponse struct {
 
 	// integration tasks
-	IntegrationTasks []*TypesIntegrationTask `json:"integration_tasks"`
+	IntegrationTasks []*TypesIntegrationTask `json:"integrationTasks"`
 }
 
 // Validate validates this types list integration tasks response
@@ -50,9 +50,9 @@ func (m *TypesListIntegrationTasksResponse) validateIntegrationTasks(formats str
 		if m.IntegrationTasks[i] != nil {
 			if err := m.IntegrationTasks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("integration_tasks" + "." + strconv.Itoa(i))
+					return ve.ValidateName("integrationTasks" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("integration_tasks" + "." + strconv.Itoa(i))
+					return ce.ValidateName("integrationTasks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -89,9 +89,9 @@ func (m *TypesListIntegrationTasksResponse) contextValidateIntegrationTasks(ctx 
 
 			if err := m.IntegrationTasks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("integration_tasks" + "." + strconv.Itoa(i))
+					return ve.ValidateName("integrationTasks" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("integration_tasks" + "." + strconv.Itoa(i))
+					return ce.ValidateName("integrationTasks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
