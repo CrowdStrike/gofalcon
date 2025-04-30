@@ -52,6 +52,8 @@ type ClientService interface {
 
 	UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error)
 
+	AggregateUsersV1(params *AggregateUsersV1Params, opts ...ClientOption) (*AggregateUsersV1OK, error)
+
 	CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...ClientOption) (*CombinedUserRolesV1OK, error)
 
 	CreateUserV1(params *CreateUserV1Params, opts ...ClientOption) (*CreateUserV1Created, error)
@@ -492,6 +494,44 @@ func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*Up
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateUser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+AggregateUsersV1 gets host aggregates as specified via json in request body
+*/
+func (a *Client) AggregateUsersV1(params *AggregateUsersV1Params, opts ...ClientOption) (*AggregateUsersV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAggregateUsersV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "aggregateUsersV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/aggregates/users/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AggregateUsersV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AggregateUsersV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for aggregateUsersV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

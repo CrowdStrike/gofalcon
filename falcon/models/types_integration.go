@@ -25,7 +25,7 @@ type TypesIntegration struct {
 	Enabled bool `json:"enabled,omitempty"`
 
 	// id
-	ID int64 `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	// integration type
 	IntegrationType *TypesIntegrationType `json:"integration_type,omitempty"`

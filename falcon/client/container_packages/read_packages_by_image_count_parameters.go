@@ -67,6 +67,7 @@ type ReadPackagesByImageCountParams struct {
 	     Filter packages using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `ai_related`
 	- `cveid`
+	- `running_images`
 	- `severity`
 	- `type`
 	- `vulnerability_count`

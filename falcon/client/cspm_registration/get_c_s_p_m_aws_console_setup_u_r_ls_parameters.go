@@ -74,6 +74,12 @@ type GetCSPMAwsConsoleSetupURLsParams struct {
 	*/
 	Region *string
 
+	/* Tags.
+
+	   Base64 encoded JSON string to be used as AWS tags
+	*/
+	Tags *string
+
 	/* Template.
 
 	   Template to be rendered
@@ -158,6 +164,17 @@ func (o *GetCSPMAwsConsoleSetupURLsParams) SetRegion(region *string) {
 	o.Region = region
 }
 
+// WithTags adds the tags to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) WithTags(tags *string) *GetCSPMAwsConsoleSetupURLsParams {
+	o.SetTags(tags)
+	return o
+}
+
+// SetTags adds the tags to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) SetTags(tags *string) {
+	o.Tags = tags
+}
+
 // WithTemplate adds the template to the get c s p m aws console setup u r ls params
 func (o *GetCSPMAwsConsoleSetupURLsParams) WithTemplate(template *string) *GetCSPMAwsConsoleSetupURLsParams {
 	o.SetTemplate(template)
@@ -211,6 +228,23 @@ func (o *GetCSPMAwsConsoleSetupURLsParams) WriteToRequest(r runtime.ClientReques
 		if qRegion != "" {
 
 			if err := r.SetQueryParam("region", qRegion); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Tags != nil {
+
+		// query param tags
+		var qrTags string
+
+		if o.Tags != nil {
+			qrTags = *o.Tags
+		}
+		qTags := qrTags
+		if qTags != "" {
+
+			if err := r.SetQueryParam("tags", qTags); err != nil {
 				return err
 			}
 		}

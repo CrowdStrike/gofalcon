@@ -412,6 +412,9 @@ type DomainDiscoverAPIHost struct {
 	// Whether the asset is in reduced functionality mode (Yes or No).
 	ReducedFunctionalityMode string `json:"reduced_functionality_mode,omitempty"`
 
+	// Represents information about the scans that this host has been a part of'.
+	ScanDetails []*DomainDiscoverAPIScanDetailsHost `json:"scan_details"`
+
 	// The unique identifier of the asset from ServiceNow, if any.
 	ServicenowID string `json:"servicenow_id,omitempty"`
 
@@ -478,6 +481,9 @@ type DomainDiscoverAPIHost struct {
 	// The VLAN IDs to which device is connected.
 	Vlan []string `json:"vlan"`
 
+	// Represents the date when this host has been assessed for vulnerabilities
+	VulnerabilityAssessmentDate string `json:"vulnerability_assessment_date,omitempty"`
+
 	// The external ID of the IoT Device in 3rd Party System(Claroty Xdome)
 	XdomeID string `json:"xdome_id,omitempty"`
 }
@@ -523,6 +529,10 @@ func (m *DomainDiscoverAPIHost) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOsSecurity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanDetails(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -748,6 +758,32 @@ func (m *DomainDiscoverAPIHost) validateOsSecurity(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *DomainDiscoverAPIHost) validateScanDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScanDetails) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ScanDetails); i++ {
+		if swag.IsZero(m.ScanDetails[i]) { // not required
+			continue
+		}
+
+		if m.ScanDetails[i] != nil {
+			if err := m.ScanDetails[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scan_details" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scan_details" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIHost) validateTriage(formats strfmt.Registry) error {
 	if swag.IsZero(m.Triage) { // not required
 		return nil
@@ -800,6 +836,10 @@ func (m *DomainDiscoverAPIHost) ContextValidate(ctx context.Context, formats str
 	}
 
 	if err := m.contextValidateOsSecurity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScanDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -990,6 +1030,31 @@ func (m *DomainDiscoverAPIHost) contextValidateOsSecurity(ctx context.Context, f
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) contextValidateScanDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScanDetails); i++ {
+
+		if m.ScanDetails[i] != nil {
+
+			if swag.IsZero(m.ScanDetails[i]) { // not required
+				return nil
+			}
+
+			if err := m.ScanDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scan_details" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scan_details" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

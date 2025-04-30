@@ -68,7 +68,7 @@ func (o *QueriesRulesGetV1Reader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /correlation-rules/queries/rules/v1] queries_rules.get.v1", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /correlation-rules/queries/rules/v1] queries.rules.get.v1", response, response.Code())
 	}
 }
 

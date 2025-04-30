@@ -29,9 +29,15 @@ type ResourcesDetections struct {
 	// Required: true
 	IoaCounts *int64 `json:"ioa_counts"`
 
+	// ioa counts by severity
+	IoaCountsBySeverity *ResourcesDetectionCount `json:"ioa_counts_by_severity,omitempty"`
+
 	// iom counts
 	// Required: true
 	IomCounts *int64 `json:"iom_counts"`
+
+	// iom counts by severity
+	IomCountsBySeverity *ResourcesDetectionCount `json:"iom_counts_by_severity,omitempty"`
 
 	// non compliant
 	NonCompliant *ResourcesCompliance `json:"non_compliant,omitempty"`
@@ -52,7 +58,15 @@ func (m *ResourcesDetections) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIoaCountsBySeverity(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIomCounts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIomCountsBySeverity(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,10 +108,48 @@ func (m *ResourcesDetections) validateIoaCounts(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ResourcesDetections) validateIoaCountsBySeverity(formats strfmt.Registry) error {
+	if swag.IsZero(m.IoaCountsBySeverity) { // not required
+		return nil
+	}
+
+	if m.IoaCountsBySeverity != nil {
+		if err := m.IoaCountsBySeverity.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ioa_counts_by_severity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ioa_counts_by_severity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ResourcesDetections) validateIomCounts(formats strfmt.Registry) error {
 
 	if err := validate.Required("iom_counts", "body", m.IomCounts); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ResourcesDetections) validateIomCountsBySeverity(formats strfmt.Registry) error {
+	if swag.IsZero(m.IomCountsBySeverity) { // not required
+		return nil
+	}
+
+	if m.IomCountsBySeverity != nil {
+		if err := m.IomCountsBySeverity.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("iom_counts_by_severity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iom_counts_by_severity")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -130,6 +182,14 @@ func (m *ResourcesDetections) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIoaCountsBySeverity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIomCountsBySeverity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateNonCompliant(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -153,6 +213,48 @@ func (m *ResourcesDetections) contextValidateCompliant(ctx context.Context, form
 				return ve.ValidateName("compliant")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("compliant")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesDetections) contextValidateIoaCountsBySeverity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IoaCountsBySeverity != nil {
+
+		if swag.IsZero(m.IoaCountsBySeverity) { // not required
+			return nil
+		}
+
+		if err := m.IoaCountsBySeverity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ioa_counts_by_severity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ioa_counts_by_severity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesDetections) contextValidateIomCountsBySeverity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IomCountsBySeverity != nil {
+
+		if swag.IsZero(m.IomCountsBySeverity) { // not required
+			return nil
+		}
+
+		if err := m.IomCountsBySeverity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("iom_counts_by_severity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iom_counts_by_severity")
 			}
 			return err
 		}

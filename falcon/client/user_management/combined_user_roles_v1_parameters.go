@@ -76,7 +76,7 @@ type CombinedUserRolesV1Params struct {
 
 	/* Filter.
 
-	   Filter using a query in Falcon Query Language (FQL). Supported filters: role_id, role_name
+	   Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
 	*/
 	Filter *string
 

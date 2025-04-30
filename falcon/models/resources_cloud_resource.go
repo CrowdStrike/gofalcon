@@ -56,6 +56,15 @@ type ResourcesCloudResource struct {
 	// cluster name
 	ClusterName string `json:"cluster_name,omitempty"`
 
+	// compartment name
+	CompartmentName string `json:"compartment_name,omitempty"`
+
+	// compartment ocid
+	CompartmentOcid string `json:"compartment_ocid,omitempty"`
+
+	// compartment path
+	CompartmentPath string `json:"compartment_path,omitempty"`
+
 	// configuration
 	Configuration ResourcesCloudResourceConfiguration `json:"configuration,omitempty"`
 
@@ -66,6 +75,12 @@ type ResourcesCloudResource struct {
 	// first seen
 	// Format: date-time
 	FirstSeen strfmt.DateTime `json:"first_seen,omitempty"`
+
+	// gcrn
+	Gcrn string `json:"gcrn,omitempty"`
+
+	// groups
+	Groups []string `json:"groups"`
 
 	// hash
 	Hash string `json:"hash,omitempty"`
@@ -121,6 +136,9 @@ type ResourcesCloudResource struct {
 	// service
 	Service string `json:"service,omitempty"`
 
+	// service category
+	ServiceCategory string `json:"service_category,omitempty"`
+
 	// status
 	Status string `json:"status,omitempty"`
 
@@ -133,8 +151,14 @@ type ResourcesCloudResource struct {
 	// tags
 	Tags map[string]string `json:"tags,omitempty"`
 
+	// tenancy name
+	TenancyName string `json:"tenancy_name,omitempty"`
+
 	// tenancy ocid
 	TenancyOcid string `json:"tenancy_ocid,omitempty"`
+
+	// tenancy type
+	TenancyType string `json:"tenancy_type,omitempty"`
 
 	// tenant id
 	TenantID string `json:"tenant_id,omitempty"`

@@ -30,6 +30,9 @@ type JsonschemaConditionGroupFields struct {
 	// dependent control
 	DependentControl string `json:"dependent_control,omitempty"`
 
+	// ignore meta
+	IgnoreMeta bool `json:"ignore_meta,omitempty"`
+
 	// requires meta
 	RequiresMeta string `json:"requires_meta,omitempty"`
 

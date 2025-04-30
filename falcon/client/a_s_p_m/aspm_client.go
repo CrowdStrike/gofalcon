@@ -42,11 +42,21 @@ type ClientService interface {
 
 	DeleteIntegrationTask(params *DeleteIntegrationTaskParams, opts ...ClientOption) (*DeleteIntegrationTaskOK, error)
 
-	DeleteTags(params *DeleteTagsParams, opts ...ClientOption) (*DeleteTagsCreated, error)
+	DeleteTags(params *DeleteTagsParams, opts ...ClientOption) (*DeleteTagsOK, *DeleteTagsCreated, error)
+
+	ExecuteFunctionData(params *ExecuteFunctionDataParams, opts ...ClientOption) (*ExecuteFunctionDataOK, error)
+
+	ExecuteFunctionDataCount(params *ExecuteFunctionDataCountParams, opts ...ClientOption) (*ExecuteFunctionDataCountOK, error)
 
 	ExecuteFunctionDataQuery(params *ExecuteFunctionDataQueryParams, opts ...ClientOption) (*ExecuteFunctionDataQueryOK, error)
 
 	ExecuteFunctionDataQueryCount(params *ExecuteFunctionDataQueryCountParams, opts ...ClientOption) (*ExecuteFunctionDataQueryCountOK, error)
+
+	ExecuteFunctions(params *ExecuteFunctionsParams, opts ...ClientOption) (*ExecuteFunctionsOK, error)
+
+	ExecuteFunctionsCount(params *ExecuteFunctionsCountParams, opts ...ClientOption) (*ExecuteFunctionsCountOK, error)
+
+	ExecuteFunctionsOvertime(params *ExecuteFunctionsOvertimeParams, opts ...ClientOption) (*ExecuteFunctionsOvertimeOK, error)
 
 	ExecuteFunctionsQuery(params *ExecuteFunctionsQueryParams, opts ...ClientOption) (*ExecuteFunctionsQueryOK, error)
 
@@ -63,6 +73,8 @@ type ClientService interface {
 	GetExecutorNodesMetadata(params *GetExecutorNodesMetadataParams, opts ...ClientOption) (*GetExecutorNodesMetadataOK, error)
 
 	GetIntegrationTasks(params *GetIntegrationTasksParams, opts ...ClientOption) (*GetIntegrationTasksOK, error)
+
+	GetIntegrationTasksAdmin(params *GetIntegrationTasksAdminParams, opts ...ClientOption) (*GetIntegrationTasksAdminOK, error)
 
 	GetIntegrationTasksMetadata(params *GetIntegrationTasksMetadataParams, opts ...ClientOption) (*GetIntegrationTasksMetadataOK, error)
 
@@ -82,11 +94,15 @@ type ClientService interface {
 
 	RunIntegrationTask(params *RunIntegrationTaskParams, opts ...ClientOption) (*RunIntegrationTaskOK, error)
 
+	RunIntegrationTaskAdmin(params *RunIntegrationTaskAdminParams, opts ...ClientOption) (*RunIntegrationTaskAdminOK, error)
+
+	RunIntegrationTaskV2(params *RunIntegrationTaskV2Params, opts ...ClientOption) (*RunIntegrationTaskV2OK, error)
+
 	ServiceNowGetDeployments(params *ServiceNowGetDeploymentsParams, opts ...ClientOption) (*ServiceNowGetDeploymentsOK, error)
 
 	ServiceNowGetServices(params *ServiceNowGetServicesParams, opts ...ClientOption) (*ServiceNowGetServicesOK, error)
 
-	SetCloudSecurityIntegrationState(params *SetCloudSecurityIntegrationStateParams, opts ...ClientOption) (*SetCloudSecurityIntegrationStateNoContent, error)
+	SetCloudSecurityIntegrationState(params *SetCloudSecurityIntegrationStateParams, opts ...ClientOption) (*SetCloudSecurityIntegrationStateOK, *SetCloudSecurityIntegrationStateNoContent, error)
 
 	UpdateExecutorNode(params *UpdateExecutorNodeParams, opts ...ClientOption) (*UpdateExecutorNodeOK, error)
 
@@ -94,9 +110,13 @@ type ClientService interface {
 
 	UpdateIntegrationTask(params *UpdateIntegrationTaskParams, opts ...ClientOption) (*UpdateIntegrationTaskOK, error)
 
-	UpsertBusinessApplications(params *UpsertBusinessApplicationsParams, opts ...ClientOption) (*UpsertBusinessApplicationsCreated, error)
+	UpsertBusinessApplications(params *UpsertBusinessApplicationsParams, opts ...ClientOption) (*UpsertBusinessApplicationsOK, *UpsertBusinessApplicationsCreated, error)
 
-	UpsertTags(params *UpsertTagsParams, opts ...ClientOption) (*UpsertTagsCreated, error)
+	UpsertTags(params *UpsertTagsParams, opts ...ClientOption) (*UpsertTagsOK, *UpsertTagsCreated, error)
+
+	GetServiceArtifacts(params *GetServiceArtifactsParams, opts ...ClientOption) (*GetServiceArtifactsOK, error)
+
+	GetExecutorNodesID09InstancesCsv(params *GetExecutorNodesID09InstancesCsvParams, opts ...ClientOption) (*GetExecutorNodesId09InstancesCsvOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -332,7 +352,7 @@ func (a *Client) DeleteIntegrationTask(params *DeleteIntegrationTaskParams, opts
 /*
 DeleteTags removes existing tags
 */
-func (a *Client) DeleteTags(params *DeleteTagsParams, opts ...ClientOption) (*DeleteTagsCreated, error) {
+func (a *Client) DeleteTags(params *DeleteTagsParams, opts ...ClientOption) (*DeleteTagsOK, *DeleteTagsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTagsParams()
@@ -355,15 +375,92 @@ func (a *Client) DeleteTags(params *DeleteTagsParams, opts ...ClientOption) (*De
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteTagsOK:
+		return value, nil, nil
+	case *DeleteTagsCreated:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for a_s_p_m: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExecuteFunctionData as selected list of query language queries request and response are in m s a format
+*/
+func (a *Client) ExecuteFunctionData(params *ExecuteFunctionDataParams, opts ...ClientOption) (*ExecuteFunctionDataOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteFunctionDataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExecuteFunctionData",
+		Method:             "GET",
+		PathPattern:        "/application-security/combined/function-data/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteFunctionDataReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteTagsCreated)
+	success, ok := result.(*ExecuteFunctionDataOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteTags: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for ExecuteFunctionData: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExecuteFunctionDataCount as selected list of query language count queries request and response are in m s a format
+*/
+func (a *Client) ExecuteFunctionDataCount(params *ExecuteFunctionDataCountParams, opts ...ClientOption) (*ExecuteFunctionDataCountOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteFunctionDataCountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExecuteFunctionDataCount",
+		Method:             "POST",
+		PathPattern:        "/application-security/aggregates/function-data/count/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteFunctionDataCountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExecuteFunctionDataCountOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExecuteFunctionDataCount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -440,6 +537,120 @@ func (a *Client) ExecuteFunctionDataQueryCount(params *ExecuteFunctionDataQueryC
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ExecuteFunctionDataQueryCount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExecuteFunctions as selected list of query language services queries request and response are in m s a format
+*/
+func (a *Client) ExecuteFunctions(params *ExecuteFunctionsParams, opts ...ClientOption) (*ExecuteFunctionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteFunctionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExecuteFunctions",
+		Method:             "GET",
+		PathPattern:        "/application-security/combined/functions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteFunctionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExecuteFunctionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExecuteFunctions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExecuteFunctionsCount as selected list of query language count queries request and response are in m s a format
+*/
+func (a *Client) ExecuteFunctionsCount(params *ExecuteFunctionsCountParams, opts ...ClientOption) (*ExecuteFunctionsCountOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteFunctionsCountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExecuteFunctionsCount",
+		Method:             "POST",
+		PathPattern:        "/application-security/aggregates/functions/count/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteFunctionsCountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExecuteFunctionsCountOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExecuteFunctionsCount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExecuteFunctionsOvertime as selected list of query language overtime queries request and response are in m s a format
+*/
+func (a *Client) ExecuteFunctionsOvertime(params *ExecuteFunctionsOvertimeParams, opts ...ClientOption) (*ExecuteFunctionsOvertimeOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteFunctionsOvertimeParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExecuteFunctionsOvertime",
+		Method:             "GET",
+		PathPattern:        "/application-security/combined/functions-overtime/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteFunctionsOvertimeReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExecuteFunctionsOvertimeOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExecuteFunctionsOvertime: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -744,6 +955,44 @@ func (a *Client) GetIntegrationTasks(params *GetIntegrationTasksParams, opts ...
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetIntegrationTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetIntegrationTasksAdmin gets all the integration tasks requires admin scope
+*/
+func (a *Client) GetIntegrationTasksAdmin(params *GetIntegrationTasksAdminParams, opts ...ClientOption) (*GetIntegrationTasksAdminOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetIntegrationTasksAdminParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetIntegrationTasksAdmin",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/integration_tasks/admin",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIntegrationTasksAdminReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetIntegrationTasksAdminOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetIntegrationTasksAdmin: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1090,6 +1339,82 @@ func (a *Client) RunIntegrationTask(params *RunIntegrationTaskParams, opts ...Cl
 }
 
 /*
+RunIntegrationTaskAdmin runs an integration task by its ID for admin scope
+*/
+func (a *Client) RunIntegrationTaskAdmin(params *RunIntegrationTaskAdminParams, opts ...ClientOption) (*RunIntegrationTaskAdminOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRunIntegrationTaskAdminParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RunIntegrationTaskAdmin",
+		Method:             "POST",
+		PathPattern:        "/aspm-api-gateway/api/v1/integration_tasks/{ID}/run/admin",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RunIntegrationTaskAdminReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RunIntegrationTaskAdminOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RunIntegrationTaskAdmin: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RunIntegrationTaskV2 runs an integration task by its ID
+*/
+func (a *Client) RunIntegrationTaskV2(params *RunIntegrationTaskV2Params, opts ...ClientOption) (*RunIntegrationTaskV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRunIntegrationTaskV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RunIntegrationTaskV2",
+		Method:             "POST",
+		PathPattern:        "/aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RunIntegrationTaskV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RunIntegrationTaskV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RunIntegrationTaskV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ServiceNowGetDeployments service now get deployments API
 */
 func (a *Client) ServiceNowGetDeployments(params *ServiceNowGetDeploymentsParams, opts ...ClientOption) (*ServiceNowGetDeploymentsOK, error) {
@@ -1168,7 +1493,7 @@ func (a *Client) ServiceNowGetServices(params *ServiceNowGetServicesParams, opts
 /*
 SetCloudSecurityIntegrationState sets cloud security integration state
 */
-func (a *Client) SetCloudSecurityIntegrationState(params *SetCloudSecurityIntegrationStateParams, opts ...ClientOption) (*SetCloudSecurityIntegrationStateNoContent, error) {
+func (a *Client) SetCloudSecurityIntegrationState(params *SetCloudSecurityIntegrationStateParams, opts ...ClientOption) (*SetCloudSecurityIntegrationStateOK, *SetCloudSecurityIntegrationStateNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetCloudSecurityIntegrationStateParams()
@@ -1191,15 +1516,16 @@ func (a *Client) SetCloudSecurityIntegrationState(params *SetCloudSecurityIntegr
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*SetCloudSecurityIntegrationStateNoContent)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *SetCloudSecurityIntegrationStateOK:
+		return value, nil, nil
+	case *SetCloudSecurityIntegrationStateNoContent:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SetCloudSecurityIntegrationState: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for a_s_p_m: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1320,7 +1646,7 @@ func (a *Client) UpdateIntegrationTask(params *UpdateIntegrationTaskParams, opts
 /*
 UpsertBusinessApplications creates or update business applications
 */
-func (a *Client) UpsertBusinessApplications(params *UpsertBusinessApplicationsParams, opts ...ClientOption) (*UpsertBusinessApplicationsCreated, error) {
+func (a *Client) UpsertBusinessApplications(params *UpsertBusinessApplicationsParams, opts ...ClientOption) (*UpsertBusinessApplicationsOK, *UpsertBusinessApplicationsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpsertBusinessApplicationsParams()
@@ -1343,22 +1669,23 @@ func (a *Client) UpsertBusinessApplications(params *UpsertBusinessApplicationsPa
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*UpsertBusinessApplicationsCreated)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *UpsertBusinessApplicationsOK:
+		return value, nil, nil
+	case *UpsertBusinessApplicationsCreated:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpsertBusinessApplications: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for a_s_p_m: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
 UpsertTags creates new or update existing tag you can update unique tags table or regular tags table
 */
-func (a *Client) UpsertTags(params *UpsertTagsParams, opts ...ClientOption) (*UpsertTagsCreated, error) {
+func (a *Client) UpsertTags(params *UpsertTagsParams, opts ...ClientOption) (*UpsertTagsOK, *UpsertTagsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpsertTagsParams()
@@ -1381,15 +1708,92 @@ func (a *Client) UpsertTags(params *UpsertTagsParams, opts ...ClientOption) (*Up
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *UpsertTagsOK:
+		return value, nil, nil
+	case *UpsertTagsCreated:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for a_s_p_m: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetServiceArtifacts get service artifacts API
+*/
+func (a *Client) GetServiceArtifacts(params *GetServiceArtifactsParams, opts ...ClientOption) (*GetServiceArtifactsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetServiceArtifactsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getServiceArtifacts",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/artifacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetServiceArtifactsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpsertTagsCreated)
+	success, ok := result.(*GetServiceArtifactsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpsertTags: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for getServiceArtifacts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetExecutorNodesID09InstancesCsv retrieves the relay instances in c s v format
+*/
+func (a *Client) GetExecutorNodesID09InstancesCsv(params *GetExecutorNodesID09InstancesCsvParams, opts ...ClientOption) (*GetExecutorNodesId09InstancesCsvOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetExecutorNodesID09InstancesCsvParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get_/executor_nodes/{ID:[0-9]+}/instances/csv",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExecutorNodesID09InstancesCsvReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetExecutorNodesId09InstancesCsvOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get_/executor_nodes/{ID:[0-9]+}/instances/csv: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

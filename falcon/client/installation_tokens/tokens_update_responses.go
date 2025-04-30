@@ -90,7 +90,7 @@ type TokensUpdateOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecQueryResponse
+	Payload *models.APITokenDetailsResponseV1
 }
 
 // IsSuccess returns true when this tokens update o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *TokensUpdateOK) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK  %+v", 200, o.Payload)
 }
 
-func (o *TokensUpdateOK) GetPayload() *models.MsaspecQueryResponse {
+func (o *TokensUpdateOK) GetPayload() *models.APITokenDetailsResponseV1 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *TokensUpdateOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecQueryResponse)
+	o.Payload = new(models.APITokenDetailsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

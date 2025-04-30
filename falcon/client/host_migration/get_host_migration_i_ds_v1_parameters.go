@@ -64,7 +64,7 @@ type GetHostMigrationIDsV1Params struct {
 
 	/* Filter.
 
-	   The filter expression that should be used to limit the results. Valid fields: hostgroups, hostname, source_cid, migration_id, created_time, host_migration_id, groups, status, target_cid, id, static_host_groups
+	   The filter expression that should be used to limit the results. Valid fields: hostgroups, hostname, status, target_cid, source_cid, migration_id, id, created_time, groups, static_host_groups, host_migration_id
 	*/
 	Filter *string
 

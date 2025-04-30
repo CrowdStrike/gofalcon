@@ -71,7 +71,7 @@ type QueryFeedArchivesParams struct {
 
 	   Feed Name
 	*/
-	FeedName *string
+	FeedName string
 
 	/* Since.
 
@@ -144,13 +144,13 @@ func (o *QueryFeedArchivesParams) SetFeedInterval(feedInterval string) {
 }
 
 // WithFeedName adds the feedName to the query feed archives params
-func (o *QueryFeedArchivesParams) WithFeedName(feedName *string) *QueryFeedArchivesParams {
+func (o *QueryFeedArchivesParams) WithFeedName(feedName string) *QueryFeedArchivesParams {
 	o.SetFeedName(feedName)
 	return o
 }
 
 // SetFeedName adds the feedName to the query feed archives params
-func (o *QueryFeedArchivesParams) SetFeedName(feedName *string) {
+func (o *QueryFeedArchivesParams) SetFeedName(feedName string) {
 	o.FeedName = feedName
 }
 
@@ -183,20 +183,13 @@ func (o *QueryFeedArchivesParams) WriteToRequest(r runtime.ClientRequest, reg st
 		}
 	}
 
-	if o.FeedName != nil {
+	// query param feed_name
+	qrFeedName := o.FeedName
+	qFeedName := qrFeedName
+	if qFeedName != "" {
 
-		// query param feed_name
-		var qrFeedName string
-
-		if o.FeedName != nil {
-			qrFeedName = *o.FeedName
-		}
-		qFeedName := qrFeedName
-		if qFeedName != "" {
-
-			if err := r.SetQueryParam("feed_name", qFeedName); err != nil {
-				return err
-			}
+		if err := r.SetQueryParam("feed_name", qFeedName); err != nil {
+			return err
 		}
 	}
 

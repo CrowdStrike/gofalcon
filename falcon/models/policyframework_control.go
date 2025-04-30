@@ -19,6 +19,9 @@ import (
 // swagger:model policyframework.Control
 type PolicyframeworkControl struct {
 
+	// applicable profiles
+	ApplicableProfiles []string `json:"applicableProfiles"`
+
 	// benchmarks
 	Benchmarks []*PolicyframeworkBenchmark `json:"benchmarks"`
 

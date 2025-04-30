@@ -46,6 +46,8 @@ type ClientService interface {
 
 	QueryContentUpdatePolicyMembers(params *QueryContentUpdatePolicyMembersParams, opts ...ClientOption) (*QueryContentUpdatePolicyMembersOK, error)
 
+	QueryPinnableContentVersions(params *QueryPinnableContentVersionsParams, opts ...ClientOption) (*QueryPinnableContentVersionsOK, error)
+
 	SetContentUpdatePoliciesPrecedence(params *SetContentUpdatePoliciesPrecedenceParams, opts ...ClientOption) (*SetContentUpdatePoliciesPrecedenceOK, error)
 
 	UpdateContentUpdatePolicies(params *UpdateContentUpdatePoliciesParams, opts ...ClientOption) (*UpdateContentUpdatePoliciesOK, error)
@@ -354,6 +356,44 @@ func (a *Client) QueryContentUpdatePolicyMembers(params *QueryContentUpdatePolic
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for queryContentUpdatePolicyMembers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryPinnableContentVersions searches for content versions available for pinning given the category
+*/
+func (a *Client) QueryPinnableContentVersions(params *QueryPinnableContentVersionsParams, opts ...ClientOption) (*QueryPinnableContentVersionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryPinnableContentVersionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryPinnableContentVersions",
+		Method:             "GET",
+		PathPattern:        "/policy/queries/content-update-pin-versions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryPinnableContentVersionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryPinnableContentVersionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryPinnableContentVersions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -19,6 +19,9 @@ import (
 // swagger:model types.GetServicesRequest
 type TypesGetServicesRequest struct {
 
+	// cids
+	Cids []string `json:"cids"`
+
 	// deployment tuple filters
 	DeploymentTupleFilters []*TypesDeploymentUnitsTupleFilters `json:"deploymentTupleFilters"`
 

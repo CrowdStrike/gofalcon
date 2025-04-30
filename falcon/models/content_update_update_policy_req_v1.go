@@ -30,7 +30,7 @@ type ContentUpdateUpdatePolicyReqV1 struct {
 	Name string `json:"name,omitempty"`
 
 	// settings
-	Settings *ContentUpdateSettingsV1 `json:"settings,omitempty"`
+	Settings *ContentUpdateContentUpdateSettingsReqV1 `json:"settings,omitempty"`
 }
 
 // Validate validates this content update update policy req v1

@@ -20,16 +20,16 @@ import (
 type TypesActionRun struct {
 
 	// create time
-	CreateTime *TypesTimestamp `json:"create_time,omitempty"`
+	CreateTime string `json:"createTime,omitempty"`
 
 	// events
 	Events []*TypesActionRunEvent `json:"events"`
 
 	// id
-	ID int64 `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	// latest event
-	LatestEvent *TypesActionRunEvent `json:"latest_event,omitempty"`
+	LatestEvent *TypesActionRunEvent `json:"latestEvent,omitempty"`
 
 	// metadata
 	Metadata *TypesActionRunMetadata `json:"metadata,omitempty"`
@@ -40,17 +40,13 @@ type TypesActionRun struct {
 	// scheduled
 	Scheduled bool `json:"scheduled,omitempty"`
 
-	// trace uuid
-	TraceUUID string `json:"trace_uuid,omitempty"`
+	// trace Uuid
+	TraceUUID string `json:"traceUuid,omitempty"`
 }
 
 // Validate validates this types action run
 func (m *TypesActionRun) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateCreateTime(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateEvents(formats); err != nil {
 		res = append(res, err)
@@ -67,25 +63,6 @@ func (m *TypesActionRun) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *TypesActionRun) validateCreateTime(formats strfmt.Registry) error {
-	if swag.IsZero(m.CreateTime) { // not required
-		return nil
-	}
-
-	if m.CreateTime != nil {
-		if err := m.CreateTime.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("create_time")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("create_time")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -123,9 +100,9 @@ func (m *TypesActionRun) validateLatestEvent(formats strfmt.Registry) error {
 	if m.LatestEvent != nil {
 		if err := m.LatestEvent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("latest_event")
+				return ve.ValidateName("latestEvent")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("latest_event")
+				return ce.ValidateName("latestEvent")
 			}
 			return err
 		}
@@ -157,10 +134,6 @@ func (m *TypesActionRun) validateMetadata(formats strfmt.Registry) error {
 func (m *TypesActionRun) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateCreateTime(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateEvents(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -176,27 +149,6 @@ func (m *TypesActionRun) ContextValidate(ctx context.Context, formats strfmt.Reg
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *TypesActionRun) contextValidateCreateTime(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.CreateTime != nil {
-
-		if swag.IsZero(m.CreateTime) { // not required
-			return nil
-		}
-
-		if err := m.CreateTime.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("create_time")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("create_time")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -235,9 +187,9 @@ func (m *TypesActionRun) contextValidateLatestEvent(ctx context.Context, formats
 
 		if err := m.LatestEvent.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("latest_event")
+				return ve.ValidateName("latestEvent")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("latest_event")
+				return ce.ValidateName("latestEvent")
 			}
 			return err
 		}

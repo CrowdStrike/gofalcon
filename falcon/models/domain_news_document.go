@@ -65,6 +65,9 @@ type DomainNewsDocument struct {
 	// internal field, not used
 	NotifyUsers bool `json:"notify_users,omitempty"`
 
+	// Time it takes an average user to read the news content
+	ReadTimeInMinutes int32 `json:"read_time_in_minutes,omitempty"`
+
 	// Rich text description with markup
 	RichTextDescription string `json:"rich_text_description,omitempty"`
 

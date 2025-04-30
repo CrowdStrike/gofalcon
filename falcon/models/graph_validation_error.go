@@ -46,6 +46,9 @@ type GraphValidationError struct {
 
 	// Resource ID for property if it exists, e.g. trigger ID or activity ID
 	ResourceID string `json:"resource_id,omitempty"`
+
+	// Undefined Reference  for property which is now undefined
+	UndefinedReference string `json:"undefined_reference,omitempty"`
 }
 
 // Validate validates this graph validation error

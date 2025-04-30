@@ -40,6 +40,10 @@ type DomainReportMetadata struct {
 	// Required: true
 	LastUnscheduledExecution *DomainLastUnscheduledExecution `json:"last_unscheduled_execution"`
 
+	// runs without schedule
+	// Required: true
+	RunsWithoutSchedule *bool `json:"runs_without_schedule"`
+
 	// subtype
 	// Required: true
 	Subtype *string `json:"subtype"`
@@ -73,6 +77,10 @@ func (m *DomainReportMetadata) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastUnscheduledExecution(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRunsWithoutSchedule(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -180,6 +188,15 @@ func (m *DomainReportMetadata) validateLastUnscheduledExecution(formats strfmt.R
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainReportMetadata) validateRunsWithoutSchedule(formats strfmt.Registry) error {
+
+	if err := validate.Required("runs_without_schedule", "body", m.RunsWithoutSchedule); err != nil {
+		return err
 	}
 
 	return nil

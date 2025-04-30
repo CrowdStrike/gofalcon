@@ -90,7 +90,7 @@ type GetCredentialsMixin0OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonRegistryCredentialsResponse
+	Payload *models.ModelsRegistryCredentialsResponse
 }
 
 // IsSuccess returns true when this get credentials mixin0 o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetCredentialsMixin0OK) String() string {
 	return fmt.Sprintf("[GET /iac/entities/image-registry-credentials/v1][%d] getCredentialsMixin0OK  %+v", 200, o.Payload)
 }
 
-func (o *GetCredentialsMixin0OK) GetPayload() *models.CommonRegistryCredentialsResponse {
+func (o *GetCredentialsMixin0OK) GetPayload() *models.ModelsRegistryCredentialsResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetCredentialsMixin0OK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonRegistryCredentialsResponse)
+	o.Payload = new(models.ModelsRegistryCredentialsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type GetCredentialsMixin0InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonRegistryCredentialsResponse
+	Payload *models.ModelsRegistryCredentialsResponse
 }
 
 // IsSuccess returns true when this get credentials mixin0 internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *GetCredentialsMixin0InternalServerError) String() string {
 	return fmt.Sprintf("[GET /iac/entities/image-registry-credentials/v1][%d] getCredentialsMixin0InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetCredentialsMixin0InternalServerError) GetPayload() *models.CommonRegistryCredentialsResponse {
+func (o *GetCredentialsMixin0InternalServerError) GetPayload() *models.ModelsRegistryCredentialsResponse {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *GetCredentialsMixin0InternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonRegistryCredentialsResponse)
+	o.Payload = new(models.ModelsRegistryCredentialsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

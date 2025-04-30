@@ -73,6 +73,9 @@ type DomainBehavior struct {
 	// objective
 	Objective string `json:"objective,omitempty"`
 
+	// pattern description
+	PatternDescription string `json:"pattern_description,omitempty"`
+
 	// pattern disposition
 	PatternDisposition int32 `json:"pattern_disposition,omitempty"`
 

@@ -28,6 +28,9 @@ type APIPatchRuleSearchV1 struct {
 
 	// trigger mode
 	TriggerMode string `json:"trigger_mode,omitempty"`
+
+	// use ingest time
+	UseIngestTime bool `json:"use_ingest_time,omitempty"`
 }
 
 // Validate validates this api patch rule search v1

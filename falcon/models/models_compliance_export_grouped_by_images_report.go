@@ -27,6 +27,15 @@ type ModelsComplianceExportGroupedByImagesReport struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// framework
+	Framework string `json:"framework,omitempty"`
+
+	// framework name version
+	FrameworkNameVersion string `json:"framework_name_version,omitempty"`
+
+	// framework version
+	FrameworkVersion string `json:"framework_version,omitempty"`
+
 	// image digest
 	// Required: true
 	ImageDigest *string `json:"image_digest"`

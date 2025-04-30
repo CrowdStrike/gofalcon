@@ -19,6 +19,10 @@ import (
 // swagger:model domain.KestrelParams
 type DomainKestrelParams struct {
 
+	// is published
+	// Required: true
+	IsPublished *bool `json:"is_published"`
+
 	// view id
 	// Required: true
 	ViewID *string `json:"view_id"`
@@ -28,6 +32,10 @@ type DomainKestrelParams struct {
 func (m *DomainKestrelParams) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateIsPublished(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateViewID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -35,6 +43,15 @@ func (m *DomainKestrelParams) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainKestrelParams) validateIsPublished(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_published", "body", m.IsPublished); err != nil {
+		return err
+	}
+
 	return nil
 }
 

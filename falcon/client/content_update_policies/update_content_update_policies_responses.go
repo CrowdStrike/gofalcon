@@ -90,7 +90,7 @@ type UpdateContentUpdatePoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainContentUpdatePolicyRespV1
+	Payload *models.ContentUpdateRespV1
 }
 
 // IsSuccess returns true when this update content update policies o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *UpdateContentUpdatePoliciesOK) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateContentUpdatePoliciesOK) GetPayload() *models.DomainContentUpdatePolicyRespV1 {
+func (o *UpdateContentUpdatePoliciesOK) GetPayload() *models.ContentUpdateRespV1 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *UpdateContentUpdatePoliciesOK) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainContentUpdatePolicyRespV1)
+	o.Payload = new(models.ContentUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type UpdateContentUpdatePoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainContentUpdatePolicyRespV1
+	Payload *models.ContentUpdateRespV1
 }
 
 // IsSuccess returns true when this update content update policies bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *UpdateContentUpdatePoliciesBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateContentUpdatePoliciesBadRequest) GetPayload() *models.DomainContentUpdatePolicyRespV1 {
+func (o *UpdateContentUpdatePoliciesBadRequest) GetPayload() *models.ContentUpdateRespV1 {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *UpdateContentUpdatePoliciesBadRequest) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainContentUpdatePolicyRespV1)
+	o.Payload = new(models.ContentUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type UpdateContentUpdatePoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainContentUpdatePolicyRespV1
+	Payload *models.ContentUpdateRespV1
 }
 
 // IsSuccess returns true when this update content update policies not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *UpdateContentUpdatePoliciesNotFound) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *UpdateContentUpdatePoliciesNotFound) GetPayload() *models.DomainContentUpdatePolicyRespV1 {
+func (o *UpdateContentUpdatePoliciesNotFound) GetPayload() *models.ContentUpdateRespV1 {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *UpdateContentUpdatePoliciesNotFound) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainContentUpdatePolicyRespV1)
+	o.Payload = new(models.ContentUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type UpdateContentUpdatePoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainContentUpdatePolicyRespV1
+	Payload *models.ContentUpdateRespV1
 }
 
 // IsSuccess returns true when this update content update policies internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *UpdateContentUpdatePoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdateContentUpdatePoliciesInternalServerError) GetPayload() *models.DomainContentUpdatePolicyRespV1 {
+func (o *UpdateContentUpdatePoliciesInternalServerError) GetPayload() *models.ContentUpdateRespV1 {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *UpdateContentUpdatePoliciesInternalServerError) readResponse(response r
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainContentUpdatePolicyRespV1)
+	o.Payload = new(models.ContentUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

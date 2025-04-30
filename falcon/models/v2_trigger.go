@@ -34,6 +34,9 @@ type V2Trigger struct {
 
 	// schedule
 	Schedule *GraphTimerEventDefinition `json:"schedule,omitempty"`
+
+	// type
+	Type string `json:"type,omitempty"`
 }
 
 // Validate validates this v2 trigger

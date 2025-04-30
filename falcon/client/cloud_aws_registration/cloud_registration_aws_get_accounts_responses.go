@@ -310,7 +310,7 @@ type CloudRegistrationAwsGetAccountsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RestAWSAccountCreateResponseExtV1
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this cloud registration aws get accounts bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *CloudRegistrationAwsGetAccountsBadRequest) String() string {
 	return fmt.Sprintf("[GET /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsGetAccountsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CloudRegistrationAwsGetAccountsBadRequest) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
+func (o *CloudRegistrationAwsGetAccountsBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *CloudRegistrationAwsGetAccountsBadRequest) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RestAWSAccountCreateResponseExtV1)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

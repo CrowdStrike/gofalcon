@@ -72,6 +72,10 @@ type DomainResultMetadata struct {
 	// Required: true
 	// Format: date-time
 	SearchWindowStart *strfmt.DateTime `json:"search_window_start"`
+
+	// use ingest time
+	// Required: true
+	UseIngestTime *bool `json:"use_ingest_time"`
 }
 
 // Validate validates this domain result metadata
@@ -123,6 +127,10 @@ func (m *DomainResultMetadata) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSearchWindowStart(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUseIngestTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -258,6 +266,15 @@ func (m *DomainResultMetadata) validateSearchWindowStart(formats strfmt.Registry
 	}
 
 	if err := validate.FormatOf("search_window_start", "body", "date-time", m.SearchWindowStart.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainResultMetadata) validateUseIngestTime(formats strfmt.Registry) error {
+
+	if err := validate.Required("use_ingest_time", "body", m.UseIngestTime); err != nil {
 		return err
 	}
 

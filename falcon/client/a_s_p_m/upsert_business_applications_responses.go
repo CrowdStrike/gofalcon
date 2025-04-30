@@ -25,6 +25,12 @@ type UpsertBusinessApplicationsReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *UpsertBusinessApplicationsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
+	case 200:
+		result := NewUpsertBusinessApplicationsOK()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 201:
 		result := NewUpsertBusinessApplicationsCreated()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -70,6 +76,103 @@ func (o *UpsertBusinessApplicationsReader) ReadResponse(response runtime.ClientR
 	default:
 		return nil, runtime.NewAPIError("[PUT /aspm-api-gateway/api/v1/business_applications] UpsertBusinessApplications", response, response.Code())
 	}
+}
+
+// NewUpsertBusinessApplicationsOK creates a UpsertBusinessApplicationsOK with default headers values
+func NewUpsertBusinessApplicationsOK() *UpsertBusinessApplicationsOK {
+	return &UpsertBusinessApplicationsOK{}
+}
+
+/*
+UpsertBusinessApplicationsOK describes a response with status code 200, with default header values.
+
+OK
+*/
+type UpsertBusinessApplicationsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+}
+
+// IsSuccess returns true when this upsert business applications o k response has a 2xx status code
+func (o *UpsertBusinessApplicationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this upsert business applications o k response has a 3xx status code
+func (o *UpsertBusinessApplicationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upsert business applications o k response has a 4xx status code
+func (o *UpsertBusinessApplicationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this upsert business applications o k response has a 5xx status code
+func (o *UpsertBusinessApplicationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upsert business applications o k response a status code equal to that given
+func (o *UpsertBusinessApplicationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the upsert business applications o k response
+func (o *UpsertBusinessApplicationsOK) Code() int {
+	return 200
+}
+
+func (o *UpsertBusinessApplicationsOK) Error() string {
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsOK ", 200)
+}
+
+func (o *UpsertBusinessApplicationsOK) String() string {
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsOK ", 200)
+}
+
+func (o *UpsertBusinessApplicationsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	return nil
 }
 
 // NewUpsertBusinessApplicationsCreated creates a UpsertBusinessApplicationsCreated with default headers values

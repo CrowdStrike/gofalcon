@@ -19,10 +19,10 @@ import (
 type TypesIntegrationTaskResponse struct {
 
 	// integration task
-	IntegrationTask *TypesIntegrationTask `json:"integration_task,omitempty"`
+	IntegrationTask *TypesIntegrationTask `json:"integrationTask,omitempty"`
 
 	// new executor node
-	NewExecutorNode *TypesExecutorNode `json:"new_executor_node,omitempty"`
+	NewExecutorNode *TypesExecutorNode `json:"newExecutorNode,omitempty"`
 }
 
 // Validate validates this types integration task response
@@ -51,9 +51,9 @@ func (m *TypesIntegrationTaskResponse) validateIntegrationTask(formats strfmt.Re
 	if m.IntegrationTask != nil {
 		if err := m.IntegrationTask.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("integration_task")
+				return ve.ValidateName("integrationTask")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("integration_task")
+				return ce.ValidateName("integrationTask")
 			}
 			return err
 		}
@@ -70,9 +70,9 @@ func (m *TypesIntegrationTaskResponse) validateNewExecutorNode(formats strfmt.Re
 	if m.NewExecutorNode != nil {
 		if err := m.NewExecutorNode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("new_executor_node")
+				return ve.ValidateName("newExecutorNode")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("new_executor_node")
+				return ce.ValidateName("newExecutorNode")
 			}
 			return err
 		}
@@ -109,9 +109,9 @@ func (m *TypesIntegrationTaskResponse) contextValidateIntegrationTask(ctx contex
 
 		if err := m.IntegrationTask.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("integration_task")
+				return ve.ValidateName("integrationTask")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("integration_task")
+				return ce.ValidateName("integrationTask")
 			}
 			return err
 		}
@@ -130,9 +130,9 @@ func (m *TypesIntegrationTaskResponse) contextValidateNewExecutorNode(ctx contex
 
 		if err := m.NewExecutorNode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("new_executor_node")
+				return ve.ValidateName("newExecutorNode")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("new_executor_node")
+				return ce.ValidateName("newExecutorNode")
 			}
 			return err
 		}

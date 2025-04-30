@@ -11,7 +11,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // TypesActionRunEvent types action run event
@@ -19,21 +18,20 @@ import (
 // swagger:model types.ActionRunEvent
 type TypesActionRunEvent struct {
 
-	// flat data
-	// Required: true
-	FlatData map[string]string `json:"FlatData"`
-
 	// additional data
-	AdditionalData string `json:"additional_data,omitempty"`
+	AdditionalData string `json:"additionalData,omitempty"`
 
 	// data
 	Data *TypesActionRunEventData `json:"data,omitempty"`
 
+	// flat data
+	FlatData map[string]string `json:"flatData,omitempty"`
+
 	// flat fields
-	FlatFields []string `json:"flat_fields"`
+	FlatFields []string `json:"flatFields"`
 
 	// id
-	ID int64 `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	// message
 	Message string `json:"message,omitempty"`
@@ -42,10 +40,10 @@ type TypesActionRunEvent struct {
 	Object string `json:"object,omitempty"`
 
 	// object type
-	ObjectType string `json:"object_type,omitempty"`
+	ObjectType string `json:"objectType,omitempty"`
 
 	// send time
-	SendTime *TypesTimestamp `json:"send_time,omitempty"`
+	SendTime string `json:"sendTime,omitempty"`
 
 	// status
 	Status int32 `json:"status,omitempty"`
@@ -55,30 +53,13 @@ type TypesActionRunEvent struct {
 func (m *TypesActionRunEvent) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateFlatData(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateData(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSendTime(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *TypesActionRunEvent) validateFlatData(formats strfmt.Registry) error {
-
-	if err := validate.Required("FlatData", "body", m.FlatData); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -101,34 +82,11 @@ func (m *TypesActionRunEvent) validateData(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *TypesActionRunEvent) validateSendTime(formats strfmt.Registry) error {
-	if swag.IsZero(m.SendTime) { // not required
-		return nil
-	}
-
-	if m.SendTime != nil {
-		if err := m.SendTime.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("send_time")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("send_time")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 // ContextValidate validate this types action run event based on the context it is used
 func (m *TypesActionRunEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateData(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateSendTime(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,27 +109,6 @@ func (m *TypesActionRunEvent) contextValidateData(ctx context.Context, formats s
 				return ve.ValidateName("data")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("data")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *TypesActionRunEvent) contextValidateSendTime(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.SendTime != nil {
-
-		if swag.IsZero(m.SendTime) { // not required
-			return nil
-		}
-
-		if err := m.SendTime.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("send_time")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("send_time")
 			}
 			return err
 		}

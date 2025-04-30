@@ -55,6 +55,12 @@ func (o *EntitiesRulesPatchV1Reader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 422:
+		result := NewEntitiesRulesPatchV1UnprocessableEntity()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesRulesPatchV1TooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -68,7 +74,7 @@ func (o *EntitiesRulesPatchV1Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[PATCH /correlation-rules/entities/rules/v1] entities_rules.patch.v1", response, response.Code())
+		return nil, runtime.NewAPIError("[PATCH /correlation-rules/entities/rules/v1] entities.rules.patch.v1", response, response.Code())
 	}
 }
 
@@ -582,6 +588,116 @@ func (o *EntitiesRulesPatchV1NotFound) GetPayload() *models.APIGetEntitiesRulesR
 }
 
 func (o *EntitiesRulesPatchV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesRulesPatchV1UnprocessableEntity creates a EntitiesRulesPatchV1UnprocessableEntity with default headers values
+func NewEntitiesRulesPatchV1UnprocessableEntity() *EntitiesRulesPatchV1UnprocessableEntity {
+	return &EntitiesRulesPatchV1UnprocessableEntity{}
+}
+
+/*
+EntitiesRulesPatchV1UnprocessableEntity describes a response with status code 422, with default header values.
+
+Customer has reached the limit of active rules
+*/
+type EntitiesRulesPatchV1UnprocessableEntity struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIGetEntitiesRulesResponseV1
+}
+
+// IsSuccess returns true when this entities rules patch v1 unprocessable entity response has a 2xx status code
+func (o *EntitiesRulesPatchV1UnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities rules patch v1 unprocessable entity response has a 3xx status code
+func (o *EntitiesRulesPatchV1UnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities rules patch v1 unprocessable entity response has a 4xx status code
+func (o *EntitiesRulesPatchV1UnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities rules patch v1 unprocessable entity response has a 5xx status code
+func (o *EntitiesRulesPatchV1UnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities rules patch v1 unprocessable entity response a status code equal to that given
+func (o *EntitiesRulesPatchV1UnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
+// Code gets the status code for the entities rules patch v1 unprocessable entity response
+func (o *EntitiesRulesPatchV1UnprocessableEntity) Code() int {
+	return 422
+}
+
+func (o *EntitiesRulesPatchV1UnprocessableEntity) Error() string {
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1UnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *EntitiesRulesPatchV1UnprocessableEntity) String() string {
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1UnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *EntitiesRulesPatchV1UnprocessableEntity) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+	return o.Payload
+}
+
+func (o *EntitiesRulesPatchV1UnprocessableEntity) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

@@ -25,7 +25,7 @@ type DomainDiscoverAPIActiveDiscoveryHost struct {
 	// The ID of the site where the host was last seen
 	LastSeenSiteID string `json:"last_seen_site_id,omitempty"`
 
-	// The open ports discovered on the asset.
+	// The networks discovered on the asset.
 	Networks []*DomainDiscoverAPIActiveDiscoveryNetwork `json:"networks"`
 
 	// The open ports discovered on the asset.

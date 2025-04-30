@@ -30,7 +30,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CloudSecurityAssetsEntitiesArtifactsGet(params *CloudSecurityAssetsEntitiesArtifactsGetParams, opts ...ClientOption) (*CloudSecurityAssetsEntitiesArtifactsGetOK, error)
+	CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGet(params *CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGetParams, opts ...ClientOption) (*CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGetOK, error)
 
 	CloudSecurityAssetsEntitiesGet(params *CloudSecurityAssetsEntitiesGetParams, opts ...ClientOption) (*CloudSecurityAssetsEntitiesGetOK, error)
 
@@ -40,22 +40,22 @@ type ClientService interface {
 }
 
 /*
-CloudSecurityAssetsEntitiesArtifactsGet ts o d o
+CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGet gets combined compliance data aggregated by account and region results can be filtered and sorted
 */
-func (a *Client) CloudSecurityAssetsEntitiesArtifactsGet(params *CloudSecurityAssetsEntitiesArtifactsGetParams, opts ...ClientOption) (*CloudSecurityAssetsEntitiesArtifactsGetOK, error) {
+func (a *Client) CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGet(params *CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGetParams, opts ...ClientOption) (*CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCloudSecurityAssetsEntitiesArtifactsGetParams()
+		params = NewCloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGetParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "cloud-security-assets-entities-artifacts-get",
+		ID:                 "cloud-security-assets-combined-compliance-by-account-region-and-resource-type-get",
 		Method:             "GET",
-		PathPattern:        "/cloud-security-assets/entities/resource-artifacts/v1",
+		PathPattern:        "/cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CloudSecurityAssetsEntitiesArtifactsGetReader{formats: a.formats},
+		Reader:             &CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGetReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -67,13 +67,13 @@ func (a *Client) CloudSecurityAssetsEntitiesArtifactsGet(params *CloudSecurityAs
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CloudSecurityAssetsEntitiesArtifactsGetOK)
+	success, ok := result.(*CloudSecurityAssetsCombinedComplianceByAccountRegionAndResourceTypeGetOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for cloud-security-assets-entities-artifacts-get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for cloud-security-assets-combined-compliance-by-account-region-and-resource-type-get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

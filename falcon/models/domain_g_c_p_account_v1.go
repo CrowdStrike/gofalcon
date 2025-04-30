@@ -47,7 +47,7 @@ type DomainGCPAccountV1 struct {
 	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
 
 	// conditions
-	Conditions []*DomainCondition `json:"conditions"`
+	Conditions []*StatemgmtCondition `json:"conditions"`
 
 	// cspm enabled
 	// Required: true
@@ -92,7 +92,7 @@ type DomainGCPAccountV1 struct {
 	ServiceAccountClientID string `json:"service_account_client_id,omitempty"`
 
 	// service account conditions
-	ServiceAccountConditions []*DomainCondition `json:"service_account_conditions"`
+	ServiceAccountConditions []*StatemgmtCondition `json:"service_account_conditions"`
 
 	// GCP service account ID
 	ServiceAccountID int64 `json:"service_account_id,omitempty"`

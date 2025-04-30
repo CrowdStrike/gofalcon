@@ -34,6 +34,10 @@ type DomainLastScheduledExecution struct {
 	// status display
 	// Required: true
 	StatusDisplay *string `json:"status_display"`
+
+	// use ingest time
+	// Required: true
+	UseIngestTime *bool `json:"use_ingest_time"`
 }
 
 // Validate validates this domain last scheduled execution
@@ -53,6 +57,10 @@ func (m *DomainLastScheduledExecution) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatusDisplay(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUseIngestTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -98,6 +106,15 @@ func (m *DomainLastScheduledExecution) validateSearchWindowStart(formats strfmt.
 func (m *DomainLastScheduledExecution) validateStatusDisplay(formats strfmt.Registry) error {
 
 	if err := validate.Required("status_display", "body", m.StatusDisplay); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLastScheduledExecution) validateUseIngestTime(formats strfmt.Registry) error {
+
+	if err := validate.Required("use_ingest_time", "body", m.UseIngestTime); err != nil {
 		return err
 	}
 

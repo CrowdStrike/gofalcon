@@ -37,7 +37,7 @@ type RegistrationGCPAccountRspObjV2 struct {
 	ProjectID string `json:"project_id,omitempty"`
 
 	// service account conditions
-	ServiceAccountConditions []*DomainCondition `json:"service_account_conditions"`
+	ServiceAccountConditions []*StatemgmtCondition `json:"service_account_conditions"`
 
 	// service account id
 	ServiceAccountID int64 `json:"service_account_id,omitempty"`

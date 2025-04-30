@@ -57,7 +57,7 @@ type RegistrationAzureAccountV1Ext struct {
 	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
 
 	// conditions
-	Conditions []*DomainCondition `json:"conditions"`
+	Conditions []*StatemgmtCondition `json:"conditions"`
 
 	// credentials end date
 	// Format: date-time
@@ -91,7 +91,7 @@ type RegistrationAzureAccountV1Ext struct {
 	PublicCertificateRaw string `json:"public_certificate_raw,omitempty"`
 
 	// role assignments
-	RoleAssignments []*DomainAzureRoleAssignment `json:"role_assignments"`
+	RoleAssignments []*AzureDBRoleAssignment `json:"role_assignments"`
 
 	// Whether to show modal on the UI instructing existing D4C Azure customer to reregister subscriptions for CSPM.
 	// Required: true

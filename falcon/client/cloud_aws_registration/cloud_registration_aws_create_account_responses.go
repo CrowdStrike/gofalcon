@@ -310,7 +310,7 @@ type CloudRegistrationAwsCreateAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RestAWSAccountCreateResponseExtV1
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this cloud registration aws create account bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *CloudRegistrationAwsCreateAccountBadRequest) String() string {
 	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CloudRegistrationAwsCreateAccountBadRequest) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
+func (o *CloudRegistrationAwsCreateAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *CloudRegistrationAwsCreateAccountBadRequest) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RestAWSAccountCreateResponseExtV1)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type CloudRegistrationAwsCreateAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RestAWSAccountCreateResponseExtV1
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this cloud registration aws create account internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *CloudRegistrationAwsCreateAccountInternalServerError) String() string {
 	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CloudRegistrationAwsCreateAccountInternalServerError) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
+func (o *CloudRegistrationAwsCreateAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *CloudRegistrationAwsCreateAccountInternalServerError) readResponse(resp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RestAWSAccountCreateResponseExtV1)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

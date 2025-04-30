@@ -236,7 +236,7 @@ func (a *Client) QueryScanResults(params *QueryScanResultsParams, opts ...Client
 }
 
 /*
-UploadFileMixin0Mixin93 uploads a file to be further analyzed with quick scan pro the samples expire after 90 days
+UploadFileMixin0Mixin93 uploads a file to be further analyzed with quick scan pro the samples expire according to the retention policies set
 */
 func (a *Client) UploadFileMixin0Mixin93(params *UploadFileMixin0Mixin93Params, opts ...ClientOption) (*UploadFileMixin0Mixin93OK, error) {
 	// TODO: Validate the params before sending
