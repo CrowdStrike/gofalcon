@@ -21,19 +21,19 @@ type Costs struct {
 
 	// The cost of execution of a live query
 	// Required: true
-	LiveCost *int64 `json:"liveCost"`
+	LiveCost *float64 `json:"liveCost"`
 
 	// The rate of the live cost query
 	// Required: true
-	LiveCostRate *int64 `json:"liveCostRate"`
+	LiveCostRate *float64 `json:"liveCostRate"`
 
 	// The cost for executing as a static query
 	// Required: true
-	StaticCost *int64 `json:"staticCost"`
+	StaticCost *float64 `json:"staticCost"`
 
 	// The rate for executing static queries
 	// Required: true
-	StaticCostRate *int64 `json:"staticCostRate"`
+	StaticCostRate *float64 `json:"staticCostRate"`
 }
 
 // Validate validates this costs
