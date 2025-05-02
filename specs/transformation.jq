@@ -589,6 +589,12 @@
     }
 }
 
+# Ngsiem search metadata are ints but are returned from the API as decimals https://github.com/CrowdStrike/gofalcon/issues/505
+| .definitions.".costs".properties.liveCost.format = "float" | .definitions.".costs".properties.liveCost.type = "number"
+| .definitions.".costs".properties.liveCostRate.format = "float" | .definitions.".costs".properties.liveCostRate.type = "number"
+| .definitions.".costs".properties.staticCost.format = "float" | .definitions.".costs".properties.staticCost.type = "number"
+| .definitions.".costs".properties.staticCostRate.format = "float" | .definitions.".costs".properties.staticCostRate.type = "number"
+
 # Prevent unnecessary renaming
 | .paths."/snapshots/entities/image-registry-credentials/v1".get.operationId = "GetCredentialsMixin0Mixin60"
 | .paths."/falconx/queries/submissions/v1".get.operationId = "QuerySubmissions"

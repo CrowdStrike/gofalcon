@@ -8,8 +8,8 @@ build:
 
 clean-generate: remove-generated generate
 
-generate: swagger-cli specs/swagger-stripped-oauth.json
-	$(SWAGGER) generate client --skip-validation -f $^ -t falcon
+generate: specs/swagger-stripped-oauth.json swagger-cli
+	$(SWAGGER) generate client --skip-validation -f $< -t falcon
 
 .PHONY: build generate remove-generated
 
