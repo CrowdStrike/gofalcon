@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	jsonext "encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -30,7 +31,7 @@ type DomainAPISimplifiedEvaluationLogicItemV1 struct {
 	Found []string `json:"found"`
 
 	// id
-	ID int64 `json:"id,omitempty"`
+	ID jsonext.Number `json:"id,omitempty"`
 
 	// match required
 	MatchRequired string `json:"match_required,omitempty"`
