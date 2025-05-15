@@ -29,7 +29,7 @@ type AzureAzureTenantConfigResponseV1 struct {
 
 	// resources
 	// Required: true
-	Resources []*AzureAzureTenantConfigV1 `json:"resources"`
+	Resources []*AzureTenantConfig `json:"resources"`
 }
 
 // Validate validates this azure azure tenant config response v1

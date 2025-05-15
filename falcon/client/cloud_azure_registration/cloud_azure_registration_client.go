@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CloudRegistrationAzureAzurePurgeRotatedCertificates(params *CloudRegistrationAzureAzurePurgeRotatedCertificatesParams, opts ...ClientOption) (*CloudRegistrationAzureAzurePurgeRotatedCertificatesCreated, error)
+
 	CloudRegistrationAzureAzureRotateCertificates(params *CloudRegistrationAzureAzureRotateCertificatesParams, opts ...ClientOption) (*CloudRegistrationAzureAzureRotateCertificatesCreated, error)
 
 	CloudRegistrationAzureAzureSupportedRegions(params *CloudRegistrationAzureAzureSupportedRegionsParams, opts ...ClientOption) (*CloudRegistrationAzureAzureSupportedRegionsOK, error)
@@ -56,8 +58,6 @@ type ClientService interface {
 
 	CloudRegistrationAzureGetRegistration(params *CloudRegistrationAzureGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureGetRegistrationOK, error)
 
-	CloudRegistrationAzureGetRegistrationsCombined(params *CloudRegistrationAzureGetRegistrationsCombinedParams, opts ...ClientOption) (*CloudRegistrationAzureGetRegistrationsCombinedOK, *CloudRegistrationAzureGetRegistrationsCombinedNoContent, error)
-
 	CloudRegistrationAzureGetSubscription(params *CloudRegistrationAzureGetSubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureGetSubscriptionOK, error)
 
 	CloudRegistrationAzureGetSubscriptionCombined(params *CloudRegistrationAzureGetSubscriptionCombinedParams, opts ...ClientOption) (*CloudRegistrationAzureGetSubscriptionCombinedOK, *CloudRegistrationAzureGetSubscriptionCombinedNoContent, error)
@@ -73,6 +73,44 @@ type ClientService interface {
 	CloudRegistrationAzureValidateSubscription(params *CloudRegistrationAzureValidateSubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureValidateSubscriptionCreated, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CloudRegistrationAzureAzurePurgeRotatedCertificates purges certificates that have been rotated
+*/
+func (a *Client) CloudRegistrationAzureAzurePurgeRotatedCertificates(params *CloudRegistrationAzureAzurePurgeRotatedCertificatesParams, opts ...ClientOption) (*CloudRegistrationAzureAzurePurgeRotatedCertificatesCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureAzurePurgeRotatedCertificatesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-azure-purge-rotated-certificates",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-azure/entities/certificates-purge-rotated/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureAzurePurgeRotatedCertificatesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureAzurePurgeRotatedCertificatesCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-azure-purge-rotated-certificates: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -190,7 +228,7 @@ func (a *Client) CloudRegistrationAzureCreatePartialRegistration(params *CloudRe
 }
 
 /*
-CloudRegistrationAzureCreateRegistration creates an azure registration
+CloudRegistrationAzureCreateRegistration creates an azure registration for a tenant
 */
 func (a *Client) CloudRegistrationAzureCreateRegistration(params *CloudRegistrationAzureCreateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureCreateRegistrationCreated, error) {
 	// TODO: Validate the params before sending
@@ -304,7 +342,7 @@ func (a *Client) CloudRegistrationAzureDeletePartialRegistration(params *CloudRe
 }
 
 /*
-CloudRegistrationAzureDeleteRegistration deletes existing azure registrations
+CloudRegistrationAzureDeleteRegistration deletes existing azure registration for a tenant
 */
 func (a *Client) CloudRegistrationAzureDeleteRegistration(params *CloudRegistrationAzureDeleteRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteRegistrationOK, error) {
 	// TODO: Validate the params before sending
@@ -456,7 +494,7 @@ func (a *Client) CloudRegistrationAzureDownloadScript(params *CloudRegistrationA
 }
 
 /*
-CloudRegistrationAzureGetManagementGroup retrieves an existing azure management group
+CloudRegistrationAzureGetManagementGroup retrieves existing azure management groups
 */
 func (a *Client) CloudRegistrationAzureGetManagementGroup(params *CloudRegistrationAzureGetManagementGroupParams, opts ...ClientOption) (*CloudRegistrationAzureGetManagementGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -494,7 +532,7 @@ func (a *Client) CloudRegistrationAzureGetManagementGroup(params *CloudRegistrat
 }
 
 /*
-CloudRegistrationAzureGetPartialRegistration retrieves an existing partial azure registration
+CloudRegistrationAzureGetPartialRegistration retrieves existing partial azure registrations
 */
 func (a *Client) CloudRegistrationAzureGetPartialRegistration(params *CloudRegistrationAzureGetPartialRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureGetPartialRegistrationOK, error) {
 	// TODO: Validate the params before sending
@@ -532,7 +570,7 @@ func (a *Client) CloudRegistrationAzureGetPartialRegistration(params *CloudRegis
 }
 
 /*
-CloudRegistrationAzureGetRegistration retrieves existing azure registration
+CloudRegistrationAzureGetRegistration retrieves existing azure registration for a tenant
 */
 func (a *Client) CloudRegistrationAzureGetRegistration(params *CloudRegistrationAzureGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureGetRegistrationOK, error) {
 	// TODO: Validate the params before sending
@@ -566,45 +604,6 @@ func (a *Client) CloudRegistrationAzureGetRegistration(params *CloudRegistration
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CloudRegistrationAzureGetRegistrationsCombined retrieves a list of azure partial and complete registrations with support for f q l filtering sorting and pagination
-*/
-func (a *Client) CloudRegistrationAzureGetRegistrationsCombined(params *CloudRegistrationAzureGetRegistrationsCombinedParams, opts ...ClientOption) (*CloudRegistrationAzureGetRegistrationsCombinedOK, *CloudRegistrationAzureGetRegistrationsCombinedNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCloudRegistrationAzureGetRegistrationsCombinedParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "cloud-registration-azure-get-registrations-combined",
-		Method:             "GET",
-		PathPattern:        "/cloud-security-registration-azure/combined/registrations/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CloudRegistrationAzureGetRegistrationsCombinedReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *CloudRegistrationAzureGetRegistrationsCombinedOK:
-		return value, nil, nil
-	case *CloudRegistrationAzureGetRegistrationsCombinedNoContent:
-		return nil, value, nil
-	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for cloud_azure_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -762,7 +761,7 @@ func (a *Client) CloudRegistrationAzureUpdatePartialRegistration(params *CloudRe
 }
 
 /*
-CloudRegistrationAzureUpdateRegistration updates an existing azure registration
+CloudRegistrationAzureUpdateRegistration updates an existing azure registration for a tenant
 */
 func (a *Client) CloudRegistrationAzureUpdateRegistration(params *CloudRegistrationAzureUpdateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateRegistrationOK, error) {
 	// TODO: Validate the params before sending

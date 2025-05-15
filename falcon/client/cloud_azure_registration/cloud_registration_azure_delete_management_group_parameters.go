@@ -74,11 +74,11 @@ type CloudRegistrationAzureDeleteManagementGroupParams struct {
 	*/
 	XCSCUSTID string
 
-	/* ID.
+	/* Ids.
 
 	   Azure management group IDs to disable
 	*/
-	ID []string
+	Ids []string
 
 	/* TenantID.
 
@@ -161,15 +161,15 @@ func (o *CloudRegistrationAzureDeleteManagementGroupParams) SetXCSCUSTID(xCSCUST
 	o.XCSCUSTID = xCSCUSTID
 }
 
-// WithID adds the id to the cloud registration azure delete management group params
-func (o *CloudRegistrationAzureDeleteManagementGroupParams) WithID(id []string) *CloudRegistrationAzureDeleteManagementGroupParams {
-	o.SetID(id)
+// WithIds adds the ids to the cloud registration azure delete management group params
+func (o *CloudRegistrationAzureDeleteManagementGroupParams) WithIds(ids []string) *CloudRegistrationAzureDeleteManagementGroupParams {
+	o.SetIds(ids)
 	return o
 }
 
-// SetID adds the id to the cloud registration azure delete management group params
-func (o *CloudRegistrationAzureDeleteManagementGroupParams) SetID(id []string) {
-	o.ID = id
+// SetIds adds the ids to the cloud registration azure delete management group params
+func (o *CloudRegistrationAzureDeleteManagementGroupParams) SetIds(ids []string) {
+	o.Ids = ids
 }
 
 // WithTenantID adds the tenantID to the cloud registration azure delete management group params
@@ -204,13 +204,13 @@ func (o *CloudRegistrationAzureDeleteManagementGroupParams) WriteToRequest(r run
 		return err
 	}
 
-	if o.ID != nil {
+	if o.Ids != nil {
 
-		// binding items for id
-		joinedID := o.bindParamID(reg)
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
 
-		// query array param id
-		if err := r.SetQueryParam("id", joinedID...); err != nil {
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
 		}
 	}
@@ -231,19 +231,19 @@ func (o *CloudRegistrationAzureDeleteManagementGroupParams) WriteToRequest(r run
 	return nil
 }
 
-// bindParamCloudRegistrationAzureDeleteManagementGroup binds the parameter id
-func (o *CloudRegistrationAzureDeleteManagementGroupParams) bindParamID(formats strfmt.Registry) []string {
-	iDIR := o.ID
+// bindParamCloudRegistrationAzureDeleteManagementGroup binds the parameter ids
+func (o *CloudRegistrationAzureDeleteManagementGroupParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
 
-	var iDIC []string
-	for _, iDIIR := range iDIR { // explode []string
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
 
-		iDIIV := iDIIR // string as string
-		iDIC = append(iDIC, iDIIV)
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
 	}
 
 	// items.CollectionFormat: "multi"
-	iDIS := swag.JoinByFormat(iDIC, "multi")
+	idsIS := swag.JoinByFormat(idsIC, "multi")
 
-	return iDIS
+	return idsIS
 }

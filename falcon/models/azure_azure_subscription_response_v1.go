@@ -29,7 +29,7 @@ type AzureAzureSubscriptionResponseV1 struct {
 
 	// resources
 	// Required: true
-	Resources []*AzureAzureSubscriptionV1 `json:"resources"`
+	Resources []*AzureSubscription `json:"resources"`
 }
 
 // Validate validates this azure azure subscription response v1

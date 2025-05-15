@@ -29,7 +29,7 @@ type AzureAzureManagementGroupResponseV1 struct {
 
 	// resources
 	// Required: true
-	Resources []*AzureAzureManagementGroupV1 `json:"resources"`
+	Resources []*AzureManagementGroup `json:"resources"`
 }
 
 // Validate validates this azure azure management group response v1

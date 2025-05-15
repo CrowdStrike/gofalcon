@@ -74,11 +74,11 @@ type CloudRegistrationAzureGetManagementGroupParams struct {
 	*/
 	XCSCUSTID string
 
-	/* ID.
+	/* Ids.
 
-	   Azure management group ID
+	   Azure management group IDs
 	*/
-	ID []string
+	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -155,15 +155,15 @@ func (o *CloudRegistrationAzureGetManagementGroupParams) SetXCSCUSTID(xCSCUSTID 
 	o.XCSCUSTID = xCSCUSTID
 }
 
-// WithID adds the id to the cloud registration azure get management group params
-func (o *CloudRegistrationAzureGetManagementGroupParams) WithID(id []string) *CloudRegistrationAzureGetManagementGroupParams {
-	o.SetID(id)
+// WithIds adds the ids to the cloud registration azure get management group params
+func (o *CloudRegistrationAzureGetManagementGroupParams) WithIds(ids []string) *CloudRegistrationAzureGetManagementGroupParams {
+	o.SetIds(ids)
 	return o
 }
 
-// SetID adds the id to the cloud registration azure get management group params
-func (o *CloudRegistrationAzureGetManagementGroupParams) SetID(id []string) {
-	o.ID = id
+// SetIds adds the ids to the cloud registration azure get management group params
+func (o *CloudRegistrationAzureGetManagementGroupParams) SetIds(ids []string) {
+	o.Ids = ids
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -187,13 +187,13 @@ func (o *CloudRegistrationAzureGetManagementGroupParams) WriteToRequest(r runtim
 		return err
 	}
 
-	if o.ID != nil {
+	if o.Ids != nil {
 
-		// binding items for id
-		joinedID := o.bindParamID(reg)
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
 
-		// query array param id
-		if err := r.SetQueryParam("id", joinedID...); err != nil {
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
 		}
 	}
@@ -204,19 +204,19 @@ func (o *CloudRegistrationAzureGetManagementGroupParams) WriteToRequest(r runtim
 	return nil
 }
 
-// bindParamCloudRegistrationAzureGetManagementGroup binds the parameter id
-func (o *CloudRegistrationAzureGetManagementGroupParams) bindParamID(formats strfmt.Registry) []string {
-	iDIR := o.ID
+// bindParamCloudRegistrationAzureGetManagementGroup binds the parameter ids
+func (o *CloudRegistrationAzureGetManagementGroupParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
 
-	var iDIC []string
-	for _, iDIIR := range iDIR { // explode []string
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
 
-		iDIIV := iDIIR // string as string
-		iDIC = append(iDIC, iDIIV)
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
 	}
 
 	// items.CollectionFormat: "multi"
-	iDIS := swag.JoinByFormat(iDIC, "multi")
+	idsIS := swag.JoinByFormat(idsIC, "multi")
 
-	return iDIS
+	return idsIS
 }

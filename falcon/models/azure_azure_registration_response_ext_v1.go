@@ -27,9 +27,9 @@ type AzureAzureRegistrationResponseExtV1 struct {
 	// Required: true
 	Meta *MsaspecMetaInfo `json:"meta"`
 
-	// resources
+	// resource
 	// Required: true
-	Resources []*AzureAzureRegistrationV1 `json:"resources"`
+	Resource *AzureTenantRegistration `json:"resource"`
 }
 
 // Validate validates this azure azure registration response ext v1
@@ -44,7 +44,7 @@ func (m *AzureAzureRegistrationResponseExtV1) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
-	if err := m.validateResources(formats); err != nil {
+	if err := m.validateResource(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -100,28 +100,21 @@ func (m *AzureAzureRegistrationResponseExtV1) validateMeta(formats strfmt.Regist
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) validateResources(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationResponseExtV1) validateResource(formats strfmt.Registry) error {
 
-	if err := validate.Required("resources", "body", m.Resources); err != nil {
+	if err := validate.Required("resource", "body", m.Resource); err != nil {
 		return err
 	}
 
-	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
+	if m.Resource != nil {
+		if err := m.Resource.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
+			return err
 		}
-
 	}
 
 	return nil
@@ -139,7 +132,7 @@ func (m *AzureAzureRegistrationResponseExtV1) ContextValidate(ctx context.Contex
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateResources(ctx, formats); err != nil {
+	if err := m.contextValidateResource(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -191,26 +184,18 @@ func (m *AzureAzureRegistrationResponseExtV1) contextValidateMeta(ctx context.Co
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationResponseExtV1) contextValidateResource(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.Resources); i++ {
+	if m.Resource != nil {
 
-		if m.Resources[i] != nil {
-
-			if swag.IsZero(m.Resources[i]) { // not required
-				return nil
+		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
-
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
+			return err
 		}
-
 	}
 
 	return nil

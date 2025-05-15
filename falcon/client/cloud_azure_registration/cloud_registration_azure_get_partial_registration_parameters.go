@@ -73,11 +73,11 @@ type CloudRegistrationAzureGetPartialRegistrationParams struct {
 	*/
 	XCSCUSTID string
 
-	/* ID.
+	/* TenantID.
 
-	   Partial Azure registration ID
+	   Azure tenant ID
 	*/
-	ID string
+	TenantID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -154,15 +154,15 @@ func (o *CloudRegistrationAzureGetPartialRegistrationParams) SetXCSCUSTID(xCSCUS
 	o.XCSCUSTID = xCSCUSTID
 }
 
-// WithID adds the id to the cloud registration azure get partial registration params
-func (o *CloudRegistrationAzureGetPartialRegistrationParams) WithID(id string) *CloudRegistrationAzureGetPartialRegistrationParams {
-	o.SetID(id)
+// WithTenantID adds the tenantID to the cloud registration azure get partial registration params
+func (o *CloudRegistrationAzureGetPartialRegistrationParams) WithTenantID(tenantID string) *CloudRegistrationAzureGetPartialRegistrationParams {
+	o.SetTenantID(tenantID)
 	return o
 }
 
-// SetID adds the id to the cloud registration azure get partial registration params
-func (o *CloudRegistrationAzureGetPartialRegistrationParams) SetID(id string) {
-	o.ID = id
+// SetTenantID adds the tenantId to the cloud registration azure get partial registration params
+func (o *CloudRegistrationAzureGetPartialRegistrationParams) SetTenantID(tenantID string) {
+	o.TenantID = tenantID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -186,12 +186,12 @@ func (o *CloudRegistrationAzureGetPartialRegistrationParams) WriteToRequest(r ru
 		return err
 	}
 
-	// query param id
-	qrID := o.ID
-	qID := qrID
-	if qID != "" {
+	// query param tenant_id
+	qrTenantID := o.TenantID
+	qTenantID := qrTenantID
+	if qTenantID != "" {
 
-		if err := r.SetQueryParam("id", qID); err != nil {
+		if err := r.SetQueryParam("tenant_id", qTenantID); err != nil {
 			return err
 		}
 	}

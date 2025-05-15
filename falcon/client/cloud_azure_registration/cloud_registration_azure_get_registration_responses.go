@@ -41,6 +41,12 @@ func (o *CloudRegistrationAzureGetRegistrationReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewCloudRegistrationAzureGetRegistrationNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 500:
 		result := NewCloudRegistrationAzureGetRegistrationInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -245,6 +251,74 @@ func (o *CloudRegistrationAzureGetRegistrationForbidden) GetPayload() *models.Ms
 }
 
 func (o *CloudRegistrationAzureGetRegistrationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCloudRegistrationAzureGetRegistrationNotFound creates a CloudRegistrationAzureGetRegistrationNotFound with default headers values
+func NewCloudRegistrationAzureGetRegistrationNotFound() *CloudRegistrationAzureGetRegistrationNotFound {
+	return &CloudRegistrationAzureGetRegistrationNotFound{}
+}
+
+/*
+CloudRegistrationAzureGetRegistrationNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type CloudRegistrationAzureGetRegistrationNotFound struct {
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this cloud registration azure get registration not found response has a 2xx status code
+func (o *CloudRegistrationAzureGetRegistrationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this cloud registration azure get registration not found response has a 3xx status code
+func (o *CloudRegistrationAzureGetRegistrationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this cloud registration azure get registration not found response has a 4xx status code
+func (o *CloudRegistrationAzureGetRegistrationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this cloud registration azure get registration not found response has a 5xx status code
+func (o *CloudRegistrationAzureGetRegistrationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this cloud registration azure get registration not found response a status code equal to that given
+func (o *CloudRegistrationAzureGetRegistrationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the cloud registration azure get registration not found response
+func (o *CloudRegistrationAzureGetRegistrationNotFound) Code() int {
+	return 404
+}
+
+func (o *CloudRegistrationAzureGetRegistrationNotFound) Error() string {
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureGetRegistrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CloudRegistrationAzureGetRegistrationNotFound) String() string {
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureGetRegistrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CloudRegistrationAzureGetRegistrationNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CloudRegistrationAzureGetRegistrationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaspecResponseFields)
 

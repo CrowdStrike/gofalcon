@@ -69,12 +69,6 @@ type CloudRegistrationAzureAzureRotateCertificatesParams struct {
 	*/
 	Authorization *string
 
-	/* XCSCUSTID.
-
-	   Customer ID
-	*/
-	XCSCUSTID string
-
 	// Body.
 	Body *models.AzureAzureRotateExpiringCertificatesRequestV1
 
@@ -142,17 +136,6 @@ func (o *CloudRegistrationAzureAzureRotateCertificatesParams) SetAuthorization(a
 	o.Authorization = authorization
 }
 
-// WithXCSCUSTID adds the xCSCUSTID to the cloud registration azure azure rotate certificates params
-func (o *CloudRegistrationAzureAzureRotateCertificatesParams) WithXCSCUSTID(xCSCUSTID string) *CloudRegistrationAzureAzureRotateCertificatesParams {
-	o.SetXCSCUSTID(xCSCUSTID)
-	return o
-}
-
-// SetXCSCUSTID adds the xCSCUSTId to the cloud registration azure azure rotate certificates params
-func (o *CloudRegistrationAzureAzureRotateCertificatesParams) SetXCSCUSTID(xCSCUSTID string) {
-	o.XCSCUSTID = xCSCUSTID
-}
-
 // WithBody adds the body to the cloud registration azure azure rotate certificates params
 func (o *CloudRegistrationAzureAzureRotateCertificatesParams) WithBody(body *models.AzureAzureRotateExpiringCertificatesRequestV1) *CloudRegistrationAzureAzureRotateCertificatesParams {
 	o.SetBody(body)
@@ -178,11 +161,6 @@ func (o *CloudRegistrationAzureAzureRotateCertificatesParams) WriteToRequest(r r
 		if err := r.SetHeaderParam("Authorization", *o.Authorization); err != nil {
 			return err
 		}
-	}
-
-	// header param X-CS-CUSTID
-	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
-		return err
 	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
