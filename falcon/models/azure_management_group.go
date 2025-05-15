@@ -19,6 +19,9 @@ import (
 // swagger:model azure.ManagementGroup
 type AzureManagementGroup struct {
 
+	// cid
+	Cid string `json:"cid,omitempty"`
+
 	// created
 	// Required: true
 	// Format: date-time
@@ -28,6 +31,11 @@ type AzureManagementGroup struct {
 	// Required: true
 	DefaultSubscriptionID *string `json:"default_subscription_id"`
 
+	// deleted
+	// Required: true
+	// Format: date-time
+	Deleted *strfmt.DateTime `json:"deleted"`
+
 	// management group id
 	ManagementGroupID string `json:"management_group_id,omitempty"`
 
@@ -36,9 +44,6 @@ type AzureManagementGroup struct {
 
 	// parent group id
 	ParentGroupID string `json:"parent_group_id,omitempty"`
-
-	// registration
-	Registration *AzureScopedRegistration `json:"registration,omitempty"`
 
 	// status
 	Status string `json:"status,omitempty"`
@@ -67,7 +72,7 @@ func (m *AzureManagementGroup) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateRegistration(formats); err != nil {
+	if err := m.validateDeleted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -103,20 +108,14 @@ func (m *AzureManagementGroup) validateDefaultSubscriptionID(formats strfmt.Regi
 	return nil
 }
 
-func (m *AzureManagementGroup) validateRegistration(formats strfmt.Registry) error {
-	if swag.IsZero(m.Registration) { // not required
-		return nil
+func (m *AzureManagementGroup) validateDeleted(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleted", "body", m.Deleted); err != nil {
+		return err
 	}
 
-	if m.Registration != nil {
-		if err := m.Registration.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("registration")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("registration")
-			}
-			return err
-		}
+	if err := validate.FormatOf("deleted", "body", "date-time", m.Deleted.String(), formats); err != nil {
+		return err
 	}
 
 	return nil
@@ -135,38 +134,8 @@ func (m *AzureManagementGroup) validateUpdated(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this azure management group based on the context it is used
+// ContextValidate validates this azure management group based on context it is used
 func (m *AzureManagementGroup) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateRegistration(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *AzureManagementGroup) contextValidateRegistration(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Registration != nil {
-
-		if swag.IsZero(m.Registration) { // not required
-			return nil
-		}
-
-		if err := m.Registration.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("registration")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("registration")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

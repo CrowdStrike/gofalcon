@@ -70,7 +70,7 @@ type CloudRegistrationAzureGetSubscriptionCombinedParams struct {
 
 	/* Filter.
 
-	   FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{updated_at, subscription_id, subscription_name, registration_status, account_type, created_at, management_group_id, management_group_name, csp_events}
+	   FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{subscription_name, management_group_id, registration_status, csp_events, created_at, updated_at, subscription_id, management_group_name, account_type}
 	*/
 	Filter *string
 
@@ -96,7 +96,7 @@ type CloudRegistrationAzureGetSubscriptionCombinedParams struct {
 
 	/* Sort.
 
-	   Field and direction for sorting results - allowed sort fields are Set{account_type, created_at, management_group_id, management_group_name, csp_events, updated_at, subscription_id, subscription_name, registration_status}
+	   Field and direction for sorting results - allowed sort fields are Set{subscription_name, management_group_id, registration_status, csp_events, created_at, updated_at, subscription_id, management_group_name, account_type}
 	*/
 	Sort *string
 

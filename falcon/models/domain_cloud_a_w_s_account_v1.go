@@ -54,6 +54,9 @@ type DomainCloudAWSAccountV1 struct {
 	// cid
 	Cid string `json:"cid,omitempty"`
 
+	// cloudformation stack arn
+	CloudformationStackArn string `json:"cloudformation_stack_arn,omitempty"`
+
 	// conditions
 	Conditions []*DomainCloudCondition `json:"conditions"`
 
@@ -62,6 +65,9 @@ type DomainCloudAWSAccountV1 struct {
 
 	// environment
 	Environment string `json:"environment,omitempty"`
+
+	// falcon client id
+	FalconClientID string `json:"falcon_client_id,omitempty"`
 
 	// Permissions status for each product returned via API.
 	// Required: true
@@ -85,9 +91,18 @@ type DomainCloudAWSAccountV1 struct {
 	// Required: true
 	Products []*DomainProductFeatures `json:"products"`
 
+	// registration status
+	RegistrationStatus string `json:"registration_status,omitempty"`
+
 	// resource metadata
 	// Required: true
 	ResourceMetadata *DomainAWSAccountResourceMetadata `json:"resource_metadata"`
+
+	// resource name prefix
+	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
+
+	// resource name suffix
+	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
 
 	// 12 digit AWS provided unique identifier for the root account (of the organization this account belongs to).
 	RootAccountID string `json:"root_account_id,omitempty"`

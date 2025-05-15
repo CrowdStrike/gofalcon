@@ -32,6 +32,11 @@ type AzureSubscription struct {
 	// Format: date-time
 	Created *strfmt.DateTime `json:"created"`
 
+	// deleted
+	// Required: true
+	// Format: date-time
+	Deleted *strfmt.DateTime `json:"deleted"`
+
 	// management group id
 	ManagementGroupID string `json:"management_group_id,omitempty"`
 
@@ -40,9 +45,6 @@ type AzureSubscription struct {
 
 	// product permission status
 	ProductPermissionStatus []*AzurePermission `json:"product_permission_status"`
-
-	// registration
-	Registration *AzureScopedRegistration `json:"registration,omitempty"`
 
 	// subscription id
 	SubscriptionID string `json:"subscription_id,omitempty"`
@@ -71,11 +73,11 @@ func (m *AzureSubscription) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateProductPermissionStatus(formats); err != nil {
+	if err := m.validateDeleted(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRegistration(formats); err != nil {
+	if err := m.validateProductPermissionStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -129,6 +131,19 @@ func (m *AzureSubscription) validateCreated(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *AzureSubscription) validateDeleted(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleted", "body", m.Deleted); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("deleted", "body", "date-time", m.Deleted.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AzureSubscription) validateProductPermissionStatus(formats strfmt.Registry) error {
 	if swag.IsZero(m.ProductPermissionStatus) { // not required
 		return nil
@@ -150,25 +165,6 @@ func (m *AzureSubscription) validateProductPermissionStatus(formats strfmt.Regis
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *AzureSubscription) validateRegistration(formats strfmt.Registry) error {
-	if swag.IsZero(m.Registration) { // not required
-		return nil
-	}
-
-	if m.Registration != nil {
-		if err := m.Registration.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("registration")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("registration")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -196,10 +192,6 @@ func (m *AzureSubscription) ContextValidate(ctx context.Context, formats strfmt.
 	}
 
 	if err := m.contextValidateProductPermissionStatus(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateRegistration(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -254,27 +246,6 @@ func (m *AzureSubscription) contextValidateProductPermissionStatus(ctx context.C
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *AzureSubscription) contextValidateRegistration(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Registration != nil {
-
-		if swag.IsZero(m.Registration) { // not required
-			return nil
-		}
-
-		if err := m.Registration.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("registration")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("registration")
-			}
-			return err
-		}
 	}
 
 	return nil

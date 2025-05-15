@@ -41,6 +41,18 @@ func (o *CloudRegistrationAzureUpdatePartialRegistrationReader) ReadResponse(res
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewCloudRegistrationAzureUpdatePartialRegistrationNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 409:
+		result := NewCloudRegistrationAzureUpdatePartialRegistrationConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 500:
 		result := NewCloudRegistrationAzureUpdatePartialRegistrationInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -245,6 +257,142 @@ func (o *CloudRegistrationAzureUpdatePartialRegistrationForbidden) GetPayload() 
 }
 
 func (o *CloudRegistrationAzureUpdatePartialRegistrationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCloudRegistrationAzureUpdatePartialRegistrationNotFound creates a CloudRegistrationAzureUpdatePartialRegistrationNotFound with default headers values
+func NewCloudRegistrationAzureUpdatePartialRegistrationNotFound() *CloudRegistrationAzureUpdatePartialRegistrationNotFound {
+	return &CloudRegistrationAzureUpdatePartialRegistrationNotFound{}
+}
+
+/*
+CloudRegistrationAzureUpdatePartialRegistrationNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type CloudRegistrationAzureUpdatePartialRegistrationNotFound struct {
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this cloud registration azure update partial registration not found response has a 2xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this cloud registration azure update partial registration not found response has a 3xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this cloud registration azure update partial registration not found response has a 4xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this cloud registration azure update partial registration not found response has a 5xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this cloud registration azure update partial registration not found response a status code equal to that given
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the cloud registration azure update partial registration not found response
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) Code() int {
+	return 404
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/partial/v1][%d] cloudRegistrationAzureUpdatePartialRegistrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) String() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/partial/v1][%d] cloudRegistrationAzureUpdatePartialRegistrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCloudRegistrationAzureUpdatePartialRegistrationConflict creates a CloudRegistrationAzureUpdatePartialRegistrationConflict with default headers values
+func NewCloudRegistrationAzureUpdatePartialRegistrationConflict() *CloudRegistrationAzureUpdatePartialRegistrationConflict {
+	return &CloudRegistrationAzureUpdatePartialRegistrationConflict{}
+}
+
+/*
+CloudRegistrationAzureUpdatePartialRegistrationConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type CloudRegistrationAzureUpdatePartialRegistrationConflict struct {
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this cloud registration azure update partial registration conflict response has a 2xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this cloud registration azure update partial registration conflict response has a 3xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this cloud registration azure update partial registration conflict response has a 4xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this cloud registration azure update partial registration conflict response has a 5xx status code
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this cloud registration azure update partial registration conflict response a status code equal to that given
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the cloud registration azure update partial registration conflict response
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) Code() int {
+	return 409
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/partial/v1][%d] cloudRegistrationAzureUpdatePartialRegistrationConflict  %+v", 409, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) String() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/partial/v1][%d] cloudRegistrationAzureUpdatePartialRegistrationConflict  %+v", 409, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CloudRegistrationAzureUpdatePartialRegistrationConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaspecResponseFields)
 

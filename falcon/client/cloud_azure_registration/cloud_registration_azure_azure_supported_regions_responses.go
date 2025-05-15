@@ -63,7 +63,7 @@ CloudRegistrationAzureAzureSupportedRegionsOK describes a response with status c
 OK
 */
 type CloudRegistrationAzureAzureSupportedRegionsOK struct {
-	Payload *models.AzureAzureTenantConfigResponseV1
+	Payload *models.AzureAzureRegionsResponseV1
 }
 
 // IsSuccess returns true when this cloud registration azure azure supported regions o k response has a 2xx status code
@@ -104,13 +104,13 @@ func (o *CloudRegistrationAzureAzureSupportedRegionsOK) String() string {
 	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/regions/v1][%d] cloudRegistrationAzureAzureSupportedRegionsOK  %+v", 200, o.Payload)
 }
 
-func (o *CloudRegistrationAzureAzureSupportedRegionsOK) GetPayload() *models.AzureAzureTenantConfigResponseV1 {
+func (o *CloudRegistrationAzureAzureSupportedRegionsOK) GetPayload() *models.AzureAzureRegionsResponseV1 {
 	return o.Payload
 }
 
 func (o *CloudRegistrationAzureAzureSupportedRegionsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.AzureAzureTenantConfigResponseV1)
+	o.Payload = new(models.AzureAzureRegionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

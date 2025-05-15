@@ -74,11 +74,11 @@ type CloudRegistrationAzureDeleteRegistrationParams struct {
 	*/
 	XCSCUSTID string
 
-	/* TenantID.
+	/* TenantIds.
 
-	   Azure tenant ID
+	   Azure tenant IDs
 	*/
-	TenantID []string
+	TenantIds []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -155,15 +155,15 @@ func (o *CloudRegistrationAzureDeleteRegistrationParams) SetXCSCUSTID(xCSCUSTID 
 	o.XCSCUSTID = xCSCUSTID
 }
 
-// WithTenantID adds the tenantID to the cloud registration azure delete registration params
-func (o *CloudRegistrationAzureDeleteRegistrationParams) WithTenantID(tenantID []string) *CloudRegistrationAzureDeleteRegistrationParams {
-	o.SetTenantID(tenantID)
+// WithTenantIds adds the tenantIds to the cloud registration azure delete registration params
+func (o *CloudRegistrationAzureDeleteRegistrationParams) WithTenantIds(tenantIds []string) *CloudRegistrationAzureDeleteRegistrationParams {
+	o.SetTenantIds(tenantIds)
 	return o
 }
 
-// SetTenantID adds the tenantId to the cloud registration azure delete registration params
-func (o *CloudRegistrationAzureDeleteRegistrationParams) SetTenantID(tenantID []string) {
-	o.TenantID = tenantID
+// SetTenantIds adds the tenantIds to the cloud registration azure delete registration params
+func (o *CloudRegistrationAzureDeleteRegistrationParams) SetTenantIds(tenantIds []string) {
+	o.TenantIds = tenantIds
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -187,13 +187,13 @@ func (o *CloudRegistrationAzureDeleteRegistrationParams) WriteToRequest(r runtim
 		return err
 	}
 
-	if o.TenantID != nil {
+	if o.TenantIds != nil {
 
-		// binding items for tenant_id
-		joinedTenantID := o.bindParamTenantID(reg)
+		// binding items for tenant_ids
+		joinedTenantIds := o.bindParamTenantIds(reg)
 
-		// query array param tenant_id
-		if err := r.SetQueryParam("tenant_id", joinedTenantID...); err != nil {
+		// query array param tenant_ids
+		if err := r.SetQueryParam("tenant_ids", joinedTenantIds...); err != nil {
 			return err
 		}
 	}
@@ -204,19 +204,19 @@ func (o *CloudRegistrationAzureDeleteRegistrationParams) WriteToRequest(r runtim
 	return nil
 }
 
-// bindParamCloudRegistrationAzureDeleteRegistration binds the parameter tenant_id
-func (o *CloudRegistrationAzureDeleteRegistrationParams) bindParamTenantID(formats strfmt.Registry) []string {
-	tenantIDIR := o.TenantID
+// bindParamCloudRegistrationAzureDeleteRegistration binds the parameter tenant_ids
+func (o *CloudRegistrationAzureDeleteRegistrationParams) bindParamTenantIds(formats strfmt.Registry) []string {
+	tenantIdsIR := o.TenantIds
 
-	var tenantIDIC []string
-	for _, tenantIDIIR := range tenantIDIR { // explode []string
+	var tenantIdsIC []string
+	for _, tenantIdsIIR := range tenantIdsIR { // explode []string
 
-		tenantIDIIV := tenantIDIIR // string as string
-		tenantIDIC = append(tenantIDIC, tenantIDIIV)
+		tenantIdsIIV := tenantIdsIIR // string as string
+		tenantIdsIC = append(tenantIdsIC, tenantIdsIIV)
 	}
 
 	// items.CollectionFormat: "multi"
-	tenantIDIS := swag.JoinByFormat(tenantIDIC, "multi")
+	tenantIdsIS := swag.JoinByFormat(tenantIdsIC, "multi")
 
-	return tenantIDIS
+	return tenantIdsIS
 }

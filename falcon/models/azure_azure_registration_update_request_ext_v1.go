@@ -21,7 +21,7 @@ type AzureAzureRegistrationUpdateRequestExtV1 struct {
 
 	// resource
 	// Required: true
-	Resource *AzureRegistrationUpdateV1 `json:"resource"`
+	Resource *AzureTenantRegistrationBase `json:"resource"`
 }
 
 // Validate validates this azure azure registration update request ext v1

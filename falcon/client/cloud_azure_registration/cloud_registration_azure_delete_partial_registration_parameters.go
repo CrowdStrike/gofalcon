@@ -74,11 +74,11 @@ type CloudRegistrationAzureDeletePartialRegistrationParams struct {
 	*/
 	XCSCUSTID string
 
-	/* Ids.
+	/* TenantIds.
 
-	   Azure registration IDs to remove
+	   Azure tenant IDs
 	*/
-	Ids []string
+	TenantIds []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -155,15 +155,15 @@ func (o *CloudRegistrationAzureDeletePartialRegistrationParams) SetXCSCUSTID(xCS
 	o.XCSCUSTID = xCSCUSTID
 }
 
-// WithIds adds the ids to the cloud registration azure delete partial registration params
-func (o *CloudRegistrationAzureDeletePartialRegistrationParams) WithIds(ids []string) *CloudRegistrationAzureDeletePartialRegistrationParams {
-	o.SetIds(ids)
+// WithTenantIds adds the tenantIds to the cloud registration azure delete partial registration params
+func (o *CloudRegistrationAzureDeletePartialRegistrationParams) WithTenantIds(tenantIds []string) *CloudRegistrationAzureDeletePartialRegistrationParams {
+	o.SetTenantIds(tenantIds)
 	return o
 }
 
-// SetIds adds the ids to the cloud registration azure delete partial registration params
-func (o *CloudRegistrationAzureDeletePartialRegistrationParams) SetIds(ids []string) {
-	o.Ids = ids
+// SetTenantIds adds the tenantIds to the cloud registration azure delete partial registration params
+func (o *CloudRegistrationAzureDeletePartialRegistrationParams) SetTenantIds(tenantIds []string) {
+	o.TenantIds = tenantIds
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -187,13 +187,13 @@ func (o *CloudRegistrationAzureDeletePartialRegistrationParams) WriteToRequest(r
 		return err
 	}
 
-	if o.Ids != nil {
+	if o.TenantIds != nil {
 
-		// binding items for ids
-		joinedIds := o.bindParamIds(reg)
+		// binding items for tenant_ids
+		joinedTenantIds := o.bindParamTenantIds(reg)
 
-		// query array param ids
-		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+		// query array param tenant_ids
+		if err := r.SetQueryParam("tenant_ids", joinedTenantIds...); err != nil {
 			return err
 		}
 	}
@@ -204,19 +204,19 @@ func (o *CloudRegistrationAzureDeletePartialRegistrationParams) WriteToRequest(r
 	return nil
 }
 
-// bindParamCloudRegistrationAzureDeletePartialRegistration binds the parameter ids
-func (o *CloudRegistrationAzureDeletePartialRegistrationParams) bindParamIds(formats strfmt.Registry) []string {
-	idsIR := o.Ids
+// bindParamCloudRegistrationAzureDeletePartialRegistration binds the parameter tenant_ids
+func (o *CloudRegistrationAzureDeletePartialRegistrationParams) bindParamTenantIds(formats strfmt.Registry) []string {
+	tenantIdsIR := o.TenantIds
 
-	var idsIC []string
-	for _, idsIIR := range idsIR { // explode []string
+	var tenantIdsIC []string
+	for _, tenantIdsIIR := range tenantIdsIR { // explode []string
 
-		idsIIV := idsIIR // string as string
-		idsIC = append(idsIC, idsIIV)
+		tenantIdsIIV := tenantIdsIIR // string as string
+		tenantIdsIC = append(tenantIdsIC, tenantIdsIIV)
 	}
 
 	// items.CollectionFormat: "multi"
-	idsIS := swag.JoinByFormat(idsIC, "multi")
+	tenantIdsIS := swag.JoinByFormat(tenantIdsIC, "multi")
 
-	return idsIS
+	return tenantIdsIS
 }

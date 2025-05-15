@@ -33,10 +33,12 @@ type DomainCondition struct {
 	LastTransition *strfmt.DateTime `json:"last_transition"`
 
 	// message
-	Message string `json:"message,omitempty"`
+	// Required: true
+	Message *string `json:"message"`
 
 	// reason
-	Reason string `json:"reason,omitempty"`
+	// Required: true
+	Reason *string `json:"reason"`
 
 	// status
 	// Required: true
@@ -60,6 +62,14 @@ func (m *DomainCondition) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastTransition(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMessage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReason(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -102,6 +112,24 @@ func (m *DomainCondition) validateLastTransition(formats strfmt.Registry) error 
 	}
 
 	if err := validate.FormatOf("last_transition", "body", "date-time", m.LastTransition.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCondition) validateMessage(formats strfmt.Registry) error {
+
+	if err := validate.Required("message", "body", m.Message); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCondition) validateReason(formats strfmt.Registry) error {
+
+	if err := validate.Required("reason", "body", m.Reason); err != nil {
 		return err
 	}
 

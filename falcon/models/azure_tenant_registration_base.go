@@ -35,12 +35,14 @@ type AzureTenantRegistrationBase struct {
 	// api client key type
 	APIClientKeyType string `json:"api_client_key_type,omitempty"`
 
+	// cs infra region
+	CsInfraRegion string `json:"cs_infra_region,omitempty"`
+
 	// cs infra subscription id
 	CsInfraSubscriptionID string `json:"cs_infra_subscription_id,omitempty"`
 
 	// deployment method
-	// Required: true
-	DeploymentMethod *string `json:"deployment_method"`
+	DeploymentMethod string `json:"deployment_method,omitempty"`
 
 	// deployment stack host id
 	DeploymentStackHostID string `json:"deployment_stack_host_id,omitempty"`
@@ -54,14 +56,8 @@ type AzureTenantRegistrationBase struct {
 	// environment
 	Environment string `json:"environment,omitempty"`
 
-	// event hub consumer group
-	EventHubConsumerGroup string `json:"event_hub_consumer_group,omitempty"`
-
-	// event hub name
-	EventHubName string `json:"event_hub_name,omitempty"`
-
-	// event hub namespace
-	EventHubNamespace string `json:"event_hub_namespace,omitempty"`
+	// event hub settings
+	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings"`
 
 	// management group ids
 	ManagementGroupIds []string `json:"management_group_ids"`
@@ -107,7 +103,7 @@ func (m *AzureTenantRegistrationBase) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateDeploymentMethod(formats); err != nil {
+	if err := m.validateEventHubSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -155,10 +151,27 @@ func (m *AzureTenantRegistrationBase) validateAdditionalFeatures(formats strfmt.
 	return nil
 }
 
-func (m *AzureTenantRegistrationBase) validateDeploymentMethod(formats strfmt.Registry) error {
+func (m *AzureTenantRegistrationBase) validateEventHubSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.EventHubSettings) { // not required
+		return nil
+	}
 
-	if err := validate.Required("deployment_method", "body", m.DeploymentMethod); err != nil {
-		return err
+	for i := 0; i < len(m.EventHubSettings); i++ {
+		if swag.IsZero(m.EventHubSettings[i]) { // not required
+			continue
+		}
+
+		if m.EventHubSettings[i] != nil {
+			if err := m.EventHubSettings[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("event_hub_settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("event_hub_settings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -216,6 +229,10 @@ func (m *AzureTenantRegistrationBase) ContextValidate(ctx context.Context, forma
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateEventHubSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -241,6 +258,31 @@ func (m *AzureTenantRegistrationBase) contextValidateAdditionalFeatures(ctx cont
 					return ve.ValidateName("additional_features" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("additional_features" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistrationBase) contextValidateEventHubSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EventHubSettings); i++ {
+
+		if m.EventHubSettings[i] != nil {
+
+			if swag.IsZero(m.EventHubSettings[i]) { // not required
+				return nil
+			}
+
+			if err := m.EventHubSettings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("event_hub_settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("event_hub_settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

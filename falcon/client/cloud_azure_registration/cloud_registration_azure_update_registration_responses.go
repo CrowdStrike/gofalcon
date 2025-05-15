@@ -41,6 +41,18 @@ func (o *CloudRegistrationAzureUpdateRegistrationReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewCloudRegistrationAzureUpdateRegistrationNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 409:
+		result := NewCloudRegistrationAzureUpdateRegistrationConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 500:
 		result := NewCloudRegistrationAzureUpdateRegistrationInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -245,6 +257,142 @@ func (o *CloudRegistrationAzureUpdateRegistrationForbidden) GetPayload() *models
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCloudRegistrationAzureUpdateRegistrationNotFound creates a CloudRegistrationAzureUpdateRegistrationNotFound with default headers values
+func NewCloudRegistrationAzureUpdateRegistrationNotFound() *CloudRegistrationAzureUpdateRegistrationNotFound {
+	return &CloudRegistrationAzureUpdateRegistrationNotFound{}
+}
+
+/*
+CloudRegistrationAzureUpdateRegistrationNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type CloudRegistrationAzureUpdateRegistrationNotFound struct {
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this cloud registration azure update registration not found response has a 2xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this cloud registration azure update registration not found response has a 3xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this cloud registration azure update registration not found response has a 4xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this cloud registration azure update registration not found response has a 5xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this cloud registration azure update registration not found response a status code equal to that given
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the cloud registration azure update registration not found response
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) Code() int {
+	return 404
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) String() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCloudRegistrationAzureUpdateRegistrationConflict creates a CloudRegistrationAzureUpdateRegistrationConflict with default headers values
+func NewCloudRegistrationAzureUpdateRegistrationConflict() *CloudRegistrationAzureUpdateRegistrationConflict {
+	return &CloudRegistrationAzureUpdateRegistrationConflict{}
+}
+
+/*
+CloudRegistrationAzureUpdateRegistrationConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type CloudRegistrationAzureUpdateRegistrationConflict struct {
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this cloud registration azure update registration conflict response has a 2xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this cloud registration azure update registration conflict response has a 3xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this cloud registration azure update registration conflict response has a 4xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this cloud registration azure update registration conflict response has a 5xx status code
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this cloud registration azure update registration conflict response a status code equal to that given
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the cloud registration azure update registration conflict response
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) Code() int {
+	return 409
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationConflict  %+v", 409, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) String() string {
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationConflict  %+v", 409, o.Payload)
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CloudRegistrationAzureUpdateRegistrationConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaspecResponseFields)
 

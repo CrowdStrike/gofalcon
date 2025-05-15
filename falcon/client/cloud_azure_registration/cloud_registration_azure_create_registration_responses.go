@@ -41,6 +41,12 @@ func (o *CloudRegistrationAzureCreateRegistrationReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewCloudRegistrationAzureCreateRegistrationConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 500:
 		result := NewCloudRegistrationAzureCreateRegistrationInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -245,6 +251,74 @@ func (o *CloudRegistrationAzureCreateRegistrationForbidden) GetPayload() *models
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCloudRegistrationAzureCreateRegistrationConflict creates a CloudRegistrationAzureCreateRegistrationConflict with default headers values
+func NewCloudRegistrationAzureCreateRegistrationConflict() *CloudRegistrationAzureCreateRegistrationConflict {
+	return &CloudRegistrationAzureCreateRegistrationConflict{}
+}
+
+/*
+CloudRegistrationAzureCreateRegistrationConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type CloudRegistrationAzureCreateRegistrationConflict struct {
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this cloud registration azure create registration conflict response has a 2xx status code
+func (o *CloudRegistrationAzureCreateRegistrationConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this cloud registration azure create registration conflict response has a 3xx status code
+func (o *CloudRegistrationAzureCreateRegistrationConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this cloud registration azure create registration conflict response has a 4xx status code
+func (o *CloudRegistrationAzureCreateRegistrationConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this cloud registration azure create registration conflict response has a 5xx status code
+func (o *CloudRegistrationAzureCreateRegistrationConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this cloud registration azure create registration conflict response a status code equal to that given
+func (o *CloudRegistrationAzureCreateRegistrationConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the cloud registration azure create registration conflict response
+func (o *CloudRegistrationAzureCreateRegistrationConflict) Code() int {
+	return 409
+}
+
+func (o *CloudRegistrationAzureCreateRegistrationConflict) Error() string {
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationConflict  %+v", 409, o.Payload)
+}
+
+func (o *CloudRegistrationAzureCreateRegistrationConflict) String() string {
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationConflict  %+v", 409, o.Payload)
+}
+
+func (o *CloudRegistrationAzureCreateRegistrationConflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CloudRegistrationAzureCreateRegistrationConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaspecResponseFields)
 
