@@ -19,11 +19,11 @@ import (
 // swagger:model falconforitapi.GroupMembership
 type FalconforitapiGroupMembership struct {
 
-	// Unique identifier of the group. Example: f64b95555ef54ea682619ce880d267cd
+	// id
 	// Required: true
 	ID *string `json:"id"`
 
-	// Name of the group
+	// name
 	// Required: true
 	Name *string `json:"name"`
 }

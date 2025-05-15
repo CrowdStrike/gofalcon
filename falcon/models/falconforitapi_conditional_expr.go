@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -20,25 +19,23 @@ import (
 // swagger:model falconforitapi.ConditionalExpr
 type FalconforitapiConditionalExpr struct {
 
-	// Comparison operator to use
+	// data comparator
 	// Required: true
-	// Enum: [LessThan GreaterThan LessThanEquals GreaterThanEquals Equals NotEquals Contains NotContains Matches NotMatches]
 	DataComparator *string `json:"data_comparator"`
 
-	// Data type for comparison
+	// data type
 	// Required: true
-	// Enum: [StringType NumericType SemverType]
 	DataType *string `json:"data_type"`
 
-	// Result key to evaluate. For osquery: column name. For script: script column name (with output parser config) or script_output/script_error
+	// key
 	// Required: true
 	Key *string `json:"key"`
 
-	// ID of the task this condition applies to. Example: f64b95555ef54ea682619ce880d267cc
+	// task id
 	// Required: true
 	TaskID *string `json:"task_id"`
 
-	// Value to compare against
+	// value
 	// Required: true
 	Value *string `json:"value"`
 }
@@ -73,113 +70,18 @@ func (m *FalconforitapiConditionalExpr) Validate(formats strfmt.Registry) error 
 	return nil
 }
 
-var falconforitapiConditionalExprTypeDataComparatorPropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["LessThan","GreaterThan","LessThanEquals","GreaterThanEquals","Equals","NotEquals","Contains","NotContains","Matches","NotMatches"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		falconforitapiConditionalExprTypeDataComparatorPropEnum = append(falconforitapiConditionalExprTypeDataComparatorPropEnum, v)
-	}
-}
-
-const (
-
-	// FalconforitapiConditionalExprDataComparatorLessThan captures enum value "LessThan"
-	FalconforitapiConditionalExprDataComparatorLessThan string = "LessThan"
-
-	// FalconforitapiConditionalExprDataComparatorGreaterThan captures enum value "GreaterThan"
-	FalconforitapiConditionalExprDataComparatorGreaterThan string = "GreaterThan"
-
-	// FalconforitapiConditionalExprDataComparatorLessThanEquals captures enum value "LessThanEquals"
-	FalconforitapiConditionalExprDataComparatorLessThanEquals string = "LessThanEquals"
-
-	// FalconforitapiConditionalExprDataComparatorGreaterThanEquals captures enum value "GreaterThanEquals"
-	FalconforitapiConditionalExprDataComparatorGreaterThanEquals string = "GreaterThanEquals"
-
-	// FalconforitapiConditionalExprDataComparatorEquals captures enum value "Equals"
-	FalconforitapiConditionalExprDataComparatorEquals string = "Equals"
-
-	// FalconforitapiConditionalExprDataComparatorNotEquals captures enum value "NotEquals"
-	FalconforitapiConditionalExprDataComparatorNotEquals string = "NotEquals"
-
-	// FalconforitapiConditionalExprDataComparatorContains captures enum value "Contains"
-	FalconforitapiConditionalExprDataComparatorContains string = "Contains"
-
-	// FalconforitapiConditionalExprDataComparatorNotContains captures enum value "NotContains"
-	FalconforitapiConditionalExprDataComparatorNotContains string = "NotContains"
-
-	// FalconforitapiConditionalExprDataComparatorMatches captures enum value "Matches"
-	FalconforitapiConditionalExprDataComparatorMatches string = "Matches"
-
-	// FalconforitapiConditionalExprDataComparatorNotMatches captures enum value "NotMatches"
-	FalconforitapiConditionalExprDataComparatorNotMatches string = "NotMatches"
-)
-
-// prop value enum
-func (m *FalconforitapiConditionalExpr) validateDataComparatorEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, falconforitapiConditionalExprTypeDataComparatorPropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
 func (m *FalconforitapiConditionalExpr) validateDataComparator(formats strfmt.Registry) error {
 
 	if err := validate.Required("data_comparator", "body", m.DataComparator); err != nil {
 		return err
 	}
 
-	// value enum
-	if err := m.validateDataComparatorEnum("data_comparator", "body", *m.DataComparator); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-var falconforitapiConditionalExprTypeDataTypePropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["StringType","NumericType","SemverType"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		falconforitapiConditionalExprTypeDataTypePropEnum = append(falconforitapiConditionalExprTypeDataTypePropEnum, v)
-	}
-}
-
-const (
-
-	// FalconforitapiConditionalExprDataTypeStringType captures enum value "StringType"
-	FalconforitapiConditionalExprDataTypeStringType string = "StringType"
-
-	// FalconforitapiConditionalExprDataTypeNumericType captures enum value "NumericType"
-	FalconforitapiConditionalExprDataTypeNumericType string = "NumericType"
-
-	// FalconforitapiConditionalExprDataTypeSemverType captures enum value "SemverType"
-	FalconforitapiConditionalExprDataTypeSemverType string = "SemverType"
-)
-
-// prop value enum
-func (m *FalconforitapiConditionalExpr) validateDataTypeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, falconforitapiConditionalExprTypeDataTypePropEnum, true); err != nil {
-		return err
-	}
 	return nil
 }
 
 func (m *FalconforitapiConditionalExpr) validateDataType(formats strfmt.Registry) error {
 
 	if err := validate.Required("data_type", "body", m.DataType); err != nil {
-		return err
-	}
-
-	// value enum
-	if err := m.validateDataTypeEnum("data_type", "body", *m.DataType); err != nil {
 		return err
 	}
 

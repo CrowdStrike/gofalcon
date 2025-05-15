@@ -30,110 +30,62 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ITAutomationCancelTaskExecution(params *ITAutomationCancelTaskExecutionParams, opts ...ClientOption) (*ITAutomationCancelTaskExecutionOK, error)
+	CancelTaskExecution(params *CancelTaskExecutionParams, opts ...ClientOption) (*CancelTaskExecutionOK, error)
 
-	ITAutomationCombinedScheduledTasks(params *ITAutomationCombinedScheduledTasksParams, opts ...ClientOption) (*ITAutomationCombinedScheduledTasksOK, error)
+	CreateTask(params *CreateTaskParams, opts ...ClientOption) (*CreateTaskCreated, error)
 
-	ITAutomationCreatePolicy(params *ITAutomationCreatePolicyParams, opts ...ClientOption) (*ITAutomationCreatePolicyCreated, error)
+	DeleteTask(params *DeleteTaskParams, opts ...ClientOption) (*DeleteTaskOK, error)
 
-	ITAutomationCreateScheduledTask(params *ITAutomationCreateScheduledTaskParams, opts ...ClientOption) (*ITAutomationCreateScheduledTaskCreated, error)
+	GetAssociatedTasks(params *GetAssociatedTasksParams, opts ...ClientOption) (*GetAssociatedTasksOK, error)
 
-	ITAutomationCreateTask(params *ITAutomationCreateTaskParams, opts ...ClientOption) (*ITAutomationCreateTaskCreated, error)
+	GetExecutionResults(params *GetExecutionResultsParams, opts ...ClientOption) (*GetExecutionResultsOK, error)
 
-	ITAutomationCreateTaskGroup(params *ITAutomationCreateTaskGroupParams, opts ...ClientOption) (*ITAutomationCreateTaskGroupCreated, error)
+	GetExecutionResultsSearchStatus(params *GetExecutionResultsSearchStatusParams, opts ...ClientOption) (*GetExecutionResultsSearchStatusOK, error)
 
-	ITAutomationCreateUserGroup(params *ITAutomationCreateUserGroupParams, opts ...ClientOption) (*ITAutomationCreateUserGroupCreated, error)
+	GetTaskExecution(params *GetTaskExecutionParams, opts ...ClientOption) (*GetTaskExecutionOK, error)
 
-	ITAutomationDeletePolicy(params *ITAutomationDeletePolicyParams, opts ...ClientOption) (*ITAutomationDeletePolicyOK, error)
+	GetTaskExecutionHostStatus(params *GetTaskExecutionHostStatusParams, opts ...ClientOption) (*GetTaskExecutionHostStatusOK, error)
 
-	ITAutomationDeleteScheduledTasks(params *ITAutomationDeleteScheduledTasksParams, opts ...ClientOption) (*ITAutomationDeleteScheduledTasksOK, error)
+	GetTaskExecutionsByQuery(params *GetTaskExecutionsByQueryParams, opts ...ClientOption) (*GetTaskExecutionsByQueryOK, error)
 
-	ITAutomationDeleteTask(params *ITAutomationDeleteTaskParams, opts ...ClientOption) (*ITAutomationDeleteTaskOK, error)
+	GetTasks(params *GetTasksParams, opts ...ClientOption) (*GetTasksOK, error)
 
-	ITAutomationDeleteTaskGroups(params *ITAutomationDeleteTaskGroupsParams, opts ...ClientOption) (*ITAutomationDeleteTaskGroupsOK, *ITAutomationDeleteTaskGroupsMultiStatus, error)
+	GetTasksByQuery(params *GetTasksByQueryParams, opts ...ClientOption) (*GetTasksByQueryOK, error)
 
-	ITAutomationDeleteUserGroup(params *ITAutomationDeleteUserGroupParams, opts ...ClientOption) (*ITAutomationDeleteUserGroupOK, error)
+	RerunTaskExecution(params *RerunTaskExecutionParams, opts ...ClientOption) (*RerunTaskExecutionCreated, error)
 
-	ITAutomationGetAssociatedTasks(params *ITAutomationGetAssociatedTasksParams, opts ...ClientOption) (*ITAutomationGetAssociatedTasksOK, error)
+	RunLiveQuery(params *RunLiveQueryParams, opts ...ClientOption) (*RunLiveQueryCreated, error)
 
-	ITAutomationGetExecutionResults(params *ITAutomationGetExecutionResultsParams, opts ...ClientOption) (*ITAutomationGetExecutionResultsOK, error)
+	SearchTaskExecutions(params *SearchTaskExecutionsParams, opts ...ClientOption) (*SearchTaskExecutionsOK, error)
 
-	ITAutomationGetExecutionResultsSearchStatus(params *ITAutomationGetExecutionResultsSearchStatusParams, opts ...ClientOption) (*ITAutomationGetExecutionResultsSearchStatusOK, error)
+	SearchTasks(params *SearchTasksParams, opts ...ClientOption) (*SearchTasksOK, error)
 
-	ITAutomationGetPolicies(params *ITAutomationGetPoliciesParams, opts ...ClientOption) (*ITAutomationGetPoliciesOK, error)
+	StartExecutionResultsSearch(params *StartExecutionResultsSearchParams, opts ...ClientOption) (*StartExecutionResultsSearchCreated, error)
 
-	ITAutomationGetScheduledTasks(params *ITAutomationGetScheduledTasksParams, opts ...ClientOption) (*ITAutomationGetScheduledTasksOK, error)
+	StartTaskExecution(params *StartTaskExecutionParams, opts ...ClientOption) (*StartTaskExecutionCreated, error)
 
-	ITAutomationGetTaskExecution(params *ITAutomationGetTaskExecutionParams, opts ...ClientOption) (*ITAutomationGetTaskExecutionOK, error)
-
-	ITAutomationGetTaskExecutionHostStatus(params *ITAutomationGetTaskExecutionHostStatusParams, opts ...ClientOption) (*ITAutomationGetTaskExecutionHostStatusOK, error)
-
-	ITAutomationGetTaskExecutionsByQuery(params *ITAutomationGetTaskExecutionsByQueryParams, opts ...ClientOption) (*ITAutomationGetTaskExecutionsByQueryOK, error)
-
-	ITAutomationGetTaskGroups(params *ITAutomationGetTaskGroupsParams, opts ...ClientOption) (*ITAutomationGetTaskGroupsOK, *ITAutomationGetTaskGroupsMultiStatus, error)
-
-	ITAutomationGetTaskGroupsByQuery(params *ITAutomationGetTaskGroupsByQueryParams, opts ...ClientOption) (*ITAutomationGetTaskGroupsByQueryOK, *ITAutomationGetTaskGroupsByQueryMultiStatus, error)
-
-	ITAutomationGetTasks(params *ITAutomationGetTasksParams, opts ...ClientOption) (*ITAutomationGetTasksOK, error)
-
-	ITAutomationGetTasksByQuery(params *ITAutomationGetTasksByQueryParams, opts ...ClientOption) (*ITAutomationGetTasksByQueryOK, error)
-
-	ITAutomationGetUserGroup(params *ITAutomationGetUserGroupParams, opts ...ClientOption) (*ITAutomationGetUserGroupOK, error)
-
-	ITAutomationQueryPolicies(params *ITAutomationQueryPoliciesParams, opts ...ClientOption) (*ITAutomationQueryPoliciesOK, error)
-
-	ITAutomationRerunTaskExecution(params *ITAutomationRerunTaskExecutionParams, opts ...ClientOption) (*ITAutomationRerunTaskExecutionCreated, error)
-
-	ITAutomationRunLiveQuery(params *ITAutomationRunLiveQueryParams, opts ...ClientOption) (*ITAutomationRunLiveQueryCreated, error)
-
-	ITAutomationSearchScheduledTasks(params *ITAutomationSearchScheduledTasksParams, opts ...ClientOption) (*ITAutomationSearchScheduledTasksOK, error)
-
-	ITAutomationSearchTaskExecutions(params *ITAutomationSearchTaskExecutionsParams, opts ...ClientOption) (*ITAutomationSearchTaskExecutionsOK, error)
-
-	ITAutomationSearchTaskGroups(params *ITAutomationSearchTaskGroupsParams, opts ...ClientOption) (*ITAutomationSearchTaskGroupsOK, error)
-
-	ITAutomationSearchTasks(params *ITAutomationSearchTasksParams, opts ...ClientOption) (*ITAutomationSearchTasksOK, error)
-
-	ITAutomationSearchUserGroup(params *ITAutomationSearchUserGroupParams, opts ...ClientOption) (*ITAutomationSearchUserGroupOK, error)
-
-	ITAutomationStartExecutionResultsSearch(params *ITAutomationStartExecutionResultsSearchParams, opts ...ClientOption) (*ITAutomationStartExecutionResultsSearchCreated, error)
-
-	ITAutomationStartTaskExecution(params *ITAutomationStartTaskExecutionParams, opts ...ClientOption) (*ITAutomationStartTaskExecutionCreated, error)
-
-	ITAutomationUpdatePolicies(params *ITAutomationUpdatePoliciesParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesCreated, error)
-
-	ITAutomationUpdatePoliciesPrecedence(params *ITAutomationUpdatePoliciesPrecedenceParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesPrecedenceOK, error)
-
-	ITAutomationUpdatePolicyHostGroups(params *ITAutomationUpdatePolicyHostGroupsParams, opts ...ClientOption) (*ITAutomationUpdatePolicyHostGroupsOK, error)
-
-	ITAutomationUpdateScheduledTask(params *ITAutomationUpdateScheduledTaskParams, opts ...ClientOption) (*ITAutomationUpdateScheduledTaskOK, error)
-
-	ITAutomationUpdateTask(params *ITAutomationUpdateTaskParams, opts ...ClientOption) (*ITAutomationUpdateTaskOK, error)
-
-	ITAutomationUpdateTaskGroup(params *ITAutomationUpdateTaskGroupParams, opts ...ClientOption) (*ITAutomationUpdateTaskGroupOK, error)
-
-	ITAutomationUpdateUserGroup(params *ITAutomationUpdateUserGroupParams, opts ...ClientOption) (*ITAutomationUpdateUserGroupOK, error)
+	UpdateTask(params *UpdateTaskParams, opts ...ClientOption) (*UpdateTaskOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-ITAutomationCancelTaskExecution cancels a task execution specified in the request
+CancelTaskExecution cancels a task execution specified in the request
 */
-func (a *Client) ITAutomationCancelTaskExecution(params *ITAutomationCancelTaskExecutionParams, opts ...ClientOption) (*ITAutomationCancelTaskExecutionOK, error) {
+func (a *Client) CancelTaskExecution(params *CancelTaskExecutionParams, opts ...ClientOption) (*CancelTaskExecutionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationCancelTaskExecutionParams()
+		params = NewCancelTaskExecutionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationCancelTaskExecution",
+		ID:                 "CancelTaskExecution",
 		Method:             "POST",
 		PathPattern:        "/it-automation/entities/task-execution-cancel/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationCancelTaskExecutionReader{formats: a.formats},
+		Reader:             &CancelTaskExecutionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -145,149 +97,33 @@ func (a *Client) ITAutomationCancelTaskExecution(params *ITAutomationCancelTaskE
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationCancelTaskExecutionOK)
+	success, ok := result.(*CancelTaskExecutionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationCancelTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CancelTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationCombinedScheduledTasks returns full details of scheduled tasks matching the filter query parameter
+CreateTask creates a task with details from the given request
 */
-func (a *Client) ITAutomationCombinedScheduledTasks(params *ITAutomationCombinedScheduledTasksParams, opts ...ClientOption) (*ITAutomationCombinedScheduledTasksOK, error) {
+func (a *Client) CreateTask(params *CreateTaskParams, opts ...ClientOption) (*CreateTaskCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationCombinedScheduledTasksParams()
+		params = NewCreateTaskParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationCombinedScheduledTasks",
-		Method:             "GET",
-		PathPattern:        "/it-automation/combined/scheduled-tasks/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationCombinedScheduledTasksReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationCombinedScheduledTasksOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationCombinedScheduledTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationCreatePolicy creates a new policy of the specified type new policies are always added at the end of the precedence list for the provided policy type
-
-After they are created, host groups can be assigned and policy precedence can be set.
-*/
-func (a *Client) ITAutomationCreatePolicy(params *ITAutomationCreatePolicyParams, opts ...ClientOption) (*ITAutomationCreatePolicyCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationCreatePolicyParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationCreatePolicy",
-		Method:             "POST",
-		PathPattern:        "/it-automation/entities/policies/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationCreatePolicyReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationCreatePolicyCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationCreatePolicy: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationCreateScheduledTask creates a scheduled task from the given request
-*/
-func (a *Client) ITAutomationCreateScheduledTask(params *ITAutomationCreateScheduledTaskParams, opts ...ClientOption) (*ITAutomationCreateScheduledTaskCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationCreateScheduledTaskParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationCreateScheduledTask",
-		Method:             "POST",
-		PathPattern:        "/it-automation/entities/scheduled-tasks/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationCreateScheduledTaskReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationCreateScheduledTaskCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationCreateScheduledTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationCreateTask creates a task with details from the given request
-*/
-func (a *Client) ITAutomationCreateTask(params *ITAutomationCreateTaskParams, opts ...ClientOption) (*ITAutomationCreateTaskCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationCreateTaskParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationCreateTask",
+		ID:                 "CreateTask",
 		Method:             "POST",
 		PathPattern:        "/it-automation/entities/tasks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationCreateTaskReader{formats: a.formats},
+		Reader:             &CreateTaskReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -299,187 +135,33 @@ func (a *Client) ITAutomationCreateTask(params *ITAutomationCreateTaskParams, op
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationCreateTaskCreated)
+	success, ok := result.(*CreateTaskCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationCreateTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationCreateTaskGroup creates a task group from the given request
+DeleteTask deletes tasks for each provided id
 */
-func (a *Client) ITAutomationCreateTaskGroup(params *ITAutomationCreateTaskGroupParams, opts ...ClientOption) (*ITAutomationCreateTaskGroupCreated, error) {
+func (a *Client) DeleteTask(params *DeleteTaskParams, opts ...ClientOption) (*DeleteTaskOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationCreateTaskGroupParams()
+		params = NewDeleteTaskParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationCreateTaskGroup",
-		Method:             "POST",
-		PathPattern:        "/it-automation/entities/task-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationCreateTaskGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationCreateTaskGroupCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationCreateTaskGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationCreateUserGroup creates a user group from the given request
-*/
-func (a *Client) ITAutomationCreateUserGroup(params *ITAutomationCreateUserGroupParams, opts ...ClientOption) (*ITAutomationCreateUserGroupCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationCreateUserGroupParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationCreateUserGroup",
-		Method:             "POST",
-		PathPattern:        "/it-automation/entities/it-user-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationCreateUserGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationCreateUserGroupCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationCreateUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationDeletePolicy deletes 1 or more policies
-
-Only disabled policies are allowed to be deleted.
-*/
-func (a *Client) ITAutomationDeletePolicy(params *ITAutomationDeletePolicyParams, opts ...ClientOption) (*ITAutomationDeletePolicyOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationDeletePolicyParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationDeletePolicy",
-		Method:             "DELETE",
-		PathPattern:        "/it-automation/entities/policies/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationDeletePolicyReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationDeletePolicyOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationDeletePolicy: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationDeleteScheduledTasks deletes one or more scheduled tasks by providing the scheduled tasks i ds
-*/
-func (a *Client) ITAutomationDeleteScheduledTasks(params *ITAutomationDeleteScheduledTasksParams, opts ...ClientOption) (*ITAutomationDeleteScheduledTasksOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationDeleteScheduledTasksParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationDeleteScheduledTasks",
-		Method:             "DELETE",
-		PathPattern:        "/it-automation/entities/scheduled-tasks/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationDeleteScheduledTasksReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationDeleteScheduledTasksOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationDeleteScheduledTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationDeleteTask deletes tasks for each provided ID
-*/
-func (a *Client) ITAutomationDeleteTask(params *ITAutomationDeleteTaskParams, opts ...ClientOption) (*ITAutomationDeleteTaskOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationDeleteTaskParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationDeleteTask",
+		ID:                 "DeleteTask",
 		Method:             "DELETE",
 		PathPattern:        "/it-automation/entities/tasks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationDeleteTaskReader{formats: a.formats},
+		Reader:             &DeleteTaskReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -491,110 +173,33 @@ func (a *Client) ITAutomationDeleteTask(params *ITAutomationDeleteTaskParams, op
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationDeleteTaskOK)
+	success, ok := result.(*DeleteTaskOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationDeleteTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationDeleteTaskGroups deletes one or more task groups by providing the task group i ds
+GetAssociatedTasks retrieves tasks associated with the provided file id
 */
-func (a *Client) ITAutomationDeleteTaskGroups(params *ITAutomationDeleteTaskGroupsParams, opts ...ClientOption) (*ITAutomationDeleteTaskGroupsOK, *ITAutomationDeleteTaskGroupsMultiStatus, error) {
+func (a *Client) GetAssociatedTasks(params *GetAssociatedTasksParams, opts ...ClientOption) (*GetAssociatedTasksOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationDeleteTaskGroupsParams()
+		params = NewGetAssociatedTasksParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationDeleteTaskGroups",
-		Method:             "DELETE",
-		PathPattern:        "/it-automation/entities/task-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationDeleteTaskGroupsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *ITAutomationDeleteTaskGroupsOK:
-		return value, nil, nil
-	case *ITAutomationDeleteTaskGroupsMultiStatus:
-		return nil, value, nil
-	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for it_automation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationDeleteUserGroup deletes user groups for each provided ids
-*/
-func (a *Client) ITAutomationDeleteUserGroup(params *ITAutomationDeleteUserGroupParams, opts ...ClientOption) (*ITAutomationDeleteUserGroupOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationDeleteUserGroupParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationDeleteUserGroup",
-		Method:             "DELETE",
-		PathPattern:        "/it-automation/entities/it-user-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationDeleteUserGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationDeleteUserGroupOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationDeleteUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationGetAssociatedTasks retrieves tasks associated with the provided file id
-*/
-func (a *Client) ITAutomationGetAssociatedTasks(params *ITAutomationGetAssociatedTasksParams, opts ...ClientOption) (*ITAutomationGetAssociatedTasksOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationGetAssociatedTasksParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetAssociatedTasks",
+		ID:                 "GetAssociatedTasks",
 		Method:             "GET",
 		PathPattern:        "/it-automation/combined/associated-tasks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetAssociatedTasksReader{formats: a.formats},
+		Reader:             &GetAssociatedTasksReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -606,33 +211,33 @@ func (a *Client) ITAutomationGetAssociatedTasks(params *ITAutomationGetAssociate
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetAssociatedTasksOK)
+	success, ok := result.(*GetAssociatedTasksOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetAssociatedTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetAssociatedTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetExecutionResults gets the task execution results from an async search use the i t automation start execution results search command to start the async search you can retrieve the results again for up to 24 hours after which they will be deleted
+GetExecutionResults gets the task execution results from an async search use start execution results search to begin the async search
 */
-func (a *Client) ITAutomationGetExecutionResults(params *ITAutomationGetExecutionResultsParams, opts ...ClientOption) (*ITAutomationGetExecutionResultsOK, error) {
+func (a *Client) GetExecutionResults(params *GetExecutionResultsParams, opts ...ClientOption) (*GetExecutionResultsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetExecutionResultsParams()
+		params = NewGetExecutionResultsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetExecutionResults",
+		ID:                 "GetExecutionResults",
 		Method:             "GET",
 		PathPattern:        "/it-automation/entities/task-execution-results/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetExecutionResultsReader{formats: a.formats},
+		Reader:             &GetExecutionResultsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -644,33 +249,33 @@ func (a *Client) ITAutomationGetExecutionResults(params *ITAutomationGetExecutio
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetExecutionResultsOK)
+	success, ok := result.(*GetExecutionResultsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetExecutionResults: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetExecutionResults: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetExecutionResultsSearchStatus gets the status of an async task execution results look for is pending false to know search is complete
+GetExecutionResultsSearchStatus gets the status of an async task execution results look for is pending false to know search is complete
 */
-func (a *Client) ITAutomationGetExecutionResultsSearchStatus(params *ITAutomationGetExecutionResultsSearchStatusParams, opts ...ClientOption) (*ITAutomationGetExecutionResultsSearchStatusOK, error) {
+func (a *Client) GetExecutionResultsSearchStatus(params *GetExecutionResultsSearchStatusParams, opts ...ClientOption) (*GetExecutionResultsSearchStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetExecutionResultsSearchStatusParams()
+		params = NewGetExecutionResultsSearchStatusParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetExecutionResultsSearchStatus",
+		ID:                 "GetExecutionResultsSearchStatus",
 		Method:             "GET",
 		PathPattern:        "/it-automation/entities/task-execution-results-search/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetExecutionResultsSearchStatusReader{formats: a.formats},
+		Reader:             &GetExecutionResultsSearchStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -682,111 +287,33 @@ func (a *Client) ITAutomationGetExecutionResultsSearchStatus(params *ITAutomatio
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetExecutionResultsSearchStatusOK)
+	success, ok := result.(*GetExecutionResultsSearchStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetExecutionResultsSearchStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetExecutionResultsSearchStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetPolicies retrieves the configuration for 1 or more policies
-
-The configuration of each policy that match the provided id will be returned.
+GetTaskExecution gets the task execution for the provided task execution ids
 */
-func (a *Client) ITAutomationGetPolicies(params *ITAutomationGetPoliciesParams, opts ...ClientOption) (*ITAutomationGetPoliciesOK, error) {
+func (a *Client) GetTaskExecution(params *GetTaskExecutionParams, opts ...ClientOption) (*GetTaskExecutionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetPoliciesParams()
+		params = NewGetTaskExecutionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetPolicies",
-		Method:             "GET",
-		PathPattern:        "/it-automation/entities/policies/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationGetPoliciesReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationGetPoliciesOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationGetScheduledTasks returns scheduled tasks for each provided id
-*/
-func (a *Client) ITAutomationGetScheduledTasks(params *ITAutomationGetScheduledTasksParams, opts ...ClientOption) (*ITAutomationGetScheduledTasksOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationGetScheduledTasksParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetScheduledTasks",
-		Method:             "GET",
-		PathPattern:        "/it-automation/entities/scheduled-tasks/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationGetScheduledTasksReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationGetScheduledTasksOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetScheduledTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationGetTaskExecution gets the task execution for the provided task execution i ds
-*/
-func (a *Client) ITAutomationGetTaskExecution(params *ITAutomationGetTaskExecutionParams, opts ...ClientOption) (*ITAutomationGetTaskExecutionOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationGetTaskExecutionParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetTaskExecution",
+		ID:                 "GetTaskExecution",
 		Method:             "GET",
 		PathPattern:        "/it-automation/entities/task-executions/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetTaskExecutionReader{formats: a.formats},
+		Reader:             &GetTaskExecutionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -798,33 +325,33 @@ func (a *Client) ITAutomationGetTaskExecution(params *ITAutomationGetTaskExecuti
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetTaskExecutionOK)
+	success, ok := result.(*GetTaskExecutionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetTaskExecutionHostStatus gets the status of host executions by providing the execution i ds
+GetTaskExecutionHostStatus gets the status of host executions by providing the execution ids
 */
-func (a *Client) ITAutomationGetTaskExecutionHostStatus(params *ITAutomationGetTaskExecutionHostStatusParams, opts ...ClientOption) (*ITAutomationGetTaskExecutionHostStatusOK, error) {
+func (a *Client) GetTaskExecutionHostStatus(params *GetTaskExecutionHostStatusParams, opts ...ClientOption) (*GetTaskExecutionHostStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetTaskExecutionHostStatusParams()
+		params = NewGetTaskExecutionHostStatusParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetTaskExecutionHostStatus",
+		ID:                 "GetTaskExecutionHostStatus",
 		Method:             "GET",
 		PathPattern:        "/it-automation/entities/task-execution-host-status/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetTaskExecutionHostStatusReader{formats: a.formats},
+		Reader:             &GetTaskExecutionHostStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -836,33 +363,33 @@ func (a *Client) ITAutomationGetTaskExecutionHostStatus(params *ITAutomationGetT
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetTaskExecutionHostStatusOK)
+	success, ok := result.(*GetTaskExecutionHostStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetTaskExecutionHostStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetTaskExecutionHostStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetTaskExecutionsByQuery returns the list of task executions and their details matching the filter query parameter this endpoint will return the same output as if you ran i t automation search task executions and i t automation get task execution
+GetTaskExecutionsByQuery returns the list of task executions and their details matching the filter query parameter this endpoint will return the same output as if you ran search task executions and get task execution
 */
-func (a *Client) ITAutomationGetTaskExecutionsByQuery(params *ITAutomationGetTaskExecutionsByQueryParams, opts ...ClientOption) (*ITAutomationGetTaskExecutionsByQueryOK, error) {
+func (a *Client) GetTaskExecutionsByQuery(params *GetTaskExecutionsByQueryParams, opts ...ClientOption) (*GetTaskExecutionsByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetTaskExecutionsByQueryParams()
+		params = NewGetTaskExecutionsByQueryParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetTaskExecutionsByQuery",
+		ID:                 "GetTaskExecutionsByQuery",
 		Method:             "GET",
 		PathPattern:        "/it-automation/combined/task-executions/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetTaskExecutionsByQueryReader{formats: a.formats},
+		Reader:             &GetTaskExecutionsByQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -874,113 +401,33 @@ func (a *Client) ITAutomationGetTaskExecutionsByQuery(params *ITAutomationGetTas
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetTaskExecutionsByQueryOK)
+	success, ok := result.(*GetTaskExecutionsByQueryOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetTaskExecutionsByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetTaskExecutionsByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetTaskGroups returns task groups for each provided id
+GetTasks returns tasks for each provided ID
 */
-func (a *Client) ITAutomationGetTaskGroups(params *ITAutomationGetTaskGroupsParams, opts ...ClientOption) (*ITAutomationGetTaskGroupsOK, *ITAutomationGetTaskGroupsMultiStatus, error) {
+func (a *Client) GetTasks(params *GetTasksParams, opts ...ClientOption) (*GetTasksOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetTaskGroupsParams()
+		params = NewGetTasksParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetTaskGroups",
-		Method:             "GET",
-		PathPattern:        "/it-automation/entities/task-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationGetTaskGroupsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *ITAutomationGetTaskGroupsOK:
-		return value, nil, nil
-	case *ITAutomationGetTaskGroupsMultiStatus:
-		return nil, value, nil
-	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for it_automation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationGetTaskGroupsByQuery returns full details of task groups matching the filter query parameter
-
-Can be used in place of calling ITAutomationSearchTaskGroups then ITAutomationGetTaskGroups.
-*/
-func (a *Client) ITAutomationGetTaskGroupsByQuery(params *ITAutomationGetTaskGroupsByQueryParams, opts ...ClientOption) (*ITAutomationGetTaskGroupsByQueryOK, *ITAutomationGetTaskGroupsByQueryMultiStatus, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationGetTaskGroupsByQueryParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetTaskGroupsByQuery",
-		Method:             "GET",
-		PathPattern:        "/it-automation/combined/task-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationGetTaskGroupsByQueryReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *ITAutomationGetTaskGroupsByQueryOK:
-		return value, nil, nil
-	case *ITAutomationGetTaskGroupsByQueryMultiStatus:
-		return nil, value, nil
-	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for it_automation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationGetTasks returns tasks for each provided ID
-*/
-func (a *Client) ITAutomationGetTasks(params *ITAutomationGetTasksParams, opts ...ClientOption) (*ITAutomationGetTasksOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationGetTasksParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetTasks",
+		ID:                 "GetTasks",
 		Method:             "GET",
 		PathPattern:        "/it-automation/entities/tasks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetTasksReader{formats: a.formats},
+		Reader:             &GetTasksReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -992,33 +439,33 @@ func (a *Client) ITAutomationGetTasks(params *ITAutomationGetTasksParams, opts .
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetTasksOK)
+	success, ok := result.(*GetTasksOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetTasksByQuery returns full details of tasks matching the filter query parameter
+GetTasksByQuery returns full details of tasks matching the filter query parameter
 */
-func (a *Client) ITAutomationGetTasksByQuery(params *ITAutomationGetTasksByQueryParams, opts ...ClientOption) (*ITAutomationGetTasksByQueryOK, error) {
+func (a *Client) GetTasksByQuery(params *GetTasksByQueryParams, opts ...ClientOption) (*GetTasksByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetTasksByQueryParams()
+		params = NewGetTasksByQueryParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetTasksByQuery",
+		ID:                 "GetTasksByQuery",
 		Method:             "GET",
 		PathPattern:        "/it-automation/combined/tasks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationGetTasksByQueryReader{formats: a.formats},
+		Reader:             &GetTasksByQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1030,109 +477,33 @@ func (a *Client) ITAutomationGetTasksByQuery(params *ITAutomationGetTasksByQuery
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationGetTasksByQueryOK)
+	success, ok := result.(*GetTasksByQueryOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetTasksByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetTasksByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationGetUserGroup returns user groups for each provided id
+RerunTaskExecution reruns the task execution specified in the request
 */
-func (a *Client) ITAutomationGetUserGroup(params *ITAutomationGetUserGroupParams, opts ...ClientOption) (*ITAutomationGetUserGroupOK, error) {
+func (a *Client) RerunTaskExecution(params *RerunTaskExecutionParams, opts ...ClientOption) (*RerunTaskExecutionCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationGetUserGroupParams()
+		params = NewRerunTaskExecutionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationGetUserGroup",
-		Method:             "GET",
-		PathPattern:        "/it-automation/entities/it-user-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationGetUserGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationGetUserGroupOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationGetUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationQueryPolicies returns the list of policy ids matching the filter query parameter
-*/
-func (a *Client) ITAutomationQueryPolicies(params *ITAutomationQueryPoliciesParams, opts ...ClientOption) (*ITAutomationQueryPoliciesOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationQueryPoliciesParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationQueryPolicies",
-		Method:             "GET",
-		PathPattern:        "/it-automation/queries/policies/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationQueryPoliciesReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationQueryPoliciesOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationQueryPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationRerunTaskExecution reruns the task execution specified in the request
-*/
-func (a *Client) ITAutomationRerunTaskExecution(params *ITAutomationRerunTaskExecutionParams, opts ...ClientOption) (*ITAutomationRerunTaskExecutionCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationRerunTaskExecutionParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationRerunTaskExecution",
+		ID:                 "RerunTaskExecution",
 		Method:             "POST",
 		PathPattern:        "/it-automation/entities/task-execution-rerun/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationRerunTaskExecutionReader{formats: a.formats},
+		Reader:             &RerunTaskExecutionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1144,33 +515,33 @@ func (a *Client) ITAutomationRerunTaskExecution(params *ITAutomationRerunTaskExe
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationRerunTaskExecutionCreated)
+	success, ok := result.(*RerunTaskExecutionCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationRerunTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for RerunTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationRunLiveQuery starts a new task execution from the provided query data in the request and returns the initiated task executions
+RunLiveQuery starts a new task execution from the provided query data in the request and returns the initiated task executions
 */
-func (a *Client) ITAutomationRunLiveQuery(params *ITAutomationRunLiveQueryParams, opts ...ClientOption) (*ITAutomationRunLiveQueryCreated, error) {
+func (a *Client) RunLiveQuery(params *RunLiveQueryParams, opts ...ClientOption) (*RunLiveQueryCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationRunLiveQueryParams()
+		params = NewRunLiveQueryParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationRunLiveQuery",
+		ID:                 "RunLiveQuery",
 		Method:             "POST",
 		PathPattern:        "/it-automation/entities/live-query-execution/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationRunLiveQueryReader{formats: a.formats},
+		Reader:             &RunLiveQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1182,73 +553,33 @@ func (a *Client) ITAutomationRunLiveQuery(params *ITAutomationRunLiveQueryParams
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationRunLiveQueryCreated)
+	success, ok := result.(*RunLiveQueryCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationRunLiveQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for RunLiveQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationSearchScheduledTasks returns the list of scheduled task i ds matching the filter query parameter
-
-Can be used together with the entities endpoint to retrieve full information on queries
+SearchTaskExecutions returns the list of task execution ids matching the filter query parameter can be used together with the entities endpoint to retrieve full information on executions
 */
-func (a *Client) ITAutomationSearchScheduledTasks(params *ITAutomationSearchScheduledTasksParams, opts ...ClientOption) (*ITAutomationSearchScheduledTasksOK, error) {
+func (a *Client) SearchTaskExecutions(params *SearchTaskExecutionsParams, opts ...ClientOption) (*SearchTaskExecutionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationSearchScheduledTasksParams()
+		params = NewSearchTaskExecutionsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationSearchScheduledTasks",
-		Method:             "GET",
-		PathPattern:        "/it-automation/queries/scheduled-tasks/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationSearchScheduledTasksReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationSearchScheduledTasksOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationSearchScheduledTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationSearchTaskExecutions returns the list of task execution i ds matching the filter query parameter can be used together with the entities endpoint to retrieve full information on executions
-*/
-func (a *Client) ITAutomationSearchTaskExecutions(params *ITAutomationSearchTaskExecutionsParams, opts ...ClientOption) (*ITAutomationSearchTaskExecutionsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationSearchTaskExecutionsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationSearchTaskExecutions",
+		ID:                 "SearchTaskExecutions",
 		Method:             "GET",
 		PathPattern:        "/it-automation/queries/task-executions/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationSearchTaskExecutionsReader{formats: a.formats},
+		Reader:             &SearchTaskExecutionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1260,73 +591,33 @@ func (a *Client) ITAutomationSearchTaskExecutions(params *ITAutomationSearchTask
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationSearchTaskExecutionsOK)
+	success, ok := result.(*SearchTaskExecutionsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationSearchTaskExecutions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for SearchTaskExecutions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationSearchTaskGroups returns the list of task group ids matching the filter query parameter
-
-Can be used together with the entities endpoint to retrieve full information on task groups.
+SearchTasks returns the list of task ids matching the filter query parameter
 */
-func (a *Client) ITAutomationSearchTaskGroups(params *ITAutomationSearchTaskGroupsParams, opts ...ClientOption) (*ITAutomationSearchTaskGroupsOK, error) {
+func (a *Client) SearchTasks(params *SearchTasksParams, opts ...ClientOption) (*SearchTasksOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationSearchTaskGroupsParams()
+		params = NewSearchTasksParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationSearchTaskGroups",
-		Method:             "GET",
-		PathPattern:        "/it-automation/queries/task-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationSearchTaskGroupsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationSearchTaskGroupsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationSearchTaskGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationSearchTasks returns the list of task i ds matching the filter query parameter
-*/
-func (a *Client) ITAutomationSearchTasks(params *ITAutomationSearchTasksParams, opts ...ClientOption) (*ITAutomationSearchTasksOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationSearchTasksParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationSearchTasks",
+		ID:                 "SearchTasks",
 		Method:             "GET",
 		PathPattern:        "/it-automation/queries/tasks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationSearchTasksReader{formats: a.formats},
+		Reader:             &SearchTasksReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1338,71 +629,33 @@ func (a *Client) ITAutomationSearchTasks(params *ITAutomationSearchTasksParams, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationSearchTasksOK)
+	success, ok := result.(*SearchTasksOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationSearchTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for SearchTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationSearchUserGroup returns the list of user group ids matching the filter query parameter it can be used together with the entities endpoint to retrieve full information on user groups
+StartExecutionResultsSearch starts an async task execution results search poll get execution results search status to determine when the search is complete
 */
-func (a *Client) ITAutomationSearchUserGroup(params *ITAutomationSearchUserGroupParams, opts ...ClientOption) (*ITAutomationSearchUserGroupOK, error) {
+func (a *Client) StartExecutionResultsSearch(params *StartExecutionResultsSearchParams, opts ...ClientOption) (*StartExecutionResultsSearchCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationSearchUserGroupParams()
+		params = NewStartExecutionResultsSearchParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationSearchUserGroup",
-		Method:             "GET",
-		PathPattern:        "/it-automation/queries/it-user-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationSearchUserGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationSearchUserGroupOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationSearchUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationStartExecutionResultsSearch starts an async task execution results search poll i t automation get execution results search status to check if the search is complete you must retrieve the results using i t automation get execution results within 30 seconds of completion or the job will be deleted
-*/
-func (a *Client) ITAutomationStartExecutionResultsSearch(params *ITAutomationStartExecutionResultsSearchParams, opts ...ClientOption) (*ITAutomationStartExecutionResultsSearchCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationStartExecutionResultsSearchParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationStartExecutionResultsSearch",
+		ID:                 "StartExecutionResultsSearch",
 		Method:             "POST",
 		PathPattern:        "/it-automation/entities/task-execution-results-search/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationStartExecutionResultsSearchReader{formats: a.formats},
+		Reader:             &StartExecutionResultsSearchReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1414,33 +667,33 @@ func (a *Client) ITAutomationStartExecutionResultsSearch(params *ITAutomationSta
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationStartExecutionResultsSearchCreated)
+	success, ok := result.(*StartExecutionResultsSearchCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationStartExecutionResultsSearch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for StartExecutionResultsSearch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationStartTaskExecution starts a new task execution from an existing task provided in the request and returns the initiated task executions
+StartTaskExecution starts a new task execution from an existing task provided in the request and returns the initiated task executions
 */
-func (a *Client) ITAutomationStartTaskExecution(params *ITAutomationStartTaskExecutionParams, opts ...ClientOption) (*ITAutomationStartTaskExecutionCreated, error) {
+func (a *Client) StartTaskExecution(params *StartTaskExecutionParams, opts ...ClientOption) (*StartTaskExecutionCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationStartTaskExecutionParams()
+		params = NewStartTaskExecutionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationStartTaskExecution",
+		ID:                 "StartTaskExecution",
 		Method:             "POST",
 		PathPattern:        "/it-automation/entities/task-executions/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationStartTaskExecutionReader{formats: a.formats},
+		Reader:             &StartTaskExecutionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1452,191 +705,33 @@ func (a *Client) ITAutomationStartTaskExecution(params *ITAutomationStartTaskExe
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationStartTaskExecutionCreated)
+	success, ok := result.(*StartTaskExecutionCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationStartTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for StartTaskExecution: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ITAutomationUpdatePolicies updates a new policy of the specified type
-
-Updates multiple fields for a policy.
+UpdateTask updates a task with details from the given request
 */
-func (a *Client) ITAutomationUpdatePolicies(params *ITAutomationUpdatePoliciesParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesCreated, error) {
+func (a *Client) UpdateTask(params *UpdateTaskParams, opts ...ClientOption) (*UpdateTaskOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewITAutomationUpdatePoliciesParams()
+		params = NewUpdateTaskParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationUpdatePolicies",
-		Method:             "PATCH",
-		PathPattern:        "/it-automation/entities/policies/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationUpdatePoliciesReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationUpdatePoliciesCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdatePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationUpdatePoliciesPrecedence updates the policy precedence for all policies of a specific platform
-
-Requests that do not represent all ids of the provided policy platform will not be processed.
-*/
-func (a *Client) ITAutomationUpdatePoliciesPrecedence(params *ITAutomationUpdatePoliciesPrecedenceParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesPrecedenceOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationUpdatePoliciesPrecedenceParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationUpdatePoliciesPrecedence",
-		Method:             "PATCH",
-		PathPattern:        "/it-automation/entities/policies-precedence/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationUpdatePoliciesPrecedenceReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationUpdatePoliciesPrecedenceOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdatePoliciesPrecedence: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationUpdatePolicyHostGroups manages host groups assigned to a policy
-
-Manage host groups assigned to a policy.
-*/
-func (a *Client) ITAutomationUpdatePolicyHostGroups(params *ITAutomationUpdatePolicyHostGroupsParams, opts ...ClientOption) (*ITAutomationUpdatePolicyHostGroupsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationUpdatePolicyHostGroupsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationUpdatePolicyHostGroups",
-		Method:             "PATCH",
-		PathPattern:        "/it-automation/entities/policies-host-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationUpdatePolicyHostGroupsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationUpdatePolicyHostGroupsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdatePolicyHostGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationUpdateScheduledTask updates an existing scheduled task with the supplied info
-*/
-func (a *Client) ITAutomationUpdateScheduledTask(params *ITAutomationUpdateScheduledTaskParams, opts ...ClientOption) (*ITAutomationUpdateScheduledTaskOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationUpdateScheduledTaskParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationUpdateScheduledTask",
-		Method:             "PATCH",
-		PathPattern:        "/it-automation/entities/scheduled-tasks/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationUpdateScheduledTaskReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationUpdateScheduledTaskOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdateScheduledTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationUpdateTask updates a task with details from the given request
-*/
-func (a *Client) ITAutomationUpdateTask(params *ITAutomationUpdateTaskParams, opts ...ClientOption) (*ITAutomationUpdateTaskOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationUpdateTaskParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationUpdateTask",
+		ID:                 "UpdateTask",
 		Method:             "PATCH",
 		PathPattern:        "/it-automation/entities/tasks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ITAutomationUpdateTaskReader{formats: a.formats},
+		Reader:             &UpdateTaskReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1648,89 +743,13 @@ func (a *Client) ITAutomationUpdateTask(params *ITAutomationUpdateTaskParams, op
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationUpdateTaskOK)
+	success, ok := result.(*UpdateTaskOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdateTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationUpdateTaskGroup updates a task group for a given id
-*/
-func (a *Client) ITAutomationUpdateTaskGroup(params *ITAutomationUpdateTaskGroupParams, opts ...ClientOption) (*ITAutomationUpdateTaskGroupOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationUpdateTaskGroupParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationUpdateTaskGroup",
-		Method:             "PATCH",
-		PathPattern:        "/it-automation/entities/task-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationUpdateTaskGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationUpdateTaskGroupOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdateTaskGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ITAutomationUpdateUserGroup updates a user group for a given id
-*/
-func (a *Client) ITAutomationUpdateUserGroup(params *ITAutomationUpdateUserGroupParams, opts ...ClientOption) (*ITAutomationUpdateUserGroupOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewITAutomationUpdateUserGroupParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ITAutomationUpdateUserGroup",
-		Method:             "PATCH",
-		PathPattern:        "/it-automation/entities/it-user-groups/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ITAutomationUpdateUserGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ITAutomationUpdateUserGroupOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdateUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for UpdateTask: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

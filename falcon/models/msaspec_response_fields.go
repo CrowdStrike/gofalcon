@@ -21,11 +21,11 @@ import (
 type MsaspecResponseFields struct {
 
 	// errors
-	Errors []*MsaAPIError `json:"errors"`
+	Errors []*MsaspecError `json:"errors"`
 
 	// meta
 	// Required: true
-	Meta *MsaMetaInfo `json:"meta"`
+	Meta *MsaspecMetaInfo `json:"meta"`
 }
 
 // Validate validates this msaspec response fields

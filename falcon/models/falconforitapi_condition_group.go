@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -21,14 +20,10 @@ import (
 // swagger:model falconforitapi.ConditionGroup
 type FalconforitapiConditionGroup struct {
 
-	// READ-ONLY in create/update operations. Nested condition groups for complex logical expressions. This field will be populated in GET responses but ignored in POST/PATCH/PUT requests. The same operator applies between statements and nested groups.
-	Groups []*FalconforitapiConditionGroup `json:"groups"`
-
-	// Logical operator to apply between group statements
-	// Enum: [AND OR]
+	// operator
 	Operator string `json:"operator,omitempty"`
 
-	// List of conditional expressions to evaluate
+	// statements
 	// Required: true
 	Statements []*FalconforitapiConditionalExpr `json:"statements"`
 }
@@ -37,14 +32,6 @@ type FalconforitapiConditionGroup struct {
 func (m *FalconforitapiConditionGroup) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateGroups(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateOperator(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateStatements(formats); err != nil {
 		res = append(res, err)
 	}
@@ -52,74 +39,6 @@ func (m *FalconforitapiConditionGroup) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *FalconforitapiConditionGroup) validateGroups(formats strfmt.Registry) error {
-	if swag.IsZero(m.Groups) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.Groups); i++ {
-		if swag.IsZero(m.Groups[i]) { // not required
-			continue
-		}
-
-		if m.Groups[i] != nil {
-			if err := m.Groups[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-var falconforitapiConditionGroupTypeOperatorPropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["AND","OR"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		falconforitapiConditionGroupTypeOperatorPropEnum = append(falconforitapiConditionGroupTypeOperatorPropEnum, v)
-	}
-}
-
-const (
-
-	// FalconforitapiConditionGroupOperatorAND captures enum value "AND"
-	FalconforitapiConditionGroupOperatorAND string = "AND"
-
-	// FalconforitapiConditionGroupOperatorOR captures enum value "OR"
-	FalconforitapiConditionGroupOperatorOR string = "OR"
-)
-
-// prop value enum
-func (m *FalconforitapiConditionGroup) validateOperatorEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, falconforitapiConditionGroupTypeOperatorPropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *FalconforitapiConditionGroup) validateOperator(formats strfmt.Registry) error {
-	if swag.IsZero(m.Operator) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateOperatorEnum("operator", "body", m.Operator); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -154,10 +73,6 @@ func (m *FalconforitapiConditionGroup) validateStatements(formats strfmt.Registr
 func (m *FalconforitapiConditionGroup) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateGroups(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateStatements(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -165,31 +80,6 @@ func (m *FalconforitapiConditionGroup) ContextValidate(ctx context.Context, form
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *FalconforitapiConditionGroup) contextValidateGroups(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Groups); i++ {
-
-		if m.Groups[i] != nil {
-
-			if swag.IsZero(m.Groups[i]) { // not required
-				return nil
-			}
-
-			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 

@@ -83,7 +83,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
 	"github.com/crowdstrike/gofalcon/falcon/client/it_automation"
-	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
@@ -176,6 +175,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CaseManagement = case_management.New(transport, formats)
 	cli.Cases = cases.New(transport, formats)
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
+	cli.ItAutomation = it_automation.New(transport, formats)
 	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
 	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
@@ -448,6 +448,8 @@ type CrowdStrikeAPISpecification struct {
 
 	IdentityEntities identity_entities.ClientService
 
+	ItAutomation it_automation.ClientService
+
 	IdentityProtection identity_protection.ClientService
 
 	ImageAssessmentPolicies image_assessment_policies.ClientService
@@ -633,7 +635,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
 	c.ItAutomation.SetTransport(transport)
-	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LookupFiles.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
