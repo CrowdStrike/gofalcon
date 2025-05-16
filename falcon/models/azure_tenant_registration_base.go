@@ -17,14 +17,14 @@ import (
 
 // AzureTenantRegistrationBase azure tenant registration base
 //
-// swagger:model azure.TenantRegistrationBase
+// swagger:model azure.TenantRegistrationBase 
 type AzureTenantRegistrationBase struct {
 
 	// account type
 	AccountType string `json:"account_type,omitempty"`
 
 	// additional features
-	AdditionalFeatures []*AzureAdditionalFeature `json:"additional_features"`
+	AdditionalFeatures []*AzureAdditionalFeature `json:"additional_features,omitempty"`
 
 	// additional properties
 	AdditionalProperties interface{} `json:"additional_properties,omitempty"`
@@ -51,16 +51,16 @@ type AzureTenantRegistrationBase struct {
 	DeploymentStackName string `json:"deployment_stack_name,omitempty"`
 
 	// dspm regions
-	DspmRegions []string `json:"dspm_regions"`
+	DspmRegions []string `json:"dspm_regions,omitempty"`
 
 	// environment
 	Environment string `json:"environment,omitempty"`
 
 	// event hub settings
-	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings"`
+	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings,omitempty"`
 
 	// management group ids
-	ManagementGroupIds []string `json:"management_group_ids"`
+	ManagementGroupIds []string `json:"management_group_ids,omitempty"`
 
 	// microsoft graph permission ids
 	// Required: true
@@ -70,7 +70,7 @@ type AzureTenantRegistrationBase struct {
 	MicrosoftGraphPermissionIdsReadonly bool `json:"microsoft_graph_permission_ids_readonly,omitempty"`
 
 	// products
-	Products []*DomainProductFeatures `json:"products"`
+	Products []*DomainProductFeatures `json:"products,omitempty"`
 
 	// registration status
 	RegistrationStatus string `json:"registration_status,omitempty"`
@@ -82,7 +82,7 @@ type AzureTenantRegistrationBase struct {
 	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
 
 	// subscription ids
-	SubscriptionIds []string `json:"subscription_ids"`
+	SubscriptionIds []string `json:"subscription_ids,omitempty"`
 
 	// tags
 	Tags map[string]string `json:"tags,omitempty"`
