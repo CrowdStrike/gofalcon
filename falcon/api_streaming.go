@@ -28,7 +28,14 @@ type StreamingHandle struct {
 }
 
 // newStream initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
-func newStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64, httpClient *http.Client) (*StreamingHandle, error) {
+func newStream(
+	ctx context.Context,
+	client *client.CrowdStrikeAPISpecification,
+	appId string,
+	stream *models.MainAvailableStreamV2,
+	offset uint64,
+	httpClient *http.Client,
+) (*StreamingHandle, error) {
 	ctx, cancel := context.WithCancel(ctx)
 
 	sh := &StreamingHandle{
@@ -52,7 +59,14 @@ func newStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, 
 }
 
 // NewStreamWithClient initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
-func NewStreamWithClient(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64, httpClient *http.Client) (*StreamingHandle, error) {
+func NewStreamWithClient(
+	ctx context.Context,
+	client *client.CrowdStrikeAPISpecification,
+	appId string,
+	stream *models.MainAvailableStreamV2,
+	offset uint64,
+	httpClient *http.Client,
+) (*StreamingHandle, error) {
 	return newStream(ctx, client, appId, stream, offset, httpClient)
 }
 
@@ -60,12 +74,20 @@ func NewStreamWithClient(ctx context.Context, client *client.CrowdStrikeAPISpeci
 // The streams need to be discovered first by event_streams.ListAvailableStreamsOAuth2() method.
 // The appId must be an ID that is unique within your CrowdStrike account. Each running instance of your application must provide unique ID.
 // The offset value can then be used to skip seen events, should the stream disconnect. Users are advised to use zero (0) value at start. Each event then contains its own offset.
-func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64) (*StreamingHandle, error) {
+func NewStream(
+	ctx context.Context,
+	client *client.CrowdStrikeAPISpecification,
+	appId string,
+	stream *models.MainAvailableStreamV2,
+	offset uint64,
+) (*StreamingHandle, error) {
 	return newStream(ctx, client, appId, stream, offset, &http.Client{})
 }
 
 func (sh *StreamingHandle) maintainSession() {
-	ticker := time.NewTicker(time.Duration(*sh.stream.RefreshActiveSessionInterval*9/10) * time.Second)
+	ticker := time.NewTicker(
+		time.Duration(*sh.stream.RefreshActiveSessionInterval*9/10) * time.Second,
+	)
 	go func() {
 		defer ticker.Stop()
 		for {
@@ -73,12 +95,14 @@ func (sh *StreamingHandle) maintainSession() {
 			case <-sh.ctx.Done():
 				return
 			case <-ticker.C:
-				_, err := sh.client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
-					AppID:      sh.appId,
-					ActionName: "refresh_active_stream_session",
-					Partition:  0,
-					Context:    sh.ctx,
-				})
+				_, err := sh.client.EventStreams.RefreshActiveStreamSession(
+					&event_streams.RefreshActiveStreamSessionParams{
+						AppID:      sh.appId,
+						ActionName: "refresh_active_stream_session",
+						Partition:  0,
+						Context:    sh.ctx,
+					},
+				)
 
 				if err != nil {
 					sh.Errors <- StreamingError{
@@ -139,10 +163,18 @@ func (sh *StreamingHandle) open() error {
 			default:
 				if dec.More() {
 					var detection streaming_models.EventItem
-					err := dec.Decode(&detection)
+					var rawMessage json.RawMessage
+					err := dec.Decode(&rawMessage)
 					if err != nil {
 						sh.Errors <- StreamingError{Fatal: false, Err: err}
 					}
+
+					err = json.Unmarshal(rawMessage, &detection)
+					if err != nil {
+						sh.Errors <- StreamingError{Fatal: false, Err: err}
+					}
+
+					detection.RawMessage = rawMessage
 					sh.Events <- &detection
 				}
 			}
