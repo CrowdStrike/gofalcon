@@ -4,8 +4,9 @@ import "encoding/json"
 
 // EventItem - The structure for parent model
 type EventItem struct {
-	Event    Event    `json:"event" validate:"dive"`
-	Metadata Metadata `json:"metadata"`
+	Event      Event    `json:"event"    validate:"dive"`
+	Metadata   Metadata `json:"metadata"`
+	RawMessage json.RawMessage
 }
 
 // Metadata - The metadata for this detection
@@ -120,9 +121,9 @@ type AuditKeyValues struct {
 // NetworkAccess - Network access information for this detection
 type NetworkAccess struct {
 	ConnectionDirection int    `json:"ConnectionDirection"`
-	LocalAddress        string `json:"LocalAddress" validate:"ip"`
+	LocalAddress        string `json:"LocalAddress"        validate:"ip"`
 	LocalPort           *int64 `json:"LocalPort"`
-	Protocol            string `json:"Protocol" validate:"oneof=tcp TCP udp UDP"`
-	RemoteAddress       string `json:"RemoteAddress" validate:"ip"`
+	Protocol            string `json:"Protocol"            validate:"oneof=tcp TCP udp UDP"`
+	RemoteAddress       string `json:"RemoteAddress"       validate:"ip"`
 	RemotePort          *int64 `json:"RemotePort"`
 }
