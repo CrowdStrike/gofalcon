@@ -70,7 +70,7 @@ type AzureTenantRegistrationBase struct {
 	MicrosoftGraphPermissionIdsReadonly bool `json:"microsoft_graph_permission_ids_readonly,omitempty"`
 
 	// products
-	Products []*DomainProductFeatures `json:"products,omitempty"`
+	Products []*DomainProductFeatures `json:"products"`
 
 	// registration status
 	RegistrationStatus string `json:"registration_status,omitempty"`
