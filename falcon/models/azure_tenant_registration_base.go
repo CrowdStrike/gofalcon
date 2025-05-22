@@ -24,7 +24,7 @@ type AzureTenantRegistrationBase struct {
 	AccountType string `json:"account_type,omitempty"`
 
 	// additional features
-	AdditionalFeatures []*AzureAdditionalFeature `json:"additional_features,omitempty"`
+	AdditionalFeatures []*AzureAdditionalFeature `json:"additional_features"`
 
 	// additional properties
 	AdditionalProperties interface{} `json:"additional_properties,omitempty"`
@@ -51,16 +51,16 @@ type AzureTenantRegistrationBase struct {
 	DeploymentStackName string `json:"deployment_stack_name,omitempty"`
 
 	// dspm regions
-	DspmRegions []string `json:"dspm_regions,omitempty"`
+	DspmRegions []string `json:"dspm_regions"`
 
 	// environment
 	Environment string `json:"environment,omitempty"`
 
 	// event hub settings
-	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings,omitempty"`
+	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings"`
 
 	// management group ids
-	ManagementGroupIds []string `json:"management_group_ids,omitempty"`
+	ManagementGroupIds []string `json:"management_group_ids"`
 
 	// microsoft graph permission ids
 	// Required: true
@@ -82,10 +82,10 @@ type AzureTenantRegistrationBase struct {
 	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
 
 	// subscription ids
-	SubscriptionIds []string `json:"subscription_ids,omitempty"`
+	SubscriptionIds []string `json:"subscription_ids"`
 
 	// tags
-	Tags map[string]string `json:"tags,omitempty"`
+	Tags map[string]string `json:"tags"`
 
 	// template version
 	TemplateVersion string `json:"template_version,omitempty"`
