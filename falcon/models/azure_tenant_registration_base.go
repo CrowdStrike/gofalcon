@@ -17,7 +17,7 @@ import (
 
 // AzureTenantRegistrationBase azure tenant registration base
 //
-// swagger:model azure.TenantRegistrationBase 
+// swagger:model azure.TenantRegistrationBase
 type AzureTenantRegistrationBase struct {
 
 	// account type
@@ -85,7 +85,7 @@ type AzureTenantRegistrationBase struct {
 	SubscriptionIds []string `json:"subscription_ids"`
 
 	// tags
-	Tags map[string]string `json:"tags"`
+	Tags map[string]string `json:"tags,omitempty"`
 
 	// template version
 	TemplateVersion string `json:"template_version,omitempty"`
