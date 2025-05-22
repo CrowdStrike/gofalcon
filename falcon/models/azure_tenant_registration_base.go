@@ -85,7 +85,7 @@ type AzureTenantRegistrationBase struct {
 	SubscriptionIds []string `json:"subscription_ids"`
 
 	// tags
-	Tags map[string]string `json:"tags,omitempty"`
+	Tags map[string]string `json:"tags"`
 
 	// template version
 	TemplateVersion string `json:"template_version,omitempty"`
