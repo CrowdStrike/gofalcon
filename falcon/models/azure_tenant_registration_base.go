@@ -54,7 +54,7 @@ type AzureTenantRegistrationBase struct {
 	DspmRegions []string `json:"dspm_regions"`
 
 	// environment
-	Environment string `json:"environment"`
+	Environment *string `json:"environment"`
 
 	// event hub settings
 	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings"`
@@ -76,10 +76,10 @@ type AzureTenantRegistrationBase struct {
 	RegistrationStatus string `json:"registration_status,omitempty"`
 
 	// resource name prefix
-	ResourceNamePrefix string `json:"resource_name_prefix"`
+	ResourceNamePrefix *string `json:"resource_name_prefix"`
 
 	// resource name suffix
-	ResourceNameSuffix string `json:"resource_name_suffix"`
+	ResourceNameSuffix *string `json:"resource_name_suffix"`
 
 	// subscription ids
 	SubscriptionIds []string `json:"subscription_ids"`
