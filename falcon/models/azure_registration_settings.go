@@ -32,9 +32,6 @@ type AzureRegistrationSettings struct {
 	// api client key type
 	APIClientKeyType string `json:"api_client_key_type,omitempty"`
 
-	// deployment method
-	DeploymentMethod string `json:"deployment_method,omitempty"`
-
 	// deployment stack host id
 	DeploymentStackHostID string `json:"deployment_stack_host_id,omitempty"`
 
@@ -54,17 +51,18 @@ type AzureRegistrationSettings struct {
 	// products
 	Products []*DomainProductFeatures `json:"products"`
 
-	// registration status
-	RegistrationStatus string `json:"registration_status,omitempty"`
-
 	// resource name prefix
 	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
 
 	// resource name suffix
 	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
 
+	// status
+	Status string `json:"status,omitempty"`
+
 	// tags
-	Tags map[string]string `json:"tags,omitempty"`
+	// Required: true
+	Tags map[string]string `json:"tags"`
 
 	// template version
 	TemplateVersion string `json:"template_version,omitempty"`
@@ -79,6 +77,10 @@ func (m *AzureRegistrationSettings) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProducts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTags(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -118,6 +120,15 @@ func (m *AzureRegistrationSettings) validateProducts(formats strfmt.Registry) er
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureRegistrationSettings) validateTags(formats strfmt.Registry) error {
+
+	if err := validate.Required("tags", "body", m.Tags); err != nil {
+		return err
 	}
 
 	return nil

@@ -23,6 +23,9 @@ type AzureSubscription struct {
 	// account type
 	AccountType string `json:"account_type,omitempty"`
 
+	// cid
+	Cid string `json:"cid,omitempty"`
+
 	// conditions
 	// Required: true
 	Conditions []*AzureSubscriptionConditions `json:"conditions"`

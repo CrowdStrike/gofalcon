@@ -36,6 +36,8 @@ type ClientService interface {
 
 	CloudRegistrationAzureAzureSupportedRegions(params *CloudRegistrationAzureAzureSupportedRegionsParams, opts ...ClientOption) (*CloudRegistrationAzureAzureSupportedRegionsOK, error)
 
+	CloudRegistrationAzureCreateClientID(params *CloudRegistrationAzureCreateClientIDParams, opts ...ClientOption) (*CloudRegistrationAzureCreateClientIDCreated, error)
+
 	CloudRegistrationAzureCreatePartialRegistration(params *CloudRegistrationAzureCreatePartialRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureCreatePartialRegistrationCreated, error)
 
 	CloudRegistrationAzureCreateRegistration(params *CloudRegistrationAzureCreateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureCreateRegistrationCreated, error)
@@ -68,13 +70,21 @@ type ClientService interface {
 
 	CloudRegistrationAzureGetTenantIds(params *CloudRegistrationAzureGetTenantIdsParams, opts ...ClientOption) (*CloudRegistrationAzureGetTenantIdsOK, error)
 
+	CloudRegistrationAzureGetToken(params *CloudRegistrationAzureGetTokenParams, opts ...ClientOption) (*CloudRegistrationAzureGetTokenOK, error)
+
 	CloudRegistrationAzureUpdatePartialRegistration(params *CloudRegistrationAzureUpdatePartialRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdatePartialRegistrationOK, error)
 
 	CloudRegistrationAzureUpdateRegistration(params *CloudRegistrationAzureUpdateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateRegistrationOK, error)
 
 	CloudRegistrationAzureValidateManagementGroup(params *CloudRegistrationAzureValidateManagementGroupParams, opts ...ClientOption) (*CloudRegistrationAzureValidateManagementGroupCreated, error)
 
+	CloudRegistrationAzureValidateRegistration(params *CloudRegistrationAzureValidateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureValidateRegistrationOK, error)
+
 	CloudRegistrationAzureValidateSubscription(params *CloudRegistrationAzureValidateSubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureValidateSubscriptionCreated, error)
+
+	CloudRegistrationAzureVerifyAdminConsent(params *CloudRegistrationAzureVerifyAdminConsentParams, opts ...ClientOption) (*CloudRegistrationAzureVerifyAdminConsentOK, error)
+
+	DownloadAzureScript(params *DownloadAzureScriptParams, opts ...ClientOption) (*DownloadAzureScriptOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -190,6 +200,44 @@ func (a *Client) CloudRegistrationAzureAzureSupportedRegions(params *CloudRegist
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-azure-supported-regions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureCreateClientID creates an app registration for a specific tenant account
+*/
+func (a *Client) CloudRegistrationAzureCreateClientID(params *CloudRegistrationAzureCreateClientIDParams, opts ...ClientOption) (*CloudRegistrationAzureCreateClientIDCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureCreateClientIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-create-client-id",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-azure/entities/client-id/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureCreateClientIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureCreateClientIDCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-create-client-id: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -621,7 +669,7 @@ func (a *Client) CloudRegistrationAzureGetRegistrationVersion(params *CloudRegis
 	}
 	op := &runtime.ClientOperation{
 		ID:                 "cloud-registration-azure-get-registration-version",
-		Method:             "POST",
+		Method:             "GET",
 		PathPattern:        "/cloud-security-registration-azure/entities/registration-version/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
@@ -803,6 +851,44 @@ func (a *Client) CloudRegistrationAzureGetTenantIds(params *CloudRegistrationAzu
 }
 
 /*
+CloudRegistrationAzureGetToken retrieves an azure token for the specified tenant
+*/
+func (a *Client) CloudRegistrationAzureGetToken(params *CloudRegistrationAzureGetTokenParams, opts ...ClientOption) (*CloudRegistrationAzureGetTokenOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureGetTokenParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-get-token",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/entities/token/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureGetTokenReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureGetTokenOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-token: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CloudRegistrationAzureUpdatePartialRegistration updates an existing partial azure registration
 */
 func (a *Client) CloudRegistrationAzureUpdatePartialRegistration(params *CloudRegistrationAzureUpdatePartialRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdatePartialRegistrationOK, error) {
@@ -917,6 +1003,44 @@ func (a *Client) CloudRegistrationAzureValidateManagementGroup(params *CloudRegi
 }
 
 /*
+CloudRegistrationAzureValidateRegistration validates an azure registration by checking service principal deployment stack and role assignments
+*/
+func (a *Client) CloudRegistrationAzureValidateRegistration(params *CloudRegistrationAzureValidateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureValidateRegistrationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureValidateRegistrationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-validate-registration",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-azure/entities/registrations/validate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureValidateRegistrationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureValidateRegistrationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-validate-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CloudRegistrationAzureValidateSubscription validates an azure subscription
 */
 func (a *Client) CloudRegistrationAzureValidateSubscription(params *CloudRegistrationAzureValidateSubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureValidateSubscriptionCreated, error) {
@@ -951,6 +1075,82 @@ func (a *Client) CloudRegistrationAzureValidateSubscription(params *CloudRegistr
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-validate-subscription: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureVerifyAdminConsent verifies admin consent by retrieving a token using service principal credentials and storing the object ID
+*/
+func (a *Client) CloudRegistrationAzureVerifyAdminConsent(params *CloudRegistrationAzureVerifyAdminConsentParams, opts ...ClientOption) (*CloudRegistrationAzureVerifyAdminConsentOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureVerifyAdminConsentParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-verify-admin-consent",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-azure/entities/registrations/verify-admin-consent/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureVerifyAdminConsentReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureVerifyAdminConsentOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-verify-admin-consent: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DownloadAzureScript downloads azure deployment script terraform or bicep
+*/
+func (a *Client) DownloadAzureScript(params *DownloadAzureScriptParams, opts ...ClientOption) (*DownloadAzureScriptOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDownloadAzureScriptParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "download_azure_script",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/entities/scripts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DownloadAzureScriptReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DownloadAzureScriptOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for download_azure_script: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

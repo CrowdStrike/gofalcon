@@ -24,6 +24,7 @@ type AzureTenantRegistrationBase struct {
 	AccountType string `json:"account_type,omitempty"`
 
 	// additional features
+	// Required: true
 	AdditionalFeatures []*AzureAdditionalFeature `json:"additional_features"`
 
 	// additional properties
@@ -42,7 +43,8 @@ type AzureTenantRegistrationBase struct {
 	CsInfraSubscriptionID string `json:"cs_infra_subscription_id,omitempty"`
 
 	// deployment method
-	DeploymentMethod string `json:"deployment_method,omitempty"`
+	// Required: true
+	DeploymentMethod *string `json:"deployment_method"`
 
 	// deployment stack host id
 	DeploymentStackHostID string `json:"deployment_stack_host_id,omitempty"`
@@ -54,12 +56,14 @@ type AzureTenantRegistrationBase struct {
 	DspmRegions []string `json:"dspm_regions"`
 
 	// environment
-	Environment *string `json:"environment"`
+	Environment string `json:"environment,omitempty"`
 
 	// event hub settings
+	// Required: true
 	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings"`
 
 	// management group ids
+	// Required: true
 	ManagementGroupIds []string `json:"management_group_ids"`
 
 	// microsoft graph permission ids
@@ -72,19 +76,21 @@ type AzureTenantRegistrationBase struct {
 	// products
 	Products []*DomainProductFeatures `json:"products"`
 
-	// registration status
-	RegistrationStatus string `json:"registration_status,omitempty"`
-
 	// resource name prefix
-	ResourceNamePrefix *string `json:"resource_name_prefix"`
+	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
 
 	// resource name suffix
-	ResourceNameSuffix *string `json:"resource_name_suffix"`
+	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
+
+	// status
+	Status string `json:"status,omitempty"`
 
 	// subscription ids
+	// Required: true
 	SubscriptionIds []string `json:"subscription_ids"`
 
 	// tags
+	// Required: true
 	Tags map[string]string `json:"tags"`
 
 	// template version
@@ -103,7 +109,15 @@ func (m *AzureTenantRegistrationBase) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDeploymentMethod(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEventHubSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateManagementGroupIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -112,6 +126,14 @@ func (m *AzureTenantRegistrationBase) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProducts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubscriptionIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTags(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -126,8 +148,9 @@ func (m *AzureTenantRegistrationBase) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AzureTenantRegistrationBase) validateAdditionalFeatures(formats strfmt.Registry) error {
-	if swag.IsZero(m.AdditionalFeatures) { // not required
-		return nil
+
+	if err := validate.Required("additional_features", "body", m.AdditionalFeatures); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.AdditionalFeatures); i++ {
@@ -151,9 +174,19 @@ func (m *AzureTenantRegistrationBase) validateAdditionalFeatures(formats strfmt.
 	return nil
 }
 
+func (m *AzureTenantRegistrationBase) validateDeploymentMethod(formats strfmt.Registry) error {
+
+	if err := validate.Required("deployment_method", "body", m.DeploymentMethod); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AzureTenantRegistrationBase) validateEventHubSettings(formats strfmt.Registry) error {
-	if swag.IsZero(m.EventHubSettings) { // not required
-		return nil
+
+	if err := validate.Required("event_hub_settings", "body", m.EventHubSettings); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.EventHubSettings); i++ {
@@ -172,6 +205,15 @@ func (m *AzureTenantRegistrationBase) validateEventHubSettings(formats strfmt.Re
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistrationBase) validateManagementGroupIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("management_group_ids", "body", m.ManagementGroupIds); err != nil {
+		return err
 	}
 
 	return nil
@@ -207,6 +249,24 @@ func (m *AzureTenantRegistrationBase) validateProducts(formats strfmt.Registry) 
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistrationBase) validateSubscriptionIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("subscription_ids", "body", m.SubscriptionIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistrationBase) validateTags(formats strfmt.Registry) error {
+
+	if err := validate.Required("tags", "body", m.Tags); err != nil {
+		return err
 	}
 
 	return nil

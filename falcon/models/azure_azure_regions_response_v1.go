@@ -20,10 +20,6 @@ import (
 // swagger:model azure.AzureRegionsResponseV1
 type AzureAzureRegionsResponseV1 struct {
 
-	// default region
-	// Required: true
-	DefaultRegion *string `json:"default_region"`
-
 	// errors
 	Errors []*MsaspecError `json:"errors"`
 
@@ -31,18 +27,14 @@ type AzureAzureRegionsResponseV1 struct {
 	// Required: true
 	Meta *MsaspecMetaInfo `json:"meta"`
 
-	// regions
+	// resources
 	// Required: true
-	Regions []string `json:"regions"`
+	Resources []*AzureRegionsResponseV1 `json:"resources"`
 }
 
 // Validate validates this azure azure regions response v1
 func (m *AzureAzureRegionsResponseV1) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateDefaultRegion(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateErrors(formats); err != nil {
 		res = append(res, err)
@@ -52,22 +44,13 @@ func (m *AzureAzureRegionsResponseV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateRegions(formats); err != nil {
+	if err := m.validateResources(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AzureAzureRegionsResponseV1) validateDefaultRegion(formats strfmt.Registry) error {
-
-	if err := validate.Required("default_region", "body", m.DefaultRegion); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -117,10 +100,28 @@ func (m *AzureAzureRegionsResponseV1) validateMeta(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *AzureAzureRegionsResponseV1) validateRegions(formats strfmt.Registry) error {
+func (m *AzureAzureRegionsResponseV1) validateResources(formats strfmt.Registry) error {
 
-	if err := validate.Required("regions", "body", m.Regions); err != nil {
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
+	}
+
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -135,6 +136,10 @@ func (m *AzureAzureRegionsResponseV1) ContextValidate(ctx context.Context, forma
 	}
 
 	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResources(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -181,6 +186,31 @@ func (m *AzureAzureRegionsResponseV1) contextValidateMeta(ctx context.Context, f
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegionsResponseV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

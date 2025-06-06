@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,6 +20,10 @@ import (
 // swagger:model azure.DeletedAccountSummary
 type AzureDeletedAccountSummary struct {
 
+	// cs infra subscription id
+	// Required: true
+	CsInfraSubscriptionID *string `json:"cs_infra_subscription_id"`
+
 	// deployment method
 	// Required: true
 	DeploymentMethod *string `json:"deployment_method"`
@@ -27,9 +32,21 @@ type AzureDeletedAccountSummary struct {
 	// Required: true
 	DeploymentStackLocation *string `json:"deployment_stack_location"`
 
+	// deployment stack name
+	// Required: true
+	DeploymentStackName *string `json:"deployment_stack_name"`
+
 	// deployment stack scope
 	// Required: true
 	DeploymentStackScope *string `json:"deployment_stack_scope"`
+
+	// management group id
+	// Required: true
+	ManagementGroupID *string `json:"management_group_id"`
+
+	// products
+	// Required: true
+	Products []*DomainProductFeatures `json:"products"`
 
 	// subscription id
 	// Required: true
@@ -52,6 +69,10 @@ type AzureDeletedAccountSummary struct {
 func (m *AzureDeletedAccountSummary) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCsInfraSubscriptionID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDeploymentMethod(formats); err != nil {
 		res = append(res, err)
 	}
@@ -60,7 +81,19 @@ func (m *AzureDeletedAccountSummary) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDeploymentStackName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDeploymentStackScope(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateManagementGroupID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProducts(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -86,6 +119,15 @@ func (m *AzureDeletedAccountSummary) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *AzureDeletedAccountSummary) validateCsInfraSubscriptionID(formats strfmt.Registry) error {
+
+	if err := validate.Required("cs_infra_subscription_id", "body", m.CsInfraSubscriptionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AzureDeletedAccountSummary) validateDeploymentMethod(formats strfmt.Registry) error {
 
 	if err := validate.Required("deployment_method", "body", m.DeploymentMethod); err != nil {
@@ -104,10 +146,55 @@ func (m *AzureDeletedAccountSummary) validateDeploymentStackLocation(formats str
 	return nil
 }
 
+func (m *AzureDeletedAccountSummary) validateDeploymentStackName(formats strfmt.Registry) error {
+
+	if err := validate.Required("deployment_stack_name", "body", m.DeploymentStackName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AzureDeletedAccountSummary) validateDeploymentStackScope(formats strfmt.Registry) error {
 
 	if err := validate.Required("deployment_stack_scope", "body", m.DeploymentStackScope); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *AzureDeletedAccountSummary) validateManagementGroupID(formats strfmt.Registry) error {
+
+	if err := validate.Required("management_group_id", "body", m.ManagementGroupID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureDeletedAccountSummary) validateProducts(formats strfmt.Registry) error {
+
+	if err := validate.Required("products", "body", m.Products); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Products); i++ {
+		if swag.IsZero(m.Products[i]) { // not required
+			continue
+		}
+
+		if m.Products[i] != nil {
+			if err := m.Products[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("products" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("products" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -149,8 +236,42 @@ func (m *AzureDeletedAccountSummary) validateTenantName(formats strfmt.Registry)
 	return nil
 }
 
-// ContextValidate validates this azure deleted account summary based on context it is used
+// ContextValidate validate this azure deleted account summary based on the context it is used
 func (m *AzureDeletedAccountSummary) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateProducts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AzureDeletedAccountSummary) contextValidateProducts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Products); i++ {
+
+		if m.Products[i] != nil {
+
+			if swag.IsZero(m.Products[i]) { // not required
+				return nil
+			}
+
+			if err := m.Products[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("products" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("products" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

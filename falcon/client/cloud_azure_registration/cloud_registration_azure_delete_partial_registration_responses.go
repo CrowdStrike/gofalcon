@@ -63,7 +63,7 @@ CloudRegistrationAzureDeletePartialRegistrationOK describes a response with stat
 OK
 */
 type CloudRegistrationAzureDeletePartialRegistrationOK struct {
-	Payload *models.MsaspecResponseFields
+	Payload *models.AzureDeleteRegistrationResponseExtV1
 }
 
 // IsSuccess returns true when this cloud registration azure delete partial registration o k response has a 2xx status code
@@ -104,13 +104,13 @@ func (o *CloudRegistrationAzureDeletePartialRegistrationOK) String() string {
 	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/partial/v1][%d] cloudRegistrationAzureDeletePartialRegistrationOK  %+v", 200, o.Payload)
 }
 
-func (o *CloudRegistrationAzureDeletePartialRegistrationOK) GetPayload() *models.MsaspecResponseFields {
+func (o *CloudRegistrationAzureDeletePartialRegistrationOK) GetPayload() *models.AzureDeleteRegistrationResponseExtV1 {
 	return o.Payload
 }
 
 func (o *CloudRegistrationAzureDeletePartialRegistrationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.MsaspecResponseFields)
+	o.Payload = new(models.AzureDeleteRegistrationResponseExtV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

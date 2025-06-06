@@ -19,6 +19,10 @@ import (
 // swagger:model azure.EventHubSettings
 type AzureEventHubSettings struct {
 
+	// cid
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// consumer group
 	// Required: true
 	ConsumerGroup *string `json:"consumer_group"`
@@ -30,11 +34,19 @@ type AzureEventHubSettings struct {
 	// purpose
 	// Required: true
 	Purpose *string `json:"purpose"`
+
+	// tenant id
+	// Required: true
+	TenantID *string `json:"tenant_id"`
 }
 
 // Validate validates this azure event hub settings
 func (m *AzureEventHubSettings) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateConsumerGroup(formats); err != nil {
 		res = append(res, err)
@@ -48,9 +60,22 @@ func (m *AzureEventHubSettings) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTenantID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *AzureEventHubSettings) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -75,6 +100,15 @@ func (m *AzureEventHubSettings) validateEventHubID(formats strfmt.Registry) erro
 func (m *AzureEventHubSettings) validatePurpose(formats strfmt.Registry) error {
 
 	if err := validate.Required("purpose", "body", m.Purpose); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureEventHubSettings) validateTenantID(formats strfmt.Registry) error {
+
+	if err := validate.Required("tenant_id", "body", m.TenantID); err != nil {
 		return err
 	}
 

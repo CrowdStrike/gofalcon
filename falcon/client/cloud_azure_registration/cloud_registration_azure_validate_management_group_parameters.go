@@ -73,11 +73,11 @@ type CloudRegistrationAzureValidateManagementGroupParams struct {
 	*/
 	XCSCUSTID string
 
-	/* ID.
+	/* Ids.
 
-	   Azure management group ID
+	   Azure management groups IDs
 	*/
-	ID string
+	Ids string
 
 	/* TenantID.
 
@@ -160,15 +160,15 @@ func (o *CloudRegistrationAzureValidateManagementGroupParams) SetXCSCUSTID(xCSCU
 	o.XCSCUSTID = xCSCUSTID
 }
 
-// WithID adds the id to the cloud registration azure validate management group params
-func (o *CloudRegistrationAzureValidateManagementGroupParams) WithID(id string) *CloudRegistrationAzureValidateManagementGroupParams {
-	o.SetID(id)
+// WithIds adds the ids to the cloud registration azure validate management group params
+func (o *CloudRegistrationAzureValidateManagementGroupParams) WithIds(ids string) *CloudRegistrationAzureValidateManagementGroupParams {
+	o.SetIds(ids)
 	return o
 }
 
-// SetID adds the id to the cloud registration azure validate management group params
-func (o *CloudRegistrationAzureValidateManagementGroupParams) SetID(id string) {
-	o.ID = id
+// SetIds adds the ids to the cloud registration azure validate management group params
+func (o *CloudRegistrationAzureValidateManagementGroupParams) SetIds(ids string) {
+	o.Ids = ids
 }
 
 // WithTenantID adds the tenantID to the cloud registration azure validate management group params
@@ -203,12 +203,12 @@ func (o *CloudRegistrationAzureValidateManagementGroupParams) WriteToRequest(r r
 		return err
 	}
 
-	// query param id
-	qrID := o.ID
-	qID := qrID
-	if qID != "" {
+	// query param ids
+	qrIds := o.Ids
+	qIds := qrIds
+	if qIds != "" {
 
-		if err := r.SetQueryParam("id", qID); err != nil {
+		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}
 	}

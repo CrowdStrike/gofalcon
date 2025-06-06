@@ -63,7 +63,7 @@ CloudRegistrationAzureDeleteRegistrationOK describes a response with status code
 OK
 */
 type CloudRegistrationAzureDeleteRegistrationOK struct {
-	Payload *models.AzureDeleteCompleteRegistrationExtV1
+	Payload *models.AzureDeleteRegistrationResponseExtV1
 }
 
 // IsSuccess returns true when this cloud registration azure delete registration o k response has a 2xx status code
@@ -104,13 +104,13 @@ func (o *CloudRegistrationAzureDeleteRegistrationOK) String() string {
 	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationOK  %+v", 200, o.Payload)
 }
 
-func (o *CloudRegistrationAzureDeleteRegistrationOK) GetPayload() *models.AzureDeleteCompleteRegistrationExtV1 {
+func (o *CloudRegistrationAzureDeleteRegistrationOK) GetPayload() *models.AzureDeleteRegistrationResponseExtV1 {
 	return o.Payload
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.AzureDeleteCompleteRegistrationExtV1)
+	o.Payload = new(models.AzureDeleteRegistrationResponseExtV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

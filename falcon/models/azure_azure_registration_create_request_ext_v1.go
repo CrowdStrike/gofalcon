@@ -21,7 +21,7 @@ type AzureAzureRegistrationCreateRequestExtV1 struct {
 
 	// resource
 	// Required: true
-	Resource *AzureTenantRegistrationBase `json:"resource"`
+	Resource *AzureAzureRegistrationCreateInput `json:"resource"`
 }
 
 // Validate validates this azure azure registration create request ext v1

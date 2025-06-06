@@ -48,7 +48,7 @@ func (o *CloudRegistrationAzureGetRegistrationVersionReader) ReadResponse(respon
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[POST /cloud-security-registration-azure/entities/registration-version/v1] cloud-registration-azure-get-registration-version", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /cloud-security-registration-azure/entities/registration-version/v1] cloud-registration-azure-get-registration-version", response, response.Code())
 	}
 }
 
@@ -63,7 +63,7 @@ CloudRegistrationAzureGetRegistrationVersionOK describes a response with status 
 OK
 */
 type CloudRegistrationAzureGetRegistrationVersionOK struct {
-	Payload *models.AzureGetRegistrationVersionV1
+	Payload *models.AzureRegistrationVersionResponseV1
 }
 
 // IsSuccess returns true when this cloud registration azure get registration version o k response has a 2xx status code
@@ -97,20 +97,20 @@ func (o *CloudRegistrationAzureGetRegistrationVersionOK) Code() int {
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionOK  %+v", 200, o.Payload)
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionOK) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionOK  %+v", 200, o.Payload)
 }
 
-func (o *CloudRegistrationAzureGetRegistrationVersionOK) GetPayload() *models.AzureGetRegistrationVersionV1 {
+func (o *CloudRegistrationAzureGetRegistrationVersionOK) GetPayload() *models.AzureRegistrationVersionResponseV1 {
 	return o.Payload
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.AzureGetRegistrationVersionV1)
+	o.Payload = new(models.AzureRegistrationVersionResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -165,11 +165,11 @@ func (o *CloudRegistrationAzureGetRegistrationVersionBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -233,11 +233,11 @@ func (o *CloudRegistrationAzureGetRegistrationVersionForbidden) Code() int {
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionForbidden  %+v", 403, o.Payload)
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionForbidden  %+v", 403, o.Payload)
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -301,11 +301,11 @@ func (o *CloudRegistrationAzureGetRegistrationVersionInternalServerError) Code()
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-registration-azure/entities/registration-version/v1][%d] cloudRegistrationAzureGetRegistrationVersionInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *CloudRegistrationAzureGetRegistrationVersionInternalServerError) GetPayload() *models.MsaspecResponseFields {

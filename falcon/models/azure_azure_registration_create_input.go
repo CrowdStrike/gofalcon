@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// AzureTenantRegistration azure tenant registration
+// AzureAzureRegistrationCreateInput azure azure registration create input
 //
-// swagger:model azure.TenantRegistration
-type AzureTenantRegistration struct {
+// swagger:model azure.AzureRegistrationCreateInput
+type AzureAzureRegistrationCreateInput struct {
 
 	// account type
 	AccountType string `json:"account_type,omitempty"`
@@ -30,24 +30,11 @@ type AzureTenantRegistration struct {
 	// additional properties
 	AdditionalProperties interface{} `json:"additional_properties,omitempty"`
 
-	// admin consent url
-	AdminConsentURL string `json:"admin_consent_url,omitempty"`
-
 	// api client key id
 	APIClientKeyID string `json:"api_client_key_id,omitempty"`
 
 	// api client key type
 	APIClientKeyType string `json:"api_client_key_type,omitempty"`
-
-	// app registration id
-	AppRegistrationID string `json:"app_registration_id,omitempty"`
-
-	// cid
-	Cid string `json:"cid,omitempty"`
-
-	// created
-	// Format: date-time
-	Created strfmt.DateTime `json:"created,omitempty"`
 
 	// cs infra region
 	CsInfraRegion string `json:"cs_infra_region,omitempty"`
@@ -55,22 +42,12 @@ type AzureTenantRegistration struct {
 	// cs infra subscription id
 	CsInfraSubscriptionID string `json:"cs_infra_subscription_id,omitempty"`
 
-	// deleted
-	// Format: date-time
-	Deleted strfmt.DateTime `json:"deleted,omitempty"`
-
 	// deployment method
 	// Required: true
 	DeploymentMethod *string `json:"deployment_method"`
 
 	// deployment stack host id
 	DeploymentStackHostID string `json:"deployment_stack_host_id,omitempty"`
-
-	// deployment stack host type
-	DeploymentStackHostType string `json:"deployment_stack_host_type,omitempty"`
-
-	// deployment stack host url
-	DeploymentStackHostURL string `json:"deployment_stack_host_url,omitempty"`
 
 	// deployment stack name
 	DeploymentStackName string `json:"deployment_stack_name,omitempty"`
@@ -122,25 +99,13 @@ type AzureTenantRegistration struct {
 	// tenant id
 	// Required: true
 	TenantID *string `json:"tenant_id"`
-
-	// updated
-	// Format: date-time
-	Updated strfmt.DateTime `json:"updated,omitempty"`
 }
 
-// Validate validates this azure tenant registration
-func (m *AzureTenantRegistration) Validate(formats strfmt.Registry) error {
+// Validate validates this azure azure registration create input
+func (m *AzureAzureRegistrationCreateInput) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAdditionalFeatures(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCreated(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDeleted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -176,17 +141,13 @@ func (m *AzureTenantRegistration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateUpdated(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateAdditionalFeatures(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateAdditionalFeatures(formats strfmt.Registry) error {
 
 	if err := validate.Required("additional_features", "body", m.AdditionalFeatures); err != nil {
 		return err
@@ -213,31 +174,7 @@ func (m *AzureTenantRegistration) validateAdditionalFeatures(formats strfmt.Regi
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateCreated(formats strfmt.Registry) error {
-	if swag.IsZero(m.Created) { // not required
-		return nil
-	}
-
-	if err := validate.FormatOf("created", "body", "date-time", m.Created.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AzureTenantRegistration) validateDeleted(formats strfmt.Registry) error {
-	if swag.IsZero(m.Deleted) { // not required
-		return nil
-	}
-
-	if err := validate.FormatOf("deleted", "body", "date-time", m.Deleted.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AzureTenantRegistration) validateDeploymentMethod(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateDeploymentMethod(formats strfmt.Registry) error {
 
 	if err := validate.Required("deployment_method", "body", m.DeploymentMethod); err != nil {
 		return err
@@ -246,7 +183,7 @@ func (m *AzureTenantRegistration) validateDeploymentMethod(formats strfmt.Regist
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateEventHubSettings(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateEventHubSettings(formats strfmt.Registry) error {
 
 	if err := validate.Required("event_hub_settings", "body", m.EventHubSettings); err != nil {
 		return err
@@ -273,7 +210,7 @@ func (m *AzureTenantRegistration) validateEventHubSettings(formats strfmt.Regist
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateManagementGroupIds(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateManagementGroupIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("management_group_ids", "body", m.ManagementGroupIds); err != nil {
 		return err
@@ -282,7 +219,7 @@ func (m *AzureTenantRegistration) validateManagementGroupIds(formats strfmt.Regi
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateMicrosoftGraphPermissionIds(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateMicrosoftGraphPermissionIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("microsoft_graph_permission_ids", "body", m.MicrosoftGraphPermissionIds); err != nil {
 		return err
@@ -291,7 +228,7 @@ func (m *AzureTenantRegistration) validateMicrosoftGraphPermissionIds(formats st
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateProducts(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateProducts(formats strfmt.Registry) error {
 	if swag.IsZero(m.Products) { // not required
 		return nil
 	}
@@ -317,7 +254,7 @@ func (m *AzureTenantRegistration) validateProducts(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateSubscriptionIds(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateSubscriptionIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("subscription_ids", "body", m.SubscriptionIds); err != nil {
 		return err
@@ -326,7 +263,7 @@ func (m *AzureTenantRegistration) validateSubscriptionIds(formats strfmt.Registr
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateTags(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateTags(formats strfmt.Registry) error {
 
 	if err := validate.Required("tags", "body", m.Tags); err != nil {
 		return err
@@ -335,7 +272,7 @@ func (m *AzureTenantRegistration) validateTags(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateTenantID(formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) validateTenantID(formats strfmt.Registry) error {
 
 	if err := validate.Required("tenant_id", "body", m.TenantID); err != nil {
 		return err
@@ -344,20 +281,8 @@ func (m *AzureTenantRegistration) validateTenantID(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *AzureTenantRegistration) validateUpdated(formats strfmt.Registry) error {
-	if swag.IsZero(m.Updated) { // not required
-		return nil
-	}
-
-	if err := validate.FormatOf("updated", "body", "date-time", m.Updated.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// ContextValidate validate this azure tenant registration based on the context it is used
-func (m *AzureTenantRegistration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this azure azure registration create input based on the context it is used
+func (m *AzureAzureRegistrationCreateInput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateAdditionalFeatures(ctx, formats); err != nil {
@@ -378,7 +303,7 @@ func (m *AzureTenantRegistration) ContextValidate(ctx context.Context, formats s
 	return nil
 }
 
-func (m *AzureTenantRegistration) contextValidateAdditionalFeatures(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) contextValidateAdditionalFeatures(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.AdditionalFeatures); i++ {
 
@@ -403,7 +328,7 @@ func (m *AzureTenantRegistration) contextValidateAdditionalFeatures(ctx context.
 	return nil
 }
 
-func (m *AzureTenantRegistration) contextValidateEventHubSettings(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) contextValidateEventHubSettings(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.EventHubSettings); i++ {
 
@@ -428,7 +353,7 @@ func (m *AzureTenantRegistration) contextValidateEventHubSettings(ctx context.Co
 	return nil
 }
 
-func (m *AzureTenantRegistration) contextValidateProducts(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureRegistrationCreateInput) contextValidateProducts(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Products); i++ {
 
@@ -454,7 +379,7 @@ func (m *AzureTenantRegistration) contextValidateProducts(ctx context.Context, f
 }
 
 // MarshalBinary interface implementation
-func (m *AzureTenantRegistration) MarshalBinary() ([]byte, error) {
+func (m *AzureAzureRegistrationCreateInput) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -462,8 +387,8 @@ func (m *AzureTenantRegistration) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *AzureTenantRegistration) UnmarshalBinary(b []byte) error {
-	var res AzureTenantRegistration
+func (m *AzureAzureRegistrationCreateInput) UnmarshalBinary(b []byte) error {
+	var res AzureAzureRegistrationCreateInput
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

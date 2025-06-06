@@ -27,9 +27,9 @@ type AzureAzureTenantIDsResponseV1 struct {
 	// Required: true
 	Meta *MsaspecMetaInfo `json:"meta"`
 
-	// tenants
+	// resources
 	// Required: true
-	Tenants []*AzureTenantID `json:"tenants"`
+	Resources []*AzureTenantID `json:"resources"`
 }
 
 // Validate validates this azure azure tenant i ds response v1
@@ -44,7 +44,7 @@ func (m *AzureAzureTenantIDsResponseV1) Validate(formats strfmt.Registry) error 
 		res = append(res, err)
 	}
 
-	if err := m.validateTenants(formats); err != nil {
+	if err := m.validateResources(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -100,23 +100,23 @@ func (m *AzureAzureTenantIDsResponseV1) validateMeta(formats strfmt.Registry) er
 	return nil
 }
 
-func (m *AzureAzureTenantIDsResponseV1) validateTenants(formats strfmt.Registry) error {
+func (m *AzureAzureTenantIDsResponseV1) validateResources(formats strfmt.Registry) error {
 
-	if err := validate.Required("tenants", "body", m.Tenants); err != nil {
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
-	for i := 0; i < len(m.Tenants); i++ {
-		if swag.IsZero(m.Tenants[i]) { // not required
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
 			continue
 		}
 
-		if m.Tenants[i] != nil {
-			if err := m.Tenants[i].Validate(formats); err != nil {
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("tenants" + "." + strconv.Itoa(i))
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tenants" + "." + strconv.Itoa(i))
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -139,7 +139,7 @@ func (m *AzureAzureTenantIDsResponseV1) ContextValidate(ctx context.Context, for
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateTenants(ctx, formats); err != nil {
+	if err := m.contextValidateResources(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -191,21 +191,21 @@ func (m *AzureAzureTenantIDsResponseV1) contextValidateMeta(ctx context.Context,
 	return nil
 }
 
-func (m *AzureAzureTenantIDsResponseV1) contextValidateTenants(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureAzureTenantIDsResponseV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.Tenants); i++ {
+	for i := 0; i < len(m.Resources); i++ {
 
-		if m.Tenants[i] != nil {
+		if m.Resources[i] != nil {
 
-			if swag.IsZero(m.Tenants[i]) { // not required
+			if swag.IsZero(m.Resources[i]) { // not required
 				return nil
 			}
 
-			if err := m.Tenants[i].ContextValidate(ctx, formats); err != nil {
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("tenants" + "." + strconv.Itoa(i))
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tenants" + "." + strconv.Itoa(i))
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

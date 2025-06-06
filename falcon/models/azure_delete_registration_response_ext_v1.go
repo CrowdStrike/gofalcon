@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// AzureAzureRegistrationResponseExtV1 azure azure registration response ext v1
+// AzureDeleteRegistrationResponseExtV1 azure delete registration response ext v1
 //
-// swagger:model azure.AzureRegistrationResponseExtV1
-type AzureAzureRegistrationResponseExtV1 struct {
+// swagger:model azure.DeleteRegistrationResponseExtV1
+type AzureDeleteRegistrationResponseExtV1 struct {
 
 	// errors
 	Errors []*MsaspecError `json:"errors"`
@@ -29,11 +29,11 @@ type AzureAzureRegistrationResponseExtV1 struct {
 
 	// resources
 	// Required: true
-	Resources []*AzureTenantRegistration `json:"resources"`
+	Resources []*AzureDeletedRegistrations `json:"resources"`
 }
 
-// Validate validates this azure azure registration response ext v1
-func (m *AzureAzureRegistrationResponseExtV1) Validate(formats strfmt.Registry) error {
+// Validate validates this azure delete registration response ext v1
+func (m *AzureDeleteRegistrationResponseExtV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *AzureAzureRegistrationResponseExtV1) Validate(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) validateErrors(formats strfmt.Registry) error {
+func (m *AzureDeleteRegistrationResponseExtV1) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -80,7 +80,7 @@ func (m *AzureAzureRegistrationResponseExtV1) validateErrors(formats strfmt.Regi
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) validateMeta(formats strfmt.Registry) error {
+func (m *AzureDeleteRegistrationResponseExtV1) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,7 +100,7 @@ func (m *AzureAzureRegistrationResponseExtV1) validateMeta(formats strfmt.Regist
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) validateResources(formats strfmt.Registry) error {
+func (m *AzureDeleteRegistrationResponseExtV1) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -127,8 +127,8 @@ func (m *AzureAzureRegistrationResponseExtV1) validateResources(formats strfmt.R
 	return nil
 }
 
-// ContextValidate validate this azure azure registration response ext v1 based on the context it is used
-func (m *AzureAzureRegistrationResponseExtV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this azure delete registration response ext v1 based on the context it is used
+func (m *AzureDeleteRegistrationResponseExtV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -149,7 +149,7 @@ func (m *AzureAzureRegistrationResponseExtV1) ContextValidate(ctx context.Contex
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureDeleteRegistrationResponseExtV1) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -174,7 +174,7 @@ func (m *AzureAzureRegistrationResponseExtV1) contextValidateErrors(ctx context.
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureDeleteRegistrationResponseExtV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -191,7 +191,7 @@ func (m *AzureAzureRegistrationResponseExtV1) contextValidateMeta(ctx context.Co
 	return nil
 }
 
-func (m *AzureAzureRegistrationResponseExtV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *AzureDeleteRegistrationResponseExtV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -217,7 +217,7 @@ func (m *AzureAzureRegistrationResponseExtV1) contextValidateResources(ctx conte
 }
 
 // MarshalBinary interface implementation
-func (m *AzureAzureRegistrationResponseExtV1) MarshalBinary() ([]byte, error) {
+func (m *AzureDeleteRegistrationResponseExtV1) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -225,8 +225,8 @@ func (m *AzureAzureRegistrationResponseExtV1) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *AzureAzureRegistrationResponseExtV1) UnmarshalBinary(b []byte) error {
-	var res AzureAzureRegistrationResponseExtV1
+func (m *AzureDeleteRegistrationResponseExtV1) UnmarshalBinary(b []byte) error {
+	var res AzureDeleteRegistrationResponseExtV1
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
