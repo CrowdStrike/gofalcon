@@ -56,7 +56,7 @@ type AzureAzureRegistrationCreateInput struct {
 	DspmRegions []string `json:"dspm_regions"`
 
 	// environment
-	Environment string `json:"environment,omitempty"`
+	Environment *string `json:"environment"`
 
 	// event hub settings
 	// Required: true
@@ -77,10 +77,10 @@ type AzureAzureRegistrationCreateInput struct {
 	Products []*DomainProductFeatures `json:"products"`
 
 	// resource name prefix
-	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
+	ResourceNamePrefix *string `json:"resource_name_prefix,omitempty"`
 
 	// resource name suffix
-	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
+	ResourceNameSuffix *string `json:"resource_name_suffix,omitempty"`
 
 	// status
 	Status string `json:"status,omitempty"`
