@@ -78,6 +78,9 @@ type AzureTenantRegistration struct {
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
 
+	// enterprise app url
+	EnterpriseAppURL string `json:"enterprise_app_url,omitempty"`
+
 	// environment
 	Environment *string `json:"environment,omitempty"`
 
@@ -113,7 +116,8 @@ type AzureTenantRegistration struct {
 	SubscriptionIds []string `json:"subscription_ids"`
 
 	// tags
-	Tags map[string]string `json:"tags,omitempty"`
+	// Required: true
+	Tags map[string]string `json:"tags"`
 
 	// template version
 	TemplateVersion string `json:"template_version,omitempty"`
