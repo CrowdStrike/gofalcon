@@ -62,6 +62,60 @@ ContainerCountByRegistryParams contains all the parameters to send to the API en
 */
 type ContainerCountByRegistryParams struct {
 
+	/* Filter.
+
+	     Retrieve count of Kubernetes container image registries that match a query in Falcon Query Language (FQL). Supported filter fields:
+	- `agent_id`
+	- `agent_type`
+	- `ai_related`
+	- `allow_privilege_escalation`
+	- `app_name`
+	- `cid`
+	- `cloud_account_id`
+	- `cloud_instance_id`
+	- `cloud_name`
+	- `cloud_region`
+	- `cloud_service`
+	- `cluster_id`
+	- `cluster_name`
+	- `container_id`
+	- `container_image_id`
+	- `container_name`
+	- `cve_id`
+	- `detection_name`
+	- `first_seen`
+	- `image_detection_count`
+	- `image_digest`
+	- `image_has_been_assessed`
+	- `image_id`
+	- `image_registry`
+	- `image_repository`
+	- `image_tag`
+	- `image_vulnerability_count`
+	- `insecure_mount_source`
+	- `insecure_mount_type`
+	- `insecure_propagation_mode`
+	- `interactive_mode`
+	- `ipv4`
+	- `ipv6`
+	- `kac_agent_id`
+	- `labels`
+	- `last_seen`
+	- `namespace`
+	- `node_name`
+	- `node_uid`
+	- `package_name_version`
+	- `pod_id`
+	- `pod_name`
+	- `port`
+	- `privileged`
+	- `root_write_access`
+	- `run_as_root_group`
+	- `run_as_root_user`
+	- `running_status`
+	*/
+	Filter *string
+
 	/* Limit.
 
 	   The upper-bound on the number of records to retrieve.
@@ -138,6 +192,17 @@ func (o *ContainerCountByRegistryParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithFilter adds the filter to the container count by registry params
+func (o *ContainerCountByRegistryParams) WithFilter(filter *string) *ContainerCountByRegistryParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the container count by registry params
+func (o *ContainerCountByRegistryParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WithLimit adds the limit to the container count by registry params
 func (o *ContainerCountByRegistryParams) WithLimit(limit *int64) *ContainerCountByRegistryParams {
 	o.SetLimit(limit)
@@ -167,6 +232,23 @@ func (o *ContainerCountByRegistryParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Limit != nil {
 

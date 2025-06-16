@@ -84,7 +84,7 @@ type CombinedUserRolesV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FlightcontrolapiUserGrantResponse
+	Payload *models.FlightcontrolapiCombinedUserRolesResponseV1
 }
 
 // IsSuccess returns true when this combined user roles v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CombinedUserRolesV1OK) String() string {
 	return fmt.Sprintf("[GET /user-management/combined/user-roles/v1][%d] combinedUserRolesV1OK  %+v", 200, o.Payload)
 }
 
-func (o *CombinedUserRolesV1OK) GetPayload() *models.FlightcontrolapiUserGrantResponse {
+func (o *CombinedUserRolesV1OK) GetPayload() *models.FlightcontrolapiCombinedUserRolesResponseV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CombinedUserRolesV1OK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FlightcontrolapiUserGrantResponse)
+	o.Payload = new(models.FlightcontrolapiCombinedUserRolesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -32,6 +32,12 @@ type DomainScan struct {
 	// cloud ml level prevention
 	CloudMlLevelPrevention int32 `json:"cloud_ml_level_prevention,omitempty"`
 
+	// cloud pup adware level detection
+	CloudPupAdwareLevelDetection int32 `json:"cloud_pup_adware_level_detection,omitempty"`
+
+	// cloud pup adware level prevention
+	CloudPupAdwareLevelPrevention int32 `json:"cloud_pup_adware_level_prevention,omitempty"`
+
 	// completed host count
 	CompletedHostCount int32 `json:"completed_host_count,omitempty"`
 

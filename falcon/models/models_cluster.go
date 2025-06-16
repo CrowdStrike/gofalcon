@@ -80,6 +80,10 @@ type ModelsCluster struct {
 	// Required: true
 	IarCoverage *bool `json:"iar_coverage"`
 
+	// kac agent active
+	// Required: true
+	KacAgentActive *bool `json:"kac_agent_active"`
+
 	// kac agent id
 	// Required: true
 	KacAgentID *string `json:"kac_agent_id"`
@@ -182,6 +186,10 @@ func (m *ModelsCluster) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIarCoverage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKacAgentActive(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -375,6 +383,15 @@ func (m *ModelsCluster) validateFirstSeen(formats strfmt.Registry) error {
 func (m *ModelsCluster) validateIarCoverage(formats strfmt.Registry) error {
 
 	if err := validate.Required("iar_coverage", "body", m.IarCoverage); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsCluster) validateKacAgentActive(formats strfmt.Registry) error {
+
+	if err := validate.Required("kac_agent_active", "body", m.KacAgentActive); err != nil {
 		return err
 	}
 

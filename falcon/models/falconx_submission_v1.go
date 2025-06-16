@@ -19,6 +19,9 @@ import (
 // swagger:model falconx.SubmissionV1
 type FalconxSubmissionV1 struct {
 
+	// auto detect environment
+	AutoDetectEnvironment *bool `json:"auto_detect_environment,omitempty"`
+
 	// cid
 	Cid string `json:"cid,omitempty"`
 

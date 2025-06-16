@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // TypesQueryCountResponse types query count response
@@ -20,47 +18,14 @@ import (
 type TypesQueryCountResponse struct {
 
 	// count
-	// Required: true
-	Count *int64 `json:"count"`
+	Count int64 `json:"count,omitempty"`
 
 	// result type
-	// Required: true
-	ResultType *string `json:"resultType"`
+	ResultType string `json:"resultType,omitempty"`
 }
 
 // Validate validates this types query count response
 func (m *TypesQueryCountResponse) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateCount(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateResultType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *TypesQueryCountResponse) validateCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("count", "body", m.Count); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *TypesQueryCountResponse) validateResultType(formats strfmt.Registry) error {
-
-	if err := validate.Required("resultType", "body", m.ResultType); err != nil {
-		return err
-	}
-
 	return nil
 }
 

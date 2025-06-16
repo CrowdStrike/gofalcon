@@ -19,6 +19,9 @@ import (
 // swagger:model falconx.SubmissionParametersV1
 type FalconxSubmissionParametersV1 struct {
 
+	// auto detect environment
+	AutoDetectEnvironment *bool `json:"auto_detect_environment,omitempty"`
+
 	// sandbox
 	Sandbox []*FalconxSandboxParametersV1 `json:"sandbox"`
 

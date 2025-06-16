@@ -24,6 +24,9 @@ type ResourcesCloudContext struct {
 	// allows public access
 	AllowsPublicAccess bool `json:"allows_public_access,omitempty"`
 
+	// application security
+	ApplicationSecurity *AspmData `json:"application_security,omitempty"`
+
 	// asset graph
 	AssetGraph *ResourcesAssetGraph `json:"asset_graph,omitempty"`
 
@@ -77,6 +80,10 @@ type ResourcesCloudContext struct {
 func (m *ResourcesCloudContext) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateApplicationSecurity(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAssetGraph(formats); err != nil {
 		res = append(res, err)
 	}
@@ -100,6 +107,25 @@ func (m *ResourcesCloudContext) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ResourcesCloudContext) validateApplicationSecurity(formats strfmt.Registry) error {
+	if swag.IsZero(m.ApplicationSecurity) { // not required
+		return nil
+	}
+
+	if m.ApplicationSecurity != nil {
+		if err := m.ApplicationSecurity.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application_security")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application_security")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -202,6 +228,10 @@ func (m *ResourcesCloudContext) validateInsights(formats strfmt.Registry) error 
 func (m *ResourcesCloudContext) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateApplicationSecurity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateAssetGraph(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -225,6 +255,27 @@ func (m *ResourcesCloudContext) ContextValidate(ctx context.Context, formats str
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ResourcesCloudContext) contextValidateApplicationSecurity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ApplicationSecurity != nil {
+
+		if swag.IsZero(m.ApplicationSecurity) { // not required
+			return nil
+		}
+
+		if err := m.ApplicationSecurity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application_security")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application_security")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

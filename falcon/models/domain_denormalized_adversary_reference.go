@@ -19,6 +19,9 @@ import (
 // swagger:model domain.DenormalizedAdversaryReference
 type DomainDenormalizedAdversaryReference struct {
 
+	// animal classifier
+	AnimalClassifier string `json:"animal_classifier,omitempty"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`

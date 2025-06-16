@@ -48,7 +48,7 @@ type DomainReportParams struct {
 	Format *string `json:"format"`
 
 	// report type options
-	ReportTypeOptions map[string]string `json:"report_type_options,omitempty"`
+	ReportTypeOptions interface{} `json:"report_type_options,omitempty"`
 
 	// sort
 	// Required: true

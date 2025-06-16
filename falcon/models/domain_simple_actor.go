@@ -20,6 +20,9 @@ import (
 // swagger:model domain.SimpleActor
 type DomainSimpleActor struct {
 
+	// animal classifier
+	AnimalClassifier string `json:"animal_classifier,omitempty"`
+
 	// entitlements
 	Entitlements []*DomainEntity `json:"entitlements"`
 

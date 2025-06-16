@@ -30,6 +30,9 @@ type APIRulePatchRequestV1 struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// mitre attack
+	MitreAttack []*ModelMitreAttackMapping `json:"mitre_attack"`
+
 	// name
 	Name string `json:"name,omitempty"`
 
@@ -66,6 +69,10 @@ func (m *APIRulePatchRequestV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMitreAttack(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateNotifications(formats); err != nil {
 		res = append(res, err)
 	}
@@ -88,6 +95,32 @@ func (m *APIRulePatchRequestV1) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *APIRulePatchRequestV1) validateMitreAttack(formats strfmt.Registry) error {
+	if swag.IsZero(m.MitreAttack) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MitreAttack); i++ {
+		if swag.IsZero(m.MitreAttack[i]) { // not required
+			continue
+		}
+
+		if m.MitreAttack[i] != nil {
+			if err := m.MitreAttack[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -161,6 +194,10 @@ func (m *APIRulePatchRequestV1) validateSearch(formats strfmt.Registry) error {
 func (m *APIRulePatchRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateMitreAttack(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateNotifications(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -176,6 +213,31 @@ func (m *APIRulePatchRequestV1) ContextValidate(ctx context.Context, formats str
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIRulePatchRequestV1) contextValidateMitreAttack(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MitreAttack); i++ {
+
+		if m.MitreAttack[i] != nil {
+
+			if swag.IsZero(m.MitreAttack[i]) { // not required
+				return nil
+			}
+
+			if err := m.MitreAttack[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

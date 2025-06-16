@@ -96,7 +96,7 @@ type ExecuteQueryOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.TypesQueryResult
+	Payload *models.TypesQueryResponse
 }
 
 // IsSuccess returns true when this execute query o k response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *ExecuteQueryOK) String() string {
 	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryOK  %+v", 200, o.Payload)
 }
 
-func (o *ExecuteQueryOK) GetPayload() *models.TypesQueryResult {
+func (o *ExecuteQueryOK) GetPayload() *models.TypesQueryResponse {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *ExecuteQueryOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.TypesQueryResult)
+	o.Payload = new(models.TypesQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

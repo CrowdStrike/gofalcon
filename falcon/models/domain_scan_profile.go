@@ -29,6 +29,12 @@ type DomainScanProfile struct {
 	// cloud ml level prevention
 	CloudMlLevelPrevention int32 `json:"cloud_ml_level_prevention,omitempty"`
 
+	// cloud pup adware level detection
+	CloudPupAdwareLevelDetection int32 `json:"cloud_pup_adware_level_detection,omitempty"`
+
+	// cloud pup adware level prevention
+	CloudPupAdwareLevelPrevention int32 `json:"cloud_pup_adware_level_prevention,omitempty"`
+
 	// cpu priority
 	CPUPriority int32 `json:"cpu_priority,omitempty"`
 

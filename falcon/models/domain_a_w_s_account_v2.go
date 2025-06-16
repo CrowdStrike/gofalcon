@@ -135,6 +135,9 @@ type DomainAWSAccountV2 struct {
 	// Required: true
 	IsCustomRolename *bool `json:"is_custom_rolename"`
 
+	// is delegated admin
+	IsDelegatedAdmin bool `json:"is_delegated_admin,omitempty"`
+
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
 

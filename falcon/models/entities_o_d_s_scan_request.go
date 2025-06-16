@@ -27,6 +27,14 @@ type EntitiesODSScanRequest struct {
 	// Required: true
 	CloudMlLevelPrevention *int32 `json:"cloud_ml_level_prevention"`
 
+	// cloud pup adware level detection
+	// Required: true
+	CloudPupAdwareLevelDetection *int32 `json:"cloud_pup_adware_level_detection"`
+
+	// cloud pup adware level prevention
+	// Required: true
+	CloudPupAdwareLevelPrevention *int32 `json:"cloud_pup_adware_level_prevention"`
+
 	// cpu priority
 	// Required: true
 	CPUPriority *int32 `json:"cpu_priority"`
@@ -93,6 +101,14 @@ func (m *EntitiesODSScanRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCloudMlLevelPrevention(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudPupAdwareLevelDetection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudPupAdwareLevelPrevention(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -170,6 +186,24 @@ func (m *EntitiesODSScanRequest) validateCloudMlLevelDetection(formats strfmt.Re
 func (m *EntitiesODSScanRequest) validateCloudMlLevelPrevention(formats strfmt.Registry) error {
 
 	if err := validate.Required("cloud_ml_level_prevention", "body", m.CloudMlLevelPrevention); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateCloudPupAdwareLevelDetection(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_pup_adware_level_detection", "body", m.CloudPupAdwareLevelDetection); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateCloudPupAdwareLevelPrevention(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_pup_adware_level_prevention", "body", m.CloudPupAdwareLevelPrevention); err != nil {
 		return err
 	}
 

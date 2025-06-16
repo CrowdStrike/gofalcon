@@ -17,6 +17,9 @@ import (
 // swagger:model detects.MitreAttackMapping
 type DetectsMitreAttackMapping struct {
 
+	// Pattern ID for the pattern seen in the Alert
+	PatternID int64 `json:"pattern_id,omitempty"`
+
 	// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
 	Tactic string `json:"tactic,omitempty"`
 

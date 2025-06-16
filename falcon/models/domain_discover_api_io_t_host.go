@@ -241,6 +241,9 @@ type DomainDiscoverAPIIoTHost struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// imported host id
+	ImportedHostID string `json:"imported_host_id,omitempty"`
+
 	// Whether the asset is exposed to the internet (Yes, No or Pending).
 	InternetExposure string `json:"internet_exposure,omitempty"`
 
@@ -252,6 +255,12 @@ type DomainDiscoverAPIIoTHost struct {
 
 	// The username of the account that manually assigned the internet exposure level
 	InternetExposureUsername string `json:"internet_exposure_username,omitempty"`
+
+	// iot imported
+	IotImported *DomainIotImportedHost `json:"iot_imported,omitempty"`
+
+	// iot tags
+	IotTags []string `json:"iot_tags"`
 
 	// For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
 	KernelVersion string `json:"kernel_version,omitempty"`
@@ -477,6 +486,10 @@ func (m *DomainDiscoverAPIIoTHost) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIotImported(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMountStorageInfo(formats); err != nil {
 		res = append(res, err)
 	}
@@ -621,6 +634,25 @@ func (m *DomainDiscoverAPIIoTHost) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainDiscoverAPIIoTHost) validateIotImported(formats strfmt.Registry) error {
+	if swag.IsZero(m.IotImported) { // not required
+		return nil
+	}
+
+	if m.IotImported != nil {
+		if err := m.IotImported.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("iot_imported")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iot_imported")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIIoTHost) validateMountStorageInfo(formats strfmt.Registry) error {
 	if swag.IsZero(m.MountStorageInfo) { // not required
 		return nil
@@ -731,6 +763,10 @@ func (m *DomainDiscoverAPIIoTHost) ContextValidate(ctx context.Context, formats 
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIotImported(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMountStorageInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -838,6 +874,27 @@ func (m *DomainDiscoverAPIIoTHost) contextValidateFieldMetadata(ctx context.Cont
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIIoTHost) contextValidateIotImported(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IotImported != nil {
+
+		if swag.IsZero(m.IotImported) { // not required
+			return nil
+		}
+
+		if err := m.IotImported.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("iot_imported")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iot_imported")
+			}
+			return err
+		}
 	}
 
 	return nil

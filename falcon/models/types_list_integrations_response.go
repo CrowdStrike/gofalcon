@@ -20,7 +20,7 @@ import (
 type TypesListIntegrationsResponse struct {
 
 	// integrations
-	Integrations []*TypesIntegration `json:"integrations"`
+	Integrations []*TypesListIntegrationItem `json:"integrations"`
 }
 
 // Validate validates this types list integrations response

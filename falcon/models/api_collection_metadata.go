@@ -34,6 +34,10 @@ type APICollectionMetadata struct {
 	// draft schema version
 	DraftSchemaVersion string `json:"draft_schema_version,omitempty"`
 
+	// is global
+	// Required: true
+	IsGlobal *bool `json:"is_global"`
+
 	// last modified by
 	LastModifiedBy *APIUserMetadata `json:"last_modified_by,omitempty"`
 
@@ -83,6 +87,10 @@ func (m *APICollectionMetadata) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsGlobal(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,6 +159,15 @@ func (m *APICollectionMetadata) validateCreatedTimestamp(formats strfmt.Registry
 func (m *APICollectionMetadata) validateDescription(formats strfmt.Registry) error {
 
 	if err := validate.Required("description", "body", m.Description); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APICollectionMetadata) validateIsGlobal(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_global", "body", m.IsGlobal); err != nil {
 		return err
 	}
 

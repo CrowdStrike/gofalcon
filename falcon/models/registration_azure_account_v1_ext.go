@@ -72,6 +72,18 @@ type RegistrationAzureAccountV1Ext struct {
 	// environment
 	Environment string `json:"environment,omitempty"`
 
+	// failed permissions str
+	// Required: true
+	FailedPermissionsStr *string `json:"failed_permissions_str"`
+
+	// ioa status
+	// Required: true
+	IoaStatus *string `json:"ioa_status"`
+
+	// iom status
+	// Required: true
+	IomStatus *string `json:"iom_status"`
+
 	// Is CSPM Lite enabled.
 	IsCspmLite bool `json:"is_cspm_lite,omitempty"`
 
@@ -83,6 +95,10 @@ type RegistrationAzureAccountV1Ext struct {
 
 	// parent management group name
 	ParentManagementGroupName string `json:"parent_management_group_name,omitempty"`
+
+	// passed permissions str
+	// Required: true
+	PassedPermissionsStr *string `json:"passed_permissions_str"`
 
 	// public certificate
 	PublicCertificate string `json:"public_certificate,omitempty"`
@@ -150,6 +166,22 @@ func (m *RegistrationAzureAccountV1Ext) Validate(formats strfmt.Registry) error 
 	}
 
 	if err := m.validateCredentialsEndDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFailedPermissionsStr(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIoaStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIomStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePassedPermissionsStr(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -309,6 +341,42 @@ func (m *RegistrationAzureAccountV1Ext) validateCredentialsEndDate(formats strfm
 	}
 
 	if err := validate.FormatOf("credentials_end_date", "body", "date-time", m.CredentialsEndDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAzureAccountV1Ext) validateFailedPermissionsStr(formats strfmt.Registry) error {
+
+	if err := validate.Required("failed_permissions_str", "body", m.FailedPermissionsStr); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAzureAccountV1Ext) validateIoaStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("ioa_status", "body", m.IoaStatus); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAzureAccountV1Ext) validateIomStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("iom_status", "body", m.IomStatus); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAzureAccountV1Ext) validatePassedPermissionsStr(formats strfmt.Registry) error {
+
+	if err := validate.Required("passed_permissions_str", "body", m.PassedPermissionsStr); err != nil {
 		return err
 	}
 

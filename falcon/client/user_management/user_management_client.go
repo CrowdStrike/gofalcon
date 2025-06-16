@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CombinedUserRolesV2(params *CombinedUserRolesV2Params, opts ...ClientOption) (*CombinedUserRolesV2OK, error)
+
 	CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error)
 
 	DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error)
@@ -77,6 +79,44 @@ type ClientService interface {
 	UserRolesActionV1(params *UserRolesActionV1Params, opts ...ClientOption) (*UserRolesActionV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CombinedUserRolesV2 gets user grant s this endpoint lists both direct as well as flight control grants between a user and a customer
+*/
+func (a *Client) CombinedUserRolesV2(params *CombinedUserRolesV2Params, opts ...ClientOption) (*CombinedUserRolesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedUserRolesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CombinedUserRolesV2",
+		Method:             "GET",
+		PathPattern:        "/user-management/combined/user-roles/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedUserRolesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedUserRolesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CombinedUserRolesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -536,7 +576,7 @@ func (a *Client) AggregateUsersV1(params *AggregateUsersV1Params, opts ...Client
 }
 
 /*
-CombinedUserRolesV1 gets user grant s this endpoint lists both direct as well as flight control grants between a user and a customer
+CombinedUserRolesV1 deprecateds please use g e t user management combined user roles v2 get user grant s this endpoint lists both direct as well as flight control grants between a user and a customer
 */
 func (a *Client) CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...ClientOption) (*CombinedUserRolesV1OK, error) {
 	// TODO: Validate the params before sending

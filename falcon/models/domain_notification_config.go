@@ -19,6 +19,10 @@ import (
 // swagger:model domain.NotificationConfig
 type DomainNotificationConfig struct {
 
+	// channel id
+	// Required: true
+	ChannelID *string `json:"channel_id"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
@@ -38,11 +42,19 @@ type DomainNotificationConfig struct {
 	// severity
 	// Required: true
 	Severity *string `json:"severity"`
+
+	// team id
+	// Required: true
+	TeamID *string `json:"team_id"`
 }
 
 // Validate validates this domain notification config
 func (m *DomainNotificationConfig) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateChannelID(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
@@ -64,9 +76,22 @@ func (m *DomainNotificationConfig) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTeamID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainNotificationConfig) validateChannelID(formats strfmt.Registry) error {
+
+	if err := validate.Required("channel_id", "body", m.ChannelID); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -109,6 +134,15 @@ func (m *DomainNotificationConfig) validateRecipients(formats strfmt.Registry) e
 func (m *DomainNotificationConfig) validateSeverity(formats strfmt.Registry) error {
 
 	if err := validate.Required("severity", "body", m.Severity); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainNotificationConfig) validateTeamID(formats strfmt.Registry) error {
+
+	if err := validate.Required("team_id", "body", m.TeamID); err != nil {
 		return err
 	}
 

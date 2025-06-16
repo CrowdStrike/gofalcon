@@ -65,9 +65,9 @@ type UserRolesActionV1Params struct {
 
 	/* Body.
 
-	   All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
+	   CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
 	*/
-	Body *models.DomainActionUserRolesRequest
+	Body *models.FlightcontrolapiGrantInput
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *UserRolesActionV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the user roles action v1 params
-func (o *UserRolesActionV1Params) WithBody(body *models.DomainActionUserRolesRequest) *UserRolesActionV1Params {
+func (o *UserRolesActionV1Params) WithBody(body *models.FlightcontrolapiGrantInput) *UserRolesActionV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the user roles action v1 params
-func (o *UserRolesActionV1Params) SetBody(body *models.DomainActionUserRolesRequest) {
+func (o *UserRolesActionV1Params) SetBody(body *models.FlightcontrolapiGrantInput) {
 	o.Body = body
 }
 

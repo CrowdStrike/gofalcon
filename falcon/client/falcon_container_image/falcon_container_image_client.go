@@ -36,7 +36,11 @@ type ClientService interface {
 
 	DownloadExportFile(params *DownloadExportFileParams, opts ...ClientOption) (*DownloadExportFileOK, error)
 
+	HeadImageScanInventory(params *HeadImageScanInventoryParams, opts ...ClientOption) (*HeadImageScanInventoryOK, error)
+
 	LaunchExportJob(params *LaunchExportJobParams, opts ...ClientOption) (*LaunchExportJobOK, error)
+
+	PostImageScanInventory(params *PostImageScanInventoryParams, opts ...ClientOption) (*PostImageScanInventoryOK, error)
 
 	QueryExportJobs(params *QueryExportJobsParams, opts ...ClientOption) (*QueryExportJobsOK, error)
 
@@ -166,6 +170,44 @@ func (a *Client) DownloadExportFile(params *DownloadExportFileParams, opts ...Cl
 }
 
 /*
+HeadImageScanInventory gets headers for p o s t request for image scan inventory
+*/
+func (a *Client) HeadImageScanInventory(params *HeadImageScanInventoryParams, opts ...ClientOption) (*HeadImageScanInventoryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewHeadImageScanInventoryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "HeadImageScanInventory",
+		Method:             "HEAD",
+		PathPattern:        "/image-assessment/entities/image-inventory/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &HeadImageScanInventoryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*HeadImageScanInventoryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for HeadImageScanInventory: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 LaunchExportJob launches an export job of a container security resource maximum of 1 job in progress per resource
 */
 func (a *Client) LaunchExportJob(params *LaunchExportJobParams, opts ...ClientOption) (*LaunchExportJobOK, error) {
@@ -200,6 +242,44 @@ func (a *Client) LaunchExportJob(params *LaunchExportJobParams, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for LaunchExportJob: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostImageScanInventory posts image scan inventory
+*/
+func (a *Client) PostImageScanInventory(params *PostImageScanInventoryParams, opts ...ClientOption) (*PostImageScanInventoryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostImageScanInventoryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostImageScanInventory",
+		Method:             "POST",
+		PathPattern:        "/image-assessment/entities/image-inventory/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostImageScanInventoryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostImageScanInventoryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostImageScanInventory: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

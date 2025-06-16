@@ -50,6 +50,9 @@ type DomainCIDPolicyAssignments struct {
 	// cloud service friendly
 	CloudServiceFriendly string `json:"cloud_service_friendly,omitempty"`
 
+	// cloud service id
+	CloudServiceID int32 `json:"cloud_service_id,omitempty"`
+
 	// cloud service subtype
 	CloudServiceSubtype string `json:"cloud_service_subtype,omitempty"`
 
@@ -68,6 +71,10 @@ type DomainCIDPolicyAssignments struct {
 
 	// hitrust benchmark
 	HitrustBenchmark []*DomainBenchmark `json:"hitrust_benchmark"`
+
+	// is global
+	// Required: true
+	IsGlobal *bool `json:"is_global"`
 
 	// is remediable
 	// Required: true
@@ -130,6 +137,10 @@ func (m *DomainCIDPolicyAssignments) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateHitrustBenchmark(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsGlobal(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -282,6 +293,15 @@ func (m *DomainCIDPolicyAssignments) validateHitrustBenchmark(formats strfmt.Reg
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) validateIsGlobal(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_global", "body", m.IsGlobal); err != nil {
+		return err
 	}
 
 	return nil
