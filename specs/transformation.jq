@@ -591,10 +591,10 @@
 }
 
 # Ngsiem search metadata are ints but are returned from the API as decimals https://github.com/CrowdStrike/gofalcon/issues/505
-| .definitions.".costs".properties.liveCost.type = "number"
-| .definitions.".costs".properties.liveCostRate.type = "number"
-| .definitions.".costs".properties.staticCost.type = "number"
-| .definitions.".costs".properties.staticCostRate.type = "number"
+| .definitions.".costs".properties.liveCost.format = "double" | .definitions.".costs".properties.liveCost.type = "number"
+| .definitions.".costs".properties.liveCostRate.format = "double" | .definitions.".costs".properties.liveCostRate.type = "number"
+| .definitions.".costs".properties.staticCost.format = "double" | .definitions.".costs".properties.staticCost.type = "number"
+| .definitions.".costs".properties.staticCostRate.format = "double" | .definitions.".costs".properties.staticCostRate.type = "number"
 
 # Prevent unnecessary renaming
 | .paths."/snapshots/entities/image-registry-credentials/v1".get.operationId = "GetCredentialsMixin0Mixin60"
@@ -608,3 +608,23 @@
 | .paths."/oauth2/revoke".post.responses."400".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
 | .paths."/oauth2/revoke".post.responses."403".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
 | .paths."/oauth2/revoke".post.responses."500".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+
+
+# Changes to azure registration models to support the CrowdStrike terraform provider
+| .definitions."azure.AzureRegistrationCreateInput".properties.environment += {"x-nullable": true}
+| .definitions."azure.AzureRegistrationCreateInput".properties.environment += {"x-omitempty": false}
+| .definitions."azure.AzureRegistrationCreateInput".properties.resource_name_prefix += {"x-nullable": true}
+| .definitions."azure.AzureRegistrationCreateInput".properties.resource_name_suffix += {"x-nullable": true}
+
+| .definitions."azure.AzureRegistrationUpdateInput".properties.environment += {"x-nullable": true}
+| .definitions."azure.AzureRegistrationUpdateInput".properties.environment += {"x-omitempty": false}
+| .definitions."azure.AzureRegistrationUpdateInput".properties.resource_name_prefix += {"x-nullable": true}
+| .definitions."azure.AzureRegistrationUpdateInput".properties.resource_name_prefix += {"x-omitempty": false}
+| .definitions."azure.AzureRegistrationUpdateInput".properties.resource_name_suffix += {"x-nullable": true}
+| .definitions."azure.AzureRegistrationUpdateInput".properties.resource_name_suffix += {"x-omitempty": false}
+
+| .definitions."azure.TenantRegistration".properties.cs_infra_region += {"x-nullable": true}
+| .definitions."azure.TenantRegistration".properties.cs_infra_subscription_id += {"x-nullable": true}
+| .definitions."azure.TenantRegistration".properties.environment += {"x-nullable": true}
+| .definitions."azure.TenantRegistration".properties.resource_name_prefix += {"x-nullable": true}
+| .definitions."azure.TenantRegistration".properties.resource_name_suffix += {"x-nullable": true}
