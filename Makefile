@@ -8,8 +8,8 @@ build:
 
 clean-generate: remove-generated generate
 
-generate: specs/swagger-stripped-oauth.json swagger-cli
-	$(SWAGGER) generate client --skip-validation -f $< -t falcon
+generate: specs/swagger-stripped-oauth.json
+	swagger generate client --skip-validation -f $^ -t falcon
 
 .PHONY: build generate remove-generated
 
@@ -27,37 +27,3 @@ specs/swagger-patched.json: specs/swagger.json ./specs/transformation.jq
 specs/swagger.json:
 	@echo "Sorry swagger.json needs to be obtained manually at this moment"
 	@exit 1
-
-##@ Dependencies
-
-## Location to install dependencies to
-LOCALBIN ?= $(shell pwd)/bin
-$(LOCALBIN):
-	mkdir -p $(LOCALBIN)
-
-## Tool Binaries
-SWAGGER = $(LOCALBIN)/swagger
-
-## Tool Versions
-SWAGGER_VERSION ?= v0.31.0
-
-.PHONY: swagger-cli
-swagger-cli: $(SWAGGER) ## Download swagger locally if necessary.
-$(SWAGGER): $(LOCALBIN)
-	$(call go-install-tool,$(SWAGGER),github.com/go-swagger/go-swagger/cmd/swagger,$(SWAGGER_VERSION))
-
-# go-install-tool will 'go install' any package with custom target and name of binary, if it doesn't exist
-# $1 - target path with name of binary
-# $2 - package url which can be installed
-# $3 - specific version of package
-define go-install-tool
-@[ -f "$(1)-$(3)" ] || { \
-set -e; \
-package=$(2)@$(3) ;\
-echo "Downloading $${package}" ;\
-rm -f $(1) || true ;\
-GOBIN=$(LOCALBIN) go install $${package} ;\
-mv $(1) $(1)-$(3) ;\
-} ;\
-ln -sf $(1)-$(3) $(1)
-endef

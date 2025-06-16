@@ -79,7 +79,8 @@ type EmpowerapiRemoteCommandPutFileV2 struct {
 	ShareWithWorkflow *bool `json:"share_with_workflow"`
 
 	// size
-	Size int64 `json:"size,omitempty"`
+	// Required: true
+	Size *int64 `json:"size"`
 
 	// workflow input schema
 	WorkflowInputSchema string `json:"workflow_input_schema,omitempty"`
@@ -116,6 +117,10 @@ func (m *EmpowerapiRemoteCommandPutFileV2) Validate(formats strfmt.Registry) err
 	}
 
 	if err := m.validateShareWithWorkflow(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSize(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -174,6 +179,15 @@ func (m *EmpowerapiRemoteCommandPutFileV2) validateRunSuccessCount(formats strfm
 func (m *EmpowerapiRemoteCommandPutFileV2) validateShareWithWorkflow(formats strfmt.Registry) error {
 
 	if err := validate.Required("share_with_workflow", "body", m.ShareWithWorkflow); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EmpowerapiRemoteCommandPutFileV2) validateSize(formats strfmt.Registry) error {
+
+	if err := validate.Required("size", "body", m.Size); err != nil {
 		return err
 	}
 

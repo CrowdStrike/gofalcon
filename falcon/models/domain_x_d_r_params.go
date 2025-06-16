@@ -40,6 +40,9 @@ type DomainXDRParams struct {
 	// Required: true
 	ExecutionOffset *string `json:"execution_offset"`
 
+	// guardrail notifications
+	GuardrailNotifications []*DomainNotifications `json:"guardrail_notifications"`
+
 	// mitre attack
 	MitreAttack []*DomainMitreAttackMapping `json:"mitre_attack"`
 
@@ -101,6 +104,10 @@ func (m *DomainXDRParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateExecutionOffset(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGuardrailNotifications(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -190,6 +197,32 @@ func (m *DomainXDRParams) validateExecutionOffset(formats strfmt.Registry) error
 
 	if err := validate.Required("execution_offset", "body", m.ExecutionOffset); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DomainXDRParams) validateGuardrailNotifications(formats strfmt.Registry) error {
+	if swag.IsZero(m.GuardrailNotifications) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
+		if swag.IsZero(m.GuardrailNotifications[i]) { // not required
+			continue
+		}
+
+		if m.GuardrailNotifications[i] != nil {
+			if err := m.GuardrailNotifications[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -306,6 +339,10 @@ func (m *DomainXDRParams) validateType(formats strfmt.Registry) error {
 func (m *DomainXDRParams) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateGuardrailNotifications(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMitreAttack(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -313,6 +350,31 @@ func (m *DomainXDRParams) ContextValidate(ctx context.Context, formats strfmt.Re
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainXDRParams) contextValidateGuardrailNotifications(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
+
+		if m.GuardrailNotifications[i] != nil {
+
+			if swag.IsZero(m.GuardrailNotifications[i]) { // not required
+				return nil
+			}
+
+			if err := m.GuardrailNotifications[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

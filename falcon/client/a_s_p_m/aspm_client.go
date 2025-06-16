@@ -66,6 +66,10 @@ type ClientService interface {
 
 	ExecuteQuery(params *ExecuteQueryParams, opts ...ClientOption) (*ExecuteQueryOK, error)
 
+	GetCSPMInventoryBAServices(params *GetCSPMInventoryBAServicesParams, opts ...ClientOption) (*GetCSPMInventoryBAServicesOK, error)
+
+	GetCSPMInventoryServiceDetails(params *GetCSPMInventoryServiceDetailsParams, opts ...ClientOption) (*GetCSPMInventoryServiceDetailsOK, error)
+
 	GetCloudSecurityIntegrationState(params *GetCloudSecurityIntegrationStateParams, opts ...ClientOption) (*GetCloudSecurityIntegrationStateOK, error)
 
 	GetExecutorNodes(params *GetExecutorNodesParams, opts ...ClientOption) (*GetExecutorNodesOK, error)
@@ -114,9 +118,25 @@ type ClientService interface {
 
 	UpsertTags(params *UpsertTagsParams, opts ...ClientOption) (*UpsertTagsOK, *UpsertTagsCreated, error)
 
+	DeleteGroupID09(params *DeleteGroupID09Params, opts ...ClientOption) (*DeleteGroupId09OK, error)
+
 	GetServiceArtifacts(params *GetServiceArtifactsParams, opts ...ClientOption) (*GetServiceArtifactsOK, error)
 
 	GetExecutorNodesID09InstancesCsv(params *GetExecutorNodesID09InstancesCsvParams, opts ...ClientOption) (*GetExecutorNodesId09InstancesCsvOK, error)
+
+	GetGroupID09V2(params *GetGroupID09V2Params, opts ...ClientOption) (*GetGroupId09V2OK, error)
+
+	GetGroupsHierV2(params *GetGroupsHierV2Params, opts ...ClientOption) (*GetGroupsHierV2OK, error)
+
+	GetGroupsListV2(params *GetGroupsListV2Params, opts ...ClientOption) (*GetGroupsListV2OK, error)
+
+	GetUsersV2(params *GetUsersV2Params, opts ...ClientOption) (*GetUsersV2OK, error)
+
+	PostGroupV2(params *PostGroupV2Params, opts ...ClientOption) (*PostGroupV2OK, *PostGroupV2Created, error)
+
+	PostGroupID09UpdateDefault(params *PostGroupID09UpdateDefaultParams, opts ...ClientOption) (*PostGroupId09UpdateDefaultOK, *PostGroupId09UpdateDefaultCreated, error)
+
+	PostGroupID09V2(params *PostGroupID09V2Params, opts ...ClientOption) (*PostGroupId09V2OK, *PostGroupId09V2Created, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -803,6 +823,82 @@ func (a *Client) ExecuteQuery(params *ExecuteQueryParams, opts ...ClientOption) 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ExecuteQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCSPMInventoryBAServices gets services ordered by risk score for given b a
+*/
+func (a *Client) GetCSPMInventoryBAServices(params *GetCSPMInventoryBAServicesParams, opts ...ClientOption) (*GetCSPMInventoryBAServicesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCSPMInventoryBAServicesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCSPMInventoryBAServices",
+		Method:             "GET",
+		PathPattern:        "/application-security/combined/cspm-inventory-ba-services/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCSPMInventoryBAServicesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCSPMInventoryBAServicesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCSPMInventoryBAServices: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCSPMInventoryServiceDetails gets all service details for c s p m inventory
+*/
+func (a *Client) GetCSPMInventoryServiceDetails(params *GetCSPMInventoryServiceDetailsParams, opts ...ClientOption) (*GetCSPMInventoryServiceDetailsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCSPMInventoryServiceDetailsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCSPMInventoryServiceDetails",
+		Method:             "GET",
+		PathPattern:        "/application-security/combined/cspm-inventory-service-data/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCSPMInventoryServiceDetailsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCSPMInventoryServiceDetailsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCSPMInventoryServiceDetails: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1722,6 +1818,44 @@ func (a *Client) UpsertTags(params *UpsertTagsParams, opts ...ClientOption) (*Up
 }
 
 /*
+DeleteGroupID09 delete group ID 0 9 API
+*/
+func (a *Client) DeleteGroupID09(params *DeleteGroupID09Params, opts ...ClientOption) (*DeleteGroupId09OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteGroupID09Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "delete_/group/{ID:[0-9]+}",
+		Method:             "DELETE",
+		PathPattern:        "/aspm-api-gateway/api/v1/group/{ID}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteGroupID09Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteGroupId09OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for delete_/group/{ID:[0-9]+}: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetServiceArtifacts get service artifacts API
 */
 func (a *Client) GetServiceArtifacts(params *GetServiceArtifactsParams, opts ...ClientOption) (*GetServiceArtifactsOK, error) {
@@ -1794,6 +1928,275 @@ func (a *Client) GetExecutorNodesID09InstancesCsv(params *GetExecutorNodesID09In
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for get_/executor_nodes/{ID:[0-9]+}/instances/csv: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetGroupID09V2 gets group details
+*/
+func (a *Client) GetGroupID09V2(params *GetGroupID09V2Params, opts ...ClientOption) (*GetGroupId09V2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetGroupID09V2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get_/group/{ID:[0-9]+}/v2",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/group/{ID}/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGroupID09V2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetGroupId09V2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get_/group/{ID:[0-9]+}/v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetGroupsHierV2 gets group hierarchy
+*/
+func (a *Client) GetGroupsHierV2(params *GetGroupsHierV2Params, opts ...ClientOption) (*GetGroupsHierV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetGroupsHierV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get_/groups/hier/v2",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/groups/hier/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGroupsHierV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetGroupsHierV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get_/groups/hier/v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetGroupsListV2 get groups list v2 API
+*/
+func (a *Client) GetGroupsListV2(params *GetGroupsListV2Params, opts ...ClientOption) (*GetGroupsListV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetGroupsListV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get_/groups/list/v2",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/groups/list/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGroupsListV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetGroupsListV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get_/groups/list/v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetUsersV2 lists users
+*/
+func (a *Client) GetUsersV2(params *GetUsersV2Params, opts ...ClientOption) (*GetUsersV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetUsersV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get_/users/v2",
+		Method:             "GET",
+		PathPattern:        "/aspm-api-gateway/api/v1/users/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUsersV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetUsersV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get_/users/v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostGroupV2 creates group
+*/
+func (a *Client) PostGroupV2(params *PostGroupV2Params, opts ...ClientOption) (*PostGroupV2OK, *PostGroupV2Created, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostGroupV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "post_/group/v2",
+		Method:             "POST",
+		PathPattern:        "/aspm-api-gateway/api/v1/group/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGroupV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostGroupV2OK:
+		return value, nil, nil
+	case *PostGroupV2Created:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for a_s_p_m: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostGroupID09UpdateDefault updates default group
+*/
+func (a *Client) PostGroupID09UpdateDefault(params *PostGroupID09UpdateDefaultParams, opts ...ClientOption) (*PostGroupId09UpdateDefaultOK, *PostGroupId09UpdateDefaultCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostGroupID09UpdateDefaultParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "post_/group/{ID:[0-9]+}/update_default",
+		Method:             "POST",
+		PathPattern:        "/aspm-api-gateway/api/v1/group/{ID}/update_default",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGroupID09UpdateDefaultReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostGroupId09UpdateDefaultOK:
+		return value, nil, nil
+	case *PostGroupId09UpdateDefaultCreated:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for a_s_p_m: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostGroupID09V2 updates group
+*/
+func (a *Client) PostGroupID09V2(params *PostGroupID09V2Params, opts ...ClientOption) (*PostGroupId09V2OK, *PostGroupId09V2Created, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostGroupID09V2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "post_/group/{ID:[0-9]+}/v2",
+		Method:             "POST",
+		PathPattern:        "/aspm-api-gateway/api/v1/group/{ID}/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGroupID09V2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostGroupId09V2OK:
+		return value, nil, nil
+	case *PostGroupId09V2Created:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for a_s_p_m: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

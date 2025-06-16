@@ -37,6 +37,9 @@ type DomainRole struct {
 	// is global
 	// Required: true
 	IsGlobal *bool `json:"is_global"`
+
+	// type
+	Type string `json:"type,omitempty"`
 }
 
 // Validate validates this domain role

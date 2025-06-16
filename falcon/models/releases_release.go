@@ -20,6 +20,9 @@ import (
 // swagger:model releases.Release
 type ReleasesRelease struct {
 
+	// annotation
+	Annotation string `json:"annotation,omitempty"`
+
 	// created by
 	CreatedBy string `json:"created_by,omitempty"`
 

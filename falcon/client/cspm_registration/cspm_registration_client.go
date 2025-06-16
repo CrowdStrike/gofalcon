@@ -104,6 +104,8 @@ type ClientService interface {
 
 	ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPServiceAccountExtParams, opts ...ClientOption) (*ValidateCSPMGCPServiceAccountExtOK, *ValidateCSPMGCPServiceAccountExtMultiStatus, error)
 
+	GetCloudEventIDs(params *GetCloudEventIDsParams, opts ...ClientOption) (*GetCloudEventIDsOK, *GetCloudEventIDsMultiStatus, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -1528,6 +1530,45 @@ func (a *Client) ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPService
 	case *ValidateCSPMGCPServiceAccountExtOK:
 		return value, nil, nil
 	case *ValidateCSPMGCPServiceAccountExtMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCloudEventIDs gets list of related cloud event log scale i ds for a given i o a
+*/
+func (a *Client) GetCloudEventIDs(params *GetCloudEventIDsParams, opts ...ClientOption) (*GetCloudEventIDsOK, *GetCloudEventIDsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCloudEventIDsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getCloudEventIDs",
+		Method:             "GET",
+		PathPattern:        "/detects/queries/cloud-events/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCloudEventIDsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetCloudEventIDsOK:
+		return value, nil, nil
+	case *GetCloudEventIDsMultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue

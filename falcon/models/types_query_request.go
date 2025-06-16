@@ -26,6 +26,9 @@ type TypesQueryRequest struct {
 	// Required: true
 	Query *string `json:"query"`
 
+	// revision Id
+	RevisionID int64 `json:"revisionId,omitempty"`
+
 	// select fields
 	SelectFields *TypesQueryRequestSelectFields `json:"selectFields,omitempty"`
 

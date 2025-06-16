@@ -57,6 +57,12 @@ type DomainCloudAWSAccountV1 struct {
 	// cloudformation stack arn
 	CloudformationStackArn string `json:"cloudformation_stack_arn,omitempty"`
 
+	// cloudformation update url
+	CloudformationUpdateURL string `json:"cloudformation_update_url,omitempty"`
+
+	// cloudformation url
+	CloudformationURL string `json:"cloudformation_url,omitempty"`
+
 	// conditions
 	Conditions []*DomainCloudCondition `json:"conditions"`
 
@@ -80,6 +86,9 @@ type DomainCloudAWSAccountV1 struct {
 	// is custom rolename
 	// Required: true
 	IsCustomRolename *bool `json:"is_custom_rolename"`
+
+	// is delegated admin
+	IsDelegatedAdmin bool `json:"is_delegated_admin,omitempty"`
 
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
@@ -109,6 +118,9 @@ type DomainCloudAWSAccountV1 struct {
 
 	// root iam role
 	RootIamRole bool `json:"root_iam_role,omitempty"`
+
+	// s3 url
+	S3URL string `json:"s3_url,omitempty"`
 
 	// Account registration status for each product and feature
 	Status []*DomainProductFeaturesStatus `json:"status"`

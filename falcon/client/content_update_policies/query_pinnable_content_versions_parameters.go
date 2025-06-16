@@ -67,6 +67,14 @@ type QueryPinnableContentVersionsParams struct {
 	*/
 	Category string
 
+	/* Sort.
+
+	   value to sort returned content versions by. Allowed sort values are deployed_timestamp.(asc|desc) defaulting to deployed_timestamp.desc
+
+	   Default: "deployed_timestamp.desc"
+	*/
+	Sort *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -84,7 +92,18 @@ func (o *QueryPinnableContentVersionsParams) WithDefaults() *QueryPinnableConten
 //
 // All values with no default are reset to their zero value.
 func (o *QueryPinnableContentVersionsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		sortDefault = string("deployed_timestamp.desc")
+	)
+
+	val := QueryPinnableContentVersionsParams{
+		Sort: &sortDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query pinnable content versions params
@@ -131,6 +150,17 @@ func (o *QueryPinnableContentVersionsParams) SetCategory(category string) {
 	o.Category = category
 }
 
+// WithSort adds the sort to the query pinnable content versions params
+func (o *QueryPinnableContentVersionsParams) WithSort(sort *string) *QueryPinnableContentVersionsParams {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the query pinnable content versions params
+func (o *QueryPinnableContentVersionsParams) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *QueryPinnableContentVersionsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -146,6 +176,23 @@ func (o *QueryPinnableContentVersionsParams) WriteToRequest(r runtime.ClientRequ
 
 		if err := r.SetQueryParam("category", qCategory); err != nil {
 			return err
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
+				return err
+			}
 		}
 	}
 

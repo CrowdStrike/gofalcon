@@ -14,9 +14,9 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// FwmgrAPIJSONDiff fwmgr api json diff
+// FwmgrAPIJSONDiff fwmgr api JSON diff
 //
-// swagger:model fwmgr.api.jsonDiff
+// swagger:model fwmgr.api.JSONDiff
 type FwmgrAPIJSONDiff struct {
 
 	// from
@@ -35,7 +35,7 @@ type FwmgrAPIJSONDiff struct {
 	Value FwmgrAPIJSONDiffValue `json:"value"`
 }
 
-// Validate validates this fwmgr api json diff
+// Validate validates this fwmgr api JSON diff
 func (m *FwmgrAPIJSONDiff) Validate(formats strfmt.Registry) error {
 	var res []error
 
@@ -84,7 +84,7 @@ func (m *FwmgrAPIJSONDiff) validateValue(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this fwmgr api json diff based on context it is used
+// ContextValidate validates this fwmgr api JSON diff based on context it is used
 func (m *FwmgrAPIJSONDiff) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }

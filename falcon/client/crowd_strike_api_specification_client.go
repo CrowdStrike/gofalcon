@@ -36,7 +36,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_ioa"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_storage"
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
-	"github.com/crowdstrike/gofalcon/falcon/client/datascanner"
 	"github.com/crowdstrike/gofalcon/falcon/client/delivery_settings"
 	"github.com/crowdstrike/gofalcon/falcon/client/deployments"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
@@ -60,7 +59,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/foundry_logscale"
-	"github.com/crowdstrike/gofalcon/falcon/client/handle"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_migration"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
@@ -76,6 +74,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
+	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
@@ -106,13 +105,13 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_usage_api"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/serverless_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
-	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/workflows"
 	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
 )
@@ -185,7 +184,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CustomIoa = custom_ioa.New(transport, formats)
 	cli.CustomStorage = custom_storage.New(transport, formats)
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
-	cli.Datascanner = datascanner.New(transport, formats)
 	cli.DeliverySettings = delivery_settings.New(transport, formats)
 	cli.Deployments = deployments.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
@@ -209,7 +207,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FirewallManagement = firewall_management.New(transport, formats)
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
 	cli.FoundryLogscale = foundry_logscale.New(transport, formats)
-	cli.Handle = handle.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
 	cli.HostMigration = host_migration.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
@@ -225,6 +222,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
 	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
+	cli.KubernetesContainerCompliance = kubernetes_container_compliance.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
 	cli.LookupFiles = lookup_files.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
@@ -255,13 +253,13 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
 	cli.SensorUsageAPI = sensor_usage_api.New(transport, formats)
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
+	cli.ServerlessVulnerabilities = serverless_vulnerabilities.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
 	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
-	cli.Vulnerabilities = vulnerabilities.New(transport, formats)
 	cli.Workflows = workflows.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
 	return cli
@@ -360,8 +358,6 @@ type CrowdStrikeAPISpecification struct {
 
 	D4cRegistration d4c_registration.ClientService
 
-	Datascanner datascanner.ClientService
-
 	DeliverySettings delivery_settings.ClientService
 
 	Deployments deployments.ClientService
@@ -408,8 +404,6 @@ type CrowdStrikeAPISpecification struct {
 
 	FoundryLogscale foundry_logscale.ClientService
 
-	Handle handle.ClientService
-
 	HostGroup host_group.ClientService
 
 	HostMigration host_migration.ClientService
@@ -439,6 +433,8 @@ type CrowdStrikeAPISpecification struct {
 	Ioc ioc.ClientService
 
 	Iocs iocs.ClientService
+
+	KubernetesContainerCompliance kubernetes_container_compliance.ClientService
 
 	KubernetesProtection kubernetes_protection.ClientService
 
@@ -500,6 +496,8 @@ type CrowdStrikeAPISpecification struct {
 
 	SensorVisibilityExclusions sensor_visibility_exclusions.ClientService
 
+	ServerlessVulnerabilities serverless_vulnerabilities.ClientService
+
 	SpotlightEvaluationLogic spotlight_evaluation_logic.ClientService
 
 	SpotlightVulnerabilities spotlight_vulnerabilities.ClientService
@@ -511,8 +509,6 @@ type CrowdStrikeAPISpecification struct {
 	UnidentifiedContainers unidentified_containers.ClientService
 
 	UserManagement user_management.ClientService
-
-	Vulnerabilities vulnerabilities.ClientService
 
 	Workflows workflows.ClientService
 
@@ -550,7 +546,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CustomIoa.SetTransport(transport)
 	c.CustomStorage.SetTransport(transport)
 	c.D4cRegistration.SetTransport(transport)
-	c.Datascanner.SetTransport(transport)
 	c.DeliverySettings.SetTransport(transport)
 	c.Deployments.SetTransport(transport)
 	c.Detects.SetTransport(transport)
@@ -574,7 +569,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FirewallManagement.SetTransport(transport)
 	c.FirewallPolicies.SetTransport(transport)
 	c.FoundryLogscale.SetTransport(transport)
-	c.Handle.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
 	c.HostMigration.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
@@ -590,6 +584,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.IoaExclusions.SetTransport(transport)
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
+	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LookupFiles.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
@@ -620,13 +615,13 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorUpdatePolicies.SetTransport(transport)
 	c.SensorUsageAPI.SetTransport(transport)
 	c.SensorVisibilityExclusions.SetTransport(transport)
+	c.ServerlessVulnerabilities.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
 	c.TailoredIntelligence.SetTransport(transport)
 	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
-	c.Vulnerabilities.SetTransport(transport)
 	c.Workflows.SetTransport(transport)
 	c.ZeroTrustAssessment.SetTransport(transport)
 }

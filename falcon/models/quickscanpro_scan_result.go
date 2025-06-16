@@ -29,7 +29,7 @@ type QuickscanproScanResult struct {
 	FileArtifacts []*QuickscanproFileResult `json:"file_artifacts"`
 
 	// mitre attacks
-	MitreAttacks []*QuickscanproMITREAttack `json:"mitre_attacks"`
+	MitreAttacks []*DomainMITREAttack `json:"mitre_attacks"`
 
 	// url artifacts
 	URLArtifacts []*QuickscanproURLResult `json:"url_artifacts"`

@@ -29,6 +29,9 @@ type V2Activity struct {
 	// inline configuration
 	InlineConfiguration *V2InlineConfig `json:"inline_configuration,omitempty"`
 
+	// Optional user provided name for the activity, if not specified a default of the name for that activity will be used.
+	Name string `json:"name,omitempty"`
+
 	// next
 	Next []string `json:"next"`
 

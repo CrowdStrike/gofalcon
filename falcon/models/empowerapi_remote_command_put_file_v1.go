@@ -75,7 +75,8 @@ type EmpowerapiRemoteCommandPutFileV1 struct {
 	Sha256 string `json:"sha256,omitempty"`
 
 	// size
-	Size int64 `json:"size,omitempty"`
+	// Required: true
+	Size *int64 `json:"size"`
 
 	// write access
 	WriteAccess bool `json:"write_access,omitempty"`
@@ -98,6 +99,10 @@ func (m *EmpowerapiRemoteCommandPutFileV1) Validate(formats strfmt.Registry) err
 	}
 
 	if err := m.validateRunSuccessCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSize(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -143,6 +148,15 @@ func (m *EmpowerapiRemoteCommandPutFileV1) validateRunAttemptCount(formats strfm
 func (m *EmpowerapiRemoteCommandPutFileV1) validateRunSuccessCount(formats strfmt.Registry) error {
 
 	if err := validate.Required("run_success_count", "body", m.RunSuccessCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EmpowerapiRemoteCommandPutFileV1) validateSize(formats strfmt.Registry) error {
+
+	if err := validate.Required("size", "body", m.Size); err != nil {
 		return err
 	}
 

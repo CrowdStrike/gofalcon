@@ -30,6 +30,9 @@ type DomainReportMetadata struct {
 	// discover params
 	DiscoverParams *DomainDiscoverParams `json:"discover_params,omitempty"`
 
+	// kestrel data export params
+	KestrelDataExportParams *DomainKestrelDataExportParams `json:"kestrel_data_export_params,omitempty"`
+
 	// kestrel params
 	KestrelParams *DomainKestrelParams `json:"kestrel_params,omitempty"`
 
@@ -65,6 +68,10 @@ func (m *DomainReportMetadata) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDiscoverParams(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKestrelDataExportParams(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -127,6 +134,25 @@ func (m *DomainReportMetadata) validateDiscoverParams(formats strfmt.Registry) e
 				return ve.ValidateName("discover_params")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("discover_params")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainReportMetadata) validateKestrelDataExportParams(formats strfmt.Registry) error {
+	if swag.IsZero(m.KestrelDataExportParams) { // not required
+		return nil
+	}
+
+	if m.KestrelDataExportParams != nil {
+		if err := m.KestrelDataExportParams.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("kestrel_data_export_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kestrel_data_export_params")
 			}
 			return err
 		}
@@ -238,6 +264,10 @@ func (m *DomainReportMetadata) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateKestrelDataExportParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateKestrelParams(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -273,6 +303,27 @@ func (m *DomainReportMetadata) contextValidateDiscoverParams(ctx context.Context
 				return ve.ValidateName("discover_params")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("discover_params")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainReportMetadata) contextValidateKestrelDataExportParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KestrelDataExportParams != nil {
+
+		if swag.IsZero(m.KestrelDataExportParams) { // not required
+			return nil
+		}
+
+		if err := m.KestrelDataExportParams.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("kestrel_data_export_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kestrel_data_export_params")
 			}
 			return err
 		}

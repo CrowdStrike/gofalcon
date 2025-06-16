@@ -27,6 +27,9 @@ type DomainActorDocument struct {
 	// Actor type, one of: targeted, ecrime
 	ActorType string `json:"actor_type,omitempty"`
 
+	// Actor's family.
+	AnimalClassifier string `json:"animal_classifier,omitempty"`
+
 	// actor's capabilities, some examples: RAT,Ransomware,Spearphishing,Downloader,Backdoor,InformationStealer,exploit,CredentialHarvesting,dropper,DenialOfService,Loader,Phishing
 	// Required: true
 	Capabilities []*DomainEntity `json:"capabilities"`
@@ -189,6 +192,9 @@ type DomainActorDocument struct {
 
 	// URL at which actor profile can be accessed
 	URL string `json:"url,omitempty"`
+
+	// uses distinct indicators count
+	UsesDistinctIndicatorsCount int64 `json:"uses_distinct_indicators_count,omitempty"`
 
 	// uses indicators count
 	UsesIndicatorsCount int64 `json:"uses_indicators_count,omitempty"`

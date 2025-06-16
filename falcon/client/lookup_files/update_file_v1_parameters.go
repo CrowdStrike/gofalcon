@@ -61,6 +61,18 @@ UpdateFileV1Params contains all the parameters to send to the API endpoint
 */
 type UpdateFileV1Params struct {
 
+	/* XCSUSERNAME.
+
+	   Requester Username.
+	*/
+	XCSUSERNAME *string
+
+	/* XCSUSERUUID.
+
+	   Requester UUID.
+	*/
+	XCSUSERUUID *string
+
 	/* Description.
 
 	   File description
@@ -132,6 +144,28 @@ func (o *UpdateFileV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERNAME adds the xCSUSERNAME to the update file v1 params
+func (o *UpdateFileV1Params) WithXCSUSERNAME(xCSUSERNAME *string) *UpdateFileV1Params {
+	o.SetXCSUSERNAME(xCSUSERNAME)
+	return o
+}
+
+// SetXCSUSERNAME adds the xCSUSERNAME to the update file v1 params
+func (o *UpdateFileV1Params) SetXCSUSERNAME(xCSUSERNAME *string) {
+	o.XCSUSERNAME = xCSUSERNAME
+}
+
+// WithXCSUSERUUID adds the xCSUSERUUID to the update file v1 params
+func (o *UpdateFileV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *UpdateFileV1Params {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the update file v1 params
+func (o *UpdateFileV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithDescription adds the description to the update file v1 params
 func (o *UpdateFileV1Params) WithDescription(description *string) *UpdateFileV1Params {
 	o.SetDescription(description)
@@ -172,6 +206,22 @@ func (o *UpdateFileV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
+
+	if o.XCSUSERNAME != nil {
+
+		// header param X-CS-USERNAME
+		if err := r.SetHeaderParam("X-CS-USERNAME", *o.XCSUSERNAME); err != nil {
+			return err
+		}
+	}
+
+	if o.XCSUSERUUID != nil {
+
+		// header param X-CS-USERUUID
+		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
+			return err
+		}
+	}
 
 	if o.Description != nil {
 

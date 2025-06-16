@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // TypesQueryResponse types query response
@@ -20,47 +18,14 @@ import (
 type TypesQueryResponse struct {
 
 	// result JSON
-	// Required: true
 	ResultJSON []TypesQueryResponseResultJSON `json:"resultJSON"`
 
 	// result type
-	// Required: true
-	ResultType *string `json:"resultType"`
+	ResultType string `json:"resultType,omitempty"`
 }
 
 // Validate validates this types query response
 func (m *TypesQueryResponse) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateResultJSON(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateResultType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *TypesQueryResponse) validateResultJSON(formats strfmt.Registry) error {
-
-	if err := validate.Required("resultJSON", "body", m.ResultJSON); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *TypesQueryResponse) validateResultType(formats strfmt.Registry) error {
-
-	if err := validate.Required("resultType", "body", m.ResultType); err != nil {
-		return err
-	}
-
 	return nil
 }
 

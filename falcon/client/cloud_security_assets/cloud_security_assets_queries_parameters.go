@@ -74,6 +74,9 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
+	- `application_security.business_applications`
+	- `application_security.business_criticality`
+	- `application_security.service_names`
 	- `azure.vm_id`
 	- `business_impact`
 	- `cloud_group`
@@ -140,6 +143,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `status`
 	- `tag_key`
 	- `tag_value`
+	- `tags`
 	- `tenant_id`
 	- `updated_at`
 	- `vmware.guest_os_id`
@@ -176,6 +180,9 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `cloud_provider`
 	- `cluster_id`
 	- `cluster_name`
+	- `compartment_name`
+	- `compartment_ocid`
+	- `compartment_path`
 	- `creation_time`
 	- `data_classifications.found`
 	- `data_classifications.scanned`
@@ -199,6 +206,9 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `service_category`
 	- `ssm_managed`
 	- `status`
+	- `tenancy_name`
+	- `tenancy_ocid`
+	- `tenancy_type`
 	- `tenant_id`
 	- `updated_at`
 	- `vmware.guest_os_id`

@@ -88,7 +88,7 @@ type ReadCombinedVulnerabilitiesDetailsParams struct {
 
 	   The upper-bound on the number of records to retrieve.
 
-	   Default: 100
+	   Default: 5000
 	*/
 	Limit *int64
 
@@ -116,7 +116,7 @@ func (o *ReadCombinedVulnerabilitiesDetailsParams) WithDefaults() *ReadCombinedV
 // All values with no default are reset to their zero value.
 func (o *ReadCombinedVulnerabilitiesDetailsParams) SetDefaults() {
 	var (
-		limitDefault = int64(100)
+		limitDefault = int64(5000)
 	)
 
 	val := ReadCombinedVulnerabilitiesDetailsParams{

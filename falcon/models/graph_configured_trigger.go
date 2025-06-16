@@ -43,8 +43,11 @@ type GraphConfiguredTrigger struct {
 	// Denotes the type of trigger, signal based, scheduled, on demand, etc
 	TriggerType string `json:"trigger_type,omitempty"`
 
-	// Semantic version of the trigger, if unspecified the evaluator will use the last version before trigger alternate names was introduced
-	Version string `json:"version,omitempty"`
+	// Semantic version constraint of the trigger, it can be an explicit version or a version constraint. If unspecified the evaluator will use the latest version <= 1.0.0
+	VersionConstraint string `json:"version_constraint,omitempty"`
+
+	// Details of a webhook trigger configuration which is used by workflow/playbook import only
+	WebhookConfig *WebhooktriggerAPIRequest `json:"webhook_config,omitempty"`
 }
 
 // Validate validates this graph configured trigger
@@ -68,6 +71,10 @@ func (m *GraphConfiguredTrigger) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTimerEventDefinition(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWebhookConfig(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -142,6 +149,25 @@ func (m *GraphConfiguredTrigger) validateTimerEventDefinition(formats strfmt.Reg
 	return nil
 }
 
+func (m *GraphConfiguredTrigger) validateWebhookConfig(formats strfmt.Registry) error {
+	if swag.IsZero(m.WebhookConfig) { // not required
+		return nil
+	}
+
+	if m.WebhookConfig != nil {
+		if err := m.WebhookConfig.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("webhook_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("webhook_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this graph configured trigger based on the context it is used
 func (m *GraphConfiguredTrigger) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -151,6 +177,10 @@ func (m *GraphConfiguredTrigger) ContextValidate(ctx context.Context, formats st
 	}
 
 	if err := m.contextValidateTimerEventDefinition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebhookConfig(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -194,6 +224,27 @@ func (m *GraphConfiguredTrigger) contextValidateTimerEventDefinition(ctx context
 				return ve.ValidateName("timer_event_definition")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("timer_event_definition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphConfiguredTrigger) contextValidateWebhookConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WebhookConfig != nil {
+
+		if swag.IsZero(m.WebhookConfig) { // not required
+			return nil
+		}
+
+		if err := m.WebhookConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("webhook_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("webhook_config")
 			}
 			return err
 		}

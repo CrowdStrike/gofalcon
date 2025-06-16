@@ -48,8 +48,8 @@ type GraphConfiguredActivity struct {
 	// Required: true
 	Properties interface{} `json:"properties"`
 
-	// Version of the activity, if unspecified the latest is used
-	Version int32 `json:"version,omitempty"`
+	// Semantic version constraint of the activity, can be an explicit version or a version constraint. If unspecified the latest activity <= 1.0.0 is used.
+	VersionConstraint string `json:"version_constraint,omitempty"`
 }
 
 // Validate validates this graph configured activity

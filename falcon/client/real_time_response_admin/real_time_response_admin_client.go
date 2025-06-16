@@ -50,6 +50,8 @@ type ClientService interface {
 
 	RTRGetPutFilesV2(params *RTRGetPutFilesV2Params, opts ...ClientOption) (*RTRGetPutFilesV2OK, error)
 
+	RTRGetPutFileContents(params *RTRGetPutFileContentsParams, opts ...ClientOption) (*RTRGetPutFileContentsOK, error)
+
 	RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption) (*RTRGetScriptsOK, error)
 
 	RTRGetScriptsV2(params *RTRGetScriptsV2Params, opts ...ClientOption) (*RTRGetScriptsV2OK, error)
@@ -442,6 +444,44 @@ func (a *Client) RTRGetPutFilesV2(params *RTRGetPutFilesV2Params, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for RTR-GetPut-FilesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RTRGetPutFileContents gets r t r put file contents for a given file ID
+*/
+func (a *Client) RTRGetPutFileContents(params *RTRGetPutFileContentsParams, opts ...ClientOption) (*RTRGetPutFileContentsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRGetPutFileContentsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-GetPutFileContents",
+		Method:             "GET",
+		PathPattern:        "/real-time-response/entities/put-file-contents/v1",
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRGetPutFileContentsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRGetPutFileContentsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RTR-GetPutFileContents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

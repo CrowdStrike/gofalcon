@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // TypesQueryOvertimeResponseItem types query overtime response item
@@ -20,47 +18,14 @@ import (
 type TypesQueryOvertimeResponseItem struct {
 
 	// result
-	// Required: true
-	Result TypesQueryOvertimeResponseItemResult `json:"result"`
+	Result TypesQueryOvertimeResponseItemResult `json:"result,omitempty"`
 
 	// timestamp
-	// Required: true
-	Timestamp *int64 `json:"timestamp"`
+	Timestamp int64 `json:"timestamp,omitempty"`
 }
 
 // Validate validates this types query overtime response item
 func (m *TypesQueryOvertimeResponseItem) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateResult(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTimestamp(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *TypesQueryOvertimeResponseItem) validateResult(formats strfmt.Registry) error {
-
-	if m.Result == nil {
-		return errors.Required("result", "body", nil)
-	}
-
-	return nil
-}
-
-func (m *TypesQueryOvertimeResponseItem) validateTimestamp(formats strfmt.Registry) error {
-
-	if err := validate.Required("timestamp", "body", m.Timestamp); err != nil {
-		return err
-	}
-
 	return nil
 }
 
