@@ -50,10 +50,10 @@ type AzureTenantRegistration struct {
 	Created strfmt.DateTime `json:"created,omitempty"`
 
 	// cs infra region
-	CsInfraRegion string `json:"cs_infra_region,omitempty"`
+	CsInfraRegion *string `json:"cs_infra_region,omitempty"`
 
 	// cs infra subscription id
-	CsInfraSubscriptionID string `json:"cs_infra_subscription_id,omitempty"`
+	CsInfraSubscriptionID *string `json:"cs_infra_subscription_id,omitempty"`
 
 	// deleted
 	// Format: date-time
@@ -78,11 +78,8 @@ type AzureTenantRegistration struct {
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
 
-	// enterprise app url
-	EnterpriseAppURL string `json:"enterprise_app_url,omitempty"`
-
 	// environment
-	Environment string `json:"environment,omitempty"`
+	Environment *string `json:"environment,omitempty"`
 
 	// event hub settings
 	// Required: true
@@ -103,10 +100,10 @@ type AzureTenantRegistration struct {
 	Products []*DomainProductFeatures `json:"products"`
 
 	// resource name prefix
-	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
+	ResourceNamePrefix *string `json:"resource_name_prefix,omitempty"`
 
 	// resource name suffix
-	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
+	ResourceNameSuffix *string `json:"resource_name_suffix,omitempty"`
 
 	// status
 	Status string `json:"status,omitempty"`
@@ -116,8 +113,7 @@ type AzureTenantRegistration struct {
 	SubscriptionIds []string `json:"subscription_ids"`
 
 	// tags
-	// Required: true
-	Tags map[string]string `json:"tags"`
+	Tags map[string]string `json:"tags,omitempty"`
 
 	// template version
 	TemplateVersion string `json:"template_version,omitempty"`
