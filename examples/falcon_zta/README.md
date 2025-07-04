@@ -29,7 +29,7 @@ $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
 Get ZTA details for sub-set of hosts specified by FQL (Falcon Query Language). In this case, we query zta details for all the hosts running Linux.
 
 ```
-falcon_zta --filter="platform_name:Linux'"
+falcon_zta --filter="platform_name:'Linux'"
 ```
 
 Get ZTA details for all hosts and transform the data to only show overall score:
