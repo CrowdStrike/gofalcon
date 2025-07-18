@@ -38,6 +38,9 @@ type V2Trigger struct {
 	// type
 	Type string `json:"type,omitempty"`
 
+	// version constraint
+	VersionConstraint string `json:"version_constraint,omitempty"`
+
 	// webhook config
 	WebhookConfig *WebhooktriggerAPIRequest `json:"webhook_config,omitempty"`
 }

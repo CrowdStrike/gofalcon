@@ -126,6 +126,10 @@ type AzureTenantRegistration struct {
 	// Required: true
 	TenantID *string `json:"tenant_id"`
 
+	// tenant name
+	// Required: true
+	TenantName *string `json:"tenant_name"`
+
 	// updated
 	// Format: date-time
 	Updated strfmt.DateTime `json:"updated,omitempty"`
@@ -176,6 +180,10 @@ func (m *AzureTenantRegistration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTenantID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTenantName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -341,6 +349,15 @@ func (m *AzureTenantRegistration) validateTags(formats strfmt.Registry) error {
 func (m *AzureTenantRegistration) validateTenantID(formats strfmt.Registry) error {
 
 	if err := validate.Required("tenant_id", "body", m.TenantID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistration) validateTenantName(formats strfmt.Registry) error {
+
+	if err := validate.Required("tenant_name", "body", m.TenantName); err != nil {
 		return err
 	}
 

@@ -98,6 +98,10 @@ type AzureAzureRegistrationUpdateInput struct {
 	// tenant id
 	// Required: true
 	TenantID *string `json:"tenant_id"`
+
+	// tenant name
+	// Required: true
+	TenantName *string `json:"tenant_name"`
 }
 
 // Validate validates this azure azure registration update input
@@ -133,6 +137,10 @@ func (m *AzureAzureRegistrationUpdateInput) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateTenantID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTenantName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -261,6 +269,15 @@ func (m *AzureAzureRegistrationUpdateInput) validateTags(formats strfmt.Registry
 func (m *AzureAzureRegistrationUpdateInput) validateTenantID(formats strfmt.Registry) error {
 
 	if err := validate.Required("tenant_id", "body", m.TenantID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationUpdateInput) validateTenantName(formats strfmt.Registry) error {
+
+	if err := validate.Required("tenant_name", "body", m.TenantName); err != nil {
 		return err
 	}
 

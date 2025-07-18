@@ -48,6 +48,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/drift_indicators"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_schema"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
+	"github.com/crowdstrike/gofalcon/falcon/client/execution"
 	"github.com/crowdstrike/gofalcon/falcon/client/exposure_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
@@ -74,6 +75,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
+	"github.com/crowdstrike/gofalcon/falcon/client/it_automation"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
@@ -99,6 +101,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/report_executions"
 	"github.com/crowdstrike/gofalcon/falcon/client/response_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/runtime_detections"
+	"github.com/crowdstrike/gofalcon/falcon/client/saas_security"
 	"github.com/crowdstrike/gofalcon/falcon/client/sample_uploads"
 	"github.com/crowdstrike/gofalcon/falcon/client/scheduled_reports"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
@@ -196,6 +199,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.DriftIndicators = drift_indicators.New(transport, formats)
 	cli.EventSchema = event_schema.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
+	cli.Execution = execution.New(transport, formats)
 	cli.ExposureManagement = exposure_management.New(transport, formats)
 	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
 	cli.FalconContainer = falcon_container.New(transport, formats)
@@ -222,6 +226,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
 	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
+	cli.ItAutomation = it_automation.New(transport, formats)
 	cli.KubernetesContainerCompliance = kubernetes_container_compliance.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
 	cli.LookupFiles = lookup_files.New(transport, formats)
@@ -247,6 +252,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ReportExecutions = report_executions.New(transport, formats)
 	cli.ResponsePolicies = response_policies.New(transport, formats)
 	cli.RuntimeDetections = runtime_detections.New(transport, formats)
+	cli.SaasSecurity = saas_security.New(transport, formats)
 	cli.SampleUploads = sample_uploads.New(transport, formats)
 	cli.ScheduledReports = scheduled_reports.New(transport, formats)
 	cli.SensorDownload = sensor_download.New(transport, formats)
@@ -382,6 +388,8 @@ type CrowdStrikeAPISpecification struct {
 
 	EventStreams event_streams.ClientService
 
+	Execution execution.ClientService
+
 	ExposureManagement exposure_management.ClientService
 
 	FalconCompleteDashboard falcon_complete_dashboard.ClientService
@@ -434,6 +442,8 @@ type CrowdStrikeAPISpecification struct {
 
 	Iocs iocs.ClientService
 
+	ItAutomation it_automation.ClientService
+
 	KubernetesContainerCompliance kubernetes_container_compliance.ClientService
 
 	KubernetesProtection kubernetes_protection.ClientService
@@ -483,6 +493,8 @@ type CrowdStrikeAPISpecification struct {
 	ResponsePolicies response_policies.ClientService
 
 	RuntimeDetections runtime_detections.ClientService
+
+	SaasSecurity saas_security.ClientService
 
 	SampleUploads sample_uploads.ClientService
 
@@ -558,6 +570,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.DriftIndicators.SetTransport(transport)
 	c.EventSchema.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
+	c.Execution.SetTransport(transport)
 	c.ExposureManagement.SetTransport(transport)
 	c.FalconCompleteDashboard.SetTransport(transport)
 	c.FalconContainer.SetTransport(transport)
@@ -584,6 +597,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.IoaExclusions.SetTransport(transport)
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
+	c.ItAutomation.SetTransport(transport)
 	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LookupFiles.SetTransport(transport)
@@ -609,6 +623,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ReportExecutions.SetTransport(transport)
 	c.ResponsePolicies.SetTransport(transport)
 	c.RuntimeDetections.SetTransport(transport)
+	c.SaasSecurity.SetTransport(transport)
 	c.SampleUploads.SetTransport(transport)
 	c.ScheduledReports.SetTransport(transport)
 	c.SensorDownload.SetTransport(transport)

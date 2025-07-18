@@ -38,6 +38,9 @@ type V2Activity struct {
 	// properties
 	// Required: true
 	Properties interface{} `json:"properties"`
+
+	// version constraint
+	VersionConstraint string `json:"version_constraint,omitempty"`
 }
 
 // Validate validates this v2 activity

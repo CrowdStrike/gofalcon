@@ -28,11 +28,20 @@ type FigapiIndicator struct {
 	// certificates
 	Certificates []*FigapiX509Certificate `json:"Certificates"`
 
+	// coin address details
+	CoinAddressDetails *FigapiCoinAddress `json:"CoinAddressDetails,omitempty"`
+
 	// countries
 	Countries []*FigapiCountry `json:"Countries"`
 
+	// credentials details
+	CredentialsDetails *FigapiCredentials `json:"CredentialsDetails,omitempty"`
+
 	// Structure for Domain type indicator
 	DomainDetails *FigapiDomain `json:"DomainDetails,omitempty"`
+
+	// email address details
+	EmailAddressDetails *FigapiEmailAddressDetails `json:"EmailAddressDetails,omitempty"`
 
 	// Structure for File type indicator
 	FileDetails *FigapiFile `json:"FileDetails,omitempty"`
@@ -85,6 +94,9 @@ type FigapiIndicator struct {
 	// Structure for URL type indicator
 	URLDetails *FigapiURL `json:"URLDetails,omitempty"`
 
+	// unique identifier details
+	UniqueIdentifierDetails *FigapiUniqueIdentifier `json:"UniqueIdentifierDetails,omitempty"`
+
 	// vulnerabilities
 	Vulnerabilities []*FigapiVulnerability `json:"Vulnerabilities"`
 }
@@ -101,11 +113,23 @@ func (m *FigapiIndicator) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCoinAddressDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCountries(formats); err != nil {
 		res = append(res, err)
 	}
 
+	if err := m.validateCredentialsDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDomainDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEmailAddressDetails(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -134,6 +158,10 @@ func (m *FigapiIndicator) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateURLDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUniqueIdentifierDetails(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -199,6 +227,25 @@ func (m *FigapiIndicator) validateCertificates(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *FigapiIndicator) validateCoinAddressDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.CoinAddressDetails) { // not required
+		return nil
+	}
+
+	if m.CoinAddressDetails != nil {
+		if err := m.CoinAddressDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("CoinAddressDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("CoinAddressDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *FigapiIndicator) validateCountries(formats strfmt.Registry) error {
 	if swag.IsZero(m.Countries) { // not required
 		return nil
@@ -225,6 +272,25 @@ func (m *FigapiIndicator) validateCountries(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *FigapiIndicator) validateCredentialsDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.CredentialsDetails) { // not required
+		return nil
+	}
+
+	if m.CredentialsDetails != nil {
+		if err := m.CredentialsDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("CredentialsDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("CredentialsDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *FigapiIndicator) validateDomainDetails(formats strfmt.Registry) error {
 	if swag.IsZero(m.DomainDetails) { // not required
 		return nil
@@ -236,6 +302,25 @@ func (m *FigapiIndicator) validateDomainDetails(formats strfmt.Registry) error {
 				return ve.ValidateName("DomainDetails")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("DomainDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FigapiIndicator) validateEmailAddressDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.EmailAddressDetails) { // not required
+		return nil
+	}
+
+	if m.EmailAddressDetails != nil {
+		if err := m.EmailAddressDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("EmailAddressDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("EmailAddressDetails")
 			}
 			return err
 		}
@@ -398,6 +483,25 @@ func (m *FigapiIndicator) validateURLDetails(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *FigapiIndicator) validateUniqueIdentifierDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.UniqueIdentifierDetails) { // not required
+		return nil
+	}
+
+	if m.UniqueIdentifierDetails != nil {
+		if err := m.UniqueIdentifierDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("UniqueIdentifierDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("UniqueIdentifierDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *FigapiIndicator) validateVulnerabilities(formats strfmt.Registry) error {
 	if swag.IsZero(m.Vulnerabilities) { // not required
 		return nil
@@ -436,11 +540,23 @@ func (m *FigapiIndicator) ContextValidate(ctx context.Context, formats strfmt.Re
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCoinAddressDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCountries(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCredentialsDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDomainDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmailAddressDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -469,6 +585,10 @@ func (m *FigapiIndicator) ContextValidate(ctx context.Context, formats strfmt.Re
 	}
 
 	if err := m.contextValidateURLDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUniqueIdentifierDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -532,6 +652,27 @@ func (m *FigapiIndicator) contextValidateCertificates(ctx context.Context, forma
 	return nil
 }
 
+func (m *FigapiIndicator) contextValidateCoinAddressDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CoinAddressDetails != nil {
+
+		if swag.IsZero(m.CoinAddressDetails) { // not required
+			return nil
+		}
+
+		if err := m.CoinAddressDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("CoinAddressDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("CoinAddressDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *FigapiIndicator) contextValidateCountries(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Countries); i++ {
@@ -557,6 +698,27 @@ func (m *FigapiIndicator) contextValidateCountries(ctx context.Context, formats 
 	return nil
 }
 
+func (m *FigapiIndicator) contextValidateCredentialsDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CredentialsDetails != nil {
+
+		if swag.IsZero(m.CredentialsDetails) { // not required
+			return nil
+		}
+
+		if err := m.CredentialsDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("CredentialsDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("CredentialsDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *FigapiIndicator) contextValidateDomainDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DomainDetails != nil {
@@ -570,6 +732,27 @@ func (m *FigapiIndicator) contextValidateDomainDetails(ctx context.Context, form
 				return ve.ValidateName("DomainDetails")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("DomainDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FigapiIndicator) contextValidateEmailAddressDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmailAddressDetails != nil {
+
+		if swag.IsZero(m.EmailAddressDetails) { // not required
+			return nil
+		}
+
+		if err := m.EmailAddressDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("EmailAddressDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("EmailAddressDetails")
 			}
 			return err
 		}
@@ -729,6 +912,27 @@ func (m *FigapiIndicator) contextValidateURLDetails(ctx context.Context, formats
 				return ve.ValidateName("URLDetails")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("URLDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FigapiIndicator) contextValidateUniqueIdentifierDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UniqueIdentifierDetails != nil {
+
+		if swag.IsZero(m.UniqueIdentifierDetails) { // not required
+			return nil
+		}
+
+		if err := m.UniqueIdentifierDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("UniqueIdentifierDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("UniqueIdentifierDetails")
 			}
 			return err
 		}

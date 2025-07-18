@@ -22,17 +22,31 @@ type InsightsInsightDetails struct {
 	// boolean value
 	BooleanValue bool `json:"booleanValue,omitempty"`
 
+	// date value
+	// Format: date-time
+	DateValue strfmt.DateTime `json:"dateValue,omitempty"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`
 
 	// integer value
 	IntegerValue int32 `json:"integerValue,omitempty"`
+
+	// string list value
+	StringListValue []string `json:"stringListValue"`
+
+	// string value
+	StringValue string `json:"stringValue,omitempty"`
 }
 
 // Validate validates this insights insight details
 func (m *InsightsInsightDetails) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateDateValue(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
@@ -41,6 +55,18 @@ func (m *InsightsInsightDetails) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *InsightsInsightDetails) validateDateValue(formats strfmt.Registry) error {
+	if swag.IsZero(m.DateValue) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateValue", "body", "date-time", m.DateValue.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -82,6 +82,10 @@ type DomainScheduledReportV1 struct {
 	// Required: true
 	Schedule *DomainSchedule `json:"schedule"`
 
+	// schedule type
+	// Required: true
+	ScheduleType *string `json:"schedule_type"`
+
 	// shared with
 	// Required: true
 	SharedWith []string `json:"shared_with"`
@@ -177,6 +181,10 @@ func (m *DomainScheduledReportV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSchedule(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScheduleType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -409,6 +417,15 @@ func (m *DomainScheduledReportV1) validateSchedule(formats strfmt.Registry) erro
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainScheduledReportV1) validateScheduleType(formats strfmt.Registry) error {
+
+	if err := validate.Required("schedule_type", "body", m.ScheduleType); err != nil {
+		return err
 	}
 
 	return nil

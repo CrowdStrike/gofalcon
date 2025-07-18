@@ -22,9 +22,6 @@ type WebhooktriggerResponseConfig struct {
 	// json content of webhook response body
 	BodyContent string `json:"body_content,omitempty"`
 
-	// standard http content type of webhook response, only supported value is application/json
-	ContentType string `json:"content_type,omitempty"`
-
 	// http response code for webhook response
 	// Required: true
 	StatusCode *int32 `json:"status_code"`
