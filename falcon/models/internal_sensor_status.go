@@ -57,6 +57,9 @@ type InternalSensorStatus struct {
 	// machine domain
 	MachineDomain string `json:"machine_domain,omitempty"`
 
+	// new enforcement mode
+	NewEnforcementMode string `json:"new_enforcement_mode,omitempty"`
+
 	// ntlm config
 	NtlmConfig string `json:"ntlm_config,omitempty"`
 

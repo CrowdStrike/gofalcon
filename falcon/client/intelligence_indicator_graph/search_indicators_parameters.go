@@ -67,6 +67,12 @@ type SearchIndicatorsParams struct {
 	// Body.
 	Body *models.RestapiIndicatorsQueryRequest
 
+	/* Filter.
+
+	   FQL query specifying the filter parameters.
+	*/
+	Filter *string
+
 	/* Limit.
 
 	   Limit
@@ -78,6 +84,12 @@ type SearchIndicatorsParams struct {
 	   Offset
 	*/
 	Offset *string
+
+	/* Sort.
+
+	   Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: 'PublishDate|asc'.
+	*/
+	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -143,6 +155,17 @@ func (o *SearchIndicatorsParams) SetBody(body *models.RestapiIndicatorsQueryRequ
 	o.Body = body
 }
 
+// WithFilter adds the filter to the search indicators params
+func (o *SearchIndicatorsParams) WithFilter(filter *string) *SearchIndicatorsParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the search indicators params
+func (o *SearchIndicatorsParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WithLimit adds the limit to the search indicators params
 func (o *SearchIndicatorsParams) WithLimit(limit *int64) *SearchIndicatorsParams {
 	o.SetLimit(limit)
@@ -165,6 +188,17 @@ func (o *SearchIndicatorsParams) SetOffset(offset *string) {
 	o.Offset = offset
 }
 
+// WithSort adds the sort to the search indicators params
+func (o *SearchIndicatorsParams) WithSort(sort *string) *SearchIndicatorsParams {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the search indicators params
+func (o *SearchIndicatorsParams) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *SearchIndicatorsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -175,6 +209,23 @@ func (o *SearchIndicatorsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
 		}
 	}
 
@@ -207,6 +258,23 @@ func (o *SearchIndicatorsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}

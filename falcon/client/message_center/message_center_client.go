@@ -38,8 +38,6 @@ type ClientService interface {
 
 	CaseDownloadAttachment(params *CaseDownloadAttachmentParams, opts ...ClientOption) (*CaseDownloadAttachmentOK, error)
 
-	CreateCase(params *CreateCaseParams, opts ...ClientOption) (*CreateCaseOK, error)
-
 	CreateCaseV2(params *CreateCaseV2Params, opts ...ClientOption) (*CreateCaseV2OK, error)
 
 	GetCaseActivityByIds(params *GetCaseActivityByIdsParams, opts ...ClientOption) (*GetCaseActivityByIdsOK, error)
@@ -238,44 +236,6 @@ func (a *Client) CaseDownloadAttachment(params *CaseDownloadAttachmentParams, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for CaseDownloadAttachment: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateCase creates a new case
-*/
-func (a *Client) CreateCase(params *CreateCaseParams, opts ...ClientOption) (*CreateCaseOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateCaseParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateCase",
-		Method:             "POST",
-		PathPattern:        "/message-center/entities/case/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateCaseReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateCaseOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateCase: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

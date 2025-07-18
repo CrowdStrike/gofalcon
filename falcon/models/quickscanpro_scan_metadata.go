@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -23,6 +24,9 @@ type QuickscanproScanMetadata struct {
 	// Required: true
 	// Format: date-time
 	CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
+
+	// errors
+	Errors []*QuickscanproError `json:"errors"`
 
 	// sha256
 	// Required: true
@@ -43,6 +47,10 @@ func (m *QuickscanproScanMetadata) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCreatedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateErrors(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,6 +80,32 @@ func (m *QuickscanproScanMetadata) validateCreatedTimestamp(formats strfmt.Regis
 
 	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *QuickscanproScanMetadata) validateErrors(formats strfmt.Registry) error {
+	if swag.IsZero(m.Errors) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Errors); i++ {
+		if swag.IsZero(m.Errors[i]) { // not required
+			continue
+		}
+
+		if m.Errors[i] != nil {
+			if err := m.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -108,8 +142,42 @@ func (m *QuickscanproScanMetadata) validateUpdatedTimestamp(formats strfmt.Regis
 	return nil
 }
 
-// ContextValidate validates this quickscanpro scan metadata based on context it is used
+// ContextValidate validate this quickscanpro scan metadata based on the context it is used
 func (m *QuickscanproScanMetadata) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QuickscanproScanMetadata) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Errors); i++ {
+
+		if m.Errors[i] != nil {
+
+			if swag.IsZero(m.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

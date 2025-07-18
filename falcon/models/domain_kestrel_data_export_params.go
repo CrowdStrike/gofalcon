@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,9 +20,13 @@ import (
 // swagger:model domain.KestrelDataExportParams
 type DomainKestrelDataExportParams struct {
 
-	// column to header mapping
+	// export mapping
 	// Required: true
-	ColumnToHeaderMapping map[string]string `json:"column_to_header_mapping"`
+	ExportMapping []*DomainKestrelDataExportHeaderMapping `json:"export_mapping"`
+
+	// export mapping v2
+	// Required: true
+	ExportMappingV2 []*DomainKestrelDataExportHeaderMappingV2 `json:"export_mapping_v2"`
 
 	// gqe query
 	// Required: true
@@ -39,7 +44,11 @@ type DomainKestrelDataExportParams struct {
 func (m *DomainKestrelDataExportParams) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateColumnToHeaderMapping(formats); err != nil {
+	if err := m.validateExportMapping(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExportMappingV2(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -57,10 +66,55 @@ func (m *DomainKestrelDataExportParams) Validate(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *DomainKestrelDataExportParams) validateColumnToHeaderMapping(formats strfmt.Registry) error {
+func (m *DomainKestrelDataExportParams) validateExportMapping(formats strfmt.Registry) error {
 
-	if err := validate.Required("column_to_header_mapping", "body", m.ColumnToHeaderMapping); err != nil {
+	if err := validate.Required("export_mapping", "body", m.ExportMapping); err != nil {
 		return err
+	}
+
+	for i := 0; i < len(m.ExportMapping); i++ {
+		if swag.IsZero(m.ExportMapping[i]) { // not required
+			continue
+		}
+
+		if m.ExportMapping[i] != nil {
+			if err := m.ExportMapping[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("export_mapping" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("export_mapping" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainKestrelDataExportParams) validateExportMappingV2(formats strfmt.Registry) error {
+
+	if err := validate.Required("export_mapping_v2", "body", m.ExportMappingV2); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ExportMappingV2); i++ {
+		if swag.IsZero(m.ExportMappingV2[i]) { // not required
+			continue
+		}
+
+		if m.ExportMappingV2[i] != nil {
+			if err := m.ExportMappingV2[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("export_mapping_v2" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("export_mapping_v2" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -84,8 +138,71 @@ func (m *DomainKestrelDataExportParams) validateViewID(formats strfmt.Registry) 
 	return nil
 }
 
-// ContextValidate validates this domain kestrel data export params based on context it is used
+// ContextValidate validate this domain kestrel data export params based on the context it is used
 func (m *DomainKestrelDataExportParams) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExportMapping(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExportMappingV2(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainKestrelDataExportParams) contextValidateExportMapping(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExportMapping); i++ {
+
+		if m.ExportMapping[i] != nil {
+
+			if swag.IsZero(m.ExportMapping[i]) { // not required
+				return nil
+			}
+
+			if err := m.ExportMapping[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("export_mapping" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("export_mapping" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainKestrelDataExportParams) contextValidateExportMappingV2(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExportMappingV2); i++ {
+
+		if m.ExportMappingV2[i] != nil {
+
+			if swag.IsZero(m.ExportMappingV2[i]) { // not required
+				return nil
+			}
+
+			if err := m.ExportMappingV2[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("export_mapping_v2" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("export_mapping_v2" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

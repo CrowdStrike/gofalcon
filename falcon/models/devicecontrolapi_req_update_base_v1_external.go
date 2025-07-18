@@ -32,6 +32,10 @@ type DevicecontrolapiReqUpdateBaseV1External struct {
 	// Name of the policy (omit to keep current)
 	Name string `json:"name,omitempty"`
 
+	// For Flight Control enabled CIDs, indicates whether to propagate to child CIDs (omit to keep current)
+	// Required: true
+	Propagated *bool `json:"propagated"`
+
 	// Object for the USB settings (omit to keep current)
 	UsbSettings *DevicecontrolapiReqUpdateUSBBaseV1External `json:"usb_settings,omitempty"`
 }
@@ -45,6 +49,10 @@ func (m *DevicecontrolapiReqUpdateBaseV1External) Validate(formats strfmt.Regist
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePropagated(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -80,6 +88,15 @@ func (m *DevicecontrolapiReqUpdateBaseV1External) validateBluetoothSettings(form
 func (m *DevicecontrolapiReqUpdateBaseV1External) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiReqUpdateBaseV1External) validatePropagated(formats strfmt.Registry) error {
+
+	if err := validate.Required("propagated", "body", m.Propagated); err != nil {
 		return err
 	}
 

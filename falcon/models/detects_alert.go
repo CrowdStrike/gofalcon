@@ -151,6 +151,10 @@ type DetectsAlert struct {
 	// is synthetic quarantine disposition
 	IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
+	// Linked Case Ids are cases that are associated with this alert
+	// Required: true
+	LinkedCaseIds []string `json:"linked_case_ids"`
+
 	// local process id
 	LocalProcessID string `json:"local_process_id,omitempty"`
 
@@ -448,6 +452,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
+		// Linked Case Ids are cases that are associated with this alert
+		// Required: true
+		LinkedCaseIds []string `json:"linked_case_ids"`
+
 		// local process id
 		LocalProcessID string `json:"local_process_id,omitempty"`
 
@@ -648,6 +656,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.IocValue = stage1.IocValue
 	rcv.IocValues = stage1.IocValues
 	rcv.IsSyntheticQuarantineDisposition = stage1.IsSyntheticQuarantineDisposition
+	rcv.LinkedCaseIds = stage1.LinkedCaseIds
 	rcv.LocalProcessID = stage1.LocalProcessID
 	rcv.LogonDomain = stage1.LogonDomain
 	rcv.Md5 = stage1.Md5
@@ -737,6 +746,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "ioc_value")
 	delete(stage2, "ioc_values")
 	delete(stage2, "is_synthetic_quarantine_disposition")
+	delete(stage2, "linked_case_ids")
 	delete(stage2, "local_process_id")
 	delete(stage2, "logon_domain")
 	delete(stage2, "md5")
@@ -930,6 +940,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
+
+		// Linked Case Ids are cases that are associated with this alert
+		// Required: true
+		LinkedCaseIds []string `json:"linked_case_ids"`
 
 		// local process id
 		LocalProcessID string `json:"local_process_id,omitempty"`
@@ -1127,6 +1141,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.IocValue = m.IocValue
 	stage1.IocValues = m.IocValues
 	stage1.IsSyntheticQuarantineDisposition = m.IsSyntheticQuarantineDisposition
+	stage1.LinkedCaseIds = m.LinkedCaseIds
 	stage1.LocalProcessID = m.LocalProcessID
 	stage1.LogonDomain = m.LogonDomain
 	stage1.Md5 = m.Md5
@@ -1285,6 +1300,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIocContext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLinkedCaseIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1663,6 +1682,15 @@ func (m *DetectsAlert) validateIocContext(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateLinkedCaseIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("linked_case_ids", "body", m.LinkedCaseIds); err != nil {
+		return err
 	}
 
 	return nil

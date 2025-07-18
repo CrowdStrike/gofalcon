@@ -30,7 +30,7 @@ type DomainNewsDocument struct {
 	// News attachment, containing either pdf url or feeds zip and/or gzip archive
 	Attachments []*DomainFile `json:"attachments"`
 
-	// Date of the news document creation, unix timestampt
+	// Date of the news document creation, Unix timestamp
 	// Required: true
 	CreatedDate *int64 `json:"created_date"`
 
@@ -47,7 +47,7 @@ type DomainNewsDocument struct {
 	// News document image
 	Image *DomainImage `json:"image,omitempty"`
 
-	// Date of the news document last modification, unix timestampt
+	// Date of the news document last modification, Unix timestamp
 	// Required: true
 	LastModifiedDate *int64 `json:"last_modified_date"`
 

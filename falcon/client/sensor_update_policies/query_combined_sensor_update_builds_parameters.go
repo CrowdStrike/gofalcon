@@ -202,8 +202,8 @@ func (o *QueryCombinedSensorUpdateBuildsParams) bindParamStage(formats strfmt.Re
 		stageIC = append(stageIC, stageIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	stageIS := swag.JoinByFormat(stageIC, "csv")
+	// items.CollectionFormat: "multi"
+	stageIS := swag.JoinByFormat(stageIC, "multi")
 
 	return stageIS
 }

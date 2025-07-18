@@ -25,7 +25,7 @@ type ResourcesCloudContext struct {
 	AllowsPublicAccess bool `json:"allows_public_access,omitempty"`
 
 	// application security
-	ApplicationSecurity *AspmData `json:"application_security,omitempty"`
+	ApplicationSecurity *AspmInventoryData `json:"application_security,omitempty"`
 
 	// asset graph
 	AssetGraph *ResourcesAssetGraph `json:"asset_graph,omitempty"`

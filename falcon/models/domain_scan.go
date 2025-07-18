@@ -69,6 +69,9 @@ type DomainScan struct {
 	// hosts
 	Hosts []string `json:"hosts"`
 
+	// hosts created
+	HostsCreated bool `json:"hosts_created,omitempty"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`

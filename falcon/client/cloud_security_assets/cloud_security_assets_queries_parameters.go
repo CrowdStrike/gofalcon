@@ -109,7 +109,11 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `highest_severity`
 	- `id`
 	- `insights.boolean_value`
+	- `insights.date_value`
 	- `insights.id`
+	- `insights.integer_value`
+	- `insights.string_list_value`
+	- `insights.string_value`
 	- `instance_id`
 	- `instance_state`
 	- `ioa_count`

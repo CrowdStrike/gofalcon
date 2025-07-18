@@ -35,6 +35,9 @@ type ResourcesComplianceControl struct {
 	// cloud groups
 	CloudGroups []*DomainCloudScope `json:"cloud_groups"`
 
+	// cloud groups v2
+	CloudGroupsV2 []*DomainCloudGroup `json:"cloud_groups_v2"`
+
 	// cloud labels
 	CloudLabels []*ClassificationLabel `json:"cloud_labels"`
 
@@ -48,6 +51,9 @@ type ResourcesComplianceControl struct {
 
 	// gcrn
 	Gcrn string `json:"gcrn,omitempty"`
+
+	// groups
+	Groups []string `json:"groups"`
 
 	// last evaluated
 	// Required: true
@@ -89,6 +95,9 @@ type ResourcesComplianceControl struct {
 	// severities
 	// Required: true
 	Severities []string `json:"severities"`
+
+	// tags
+	Tags map[string]string `json:"tags,omitempty"`
 }
 
 // Validate validates this resources compliance control
@@ -108,6 +117,10 @@ func (m *ResourcesComplianceControl) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCloudGroups(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudGroupsV2(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -212,6 +225,32 @@ func (m *ResourcesComplianceControl) validateCloudGroups(formats strfmt.Registry
 					return ve.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ResourcesComplianceControl) validateCloudGroupsV2(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudGroupsV2) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CloudGroupsV2); i++ {
+		if swag.IsZero(m.CloudGroupsV2[i]) { // not required
+			continue
+		}
+
+		if m.CloudGroupsV2[i] != nil {
+			if err := m.CloudGroupsV2[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -408,6 +447,10 @@ func (m *ResourcesComplianceControl) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCloudGroupsV2(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCloudLabels(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -445,6 +488,31 @@ func (m *ResourcesComplianceControl) contextValidateCloudGroups(ctx context.Cont
 					return ve.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ResourcesComplianceControl) contextValidateCloudGroupsV2(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CloudGroupsV2); i++ {
+
+		if m.CloudGroupsV2[i] != nil {
+
+			if swag.IsZero(m.CloudGroupsV2[i]) { // not required
+				return nil
+			}
+
+			if err := m.CloudGroupsV2[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

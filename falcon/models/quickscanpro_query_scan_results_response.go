@@ -25,7 +25,7 @@ type QuickscanproQueryScanResultsResponse struct {
 
 	// meta
 	// Required: true
-	Meta *MsaMetaInfo `json:"meta"`
+	Meta *QuickscanproMetaInfo `json:"meta"`
 
 	// quota
 	Quota *QuickscanproQuotaResource `json:"quota,omitempty"`

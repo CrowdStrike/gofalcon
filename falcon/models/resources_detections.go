@@ -42,6 +42,10 @@ type ResourcesDetections struct {
 	// non compliant
 	NonCompliant *ResourcesCompliance `json:"non_compliant,omitempty"`
 
+	// resource url
+	// Required: true
+	ResourceURL *string `json:"resource_url"`
+
 	// severities
 	Severities []string `json:"severities"`
 }
@@ -71,6 +75,10 @@ func (m *ResourcesDetections) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNonCompliant(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResourceURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -169,6 +177,15 @@ func (m *ResourcesDetections) validateNonCompliant(formats strfmt.Registry) erro
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesDetections) validateResourceURL(formats strfmt.Registry) error {
+
+	if err := validate.Required("resource_url", "body", m.ResourceURL); err != nil {
+		return err
 	}
 
 	return nil

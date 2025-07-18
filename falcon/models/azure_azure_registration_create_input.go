@@ -99,6 +99,10 @@ type AzureAzureRegistrationCreateInput struct {
 	// tenant id
 	// Required: true
 	TenantID *string `json:"tenant_id"`
+
+	// tenant name
+	// Required: true
+	TenantName *string `json:"tenant_name"`
 }
 
 // Validate validates this azure azure registration create input
@@ -138,6 +142,10 @@ func (m *AzureAzureRegistrationCreateInput) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateTenantID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTenantName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -275,6 +283,15 @@ func (m *AzureAzureRegistrationCreateInput) validateTags(formats strfmt.Registry
 func (m *AzureAzureRegistrationCreateInput) validateTenantID(formats strfmt.Registry) error {
 
 	if err := validate.Required("tenant_id", "body", m.TenantID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationCreateInput) validateTenantName(formats strfmt.Registry) error {
+
+	if err := validate.Required("tenant_name", "body", m.TenantName); err != nil {
 		return err
 	}
 

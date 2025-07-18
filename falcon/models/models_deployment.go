@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -20,230 +19,80 @@ import (
 // swagger:model models.Deployment
 type ModelsDeployment struct {
 
-	// agents
+	// account id
 	// Required: true
-	Agents []ModelsDeploymentAgents `json:"agents"`
+	AccountID *string `json:"account_id"`
 
-	// annotations
+	// asset identifier
 	// Required: true
-	Annotations map[string]string `json:"annotations"`
+	AssetIdentifier *string `json:"asset_identifier"`
 
-	// annotations list
+	// cloud provider
 	// Required: true
-	AnnotationsList []string `json:"annotations_list"`
+	CloudProvider *string `json:"cloud_provider"`
 
-	// cid
+	// id
 	// Required: true
-	Cid *string `json:"cid"`
+	ID *string `json:"id"`
 
-	// cloud account id
+	// instance type
 	// Required: true
-	CloudAccountID *string `json:"cloud_account_id"`
+	InstanceType *string `json:"instance_type"`
 
-	// cloud name
+	// last updated timestamp
 	// Required: true
-	CloudName *string `json:"cloud_name"`
+	LastUpdatedTimestamp *string `json:"last_updated_timestamp"`
 
-	// cloud region
+	// region
 	// Required: true
-	CloudRegion *string `json:"cloud_region"`
-
-	// cloud service
-	// Required: true
-	CloudService *string `json:"cloud_service"`
-
-	// cluster id
-	// Required: true
-	ClusterID *string `json:"cluster_id"`
-
-	// cluster name
-	// Required: true
-	ClusterName *string `json:"cluster_name"`
-
-	// container count
-	// Required: true
-	ContainerCount *int32 `json:"container_count"`
-
-	// created at
-	// Required: true
-	CreatedAt *string `json:"created_at"`
-
-	// deleted at
-	DeletedAt string `json:"deleted_at,omitempty"`
-
-	// deployment id
-	// Required: true
-	DeploymentID *string `json:"deployment_id"`
-
-	// deployment name
-	// Required: true
-	DeploymentName *string `json:"deployment_name"`
-
-	// first seen
-	// Required: true
-	FirstSeen *string `json:"first_seen"`
-
-	// kac agent id
-	// Required: true
-	KacAgentID *string `json:"kac_agent_id"`
-
-	// labels
-	// Required: true
-	Labels map[string]string `json:"labels"`
-
-	// labels list
-	// Required: true
-	LabelsList []string `json:"labels_list"`
-
-	// last seen
-	// Required: true
-	LastSeen *string `json:"last_seen"`
-
-	// management status
-	// Required: true
-	ManagementStatus *string `json:"management_status"`
-
-	// namespace
-	// Required: true
-	Namespace *string `json:"namespace"`
-
-	// pod count
-	// Required: true
-	PodCount *int32 `json:"pod_count"`
-
-	// resource status
-	// Required: true
-	ResourceStatus *string `json:"resource_status"`
-
-	// resource version
-	// Required: true
-	ResourceVersion *int64 `json:"resource_version"`
-
-	// revision
-	Revision int64 `json:"revision,omitempty"`
-
-	// selector
-	// Required: true
-	Selector *string `json:"selector"`
-
-	// service account name
-	// Required: true
-	ServiceAccountName *string `json:"service_account_name"`
+	Region *string `json:"region"`
 
 	// status
 	// Required: true
 	Status *string `json:"status"`
+
+	// status detail
+	// Required: true
+	StatusDetail *string `json:"status_detail"`
 }
 
 // Validate validates this models deployment
 func (m *ModelsDeployment) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAgents(formats); err != nil {
+	if err := m.validateAccountID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateAnnotations(formats); err != nil {
+	if err := m.validateAssetIdentifier(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateAnnotationsList(formats); err != nil {
+	if err := m.validateCloudProvider(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCid(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCloudAccountID(formats); err != nil {
+	if err := m.validateInstanceType(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCloudName(formats); err != nil {
+	if err := m.validateLastUpdatedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCloudRegion(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCloudService(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateClusterID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateClusterName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateContainerCount(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCreatedAt(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDeploymentID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDeploymentName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFirstSeen(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateKacAgentID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLabels(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLabelsList(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLastSeen(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateManagementStatus(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateNamespace(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePodCount(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateResourceStatus(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateResourceVersion(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSelector(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateServiceAccountName(formats); err != nil {
+	if err := m.validateRegion(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatusDetail(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -253,249 +102,63 @@ func (m *ModelsDeployment) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ModelsDeployment) validateAgents(formats strfmt.Registry) error {
+func (m *ModelsDeployment) validateAccountID(formats strfmt.Registry) error {
 
-	if err := validate.Required("agents", "body", m.Agents); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Agents); i++ {
-
-		if m.Agents[i] != nil {
-			if err := m.Agents[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("agents" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("agents" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateAnnotations(formats strfmt.Registry) error {
-
-	if err := validate.Required("annotations", "body", m.Annotations); err != nil {
+	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsDeployment) validateAnnotationsList(formats strfmt.Registry) error {
+func (m *ModelsDeployment) validateAssetIdentifier(formats strfmt.Registry) error {
 
-	if err := validate.Required("annotations_list", "body", m.AnnotationsList); err != nil {
+	if err := validate.Required("asset_identifier", "body", m.AssetIdentifier); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsDeployment) validateCid(formats strfmt.Registry) error {
+func (m *ModelsDeployment) validateCloudProvider(formats strfmt.Registry) error {
 
-	if err := validate.Required("cid", "body", m.Cid); err != nil {
+	if err := validate.Required("cloud_provider", "body", m.CloudProvider); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsDeployment) validateCloudAccountID(formats strfmt.Registry) error {
+func (m *ModelsDeployment) validateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("cloud_account_id", "body", m.CloudAccountID); err != nil {
+	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsDeployment) validateCloudName(formats strfmt.Registry) error {
+func (m *ModelsDeployment) validateInstanceType(formats strfmt.Registry) error {
 
-	if err := validate.Required("cloud_name", "body", m.CloudName); err != nil {
+	if err := validate.Required("instance_type", "body", m.InstanceType); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsDeployment) validateCloudRegion(formats strfmt.Registry) error {
+func (m *ModelsDeployment) validateLastUpdatedTimestamp(formats strfmt.Registry) error {
 
-	if err := validate.Required("cloud_region", "body", m.CloudRegion); err != nil {
+	if err := validate.Required("last_updated_timestamp", "body", m.LastUpdatedTimestamp); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsDeployment) validateCloudService(formats strfmt.Registry) error {
+func (m *ModelsDeployment) validateRegion(formats strfmt.Registry) error {
 
-	if err := validate.Required("cloud_service", "body", m.CloudService); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateClusterID(formats strfmt.Registry) error {
-
-	if err := validate.Required("cluster_id", "body", m.ClusterID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateClusterName(formats strfmt.Registry) error {
-
-	if err := validate.Required("cluster_name", "body", m.ClusterName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateContainerCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("container_count", "body", m.ContainerCount); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateCreatedAt(formats strfmt.Registry) error {
-
-	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateDeploymentID(formats strfmt.Registry) error {
-
-	if err := validate.Required("deployment_id", "body", m.DeploymentID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateDeploymentName(formats strfmt.Registry) error {
-
-	if err := validate.Required("deployment_name", "body", m.DeploymentName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateFirstSeen(formats strfmt.Registry) error {
-
-	if err := validate.Required("first_seen", "body", m.FirstSeen); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateKacAgentID(formats strfmt.Registry) error {
-
-	if err := validate.Required("kac_agent_id", "body", m.KacAgentID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateLabels(formats strfmt.Registry) error {
-
-	if err := validate.Required("labels", "body", m.Labels); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateLabelsList(formats strfmt.Registry) error {
-
-	if err := validate.Required("labels_list", "body", m.LabelsList); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateLastSeen(formats strfmt.Registry) error {
-
-	if err := validate.Required("last_seen", "body", m.LastSeen); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateManagementStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("management_status", "body", m.ManagementStatus); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateNamespace(formats strfmt.Registry) error {
-
-	if err := validate.Required("namespace", "body", m.Namespace); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validatePodCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("pod_count", "body", m.PodCount); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateResourceStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("resource_status", "body", m.ResourceStatus); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateResourceVersion(formats strfmt.Registry) error {
-
-	if err := validate.Required("resource_version", "body", m.ResourceVersion); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateSelector(formats strfmt.Registry) error {
-
-	if err := validate.Required("selector", "body", m.Selector); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsDeployment) validateServiceAccountName(formats strfmt.Registry) error {
-
-	if err := validate.Required("service_account_name", "body", m.ServiceAccountName); err != nil {
+	if err := validate.Required("region", "body", m.Region); err != nil {
 		return err
 	}
 
@@ -511,39 +174,17 @@ func (m *ModelsDeployment) validateStatus(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this models deployment based on the context it is used
-func (m *ModelsDeployment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
+func (m *ModelsDeployment) validateStatusDetail(formats strfmt.Registry) error {
 
-	if err := m.contextValidateAgents(ctx, formats); err != nil {
-		res = append(res, err)
+	if err := validate.Required("status_detail", "body", m.StatusDetail); err != nil {
+		return err
 	}
 
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
 	return nil
 }
 
-func (m *ModelsDeployment) contextValidateAgents(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Agents); i++ {
-
-		if swag.IsZero(m.Agents[i]) { // not required
-			return nil
-		}
-
-		if err := m.Agents[i].ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("agents" + "." + strconv.Itoa(i))
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("agents" + "." + strconv.Itoa(i))
-			}
-			return err
-		}
-
-	}
-
+// ContextValidate validates this models deployment based on context it is used
+func (m *ModelsDeployment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

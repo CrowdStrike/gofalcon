@@ -8,8 +8,10 @@ package models
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // APIPatchRuleSearchV1 api patch rule search v1
@@ -27,7 +29,8 @@ type APIPatchRuleSearchV1 struct {
 	Outcome string `json:"outcome,omitempty"`
 
 	// trigger mode
-	TriggerMode string `json:"trigger_mode,omitempty"`
+	// Required: true
+	TriggerMode *string `json:"trigger_mode"`
 
 	// use ingest time
 	UseIngestTime bool `json:"use_ingest_time,omitempty"`
@@ -35,6 +38,24 @@ type APIPatchRuleSearchV1 struct {
 
 // Validate validates this api patch rule search v1
 func (m *APIPatchRuleSearchV1) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateTriggerMode(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *APIPatchRuleSearchV1) validateTriggerMode(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger_mode", "body", m.TriggerMode); err != nil {
+		return err
+	}
+
 	return nil
 }
 

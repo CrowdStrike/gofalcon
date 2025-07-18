@@ -32,7 +32,8 @@ type APIRuleSearchV1 struct {
 	Outcome *string `json:"outcome"`
 
 	// trigger mode
-	TriggerMode string `json:"trigger_mode,omitempty"`
+	// Required: true
+	TriggerMode *string `json:"trigger_mode"`
 
 	// use ingest time
 	UseIngestTime bool `json:"use_ingest_time,omitempty"`
@@ -51,6 +52,10 @@ func (m *APIRuleSearchV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOutcome(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTriggerMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -81,6 +86,15 @@ func (m *APIRuleSearchV1) validateLookback(formats strfmt.Registry) error {
 func (m *APIRuleSearchV1) validateOutcome(formats strfmt.Registry) error {
 
 	if err := validate.Required("outcome", "body", m.Outcome); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleSearchV1) validateTriggerMode(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger_mode", "body", m.TriggerMode); err != nil {
 		return err
 	}
 

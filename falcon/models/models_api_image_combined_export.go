@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -31,9 +32,18 @@ type ModelsAPIImageCombinedExport struct {
 	// Required: true
 	BaseOs *string `json:"base_os"`
 
+	// business impact
+	BusinessImpact []string `json:"business_impact"`
+
+	// business unit
+	BusinessUnit []string `json:"business_unit"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
+
+	// cloud groups v2
+	CloudGroupsV2 []*RbacCloudGroup `json:"cloud_groups_v2"`
 
 	// cve id
 	// Required: true
@@ -54,6 +64,9 @@ type ModelsAPIImageCombinedExport struct {
 	// detection type
 	// Required: true
 	DetectionType *string `json:"detection_type"`
+
+	// environment
+	Environment []string `json:"environment"`
 
 	// first seen
 	// Required: true
@@ -136,6 +149,10 @@ func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudGroupsV2(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -256,6 +273,32 @@ func (m *ModelsAPIImageCombinedExport) validateCid(formats strfmt.Registry) erro
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPIImageCombinedExport) validateCloudGroupsV2(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudGroupsV2) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CloudGroupsV2); i++ {
+		if swag.IsZero(m.CloudGroupsV2[i]) { // not required
+			continue
+		}
+
+		if m.CloudGroupsV2[i] != nil {
+			if err := m.CloudGroupsV2[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -441,8 +484,42 @@ func (m *ModelsAPIImageCombinedExport) validateVulnerabilitySeverity(formats str
 	return nil
 }
 
-// ContextValidate validates this models API image combined export based on context it is used
+// ContextValidate validate this models API image combined export based on the context it is used
 func (m *ModelsAPIImageCombinedExport) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCloudGroupsV2(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ModelsAPIImageCombinedExport) contextValidateCloudGroupsV2(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CloudGroupsV2); i++ {
+
+		if m.CloudGroupsV2[i] != nil {
+
+			if swag.IsZero(m.CloudGroupsV2[i]) { // not required
+				return nil
+			}
+
+			if err := m.CloudGroupsV2[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_groups_v2" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

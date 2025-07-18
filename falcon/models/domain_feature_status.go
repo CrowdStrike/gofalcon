@@ -19,24 +19,25 @@ import (
 // swagger:model domain.FeatureStatus
 type DomainFeatureStatus struct {
 
-	// feature
+	// enabled
 	// Required: true
-	Feature *string `json:"feature"`
+	Enabled *bool `json:"enabled"`
+
+	// failed permissions
+	FailedPermissions []string `json:"failedPermissions"`
+
+	// passed permissions
+	PassedPermissions []string `json:"passedPermissions"`
 
 	// status
-	// Required: true
-	Status *string `json:"status"`
+	Status string `json:"status,omitempty"`
 }
 
 // Validate validates this domain feature status
 func (m *DomainFeatureStatus) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateFeature(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStatus(formats); err != nil {
+	if err := m.validateEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -46,18 +47,9 @@ func (m *DomainFeatureStatus) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainFeatureStatus) validateFeature(formats strfmt.Registry) error {
+func (m *DomainFeatureStatus) validateEnabled(formats strfmt.Registry) error {
 
-	if err := validate.Required("feature", "body", m.Feature); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainFeatureStatus) validateStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("status", "body", m.Status); err != nil {
+	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
 		return err
 	}
 

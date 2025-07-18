@@ -30,7 +30,7 @@ type ActivitiesActivityExternalResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*ActivitiesActivity `json:"resources"`
+	Resources []*ActivitiesExternalActivity `json:"resources"`
 }
 
 // Validate validates this activities activity external response
