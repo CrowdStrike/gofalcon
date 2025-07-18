@@ -84,6 +84,7 @@ type QueryCasesIdsByFilterParams struct {
 	case.key
 	case.last_modified_time
 	case.status
+	case.status
 	case.title
 	case.type
 	*/

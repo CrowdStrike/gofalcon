@@ -58,6 +58,8 @@ type ClientService interface {
 
 	QueryAlertIdsByFilter(params *QueryAlertIdsByFilterParams, opts ...ClientOption) (*QueryAlertIdsByFilterOK, error)
 
+	QueryAlertIdsByFilterV2(params *QueryAlertIdsByFilterV2Params, opts ...ClientOption) (*QueryAlertIdsByFilterV2OK, error)
+
 	QueryAllowListFilter(params *QueryAllowListFilterParams, opts ...ClientOption) (*QueryAllowListFilterOK, error)
 
 	QueryBlockListFilter(params *QueryBlockListFilterParams, opts ...ClientOption) (*QueryBlockListFilterOK, error)
@@ -74,7 +76,7 @@ type ClientService interface {
 }
 
 /*
-AggregateAlerts retrieves aggregate alerts values based on the matched filter
+AggregateAlerts retrieves aggregate epp alerts values based on the matched filter
 */
 func (a *Client) AggregateAlerts(params *AggregateAlertsParams, opts ...ClientOption) (*AggregateAlertsOK, error) {
 	// TODO: Validate the params before sending
@@ -622,7 +624,7 @@ func (a *Client) GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountC
 }
 
 /*
-QueryAlertIdsByFilter retrieves alerts ids that match the provided f q l filter criteria with scrolling enabled
+QueryAlertIdsByFilter retrieves alerts ids for epp that match the provided f q l filter criteria with scrolling enabled
 */
 func (a *Client) QueryAlertIdsByFilter(params *QueryAlertIdsByFilterParams, opts ...ClientOption) (*QueryAlertIdsByFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -656,6 +658,44 @@ func (a *Client) QueryAlertIdsByFilter(params *QueryAlertIdsByFilterParams, opts
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryAlertIdsByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryAlertIdsByFilterV2 retrieves alerts ids for epp idp and ngsiem that match the provided f q l filter criteria with scrolling enabled
+*/
+func (a *Client) QueryAlertIdsByFilterV2(params *QueryAlertIdsByFilterV2Params, opts ...ClientOption) (*QueryAlertIdsByFilterV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryAlertIdsByFilterV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryAlertIdsByFilterV2",
+		Method:             "GET",
+		PathPattern:        "/falcon-complete-dashboards/queries/alerts/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryAlertIdsByFilterV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryAlertIdsByFilterV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryAlertIdsByFilterV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

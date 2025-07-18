@@ -83,6 +83,7 @@ type NodeCountParams struct {
 	- `last_seen`
 	- `linux_sensor_coverage`
 	- `node_name`
+	- `node_uid`
 	- `pod_count`
 	- `resource_status`
 	*/

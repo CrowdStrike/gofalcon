@@ -190,8 +190,8 @@ func (o *APIPreemptProxyDeletePolicyRulesParams) bindParamIds(formats strfmt.Reg
 		idsIC = append(idsIC, idsIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	idsIS := swag.JoinByFormat(idsIC, "csv")
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
 
 	return idsIS
 }

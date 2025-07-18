@@ -22,10 +22,6 @@ type DownloadAzureScriptReader struct {
 	formats strfmt.Registry
 }
 
-type Unused struct {
-	typ string
-}
-
 // ReadResponse reads a server response into the received o.
 func (o *DownloadAzureScriptReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {

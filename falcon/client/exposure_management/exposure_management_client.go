@@ -52,6 +52,8 @@ type ClientService interface {
 
 	QueryExternalAssets(params *QueryExternalAssetsParams, opts ...ClientOption) (*QueryExternalAssetsOK, error)
 
+	QueryExternalAssetsV2(params *QueryExternalAssetsV2Params, opts ...ClientOption) (*QueryExternalAssetsV2OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -476,6 +478,44 @@ func (a *Client) QueryExternalAssets(params *QueryExternalAssetsParams, opts ...
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for query-external-assets: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryExternalAssetsV2 gets a list of external asset i ds that match the provided filter conditions use these i ds with the entities external assets v1 endpoint
+*/
+func (a *Client) QueryExternalAssetsV2(params *QueryExternalAssetsV2Params, opts ...ClientOption) (*QueryExternalAssetsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryExternalAssetsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "query-external-assets-v2",
+		Method:             "GET",
+		PathPattern:        "/fem/queries/external-assets/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryExternalAssetsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryExternalAssetsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for query-external-assets-v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
