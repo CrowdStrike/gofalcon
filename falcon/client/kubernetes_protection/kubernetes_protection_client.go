@@ -136,6 +136,8 @@ type ClientService interface {
 
 	PodsByDateRangeCount(params *PodsByDateRangeCountParams, opts ...ClientOption) (*PodsByDateRangeCountOK, error)
 
+	PostSearchKubernetesIOMEntities(params *PostSearchKubernetesIOMEntitiesParams, opts ...ClientOption) (*PostSearchKubernetesIOMEntitiesOK, error)
+
 	QueryKubernetesIoms(params *QueryKubernetesIomsParams, opts ...ClientOption) (*QueryKubernetesIomsOK, error)
 
 	ReadClusterCombinedV2(params *ReadClusterCombinedV2Params, opts ...ClientOption) (*ReadClusterCombinedV2OK, error)
@@ -158,7 +160,7 @@ type ClientService interface {
 }
 
 /*
-ClusterCombined maximums offset 10000 limit
+ClusterCombined retrieves kubernetes clusters identified by the provided filter criteria
 */
 func (a *Client) ClusterCombined(params *ClusterCombinedParams, opts ...ClientOption) (*ClusterCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -386,7 +388,7 @@ func (a *Client) ClustersByStatusCount(params *ClustersByStatusCountParams, opts
 }
 
 /*
-ContainerCombined maximums offset 10000 limit
+ContainerCombined retrieves a paginated list of containers identified by the provided filter criteria maximum page size 200 maximum available containers 10 000
 */
 func (a *Client) ContainerCombined(params *ContainerCombinedParams, opts ...ClientOption) (*ContainerCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -922,7 +924,7 @@ func (a *Client) DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, 
 }
 
 /*
-DeploymentCombined maximums offset 10000 limit
+DeploymentCombined retrieves kubernetes deployments identified by the provided filter criteria
 */
 func (a *Client) DeploymentCombined(params *DeploymentCombinedParams, opts ...ClientOption) (*DeploymentCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -1112,7 +1114,7 @@ func (a *Client) DistinctContainerImageCount(params *DistinctContainerImageCount
 }
 
 /*
-FindContainersByContainerRunTimeVersion maximums offset 10000 limit
+FindContainersByContainerRunTimeVersion retrieves containers by container runtime version
 */
 func (a *Client) FindContainersByContainerRunTimeVersion(params *FindContainersByContainerRunTimeVersionParams, opts ...ClientOption) (*FindContainersByContainerRunTimeVersionOK, error) {
 	// TODO: Validate the params before sending
@@ -1690,7 +1692,7 @@ func (a *Client) KubernetesIomEntities(params *KubernetesIomEntitiesParams, opts
 }
 
 /*
-KubernetesIomEntitiesCombined maximums offset 10000 limit
+KubernetesIomEntitiesCombined retrieves a list of kubernetes i o ms identified by the provided search criteria maximum page size 100 maximum available kubernetes i o ms 10 000
 */
 func (a *Client) KubernetesIomEntitiesCombined(params *KubernetesIomEntitiesCombinedParams, opts ...ClientOption) (*KubernetesIomEntitiesCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -1767,7 +1769,7 @@ func (a *Client) ListAzureAccounts(params *ListAzureAccountsParams, opts ...Clie
 }
 
 /*
-NodeCombined maximums offset 10000 limit
+NodeCombined retrieves kubernetes nodes identified by the provided filter criteria
 */
 func (a *Client) NodeCombined(params *NodeCombinedParams, opts ...ClientOption) (*NodeCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -2034,7 +2036,7 @@ func (a *Client) PatchAzureServicePrincipal(params *PatchAzureServicePrincipalPa
 }
 
 /*
-PodCombined maximums offset 10000 limit
+PodCombined retrieves kubernetes pods identified by the provided filter criteria
 */
 func (a *Client) PodCombined(params *PodCombinedParams, opts ...ClientOption) (*PodCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -2186,7 +2188,45 @@ func (a *Client) PodsByDateRangeCount(params *PodsByDateRangeCountParams, opts .
 }
 
 /*
-QueryKubernetesIoms maximums offset 10000 limit
+PostSearchKubernetesIOMEntities searches for kubernetes i o ms with filtering options pagination is supported via elasticsearch s search after search param and point in time assets are sorted by unique ID in ascending direction
+*/
+func (a *Client) PostSearchKubernetesIOMEntities(params *PostSearchKubernetesIOMEntitiesParams, opts ...ClientOption) (*PostSearchKubernetesIOMEntitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostSearchKubernetesIOMEntitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostSearchKubernetesIOMEntities",
+		Method:             "POST",
+		PathPattern:        "/container-security/combined/kubernetes-ioms/search/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSearchKubernetesIOMEntitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostSearchKubernetesIOMEntitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostSearchKubernetesIOMEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryKubernetesIoms searches kubernetes i o ms by the provided search criteria this endpoint returns a list of kubernetes i o m u UI ds matching the query
 */
 func (a *Client) QueryKubernetesIoms(params *QueryKubernetesIomsParams, opts ...ClientOption) (*QueryKubernetesIomsOK, error) {
 	// TODO: Validate the params before sending
@@ -2224,7 +2264,7 @@ func (a *Client) QueryKubernetesIoms(params *QueryKubernetesIomsParams, opts ...
 }
 
 /*
-ReadClusterCombinedV2 maximums offset 10000 limit
+ReadClusterCombinedV2 retrieves kubernetes cluster data
 */
 func (a *Client) ReadClusterCombinedV2(params *ReadClusterCombinedV2Params, opts ...ClientOption) (*ReadClusterCombinedV2OK, error) {
 	// TODO: Validate the params before sending
@@ -2377,7 +2417,7 @@ func (a *Client) RegenerateAPIKey(params *RegenerateAPIKeyParams, opts ...Client
 }
 
 /*
-RunningContainerImages maximums offset 10000 limit
+RunningContainerImages retrieves images on running containers
 */
 func (a *Client) RunningContainerImages(params *RunningContainerImagesParams, opts ...ClientOption) (*RunningContainerImagesOK, error) {
 	// TODO: Validate the params before sending

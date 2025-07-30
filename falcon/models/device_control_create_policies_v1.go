@@ -20,7 +20,7 @@ import (
 // swagger:model device_control.CreatePoliciesV1
 type DeviceControlCreatePoliciesV1 struct {
 
-	// A collection of policies to create
+	// List of policies to create. Maximum batch size: 1000.
 	// Required: true
 	Resources []*DeviceControlCreatePolicyReqV1 `json:"resources"`
 }

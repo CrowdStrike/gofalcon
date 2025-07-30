@@ -20,7 +20,7 @@ import (
 // swagger:model devicecontrolapi.ReqUpdateBasesV1External
 type DevicecontrolapiReqUpdateBasesV1External struct {
 
-	// Array of policies
+	// List of policies to update. Maximum batch size: 1000
 	// Required: true
 	Policies []*DevicecontrolapiReqUpdateBaseV1External `json:"policies"`
 }

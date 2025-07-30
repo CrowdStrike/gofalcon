@@ -30,6 +30,9 @@ type APIRuleCreateRequestV1 struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// guardrail notifications
+	GuardrailNotifications []*APICreateRuleNotifications `json:"guardrail_notifications"`
+
 	// mitre attack
 	MitreAttack []*ModelMitreAttackMapping `json:"mitre_attack"`
 
@@ -78,6 +81,10 @@ func (m *APIRuleCreateRequestV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateGuardrailNotifications(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMitreAttack(formats); err != nil {
 		res = append(res, err)
 	}
@@ -120,6 +127,32 @@ func (m *APIRuleCreateRequestV1) validateCustomerID(formats strfmt.Registry) err
 
 	if err := validate.Required("customer_id", "body", m.CustomerID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleCreateRequestV1) validateGuardrailNotifications(formats strfmt.Registry) error {
+	if swag.IsZero(m.GuardrailNotifications) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
+		if swag.IsZero(m.GuardrailNotifications[i]) { // not required
+			continue
+		}
+
+		if m.GuardrailNotifications[i] != nil {
+			if err := m.GuardrailNotifications[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -257,6 +290,10 @@ func (m *APIRuleCreateRequestV1) validateTemplateID(formats strfmt.Registry) err
 func (m *APIRuleCreateRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateGuardrailNotifications(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMitreAttack(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -276,6 +313,31 @@ func (m *APIRuleCreateRequestV1) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIRuleCreateRequestV1) contextValidateGuardrailNotifications(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
+
+		if m.GuardrailNotifications[i] != nil {
+
+			if swag.IsZero(m.GuardrailNotifications[i]) { // not required
+				return nil
+			}
+
+			if err := m.GuardrailNotifications[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

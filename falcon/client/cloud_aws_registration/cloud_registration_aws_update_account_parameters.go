@@ -64,7 +64,7 @@ CloudRegistrationAwsUpdateAccountParams contains all the parameters to send to t
 type CloudRegistrationAwsUpdateAccountParams struct {
 
 	// Body.
-	Body *models.RestAWSAccountCreateRequestExtv1
+	Body *models.RestAWSAccountPatchRequestExtV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CloudRegistrationAwsUpdateAccountParams) SetHTTPClient(client *http.Cli
 }
 
 // WithBody adds the body to the cloud registration aws update account params
-func (o *CloudRegistrationAwsUpdateAccountParams) WithBody(body *models.RestAWSAccountCreateRequestExtv1) *CloudRegistrationAwsUpdateAccountParams {
+func (o *CloudRegistrationAwsUpdateAccountParams) WithBody(body *models.RestAWSAccountPatchRequestExtV1) *CloudRegistrationAwsUpdateAccountParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the cloud registration aws update account params
-func (o *CloudRegistrationAwsUpdateAccountParams) SetBody(body *models.RestAWSAccountCreateRequestExtv1) {
+func (o *CloudRegistrationAwsUpdateAccountParams) SetBody(body *models.RestAWSAccountPatchRequestExtV1) {
 	o.Body = body
 }
 

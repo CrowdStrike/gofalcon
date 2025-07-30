@@ -64,21 +64,21 @@ type ExtAggregateFailedImagesCountBySeverityParams struct {
 	/* Filter.
 
 	     Filter results using a query in Falcon Query Language (FQL). Supported Filters:
-	cloud_info.cluster_name: Kubernetes cluster name
-	cloud_info.cloud_region: Cloud region
-	compliance_finding.name: Compliance finding Name
-	image_tag: Image tag
 	cloud_info.cloud_account_id: Cloud account ID
-	compliance_finding.id: Compliance finding ID
-	image_repository: Image repository
-	image_digest: Image digest (sha256 digest)
-	cloud_info.namespace: Kubernetes namespace
-	cid: Customer ID
 	image_registry: Image registry
-	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
+	image_digest: Image digest (sha256 digest)
 	cloud_info.cloud_provider: Cloud provider
-	image_id: Image ID
+	cid: Customer ID
+	cloud_info.cloud_region: Cloud region
+	compliance_finding.id: Compliance finding ID
+	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
+	image_repository: Image repository
+	image_tag: Image tag
+	cloud_info.cluster_name: Kubernetes cluster name
+	cloud_info.namespace: Kubernetes namespace
 	compliance_finding.framework: Compliance finding framework (available values: CIS)
+	image_id: Image ID
+	compliance_finding.name: Compliance finding Name
 
 	*/
 	Filter *string

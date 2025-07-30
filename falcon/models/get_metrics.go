@@ -20,13 +20,13 @@ import (
 type GetMetrics struct {
 
 	// errors
-	Errors []*Error94f9ac51c55f4fec89a57051edbed431 `json:"errors"`
+	Errors []*Error004c2a9d6a394ff787e9e11a85be1f75 `json:"errors"`
 
 	// meta
-	Meta *Meta09bb6b286221441896cffbaaff395ace `json:"meta,omitempty"`
+	Meta *MetaCdc06fb295194fe08b0f79df44799ef7 `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SecurityCheckMetrics2c3c230216d249bf9ec93ca3f6fcf330 `json:"resources"`
+	Resources []*SecurityCheckMetricsC746aedae56d48b59460bf0dd64497f6 `json:"resources"`
 }
 
 // Validate validates this get metrics

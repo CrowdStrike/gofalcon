@@ -20,13 +20,13 @@ import (
 type GetEndTransaction struct {
 
 	// errors
-	Errors []*Error4101616c9f2040828d5280eba77a6c0b `json:"errors"`
+	Errors []*ErrorE7d9c490a4ec430184dae22817a18462 `json:"errors"`
 
 	// meta
-	Meta *Meta73a55b9f03644bc185a2cfdbdcc6623f `json:"meta,omitempty"`
+	Meta *Meta7d7aa01ab4bc417e8162921475b44da9 `json:"meta,omitempty"`
 
 	// resources
-	Resources []*DataTransactionResponseDto8f21f39fac934f4381d93a4c9b41778c `json:"resources"`
+	Resources []*DataTransactionResponseDtoF8bd2c9b753e49deb813b65aa17b7c9b `json:"resources"`
 }
 
 // Validate validates this get end transaction

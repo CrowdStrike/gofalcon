@@ -112,7 +112,7 @@ func (a *Client) DismissAffectedEntityV3(params *DismissAffectedEntityV3Params, 
 /*
 DismissSecurityCheckV3 ps o s t dismiss security check by ID
 
-Perform dismiss to a security check
+Preform dismiss to a security check
 */
 func (a *Client) DismissSecurityCheckV3(params *DismissSecurityCheckV3Params, opts ...ClientOption) (*DismissSecurityCheckV3OK, error) {
 	// TODO: Validate the params before sending

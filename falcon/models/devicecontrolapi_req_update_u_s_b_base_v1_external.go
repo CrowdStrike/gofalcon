@@ -20,18 +20,18 @@ import (
 // swagger:model devicecontrolapi.ReqUpdateUSBBaseV1External
 type DevicecontrolapiReqUpdateUSBBaseV1External struct {
 
-	// custom notifications
+	// Object for custom end-user notifications
 	CustomNotifications *DevicecontrolapiUSBCustomNotifications `json:"custom_notifications,omitempty"`
 
 	// Determines if a notification will be shown to the end user (omit to keep current)
-	// Enum: [NOTIFY_USER,SILENT]
+	// Enum: [NOTIFY_USER SILENT]
 	EndUserNotification string `json:"end_user_notification,omitempty"`
 
-	// Enforcement for the USB policy (omit to keep current)
-	// Enum: [MONITOR_ONLY,MONITOR_ENFORCE,OFF]
+	// Enforcement for the USB policy (omit to keep current). Note: OFF only supported for Mac platform
+	// Enum: [MONITOR_ONLY MONITOR_ENFORCE OFF]
 	EnforcementMode string `json:"enforcement_mode,omitempty"`
 
-	// enhanced file metadata
+	// Boolean value to enable enhanced file metadata collection
 	EnhancedFileMetadata bool `json:"enhanced_file_metadata,omitempty"`
 }
 
@@ -80,7 +80,7 @@ var devicecontrolapiReqUpdateUSBBaseV1ExternalTypeEndUserNotificationPropEnum []
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["NOTIFY_USER,SILENT"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["NOTIFY_USER","SILENT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -90,8 +90,11 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateUSBBaseV1ExternalEndUserNotificationNOTIFYUSERSILENT captures enum value "NOTIFY_USER,SILENT"
-	DevicecontrolapiReqUpdateUSBBaseV1ExternalEndUserNotificationNOTIFYUSERSILENT string = "NOTIFY_USER,SILENT"
+	// DevicecontrolapiReqUpdateUSBBaseV1ExternalEndUserNotificationNOTIFYUSER captures enum value "NOTIFY_USER"
+	DevicecontrolapiReqUpdateUSBBaseV1ExternalEndUserNotificationNOTIFYUSER string = "NOTIFY_USER"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1ExternalEndUserNotificationSILENT captures enum value "SILENT"
+	DevicecontrolapiReqUpdateUSBBaseV1ExternalEndUserNotificationSILENT string = "SILENT"
 )
 
 // prop value enum
@@ -119,7 +122,7 @@ var devicecontrolapiReqUpdateUSBBaseV1ExternalTypeEnforcementModePropEnum []inte
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MONITOR_ONLY,MONITOR_ENFORCE,OFF"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE","OFF"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -129,8 +132,14 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeMONITORONLYMONITORENFORCEOFF captures enum value "MONITOR_ONLY,MONITOR_ENFORCE,OFF"
-	DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeMONITORONLYMONITORENFORCEOFF string = "MONITOR_ONLY,MONITOR_ENFORCE,OFF"
+	// DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
+	DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeMONITORONLY string = "MONITOR_ONLY"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
+	DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeOFF captures enum value "OFF"
+	DevicecontrolapiReqUpdateUSBBaseV1ExternalEnforcementModeOFF string = "OFF"
 )
 
 // prop value enum

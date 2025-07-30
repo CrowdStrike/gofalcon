@@ -83,7 +83,7 @@ type RunningContainerImagesParams struct {
 
 	/* Limit.
 
-	   The upper-bound on the number of records to retrieve.
+	   The upper-bound on the number of records to retrieve. Maximum limit: 200.
 
 	   Default: 200
 	*/
@@ -91,7 +91,7 @@ type RunningContainerImagesParams struct {
 
 	/* Offset.
 
-	   The offset from where to begin.
+	   The offset from where to begin. Maximum offset = 10000 - limit.
 	*/
 	Offset *int64
 

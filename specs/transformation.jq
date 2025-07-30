@@ -58,14 +58,21 @@
   #     end
   #   )
 
-# Fix saas security - rename all "SaaS Security - *" tags to "saas security"  
-| walk(
-    if type == "object" and has("tags") and (.tags | type) == "array" and (.tags | any(type == "string" and test("^SaaS Security - "))) then
-      .tags |= map(if type == "string" and test("^SaaS Security - ") then gsub("^SaaS Security - .*"; "saas security") else . end)
+# Fix saas security - check for paths starting with /saas-security/
+| .paths |= with_entries(
+    if .key | startswith("/saas-security/") then
+      .value |= walk(
+        if type == "object" and has("tags") and (.tags | type) == "array" then
+          .tags = ["saas security"]
+        else
+          .
+        end
+      )
     else
       .
     end
   )
+
 
   # Revert msaspec.QueryResponse back to msa.QueryResponse for falconcomplete-dashboard
   | if .paths."/falcon-complete-dashboards/queries/alerts/v1".get.responses."200".schema."$ref" = "#/definitions/msaspec.QueryResponse" then .paths."/falcon-complete-dashboards/queries/alerts/v1".get.responses."200".schema |= {"$ref": "#/definitions/msa.QueryResponse"} else . end

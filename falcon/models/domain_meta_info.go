@@ -20,7 +20,7 @@ import (
 type DomainMetaInfo struct {
 
 	// pagination
-	Pagination *MsaPaging `json:"pagination,omitempty"`
+	Pagination *DomainAssessmentPaging `json:"pagination,omitempty"`
 
 	// powered by
 	PoweredBy string `json:"powered_by,omitempty"`
@@ -29,15 +29,9 @@ type DomainMetaInfo struct {
 	// Required: true
 	QueryTime *float64 `json:"query_time"`
 
-	// quota
-	Quota *DomainQuota `json:"quota,omitempty"`
-
 	// trace id
 	// Required: true
 	TraceID *string `json:"trace_id"`
-
-	// writes
-	Writes *MsaspecWrites `json:"writes,omitempty"`
 }
 
 // Validate validates this domain meta info
@@ -52,15 +46,7 @@ func (m *DomainMetaInfo) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateQuota(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateTraceID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateWrites(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -98,48 +84,10 @@ func (m *DomainMetaInfo) validateQueryTime(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainMetaInfo) validateQuota(formats strfmt.Registry) error {
-	if swag.IsZero(m.Quota) { // not required
-		return nil
-	}
-
-	if m.Quota != nil {
-		if err := m.Quota.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("quota")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("quota")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *DomainMetaInfo) validateTraceID(formats strfmt.Registry) error {
 
 	if err := validate.Required("trace_id", "body", m.TraceID); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *DomainMetaInfo) validateWrites(formats strfmt.Registry) error {
-	if swag.IsZero(m.Writes) { // not required
-		return nil
-	}
-
-	if m.Writes != nil {
-		if err := m.Writes.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("writes")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("writes")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -150,14 +98,6 @@ func (m *DomainMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Reg
 	var res []error
 
 	if err := m.contextValidatePagination(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateQuota(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateWrites(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -180,48 +120,6 @@ func (m *DomainMetaInfo) contextValidatePagination(ctx context.Context, formats 
 				return ve.ValidateName("pagination")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("pagination")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainMetaInfo) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Quota != nil {
-
-		if swag.IsZero(m.Quota) { // not required
-			return nil
-		}
-
-		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("quota")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("quota")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Writes != nil {
-
-		if swag.IsZero(m.Writes) { // not required
-			return nil
-		}
-
-		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("writes")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("writes")
 			}
 			return err
 		}

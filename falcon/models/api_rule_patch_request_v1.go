@@ -26,6 +26,9 @@ type APIRulePatchRequestV1 struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// guardrail notifications
+	GuardrailNotifications []*APIPatchRuleNotificationsV1 `json:"guardrail_notifications"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`
@@ -65,6 +68,10 @@ type APIRulePatchRequestV1 struct {
 func (m *APIRulePatchRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateGuardrailNotifications(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -88,6 +95,32 @@ func (m *APIRulePatchRequestV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIRulePatchRequestV1) validateGuardrailNotifications(formats strfmt.Registry) error {
+	if swag.IsZero(m.GuardrailNotifications) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
+		if swag.IsZero(m.GuardrailNotifications[i]) { // not required
+			continue
+		}
+
+		if m.GuardrailNotifications[i] != nil {
+			if err := m.GuardrailNotifications[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -194,6 +227,10 @@ func (m *APIRulePatchRequestV1) validateSearch(formats strfmt.Registry) error {
 func (m *APIRulePatchRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateGuardrailNotifications(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMitreAttack(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -213,6 +250,31 @@ func (m *APIRulePatchRequestV1) ContextValidate(ctx context.Context, formats str
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIRulePatchRequestV1) contextValidateGuardrailNotifications(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
+
+		if m.GuardrailNotifications[i] != nil {
+
+			if swag.IsZero(m.GuardrailNotifications[i]) { // not required
+				return nil
+			}
+
+			if err := m.GuardrailNotifications[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

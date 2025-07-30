@@ -30,21 +30,483 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateDashboardFromTemplate(params *CreateDashboardFromTemplateParams, opts ...ClientOption) (*CreateDashboardFromTemplateOK, error)
+
+	CreateLookupFile(params *CreateLookupFileParams, opts ...ClientOption) (*CreateLookupFileOK, error)
+
+	CreateParser(params *CreateParserParams, opts ...ClientOption) (*CreateParserOK, error)
+
+	CreateParserFromTemplate(params *CreateParserFromTemplateParams, opts ...ClientOption) (*CreateParserFromTemplateOK, error)
+
+	CreateSavedQuery(params *CreateSavedQueryParams, opts ...ClientOption) (*CreateSavedQueryOK, error)
+
+	DeleteDashboard(params *DeleteDashboardParams, opts ...ClientOption) (*DeleteDashboardOK, error)
+
+	DeleteLookupFile(params *DeleteLookupFileParams, opts ...ClientOption) (*DeleteLookupFileOK, error)
+
+	DeleteParser(params *DeleteParserParams, opts ...ClientOption) (*DeleteParserOK, error)
+
+	DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...ClientOption) (*DeleteSavedQueryOK, error)
+
+	GetDashboardTemplate(params *GetDashboardTemplateParams, opts ...ClientOption) (*GetDashboardTemplateOK, error)
+
+	GetLookupFile(params *GetLookupFileParams, opts ...ClientOption) (*GetLookupFileOK, error)
+
 	GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, opts ...ClientOption) (*GetLookupFromPackageV1OK, error)
 
 	GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackageWithNamespaceV1Params, opts ...ClientOption) (*GetLookupFromPackageWithNamespaceV1OK, error)
 
 	GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*GetLookupV1OK, error)
 
+	GetParser(params *GetParserParams, opts ...ClientOption) (*GetParserOK, error)
+
+	GetParserTemplate(params *GetParserTemplateParams, opts ...ClientOption) (*GetParserTemplateOK, error)
+
+	GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts ...ClientOption) (*GetSavedQueryTemplateOK, error)
+
 	GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...ClientOption) (*GetSearchStatusV1OK, error)
+
+	ListDashboards(params *ListDashboardsParams, opts ...ClientOption) (*ListDashboardsOK, error)
+
+	ListLookupFiles(params *ListLookupFilesParams, opts ...ClientOption) (*ListLookupFilesOK, error)
+
+	ListParsers(params *ListParsersParams, opts ...ClientOption) (*ListParsersOK, error)
+
+	ListSavedQueries(params *ListSavedQueriesParams, opts ...ClientOption) (*ListSavedQueriesOK, error)
 
 	StartSearchV1(params *StartSearchV1Params, opts ...ClientOption) (*StartSearchV1OK, error)
 
 	StopSearchV1(params *StopSearchV1Params, opts ...ClientOption) (*StopSearchV1OK, error)
 
+	UpdateDashboardFromTemplate(params *UpdateDashboardFromTemplateParams, opts ...ClientOption) (*UpdateDashboardFromTemplateOK, error)
+
+	UpdateLookupFile(params *UpdateLookupFileParams, opts ...ClientOption) (*UpdateLookupFileOK, error)
+
+	UpdateParser(params *UpdateParserParams, opts ...ClientOption) (*UpdateParserOK, error)
+
+	UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error)
+
 	UploadLookupV1(params *UploadLookupV1Params, opts ...ClientOption) (*UploadLookupV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CreateDashboardFromTemplate creates dashboard from log scale y a m l template in n g s i e m
+*/
+func (a *Client) CreateDashboardFromTemplate(params *CreateDashboardFromTemplateParams, opts ...ClientOption) (*CreateDashboardFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateDashboardFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateDashboardFromTemplate",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/dashboards-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateDashboardFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateDashboardFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateDashboardFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateLookupFile creates lookup file in n g s i e m
+*/
+func (a *Client) CreateLookupFile(params *CreateLookupFileParams, opts ...ClientOption) (*CreateLookupFileOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateLookupFileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateLookupFile",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateLookupFileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateLookupFileOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateLookupFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateParser creates parser in n g s i e m
+*/
+func (a *Client) CreateParser(params *CreateParserParams, opts ...ClientOption) (*CreateParserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateParserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateParser",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateParserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateParserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateParserFromTemplate creates parser from log scale y a m l template in n g s i e m
+*/
+func (a *Client) CreateParserFromTemplate(params *CreateParserFromTemplateParams, opts ...ClientOption) (*CreateParserFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateParserFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateParserFromTemplate",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateParserFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateParserFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateParserFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateSavedQuery creates saved query from log scale y a m l template in n g s i e m
+*/
+func (a *Client) CreateSavedQuery(params *CreateSavedQueryParams, opts ...ClientOption) (*CreateSavedQueryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateSavedQueryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateSavedQuery",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/savedqueries-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateSavedQueryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateSavedQueryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateSavedQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteDashboard deletes dashboard in n g s i e m
+*/
+func (a *Client) DeleteDashboard(params *DeleteDashboardParams, opts ...ClientOption) (*DeleteDashboardOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteDashboardParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteDashboard",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/dashboards/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteDashboardReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteDashboardOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteDashboard: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteLookupFile deletes lookup file in n g s i e m
+*/
+func (a *Client) DeleteLookupFile(params *DeleteLookupFileParams, opts ...ClientOption) (*DeleteLookupFileOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteLookupFileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteLookupFile",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteLookupFileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteLookupFileOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteLookupFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteParser deletes parser in n g s i e m
+*/
+func (a *Client) DeleteParser(params *DeleteParserParams, opts ...ClientOption) (*DeleteParserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteParserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteParser",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/parsers/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteParserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteParserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteSavedQuery deletes saved query in n g s i e m
+*/
+func (a *Client) DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...ClientOption) (*DeleteSavedQueryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteSavedQueryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteSavedQuery",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/savedqueries/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteSavedQueryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteSavedQueryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteSavedQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDashboardTemplate retrieves dashboard in n g s i e m as log scale y a m l template
+*/
+func (a *Client) GetDashboardTemplate(params *GetDashboardTemplateParams, opts ...ClientOption) (*GetDashboardTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDashboardTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDashboardTemplate",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/dashboards-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDashboardTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDashboardTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDashboardTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetLookupFile retrieves lookup file in n g s i e m
+*/
+func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption) (*GetLookupFileOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetLookupFileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetLookupFile",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLookupFileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetLookupFileOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetLookupFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -162,6 +624,120 @@ func (a *Client) GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*
 }
 
 /*
+GetParser retrieves parser in n g s i e m
+*/
+func (a *Client) GetParser(params *GetParserParams, opts ...ClientOption) (*GetParserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetParserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetParser",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/parsers/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetParserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetParserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetParserTemplate retrieves parser in n g s i e m as log scale y a m l template
+*/
+func (a *Client) GetParserTemplate(params *GetParserTemplateParams, opts ...ClientOption) (*GetParserTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetParserTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetParserTemplate",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/parsers-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetParserTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetParserTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetParserTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSavedQueryTemplate retrieves saved query in n g s i e m as log scale y a m l template
+*/
+func (a *Client) GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts ...ClientOption) (*GetSavedQueryTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSavedQueryTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSavedQueryTemplate",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/savedqueries-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSavedQueryTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSavedQueryTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSavedQueryTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetSearchStatusV1 gets status of search
 */
 func (a *Client) GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...ClientOption) (*GetSearchStatusV1OK, error) {
@@ -196,6 +772,158 @@ func (a *Client) GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetSearchStatusV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ListDashboards lists dashboards in n g s i e m
+*/
+func (a *Client) ListDashboards(params *ListDashboardsParams, opts ...ClientOption) (*ListDashboardsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListDashboardsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListDashboards",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/queries/dashboards/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListDashboardsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListDashboardsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListDashboards: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ListLookupFiles lists lookup files in n g s i e m
+*/
+func (a *Client) ListLookupFiles(params *ListLookupFilesParams, opts ...ClientOption) (*ListLookupFilesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListLookupFilesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListLookupFiles",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/queries/lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListLookupFilesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListLookupFilesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListLookupFiles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ListParsers lists parsers in n g s i e m
+*/
+func (a *Client) ListParsers(params *ListParsersParams, opts ...ClientOption) (*ListParsersOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListParsersParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListParsers",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/queries/parsers/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListParsersReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListParsersOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListParsers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ListSavedQueries gets saved queries in n g s i e m
+*/
+func (a *Client) ListSavedQueries(params *ListSavedQueriesParams, opts ...ClientOption) (*ListSavedQueriesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListSavedQueriesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListSavedQueries",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/queries/savedqueries/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListSavedQueriesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListSavedQueriesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListSavedQueries: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -272,6 +1000,158 @@ func (a *Client) StopSearchV1(params *StopSearchV1Params, opts ...ClientOption) 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for StopSearchV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateDashboardFromTemplate updates dashboard from log scale y a m l template in n g s i e m please note a successful update will result in a new ID value being returned
+*/
+func (a *Client) UpdateDashboardFromTemplate(params *UpdateDashboardFromTemplateParams, opts ...ClientOption) (*UpdateDashboardFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDashboardFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateDashboardFromTemplate",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/dashboards-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateDashboardFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDashboardFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateDashboardFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateLookupFile updates lookup file in n g s i e m
+*/
+func (a *Client) UpdateLookupFile(params *UpdateLookupFileParams, opts ...ClientOption) (*UpdateLookupFileOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateLookupFileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateLookupFile",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateLookupFileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateLookupFileOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateLookupFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateParser updates parser in n g s i e m please note that name changes are not supported but rather should be created as a new parser
+*/
+func (a *Client) UpdateParser(params *UpdateParserParams, opts ...ClientOption) (*UpdateParserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateParserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateParser",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/parsers/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateParserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateParserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateSavedQueryFromTemplate updates saved query from log scale y a m l template in n g s i e m please note a successful update will result in a new ID value being returned
+*/
+func (a *Client) UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateSavedQueryFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateSavedQueryFromTemplate",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/savedqueries-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateSavedQueryFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateSavedQueryFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateSavedQueryFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

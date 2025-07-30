@@ -20,22 +20,15 @@ import (
 // swagger:model api.RuleV1
 type APIRuleV1 struct {
 
-	// action label
+	// api client id
 	// Required: true
-	ActionLabel *string `json:"action_label"`
+	APIClientID *string `json:"api_client_id"`
+
+	// author
+	Author string `json:"author,omitempty"`
 
 	// comment
-	// Required: true
-	Comment *string `json:"comment"`
-
-	// committed on
-	// Required: true
-	// Format: date-time
-	CommittedOn *strfmt.DateTime `json:"committed_on"`
-
-	// created by
-	// Required: true
-	CreatedBy *string `json:"created_by"`
+	Comment string `json:"comment,omitempty"`
 
 	// created on
 	// Required: true
@@ -46,93 +39,106 @@ type APIRuleV1 struct {
 	// Required: true
 	CustomerID *string `json:"customer_id"`
 
-	// deleted
-	// Required: true
-	Deleted *bool `json:"deleted"`
-
 	// description
-	// Required: true
-	Description *string `json:"description"`
+	Description string `json:"description,omitempty"`
 
-	// disposition id
-	// Required: true
-	DispositionID *int32 `json:"disposition_id"`
+	// guardrail notifications
+	GuardrailNotifications []*APIRuleNotificationsV1 `json:"guardrail_notifications"`
 
-	// enabled
+	// id
 	// Required: true
-	Enabled *bool `json:"enabled"`
+	ID *string `json:"id"`
 
-	// field values
-	// Required: true
-	FieldValues []*DomainFieldValue `json:"field_values"`
+	// last execution
+	LastExecution *APIRuleLastExecutionV1 `json:"last_execution,omitempty"`
 
-	// instance id
-	// Required: true
-	InstanceID *string `json:"instance_id"`
-
-	// instance version
-	// Required: true
-	InstanceVersion *int64 `json:"instance_version"`
-
-	// magic cookie
-	// Required: true
-	MagicCookie *int64 `json:"magic_cookie"`
-
-	// modified by
-	// Required: true
-	ModifiedBy *string `json:"modified_by"`
-
-	// modified on
+	// last updated on
 	// Required: true
 	// Format: date-time
-	ModifiedOn *strfmt.DateTime `json:"modified_on"`
+	LastUpdatedOn *strfmt.DateTime `json:"last_updated_on"`
+
+	// mitre attack
+	// Required: true
+	MitreAttack []*ModelMitreAttackMapping `json:"mitre_attack"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
 
-	// pattern id
-	// Required: true
-	PatternID *string `json:"pattern_id"`
+	// next execution on
+	// Format: date-time
+	NextExecutionOn strfmt.DateTime `json:"next_execution_on,omitempty"`
 
-	// pattern severity
-	// Required: true
-	PatternSeverity *string `json:"pattern_severity"`
+	// notifications
+	Notifications []*APIRuleNotificationsV1 `json:"notifications"`
 
-	// rulegroup id
+	// operation
 	// Required: true
-	RulegroupID *string `json:"rulegroup_id"`
+	Operation *APIRuleOperationV1 `json:"operation"`
 
-	// ruletype id
-	// Required: true
-	RuletypeID *string `json:"ruletype_id"`
+	// rule id
+	RuleID string `json:"rule_id,omitempty"`
 
-	// ruletype name
+	// search
 	// Required: true
-	RuletypeName *string `json:"ruletype_name"`
+	Search *APIRuleSearchV1 `json:"search"`
 
-	// version ids
+	// severity
 	// Required: true
-	VersionIds []string `json:"version_ids"`
+	Severity *int32 `json:"severity"`
+
+	// state
+	State string `json:"state,omitempty"`
+
+	// status
+	// Required: true
+	Status *string `json:"status"`
+
+	// tactic
+	// Required: true
+	Tactic *string `json:"tactic"`
+
+	// technique
+	// Required: true
+	Technique *string `json:"technique"`
+
+	// template id
+	// Required: true
+	TemplateID *string `json:"template_id"`
+
+	// type
+	// Read Only: true
+	Type string `json:"type,omitempty"`
+
+	// updated by api client id
+	// Required: true
+	UpdatedByAPIClientID *string `json:"updated_by_api_client_id"`
+
+	// updated by user id
+	// Required: true
+	UpdatedByUserID *string `json:"updated_by_user_id"`
+
+	// updated by user uuid
+	// Required: true
+	UpdatedByUserUUID *string `json:"updated_by_user_uuid"`
+
+	// user id
+	// Required: true
+	UserID *string `json:"user_id"`
+
+	// user uuid
+	// Required: true
+	UserUUID *string `json:"user_uuid"`
+
+	// version
+	Version int32 `json:"version,omitempty"`
 }
 
 // Validate validates this api rule v1
 func (m *APIRuleV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateActionLabel(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateComment(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCommittedOn(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCreatedBy(formats); err != nil {
+	if err := m.validateAPIClientID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -144,43 +150,23 @@ func (m *APIRuleV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateDeleted(formats); err != nil {
+	if err := m.validateGuardrailNotifications(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDescription(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDispositionID(formats); err != nil {
+	if err := m.validateLastExecution(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEnabled(formats); err != nil {
+	if err := m.validateLastUpdatedOn(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFieldValues(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateInstanceID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateInstanceVersion(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMagicCookie(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateModifiedBy(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateModifiedOn(formats); err != nil {
+	if err := m.validateMitreAttack(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -188,27 +174,59 @@ func (m *APIRuleV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validatePatternID(formats); err != nil {
+	if err := m.validateNextExecutionOn(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePatternSeverity(formats); err != nil {
+	if err := m.validateNotifications(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRulegroupID(formats); err != nil {
+	if err := m.validateOperation(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuletypeID(formats); err != nil {
+	if err := m.validateSearch(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuletypeName(formats); err != nil {
+	if err := m.validateSeverity(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateVersionIds(formats); err != nil {
+	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTactic(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTechnique(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTemplateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdatedByAPIClientID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdatedByUserID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdatedByUserUUID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserUUID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -218,40 +236,9 @@ func (m *APIRuleV1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIRuleV1) validateActionLabel(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateAPIClientID(formats strfmt.Registry) error {
 
-	if err := validate.Required("action_label", "body", m.ActionLabel); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIRuleV1) validateComment(formats strfmt.Registry) error {
-
-	if err := validate.Required("comment", "body", m.Comment); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIRuleV1) validateCommittedOn(formats strfmt.Registry) error {
-
-	if err := validate.Required("committed_on", "body", m.CommittedOn); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("committed_on", "body", "date-time", m.CommittedOn.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIRuleV1) validateCreatedBy(formats strfmt.Registry) error {
-
-	if err := validate.Required("created_by", "body", m.CreatedBy); err != nil {
+	if err := validate.Required("api_client_id", "body", m.APIClientID); err != nil {
 		return err
 	}
 
@@ -280,59 +267,22 @@ func (m *APIRuleV1) validateCustomerID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIRuleV1) validateDeleted(formats strfmt.Registry) error {
-
-	if err := validate.Required("deleted", "body", m.Deleted); err != nil {
-		return err
+func (m *APIRuleV1) validateGuardrailNotifications(formats strfmt.Registry) error {
+	if swag.IsZero(m.GuardrailNotifications) { // not required
+		return nil
 	}
 
-	return nil
-}
-
-func (m *APIRuleV1) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIRuleV1) validateDispositionID(formats strfmt.Registry) error {
-
-	if err := validate.Required("disposition_id", "body", m.DispositionID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIRuleV1) validateEnabled(formats strfmt.Registry) error {
-
-	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIRuleV1) validateFieldValues(formats strfmt.Registry) error {
-
-	if err := validate.Required("field_values", "body", m.FieldValues); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.FieldValues); i++ {
-		if swag.IsZero(m.FieldValues[i]) { // not required
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
+		if swag.IsZero(m.GuardrailNotifications[i]) { // not required
 			continue
 		}
 
-		if m.FieldValues[i] != nil {
-			if err := m.FieldValues[i].Validate(formats); err != nil {
+		if m.GuardrailNotifications[i] != nil {
+			if err := m.GuardrailNotifications[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("field_values" + "." + strconv.Itoa(i))
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("field_values" + "." + strconv.Itoa(i))
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -343,50 +293,69 @@ func (m *APIRuleV1) validateFieldValues(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIRuleV1) validateInstanceID(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("instance_id", "body", m.InstanceID); err != nil {
+	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIRuleV1) validateInstanceVersion(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateLastExecution(formats strfmt.Registry) error {
+	if swag.IsZero(m.LastExecution) { // not required
+		return nil
+	}
 
-	if err := validate.Required("instance_version", "body", m.InstanceVersion); err != nil {
+	if m.LastExecution != nil {
+		if err := m.LastExecution.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("last_execution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("last_execution")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateLastUpdatedOn(formats strfmt.Registry) error {
+
+	if err := validate.Required("last_updated_on", "body", m.LastUpdatedOn); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("last_updated_on", "body", "date-time", m.LastUpdatedOn.String(), formats); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIRuleV1) validateMagicCookie(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateMitreAttack(formats strfmt.Registry) error {
 
-	if err := validate.Required("magic_cookie", "body", m.MagicCookie); err != nil {
+	if err := validate.Required("mitre_attack", "body", m.MitreAttack); err != nil {
 		return err
 	}
 
-	return nil
-}
+	for i := 0; i < len(m.MitreAttack); i++ {
+		if swag.IsZero(m.MitreAttack[i]) { // not required
+			continue
+		}
 
-func (m *APIRuleV1) validateModifiedBy(formats strfmt.Registry) error {
+		if m.MitreAttack[i] != nil {
+			if err := m.MitreAttack[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
 
-	if err := validate.Required("modified_by", "body", m.ModifiedBy); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIRuleV1) validateModifiedOn(formats strfmt.Registry) error {
-
-	if err := validate.Required("modified_on", "body", m.ModifiedOn); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("modified_on", "body", "date-time", m.ModifiedOn.String(), formats); err != nil {
-		return err
 	}
 
 	return nil
@@ -401,54 +370,168 @@ func (m *APIRuleV1) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIRuleV1) validatePatternID(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateNextExecutionOn(formats strfmt.Registry) error {
+	if swag.IsZero(m.NextExecutionOn) { // not required
+		return nil
+	}
 
-	if err := validate.Required("pattern_id", "body", m.PatternID); err != nil {
+	if err := validate.FormatOf("next_execution_on", "body", "date-time", m.NextExecutionOn.String(), formats); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIRuleV1) validatePatternSeverity(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateNotifications(formats strfmt.Registry) error {
+	if swag.IsZero(m.Notifications) { // not required
+		return nil
+	}
 
-	if err := validate.Required("pattern_severity", "body", m.PatternSeverity); err != nil {
+	for i := 0; i < len(m.Notifications); i++ {
+		if swag.IsZero(m.Notifications[i]) { // not required
+			continue
+		}
+
+		if m.Notifications[i] != nil {
+			if err := m.Notifications[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateOperation(formats strfmt.Registry) error {
+
+	if err := validate.Required("operation", "body", m.Operation); err != nil {
+		return err
+	}
+
+	if m.Operation != nil {
+		if err := m.Operation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("operation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateSearch(formats strfmt.Registry) error {
+
+	if err := validate.Required("search", "body", m.Search); err != nil {
+		return err
+	}
+
+	if m.Search != nil {
+		if err := m.Search.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("search")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("search")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateSeverity(formats strfmt.Registry) error {
+
+	if err := validate.Required("severity", "body", m.Severity); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIRuleV1) validateRulegroupID(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateStatus(formats strfmt.Registry) error {
 
-	if err := validate.Required("rulegroup_id", "body", m.RulegroupID); err != nil {
+	if err := validate.Required("status", "body", m.Status); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIRuleV1) validateRuletypeID(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateTactic(formats strfmt.Registry) error {
 
-	if err := validate.Required("ruletype_id", "body", m.RuletypeID); err != nil {
+	if err := validate.Required("tactic", "body", m.Tactic); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIRuleV1) validateRuletypeName(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateTechnique(formats strfmt.Registry) error {
 
-	if err := validate.Required("ruletype_name", "body", m.RuletypeName); err != nil {
+	if err := validate.Required("technique", "body", m.Technique); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIRuleV1) validateVersionIds(formats strfmt.Registry) error {
+func (m *APIRuleV1) validateTemplateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("version_ids", "body", m.VersionIds); err != nil {
+	if err := validate.Required("template_id", "body", m.TemplateID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateUpdatedByAPIClientID(formats strfmt.Registry) error {
+
+	if err := validate.Required("updated_by_api_client_id", "body", m.UpdatedByAPIClientID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateUpdatedByUserID(formats strfmt.Registry) error {
+
+	if err := validate.Required("updated_by_user_id", "body", m.UpdatedByUserID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateUpdatedByUserUUID(formats strfmt.Registry) error {
+
+	if err := validate.Required("updated_by_user_uuid", "body", m.UpdatedByUserUUID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateUserID(formats strfmt.Registry) error {
+
+	if err := validate.Required("user_id", "body", m.UserID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) validateUserUUID(formats strfmt.Registry) error {
+
+	if err := validate.Required("user_uuid", "body", m.UserUUID); err != nil {
 		return err
 	}
 
@@ -459,7 +542,31 @@ func (m *APIRuleV1) validateVersionIds(formats strfmt.Registry) error {
 func (m *APIRuleV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateFieldValues(ctx, formats); err != nil {
+	if err := m.contextValidateGuardrailNotifications(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastExecution(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMitreAttack(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNotifications(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOperation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSearch(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -469,26 +576,140 @@ func (m *APIRuleV1) ContextValidate(ctx context.Context, formats strfmt.Registry
 	return nil
 }
 
-func (m *APIRuleV1) contextValidateFieldValues(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIRuleV1) contextValidateGuardrailNotifications(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.FieldValues); i++ {
+	for i := 0; i < len(m.GuardrailNotifications); i++ {
 
-		if m.FieldValues[i] != nil {
+		if m.GuardrailNotifications[i] != nil {
 
-			if swag.IsZero(m.FieldValues[i]) { // not required
+			if swag.IsZero(m.GuardrailNotifications[i]) { // not required
 				return nil
 			}
 
-			if err := m.FieldValues[i].ContextValidate(ctx, formats); err != nil {
+			if err := m.GuardrailNotifications[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("field_values" + "." + strconv.Itoa(i))
+					return ve.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("field_values" + "." + strconv.Itoa(i))
+					return ce.ValidateName("guardrail_notifications" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) contextValidateLastExecution(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastExecution != nil {
+
+		if swag.IsZero(m.LastExecution) { // not required
+			return nil
+		}
+
+		if err := m.LastExecution.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("last_execution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("last_execution")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) contextValidateMitreAttack(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MitreAttack); i++ {
+
+		if m.MitreAttack[i] != nil {
+
+			if swag.IsZero(m.MitreAttack[i]) { // not required
+				return nil
+			}
+
+			if err := m.MitreAttack[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attack" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) contextValidateNotifications(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Notifications); i++ {
+
+		if m.Notifications[i] != nil {
+
+			if swag.IsZero(m.Notifications[i]) { // not required
+				return nil
+			}
+
+			if err := m.Notifications[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) contextValidateOperation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Operation != nil {
+
+		if err := m.Operation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("operation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) contextValidateSearch(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Search != nil {
+
+		if err := m.Search.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("search")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("search")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIRuleV1) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
+		return err
 	}
 
 	return nil

@@ -19,7 +19,7 @@ import (
 // swagger:model device_control.USBCustomNotification
 type DeviceControlUSBCustomNotification struct {
 
-	// The notification to be displayed to the end-user
+	// The notification to be displayed to the end-user. Maximum length: 256 characters.
 	// Required: true
 	CustomMessage *string `json:"custom_message"`
 

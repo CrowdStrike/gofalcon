@@ -32,9 +32,9 @@ type APIQueryJobsResults struct {
 	// Required: true
 	Events []APIQueryJobsResultsEvents `json:"events"`
 
-	// List of the files used to fulfill the query
+	// JSON List of the files used to fulfill the query
 	// Required: true
-	FilesUsed []string `json:"filesUsed"`
+	FilesUsed []APIQueryJobsResultsFilesUsed `json:"filesUsed"`
 
 	// Entries that match the supplied filter
 	// Required: true

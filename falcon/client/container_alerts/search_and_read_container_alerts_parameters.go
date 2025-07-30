@@ -75,7 +75,7 @@ type SearchAndReadContainerAlertsParams struct {
 
 	/* Limit.
 
-	   The upper-bound on the number of records to retrieve.
+	   The upper-bound on the number of records to retrieve. Maximum limit: 100.
 
 	   Default: 100
 	*/
@@ -83,7 +83,7 @@ type SearchAndReadContainerAlertsParams struct {
 
 	/* Offset.
 
-	   The offset from where to begin.
+	   The offset from where to begin. Maximum offset = 10000 - limit.
 	*/
 	Offset *int64
 
