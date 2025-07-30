@@ -20,13 +20,13 @@ import (
 type GetSecurityChecks struct {
 
 	// errors
-	Errors []*Error220b83f3026644aebbf2ff58fd9effd7 `json:"errors"`
+	Errors []*Error17a4419fb1d84611977a4246bf0b966e `json:"errors"`
 
 	// meta
-	Meta *Meta600356c824334a3aafc759477372d640 `json:"meta,omitempty"`
+	Meta *MetaC583859e33864ec39ee1b50392a26986 `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SecurityCheckWithCompliance00fb797b7e4b404087ee2564b3053ac2 `json:"resources"`
+	Resources []*SecurityCheckWithCompliance2db987fc9baa4615b4274d312496752c `json:"resources"`
 }
 
 // Validate validates this get security checks

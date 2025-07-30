@@ -54,7 +54,7 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	OrganizationID string `json:"organization_id,omitempty"`
 
 	// products
-	Products []*RestAccountProductUpsertRequestExtV1 `json:"products"`
+	Products []*RestAccountProductRequestExtV1 `json:"products"`
 
 	// resource name prefix
 	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`

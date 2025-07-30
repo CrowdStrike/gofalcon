@@ -48,7 +48,7 @@ type ClientService interface {
 }
 
 /*
-ReadPackagesByFixableVulnCount maximums offset 10000 limit
+ReadPackagesByFixableVulnCount retrieves top x app packages with the most fixable vulnerabilities
 */
 func (a *Client) ReadPackagesByFixableVulnCount(params *ReadPackagesByFixableVulnCountParams, opts ...ClientOption) (*ReadPackagesByFixableVulnCountOK, error) {
 	// TODO: Validate the params before sending
@@ -124,7 +124,7 @@ func (a *Client) ReadPackagesByImageCount(params *ReadPackagesByImageCountParams
 }
 
 /*
-ReadPackagesByVulnCount maximums offset 10000 limit
+ReadPackagesByVulnCount retrieves top x packages with the most vulnerabilities
 */
 func (a *Client) ReadPackagesByVulnCount(params *ReadPackagesByVulnCountParams, opts ...ClientOption) (*ReadPackagesByVulnCountOK, error) {
 	// TODO: Validate the params before sending
@@ -162,7 +162,7 @@ func (a *Client) ReadPackagesByVulnCount(params *ReadPackagesByVulnCountParams, 
 }
 
 /*
-ReadPackagesCombined maximums offset 10000 limit
+ReadPackagesCombined retrieves packages identified by the provided filter criteria
 */
 func (a *Client) ReadPackagesCombined(params *ReadPackagesCombinedParams, opts ...ClientOption) (*ReadPackagesCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -200,7 +200,7 @@ func (a *Client) ReadPackagesCombined(params *ReadPackagesCombinedParams, opts .
 }
 
 /*
-ReadPackagesCombinedExport maximums offset 10000 limit
+ReadPackagesCombinedExport retrieves a paginated list of packages identified by the provided filter criteria used for export maximum page size 100 maximum available packages 10 000
 */
 func (a *Client) ReadPackagesCombinedExport(params *ReadPackagesCombinedExportParams, opts ...ClientOption) (*ReadPackagesCombinedExportOK, error) {
 	// TODO: Validate the params before sending
@@ -238,7 +238,7 @@ func (a *Client) ReadPackagesCombinedExport(params *ReadPackagesCombinedExportPa
 }
 
 /*
-ReadPackagesCombinedV2 maximums offset 10000 limit
+ReadPackagesCombinedV2 retrieves packages identified by the provided filter criteria
 */
 func (a *Client) ReadPackagesCombinedV2(params *ReadPackagesCombinedV2Params, opts ...ClientOption) (*ReadPackagesCombinedV2OK, error) {
 	// TODO: Validate the params before sending

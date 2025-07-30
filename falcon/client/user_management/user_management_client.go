@@ -62,6 +62,8 @@ type ClientService interface {
 
 	DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) (*DeleteUserV1OK, error)
 
+	EntitiesRolesGETV2(params *EntitiesRolesGETV2Params, opts ...ClientOption) (*EntitiesRolesGETV2OK, error)
+
 	EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOption) (*EntitiesRolesV1OK, error)
 
 	QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOption) (*QueriesRolesV1OK, error)
@@ -686,6 +688,44 @@ func (a *Client) DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for deleteUserV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRolesGETV2 gets info about a role
+*/
+func (a *Client) EntitiesRolesGETV2(params *EntitiesRolesGETV2Params, opts ...ClientOption) (*EntitiesRolesGETV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRolesGETV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entitiesRolesGETV2",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/roles/GET/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRolesGETV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRolesGETV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entitiesRolesGETV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -20,13 +20,13 @@ import (
 type GetSupportedSaas struct {
 
 	// errors
-	Errors []*Error1f9a4a6fd7dc4316ba6b00ecb1a424df `json:"errors"`
+	Errors []*ErrorF7cdd233f3f24518b992d8d8797b67eb `json:"errors"`
 
 	// meta
-	Meta *MetaCf51e9315520407f9dfae730370a12f0 `json:"meta,omitempty"`
+	Meta *Meta0322fef14b194740af868d834affcf77 `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SupportedIntegration7d47ee53413344038bd31c835a8e33ad `json:"resources"`
+	Resources []*SupportedIntegration8405203ca0ff423ea198a251ed252c48 `json:"resources"`
 }
 
 // Validate validates this get supported saas

@@ -21,17 +21,18 @@ import (
 // swagger:model device_control.USBClassExceptionsReqV1
 type DeviceControlUSBClassExceptionsReqV1 struct {
 
-	// Policy action. Note: BLOCK_EXECUTE is only valid for MASS_STORAGE devices.
+	// Policy action. Note: BLOCK_EXECUTE and BLOCK_WRITE_EXECUTE are only valid for MASS_STORAGE devices.
 	// Required: true
-	// Enum: [FULL_ACCESS FULL_BLOCK BLOCK_EXECUTE READ_ONLY]
+	// Enum: [FULL_ACCESS BLOCK_ALL BLOCK_EXECUTE BLOCK_WRITE_EXECUTE]
 	Action *string `json:"action"`
 
-	// Exceptions to the rules of this policy setting
+	// List of exceptions to the rules of this policy setting. Maximum batch size: 1000.
 	// Required: true
 	Exceptions []*DeviceControlExceptionReqV1 `json:"exceptions"`
 
 	// USB Class id
 	// Required: true
+	// Enum: [ANY AUDIO_VIDEO IMAGING MASS_STORAGE MOBILE PRINTER WIRELESS]
 	ID *string `json:"id"`
 }
 
@@ -61,7 +62,7 @@ var deviceControlUSBClassExceptionsReqV1TypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["FULL_ACCESS","FULL_BLOCK","BLOCK_EXECUTE","READ_ONLY"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["FULL_ACCESS","BLOCK_ALL","BLOCK_EXECUTE","BLOCK_WRITE_EXECUTE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -74,14 +75,14 @@ const (
 	// DeviceControlUSBClassExceptionsReqV1ActionFULLACCESS captures enum value "FULL_ACCESS"
 	DeviceControlUSBClassExceptionsReqV1ActionFULLACCESS string = "FULL_ACCESS"
 
-	// DeviceControlUSBClassExceptionsReqV1ActionFULLBLOCK captures enum value "FULL_BLOCK"
-	DeviceControlUSBClassExceptionsReqV1ActionFULLBLOCK string = "FULL_BLOCK"
+	// DeviceControlUSBClassExceptionsReqV1ActionBLOCKALL captures enum value "BLOCK_ALL"
+	DeviceControlUSBClassExceptionsReqV1ActionBLOCKALL string = "BLOCK_ALL"
 
 	// DeviceControlUSBClassExceptionsReqV1ActionBLOCKEXECUTE captures enum value "BLOCK_EXECUTE"
 	DeviceControlUSBClassExceptionsReqV1ActionBLOCKEXECUTE string = "BLOCK_EXECUTE"
 
-	// DeviceControlUSBClassExceptionsReqV1ActionREADONLY captures enum value "READ_ONLY"
-	DeviceControlUSBClassExceptionsReqV1ActionREADONLY string = "READ_ONLY"
+	// DeviceControlUSBClassExceptionsReqV1ActionBLOCKWRITEEXECUTE captures enum value "BLOCK_WRITE_EXECUTE"
+	DeviceControlUSBClassExceptionsReqV1ActionBLOCKWRITEEXECUTE string = "BLOCK_WRITE_EXECUTE"
 )
 
 // prop value enum
@@ -133,9 +134,58 @@ func (m *DeviceControlUSBClassExceptionsReqV1) validateExceptions(formats strfmt
 	return nil
 }
 
+var deviceControlUSBClassExceptionsReqV1TypeIDPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["ANY","AUDIO_VIDEO","IMAGING","MASS_STORAGE","MOBILE","PRINTER","WIRELESS"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		deviceControlUSBClassExceptionsReqV1TypeIDPropEnum = append(deviceControlUSBClassExceptionsReqV1TypeIDPropEnum, v)
+	}
+}
+
+const (
+
+	// DeviceControlUSBClassExceptionsReqV1IDANY captures enum value "ANY"
+	DeviceControlUSBClassExceptionsReqV1IDANY string = "ANY"
+
+	// DeviceControlUSBClassExceptionsReqV1IDAUDIOVIDEO captures enum value "AUDIO_VIDEO"
+	DeviceControlUSBClassExceptionsReqV1IDAUDIOVIDEO string = "AUDIO_VIDEO"
+
+	// DeviceControlUSBClassExceptionsReqV1IDIMAGING captures enum value "IMAGING"
+	DeviceControlUSBClassExceptionsReqV1IDIMAGING string = "IMAGING"
+
+	// DeviceControlUSBClassExceptionsReqV1IDMASSSTORAGE captures enum value "MASS_STORAGE"
+	DeviceControlUSBClassExceptionsReqV1IDMASSSTORAGE string = "MASS_STORAGE"
+
+	// DeviceControlUSBClassExceptionsReqV1IDMOBILE captures enum value "MOBILE"
+	DeviceControlUSBClassExceptionsReqV1IDMOBILE string = "MOBILE"
+
+	// DeviceControlUSBClassExceptionsReqV1IDPRINTER captures enum value "PRINTER"
+	DeviceControlUSBClassExceptionsReqV1IDPRINTER string = "PRINTER"
+
+	// DeviceControlUSBClassExceptionsReqV1IDWIRELESS captures enum value "WIRELESS"
+	DeviceControlUSBClassExceptionsReqV1IDWIRELESS string = "WIRELESS"
+)
+
+// prop value enum
+func (m *DeviceControlUSBClassExceptionsReqV1) validateIDEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, deviceControlUSBClassExceptionsReqV1TypeIDPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
 func (m *DeviceControlUSBClassExceptionsReqV1) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateIDEnum("id", "body", *m.ID); err != nil {
 		return err
 	}
 

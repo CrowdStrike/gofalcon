@@ -20,13 +20,13 @@ import (
 type GetDeviceInventory struct {
 
 	// errors
-	Errors []*Error2600620074714c2fa6e23906c9f5e956 `json:"errors"`
+	Errors []*Error0019b65ada7a455bb982683e5a4dadf1 `json:"errors"`
 
 	// meta
-	Meta *Meta552b5121b8b64e00abfe94fa12dfdb88 `json:"meta,omitempty"`
+	Meta *Meta311d913c1c4e4dda99924429edd16d55 `json:"meta,omitempty"`
 
 	// resources
-	Resources []*Device477804a75b244e4a839ea08c361a220c `json:"resources"`
+	Resources []*DeviceB6212eda148f47329055e8e41d2b698d `json:"resources"`
 }
 
 // Validate validates this get device inventory

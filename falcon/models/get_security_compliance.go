@@ -20,13 +20,13 @@ import (
 type GetSecurityCompliance struct {
 
 	// errors
-	Errors []*Error4ee7bc62e7c0460d83a3e01cf3af3e59 `json:"errors"`
+	Errors []*Error52f4c7b5e2014e94ba38f795856a1af7 `json:"errors"`
 
 	// meta
-	Meta *MetaD6d5865b3f054c3ba60add38eb6076a7 `json:"meta,omitempty"`
+	Meta *Meta03d8051817b245eda9feede76d9e8b7e `json:"meta,omitempty"`
 
 	// resources
-	Resources []*Criteria4519a63f385e4aa8a2ca304a1c6c038d `json:"resources"`
+	Resources []*Criteria639db697315845ab8a2dbfb299523bbc `json:"resources"`
 }
 
 // Validate validates this get security compliance

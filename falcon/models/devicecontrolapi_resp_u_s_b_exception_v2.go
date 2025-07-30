@@ -30,10 +30,6 @@ type DevicecontrolapiRespUSBExceptionV2 struct {
 	// combined id
 	CombinedID string `json:"combined_id,omitempty"`
 
-	// created timestamp
-	// Format: date-time
-	CreatedTimestamp strfmt.DateTime `json:"created_timestamp,omitempty"`
-
 	// description
 	Description string `json:"description,omitempty"`
 
@@ -48,10 +44,6 @@ type DevicecontrolapiRespUSBExceptionV2 struct {
 	// match method
 	// Required: true
 	MatchMethod *string `json:"match_method"`
-
-	// modified timestamp
-	// Format: date-time
-	ModifiedTimestamp strfmt.DateTime `json:"modified_timestamp,omitempty"`
 
 	// product id
 	ProductID string `json:"product_id,omitempty"`
@@ -89,10 +81,6 @@ func (m *DevicecontrolapiRespUSBExceptionV2) Validate(formats strfmt.Registry) e
 		res = append(res, err)
 	}
 
-	if err := m.validateCreatedTimestamp(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateExpirationTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -102,10 +90,6 @@ func (m *DevicecontrolapiRespUSBExceptionV2) Validate(formats strfmt.Registry) e
 	}
 
 	if err := m.validateMatchMethod(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateModifiedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -141,18 +125,6 @@ func (m *DevicecontrolapiRespUSBExceptionV2) validateClass(formats strfmt.Regist
 	return nil
 }
 
-func (m *DevicecontrolapiRespUSBExceptionV2) validateCreatedTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.CreatedTimestamp) { // not required
-		return nil
-	}
-
-	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *DevicecontrolapiRespUSBExceptionV2) validateExpirationTime(formats strfmt.Registry) error {
 	if swag.IsZero(m.ExpirationTime) { // not required
 		return nil
@@ -177,18 +149,6 @@ func (m *DevicecontrolapiRespUSBExceptionV2) validateID(formats strfmt.Registry)
 func (m *DevicecontrolapiRespUSBExceptionV2) validateMatchMethod(formats strfmt.Registry) error {
 
 	if err := validate.Required("match_method", "body", m.MatchMethod); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DevicecontrolapiRespUSBExceptionV2) validateModifiedTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.ModifiedTimestamp) { // not required
-		return nil
-	}
-
-	if err := validate.FormatOf("modified_timestamp", "body", "date-time", m.ModifiedTimestamp.String(), formats); err != nil {
 		return err
 	}
 

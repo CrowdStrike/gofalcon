@@ -6,7 +6,6 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
 	"fmt"
 	"io"
 
@@ -507,46 +506,5 @@ func (o *DismissAffectedEntityV3InternalServerError) readResponse(response runti
 		return err
 	}
 
-	return nil
-}
-
-/*
-DismissAffectedEntityV3Body dismiss affected entity v3 body
-swagger:model DismissAffectedEntityV3Body
-*/
-type DismissAffectedEntityV3Body struct {
-
-	// Comma separated list of entity names to dismiss
-	Entities string `json:"entities,omitempty"`
-
-	// Dismiss reason
-	Reason string `json:"reason,omitempty"`
-}
-
-// Validate validates this dismiss affected entity v3 body
-func (o *DismissAffectedEntityV3Body) Validate(formats strfmt.Registry) error {
-	return nil
-}
-
-// ContextValidate validates this dismiss affected entity v3 body based on context it is used
-func (o *DismissAffectedEntityV3Body) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	return nil
-}
-
-// MarshalBinary interface implementation
-func (o *DismissAffectedEntityV3Body) MarshalBinary() ([]byte, error) {
-	if o == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(o)
-}
-
-// UnmarshalBinary interface implementation
-func (o *DismissAffectedEntityV3Body) UnmarshalBinary(b []byte) error {
-	var res DismissAffectedEntityV3Body
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*o = res
 	return nil
 }

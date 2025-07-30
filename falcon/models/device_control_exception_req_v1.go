@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,41 +20,42 @@ import (
 // swagger:model device_control.ExceptionReqV1
 type DeviceControlExceptionReqV1 struct {
 
-	// action
+	// Action to be taken for devices matching this exception. Note: BLOCK_EXECUTE and BLOCK_WRITE_EXECUTE only valid for MASS_STORAGE class
+	// Enum: [FULL_ACCESS BLOCK_ALL BLOCK_EXECUTE BLOCK_WRITE_EXECUTE]
 	Action string `json:"action,omitempty"`
 
-	// combined id
+	// Combined identifier in the format 'vendorID_productID_serialNumber'. Not allowed if use_wildcard is true.
 	CombinedID string `json:"combined_id,omitempty"`
 
-	// description
+	// Description for this exception. Maximum length: 512 characters.
 	Description string `json:"description,omitempty"`
 
-	// expiration time
+	// yyyy-mm-ddThh:mm:ssZ (UTC) format of the time to remove the exception if temporary. Must be in the future.
 	// Format: date-time
 	ExpirationTime strfmt.DateTime `json:"expiration_time,omitempty"`
 
-	// Unique identifier for an exception
+	// Unique identifier for an exception. If omitted, a new exception will be created.
 	ID string `json:"id,omitempty"`
 
-	// product id
+	// Hexadecimal ProductID used to apply the exception. Must be a valid hex value representing a decimal value less than 65535. Only one of product_id or product_id_decimal is required.
 	ProductID string `json:"product_id,omitempty"`
 
-	// product id decimal
+	// Decimal ProductID used to apply the exception. Must be a valid decimal value less than 65535. Only one of product_id or product_id_decimal is required.
 	ProductIDDecimal string `json:"product_id_decimal,omitempty"`
 
-	// product name
+	// Product Name, optional.
 	ProductName string `json:"product_name,omitempty"`
 
-	// serial number
+	// Serial number of the USB device. Maximum length: 126 characters. Required when use_wildcard is true.
 	SerialNumber string `json:"serial_number,omitempty"`
 
-	// true indicates using blob syntax USB serial numbers
+	// true indicates using blob syntax for USB serial numbers. When true, requires serial_number and either vendor_id(_decimal) and product_id(_decimal). Cannot be used with combined_id. Double asterisks (**) are not supported.
 	UseWildcard bool `json:"use_wildcard,omitempty"`
 
-	// Hexadecimal VendorID used to apply the exception
+	// Hexadecimal VendorID used to apply the exception. Must be a valid hex value representing a decimal value less than 65535. Only one of vendor_id or vendor_id_decimal is required.
 	VendorID string `json:"vendor_id,omitempty"`
 
-	// Hexadecimal VendorID used to apply the exception
+	// Decimal VendorID used to apply the exception. Must be a valid decimal value less than 65535. Only one of vendor_id or vendor_id_decimal is required.
 	VendorIDDecimal string `json:"vendor_id_decimal,omitempty"`
 
 	// Vendor Name, optional
@@ -64,6 +66,10 @@ type DeviceControlExceptionReqV1 struct {
 func (m *DeviceControlExceptionReqV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAction(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateExpirationTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -71,6 +77,54 @@ func (m *DeviceControlExceptionReqV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var deviceControlExceptionReqV1TypeActionPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["FULL_ACCESS","BLOCK_ALL","BLOCK_EXECUTE","BLOCK_WRITE_EXECUTE"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		deviceControlExceptionReqV1TypeActionPropEnum = append(deviceControlExceptionReqV1TypeActionPropEnum, v)
+	}
+}
+
+const (
+
+	// DeviceControlExceptionReqV1ActionFULLACCESS captures enum value "FULL_ACCESS"
+	DeviceControlExceptionReqV1ActionFULLACCESS string = "FULL_ACCESS"
+
+	// DeviceControlExceptionReqV1ActionBLOCKALL captures enum value "BLOCK_ALL"
+	DeviceControlExceptionReqV1ActionBLOCKALL string = "BLOCK_ALL"
+
+	// DeviceControlExceptionReqV1ActionBLOCKEXECUTE captures enum value "BLOCK_EXECUTE"
+	DeviceControlExceptionReqV1ActionBLOCKEXECUTE string = "BLOCK_EXECUTE"
+
+	// DeviceControlExceptionReqV1ActionBLOCKWRITEEXECUTE captures enum value "BLOCK_WRITE_EXECUTE"
+	DeviceControlExceptionReqV1ActionBLOCKWRITEEXECUTE string = "BLOCK_WRITE_EXECUTE"
+)
+
+// prop value enum
+func (m *DeviceControlExceptionReqV1) validateActionEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, deviceControlExceptionReqV1TypeActionPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DeviceControlExceptionReqV1) validateAction(formats strfmt.Registry) error {
+	if swag.IsZero(m.Action) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateActionEnum("action", "body", m.Action); err != nil {
+		return err
+	}
+
 	return nil
 }
 

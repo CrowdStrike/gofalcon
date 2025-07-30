@@ -74,9 +74,6 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
-	- `application_security.business_applications`
-	- `application_security.business_criticality`
-	- `application_security.service_names`
 	- `azure.vm_id`
 	- `business_impact`
 	- `cloud_group`

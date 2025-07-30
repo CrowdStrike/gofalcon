@@ -288,7 +288,7 @@ func (a *Client) CombinedImageByVulnerabilityCount(params *CombinedImageByVulner
 }
 
 /*
-CombinedImageDetail maximums offset 10000 limit
+CombinedImageDetail retrieves image entities identified by the provided filter criteria
 */
 func (a *Client) CombinedImageDetail(params *CombinedImageDetailParams, opts ...ClientOption) (*CombinedImageDetailOK, error) {
 	// TODO: Validate the params before sending
@@ -478,7 +478,7 @@ func (a *Client) DeleteBaseImages(params *DeleteBaseImagesParams, opts ...Client
 }
 
 /*
-GetCombinedImages maximums offset 10000 limit
+GetCombinedImages gets image assessment results by providing an f q l filter and paging details
 */
 func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...ClientOption) (*GetCombinedImagesOK, error) {
 	// TODO: Validate the params before sending
@@ -516,7 +516,7 @@ func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...Clie
 }
 
 /*
-ReadCombinedImagesExport maximums offset 10000 limit
+ReadCombinedImagesExport retrieves a paginated list of images with an option to expand aggregated vulnerabilities detections maximum page size 100 maximum available images 10 000
 */
 func (a *Client) ReadCombinedImagesExport(params *ReadCombinedImagesExportParams, opts ...ClientOption) (*ReadCombinedImagesExportOK, error) {
 	// TODO: Validate the params before sending

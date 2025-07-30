@@ -20,13 +20,13 @@ import (
 type GetSystemLogs struct {
 
 	// errors
-	Errors []*Error8d770e7eef034a2194544ca4a2800035 `json:"errors"`
+	Errors []*ErrorAeb2c3f42d5f481ba552e5e7a6c9b3b5 `json:"errors"`
 
 	// meta
-	Meta *Meta1fe9e8fbdbdf4538a1e61f5f22eeced2 `json:"meta,omitempty"`
+	Meta *Meta40cf45e1c0fd477fae1e75f74aab0f2e `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SystemLog9a0a0838241f4e21a5eab13091c9b57e `json:"resources"`
+	Resources []*SystemLog6f470c2888074c2da6275b92c641a3b6 `json:"resources"`
 }
 
 // Validate validates this get system logs

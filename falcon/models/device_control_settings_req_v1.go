@@ -21,14 +21,14 @@ import (
 // swagger:model device_control.SettingsReqV1
 type DeviceControlSettingsReqV1 struct {
 
-	// Settings that apply to a USB Class
+	// List of settings that apply to USB Classes. Maximum batch size: 1000.
 	// Required: true
 	Classes []*DeviceControlUSBClassExceptionsReqV1 `json:"classes"`
 
-	// A collection of custom notifications triggered to the end-user when a USB policy is violated
+	// List of custom notifications triggered to the end-user when a USB policy is violated.
 	CustomNotifications *DeviceControlUSBCustomNotifications `json:"custom_notifications,omitempty"`
 
-	// An array of exception IDs to delete from the policy
+	// List of exception IDs to delete from the policy.
 	// Required: true
 	DeleteExceptions []string `json:"delete_exceptions"`
 

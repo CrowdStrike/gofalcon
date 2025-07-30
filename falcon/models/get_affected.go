@@ -20,13 +20,13 @@ import (
 type GetAffected struct {
 
 	// errors
-	Errors []*Error95cd66820d3f4aa2852ff4325f7d72b6 `json:"errors"`
+	Errors []*ErrorD8b9ad1507a246f4903a90d3af8b8a63 `json:"errors"`
 
 	// meta
-	Meta *Meta79ee171c408a4b018722767724cd6ebc `json:"meta,omitempty"`
+	Meta *Meta448f20ba0fe64cb6845215d855c4c3ec `json:"meta,omitempty"`
 
 	// resources
-	Resources []*AffectedEntity230bef079286463fbc2e5e5fcd455587 `json:"resources"`
+	Resources []*AffectedEntityC7427ed4780b4dc1aa2ab6437c327504 `json:"resources"`
 }
 
 // Validate validates this get affected
