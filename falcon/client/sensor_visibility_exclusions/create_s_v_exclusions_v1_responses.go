@@ -25,7 +25,7 @@ type CreateSVExclusionsV1Reader struct {
 // ReadResponse reads a server response into the received o.
 func (o *CreateSVExclusionsV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
+	case 201:
 		result := NewCreateSVExclusionsV1OK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
@@ -109,12 +109,12 @@ func (o *CreateSVExclusionsV1OK) IsServerError() bool {
 
 // IsCode returns true when this create s v exclusions v1 o k response a status code equal to that given
 func (o *CreateSVExclusionsV1OK) IsCode(code int) bool {
-	return code == 200
+	return code == 201
 }
 
 // Code gets the status code for the create s v exclusions v1 o k response
 func (o *CreateSVExclusionsV1OK) Code() int {
-	return 200
+	return 201
 }
 
 func (o *CreateSVExclusionsV1OK) Error() string {
