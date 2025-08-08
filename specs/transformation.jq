@@ -644,3 +644,6 @@
 | .definitions."azure.TenantRegistration".properties.environment += {"x-nullable": true}
 | .definitions."azure.TenantRegistration".properties.resource_name_prefix += {"x-nullable": true}
 | .definitions."azure.TenantRegistration".properties.resource_name_suffix += {"x-nullable": true}
+
+# Fix SensorUpdateSettingsReqV2.Build field to not have omitempty tag
+| .definitions."sensor_update.SettingsReqV2".properties.build += {"x-omitempty": false}
