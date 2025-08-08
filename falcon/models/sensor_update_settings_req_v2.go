@@ -22,7 +22,7 @@ import (
 type SensorUpdateSettingsReqV2 struct {
 
 	// The target build to apply to the policy
-	Build string `json:"build,omitempty"`
+	Build string `json:"build"`
 
 	// The schedule that disables sensor updates
 	// Required: true
