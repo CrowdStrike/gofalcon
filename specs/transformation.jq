@@ -647,3 +647,6 @@
 
 # Fix SensorUpdateSettingsReqV2.Build field to not have omitempty tag
 | .definitions."sensor_update.SettingsReqV2".properties.build += {"x-omitempty": false}
+
+# Fix SvExclusionsUpdateReqV1.IsDescendantProcess field to not have omitempty tag
+| .definitions."sv_exclusions.UpdateReqV1".properties.is_descendant_process += {"x-omitempty": false}
