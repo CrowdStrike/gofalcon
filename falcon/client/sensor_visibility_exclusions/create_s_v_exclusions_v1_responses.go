@@ -26,7 +26,7 @@ type CreateSVExclusionsV1Reader struct {
 func (o *CreateSVExclusionsV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 201:
-		result := NewCreateSVExclusionsV1OK()
+		result := NewCreateSVExclusionsV1Created()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -60,17 +60,17 @@ func (o *CreateSVExclusionsV1Reader) ReadResponse(response runtime.ClientRespons
 	}
 }
 
-// NewCreateSVExclusionsV1OK creates a CreateSVExclusionsV1OK with default headers values
-func NewCreateSVExclusionsV1OK() *CreateSVExclusionsV1OK {
-	return &CreateSVExclusionsV1OK{}
+// NewCreateSVExclusionsV1Created creates a CreateSVExclusionsV1Created with default headers values
+func NewCreateSVExclusionsV1Created() *CreateSVExclusionsV1Created {
+	return &CreateSVExclusionsV1Created{}
 }
 
 /*
-CreateSVExclusionsV1OK describes a response with status code 200, with default header values.
+CreateSVExclusionsV1Created describes a response with status code 201, with default header values.
 
 OK
 */
-type CreateSVExclusionsV1OK struct {
+type CreateSVExclusionsV1Created struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -87,49 +87,49 @@ type CreateSVExclusionsV1OK struct {
 	Payload *models.ExclusionsRespV1
 }
 
-// IsSuccess returns true when this create s v exclusions v1 o k response has a 2xx status code
-func (o *CreateSVExclusionsV1OK) IsSuccess() bool {
+// IsSuccess returns true when this create s v exclusions v1 created response has a 2xx status code
+func (o *CreateSVExclusionsV1Created) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this create s v exclusions v1 o k response has a 3xx status code
-func (o *CreateSVExclusionsV1OK) IsRedirect() bool {
+// IsRedirect returns true when this create s v exclusions v1 created response has a 3xx status code
+func (o *CreateSVExclusionsV1Created) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this create s v exclusions v1 o k response has a 4xx status code
-func (o *CreateSVExclusionsV1OK) IsClientError() bool {
+// IsClientError returns true when this create s v exclusions v1 created response has a 4xx status code
+func (o *CreateSVExclusionsV1Created) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this create s v exclusions v1 o k response has a 5xx status code
-func (o *CreateSVExclusionsV1OK) IsServerError() bool {
+// IsServerError returns true when this create s v exclusions v1 created response has a 5xx status code
+func (o *CreateSVExclusionsV1Created) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this create s v exclusions v1 o k response a status code equal to that given
-func (o *CreateSVExclusionsV1OK) IsCode(code int) bool {
+// IsCode returns true when this create s v exclusions v1 created response a status code equal to that given
+func (o *CreateSVExclusionsV1Created) IsCode(code int) bool {
 	return code == 201
 }
 
-// Code gets the status code for the create s v exclusions v1 o k response
-func (o *CreateSVExclusionsV1OK) Code() int {
+// Code gets the status code for the create s v exclusions v1 created response
+func (o *CreateSVExclusionsV1Created) Code() int {
 	return 201
 }
 
-func (o *CreateSVExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1OK  %+v", 200, o.Payload)
+func (o *CreateSVExclusionsV1Created) Error() string {
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Created  %+v", 201, o.Payload)
 }
 
-func (o *CreateSVExclusionsV1OK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1OK  %+v", 200, o.Payload)
+func (o *CreateSVExclusionsV1Created) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Created  %+v", 201, o.Payload)
 }
 
-func (o *CreateSVExclusionsV1OK) GetPayload() *models.ExclusionsRespV1 {
+func (o *CreateSVExclusionsV1Created) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
-func (o *CreateSVExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *CreateSVExclusionsV1Created) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
