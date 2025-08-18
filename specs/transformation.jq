@@ -650,3 +650,7 @@
 
 # Fix SvExclusionsUpdateReqV1.IsDescendantProcess field to not have omitempty tag
 | .definitions."sv_exclusions.UpdateReqV1".properties.is_descendant_process += {"x-omitempty": false}
+
+# 201 is a valid response for POST /policy/entities/sv-exclusions/v1 200 is not.
+| .paths."/policy/entities/sv-exclusions/v1".post.responses."201" = .paths."/policy/entities/sv-exclusions/v1".post.responses."200"
+| del(.paths."/policy/entities/sv-exclusions/v1".post.responses."200")

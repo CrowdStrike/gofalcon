@@ -30,7 +30,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts ...ClientOption) (*CreateSVExclusionsV1OK, error)
+	CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts ...ClientOption) (*CreateSVExclusionsV1Created, error)
 
 	DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*DeleteSensorVisibilityExclusionsV1OK, error)
 
@@ -46,7 +46,7 @@ type ClientService interface {
 /*
 CreateSVExclusionsV1 creates the sensor visibility exclusions
 */
-func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts ...ClientOption) (*CreateSVExclusionsV1OK, error) {
+func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts ...ClientOption) (*CreateSVExclusionsV1Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSVExclusionsV1Params()
@@ -71,7 +71,7 @@ func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts .
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateSVExclusionsV1OK)
+	success, ok := result.(*CreateSVExclusionsV1Created)
 	if ok {
 		return success, nil
 	}
