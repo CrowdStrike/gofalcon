@@ -1,6 +1,11 @@
 GO=GO111MODULE=on go
 GOBUILD=$(GO) build
 
+install-tools:
+	(cd tools/generate && go install .)
+
+.PHONY: install-tools
+
 all: build
 
 build:
