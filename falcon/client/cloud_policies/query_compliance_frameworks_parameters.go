@@ -62,32 +62,47 @@ QueryComplianceFrameworksParams contains all the parameters to send to the API e
 */
 type QueryComplianceFrameworksParams struct {
 
+	/* Authorization.
+
+	   Bearer Token
+	*/
+	Authorization string
+
+	/* XCSCUSTID.
+
+	   Customer ID
+	*/
+	XCSCUSTID string
+
+	/* XCSUSERUUID.
+
+	   User UUID
+	*/
+	XCSUSERUUID string
+
 	/* Filter.
 
-	     FQL filter, allowed props:
-
-	*compliance_framework_name*
-	*compliance_framework_version*
-	*compliance_framework_authority*
-
+	   FQL filter, allowed properties: *compliance_framework_name* *compliance_framework_version* *compliance_framework_authority*
 	*/
 	Filter *string
 
 	/* Limit.
 
-	   limits number of results
+	   The maximum number of resources to return. The maximum allowed is 500.
+
+	   Default: 100
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   offset to start query with
+	   The number of results to skip before starting to return results.
 	*/
 	Offset *int64
 
 	/* Sort.
 
-	   sort by field
+	   Field to sort on. Sortable fields: *compliance_framework_name* *compliance_framework_version* *compliance_framework_authority* Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 
@@ -108,7 +123,21 @@ func (o *QueryComplianceFrameworksParams) WithDefaults() *QueryComplianceFramewo
 //
 // All values with no default are reset to their zero value.
 func (o *QueryComplianceFrameworksParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+
+		offsetDefault = int64(0)
+	)
+
+	val := QueryComplianceFrameworksParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query compliance frameworks params
@@ -142,6 +171,39 @@ func (o *QueryComplianceFrameworksParams) WithHTTPClient(client *http.Client) *Q
 // SetHTTPClient adds the HTTPClient to the query compliance frameworks params
 func (o *QueryComplianceFrameworksParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithAuthorization adds the authorization to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) WithAuthorization(authorization string) *QueryComplianceFrameworksParams {
+	o.SetAuthorization(authorization)
+	return o
+}
+
+// SetAuthorization adds the authorization to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) SetAuthorization(authorization string) {
+	o.Authorization = authorization
+}
+
+// WithXCSCUSTID adds the xCSCUSTID to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) WithXCSCUSTID(xCSCUSTID string) *QueryComplianceFrameworksParams {
+	o.SetXCSCUSTID(xCSCUSTID)
+	return o
+}
+
+// SetXCSCUSTID adds the xCSCUSTId to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) SetXCSCUSTID(xCSCUSTID string) {
+	o.XCSCUSTID = xCSCUSTID
+}
+
+// WithXCSUSERUUID adds the xCSUSERUUID to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) WithXCSUSERUUID(xCSUSERUUID string) *QueryComplianceFrameworksParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
 }
 
 // WithFilter adds the filter to the query compliance frameworks params
@@ -195,6 +257,21 @@ func (o *QueryComplianceFrameworksParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
+
+	// header param Authorization
+	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
+		return err
+	}
+
+	// header param X-CS-CUSTID
+	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
+		return err
+	}
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	if o.Filter != nil {
 

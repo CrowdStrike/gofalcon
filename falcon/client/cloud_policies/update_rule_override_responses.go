@@ -9,10 +9,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -31,20 +29,14 @@ func (o *UpdateRuleOverrideReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return result, nil
-	case 403:
-		result := NewUpdateRuleOverrideForbidden()
+	case 400:
+		result := NewUpdateRuleOverrideBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 404:
 		result := NewUpdateRuleOverrideNotFound()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
-	case 429:
-		result := NewUpdateRuleOverrideTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -71,20 +63,7 @@ UpdateRuleOverrideOK describes a response with status code 200, with default hea
 OK
 */
 type UpdateRuleOverrideOK struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonUpdateRuleOverrideResponse
 }
 
 // IsSuccess returns true when this update rule override o k response has a 2xx status code
@@ -125,42 +104,13 @@ func (o *UpdateRuleOverrideOK) String() string {
 	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateRuleOverrideOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *UpdateRuleOverrideOK) GetPayload() *models.CommonUpdateRuleOverrideResponse {
 	return o.Payload
 }
 
 func (o *UpdateRuleOverrideOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonUpdateRuleOverrideResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -170,107 +120,65 @@ func (o *UpdateRuleOverrideOK) readResponse(response runtime.ClientResponse, con
 	return nil
 }
 
-// NewUpdateRuleOverrideForbidden creates a UpdateRuleOverrideForbidden with default headers values
-func NewUpdateRuleOverrideForbidden() *UpdateRuleOverrideForbidden {
-	return &UpdateRuleOverrideForbidden{}
+// NewUpdateRuleOverrideBadRequest creates a UpdateRuleOverrideBadRequest with default headers values
+func NewUpdateRuleOverrideBadRequest() *UpdateRuleOverrideBadRequest {
+	return &UpdateRuleOverrideBadRequest{}
 }
 
 /*
-UpdateRuleOverrideForbidden describes a response with status code 403, with default header values.
+UpdateRuleOverrideBadRequest describes a response with status code 400, with default header values.
 
-Forbidden
+Bad Request
 */
-type UpdateRuleOverrideForbidden struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.MsaReplyMetaOnly
+type UpdateRuleOverrideBadRequest struct {
+	Payload *models.CommonUpdateRuleOverrideResponse
 }
 
-// IsSuccess returns true when this update rule override forbidden response has a 2xx status code
-func (o *UpdateRuleOverrideForbidden) IsSuccess() bool {
+// IsSuccess returns true when this update rule override bad request response has a 2xx status code
+func (o *UpdateRuleOverrideBadRequest) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this update rule override forbidden response has a 3xx status code
-func (o *UpdateRuleOverrideForbidden) IsRedirect() bool {
+// IsRedirect returns true when this update rule override bad request response has a 3xx status code
+func (o *UpdateRuleOverrideBadRequest) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this update rule override forbidden response has a 4xx status code
-func (o *UpdateRuleOverrideForbidden) IsClientError() bool {
+// IsClientError returns true when this update rule override bad request response has a 4xx status code
+func (o *UpdateRuleOverrideBadRequest) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this update rule override forbidden response has a 5xx status code
-func (o *UpdateRuleOverrideForbidden) IsServerError() bool {
+// IsServerError returns true when this update rule override bad request response has a 5xx status code
+func (o *UpdateRuleOverrideBadRequest) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this update rule override forbidden response a status code equal to that given
-func (o *UpdateRuleOverrideForbidden) IsCode(code int) bool {
-	return code == 403
+// IsCode returns true when this update rule override bad request response a status code equal to that given
+func (o *UpdateRuleOverrideBadRequest) IsCode(code int) bool {
+	return code == 400
 }
 
-// Code gets the status code for the update rule override forbidden response
-func (o *UpdateRuleOverrideForbidden) Code() int {
-	return 403
+// Code gets the status code for the update rule override bad request response
+func (o *UpdateRuleOverrideBadRequest) Code() int {
+	return 400
 }
 
-func (o *UpdateRuleOverrideForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideForbidden  %+v", 403, o.Payload)
+func (o *UpdateRuleOverrideBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateRuleOverrideForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideForbidden  %+v", 403, o.Payload)
+func (o *UpdateRuleOverrideBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateRuleOverrideForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UpdateRuleOverrideBadRequest) GetPayload() *models.CommonUpdateRuleOverrideResponse {
 	return o.Payload
 }
 
-func (o *UpdateRuleOverrideForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *UpdateRuleOverrideBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.CommonUpdateRuleOverrideResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -291,19 +199,6 @@ UpdateRuleOverrideNotFound describes a response with status code 404, with defau
 Internal Server Error
 */
 type UpdateRuleOverrideNotFound struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
 	Payload *models.CommonEntitiesResponse
 }
 
@@ -351,161 +246,7 @@ func (o *UpdateRuleOverrideNotFound) GetPayload() *models.CommonEntitiesResponse
 
 func (o *UpdateRuleOverrideNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
 	o.Payload = new(models.CommonEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateRuleOverrideTooManyRequests creates a UpdateRuleOverrideTooManyRequests with default headers values
-func NewUpdateRuleOverrideTooManyRequests() *UpdateRuleOverrideTooManyRequests {
-	return &UpdateRuleOverrideTooManyRequests{}
-}
-
-/*
-UpdateRuleOverrideTooManyRequests describes a response with status code 429, with default header values.
-
-Too Many Requests
-*/
-type UpdateRuleOverrideTooManyRequests struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	/* Too many requests, retry after this time (as milliseconds since epoch)
-	 */
-	XRateLimitRetryAfter int64
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this update rule override too many requests response has a 2xx status code
-func (o *UpdateRuleOverrideTooManyRequests) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update rule override too many requests response has a 3xx status code
-func (o *UpdateRuleOverrideTooManyRequests) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update rule override too many requests response has a 4xx status code
-func (o *UpdateRuleOverrideTooManyRequests) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update rule override too many requests response has a 5xx status code
-func (o *UpdateRuleOverrideTooManyRequests) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update rule override too many requests response a status code equal to that given
-func (o *UpdateRuleOverrideTooManyRequests) IsCode(code int) bool {
-	return code == 429
-}
-
-// Code gets the status code for the update rule override too many requests response
-func (o *UpdateRuleOverrideTooManyRequests) Code() int {
-	return 429
-}
-
-func (o *UpdateRuleOverrideTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *UpdateRuleOverrideTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *UpdateRuleOverrideTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *UpdateRuleOverrideTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	// hydrates response header X-RateLimit-RetryAfter
-	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
-
-	if hdrXRateLimitRetryAfter != "" {
-		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
-		}
-		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -526,19 +267,6 @@ UpdateRuleOverrideInternalServerError describes a response with status code 500,
 Internal Server Error
 */
 type UpdateRuleOverrideInternalServerError struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
 	Payload *models.CommonEntitiesResponse
 }
 
@@ -585,35 +313,6 @@ func (o *UpdateRuleOverrideInternalServerError) GetPayload() *models.CommonEntit
 }
 
 func (o *UpdateRuleOverrideInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
 
 	o.Payload = new(models.CommonEntitiesResponse)
 

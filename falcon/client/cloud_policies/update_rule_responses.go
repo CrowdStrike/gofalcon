@@ -9,10 +9,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -37,20 +35,8 @@ func (o *UpdateRuleReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 		return nil, result
-	case 403:
-		result := NewUpdateRuleForbidden()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
 	case 409:
 		result := NewUpdateRuleConflict()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
-	case 429:
-		result := NewUpdateRuleTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -77,20 +63,7 @@ UpdateRuleOK describes a response with status code 200, with default header valu
 OK
 */
 type UpdateRuleOK struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetRulesResponse
 }
 
 // IsSuccess returns true when this update rule o k response has a 2xx status code
@@ -131,42 +104,13 @@ func (o *UpdateRuleOK) String() string {
 	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateRuleOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *UpdateRuleOK) GetPayload() *models.CommonGetRulesResponse {
 	return o.Payload
 }
 
 func (o *UpdateRuleOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetRulesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -187,19 +131,6 @@ UpdateRuleBadRequest describes a response with status code 400, with default hea
 Bad Request
 */
 type UpdateRuleBadRequest struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
 	Payload *models.CommonEntitiesResponse
 }
 
@@ -247,146 +178,7 @@ func (o *UpdateRuleBadRequest) GetPayload() *models.CommonEntitiesResponse {
 
 func (o *UpdateRuleBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
 	o.Payload = new(models.CommonEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateRuleForbidden creates a UpdateRuleForbidden with default headers values
-func NewUpdateRuleForbidden() *UpdateRuleForbidden {
-	return &UpdateRuleForbidden{}
-}
-
-/*
-UpdateRuleForbidden describes a response with status code 403, with default header values.
-
-Forbidden
-*/
-type UpdateRuleForbidden struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this update rule forbidden response has a 2xx status code
-func (o *UpdateRuleForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update rule forbidden response has a 3xx status code
-func (o *UpdateRuleForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update rule forbidden response has a 4xx status code
-func (o *UpdateRuleForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update rule forbidden response has a 5xx status code
-func (o *UpdateRuleForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update rule forbidden response a status code equal to that given
-func (o *UpdateRuleForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the update rule forbidden response
-func (o *UpdateRuleForbidden) Code() int {
-	return 403
-}
-
-func (o *UpdateRuleForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleForbidden  %+v", 403, o.Payload)
-}
-
-func (o *UpdateRuleForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleForbidden  %+v", 403, o.Payload)
-}
-
-func (o *UpdateRuleForbidden) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *UpdateRuleForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -407,19 +199,6 @@ UpdateRuleConflict describes a response with status code 409, with default heade
 Conflict
 */
 type UpdateRuleConflict struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
 	Payload *models.CommonEntitiesResponse
 }
 
@@ -467,161 +246,7 @@ func (o *UpdateRuleConflict) GetPayload() *models.CommonEntitiesResponse {
 
 func (o *UpdateRuleConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
 	o.Payload = new(models.CommonEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateRuleTooManyRequests creates a UpdateRuleTooManyRequests with default headers values
-func NewUpdateRuleTooManyRequests() *UpdateRuleTooManyRequests {
-	return &UpdateRuleTooManyRequests{}
-}
-
-/*
-UpdateRuleTooManyRequests describes a response with status code 429, with default header values.
-
-Too Many Requests
-*/
-type UpdateRuleTooManyRequests struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	/* Too many requests, retry after this time (as milliseconds since epoch)
-	 */
-	XRateLimitRetryAfter int64
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this update rule too many requests response has a 2xx status code
-func (o *UpdateRuleTooManyRequests) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update rule too many requests response has a 3xx status code
-func (o *UpdateRuleTooManyRequests) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update rule too many requests response has a 4xx status code
-func (o *UpdateRuleTooManyRequests) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update rule too many requests response has a 5xx status code
-func (o *UpdateRuleTooManyRequests) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update rule too many requests response a status code equal to that given
-func (o *UpdateRuleTooManyRequests) IsCode(code int) bool {
-	return code == 429
-}
-
-// Code gets the status code for the update rule too many requests response
-func (o *UpdateRuleTooManyRequests) Code() int {
-	return 429
-}
-
-func (o *UpdateRuleTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *UpdateRuleTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *UpdateRuleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *UpdateRuleTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	// hydrates response header X-RateLimit-RetryAfter
-	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
-
-	if hdrXRateLimitRetryAfter != "" {
-		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
-		}
-		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -642,19 +267,6 @@ UpdateRuleInternalServerError describes a response with status code 500, with de
 Internal Server Error
 */
 type UpdateRuleInternalServerError struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
 	Payload *models.CommonEntitiesResponse
 }
 
@@ -701,35 +313,6 @@ func (o *UpdateRuleInternalServerError) GetPayload() *models.CommonEntitiesRespo
 }
 
 func (o *UpdateRuleInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
 
 	o.Payload = new(models.CommonEntitiesResponse)
 

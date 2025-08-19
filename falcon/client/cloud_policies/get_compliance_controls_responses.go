@@ -9,10 +9,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -37,20 +35,8 @@ func (o *GetComplianceControlsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-	case 403:
-		result := NewGetComplianceControlsForbidden()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
 	case 404:
 		result := NewGetComplianceControlsNotFound()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
-	case 429:
-		result := NewGetComplianceControlsTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -77,20 +63,7 @@ GetComplianceControlsOK describes a response with status code 200, with default 
 OK
 */
 type GetComplianceControlsOK struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetComplianceControlsResponse
 }
 
 // IsSuccess returns true when this get compliance controls o k response has a 2xx status code
@@ -131,42 +104,13 @@ func (o *GetComplianceControlsOK) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetComplianceControlsOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *GetComplianceControlsOK) GetPayload() *models.CommonGetComplianceControlsResponse {
 	return o.Payload
 }
 
 func (o *GetComplianceControlsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetComplianceControlsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -187,19 +131,6 @@ GetComplianceControlsBadRequest describes a response with status code 400, with 
 Bad Request
 */
 type GetComplianceControlsBadRequest struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
 	Payload *models.CommonEntitiesResponse
 }
 
@@ -247,146 +178,7 @@ func (o *GetComplianceControlsBadRequest) GetPayload() *models.CommonEntitiesRes
 
 func (o *GetComplianceControlsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
 	o.Payload = new(models.CommonEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetComplianceControlsForbidden creates a GetComplianceControlsForbidden with default headers values
-func NewGetComplianceControlsForbidden() *GetComplianceControlsForbidden {
-	return &GetComplianceControlsForbidden{}
-}
-
-/*
-GetComplianceControlsForbidden describes a response with status code 403, with default header values.
-
-Forbidden
-*/
-type GetComplianceControlsForbidden struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this get compliance controls forbidden response has a 2xx status code
-func (o *GetComplianceControlsForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get compliance controls forbidden response has a 3xx status code
-func (o *GetComplianceControlsForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get compliance controls forbidden response has a 4xx status code
-func (o *GetComplianceControlsForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get compliance controls forbidden response has a 5xx status code
-func (o *GetComplianceControlsForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get compliance controls forbidden response a status code equal to that given
-func (o *GetComplianceControlsForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get compliance controls forbidden response
-func (o *GetComplianceControlsForbidden) Code() int {
-	return 403
-}
-
-func (o *GetComplianceControlsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsForbidden  %+v", 403, o.Payload)
-}
-
-func (o *GetComplianceControlsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsForbidden  %+v", 403, o.Payload)
-}
-
-func (o *GetComplianceControlsForbidden) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *GetComplianceControlsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -407,20 +199,7 @@ GetComplianceControlsNotFound describes a response with status code 404, with de
 Not Found
 */
 type GetComplianceControlsNotFound struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetComplianceControlsResponse
 }
 
 // IsSuccess returns true when this get compliance controls not found response has a 2xx status code
@@ -461,167 +240,13 @@ func (o *GetComplianceControlsNotFound) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetComplianceControlsNotFound) GetPayload() *models.CommonEntitiesResponse {
+func (o *GetComplianceControlsNotFound) GetPayload() *models.CommonGetComplianceControlsResponse {
 	return o.Payload
 }
 
 func (o *GetComplianceControlsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.CommonEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetComplianceControlsTooManyRequests creates a GetComplianceControlsTooManyRequests with default headers values
-func NewGetComplianceControlsTooManyRequests() *GetComplianceControlsTooManyRequests {
-	return &GetComplianceControlsTooManyRequests{}
-}
-
-/*
-GetComplianceControlsTooManyRequests describes a response with status code 429, with default header values.
-
-Too Many Requests
-*/
-type GetComplianceControlsTooManyRequests struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	/* Too many requests, retry after this time (as milliseconds since epoch)
-	 */
-	XRateLimitRetryAfter int64
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this get compliance controls too many requests response has a 2xx status code
-func (o *GetComplianceControlsTooManyRequests) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get compliance controls too many requests response has a 3xx status code
-func (o *GetComplianceControlsTooManyRequests) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get compliance controls too many requests response has a 4xx status code
-func (o *GetComplianceControlsTooManyRequests) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get compliance controls too many requests response has a 5xx status code
-func (o *GetComplianceControlsTooManyRequests) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get compliance controls too many requests response a status code equal to that given
-func (o *GetComplianceControlsTooManyRequests) IsCode(code int) bool {
-	return code == 429
-}
-
-// Code gets the status code for the get compliance controls too many requests response
-func (o *GetComplianceControlsTooManyRequests) Code() int {
-	return 429
-}
-
-func (o *GetComplianceControlsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *GetComplianceControlsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *GetComplianceControlsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *GetComplianceControlsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	// hydrates response header X-RateLimit-RetryAfter
-	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
-
-	if hdrXRateLimitRetryAfter != "" {
-		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
-		}
-		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.CommonGetComplianceControlsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -642,19 +267,6 @@ GetComplianceControlsInternalServerError describes a response with status code 5
 Internal Server Error
 */
 type GetComplianceControlsInternalServerError struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
 	Payload *models.CommonEntitiesResponse
 }
 
@@ -701,35 +313,6 @@ func (o *GetComplianceControlsInternalServerError) GetPayload() *models.CommonEn
 }
 
 func (o *GetComplianceControlsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
 
 	o.Payload = new(models.CommonEntitiesResponse)
 

@@ -9,10 +9,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -31,14 +29,8 @@ func (o *QueryRuleReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return result, nil
-	case 403:
-		result := NewQueryRuleForbidden()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
-	case 429:
-		result := NewQueryRuleTooManyRequests()
+	case 400:
+		result := NewQueryRuleBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -65,20 +57,7 @@ QueryRuleOK describes a response with status code 200, with default header value
 OK
 */
 type QueryRuleOK struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonQueryResponse
 }
 
 // IsSuccess returns true when this query rule o k response has a 2xx status code
@@ -119,42 +98,13 @@ func (o *QueryRuleOK) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryRuleOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *QueryRuleOK) GetPayload() *models.CommonQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryRuleOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -164,232 +114,65 @@ func (o *QueryRuleOK) readResponse(response runtime.ClientResponse, consumer run
 	return nil
 }
 
-// NewQueryRuleForbidden creates a QueryRuleForbidden with default headers values
-func NewQueryRuleForbidden() *QueryRuleForbidden {
-	return &QueryRuleForbidden{}
+// NewQueryRuleBadRequest creates a QueryRuleBadRequest with default headers values
+func NewQueryRuleBadRequest() *QueryRuleBadRequest {
+	return &QueryRuleBadRequest{}
 }
 
 /*
-QueryRuleForbidden describes a response with status code 403, with default header values.
+QueryRuleBadRequest describes a response with status code 400, with default header values.
 
-Forbidden
+Bad Request
 */
-type QueryRuleForbidden struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.MsaReplyMetaOnly
+type QueryRuleBadRequest struct {
+	Payload *models.CommonQueryResponse
 }
 
-// IsSuccess returns true when this query rule forbidden response has a 2xx status code
-func (o *QueryRuleForbidden) IsSuccess() bool {
+// IsSuccess returns true when this query rule bad request response has a 2xx status code
+func (o *QueryRuleBadRequest) IsSuccess() bool {
 	return false
 }
 
-// IsRedirect returns true when this query rule forbidden response has a 3xx status code
-func (o *QueryRuleForbidden) IsRedirect() bool {
+// IsRedirect returns true when this query rule bad request response has a 3xx status code
+func (o *QueryRuleBadRequest) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this query rule forbidden response has a 4xx status code
-func (o *QueryRuleForbidden) IsClientError() bool {
+// IsClientError returns true when this query rule bad request response has a 4xx status code
+func (o *QueryRuleBadRequest) IsClientError() bool {
 	return true
 }
 
-// IsServerError returns true when this query rule forbidden response has a 5xx status code
-func (o *QueryRuleForbidden) IsServerError() bool {
+// IsServerError returns true when this query rule bad request response has a 5xx status code
+func (o *QueryRuleBadRequest) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this query rule forbidden response a status code equal to that given
-func (o *QueryRuleForbidden) IsCode(code int) bool {
-	return code == 403
+// IsCode returns true when this query rule bad request response a status code equal to that given
+func (o *QueryRuleBadRequest) IsCode(code int) bool {
+	return code == 400
 }
 
-// Code gets the status code for the query rule forbidden response
-func (o *QueryRuleForbidden) Code() int {
-	return 403
+// Code gets the status code for the query rule bad request response
+func (o *QueryRuleBadRequest) Code() int {
+	return 400
 }
 
-func (o *QueryRuleForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleForbidden  %+v", 403, o.Payload)
+func (o *QueryRuleBadRequest) Error() string {
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryRuleForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleForbidden  %+v", 403, o.Payload)
+func (o *QueryRuleBadRequest) String() string {
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryRuleForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryRuleBadRequest) GetPayload() *models.CommonQueryResponse {
 	return o.Payload
 }
 
-func (o *QueryRuleForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *QueryRuleBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryRuleTooManyRequests creates a QueryRuleTooManyRequests with default headers values
-func NewQueryRuleTooManyRequests() *QueryRuleTooManyRequests {
-	return &QueryRuleTooManyRequests{}
-}
-
-/*
-QueryRuleTooManyRequests describes a response with status code 429, with default header values.
-
-Too Many Requests
-*/
-type QueryRuleTooManyRequests struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	/* Too many requests, retry after this time (as milliseconds since epoch)
-	 */
-	XRateLimitRetryAfter int64
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this query rule too many requests response has a 2xx status code
-func (o *QueryRuleTooManyRequests) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this query rule too many requests response has a 3xx status code
-func (o *QueryRuleTooManyRequests) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this query rule too many requests response has a 4xx status code
-func (o *QueryRuleTooManyRequests) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this query rule too many requests response has a 5xx status code
-func (o *QueryRuleTooManyRequests) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this query rule too many requests response a status code equal to that given
-func (o *QueryRuleTooManyRequests) IsCode(code int) bool {
-	return code == 429
-}
-
-// Code gets the status code for the query rule too many requests response
-func (o *QueryRuleTooManyRequests) Code() int {
-	return 429
-}
-
-func (o *QueryRuleTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *QueryRuleTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *QueryRuleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *QueryRuleTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	// hydrates response header X-RateLimit-RetryAfter
-	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
-
-	if hdrXRateLimitRetryAfter != "" {
-		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
-		}
-		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.CommonQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -410,20 +193,7 @@ QueryRuleInternalServerError describes a response with status code 500, with def
 Internal Server Error
 */
 type QueryRuleInternalServerError struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonQueryResponse
 }
 
 // IsSuccess returns true when this query rule internal server error response has a 2xx status code
@@ -464,42 +234,13 @@ func (o *QueryRuleInternalServerError) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryRuleInternalServerError) GetPayload() *models.CommonEntitiesResponse {
+func (o *QueryRuleInternalServerError) GetPayload() *models.CommonQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryRuleInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

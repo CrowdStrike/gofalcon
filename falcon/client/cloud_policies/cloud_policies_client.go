@@ -30,27 +30,39 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateRuleMixin0(params *CreateRuleMixin0Params, opts ...ClientOption) (*CreateRuleMixin0OK, error)
+	CreateRule(params *CreateRuleParams, opts ...ClientOption) (*CreateRuleOK, error)
 
 	CreateRuleOverride(params *CreateRuleOverrideParams, opts ...ClientOption) (*CreateRuleOverrideOK, error)
 
-	DeleteRuleMixin0(params *DeleteRuleMixin0Params, opts ...ClientOption) (*DeleteRuleMixin0OK, error)
+	DeleteRule(params *DeleteRuleParams, opts ...ClientOption) (*DeleteRuleOK, error)
 
-	DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideNoContent, error)
+	DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideOK, *DeleteRuleOverrideNoContent, error)
+
+	GetCombinedRulesExport(params *GetCombinedRulesExportParams, opts ...ClientOption) (*GetCombinedRulesExportOK, error)
 
 	GetComplianceControls(params *GetComplianceControlsParams, opts ...ClientOption) (*GetComplianceControlsOK, error)
 
 	GetComplianceFrameworks(params *GetComplianceFrameworksParams, opts ...ClientOption) (*GetComplianceFrameworksOK, error)
 
+	GetEvaluationResult(params *GetEvaluationResultParams, opts ...ClientOption) (*GetEvaluationResultOK, error)
+
 	GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleOK, error)
 
 	GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOption) (*GetRuleOverrideOK, error)
+
+	GetValuesByFieldComplianceControl(params *GetValuesByFieldComplianceControlParams, opts ...ClientOption) (*GetValuesByFieldComplianceControlOK, error)
+
+	GetValuesByFieldComplianceFramework(params *GetValuesByFieldComplianceFrameworkParams, opts ...ClientOption) (*GetValuesByFieldComplianceFrameworkOK, error)
+
+	GetValuesByFieldRule(params *GetValuesByFieldRuleParams, opts ...ClientOption) (*GetValuesByFieldRuleOK, error)
 
 	QueryComplianceControls(params *QueryComplianceControlsParams, opts ...ClientOption) (*QueryComplianceControlsOK, error)
 
 	QueryComplianceFrameworks(params *QueryComplianceFrameworksParams, opts ...ClientOption) (*QueryComplianceFrameworksOK, error)
 
 	QueryRule(params *QueryRuleParams, opts ...ClientOption) (*QueryRuleOK, error)
+
+	QueryRuleOverride(params *QueryRuleOverrideParams, opts ...ClientOption) (*QueryRuleOverrideOK, error)
 
 	UpdateRule(params *UpdateRuleParams, opts ...ClientOption) (*UpdateRuleOK, error)
 
@@ -60,22 +72,22 @@ type ClientService interface {
 }
 
 /*
-CreateRuleMixin0 creates a new rule
+CreateRule creates a new rule
 */
-func (a *Client) CreateRuleMixin0(params *CreateRuleMixin0Params, opts ...ClientOption) (*CreateRuleMixin0OK, error) {
+func (a *Client) CreateRule(params *CreateRuleParams, opts ...ClientOption) (*CreateRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateRuleMixin0Params()
+		params = NewCreateRuleParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "CreateRuleMixin0",
+		ID:                 "CreateRule",
 		Method:             "POST",
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateRuleMixin0Reader{formats: a.formats},
+		Reader:             &CreateRuleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -87,13 +99,13 @@ func (a *Client) CreateRuleMixin0(params *CreateRuleMixin0Params, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateRuleMixin0OK)
+	success, ok := result.(*CreateRuleOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateRuleMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -136,22 +148,22 @@ func (a *Client) CreateRuleOverride(params *CreateRuleOverrideParams, opts ...Cl
 }
 
 /*
-DeleteRuleMixin0 deletes a rule
+DeleteRule deletes a rule
 */
-func (a *Client) DeleteRuleMixin0(params *DeleteRuleMixin0Params, opts ...ClientOption) (*DeleteRuleMixin0OK, error) {
+func (a *Client) DeleteRule(params *DeleteRuleParams, opts ...ClientOption) (*DeleteRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteRuleMixin0Params()
+		params = NewDeleteRuleParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteRuleMixin0",
+		ID:                 "DeleteRule",
 		Method:             "DELETE",
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteRuleMixin0Reader{formats: a.formats},
+		Reader:             &DeleteRuleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -163,20 +175,20 @@ func (a *Client) DeleteRuleMixin0(params *DeleteRuleMixin0Params, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteRuleMixin0OK)
+	success, ok := result.(*DeleteRuleOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteRuleMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
 DeleteRuleOverride deletes a rule override
 */
-func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideNoContent, error) {
+func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideOK, *DeleteRuleOverrideNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRuleOverrideParams()
@@ -199,15 +211,54 @@ func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...Cl
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteRuleOverrideOK:
+		return value, nil, nil
+	case *DeleteRuleOverrideNoContent:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud_policies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCombinedRulesExport exports rule details
+*/
+func (a *Client) GetCombinedRulesExport(params *GetCombinedRulesExportParams, opts ...ClientOption) (*GetCombinedRulesExportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCombinedRulesExportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCombinedRulesExport",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/combined/rules/export/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCombinedRulesExportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteRuleOverrideNoContent)
+	success, ok := result.(*GetCombinedRulesExportOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteRuleOverride: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCombinedRulesExport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -288,6 +339,44 @@ func (a *Client) GetComplianceFrameworks(params *GetComplianceFrameworksParams, 
 }
 
 /*
+GetEvaluationResult gets evaluation results based on the provided rule
+*/
+func (a *Client) GetEvaluationResult(params *GetEvaluationResultParams, opts ...ClientOption) (*GetEvaluationResultOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetEvaluationResultParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetEvaluationResult",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/evaluation/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetEvaluationResultReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetEvaluationResultOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetEvaluationResult: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetRule gets a rule by id
 */
 func (a *Client) GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleOK, error) {
@@ -360,6 +449,120 @@ func (a *Client) GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetRuleOverride: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetValuesByFieldComplianceControl gets distinct values for a field in compliance controls
+*/
+func (a *Client) GetValuesByFieldComplianceControl(params *GetValuesByFieldComplianceControlParams, opts ...ClientOption) (*GetValuesByFieldComplianceControlOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetValuesByFieldComplianceControlParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetValuesByFieldComplianceControl",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/aggregates/compliance/controls/values-by-field/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetValuesByFieldComplianceControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetValuesByFieldComplianceControlOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetValuesByFieldComplianceControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetValuesByFieldComplianceFramework gets distinct values for a field in compliance frameworks
+*/
+func (a *Client) GetValuesByFieldComplianceFramework(params *GetValuesByFieldComplianceFrameworkParams, opts ...ClientOption) (*GetValuesByFieldComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetValuesByFieldComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetValuesByFieldComplianceFramework",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/aggregates/compliance/frameworks/values-by-field/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetValuesByFieldComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetValuesByFieldComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetValuesByFieldComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetValuesByFieldRule gets distinct values for a field in rules
+*/
+func (a *Client) GetValuesByFieldRule(params *GetValuesByFieldRuleParams, opts ...ClientOption) (*GetValuesByFieldRuleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetValuesByFieldRuleParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetValuesByFieldRule",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/aggregates/rules/values-by-field/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetValuesByFieldRuleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetValuesByFieldRuleOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetValuesByFieldRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -474,6 +677,44 @@ func (a *Client) QueryRule(params *QueryRuleParams, opts ...ClientOption) (*Quer
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryRuleOverride queries for rule overrides
+*/
+func (a *Client) QueryRuleOverride(params *QueryRuleOverrideParams, opts ...ClientOption) (*QueryRuleOverrideOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryRuleOverrideParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryRuleOverride",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/queries/rule-overrides/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryRuleOverrideReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryRuleOverrideOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryRuleOverride: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

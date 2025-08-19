@@ -63,6 +63,24 @@ UpdateRuleParams contains all the parameters to send to the API endpoint
 */
 type UpdateRuleParams struct {
 
+	/* Authorization.
+
+	   Bearer Token
+	*/
+	Authorization string
+
+	/* XCSCUSTID.
+
+	   Customer ID
+	*/
+	XCSCUSTID string
+
+	/* XCSUSERUUID.
+
+	   User UUID
+	*/
+	XCSUSERUUID string
+
 	// Body.
 	Body *models.CommonUpdateRuleRequest
 
@@ -119,6 +137,39 @@ func (o *UpdateRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAuthorization adds the authorization to the update rule params
+func (o *UpdateRuleParams) WithAuthorization(authorization string) *UpdateRuleParams {
+	o.SetAuthorization(authorization)
+	return o
+}
+
+// SetAuthorization adds the authorization to the update rule params
+func (o *UpdateRuleParams) SetAuthorization(authorization string) {
+	o.Authorization = authorization
+}
+
+// WithXCSCUSTID adds the xCSCUSTID to the update rule params
+func (o *UpdateRuleParams) WithXCSCUSTID(xCSCUSTID string) *UpdateRuleParams {
+	o.SetXCSCUSTID(xCSCUSTID)
+	return o
+}
+
+// SetXCSCUSTID adds the xCSCUSTId to the update rule params
+func (o *UpdateRuleParams) SetXCSCUSTID(xCSCUSTID string) {
+	o.XCSCUSTID = xCSCUSTID
+}
+
+// WithXCSUSERUUID adds the xCSUSERUUID to the update rule params
+func (o *UpdateRuleParams) WithXCSUSERUUID(xCSUSERUUID string) *UpdateRuleParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the update rule params
+func (o *UpdateRuleParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithBody adds the body to the update rule params
 func (o *UpdateRuleParams) WithBody(body *models.CommonUpdateRuleRequest) *UpdateRuleParams {
 	o.SetBody(body)
@@ -137,6 +188,21 @@ func (o *UpdateRuleParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
+
+	// header param Authorization
+	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
+		return err
+	}
+
+	// header param X-CS-CUSTID
+	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
+		return err
+	}
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

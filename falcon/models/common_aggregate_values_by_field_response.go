@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CommonEntitiesResponse common entities response
+// CommonAggregateValuesByFieldResponse common aggregate values by field response
 //
-// swagger:model common.EntitiesResponse
-type CommonEntitiesResponse struct {
+// swagger:model common.AggregateValuesByFieldResponse
+type CommonAggregateValuesByFieldResponse struct {
 
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
@@ -29,11 +29,11 @@ type CommonEntitiesResponse struct {
 
 	// resources
 	// Required: true
-	Resources CommonEntitiesResponseResources `json:"resources"`
+	Resources []*CommonAPIFilterResponse `json:"resources"`
 }
 
-// Validate validates this common entities response
-func (m *CommonEntitiesResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this common aggregate values by field response
+func (m *CommonAggregateValuesByFieldResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *CommonEntitiesResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonEntitiesResponse) validateErrors(formats strfmt.Registry) error {
+func (m *CommonAggregateValuesByFieldResponse) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -80,7 +80,7 @@ func (m *CommonEntitiesResponse) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonEntitiesResponse) validateMeta(formats strfmt.Registry) error {
+func (m *CommonAggregateValuesByFieldResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,17 +100,35 @@ func (m *CommonEntitiesResponse) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonEntitiesResponse) validateResources(formats strfmt.Registry) error {
+func (m *CommonAggregateValuesByFieldResponse) validateResources(formats strfmt.Registry) error {
 
-	if m.Resources == nil {
-		return errors.Required("resources", "body", nil)
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
 }
 
-// ContextValidate validate this common entities response based on the context it is used
-func (m *CommonEntitiesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this common aggregate values by field response based on the context it is used
+func (m *CommonAggregateValuesByFieldResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -121,13 +139,17 @@ func (m *CommonEntitiesResponse) ContextValidate(ctx context.Context, formats st
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *CommonEntitiesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *CommonAggregateValuesByFieldResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -152,7 +174,7 @@ func (m *CommonEntitiesResponse) contextValidateErrors(ctx context.Context, form
 	return nil
 }
 
-func (m *CommonEntitiesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *CommonAggregateValuesByFieldResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -169,8 +191,33 @@ func (m *CommonEntitiesResponse) contextValidateMeta(ctx context.Context, format
 	return nil
 }
 
+func (m *CommonAggregateValuesByFieldResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // MarshalBinary interface implementation
-func (m *CommonEntitiesResponse) MarshalBinary() ([]byte, error) {
+func (m *CommonAggregateValuesByFieldResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -178,8 +225,8 @@ func (m *CommonEntitiesResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *CommonEntitiesResponse) UnmarshalBinary(b []byte) error {
-	var res CommonEntitiesResponse
+func (m *CommonAggregateValuesByFieldResponse) UnmarshalBinary(b []byte) error {
+	var res CommonAggregateValuesByFieldResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

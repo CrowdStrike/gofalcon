@@ -62,6 +62,24 @@ GetComplianceFrameworksParams contains all the parameters to send to the API end
 */
 type GetComplianceFrameworksParams struct {
 
+	/* Authorization.
+
+	   Bearer Token
+	*/
+	Authorization string
+
+	/* XCSCUSTID.
+
+	   Customer ID
+	*/
+	XCSCUSTID string
+
+	/* XCSUSERUUID.
+
+	   User UUID
+	*/
+	XCSUSERUUID string
+
 	/* Ids.
 
 	   The uuids of compliance frameworks to retrieve
@@ -121,6 +139,39 @@ func (o *GetComplianceFrameworksParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAuthorization adds the authorization to the get compliance frameworks params
+func (o *GetComplianceFrameworksParams) WithAuthorization(authorization string) *GetComplianceFrameworksParams {
+	o.SetAuthorization(authorization)
+	return o
+}
+
+// SetAuthorization adds the authorization to the get compliance frameworks params
+func (o *GetComplianceFrameworksParams) SetAuthorization(authorization string) {
+	o.Authorization = authorization
+}
+
+// WithXCSCUSTID adds the xCSCUSTID to the get compliance frameworks params
+func (o *GetComplianceFrameworksParams) WithXCSCUSTID(xCSCUSTID string) *GetComplianceFrameworksParams {
+	o.SetXCSCUSTID(xCSCUSTID)
+	return o
+}
+
+// SetXCSCUSTID adds the xCSCUSTId to the get compliance frameworks params
+func (o *GetComplianceFrameworksParams) SetXCSCUSTID(xCSCUSTID string) {
+	o.XCSCUSTID = xCSCUSTID
+}
+
+// WithXCSUSERUUID adds the xCSUSERUUID to the get compliance frameworks params
+func (o *GetComplianceFrameworksParams) WithXCSUSERUUID(xCSUSERUUID string) *GetComplianceFrameworksParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the get compliance frameworks params
+func (o *GetComplianceFrameworksParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithIds adds the ids to the get compliance frameworks params
 func (o *GetComplianceFrameworksParams) WithIds(ids []string) *GetComplianceFrameworksParams {
 	o.SetIds(ids)
@@ -139,6 +190,21 @@ func (o *GetComplianceFrameworksParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+
+	// header param Authorization
+	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
+		return err
+	}
+
+	// header param X-CS-CUSTID
+	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
+		return err
+	}
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	if o.Ids != nil {
 

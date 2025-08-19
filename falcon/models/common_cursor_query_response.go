@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CommonEntitiesResponse common entities response
+// CommonCursorQueryResponse common cursor query response
 //
-// swagger:model common.EntitiesResponse
-type CommonEntitiesResponse struct {
+// swagger:model common.CursorQueryResponse
+type CommonCursorQueryResponse struct {
 
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
@@ -29,11 +29,11 @@ type CommonEntitiesResponse struct {
 
 	// resources
 	// Required: true
-	Resources CommonEntitiesResponseResources `json:"resources"`
+	Resources []string `json:"resources"`
 }
 
-// Validate validates this common entities response
-func (m *CommonEntitiesResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this common cursor query response
+func (m *CommonCursorQueryResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *CommonEntitiesResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonEntitiesResponse) validateErrors(formats strfmt.Registry) error {
+func (m *CommonCursorQueryResponse) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -80,7 +80,7 @@ func (m *CommonEntitiesResponse) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonEntitiesResponse) validateMeta(formats strfmt.Registry) error {
+func (m *CommonCursorQueryResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,17 +100,17 @@ func (m *CommonEntitiesResponse) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonEntitiesResponse) validateResources(formats strfmt.Registry) error {
+func (m *CommonCursorQueryResponse) validateResources(formats strfmt.Registry) error {
 
-	if m.Resources == nil {
-		return errors.Required("resources", "body", nil)
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
+		return err
 	}
 
 	return nil
 }
 
-// ContextValidate validate this common entities response based on the context it is used
-func (m *CommonEntitiesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this common cursor query response based on the context it is used
+func (m *CommonCursorQueryResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -127,7 +127,7 @@ func (m *CommonEntitiesResponse) ContextValidate(ctx context.Context, formats st
 	return nil
 }
 
-func (m *CommonEntitiesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *CommonCursorQueryResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -152,7 +152,7 @@ func (m *CommonEntitiesResponse) contextValidateErrors(ctx context.Context, form
 	return nil
 }
 
-func (m *CommonEntitiesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *CommonCursorQueryResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -170,7 +170,7 @@ func (m *CommonEntitiesResponse) contextValidateMeta(ctx context.Context, format
 }
 
 // MarshalBinary interface implementation
-func (m *CommonEntitiesResponse) MarshalBinary() ([]byte, error) {
+func (m *CommonCursorQueryResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -178,8 +178,8 @@ func (m *CommonEntitiesResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *CommonEntitiesResponse) UnmarshalBinary(b []byte) error {
-	var res CommonEntitiesResponse
+func (m *CommonCursorQueryResponse) UnmarshalBinary(b []byte) error {
+	var res CommonCursorQueryResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

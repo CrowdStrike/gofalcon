@@ -62,50 +62,53 @@ QueryRuleParams contains all the parameters to send to the API endpoint
 */
 type QueryRuleParams struct {
 
+	/* Authorization.
+
+	   Bearer Token
+	*/
+	Authorization string
+
+	/* XCSCUSTID.
+
+	   Customer ID
+	*/
+	XCSCUSTID string
+
+	/* XCSUSERUUID.
+
+	   User UUID
+	*/
+	XCSUSERUUID string
+
 	/* Filter.
 
-	     FQL filter, allowed props:
-
-	*rule_origin*
-	*rule_parent_uuid*
-	*rule_name*
-	*rule_description*
-	*rule_domain*
-	*rule_status*
-	*rule_severity*
-	*rule_service*
-	*rule_resource_type*
-	*rule_provider*
-	*rule_subdomain*
-	*rule_auto_remediable*
-	*rule_control_requirement*
-	*rule_control_section*
-	*rule_compliance_benchmark*
-	*rule_compliance_framework*
-	*rule_mitre_tactic*
-	*rule_mitre_technique*
-	*rule_created_at*
-	*rule_updated_at*
-	*rule_updated_by*
-
+	   FQL filter, allowed properties: *rule_origin* *rule_parent_uuid* *rule_name* *rule_description* *rule_domain* *rule_status* *rule_severity* *rule_short_code* *rule_service* *rule_resource_type* *rule_provider* *rule_subdomain* *rule_auto_remediable* *rule_control_requirement* *rule_control_section* *rule_compliance_benchmark* *rule_compliance_framework* *rule_mitre_tactic* *rule_mitre_technique* *rule_created_at* *rule_updated_at* *rule_updated_by*
 	*/
 	Filter *string
 
+	/* IncludeHidden.
+
+	   determines if rules that are not visible should be returned
+	*/
+	IncludeHidden *bool
+
 	/* Limit.
 
-	   limits number of returned entries
+	   The maximum number of resources to return. The maximum allowed is 500.
+
+	   Default: 100
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   offset to start query with
+	   The number of results to skip before starting to return results.
 	*/
 	Offset *int64
 
 	/* Sort.
 
-	   sort by field
+	   Field to sort on. Sortable fields: *rule_origin* *rule_parent_uuid* *rule_name* *rule_description* *rule_domain* *rule_status* *rule_severity* *rule_short_code* *rule_service* *rule_resource_type* *rule_provider* *rule_subdomain* *rule_auto_remediable* *rule_control_requirement* *rule_control_section* *rule_compliance_benchmark* *rule_compliance_framework* *rule_mitre_tactic* *rule_mitre_technique* *rule_created_at* *rule_updated_at* *rule_updated_by* Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 
@@ -126,7 +129,24 @@ func (o *QueryRuleParams) WithDefaults() *QueryRuleParams {
 //
 // All values with no default are reset to their zero value.
 func (o *QueryRuleParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		includeHiddenDefault = bool(false)
+
+		limitDefault = int64(100)
+
+		offsetDefault = int64(0)
+	)
+
+	val := QueryRuleParams{
+		IncludeHidden: &includeHiddenDefault,
+		Limit:         &limitDefault,
+		Offset:        &offsetDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query rule params
@@ -162,6 +182,39 @@ func (o *QueryRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAuthorization adds the authorization to the query rule params
+func (o *QueryRuleParams) WithAuthorization(authorization string) *QueryRuleParams {
+	o.SetAuthorization(authorization)
+	return o
+}
+
+// SetAuthorization adds the authorization to the query rule params
+func (o *QueryRuleParams) SetAuthorization(authorization string) {
+	o.Authorization = authorization
+}
+
+// WithXCSCUSTID adds the xCSCUSTID to the query rule params
+func (o *QueryRuleParams) WithXCSCUSTID(xCSCUSTID string) *QueryRuleParams {
+	o.SetXCSCUSTID(xCSCUSTID)
+	return o
+}
+
+// SetXCSCUSTID adds the xCSCUSTId to the query rule params
+func (o *QueryRuleParams) SetXCSCUSTID(xCSCUSTID string) {
+	o.XCSCUSTID = xCSCUSTID
+}
+
+// WithXCSUSERUUID adds the xCSUSERUUID to the query rule params
+func (o *QueryRuleParams) WithXCSUSERUUID(xCSUSERUUID string) *QueryRuleParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the query rule params
+func (o *QueryRuleParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithFilter adds the filter to the query rule params
 func (o *QueryRuleParams) WithFilter(filter *string) *QueryRuleParams {
 	o.SetFilter(filter)
@@ -171,6 +224,17 @@ func (o *QueryRuleParams) WithFilter(filter *string) *QueryRuleParams {
 // SetFilter adds the filter to the query rule params
 func (o *QueryRuleParams) SetFilter(filter *string) {
 	o.Filter = filter
+}
+
+// WithIncludeHidden adds the includeHidden to the query rule params
+func (o *QueryRuleParams) WithIncludeHidden(includeHidden *bool) *QueryRuleParams {
+	o.SetIncludeHidden(includeHidden)
+	return o
+}
+
+// SetIncludeHidden adds the includeHidden to the query rule params
+func (o *QueryRuleParams) SetIncludeHidden(includeHidden *bool) {
+	o.IncludeHidden = includeHidden
 }
 
 // WithLimit adds the limit to the query rule params
@@ -214,6 +278,21 @@ func (o *QueryRuleParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 	}
 	var res []error
 
+	// header param Authorization
+	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
+		return err
+	}
+
+	// header param X-CS-CUSTID
+	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
+		return err
+	}
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
+
 	if o.Filter != nil {
 
 		// query param filter
@@ -226,6 +305,23 @@ func (o *QueryRuleParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 		if qFilter != "" {
 
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IncludeHidden != nil {
+
+		// query param include_hidden
+		var qrIncludeHidden bool
+
+		if o.IncludeHidden != nil {
+			qrIncludeHidden = *o.IncludeHidden
+		}
+		qIncludeHidden := swag.FormatBool(qrIncludeHidden)
+		if qIncludeHidden != "" {
+
+			if err := r.SetQueryParam("include_hidden", qIncludeHidden); err != nil {
 				return err
 			}
 		}

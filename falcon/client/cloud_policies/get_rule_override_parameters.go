@@ -62,6 +62,24 @@ GetRuleOverrideParams contains all the parameters to send to the API endpoint
 */
 type GetRuleOverrideParams struct {
 
+	/* Authorization.
+
+	   Bearer Token
+	*/
+	Authorization string
+
+	/* XCSCUSTID.
+
+	   Customer ID
+	*/
+	XCSCUSTID string
+
+	/* XCSUSERUUID.
+
+	   User UUID
+	*/
+	XCSUSERUUID string
+
 	/* Ids.
 
 	   The uuids of rule overrides to retrieve
@@ -121,6 +139,39 @@ func (o *GetRuleOverrideParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAuthorization adds the authorization to the get rule override params
+func (o *GetRuleOverrideParams) WithAuthorization(authorization string) *GetRuleOverrideParams {
+	o.SetAuthorization(authorization)
+	return o
+}
+
+// SetAuthorization adds the authorization to the get rule override params
+func (o *GetRuleOverrideParams) SetAuthorization(authorization string) {
+	o.Authorization = authorization
+}
+
+// WithXCSCUSTID adds the xCSCUSTID to the get rule override params
+func (o *GetRuleOverrideParams) WithXCSCUSTID(xCSCUSTID string) *GetRuleOverrideParams {
+	o.SetXCSCUSTID(xCSCUSTID)
+	return o
+}
+
+// SetXCSCUSTID adds the xCSCUSTId to the get rule override params
+func (o *GetRuleOverrideParams) SetXCSCUSTID(xCSCUSTID string) {
+	o.XCSCUSTID = xCSCUSTID
+}
+
+// WithXCSUSERUUID adds the xCSUSERUUID to the get rule override params
+func (o *GetRuleOverrideParams) WithXCSUSERUUID(xCSUSERUUID string) *GetRuleOverrideParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the get rule override params
+func (o *GetRuleOverrideParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithIds adds the ids to the get rule override params
 func (o *GetRuleOverrideParams) WithIds(ids []string) *GetRuleOverrideParams {
 	o.SetIds(ids)
@@ -139,6 +190,21 @@ func (o *GetRuleOverrideParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
+
+	// header param Authorization
+	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
+		return err
+	}
+
+	// header param X-CS-CUSTID
+	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
+		return err
+	}
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	if o.Ids != nil {
 
