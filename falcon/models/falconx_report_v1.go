@@ -19,6 +19,9 @@ import (
 // swagger:model falconx.ReportV1
 type FalconxReportV1 struct {
 
+	// ai summary
+	AiSummary *FalconxAISummary `json:"ai_summary,omitempty"`
+
 	// aid
 	Aid string `json:"aid,omitempty"`
 
@@ -96,11 +99,18 @@ type FalconxReportV1 struct {
 
 	// verdict
 	Verdict string `json:"verdict,omitempty"`
+
+	// verdict source
+	VerdictSource string `json:"verdict_source,omitempty"`
 }
 
 // Validate validates this falconx report v1
 func (m *FalconxReportV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAiSummary(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateIntel(formats); err != nil {
 		res = append(res, err)
@@ -125,6 +135,25 @@ func (m *FalconxReportV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *FalconxReportV1) validateAiSummary(formats strfmt.Registry) error {
+	if swag.IsZero(m.AiSummary) { // not required
+		return nil
+	}
+
+	if m.AiSummary != nil {
+		if err := m.AiSummary.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ai_summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ai_summary")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -248,6 +277,10 @@ func (m *FalconxReportV1) validateThreatGraph(formats strfmt.Registry) error {
 func (m *FalconxReportV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAiSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateIntel(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -271,6 +304,27 @@ func (m *FalconxReportV1) ContextValidate(ctx context.Context, formats strfmt.Re
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *FalconxReportV1) contextValidateAiSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AiSummary != nil {
+
+		if swag.IsZero(m.AiSummary) { // not required
+			return nil
+		}
+
+		if err := m.AiSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ai_summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ai_summary")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

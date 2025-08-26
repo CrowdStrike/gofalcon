@@ -68,7 +68,7 @@ func NewITAutomationUpdatePoliciesCreated() *ITAutomationUpdatePoliciesCreated {
 /*
 ITAutomationUpdatePoliciesCreated describes a response with status code 201, with default header values.
 
-Created
+OK
 */
 type ITAutomationUpdatePoliciesCreated struct {
 

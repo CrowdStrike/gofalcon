@@ -31,6 +31,12 @@ func (o *UpdateRuleOverrideReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewUpdateRuleOverrideBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewUpdateRuleOverrideForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -84,7 +90,7 @@ type UpdateRuleOverrideOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonUpdateRuleOverrideResponse
 }
 
 // IsSuccess returns true when this update rule override o k response has a 2xx status code
@@ -125,7 +131,7 @@ func (o *UpdateRuleOverrideOK) String() string {
 	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateRuleOverrideOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *UpdateRuleOverrideOK) GetPayload() *models.CommonUpdateRuleOverrideResponse {
 	return o.Payload
 }
 
@@ -160,7 +166,117 @@ func (o *UpdateRuleOverrideOK) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonUpdateRuleOverrideResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUpdateRuleOverrideBadRequest creates a UpdateRuleOverrideBadRequest with default headers values
+func NewUpdateRuleOverrideBadRequest() *UpdateRuleOverrideBadRequest {
+	return &UpdateRuleOverrideBadRequest{}
+}
+
+/*
+UpdateRuleOverrideBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type UpdateRuleOverrideBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CommonUpdateRuleOverrideResponse
+}
+
+// IsSuccess returns true when this update rule override bad request response has a 2xx status code
+func (o *UpdateRuleOverrideBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update rule override bad request response has a 3xx status code
+func (o *UpdateRuleOverrideBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule override bad request response has a 4xx status code
+func (o *UpdateRuleOverrideBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update rule override bad request response has a 5xx status code
+func (o *UpdateRuleOverrideBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule override bad request response a status code equal to that given
+func (o *UpdateRuleOverrideBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the update rule override bad request response
+func (o *UpdateRuleOverrideBadRequest) Code() int {
+	return 400
+}
+
+func (o *UpdateRuleOverrideBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *UpdateRuleOverrideBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rule-overrides/v1][%d] updateRuleOverrideBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *UpdateRuleOverrideBadRequest) GetPayload() *models.CommonUpdateRuleOverrideResponse {
+	return o.Payload
+}
+
+func (o *UpdateRuleOverrideBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CommonUpdateRuleOverrideResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -70,6 +70,10 @@ type ItautomationScheduledTask struct {
 	// Format: date-time
 	ModifiedTime strfmt.DateTime `json:"modified_time,omitempty"`
 
+	// Timestamp of the next scheduled execution of this task. Example: 2023-05-02T15:30:00Z
+	// Format: date-time
+	NextRunTime strfmt.DateTime `json:"next_run_time,omitempty"`
+
 	// Schedule details for the task execution
 	// Required: true
 	Schedule *FalconforitapiSchedule `json:"schedule"`
@@ -127,6 +131,10 @@ func (m *ItautomationScheduledTask) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateModifiedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNextRunTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -246,6 +254,18 @@ func (m *ItautomationScheduledTask) validateModifiedTime(formats strfmt.Registry
 	}
 
 	if err := validate.FormatOf("modified_time", "body", "date-time", m.ModifiedTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ItautomationScheduledTask) validateNextRunTime(formats strfmt.Registry) error {
+	if swag.IsZero(m.NextRunTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("next_run_time", "body", "date-time", m.NextRunTime.String(), formats); err != nil {
 		return err
 	}
 

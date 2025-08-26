@@ -26,9 +26,6 @@ type GraphFlow struct {
 	// Required: true
 	Source *string `json:"source"`
 
-	// Alias for the source of the flow.
-	SourceAlias string `json:"source_alias,omitempty"`
-
 	// Reference to the ID of the node that is the target of the flow.
 	// Required: true
 	Target *string `json:"target"`

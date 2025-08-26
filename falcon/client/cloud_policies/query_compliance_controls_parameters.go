@@ -79,19 +79,32 @@ type QueryComplianceControlsParams struct {
 
 	/* Limit.
 
-	   limits number of results
+	   The maximum number of resources to return. The maximum allowed is 500.
+
+	   Default: 100
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   offset to start query with
+	   The number of results to skip before starting to return results.
 	*/
 	Offset *int64
 
 	/* Sort.
 
-	   sort by field
+	     Field to sort on. Sortable fields:
+
+	*compliance_control_name*
+	*compliance_control_authority*
+	*compliance_control_type*
+	*compliance_control_section*
+	*compliance_control_requirement*
+	*compliance_control_benchmark_name*
+	*compliance_control_benchmark_version*
+
+
+	Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 
@@ -112,7 +125,21 @@ func (o *QueryComplianceControlsParams) WithDefaults() *QueryComplianceControlsP
 //
 // All values with no default are reset to their zero value.
 func (o *QueryComplianceControlsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+
+		offsetDefault = int64(0)
+	)
+
+	val := QueryComplianceControlsParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query compliance controls params

@@ -64,7 +64,7 @@ type QueryComplianceFrameworksParams struct {
 
 	/* Filter.
 
-	     FQL filter, allowed props:
+	     FQL filter, allowed properties:
 
 	*compliance_framework_name*
 	*compliance_framework_version*
@@ -75,19 +75,28 @@ type QueryComplianceFrameworksParams struct {
 
 	/* Limit.
 
-	   limits number of results
+	   The maximum number of resources to return. The maximum allowed is 500.
+
+	   Default: 100
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   offset to start query with
+	   The number of results to skip before starting to return results.
 	*/
 	Offset *int64
 
 	/* Sort.
 
-	   sort by field
+	     Field to sort on. Sortable fields:
+
+	*compliance_framework_name*
+	*compliance_framework_version*
+	*compliance_framework_authority*
+
+
+	Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 
@@ -108,7 +117,21 @@ func (o *QueryComplianceFrameworksParams) WithDefaults() *QueryComplianceFramewo
 //
 // All values with no default are reset to their zero value.
 func (o *QueryComplianceFrameworksParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+
+		offsetDefault = int64(0)
+	)
+
+	val := QueryComplianceFrameworksParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query compliance frameworks params

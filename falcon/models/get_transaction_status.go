@@ -20,13 +20,13 @@ import (
 type GetTransactionStatus struct {
 
 	// errors
-	Errors []*Error978797bd5b2a4281a788f1ddb0bd40e1 `json:"errors"`
+	Errors []*ErrorGetTransactionStatus `json:"errors"`
 
 	// meta
-	Meta *Meta8c01a6f57b8b48e8a2d3cd5e32aca557 `json:"meta,omitempty"`
+	Meta *MetaGetTransactionStatus `json:"meta,omitempty"`
 
 	// resources
-	Resources []*DataTransactionResponseDto0a818d8964b64fd4bf08a6ec2ade7cd4 `json:"resources"`
+	Resources []*DataTransactionResponseDtoGetTransactionStatus `json:"resources"`
 }
 
 // Validate validates this get transaction status

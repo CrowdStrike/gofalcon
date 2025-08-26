@@ -62,12 +62,6 @@ APIPreemptProxyGetPolicyRulesParams contains all the parameters to send to the A
 */
 type APIPreemptProxyGetPolicyRulesParams struct {
 
-	/* Authorization.
-
-	   Authorization Header
-	*/
-	Authorization string
-
 	/* Ids.
 
 	   Rule IDs
@@ -127,17 +121,6 @@ func (o *APIPreemptProxyGetPolicyRulesParams) SetHTTPClient(client *http.Client)
 	o.HTTPClient = client
 }
 
-// WithAuthorization adds the authorization to the api preempt proxy get policy rules params
-func (o *APIPreemptProxyGetPolicyRulesParams) WithAuthorization(authorization string) *APIPreemptProxyGetPolicyRulesParams {
-	o.SetAuthorization(authorization)
-	return o
-}
-
-// SetAuthorization adds the authorization to the api preempt proxy get policy rules params
-func (o *APIPreemptProxyGetPolicyRulesParams) SetAuthorization(authorization string) {
-	o.Authorization = authorization
-}
-
 // WithIds adds the ids to the api preempt proxy get policy rules params
 func (o *APIPreemptProxyGetPolicyRulesParams) WithIds(ids []string) *APIPreemptProxyGetPolicyRulesParams {
 	o.SetIds(ids)
@@ -156,11 +139,6 @@ func (o *APIPreemptProxyGetPolicyRulesParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
-	// header param Authorization
-	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
-		return err
-	}
 
 	if o.Ids != nil {
 

@@ -20,13 +20,13 @@ import (
 type GetActivityMonitor struct {
 
 	// errors
-	Errors []*Error36a144bca1724956a8cfcddb5bab5095 `json:"errors"`
+	Errors []*ErrorGetActivityMonitor `json:"errors"`
 
 	// meta
-	Meta *Meta715517b03fc341079c0c8f3152957536 `json:"meta,omitempty"`
+	Meta *MetaGetActivityMonitor `json:"meta,omitempty"`
 
 	// resources
-	Resources []*Activity2Ac3c7d2650204873a7cbd0dda9fba5fe `json:"resources"`
+	Resources []*Activity2GetActivityMonitor `json:"resources"`
 }
 
 // Validate validates this get activity monitor

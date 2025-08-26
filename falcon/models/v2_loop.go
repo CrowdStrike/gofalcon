@@ -19,11 +19,9 @@ import (
 // swagger:model v2.Loop
 type V2Loop struct {
 
-	// actions
-	Actions map[string]V2Activity `json:"actions,omitempty"`
-
-	// conditions
-	Conditions map[string]V2Condition `json:"conditions,omitempty"`
+	// model
+	// Required: true
+	Model *V2Model `json:"Model"`
 
 	// display
 	Display string `json:"display,omitempty"`
@@ -34,28 +32,17 @@ type V2Loop struct {
 
 	// next
 	Next []string `json:"next"`
-
-	// trigger
-	Trigger *V2Trigger `json:"trigger,omitempty"`
 }
 
 // Validate validates this v2 loop
 func (m *V2Loop) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateActions(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateConditions(formats); err != nil {
+	if err := m.validateModel(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateFor(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTrigger(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -65,53 +52,21 @@ func (m *V2Loop) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V2Loop) validateActions(formats strfmt.Registry) error {
-	if swag.IsZero(m.Actions) { // not required
-		return nil
+func (m *V2Loop) validateModel(formats strfmt.Registry) error {
+
+	if err := validate.Required("Model", "body", m.Model); err != nil {
+		return err
 	}
 
-	for k := range m.Actions {
-
-		if err := validate.Required("actions"+"."+k, "body", m.Actions[k]); err != nil {
+	if m.Model != nil {
+		if err := m.Model.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("Model")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Model")
+			}
 			return err
 		}
-		if val, ok := m.Actions[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("actions" + "." + k)
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("actions" + "." + k)
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *V2Loop) validateConditions(formats strfmt.Registry) error {
-	if swag.IsZero(m.Conditions) { // not required
-		return nil
-	}
-
-	for k := range m.Conditions {
-
-		if err := validate.Required("conditions"+"."+k, "body", m.Conditions[k]); err != nil {
-			return err
-		}
-		if val, ok := m.Conditions[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("conditions" + "." + k)
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("conditions" + "." + k)
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil
@@ -137,42 +92,15 @@ func (m *V2Loop) validateFor(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V2Loop) validateTrigger(formats strfmt.Registry) error {
-	if swag.IsZero(m.Trigger) { // not required
-		return nil
-	}
-
-	if m.Trigger != nil {
-		if err := m.Trigger.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("trigger")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("trigger")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 // ContextValidate validate this v2 loop based on the context it is used
 func (m *V2Loop) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateActions(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateConditions(ctx, formats); err != nil {
+	if err := m.contextValidateModel(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateFor(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTrigger(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -182,31 +110,18 @@ func (m *V2Loop) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 	return nil
 }
 
-func (m *V2Loop) contextValidateActions(ctx context.Context, formats strfmt.Registry) error {
+func (m *V2Loop) contextValidateModel(ctx context.Context, formats strfmt.Registry) error {
 
-	for k := range m.Actions {
+	if m.Model != nil {
 
-		if val, ok := m.Actions[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
-				return err
+		if err := m.Model.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("Model")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Model")
 			}
+			return err
 		}
-
-	}
-
-	return nil
-}
-
-func (m *V2Loop) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
-
-	for k := range m.Conditions {
-
-		if val, ok := m.Conditions[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
-				return err
-			}
-		}
-
 	}
 
 	return nil
@@ -221,27 +136,6 @@ func (m *V2Loop) contextValidateFor(ctx context.Context, formats strfmt.Registry
 				return ve.ValidateName("for")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("for")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V2Loop) contextValidateTrigger(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Trigger != nil {
-
-		if swag.IsZero(m.Trigger) { // not required
-			return nil
-		}
-
-		if err := m.Trigger.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("trigger")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("trigger")
 			}
 			return err
 		}

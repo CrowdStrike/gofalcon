@@ -20,13 +20,13 @@ import (
 type GetIntegrations struct {
 
 	// errors
-	Errors []*Error5fa4b36bdb35435eb52b290a01af1db2 `json:"errors"`
+	Errors []*ErrorGetIntegrations `json:"errors"`
 
 	// meta
-	Meta *Meta1b17f50c67bc43d381dd879591114299 `json:"meta,omitempty"`
+	Meta *MetaGetIntegrations `json:"meta,omitempty"`
 
 	// resources
-	Resources []*AccountIntegrationC8ce9914f31e405a9e01bc383dd02303 `json:"resources"`
+	Resources []*AccountIntegrationGetIntegrations `json:"resources"`
 }
 
 // Validate validates this get integrations

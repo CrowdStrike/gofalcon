@@ -31,6 +31,9 @@ type ItautomationUpdateTaskRequest struct {
 	// User IDs to add to the assigned user IDs of the task, when access_type is Shared. Use GET /user-management/queries/users/v1 to fetch user IDs
 	AddAssignedUserIds []string `json:"add_assigned_user_ids"`
 
+	// Composite query configuration containing task IDs and host attributes for multi-task execution
+	CompositeQuery *ItautomationCompositeQuery `json:"composite_query,omitempty"`
+
 	// Detailed description of what the task does. Example: User Table Validation Check
 	Description string `json:"description,omitempty"`
 
@@ -80,6 +83,10 @@ func (m *ItautomationUpdateTaskRequest) Validate(formats strfmt.Registry) error 
 	var res []error
 
 	if err := m.validateAccessType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCompositeQuery(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -154,6 +161,25 @@ func (m *ItautomationUpdateTaskRequest) validateAccessType(formats strfmt.Regist
 	// value enum
 	if err := m.validateAccessTypeEnum("access_type", "body", m.AccessType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ItautomationUpdateTaskRequest) validateCompositeQuery(formats strfmt.Registry) error {
+	if swag.IsZero(m.CompositeQuery) { // not required
+		return nil
+	}
+
+	if m.CompositeQuery != nil {
+		if err := m.CompositeQuery.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("composite_query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("composite_query")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -340,6 +366,10 @@ func (m *ItautomationUpdateTaskRequest) validateVerificationCondition(formats st
 func (m *ItautomationUpdateTaskRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateCompositeQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateOutputParserConfig(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -367,6 +397,27 @@ func (m *ItautomationUpdateTaskRequest) ContextValidate(ctx context.Context, for
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ItautomationUpdateTaskRequest) contextValidateCompositeQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CompositeQuery != nil {
+
+		if swag.IsZero(m.CompositeQuery) { // not required
+			return nil
+		}
+
+		if err := m.CompositeQuery.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("composite_query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("composite_query")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -61,6 +61,9 @@ DismissSecurityCheckV3Params contains all the parameters to send to the API endp
 */
 type DismissSecurityCheckV3Params struct {
 
+	// Body.
+	Body DismissSecurityCheckV3Body
+
 	/* ID.
 
 	   Security Check ID
@@ -120,6 +123,17 @@ func (o *DismissSecurityCheckV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithBody adds the body to the dismiss security check v3 params
+func (o *DismissSecurityCheckV3Params) WithBody(body DismissSecurityCheckV3Body) *DismissSecurityCheckV3Params {
+	o.SetBody(body)
+	return o
+}
+
+// SetBody adds the body to the dismiss security check v3 params
+func (o *DismissSecurityCheckV3Params) SetBody(body DismissSecurityCheckV3Body) {
+	o.Body = body
+}
+
 // WithID adds the id to the dismiss security check v3 params
 func (o *DismissSecurityCheckV3Params) WithID(id string) *DismissSecurityCheckV3Params {
 	o.SetID(id)
@@ -138,6 +152,9 @@ func (o *DismissSecurityCheckV3Params) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
+	if err := r.SetBodyParam(o.Body); err != nil {
+		return err
+	}
 
 	// query param id
 	qrID := o.ID

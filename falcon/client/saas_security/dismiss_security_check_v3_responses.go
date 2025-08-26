@@ -6,6 +6,7 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
 
@@ -506,5 +507,43 @@ func (o *DismissSecurityCheckV3InternalServerError) readResponse(response runtim
 		return err
 	}
 
+	return nil
+}
+
+/*
+DismissSecurityCheckV3Body dismiss security check v3 body
+swagger:model DismissSecurityCheckV3Body
+*/
+type DismissSecurityCheckV3Body struct {
+
+	// Dismiss reason
+	Reason string `json:"reason,omitempty"`
+}
+
+// Validate validates this dismiss security check v3 body
+func (o *DismissSecurityCheckV3Body) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this dismiss security check v3 body based on context it is used
+func (o *DismissSecurityCheckV3Body) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *DismissSecurityCheckV3Body) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *DismissSecurityCheckV3Body) UnmarshalBinary(b []byte) error {
+	var res DismissSecurityCheckV3Body
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
 	return nil
 }

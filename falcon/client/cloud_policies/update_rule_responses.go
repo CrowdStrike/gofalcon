@@ -90,7 +90,7 @@ type UpdateRuleOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetRulesResponse
 }
 
 // IsSuccess returns true when this update rule o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *UpdateRuleOK) String() string {
 	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateRuleOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *UpdateRuleOK) GetPayload() *models.CommonGetRulesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *UpdateRuleOK) readResponse(response runtime.ClientResponse, consumer ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetRulesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

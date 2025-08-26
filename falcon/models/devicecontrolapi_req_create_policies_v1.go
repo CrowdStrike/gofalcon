@@ -20,7 +20,7 @@ import (
 // swagger:model devicecontrolapi.ReqCreatePoliciesV1
 type DevicecontrolapiReqCreatePoliciesV1 struct {
 
-	// Array of policies
+	// List of policies to create. Maximum batch size: 1000
 	// Required: true
 	Policies []*DevicecontrolapiReqCreatePolicyV1 `json:"policies"`
 }

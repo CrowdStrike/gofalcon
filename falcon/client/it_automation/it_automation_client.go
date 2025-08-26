@@ -42,6 +42,8 @@ type ClientService interface {
 
 	ITAutomationCreateTaskGroup(params *ITAutomationCreateTaskGroupParams, opts ...ClientOption) (*ITAutomationCreateTaskGroupCreated, error)
 
+	ITAutomationCreateUserGroup(params *ITAutomationCreateUserGroupParams, opts ...ClientOption) (*ITAutomationCreateUserGroupCreated, error)
+
 	ITAutomationDeletePolicy(params *ITAutomationDeletePolicyParams, opts ...ClientOption) (*ITAutomationDeletePolicyOK, error)
 
 	ITAutomationDeleteScheduledTasks(params *ITAutomationDeleteScheduledTasksParams, opts ...ClientOption) (*ITAutomationDeleteScheduledTasksOK, error)
@@ -49,6 +51,8 @@ type ClientService interface {
 	ITAutomationDeleteTask(params *ITAutomationDeleteTaskParams, opts ...ClientOption) (*ITAutomationDeleteTaskOK, error)
 
 	ITAutomationDeleteTaskGroups(params *ITAutomationDeleteTaskGroupsParams, opts ...ClientOption) (*ITAutomationDeleteTaskGroupsOK, *ITAutomationDeleteTaskGroupsMultiStatus, error)
+
+	ITAutomationDeleteUserGroup(params *ITAutomationDeleteUserGroupParams, opts ...ClientOption) (*ITAutomationDeleteUserGroupOK, error)
 
 	ITAutomationGetAssociatedTasks(params *ITAutomationGetAssociatedTasksParams, opts ...ClientOption) (*ITAutomationGetAssociatedTasksOK, error)
 
@@ -74,6 +78,8 @@ type ClientService interface {
 
 	ITAutomationGetTasksByQuery(params *ITAutomationGetTasksByQueryParams, opts ...ClientOption) (*ITAutomationGetTasksByQueryOK, error)
 
+	ITAutomationGetUserGroup(params *ITAutomationGetUserGroupParams, opts ...ClientOption) (*ITAutomationGetUserGroupOK, error)
+
 	ITAutomationQueryPolicies(params *ITAutomationQueryPoliciesParams, opts ...ClientOption) (*ITAutomationQueryPoliciesOK, error)
 
 	ITAutomationRerunTaskExecution(params *ITAutomationRerunTaskExecutionParams, opts ...ClientOption) (*ITAutomationRerunTaskExecutionCreated, error)
@@ -87,6 +93,8 @@ type ClientService interface {
 	ITAutomationSearchTaskGroups(params *ITAutomationSearchTaskGroupsParams, opts ...ClientOption) (*ITAutomationSearchTaskGroupsOK, error)
 
 	ITAutomationSearchTasks(params *ITAutomationSearchTasksParams, opts ...ClientOption) (*ITAutomationSearchTasksOK, error)
+
+	ITAutomationSearchUserGroup(params *ITAutomationSearchUserGroupParams, opts ...ClientOption) (*ITAutomationSearchUserGroupOK, error)
 
 	ITAutomationStartExecutionResultsSearch(params *ITAutomationStartExecutionResultsSearchParams, opts ...ClientOption) (*ITAutomationStartExecutionResultsSearchCreated, error)
 
@@ -103,6 +111,8 @@ type ClientService interface {
 	ITAutomationUpdateTask(params *ITAutomationUpdateTaskParams, opts ...ClientOption) (*ITAutomationUpdateTaskOK, error)
 
 	ITAutomationUpdateTaskGroup(params *ITAutomationUpdateTaskGroupParams, opts ...ClientOption) (*ITAutomationUpdateTaskGroupOK, error)
+
+	ITAutomationUpdateUserGroup(params *ITAutomationUpdateUserGroupParams, opts ...ClientOption) (*ITAutomationUpdateUserGroupOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -338,6 +348,44 @@ func (a *Client) ITAutomationCreateTaskGroup(params *ITAutomationCreateTaskGroup
 }
 
 /*
+ITAutomationCreateUserGroup creates a user group from the given request
+*/
+func (a *Client) ITAutomationCreateUserGroup(params *ITAutomationCreateUserGroupParams, opts ...ClientOption) (*ITAutomationCreateUserGroupCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewITAutomationCreateUserGroupParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ITAutomationCreateUserGroup",
+		Method:             "POST",
+		PathPattern:        "/it-automation/entities/it-user-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ITAutomationCreateUserGroupReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ITAutomationCreateUserGroupCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ITAutomationCreateUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ITAutomationDeletePolicy deletes 1 or more policies
 
 Only disabled policies are allowed to be deleted.
@@ -493,6 +541,44 @@ func (a *Client) ITAutomationDeleteTaskGroups(params *ITAutomationDeleteTaskGrou
 }
 
 /*
+ITAutomationDeleteUserGroup deletes user groups for each provided ids
+*/
+func (a *Client) ITAutomationDeleteUserGroup(params *ITAutomationDeleteUserGroupParams, opts ...ClientOption) (*ITAutomationDeleteUserGroupOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewITAutomationDeleteUserGroupParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ITAutomationDeleteUserGroup",
+		Method:             "DELETE",
+		PathPattern:        "/it-automation/entities/it-user-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ITAutomationDeleteUserGroupReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ITAutomationDeleteUserGroupOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ITAutomationDeleteUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ITAutomationGetAssociatedTasks retrieves tasks associated with the provided file id
 */
 func (a *Client) ITAutomationGetAssociatedTasks(params *ITAutomationGetAssociatedTasksParams, opts ...ClientOption) (*ITAutomationGetAssociatedTasksOK, error) {
@@ -531,7 +617,7 @@ func (a *Client) ITAutomationGetAssociatedTasks(params *ITAutomationGetAssociate
 }
 
 /*
-ITAutomationGetExecutionResults gets the task execution results from an async search use i t automation start execution results search to begin the async search
+ITAutomationGetExecutionResults gets the task execution results from an async search use the i t automation start execution results search command to start the async search you can retrieve the results again for up to 24 hours after which they will be deleted
 */
 func (a *Client) ITAutomationGetExecutionResults(params *ITAutomationGetExecutionResultsParams, opts ...ClientOption) (*ITAutomationGetExecutionResultsOK, error) {
 	// TODO: Validate the params before sending
@@ -955,6 +1041,44 @@ func (a *Client) ITAutomationGetTasksByQuery(params *ITAutomationGetTasksByQuery
 }
 
 /*
+ITAutomationGetUserGroup returns user groups for each provided id
+*/
+func (a *Client) ITAutomationGetUserGroup(params *ITAutomationGetUserGroupParams, opts ...ClientOption) (*ITAutomationGetUserGroupOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewITAutomationGetUserGroupParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ITAutomationGetUserGroup",
+		Method:             "GET",
+		PathPattern:        "/it-automation/entities/it-user-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ITAutomationGetUserGroupReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ITAutomationGetUserGroupOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ITAutomationGetUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ITAutomationQueryPolicies returns the list of policy ids matching the filter query parameter
 */
 func (a *Client) ITAutomationQueryPolicies(params *ITAutomationQueryPoliciesParams, opts ...ClientOption) (*ITAutomationQueryPoliciesOK, error) {
@@ -1225,7 +1349,45 @@ func (a *Client) ITAutomationSearchTasks(params *ITAutomationSearchTasksParams, 
 }
 
 /*
-ITAutomationStartExecutionResultsSearch starts an async task execution results search poll i t automation get execution results search status to determine when the search is complete
+ITAutomationSearchUserGroup returns the list of user group ids matching the filter query parameter it can be used together with the entities endpoint to retrieve full information on user groups
+*/
+func (a *Client) ITAutomationSearchUserGroup(params *ITAutomationSearchUserGroupParams, opts ...ClientOption) (*ITAutomationSearchUserGroupOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewITAutomationSearchUserGroupParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ITAutomationSearchUserGroup",
+		Method:             "GET",
+		PathPattern:        "/it-automation/queries/it-user-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ITAutomationSearchUserGroupReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ITAutomationSearchUserGroupOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ITAutomationSearchUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ITAutomationStartExecutionResultsSearch starts an async task execution results search poll i t automation get execution results search status to check if the search is complete you must retrieve the results using i t automation get execution results within 30 seconds of completion or the job will be deleted
 */
 func (a *Client) ITAutomationStartExecutionResultsSearch(params *ITAutomationStartExecutionResultsSearchParams, opts ...ClientOption) (*ITAutomationStartExecutionResultsSearchCreated, error) {
 	// TODO: Validate the params before sending
@@ -1531,6 +1693,44 @@ func (a *Client) ITAutomationUpdateTaskGroup(params *ITAutomationUpdateTaskGroup
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdateTaskGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ITAutomationUpdateUserGroup updates a user group for a given id
+*/
+func (a *Client) ITAutomationUpdateUserGroup(params *ITAutomationUpdateUserGroupParams, opts ...ClientOption) (*ITAutomationUpdateUserGroupOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewITAutomationUpdateUserGroupParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ITAutomationUpdateUserGroup",
+		Method:             "PATCH",
+		PathPattern:        "/it-automation/entities/it-user-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ITAutomationUpdateUserGroupReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ITAutomationUpdateUserGroupOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ITAutomationUpdateUserGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

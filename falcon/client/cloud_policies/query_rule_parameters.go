@@ -64,7 +64,7 @@ type QueryRuleParams struct {
 
 	/* Filter.
 
-	     FQL filter, allowed props:
+	     FQL filter, allowed properties:
 
 	*rule_origin*
 	*rule_parent_uuid*
@@ -73,6 +73,7 @@ type QueryRuleParams struct {
 	*rule_domain*
 	*rule_status*
 	*rule_severity*
+	*rule_short_code*
 	*rule_service*
 	*rule_resource_type*
 	*rule_provider*
@@ -93,19 +94,47 @@ type QueryRuleParams struct {
 
 	/* Limit.
 
-	   limits number of returned entries
+	   The maximum number of resources to return. The maximum allowed is 500.
+
+	   Default: 100
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   offset to start query with
+	   The number of results to skip before starting to return results.
 	*/
 	Offset *int64
 
 	/* Sort.
 
-	   sort by field
+	     Field to sort on. Sortable fields:
+
+	*rule_origin*
+	*rule_parent_uuid*
+	*rule_name*
+	*rule_description*
+	*rule_domain*
+	*rule_status*
+	*rule_severity*
+	*rule_short_code*
+	*rule_service*
+	*rule_resource_type*
+	*rule_provider*
+	*rule_subdomain*
+	*rule_auto_remediable*
+	*rule_control_requirement*
+	*rule_control_section*
+	*rule_compliance_benchmark*
+	*rule_compliance_framework*
+	*rule_mitre_tactic*
+	*rule_mitre_technique*
+	*rule_created_at*
+	*rule_updated_at*
+	*rule_updated_by*
+
+
+	Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 
@@ -126,7 +155,21 @@ func (o *QueryRuleParams) WithDefaults() *QueryRuleParams {
 //
 // All values with no default are reset to their zero value.
 func (o *QueryRuleParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+
+		offsetDefault = int64(0)
+	)
+
+	val := QueryRuleParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query rule params

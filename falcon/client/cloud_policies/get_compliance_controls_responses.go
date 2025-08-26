@@ -90,7 +90,7 @@ type GetComplianceControlsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetComplianceControlsResponse
 }
 
 // IsSuccess returns true when this get compliance controls o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetComplianceControlsOK) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetComplianceControlsOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *GetComplianceControlsOK) GetPayload() *models.CommonGetComplianceControlsResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetComplianceControlsOK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetComplianceControlsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type GetComplianceControlsNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetComplianceControlsResponse
 }
 
 // IsSuccess returns true when this get compliance controls not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *GetComplianceControlsNotFound) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/controls/v1][%d] getComplianceControlsNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetComplianceControlsNotFound) GetPayload() *models.CommonEntitiesResponse {
+func (o *GetComplianceControlsNotFound) GetPayload() *models.CommonGetComplianceControlsResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *GetComplianceControlsNotFound) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetComplianceControlsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -32,6 +32,10 @@ type ExecutionsExecutionResult struct {
 	// Required: true
 	DefinitionID *string `json:"definition_id"`
 
+	// The name of the workflow the execution is associated with.
+	// Required: true
+	DefinitionName *string `json:"definition_name"`
+
 	// Version of the definition that executed.
 	// Required: true
 	DefinitionVersion *int32 `json:"definition_version"`
@@ -88,6 +92,10 @@ func (m *ExecutionsExecutionResult) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDefinitionID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDefinitionName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -190,6 +198,15 @@ func (m *ExecutionsExecutionResult) validateAncestorExecutions(formats strfmt.Re
 func (m *ExecutionsExecutionResult) validateDefinitionID(formats strfmt.Registry) error {
 
 	if err := validate.Required("definition_id", "body", m.DefinitionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExecutionsExecutionResult) validateDefinitionName(formats strfmt.Registry) error {
+
+	if err := validate.Required("definition_name", "body", m.DefinitionName); err != nil {
 		return err
 	}
 

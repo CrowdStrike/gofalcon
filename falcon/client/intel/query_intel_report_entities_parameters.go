@@ -78,7 +78,7 @@ type QueryIntelReportEntitiesParams struct {
 
 	     Filter your query by specifying FQL filter parameters. Filter parameters include:
 
-	actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
+	actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, summary, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
 	*/
 	Filter *string
 

@@ -67,6 +67,12 @@ func (o *EntitiesRulesPostV1Reader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 503:
+		result := NewEntitiesRulesPostV1ServiceUnavailable()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[POST /correlation-rules/entities/rules/v1] entities.rules.post.v1", response, response.Code())
 	}
@@ -817,6 +823,116 @@ func (o *EntitiesRulesPostV1InternalServerError) GetPayload() *models.APIGetEnti
 }
 
 func (o *EntitiesRulesPostV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesRulesPostV1ServiceUnavailable creates a EntitiesRulesPostV1ServiceUnavailable with default headers values
+func NewEntitiesRulesPostV1ServiceUnavailable() *EntitiesRulesPostV1ServiceUnavailable {
+	return &EntitiesRulesPostV1ServiceUnavailable{}
+}
+
+/*
+EntitiesRulesPostV1ServiceUnavailable describes a response with status code 503, with default header values.
+
+Service unavailable due to a temporary unavailability of a downstream dependency.
+*/
+type EntitiesRulesPostV1ServiceUnavailable struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIGetEntitiesRulesResponseV1
+}
+
+// IsSuccess returns true when this entities rules post v1 service unavailable response has a 2xx status code
+func (o *EntitiesRulesPostV1ServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities rules post v1 service unavailable response has a 3xx status code
+func (o *EntitiesRulesPostV1ServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities rules post v1 service unavailable response has a 4xx status code
+func (o *EntitiesRulesPostV1ServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities rules post v1 service unavailable response has a 5xx status code
+func (o *EntitiesRulesPostV1ServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this entities rules post v1 service unavailable response a status code equal to that given
+func (o *EntitiesRulesPostV1ServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
+// Code gets the status code for the entities rules post v1 service unavailable response
+func (o *EntitiesRulesPostV1ServiceUnavailable) Code() int {
+	return 503
+}
+
+func (o *EntitiesRulesPostV1ServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /correlation-rules/entities/rules/v1][%d] entitiesRulesPostV1ServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *EntitiesRulesPostV1ServiceUnavailable) String() string {
+	return fmt.Sprintf("[POST /correlation-rules/entities/rules/v1][%d] entitiesRulesPostV1ServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *EntitiesRulesPostV1ServiceUnavailable) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+	return o.Payload
+}
+
+func (o *EntitiesRulesPostV1ServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

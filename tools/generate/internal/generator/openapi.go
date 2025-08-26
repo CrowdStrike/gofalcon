@@ -481,3 +481,261 @@ func (g *Generator) GenerateEndpoint() error {
 	// Execute the command
 	return g.executeSwaggerCommand(args)
 }
+
+// FindModelsReferencingModel finds all models that reference the given model (with unlimited nesting)
+func (g *Generator) FindModelsReferencingModel(specFile, targetModel string) ([]string, error) {
+	data, err := ioutil.ReadFile(specFile)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read spec file: %w", err)
+	}
+
+	var spec OpenAPISpec
+	if err := json.Unmarshal(data, &spec); err != nil {
+		return nil, fmt.Errorf("failed to parse spec file: %w", err)
+	}
+
+	referencingModels := make(map[string]bool)
+	visited := make(map[string]bool)
+
+	// Find all models that reference the target model (with unlimited nesting)
+	g.findModelsReferencingModelRecursive(&spec, targetModel, referencingModels, visited)
+
+	var result []string
+	for model := range referencingModels {
+		result = append(result, model)
+	}
+
+	return result, nil
+}
+
+// findModelsReferencingModelRecursive recursively finds all models that reference any of the target models
+func (g *Generator) findModelsReferencingModelRecursive(spec *OpenAPISpec, targetModel string, referencingModels map[string]bool, visited map[string]bool) {
+	// Avoid infinite loops
+	if visited[targetModel] {
+		return
+	}
+	visited[targetModel] = true
+
+	// Check all schemas in the spec
+	allSchemas := make(map[string]*Schema)
+
+	// Add OpenAPI 3.0 schemas
+	if spec.Components != nil && spec.Components.Schemas != nil {
+		for name, schema := range spec.Components.Schemas {
+			allSchemas[name] = schema
+		}
+	}
+
+	// Add Swagger 2.0 definitions
+	if spec.Definitions != nil {
+		for name, def := range spec.Definitions {
+			// Convert interface{} to Schema
+			data, err := json.Marshal(def)
+			if err != nil {
+				continue
+			}
+			var schema Schema
+			if err := json.Unmarshal(data, &schema); err != nil {
+				continue
+			}
+			allSchemas[name] = &schema
+		}
+	}
+
+	// Look for models that reference the target model
+	var newReferencingModels []string
+	for modelName, schema := range allSchemas {
+		if modelName == targetModel {
+			continue // Don't include the target model itself
+		}
+
+		referencedModels := make(map[string]bool)
+		schemaVisited := make(map[string]bool)
+		g.findReferencedModelsInSchema(schema, spec, referencedModels, schemaVisited)
+
+		// If this model references the target model, add it to the result
+		if referencedModels[targetModel] {
+			if !referencingModels[modelName] {
+				referencingModels[modelName] = true
+				newReferencingModels = append(newReferencingModels, modelName)
+			}
+		}
+	}
+
+	// Recursively find models that reference the newly found models
+	for _, newModel := range newReferencingModels {
+		g.findModelsReferencingModelRecursive(spec, newModel, referencingModels, visited)
+	}
+}
+
+// findReferencedModelsInSchema finds all models referenced by a given schema
+func (g *Generator) findReferencedModelsInSchema(schema *Schema, spec *OpenAPISpec, referencedModels map[string]bool, visited map[string]bool) {
+	if schema == nil {
+		return
+	}
+
+	// Handle $ref
+	if schema.Ref != "" {
+		modelName := g.extractModelName(schema.Ref)
+		if modelName != "" && !visited[modelName] {
+			visited[modelName] = true
+			referencedModels[modelName] = true
+
+			// Recursively analyze the referenced schema
+			referencedSchema := g.findSchemaByRef(spec, schema.Ref)
+			if referencedSchema != nil {
+				g.findReferencedModelsInSchema(referencedSchema, spec, referencedModels, visited)
+			}
+		}
+		return
+	}
+
+	// Handle array items
+	if schema.Items != nil {
+		g.findReferencedModelsInSchema(schema.Items, spec, referencedModels, visited)
+	}
+
+	// Handle object properties
+	for _, propSchema := range schema.Properties {
+		g.findReferencedModelsInSchema(propSchema, spec, referencedModels, visited)
+	}
+
+	// Handle composition (allOf, oneOf, anyOf)
+	for _, subSchema := range schema.AllOf {
+		g.findReferencedModelsInSchema(subSchema, spec, referencedModels, visited)
+	}
+	for _, subSchema := range schema.OneOf {
+		g.findReferencedModelsInSchema(subSchema, spec, referencedModels, visited)
+	}
+	for _, subSchema := range schema.AnyOf {
+		g.findReferencedModelsInSchema(subSchema, spec, referencedModels, visited)
+	}
+}
+
+// FindOperationsReferencingModel finds all operations that reference the given model or any model that references it
+func (g *Generator) FindOperationsReferencingModel(specFile, targetModel string) ([]string, error) {
+	// First, find all models that reference the target model (with unlimited nesting)
+	referencingModels, err := g.FindModelsReferencingModel(specFile, targetModel)
+	if err != nil {
+		return nil, fmt.Errorf("failed to find models referencing target model: %w", err)
+	}
+
+	// Create a set of all models to check (target model + all models that reference it)
+	allModelsToCheck := make(map[string]bool)
+	allModelsToCheck[targetModel] = true
+	for _, model := range referencingModels {
+		allModelsToCheck[model] = true
+	}
+
+	if g.config.Verbose {
+		var modelList []string
+		for model := range allModelsToCheck {
+			modelList = append(modelList, model)
+		}
+		fmt.Printf("Checking operations that reference any of these models: %s\n", strings.Join(modelList, ", "))
+	}
+
+	// Read and parse the spec
+	data, err := ioutil.ReadFile(specFile)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read spec file: %w", err)
+	}
+
+	var spec OpenAPISpec
+	if err := json.Unmarshal(data, &spec); err != nil {
+		return nil, fmt.Errorf("failed to parse spec file: %w", err)
+	}
+
+	var matchingOperations []string
+
+	// Check all operations to see if they reference any of the target models
+	for _, pathItem := range spec.Paths {
+		operations := []*Operation{
+			pathItem.Get,
+			pathItem.Post,
+			pathItem.Put,
+			pathItem.Delete,
+			pathItem.Patch,
+		}
+
+		for _, op := range operations {
+			if op != nil && op.OperationID != "" {
+				// Find all models referenced by this operation
+				operationModels, err := g.FindModelsForOperation(specFile, op.OperationID)
+				if err != nil {
+					if g.config.Verbose {
+						fmt.Printf("Warning: failed to find models for operation %s: %v\n", op.OperationID, err)
+					}
+					continue
+				}
+
+				// Check if any of the operation's models are in our target set
+				for _, model := range operationModels {
+					if allModelsToCheck[model] {
+						matchingOperations = append(matchingOperations, op.OperationID)
+						break // Only add once per operation
+					}
+				}
+			}
+		}
+	}
+
+	return matchingOperations, nil
+}
+
+// InspectModel performs reverse dependency analysis for a given model
+func (g *Generator) InspectModel() error {
+	if g.config.Verbose {
+		fmt.Printf("Analyzing reverse dependencies for model: %s\n", g.config.ModelName)
+	}
+
+	// Step 1: Generate swagger spec (unless skipped)
+	if !g.config.SkipSpecGen {
+		if err := g.generateSpec(); err != nil {
+			return fmt.Errorf("spec generation failed: %w", err)
+		}
+	}
+
+	// Step 2: Verify spec file exists
+	if err := g.verifySpecFile(); err != nil {
+		return fmt.Errorf("spec verification failed: %w", err)
+	}
+
+	// Step 3: Find all models that reference the target model
+	referencingModels, err := g.FindModelsReferencingModel(g.config.SpecFile, g.config.ModelName)
+	if err != nil {
+		return fmt.Errorf("failed to find models referencing target model: %w", err)
+	}
+
+	// Step 4: Find all operations that reference the target model or any model that references it
+	operations, err := g.FindOperationsReferencingModel(g.config.SpecFile, g.config.ModelName)
+	if err != nil {
+		return fmt.Errorf("failed to find operations referencing target model: %w", err)
+	}
+
+	// Display results
+	fmt.Printf("\n=== Reverse Dependency Analysis for Model: %s ===\n\n", g.config.ModelName)
+
+	if len(referencingModels) == 0 {
+		fmt.Println("Models referencing this model: None")
+	} else {
+		fmt.Printf("Models referencing this model (%d):\n", len(referencingModels))
+		for _, model := range referencingModels {
+			fmt.Printf("  - %s\n", model)
+		}
+	}
+
+	fmt.Println()
+
+	if len(operations) == 0 {
+		fmt.Println("Operations referencing this model or related models: None")
+	} else {
+		fmt.Printf("Operations referencing this model or related models (%d):\n", len(operations))
+		for _, operation := range operations {
+			fmt.Printf("  - %s\n", operation)
+		}
+	}
+
+	fmt.Println()
+	return nil
+}

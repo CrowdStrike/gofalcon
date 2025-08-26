@@ -288,7 +288,7 @@ func NewGetRuleOverrideNotFound() *GetRuleOverrideNotFound {
 /*
 GetRuleOverrideNotFound describes a response with status code 404, with default header values.
 
-Internal Server Error
+Not Found
 */
 type GetRuleOverrideNotFound struct {
 

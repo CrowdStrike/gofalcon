@@ -236,7 +236,7 @@ func (a *Client) QueryScanResults(params *QueryScanResultsParams, opts ...Client
 }
 
 /*
-UploadFileMixin0Mixin93 uploads a file to be further analyzed with quick scan pro the samples expire according to the retention policies set
+UploadFileMixin0Mixin93 uploads a file to be further analyzed with quick scan pro supports both multipart form data and application octet stream uploads the samples expire according to the retention policies set see parameter descriptions for usage per content type
 */
 func (a *Client) UploadFileMixin0Mixin93(params *UploadFileMixin0Mixin93Params, opts ...ClientOption) (*UploadFileMixin0Mixin93OK, error) {
 	// TODO: Validate the params before sending
@@ -248,7 +248,7 @@ func (a *Client) UploadFileMixin0Mixin93(params *UploadFileMixin0Mixin93Params, 
 		Method:             "POST",
 		PathPattern:        "/quickscanpro/entities/files/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"multipart/form-data"},
+		ConsumesMediaTypes: []string{"application/octet-stream", "multipart/form-data"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UploadFileMixin0Mixin93Reader{formats: a.formats},

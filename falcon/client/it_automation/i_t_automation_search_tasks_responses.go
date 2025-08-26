@@ -31,6 +31,12 @@ func (o *ITAutomationSearchTasksReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewITAutomationSearchTasksBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewITAutomationSearchTasksForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *ITAutomationSearchTasksOK) readResponse(response runtime.ClientResponse
 	}
 
 	o.Payload = new(models.ItautomationSearchTaskResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewITAutomationSearchTasksBadRequest creates a ITAutomationSearchTasksBadRequest with default headers values
+func NewITAutomationSearchTasksBadRequest() *ITAutomationSearchTasksBadRequest {
+	return &ITAutomationSearchTasksBadRequest{}
+}
+
+/*
+ITAutomationSearchTasksBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type ITAutomationSearchTasksBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this i t automation search tasks bad request response has a 2xx status code
+func (o *ITAutomationSearchTasksBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this i t automation search tasks bad request response has a 3xx status code
+func (o *ITAutomationSearchTasksBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this i t automation search tasks bad request response has a 4xx status code
+func (o *ITAutomationSearchTasksBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this i t automation search tasks bad request response has a 5xx status code
+func (o *ITAutomationSearchTasksBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this i t automation search tasks bad request response a status code equal to that given
+func (o *ITAutomationSearchTasksBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the i t automation search tasks bad request response
+func (o *ITAutomationSearchTasksBadRequest) Code() int {
+	return 400
+}
+
+func (o *ITAutomationSearchTasksBadRequest) Error() string {
+	return fmt.Sprintf("[GET /it-automation/queries/tasks/v1][%d] iTAutomationSearchTasksBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ITAutomationSearchTasksBadRequest) String() string {
+	return fmt.Sprintf("[GET /it-automation/queries/tasks/v1][%d] iTAutomationSearchTasksBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ITAutomationSearchTasksBadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ITAutomationSearchTasksBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

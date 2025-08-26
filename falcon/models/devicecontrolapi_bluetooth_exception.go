@@ -28,6 +28,10 @@ type DevicecontrolapiBluetoothException struct {
 	// combined id
 	CombinedID string `json:"combined_id,omitempty"`
 
+	// created timestamp
+	// Format: date-time
+	CreatedTimestamp strfmt.DateTime `json:"created_timestamp,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
 
@@ -44,6 +48,10 @@ type DevicecontrolapiBluetoothException struct {
 
 	// minor classes
 	MinorClasses []string `json:"minor_classes"`
+
+	// modified timestamp
+	// Format: date-time
+	ModifiedTimestamp strfmt.DateTime `json:"modified_timestamp,omitempty"`
 
 	// product id
 	ProductID string `json:"product_id,omitempty"`
@@ -68,6 +76,10 @@ type DevicecontrolapiBluetoothException struct {
 func (m *DevicecontrolapiBluetoothException) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCreatedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateExpirationTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -76,9 +88,25 @@ func (m *DevicecontrolapiBluetoothException) Validate(formats strfmt.Registry) e
 		res = append(res, err)
 	}
 
+	if err := m.validateModifiedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DevicecontrolapiBluetoothException) validateCreatedTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.CreatedTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -97,6 +125,18 @@ func (m *DevicecontrolapiBluetoothException) validateExpirationTime(formats strf
 func (m *DevicecontrolapiBluetoothException) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiBluetoothException) validateModifiedTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.ModifiedTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("modified_timestamp", "body", "date-time", m.ModifiedTimestamp.String(), formats); err != nil {
 		return err
 	}
 

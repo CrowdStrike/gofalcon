@@ -20,13 +20,13 @@ import (
 type GetSupportedSaas struct {
 
 	// errors
-	Errors []*ErrorF7cdd233f3f24518b992d8d8797b67eb `json:"errors"`
+	Errors []*ErrorGetSupportedSaas `json:"errors"`
 
 	// meta
-	Meta *Meta0322fef14b194740af868d834affcf77 `json:"meta,omitempty"`
+	Meta *MetaGetSupportedSaas `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SupportedIntegration8405203ca0ff423ea198a251ed252c48 `json:"resources"`
+	Resources []*SupportedIntegrationGetSupportedSaas `json:"resources"`
 }
 
 // Validate validates this get supported saas

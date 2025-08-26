@@ -116,6 +116,29 @@ tag groups all operations related to sensor visibility exclusions.`,
 	RunE: runCollectionGeneration,
 }
 
+// inspectCmd represents the inspect command
+var inspectCmd = &cobra.Command{
+	Use:   "inspect [model-name]",
+	Short: "Inspect what models and operations are affected by a specific model",
+	Long: `Inspect what models and operations are affected by a specific model by performing reverse dependency analysis.
+
+This command analyzes the Swagger specification to find:
+1. All models that directly or indirectly reference the specified model
+2. All operations that use any of these models
+
+This is useful for understanding the impact of changes to a specific model.`,
+	Example: `  # Inspect what depends on api.RuleV1
+  generate inspect api.RuleV1
+
+  # Inspect with verbose output
+  generate inspect api.RuleV1 --verbose
+
+  # Inspect with custom spec file
+  generate inspect api.RuleV1 --spec-file custom-swagger.json`,
+	Args: cobra.ExactArgs(1),
+	RunE: runInspectGeneration,
+}
+
 func init() {
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "Enable verbose output")
 	rootCmd.PersistentFlags().StringVarP(&specFile, "spec-file", "f", "specs/swagger-stripped-oauth.json", "Path to swagger specification file")
@@ -127,6 +150,7 @@ func init() {
 	rootCmd.AddCommand(endpointCmd)
 	rootCmd.AddCommand(operationCmd)
 	rootCmd.AddCommand(collectionCmd)
+	rootCmd.AddCommand(inspectCmd)
 }
 
 func runModelGeneration(cmd *cobra.Command, args []string) error {
@@ -218,6 +242,27 @@ func runCollectionGeneration(cmd *cobra.Command, args []string) error {
 
 	gen := generator.New(config)
 	return gen.GenerateCollection()
+}
+
+func runInspectGeneration(cmd *cobra.Command, args []string) error {
+	modelName := args[0]
+
+	if modelName == "" {
+		return fmt.Errorf("model name cannot be empty")
+	}
+
+	config := &generator.Config{
+		ModelName:      modelName,
+		SpecFile:       specFile,
+		OutputDir:      outputDir,
+		SkipSpecGen:    skipSpecGen,
+		SkipValidation: skipValidation,
+		Verbose:        verbose,
+		InspectMode:    true,
+	}
+
+	gen := generator.New(config)
+	return gen.InspectModel()
 }
 
 // splitModelNames splits a comma-separated string of model names

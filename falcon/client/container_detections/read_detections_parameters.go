@@ -67,6 +67,7 @@ type ReadDetectionsParams struct {
 	     Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `cid`
 	- `detection_type`
+	- `image_digest`
 	- `image_registry`
 	- `image_repository`
 	- `image_tag`

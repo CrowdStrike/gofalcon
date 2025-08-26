@@ -20,13 +20,13 @@ import (
 type GetSecurityCompliance struct {
 
 	// errors
-	Errors []*Error52f4c7b5e2014e94ba38f795856a1af7 `json:"errors"`
+	Errors []*ErrorGetSecurityCompliance `json:"errors"`
 
 	// meta
-	Meta *Meta03d8051817b245eda9feede76d9e8b7e `json:"meta,omitempty"`
+	Meta *MetaGetSecurityCompliance `json:"meta,omitempty"`
 
 	// resources
-	Resources []*Criteria639db697315845ab8a2dbfb299523bbc `json:"resources"`
+	Resources []*CriteriaGetSecurityCompliance `json:"resources"`
 }
 
 // Validate validates this get security compliance

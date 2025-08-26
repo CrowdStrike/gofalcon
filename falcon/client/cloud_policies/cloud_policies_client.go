@@ -36,7 +36,7 @@ type ClientService interface {
 
 	DeleteRuleMixin0(params *DeleteRuleMixin0Params, opts ...ClientOption) (*DeleteRuleMixin0OK, error)
 
-	DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideNoContent, error)
+	DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideOK, *DeleteRuleOverrideNoContent, error)
 
 	GetComplianceControls(params *GetComplianceControlsParams, opts ...ClientOption) (*GetComplianceControlsOK, error)
 
@@ -176,7 +176,7 @@ func (a *Client) DeleteRuleMixin0(params *DeleteRuleMixin0Params, opts ...Client
 /*
 DeleteRuleOverride deletes a rule override
 */
-func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideNoContent, error) {
+func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideOK, *DeleteRuleOverrideNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRuleOverrideParams()
@@ -199,15 +199,16 @@ func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...Cl
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*DeleteRuleOverrideNoContent)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *DeleteRuleOverrideOK:
+		return value, nil, nil
+	case *DeleteRuleOverrideNoContent:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteRuleOverride: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for cloud_policies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

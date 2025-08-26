@@ -128,6 +128,9 @@ type DomainCloudAWSAccountV1 struct {
 	// target ous
 	TargetOus []string `json:"target_ous"`
 
+	// template source region
+	TemplateSourceRegion string `json:"template_source_region,omitempty"`
+
 	// use existing cloudtrail
 	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
 }

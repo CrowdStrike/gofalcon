@@ -20,13 +20,13 @@ import (
 type GetSystemUsers struct {
 
 	// errors
-	Errors []*ErrorCaf48be0f78647d3b2aa34e5ce8327c4 `json:"errors"`
+	Errors []*ErrorGetSystemUsers `json:"errors"`
 
 	// meta
-	Meta *Meta19c42f8cc8a144c9acf93ce4d2704c92 `json:"meta,omitempty"`
+	Meta *MetaGetSystemUsers `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SystemUser68d15f8bb8634f16854355cb12de3ac4 `json:"resources"`
+	Resources []*SystemUserGetSystemUsers `json:"resources"`
 }
 
 // Validate validates this get system users

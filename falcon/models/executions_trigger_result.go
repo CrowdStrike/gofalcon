@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,6 +20,16 @@ import (
 // swagger:model executions.TriggerResult
 type ExecutionsTriggerResult struct {
 
+	// Timestamp of when the execution completed. Only present when status is an end state.
+	// Format: date-time
+	EndTimestamp strfmt.DateTime `json:"end_timestamp,omitempty"`
+
+	// When a node execution is in an error status this field is present and provides an error code that can be used to determine details why the failure occurred.
+	ErrorCode int32 `json:"error_code,omitempty"`
+
+	// When a node execution is in an error status this field is present and provides a user friendly error message.
+	ErrorMessage string `json:"error_message,omitempty"`
+
 	// Unique identifier for the selected trigger as provided by the triggers API
 	ID string `json:"id,omitempty"`
 
@@ -29,15 +40,57 @@ type ExecutionsTriggerResult struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// Unique id of the node as specified in the definition.
+	// Required: true
+	NodeID *string `json:"node_id"`
+
 	// Opaque blob for result of trigger. Structured according to the trigger's JSON schema'.
 	Result interface{} `json:"result,omitempty"`
+
+	// Timestamp of when the execution first started.
+	// Required: true
+	// Format: date-time
+	StartTimestamp *strfmt.DateTime `json:"start_timestamp"`
+
+	// Current status of execution for the activity.
+	// Required: true
+	// Enum: [Pending Succeeded Failed Skipped]
+	Status *string `json:"status"`
+
+	// Type of the trigger
+	Type string `json:"type,omitempty"`
+
+	// Current status of execution for the activity rendered in the UI.
+	// Required: true
+	// Enum: [Pending Action Performed Executing Error Skipped Retrying]
+	UIStatus *string `json:"ui_status"`
 }
 
 // Validate validates this executions trigger result
 func (m *ExecutionsTriggerResult) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateEndTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNodeID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStartTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUIStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -47,9 +100,147 @@ func (m *ExecutionsTriggerResult) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ExecutionsTriggerResult) validateEndTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.EndTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("end_timestamp", "body", "date-time", m.EndTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ExecutionsTriggerResult) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExecutionsTriggerResult) validateNodeID(formats strfmt.Registry) error {
+
+	if err := validate.Required("node_id", "body", m.NodeID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExecutionsTriggerResult) validateStartTimestamp(formats strfmt.Registry) error {
+
+	if err := validate.Required("start_timestamp", "body", m.StartTimestamp); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("start_timestamp", "body", "date-time", m.StartTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var executionsTriggerResultTypeStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Pending","Succeeded","Failed","Skipped"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		executionsTriggerResultTypeStatusPropEnum = append(executionsTriggerResultTypeStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// ExecutionsTriggerResultStatusPending captures enum value "Pending"
+	ExecutionsTriggerResultStatusPending string = "Pending"
+
+	// ExecutionsTriggerResultStatusSucceeded captures enum value "Succeeded"
+	ExecutionsTriggerResultStatusSucceeded string = "Succeeded"
+
+	// ExecutionsTriggerResultStatusFailed captures enum value "Failed"
+	ExecutionsTriggerResultStatusFailed string = "Failed"
+
+	// ExecutionsTriggerResultStatusSkipped captures enum value "Skipped"
+	ExecutionsTriggerResultStatusSkipped string = "Skipped"
+)
+
+// prop value enum
+func (m *ExecutionsTriggerResult) validateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, executionsTriggerResultTypeStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ExecutionsTriggerResult) validateStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateStatusEnum("status", "body", *m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var executionsTriggerResultTypeUIStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Pending","Action Performed","Executing","Error","Skipped","Retrying"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		executionsTriggerResultTypeUIStatusPropEnum = append(executionsTriggerResultTypeUIStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// ExecutionsTriggerResultUIStatusPending captures enum value "Pending"
+	ExecutionsTriggerResultUIStatusPending string = "Pending"
+
+	// ExecutionsTriggerResultUIStatusActionPerformed captures enum value "Action Performed"
+	ExecutionsTriggerResultUIStatusActionPerformed string = "Action Performed"
+
+	// ExecutionsTriggerResultUIStatusExecuting captures enum value "Executing"
+	ExecutionsTriggerResultUIStatusExecuting string = "Executing"
+
+	// ExecutionsTriggerResultUIStatusError captures enum value "Error"
+	ExecutionsTriggerResultUIStatusError string = "Error"
+
+	// ExecutionsTriggerResultUIStatusSkipped captures enum value "Skipped"
+	ExecutionsTriggerResultUIStatusSkipped string = "Skipped"
+
+	// ExecutionsTriggerResultUIStatusRetrying captures enum value "Retrying"
+	ExecutionsTriggerResultUIStatusRetrying string = "Retrying"
+)
+
+// prop value enum
+func (m *ExecutionsTriggerResult) validateUIStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, executionsTriggerResultTypeUIStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ExecutionsTriggerResult) validateUIStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("ui_status", "body", m.UIStatus); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateUIStatusEnum("ui_status", "body", *m.UIStatus); err != nil {
 		return err
 	}
 

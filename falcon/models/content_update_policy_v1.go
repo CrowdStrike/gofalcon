@@ -63,9 +63,9 @@ type ContentUpdatePolicyV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// The name of the platform
+	// The name of the platform ('all' is the only option for Content Update Policy)
 	// Required: true
-	// Enum: [Windows Mac Linux]
+	// Enum: [all]
 	PlatformName *string `json:"platform_name"`
 
 	// settings
@@ -251,7 +251,7 @@ var contentUpdatePolicyV1TypePlatformNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Windows","Mac","Linux"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["all"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -261,14 +261,8 @@ func init() {
 
 const (
 
-	// ContentUpdatePolicyV1PlatformNameWindows captures enum value "Windows"
-	ContentUpdatePolicyV1PlatformNameWindows string = "Windows"
-
-	// ContentUpdatePolicyV1PlatformNameMac captures enum value "Mac"
-	ContentUpdatePolicyV1PlatformNameMac string = "Mac"
-
-	// ContentUpdatePolicyV1PlatformNameLinux captures enum value "Linux"
-	ContentUpdatePolicyV1PlatformNameLinux string = "Linux"
+	// ContentUpdatePolicyV1PlatformNameAll captures enum value "all"
+	ContentUpdatePolicyV1PlatformNameAll string = "all"
 )
 
 // prop value enum

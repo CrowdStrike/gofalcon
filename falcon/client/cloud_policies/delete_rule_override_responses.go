@@ -25,6 +25,12 @@ type DeleteRuleOverrideReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *DeleteRuleOverrideReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
+	case 200:
+		result := NewDeleteRuleOverrideOK()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 204:
 		result := NewDeleteRuleOverrideNoContent()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -39,6 +45,12 @@ func (o *DeleteRuleOverrideReader) ReadResponse(response runtime.ClientResponse,
 		return nil, result
 	case 403:
 		result := NewDeleteRuleOverrideForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 404:
+		result := NewDeleteRuleOverrideNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -58,6 +70,116 @@ func (o *DeleteRuleOverrideReader) ReadResponse(response runtime.ClientResponse,
 	default:
 		return nil, runtime.NewAPIError("[DELETE /cloud-policies/entities/rule-overrides/v1] DeleteRuleOverride", response, response.Code())
 	}
+}
+
+// NewDeleteRuleOverrideOK creates a DeleteRuleOverrideOK with default headers values
+func NewDeleteRuleOverrideOK() *DeleteRuleOverrideOK {
+	return &DeleteRuleOverrideOK{}
+}
+
+/*
+DeleteRuleOverrideOK describes a response with status code 200, with default header values.
+
+OK
+*/
+type DeleteRuleOverrideOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CommonDeleteRuleOverrideResponse
+}
+
+// IsSuccess returns true when this delete rule override o k response has a 2xx status code
+func (o *DeleteRuleOverrideOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete rule override o k response has a 3xx status code
+func (o *DeleteRuleOverrideOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule override o k response has a 4xx status code
+func (o *DeleteRuleOverrideOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete rule override o k response has a 5xx status code
+func (o *DeleteRuleOverrideOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule override o k response a status code equal to that given
+func (o *DeleteRuleOverrideOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the delete rule override o k response
+func (o *DeleteRuleOverrideOK) Code() int {
+	return 200
+}
+
+func (o *DeleteRuleOverrideOK) Error() string {
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteRuleOverrideOK) String() string {
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteRuleOverrideOK) GetPayload() *models.CommonDeleteRuleOverrideResponse {
+	return o.Payload
+}
+
+func (o *DeleteRuleOverrideOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CommonDeleteRuleOverrideResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
 }
 
 // NewDeleteRuleOverrideNoContent creates a DeleteRuleOverrideNoContent with default headers values
@@ -178,7 +300,7 @@ func NewDeleteRuleOverrideBadRequest() *DeleteRuleOverrideBadRequest {
 /*
 DeleteRuleOverrideBadRequest describes a response with status code 400, with default header values.
 
-Internal Server Error
+Bad Request
 */
 type DeleteRuleOverrideBadRequest struct {
 
@@ -381,6 +503,116 @@ func (o *DeleteRuleOverrideForbidden) readResponse(response runtime.ClientRespon
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDeleteRuleOverrideNotFound creates a DeleteRuleOverrideNotFound with default headers values
+func NewDeleteRuleOverrideNotFound() *DeleteRuleOverrideNotFound {
+	return &DeleteRuleOverrideNotFound{}
+}
+
+/*
+DeleteRuleOverrideNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type DeleteRuleOverrideNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CommonDeleteRuleOverrideResponse
+}
+
+// IsSuccess returns true when this delete rule override not found response has a 2xx status code
+func (o *DeleteRuleOverrideNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rule override not found response has a 3xx status code
+func (o *DeleteRuleOverrideNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule override not found response has a 4xx status code
+func (o *DeleteRuleOverrideNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rule override not found response has a 5xx status code
+func (o *DeleteRuleOverrideNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule override not found response a status code equal to that given
+func (o *DeleteRuleOverrideNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the delete rule override not found response
+func (o *DeleteRuleOverrideNotFound) Code() int {
+	return 404
+}
+
+func (o *DeleteRuleOverrideNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRuleOverrideNotFound) String() string {
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRuleOverrideNotFound) GetPayload() *models.CommonDeleteRuleOverrideResponse {
+	return o.Payload
+}
+
+func (o *DeleteRuleOverrideNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CommonDeleteRuleOverrideResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

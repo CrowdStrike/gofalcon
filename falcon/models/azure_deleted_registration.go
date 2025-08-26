@@ -24,6 +24,10 @@ type AzureDeletedRegistration struct {
 	// Required: true
 	CsInfraSubscriptionID *string `json:"cs_infra_subscription_id"`
 
+	// deleted
+	// Required: true
+	Deleted *bool `json:"deleted"`
+
 	// deployment method
 	// Required: true
 	DeploymentMethod *string `json:"deployment_method"`
@@ -70,6 +74,10 @@ func (m *AzureDeletedRegistration) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCsInfraSubscriptionID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeleted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -122,6 +130,15 @@ func (m *AzureDeletedRegistration) Validate(formats strfmt.Registry) error {
 func (m *AzureDeletedRegistration) validateCsInfraSubscriptionID(formats strfmt.Registry) error {
 
 	if err := validate.Required("cs_infra_subscription_id", "body", m.CsInfraSubscriptionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureDeletedRegistration) validateDeleted(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleted", "body", m.Deleted); err != nil {
 		return err
 	}
 
