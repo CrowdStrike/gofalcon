@@ -20,13 +20,13 @@ import (
 type DismissSecurityCheck struct {
 
 	// errors
-	Errors []*Error691fe2c885404f42a4330d2ab8268144 `json:"errors"`
+	Errors []*ErrorDismissSecurityCheck `json:"errors"`
 
 	// meta
-	Meta *Meta745c7d28c349472fb916b0f5d50af1e0 `json:"meta,omitempty"`
+	Meta *MetaDismissSecurityCheck `json:"meta,omitempty"`
 
 	// resources
-	Resources []*ReasonResult0b4ba6a69ebd458e83925c8a1c42f832 `json:"resources"`
+	Resources []*ReasonResultDismissSecurityCheck `json:"resources"`
 }
 
 // Validate validates this dismiss security check

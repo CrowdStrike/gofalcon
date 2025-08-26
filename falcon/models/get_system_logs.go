@@ -20,13 +20,13 @@ import (
 type GetSystemLogs struct {
 
 	// errors
-	Errors []*ErrorAeb2c3f42d5f481ba552e5e7a6c9b3b5 `json:"errors"`
+	Errors []*ErrorGetSystemLogs `json:"errors"`
 
 	// meta
-	Meta *Meta40cf45e1c0fd477fae1e75f74aab0f2e `json:"meta,omitempty"`
+	Meta *MetaGetSystemLogs `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SystemLog6f470c2888074c2da6275b92c641a3b6 `json:"resources"`
+	Resources []*SystemLogGetSystemLogs `json:"resources"`
 }
 
 // Validate validates this get system logs

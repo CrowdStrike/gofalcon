@@ -63,12 +63,6 @@ APIPreemptProxyPostPolicyRulesParams contains all the parameters to send to the 
 */
 type APIPreemptProxyPostPolicyRulesParams struct {
 
-	/* Authorization.
-
-	   Authorization Header
-	*/
-	Authorization string
-
 	// Body.
 	Body *models.TypesPolicyRulesCreateBody
 
@@ -125,17 +119,6 @@ func (o *APIPreemptProxyPostPolicyRulesParams) SetHTTPClient(client *http.Client
 	o.HTTPClient = client
 }
 
-// WithAuthorization adds the authorization to the api preempt proxy post policy rules params
-func (o *APIPreemptProxyPostPolicyRulesParams) WithAuthorization(authorization string) *APIPreemptProxyPostPolicyRulesParams {
-	o.SetAuthorization(authorization)
-	return o
-}
-
-// SetAuthorization adds the authorization to the api preempt proxy post policy rules params
-func (o *APIPreemptProxyPostPolicyRulesParams) SetAuthorization(authorization string) {
-	o.Authorization = authorization
-}
-
 // WithBody adds the body to the api preempt proxy post policy rules params
 func (o *APIPreemptProxyPostPolicyRulesParams) WithBody(body *models.TypesPolicyRulesCreateBody) *APIPreemptProxyPostPolicyRulesParams {
 	o.SetBody(body)
@@ -154,11 +137,6 @@ func (o *APIPreemptProxyPostPolicyRulesParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
-	// header param Authorization
-	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -31,6 +31,9 @@ type ItautomationTask struct {
 	// Assigned user IDs of the task, when access_type is Shared.
 	AssignedUserIds []string `json:"assigned_user_ids"`
 
+	// Composite query configuration containing task IDs and host attributes for multi-task execution
+	CompositeQuery *ItautomationCompositeQuery `json:"composite_query,omitempty"`
+
 	// Username/api client name of who created the task. Example: john.smith@crowdstrike.com
 	// Required: true
 	CreatedBy *string `json:"created_by"`
@@ -116,6 +119,10 @@ func (m *ItautomationTask) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAccessType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCompositeQuery(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -238,6 +245,25 @@ func (m *ItautomationTask) validateAccessType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateAccessTypeEnum("access_type", "body", m.AccessType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ItautomationTask) validateCompositeQuery(formats strfmt.Registry) error {
+	if swag.IsZero(m.CompositeQuery) { // not required
+		return nil
+	}
+
+	if m.CompositeQuery != nil {
+		if err := m.CompositeQuery.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("composite_query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("composite_query")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -529,6 +555,10 @@ func (m *ItautomationTask) validateVerificationCondition(formats strfmt.Registry
 func (m *ItautomationTask) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateCompositeQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateGroups(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -560,6 +590,27 @@ func (m *ItautomationTask) ContextValidate(ctx context.Context, formats strfmt.R
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ItautomationTask) contextValidateCompositeQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CompositeQuery != nil {
+
+		if swag.IsZero(m.CompositeQuery) { // not required
+			return nil
+		}
+
+		if err := m.CompositeQuery.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("composite_query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("composite_query")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

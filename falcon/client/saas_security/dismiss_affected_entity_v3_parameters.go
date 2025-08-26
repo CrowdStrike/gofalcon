@@ -61,6 +61,9 @@ DismissAffectedEntityV3Params contains all the parameters to send to the API end
 */
 type DismissAffectedEntityV3Params struct {
 
+	// Body.
+	Body DismissAffectedEntityV3Body
+
 	/* ID.
 
 	   Security Check ID
@@ -120,6 +123,17 @@ func (o *DismissAffectedEntityV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithBody adds the body to the dismiss affected entity v3 params
+func (o *DismissAffectedEntityV3Params) WithBody(body DismissAffectedEntityV3Body) *DismissAffectedEntityV3Params {
+	o.SetBody(body)
+	return o
+}
+
+// SetBody adds the body to the dismiss affected entity v3 params
+func (o *DismissAffectedEntityV3Params) SetBody(body DismissAffectedEntityV3Body) {
+	o.Body = body
+}
+
 // WithID adds the id to the dismiss affected entity v3 params
 func (o *DismissAffectedEntityV3Params) WithID(id string) *DismissAffectedEntityV3Params {
 	o.SetID(id)
@@ -138,6 +152,9 @@ func (o *DismissAffectedEntityV3Params) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+	if err := r.SetBodyParam(o.Body); err != nil {
+		return err
+	}
 
 	// query param id
 	qrID := o.ID

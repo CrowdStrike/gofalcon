@@ -63,9 +63,13 @@ type QueryFeedArchivesParams struct {
 
 	/* FeedInterval.
 
-	   Feed interval must be one of: dump|daily|hourly|minutely
+	     Feed interval must be one of:
+	- dump: Complete historical data snapshot
+	- daily: Daily aggregated updates
+	- hourly: Hourly incremental updates
+	- minutely: Minute-by-minute updates
 	*/
-	FeedInterval string
+	FeedInterval *string
 
 	/* FeedName.
 
@@ -133,13 +137,13 @@ func (o *QueryFeedArchivesParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithFeedInterval adds the feedInterval to the query feed archives params
-func (o *QueryFeedArchivesParams) WithFeedInterval(feedInterval string) *QueryFeedArchivesParams {
+func (o *QueryFeedArchivesParams) WithFeedInterval(feedInterval *string) *QueryFeedArchivesParams {
 	o.SetFeedInterval(feedInterval)
 	return o
 }
 
 // SetFeedInterval adds the feedInterval to the query feed archives params
-func (o *QueryFeedArchivesParams) SetFeedInterval(feedInterval string) {
+func (o *QueryFeedArchivesParams) SetFeedInterval(feedInterval *string) {
 	o.FeedInterval = feedInterval
 }
 
@@ -173,13 +177,20 @@ func (o *QueryFeedArchivesParams) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	// query param feed_interval
-	qrFeedInterval := o.FeedInterval
-	qFeedInterval := qrFeedInterval
-	if qFeedInterval != "" {
+	if o.FeedInterval != nil {
 
-		if err := r.SetQueryParam("feed_interval", qFeedInterval); err != nil {
-			return err
+		// query param feed_interval
+		var qrFeedInterval string
+
+		if o.FeedInterval != nil {
+			qrFeedInterval = *o.FeedInterval
+		}
+		qFeedInterval := qrFeedInterval
+		if qFeedInterval != "" {
+
+			if err := r.SetQueryParam("feed_interval", qFeedInterval); err != nil {
+				return err
+			}
 		}
 	}
 

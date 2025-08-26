@@ -34,7 +34,7 @@ type APIRuleCreateRequestV1 struct {
 	GuardrailNotifications []*APICreateRuleNotifications `json:"guardrail_notifications"`
 
 	// mitre attack
-	MitreAttack []*ModelMitreAttackMapping `json:"mitre_attack"`
+	MitreAttack []*CorrelationruleMitreAttackMapping `json:"mitre_attack"`
 
 	// name
 	// Required: true

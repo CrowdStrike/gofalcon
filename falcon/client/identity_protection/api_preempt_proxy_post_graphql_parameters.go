@@ -14,6 +14,8 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
 // NewAPIPreemptProxyPostGraphqlParams creates a new APIPreemptProxyPostGraphqlParams object,
@@ -61,11 +63,8 @@ APIPreemptProxyPostGraphqlParams contains all the parameters to send to the API 
 */
 type APIPreemptProxyPostGraphqlParams struct {
 
-	/* Authorization.
-
-	   Authorization Header
-	*/
-	Authorization string
+	// Body.
+	Body *models.SwaggerGraphQLQuery
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,15 +119,15 @@ func (o *APIPreemptProxyPostGraphqlParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithAuthorization adds the authorization to the api preempt proxy post graphql params
-func (o *APIPreemptProxyPostGraphqlParams) WithAuthorization(authorization string) *APIPreemptProxyPostGraphqlParams {
-	o.SetAuthorization(authorization)
+// WithBody adds the body to the api preempt proxy post graphql params
+func (o *APIPreemptProxyPostGraphqlParams) WithBody(body *models.SwaggerGraphQLQuery) *APIPreemptProxyPostGraphqlParams {
+	o.SetBody(body)
 	return o
 }
 
-// SetAuthorization adds the authorization to the api preempt proxy post graphql params
-func (o *APIPreemptProxyPostGraphqlParams) SetAuthorization(authorization string) {
-	o.Authorization = authorization
+// SetBody adds the body to the api preempt proxy post graphql params
+func (o *APIPreemptProxyPostGraphqlParams) SetBody(body *models.SwaggerGraphQLQuery) {
+	o.Body = body
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -138,10 +137,10 @@ func (o *APIPreemptProxyPostGraphqlParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
-	// header param Authorization
-	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
-		return err
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

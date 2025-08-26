@@ -21,6 +21,9 @@ import (
 // swagger:model itautomation.TaskExecution
 type ItautomationTaskExecution struct {
 
+	// Specifies task ids and host attributes for composite querying
+	CompositeQuery *ItautomationCompositeQuery `json:"composite_query,omitempty"`
+
 	// Whether to discover new hosts for the scheduled task. Example: true
 	DiscoverNewHosts bool `json:"discover_new_hosts,omitempty"`
 
@@ -95,6 +98,10 @@ type ItautomationTaskExecution struct {
 func (m *ItautomationTaskExecution) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCompositeQuery(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateGuardrails(formats); err != nil {
 		res = append(res, err)
 	}
@@ -146,6 +153,25 @@ func (m *ItautomationTaskExecution) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ItautomationTaskExecution) validateCompositeQuery(formats strfmt.Registry) error {
+	if swag.IsZero(m.CompositeQuery) { // not required
+		return nil
+	}
+
+	if m.CompositeQuery != nil {
+		if err := m.CompositeQuery.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("composite_query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("composite_query")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -386,6 +412,10 @@ func (m *ItautomationTaskExecution) validateVerificationCondition(formats strfmt
 func (m *ItautomationTaskExecution) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateCompositeQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateGuardrails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -417,6 +447,27 @@ func (m *ItautomationTaskExecution) ContextValidate(ctx context.Context, formats
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ItautomationTaskExecution) contextValidateCompositeQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CompositeQuery != nil {
+
+		if swag.IsZero(m.CompositeQuery) { // not required
+			return nil
+		}
+
+		if err := m.CompositeQuery.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("composite_query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("composite_query")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -20,13 +20,13 @@ import (
 type GetEndTransaction struct {
 
 	// errors
-	Errors []*ErrorE7d9c490a4ec430184dae22817a18462 `json:"errors"`
+	Errors []*ErrorGetEndTransaction `json:"errors"`
 
 	// meta
-	Meta *Meta7d7aa01ab4bc417e8162921475b44da9 `json:"meta,omitempty"`
+	Meta *MetaGetEndTransaction `json:"meta,omitempty"`
 
 	// resources
-	Resources []*DataTransactionResponseDtoF8bd2c9b753e49deb813b65aa17b7c9b `json:"resources"`
+	Resources []*DataTransactionResponseDtoGetEndTransaction `json:"resources"`
 }
 
 // Validate validates this get end transaction

@@ -24,18 +24,18 @@ type DevicecontrolapiReqUpdateUSBBaseV1 struct {
 	CustomNotifications *DevicecontrolapiUSBCustomNotifications `json:"custom_notifications,omitempty"`
 
 	// Determines if a notification will be shown to the end user (omit to keep current)
-	// Enum: [NOTIFY_USER,SILENT]
+	// Enum: [NOTIFY_USER SILENT]
 	EndUserNotification string `json:"end_user_notification,omitempty"`
 
 	// Enforcement for the USB policy (omit to keep current)
-	// Enum: [MONITOR_ONLY,MONITOR_ENFORCE,OFF]
+	// Enum: [MONITOR_ONLY MONITOR_ENFORCE OFF]
 	EnforcementMode string `json:"enforcement_mode,omitempty"`
 
 	// enhanced file metadata
 	EnhancedFileMetadata bool `json:"enhanced_file_metadata,omitempty"`
 
 	// Determines if the policy will include whitelist exceptions
-	// Enum: [ENABLE_ALWAYS,DISABLE_VIRTUAL]
+	// Enum: [ENABLE_ALWAYS DISABLE_VIRTUAL]
 	WhitelistMode string `json:"whitelist_mode,omitempty"`
 }
 
@@ -88,7 +88,7 @@ var devicecontrolapiReqUpdateUSBBaseV1TypeEndUserNotificationPropEnum []interfac
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["NOTIFY_USER,SILENT"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["NOTIFY_USER","SILENT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -98,8 +98,11 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateUSBBaseV1EndUserNotificationNOTIFYUSERSILENT captures enum value "NOTIFY_USER,SILENT"
-	DevicecontrolapiReqUpdateUSBBaseV1EndUserNotificationNOTIFYUSERSILENT string = "NOTIFY_USER,SILENT"
+	// DevicecontrolapiReqUpdateUSBBaseV1EndUserNotificationNOTIFYUSER captures enum value "NOTIFY_USER"
+	DevicecontrolapiReqUpdateUSBBaseV1EndUserNotificationNOTIFYUSER string = "NOTIFY_USER"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1EndUserNotificationSILENT captures enum value "SILENT"
+	DevicecontrolapiReqUpdateUSBBaseV1EndUserNotificationSILENT string = "SILENT"
 )
 
 // prop value enum
@@ -127,7 +130,7 @@ var devicecontrolapiReqUpdateUSBBaseV1TypeEnforcementModePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MONITOR_ONLY,MONITOR_ENFORCE,OFF"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE","OFF"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -137,8 +140,14 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeMONITORONLYMONITORENFORCEOFF captures enum value "MONITOR_ONLY,MONITOR_ENFORCE,OFF"
-	DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeMONITORONLYMONITORENFORCEOFF string = "MONITOR_ONLY,MONITOR_ENFORCE,OFF"
+	// DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
+	DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeMONITORONLY string = "MONITOR_ONLY"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
+	DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeOFF captures enum value "OFF"
+	DevicecontrolapiReqUpdateUSBBaseV1EnforcementModeOFF string = "OFF"
 )
 
 // prop value enum
@@ -166,7 +175,7 @@ var devicecontrolapiReqUpdateUSBBaseV1TypeWhitelistModePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ENABLE_ALWAYS,DISABLE_VIRTUAL"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ENABLE_ALWAYS","DISABLE_VIRTUAL"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -176,8 +185,11 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateUSBBaseV1WhitelistModeENABLEALWAYSDISABLEVIRTUAL captures enum value "ENABLE_ALWAYS,DISABLE_VIRTUAL"
-	DevicecontrolapiReqUpdateUSBBaseV1WhitelistModeENABLEALWAYSDISABLEVIRTUAL string = "ENABLE_ALWAYS,DISABLE_VIRTUAL"
+	// DevicecontrolapiReqUpdateUSBBaseV1WhitelistModeENABLEALWAYS captures enum value "ENABLE_ALWAYS"
+	DevicecontrolapiReqUpdateUSBBaseV1WhitelistModeENABLEALWAYS string = "ENABLE_ALWAYS"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1WhitelistModeDISABLEVIRTUAL captures enum value "DISABLE_VIRTUAL"
+	DevicecontrolapiReqUpdateUSBBaseV1WhitelistModeDISABLEVIRTUAL string = "DISABLE_VIRTUAL"
 )
 
 // prop value enum

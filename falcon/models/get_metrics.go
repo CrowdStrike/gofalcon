@@ -20,13 +20,13 @@ import (
 type GetMetrics struct {
 
 	// errors
-	Errors []*Error004c2a9d6a394ff787e9e11a85be1f75 `json:"errors"`
+	Errors []*ErrorGetMetrics `json:"errors"`
 
 	// meta
-	Meta *MetaCdc06fb295194fe08b0f79df44799ef7 `json:"meta,omitempty"`
+	Meta *MetaGetMetrics `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SecurityCheckMetricsC746aedae56d48b59460bf0dd64497f6 `json:"resources"`
+	Resources []*SecurityCheckMetricsGetMetrics `json:"resources"`
 }
 
 // Validate validates this get metrics

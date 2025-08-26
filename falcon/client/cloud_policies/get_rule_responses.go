@@ -37,6 +37,12 @@ func (o *GetRuleReader) ReadResponse(response runtime.ClientResponse, consumer r
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewGetRuleNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewGetRuleTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -78,7 +84,7 @@ type GetRuleOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetRulesResponse
 }
 
 // IsSuccess returns true when this get rule o k response has a 2xx status code
@@ -119,7 +125,7 @@ func (o *GetRuleOK) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleOK  %+v", 200, o.Payload)
 }
 
-func (o *GetRuleOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *GetRuleOK) GetPayload() *models.CommonGetRulesResponse {
 	return o.Payload
 }
 
@@ -154,7 +160,7 @@ func (o *GetRuleOK) readResponse(response runtime.ClientResponse, consumer runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetRulesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -265,6 +271,116 @@ func (o *GetRuleForbidden) readResponse(response runtime.ClientResponse, consume
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetRuleNotFound creates a GetRuleNotFound with default headers values
+func NewGetRuleNotFound() *GetRuleNotFound {
+	return &GetRuleNotFound{}
+}
+
+/*
+GetRuleNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type GetRuleNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.CommonGetRulesResponse
+}
+
+// IsSuccess returns true when this get rule not found response has a 2xx status code
+func (o *GetRuleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule not found response has a 3xx status code
+func (o *GetRuleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule not found response has a 4xx status code
+func (o *GetRuleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule not found response has a 5xx status code
+func (o *GetRuleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule not found response a status code equal to that given
+func (o *GetRuleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get rule not found response
+func (o *GetRuleNotFound) Code() int {
+	return 404
+}
+
+func (o *GetRuleNotFound) Error() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRuleNotFound) String() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRuleNotFound) GetPayload() *models.CommonGetRulesResponse {
+	return o.Payload
+}
+
+func (o *GetRuleNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.CommonGetRulesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

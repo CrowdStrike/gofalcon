@@ -45,6 +45,9 @@ type JsonschemaUIExtensions struct {
 
 	// skip generating a card during mobiledoc generation
 	Skip bool `json:"skip,omitempty"`
+
+	// decimal step to increment float values
+	Step float64 `json:"step,omitempty"`
 }
 
 // Validate validates this jsonschema UI extensions

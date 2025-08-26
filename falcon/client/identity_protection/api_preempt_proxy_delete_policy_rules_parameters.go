@@ -62,12 +62,6 @@ APIPreemptProxyDeletePolicyRulesParams contains all the parameters to send to th
 */
 type APIPreemptProxyDeletePolicyRulesParams struct {
 
-	/* Authorization.
-
-	   Authorization Header
-	*/
-	Authorization string
-
 	/* Ids.
 
 	   Rule IDs
@@ -127,17 +121,6 @@ func (o *APIPreemptProxyDeletePolicyRulesParams) SetHTTPClient(client *http.Clie
 	o.HTTPClient = client
 }
 
-// WithAuthorization adds the authorization to the api preempt proxy delete policy rules params
-func (o *APIPreemptProxyDeletePolicyRulesParams) WithAuthorization(authorization string) *APIPreemptProxyDeletePolicyRulesParams {
-	o.SetAuthorization(authorization)
-	return o
-}
-
-// SetAuthorization adds the authorization to the api preempt proxy delete policy rules params
-func (o *APIPreemptProxyDeletePolicyRulesParams) SetAuthorization(authorization string) {
-	o.Authorization = authorization
-}
-
 // WithIds adds the ids to the api preempt proxy delete policy rules params
 func (o *APIPreemptProxyDeletePolicyRulesParams) WithIds(ids []string) *APIPreemptProxyDeletePolicyRulesParams {
 	o.SetIds(ids)
@@ -156,11 +139,6 @@ func (o *APIPreemptProxyDeletePolicyRulesParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
-	// header param Authorization
-	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
-		return err
-	}
 
 	if o.Ids != nil {
 

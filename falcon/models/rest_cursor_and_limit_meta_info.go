@@ -28,6 +28,9 @@ type RestCursorAndLimitMetaInfo struct {
 	// powered by
 	PoweredBy string `json:"powered_by,omitempty"`
 
+	// prev
+	Prev string `json:"prev,omitempty"`
+
 	// query time
 	// Required: true
 	QueryTime *float64 `json:"query_time"`

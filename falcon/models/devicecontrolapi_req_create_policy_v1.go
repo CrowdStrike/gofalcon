@@ -26,14 +26,14 @@ type DevicecontrolapiReqCreatePolicyV1 struct {
 	// ID of an existing policy to clone
 	CloneID string `json:"clone_id,omitempty"`
 
-	// A description of the policy
+	// A description of the policy. Maximum length: 512 characters
 	Description string `json:"description,omitempty"`
 
-	// Name of the policy
+	// Name of the policy. Cannot be blank and must only contain: letters, numbers, and the special characters: _, -, :, ;, ., !, and space
 	Name string `json:"name,omitempty"`
 
 	// Name of the platform. *Required if clone_id is empty
-	// Enum: [Windows,Mac]
+	// Enum: [Windows Mac]
 	PlatformName string `json:"platform_name,omitempty"`
 
 	// Object for the USB base settings. Defaults will be set if omitted
@@ -85,7 +85,7 @@ var devicecontrolapiReqCreatePolicyV1TypePlatformNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Windows,Mac"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Windows","Mac"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -95,8 +95,11 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqCreatePolicyV1PlatformNameWindowsMac captures enum value "Windows,Mac"
-	DevicecontrolapiReqCreatePolicyV1PlatformNameWindowsMac string = "Windows,Mac"
+	// DevicecontrolapiReqCreatePolicyV1PlatformNameWindows captures enum value "Windows"
+	DevicecontrolapiReqCreatePolicyV1PlatformNameWindows string = "Windows"
+
+	// DevicecontrolapiReqCreatePolicyV1PlatformNameMac captures enum value "Mac"
+	DevicecontrolapiReqCreatePolicyV1PlatformNameMac string = "Mac"
 )
 
 // prop value enum

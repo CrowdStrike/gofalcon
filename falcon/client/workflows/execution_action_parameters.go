@@ -68,6 +68,8 @@ type ExecutionActionParams struct {
 	     Specify one of these actions:
 
 	- `resume`: resume/retry the workflow execution(s) specified in ids
+
+	- `cancel`: cancel/stop the workflow execution specified in ids
 	*/
 	ActionName string
 

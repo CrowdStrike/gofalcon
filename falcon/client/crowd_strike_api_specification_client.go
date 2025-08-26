@@ -15,6 +15,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
 	"github.com/crowdstrike/gofalcon/falcon/client/cao_hunting"
 	"github.com/crowdstrike/gofalcon/falcon/client/case_files"
+	"github.com/crowdstrike/gofalcon/falcon/client/case_management"
+	"github.com/crowdstrike/gofalcon/falcon/client/cases"
 	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_aws_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_azure_registration"
@@ -23,6 +25,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_assets"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_compliance"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_detections"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
@@ -34,6 +37,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/container_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/content_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/correlation_rules"
+	"github.com/crowdstrike/gofalcon/falcon/client/correlation_rules_admin"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspg_iacapi"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspm_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_ioa"
@@ -114,6 +118,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
@@ -168,6 +173,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.APIIntegrations = api_integrations.New(transport, formats)
 	cli.CaoHunting = cao_hunting.New(transport, formats)
 	cli.CaseFiles = case_files.New(transport, formats)
+	cli.CaseManagement = case_management.New(transport, formats)
+	cli.Cases = cases.New(transport, formats)
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
 	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
 	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
@@ -176,6 +183,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CloudPolicies = cloud_policies.New(transport, formats)
 	cli.CloudSecurityAssets = cloud_security_assets.New(transport, formats)
 	cli.CloudSecurityCompliance = cloud_security_compliance.New(transport, formats)
+	cli.CloudSecurityDetections = cloud_security_detections.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
@@ -187,6 +195,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ContainerVulnerabilities = container_vulnerabilities.New(transport, formats)
 	cli.ContentUpdatePolicies = content_update_policies.New(transport, formats)
 	cli.CorrelationRules = correlation_rules.New(transport, formats)
+	cli.CorrelationRulesAdmin = correlation_rules_admin.New(transport, formats)
 	cli.CspgIacapi = cspg_iacapi.New(transport, formats)
 	cli.CspmRegistration = cspm_registration.New(transport, formats)
 	cli.CustomIoa = custom_ioa.New(transport, formats)
@@ -267,6 +276,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ServerlessVulnerabilities = serverless_vulnerabilities.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
+	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
@@ -326,6 +336,10 @@ type CrowdStrikeAPISpecification struct {
 
 	CaseFiles case_files.ClientService
 
+	CaseManagement case_management.ClientService
+
+	Cases cases.ClientService
+
 	CertificateBasedExclusions certificate_based_exclusions.ClientService
 
 	CloudAwsRegistration cloud_aws_registration.ClientService
@@ -341,6 +355,8 @@ type CrowdStrikeAPISpecification struct {
 	CloudSecurityAssets cloud_security_assets.ClientService
 
 	CloudSecurityCompliance cloud_security_compliance.ClientService
+
+	CloudSecurityDetections cloud_security_detections.ClientService
 
 	CloudSnapshots cloud_snapshots.ClientService
 
@@ -363,6 +379,8 @@ type CrowdStrikeAPISpecification struct {
 	ContentUpdatePolicies content_update_policies.ClientService
 
 	CorrelationRules correlation_rules.ClientService
+
+	CorrelationRulesAdmin correlation_rules_admin.ClientService
 
 	CspgIacapi cspg_iacapi.ClientService
 
@@ -524,6 +542,8 @@ type CrowdStrikeAPISpecification struct {
 
 	SpotlightVulnerabilities spotlight_vulnerabilities.ClientService
 
+	TailoredIntelligence tailored_intelligence.ClientService
+
 	Threatgraph threatgraph.ClientService
 
 	UnidentifiedContainers unidentified_containers.ClientService
@@ -545,6 +565,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.APIIntegrations.SetTransport(transport)
 	c.CaoHunting.SetTransport(transport)
 	c.CaseFiles.SetTransport(transport)
+	c.CaseManagement.SetTransport(transport)
+	c.Cases.SetTransport(transport)
 	c.CertificateBasedExclusions.SetTransport(transport)
 	c.CloudAwsRegistration.SetTransport(transport)
 	c.CloudAzureRegistration.SetTransport(transport)
@@ -553,6 +575,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CloudPolicies.SetTransport(transport)
 	c.CloudSecurityAssets.SetTransport(transport)
 	c.CloudSecurityCompliance.SetTransport(transport)
+	c.CloudSecurityDetections.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
@@ -564,6 +587,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ContainerVulnerabilities.SetTransport(transport)
 	c.ContentUpdatePolicies.SetTransport(transport)
 	c.CorrelationRules.SetTransport(transport)
+	c.CorrelationRulesAdmin.SetTransport(transport)
 	c.CspgIacapi.SetTransport(transport)
 	c.CspmRegistration.SetTransport(transport)
 	c.CustomIoa.SetTransport(transport)
@@ -644,6 +668,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ServerlessVulnerabilities.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
+	c.TailoredIntelligence.SetTransport(transport)
 	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)

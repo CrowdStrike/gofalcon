@@ -20,13 +20,13 @@ import (
 type UploadDataResponse struct {
 
 	// errors
-	Errors []*Error5a96e74fa5644455acb4b24cb08dfe63 `json:"errors"`
+	Errors []*ErrorUploadDataResponse `json:"errors"`
 
 	// meta
-	Meta *Meta396bfd404ed54eccb95ef9d301360e83 `json:"meta,omitempty"`
+	Meta *MetaUploadDataResponse `json:"meta,omitempty"`
 
 	// resources
-	Resources []*DataTransactionResponseDtoE7ee82530f044f79bd1f3c7db3ced5c9 `json:"resources"`
+	Resources []*DataTransactionResponseDtoUploadDataResponse `json:"resources"`
 }
 
 // Validate validates this upload data response

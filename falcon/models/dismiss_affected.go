@@ -20,13 +20,13 @@ import (
 type DismissAffected struct {
 
 	// errors
-	Errors []*Error24f6ede13e8b4420b62daf1cd310de1f `json:"errors"`
+	Errors []*ErrorDismissAffected `json:"errors"`
 
 	// meta
-	Meta *Meta9ecb1c7b63684ddc830dbfe787a34e0a `json:"meta,omitempty"`
+	Meta *MetaDismissAffected `json:"meta,omitempty"`
 
 	// resources
-	Resources []*ReasonResultE5d8faed88934483bfa798a524ea03e9 `json:"resources"`
+	Resources []*ReasonResultDismissAffected `json:"resources"`
 }
 
 // Validate validates this dismiss affected

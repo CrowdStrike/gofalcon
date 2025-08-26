@@ -39,7 +39,7 @@ type SensorUpdateSettingsRespV2 struct {
 
 	// The release stage this build is in
 	// Required: true
-	// Enum: [prod early_adopter]
+	// Enum: [prod early_adopter ]
 	Stage *string `json:"stage"`
 
 	// The uninstall protection setting to apply to devices in the policy
@@ -141,7 +141,7 @@ var sensorUpdateSettingsRespV2TypeStagePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["prod","early_adopter"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["prod","early_adopter",""]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -156,6 +156,9 @@ const (
 
 	// SensorUpdateSettingsRespV2StageEarlyAdopter captures enum value "early_adopter"
 	SensorUpdateSettingsRespV2StageEarlyAdopter string = "early_adopter"
+
+	// SensorUpdateSettingsRespV2StageEmpty captures enum value ""
+	SensorUpdateSettingsRespV2StageEmpty string = ""
 )
 
 // prop value enum

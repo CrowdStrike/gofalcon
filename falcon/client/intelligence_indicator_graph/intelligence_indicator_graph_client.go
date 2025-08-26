@@ -78,7 +78,23 @@ func (a *Client) LookupIndicators(params *LookupIndicatorsParams, opts ...Client
 }
 
 /*
-SearchIndicators searches indicators based on f q l filter
+	SearchIndicators searches indicators based on f q l filter
+
+This method supports flexible parameter input through both query parameters and JSON request body.
+
+## Parameter Precedence Rules
+
+| Parameter | Query Param | JSON Body | Precedence Rule |
+|-----------|-------------|-----------|-----------------|
+| filter    | ✅          | ✅        | **EXCLUSIVE** - Cannot specify both |
+| sort      | ✅          | ✅        | **Query param OVERRIDES** JSON body |
+| limit     | ✅          | ❌        | Query param only |
+| offset    | ✅          | ❌        | Query param only |
+
+### Usage Patterns:
+- **Query-only:** Use query parameters for simple requests
+- **Body-only:** Use JSON body for complex configurations
+- **Hybrid:** Combine both, following precedence rules above
 */
 func (a *Client) SearchIndicators(params *SearchIndicatorsParams, opts ...ClientOption) (*SearchIndicatorsOK, error) {
 	// TODO: Validate the params before sending

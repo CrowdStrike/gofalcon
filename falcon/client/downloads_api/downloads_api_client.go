@@ -34,6 +34,8 @@ type ClientService interface {
 
 	EnumerateFile(params *EnumerateFileParams, opts ...ClientOption) (*EnumerateFileOK, error)
 
+	FetchFilesDownloadInfo(params *FetchFilesDownloadInfoParams, opts ...ClientOption) (*FetchFilesDownloadInfoOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -110,6 +112,44 @@ func (a *Client) EnumerateFile(params *EnumerateFileParams, opts ...ClientOption
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for EnumerateFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+FetchFilesDownloadInfo gets files info and pre signed download u r ls
+*/
+func (a *Client) FetchFilesDownloadInfo(params *FetchFilesDownloadInfoParams, opts ...ClientOption) (*FetchFilesDownloadInfoOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewFetchFilesDownloadInfoParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "FetchFilesDownloadInfo",
+		Method:             "GET",
+		PathPattern:        "/csdownloads/combined/files-download/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &FetchFilesDownloadInfoReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*FetchFilesDownloadInfoOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for FetchFilesDownloadInfo: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

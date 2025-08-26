@@ -44,6 +44,9 @@ type ActivitiesLegacyExternalActivity struct {
 	// Required: true
 	Disruptive *bool `json:"disruptive"`
 
+	// Unique execution route for the activity.
+	ExecutionRoute string `json:"execution_route,omitempty"`
+
 	// Indicates whether an activity is available for the caller
 	// Required: true
 	HasPermission *bool `json:"has_permission"`
@@ -58,6 +61,9 @@ type ActivitiesLegacyExternalActivity struct {
 	// JSON Schema describing the structured input of the activity for execution
 	InputSchema *JsonschemaSchema `json:"input_schema,omitempty"`
 
+	// Legacy namespace for the activity.
+	LegacyNamespace string `json:"legacy_namespace,omitempty"`
+
 	// A machine or developer-generated output, which should conform to the activity's output schema.
 	MockOutput ActivitiesExternalActivityMockOutput `json:"mock_output,omitempty"`
 
@@ -65,7 +71,7 @@ type ActivitiesLegacyExternalActivity struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// Unique namespace for the activity.
+	// (Deprecated) Unique namespace for the activity.
 	Namespace string `json:"namespace,omitempty"`
 
 	// Output fields of the activity once executed

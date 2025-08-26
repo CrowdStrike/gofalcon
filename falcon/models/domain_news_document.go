@@ -84,6 +84,9 @@ type DomainNewsDocument struct {
 	// News document sub-type. For Feeds type it can be: Snort/Suricata, Yara, NetWitness, Common Event Format. For Periodic Report type it can be: Daily, Weekly, Monthly, Quarterly, Annual. For non feeds or periodic reports type it is empty.
 	SubType *DomainEntity `json:"sub_type,omitempty"`
 
+	// Summary of the report content
+	Summary string `json:"summary,omitempty"`
+
 	// News tags, which contains MITRE, Vulnerability community identifiers, capabilities, malware family name, customer target, activity cluster, notable event, geopolitical issue
 	// Required: true
 	Tags []*DomainEntity `json:"tags"`

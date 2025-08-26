@@ -64,9 +64,15 @@ type UploadFileMixin0Mixin93Params struct {
 
 	/* File.
 
-	   Binary file to be uploaded. Max file size: 256 MB.
+	   Binary file to be uploaded. Max file size: 256 MB. Use `--data-binary @$FILE_PATH` for octet-stream/cURL uploads
 	*/
 	File runtime.NamedReadCloser
+
+	/* FileName.
+
+	   OCTET-STREAM ONLY - Name of the file (required for octet-stream uploads).
+	*/
+	FileName *string
 
 	/* Scan.
 
@@ -149,6 +155,17 @@ func (o *UploadFileMixin0Mixin93Params) SetFile(file runtime.NamedReadCloser) {
 	o.File = file
 }
 
+// WithFileName adds the fileName to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) WithFileName(fileName *string) *UploadFileMixin0Mixin93Params {
+	o.SetFileName(fileName)
+	return o
+}
+
+// SetFileName adds the fileName to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) SetFileName(fileName *string) {
+	o.FileName = fileName
+}
+
 // WithScan adds the scan to the upload file mixin0 mixin93 params
 func (o *UploadFileMixin0Mixin93Params) WithScan(scan *bool) *UploadFileMixin0Mixin93Params {
 	o.SetScan(scan)
@@ -170,6 +187,23 @@ func (o *UploadFileMixin0Mixin93Params) WriteToRequest(r runtime.ClientRequest, 
 	// form file param file
 	if err := r.SetFileParam("file", o.File); err != nil {
 		return err
+	}
+
+	if o.FileName != nil {
+
+		// query param file_name
+		var qrFileName string
+
+		if o.FileName != nil {
+			qrFileName = *o.FileName
+		}
+		qFileName := qrFileName
+		if qFileName != "" {
+
+			if err := r.SetQueryParam("file_name", qFileName); err != nil {
+				return err
+			}
+		}
 	}
 
 	if o.Scan != nil {

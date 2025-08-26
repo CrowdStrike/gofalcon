@@ -20,13 +20,13 @@ import (
 type GetUserInventory struct {
 
 	// errors
-	Errors []*Error2e5fd38d17234346bfad112edb68d83d `json:"errors"`
+	Errors []*ErrorGetUserInventory `json:"errors"`
 
 	// meta
-	Meta *Meta6bc3e3aad8f447f284c80a686385e078 `json:"meta,omitempty"`
+	Meta *MetaGetUserInventory `json:"meta,omitempty"`
 
 	// resources
-	Resources []*User0dc5bc42a57849819aeabfbac85347d5 `json:"resources"`
+	Resources []*UserGetUserInventory `json:"resources"`
 }
 
 // Validate validates this get user inventory

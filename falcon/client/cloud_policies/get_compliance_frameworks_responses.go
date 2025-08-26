@@ -90,7 +90,7 @@ type GetComplianceFrameworksOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetComplianceFrameworksResponse
 }
 
 // IsSuccess returns true when this get compliance frameworks o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetComplianceFrameworksOK) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksOK  %+v", 200, o.Payload)
 }
 
-func (o *GetComplianceFrameworksOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *GetComplianceFrameworksOK) GetPayload() *models.CommonGetComplianceFrameworksResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetComplianceFrameworksOK) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetComplianceFrameworksResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type GetComplianceFrameworksNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.CommonGetComplianceFrameworksResponse
 }
 
 // IsSuccess returns true when this get compliance frameworks not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *GetComplianceFrameworksNotFound) String() string {
 	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetComplianceFrameworksNotFound) GetPayload() *models.CommonEntitiesResponse {
+func (o *GetComplianceFrameworksNotFound) GetPayload() *models.CommonGetComplianceFrameworksResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *GetComplianceFrameworksNotFound) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.CommonGetComplianceFrameworksResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -124,6 +124,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `non_compliant.policy_id`
 	- `non_compliant.requirement`
 	- `non_compliant.rule`
+	- `non_compliant.rule_name`
 	- `non_compliant.section`
 	- `non_compliant.severity`
 	- `organization_Id`

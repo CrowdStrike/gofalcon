@@ -10,6 +10,7 @@ import (
 // Config holds configuration for model generation
 type Config struct {
 	ModelNames         []string
+	ModelName          string // For inspect mode - single model to analyze
 	OperationID        string
 	EndpointPath       string
 	TagName            string
@@ -21,6 +22,7 @@ type Config struct {
 	GenerateOperation  bool
 	GenerateEndpoint   bool
 	GenerateCollection bool
+	InspectMode        bool // For reverse dependency analysis
 }
 
 // OpenAPISpec represents the structure of an OpenAPI/Swagger specification

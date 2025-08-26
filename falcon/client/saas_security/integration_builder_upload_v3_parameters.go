@@ -63,8 +63,8 @@ IntegrationBuilderUploadV3Params contains all the parameters to send to the API 
 */
 type IntegrationBuilderUploadV3Params struct {
 
-	// Data.
-	Data *models.UploadDataRequest
+	// Body.
+	Body *models.UploadDataRequest
 
 	/* ID.
 
@@ -131,15 +131,15 @@ func (o *IntegrationBuilderUploadV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithData adds the data to the integration builder upload v3 params
-func (o *IntegrationBuilderUploadV3Params) WithData(data *models.UploadDataRequest) *IntegrationBuilderUploadV3Params {
-	o.SetData(data)
+// WithBody adds the body to the integration builder upload v3 params
+func (o *IntegrationBuilderUploadV3Params) WithBody(body *models.UploadDataRequest) *IntegrationBuilderUploadV3Params {
+	o.SetBody(body)
 	return o
 }
 
-// SetData adds the data to the integration builder upload v3 params
-func (o *IntegrationBuilderUploadV3Params) SetData(data *models.UploadDataRequest) {
-	o.Data = data
+// SetBody adds the body to the integration builder upload v3 params
+func (o *IntegrationBuilderUploadV3Params) SetBody(body *models.UploadDataRequest) {
+	o.Body = body
 }
 
 // WithID adds the id to the integration builder upload v3 params
@@ -171,8 +171,8 @@ func (o *IntegrationBuilderUploadV3Params) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-	if o.Data != nil {
-		if err := r.SetBodyParam(o.Data); err != nil {
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
 	}

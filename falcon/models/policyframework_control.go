@@ -25,6 +25,9 @@ type PolicyframeworkControl struct {
 	// benchmarks
 	Benchmarks []*PolicyframeworkBenchmark `json:"benchmarks"`
 
+	// code
+	Code string `json:"code,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
 
@@ -33,6 +36,12 @@ type PolicyframeworkControl struct {
 
 	// name
 	Name string `json:"name,omitempty"`
+
+	// requirement
+	Requirement string `json:"requirement,omitempty"`
+
+	// section name
+	SectionName string `json:"section_name,omitempty"`
 
 	// type
 	Type string `json:"type,omitempty"`

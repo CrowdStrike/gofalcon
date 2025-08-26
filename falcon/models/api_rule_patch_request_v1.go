@@ -34,7 +34,7 @@ type APIRulePatchRequestV1 struct {
 	ID *string `json:"id"`
 
 	// mitre attack
-	MitreAttack []*ModelMitreAttackMapping `json:"mitre_attack"`
+	MitreAttack []*CorrelationruleMitreAttackMapping `json:"mitre_attack"`
 
 	// name
 	Name string `json:"name,omitempty"`

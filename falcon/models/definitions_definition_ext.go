@@ -32,6 +32,10 @@ type DefinitionsDefinitionExt struct {
 	// Required: true
 	Enabled *bool `json:"enabled"`
 
+	// Indicates whether the workflow has validation errors
+	// Required: true
+	HasValidationErrors *bool `json:"has_validation_errors"`
+
 	// Unique identifier for the trigger.
 	// Required: true
 	ID *string `json:"id"`
@@ -109,6 +113,10 @@ func (m *DefinitionsDefinitionExt) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHasValidationErrors(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -213,6 +221,15 @@ func (m *DefinitionsDefinitionExt) validateConditions(formats strfmt.Registry) e
 func (m *DefinitionsDefinitionExt) validateEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateHasValidationErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("has_validation_errors", "body", m.HasValidationErrors); err != nil {
 		return err
 	}
 

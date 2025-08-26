@@ -20,13 +20,13 @@ import (
 type GetAlertsResponse struct {
 
 	// errors
-	Errors []*Error86aa5142263e43a3a2d0ced5229e0805 `json:"errors"`
+	Errors []*ErrorGetAlertsResponse `json:"errors"`
 
 	// meta
-	Meta *Meta5cadb44b92d34dadb0558a176da04fbf `json:"meta,omitempty"`
+	Meta *MetaGetAlertsResponse `json:"meta,omitempty"`
 
 	// resources
-	Resources []*Alert582e579a93a947a4a2c65ac94749925b `json:"resources"`
+	Resources []*AlertGetAlertsResponse `json:"resources"`
 }
 
 // Validate validates this get alerts response

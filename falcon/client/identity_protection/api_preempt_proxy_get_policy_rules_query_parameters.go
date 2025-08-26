@@ -62,12 +62,6 @@ APIPreemptProxyGetPolicyRulesQueryParams contains all the parameters to send to 
 */
 type APIPreemptProxyGetPolicyRulesQueryParams struct {
 
-	/* Authorization.
-
-	   Authorization Header
-	*/
-	Authorization string
-
 	/* Enabled.
 
 	   Whether the rule is enabled
@@ -139,17 +133,6 @@ func (o *APIPreemptProxyGetPolicyRulesQueryParams) SetHTTPClient(client *http.Cl
 	o.HTTPClient = client
 }
 
-// WithAuthorization adds the authorization to the api preempt proxy get policy rules query params
-func (o *APIPreemptProxyGetPolicyRulesQueryParams) WithAuthorization(authorization string) *APIPreemptProxyGetPolicyRulesQueryParams {
-	o.SetAuthorization(authorization)
-	return o
-}
-
-// SetAuthorization adds the authorization to the api preempt proxy get policy rules query params
-func (o *APIPreemptProxyGetPolicyRulesQueryParams) SetAuthorization(authorization string) {
-	o.Authorization = authorization
-}
-
 // WithEnabled adds the enabled to the api preempt proxy get policy rules query params
 func (o *APIPreemptProxyGetPolicyRulesQueryParams) WithEnabled(enabled *bool) *APIPreemptProxyGetPolicyRulesQueryParams {
 	o.SetEnabled(enabled)
@@ -190,11 +173,6 @@ func (o *APIPreemptProxyGetPolicyRulesQueryParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
-
-	// header param Authorization
-	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
-		return err
-	}
 
 	if o.Enabled != nil {
 
