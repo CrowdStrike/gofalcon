@@ -6,6 +6,7 @@ package client
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security"
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
@@ -272,6 +273,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.Workflows = workflows.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
+	cli.CloudSecurity = cloud_security.New(transport, formats)
 	return cli
 }
 
@@ -533,6 +535,7 @@ type CrowdStrikeAPISpecification struct {
 	Workflows workflows.ClientService
 
 	ZeroTrustAssessment zero_trust_assessment.ClientService
+	CloudSecurity       cloud_security.ClientService
 
 	Transport runtime.ClientTransport
 }
@@ -540,6 +543,7 @@ type CrowdStrikeAPISpecification struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
+	c.CloudSecurity.SetTransport(transport)
 	c.Aspm.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
