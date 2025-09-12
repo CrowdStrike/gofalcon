@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *WorkflowDefinitionsActionOK) Code() int {
 }
 
 func (o *WorkflowDefinitionsActionOK) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsActionOK) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsActionOK) GetPayload() *models.DefinitionsDefinitionEntitiesResponse {
@@ -240,11 +243,13 @@ func (o *WorkflowDefinitionsActionAccepted) Code() int {
 }
 
 func (o *WorkflowDefinitionsActionAccepted) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionAccepted %s", 202, payload)
 }
 
 func (o *WorkflowDefinitionsActionAccepted) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionAccepted %s", 202, payload)
 }
 
 func (o *WorkflowDefinitionsActionAccepted) GetPayload() *models.DefinitionsDefinitionEntitiesResponse {
@@ -350,11 +355,13 @@ func (o *WorkflowDefinitionsActionBadRequest) Code() int {
 }
 
 func (o *WorkflowDefinitionsActionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsActionBadRequest) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsActionBadRequest) GetPayload() *models.DefinitionsDefinitionEntitiesResponse {
@@ -460,11 +467,13 @@ func (o *WorkflowDefinitionsActionForbidden) Code() int {
 }
 
 func (o *WorkflowDefinitionsActionForbidden) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsActionForbidden) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsActionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -570,11 +579,13 @@ func (o *WorkflowDefinitionsActionNotFound) Code() int {
 }
 
 func (o *WorkflowDefinitionsActionNotFound) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsActionNotFound) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsActionNotFound) GetPayload() *models.DefinitionsDefinitionEntitiesResponse {
@@ -684,11 +695,13 @@ func (o *WorkflowDefinitionsActionTooManyRequests) Code() int {
 }
 
 func (o *WorkflowDefinitionsActionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsActionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *WorkflowDefinitionsActionInternalServerError) Code() int {
 }
 
 func (o *WorkflowDefinitionsActionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsActionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definition-actions/v1][%d] workflowDefinitionsActionInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsActionInternalServerError) GetPayload() *models.DefinitionsDefinitionEntitiesResponse {

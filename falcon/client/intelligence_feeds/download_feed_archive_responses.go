@@ -6,6 +6,7 @@ package intelligence_feeds
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -122,11 +123,13 @@ func (o *DownloadFeedArchivePermanentRedirect) Code() int {
 }
 
 func (o *DownloadFeedArchivePermanentRedirect) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchivePermanentRedirect  %+v", 308, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchivePermanentRedirect %s", 308, payload)
 }
 
 func (o *DownloadFeedArchivePermanentRedirect) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchivePermanentRedirect  %+v", 308, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchivePermanentRedirect %s", 308, payload)
 }
 
 func (o *DownloadFeedArchivePermanentRedirect) GetPayload() *models.MsaspecResponseFields {
@@ -239,11 +242,13 @@ func (o *DownloadFeedArchiveBadRequest) Code() int {
 }
 
 func (o *DownloadFeedArchiveBadRequest) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveBadRequest %s", 400, payload)
 }
 
 func (o *DownloadFeedArchiveBadRequest) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveBadRequest %s", 400, payload)
 }
 
 func (o *DownloadFeedArchiveBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -349,11 +354,13 @@ func (o *DownloadFeedArchiveForbidden) Code() int {
 }
 
 func (o *DownloadFeedArchiveForbidden) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveForbidden %s", 403, payload)
 }
 
 func (o *DownloadFeedArchiveForbidden) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveForbidden %s", 403, payload)
 }
 
 func (o *DownloadFeedArchiveForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -463,11 +470,13 @@ func (o *DownloadFeedArchiveTooManyRequests) Code() int {
 }
 
 func (o *DownloadFeedArchiveTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadFeedArchiveTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadFeedArchiveTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -584,11 +593,13 @@ func (o *DownloadFeedArchiveInternalServerError) Code() int {
 }
 
 func (o *DownloadFeedArchiveInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadFeedArchiveInternalServerError) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadFeedArchiveInternalServerError) GetPayload() *models.MsaspecResponseFields {

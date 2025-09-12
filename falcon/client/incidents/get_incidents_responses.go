@@ -6,6 +6,7 @@ package incidents
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetIncidentsOK) Code() int {
 }
 
 func (o *GetIncidentsOK) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsOK %s", 200, payload)
 }
 
 func (o *GetIncidentsOK) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsOK %s", 200, payload)
 }
 
 func (o *GetIncidentsOK) GetPayload() *models.DomainMsaExternalIncidentResponse {
@@ -228,11 +231,13 @@ func (o *GetIncidentsBadRequest) Code() int {
 }
 
 func (o *GetIncidentsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsBadRequest %s", 400, payload)
 }
 
 func (o *GetIncidentsBadRequest) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsBadRequest %s", 400, payload)
 }
 
 func (o *GetIncidentsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *GetIncidentsForbidden) Code() int {
 }
 
 func (o *GetIncidentsForbidden) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsForbidden %s", 403, payload)
 }
 
 func (o *GetIncidentsForbidden) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsForbidden %s", 403, payload)
 }
 
 func (o *GetIncidentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetIncidentsTooManyRequests) Code() int {
 }
 
 func (o *GetIncidentsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIncidentsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIncidentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetIncidentsInternalServerError) Code() int {
 }
 
 func (o *GetIncidentsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsInternalServerError %s", 500, payload)
 }
 
 func (o *GetIncidentsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsInternalServerError %s", 500, payload)
 }
 
 func (o *GetIncidentsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

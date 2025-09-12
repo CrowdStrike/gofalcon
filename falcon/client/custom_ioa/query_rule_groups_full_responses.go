@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryRuleGroupsFullOK) Code() int {
 }
 
 func (o *QueryRuleGroupsFullOK) Error() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK %s", 200, payload)
 }
 
 func (o *QueryRuleGroupsFullOK) String() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK %s", 200, payload)
 }
 
 func (o *QueryRuleGroupsFullOK) GetPayload() *models.APIRuleGroupsResponse {
@@ -228,11 +231,13 @@ func (o *QueryRuleGroupsFullForbidden) Code() int {
 }
 
 func (o *QueryRuleGroupsFullForbidden) Error() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullForbidden %s", 403, payload)
 }
 
 func (o *QueryRuleGroupsFullForbidden) String() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullForbidden %s", 403, payload)
 }
 
 func (o *QueryRuleGroupsFullForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *QueryRuleGroupsFullNotFound) Code() int {
 }
 
 func (o *QueryRuleGroupsFullNotFound) Error() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullNotFound %s", 404, payload)
 }
 
 func (o *QueryRuleGroupsFullNotFound) String() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullNotFound %s", 404, payload)
 }
 
 func (o *QueryRuleGroupsFullNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryRuleGroupsFullTooManyRequests) Code() int {
 }
 
 func (o *QueryRuleGroupsFullTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRuleGroupsFullTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRuleGroupsFullTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryRuleGroupsFullInternalServerError) Code() int {
 }
 
 func (o *QueryRuleGroupsFullInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRuleGroupsFullInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRuleGroupsFullInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

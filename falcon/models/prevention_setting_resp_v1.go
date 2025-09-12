@@ -33,7 +33,7 @@ type PreventionSettingRespV1 struct {
 
 	// The type of the setting which can be used as a hint when displaying in the UI
 	// Required: true
-	// Enum: [toggle mlslider]
+	// Enum: ["toggle","mlslider"]
 	Type *string `json:"type"`
 
 	// The value for the setting. For a toggle this value will take the form {'enabled':true|false}. For an mlslider this will take the form {'detection':'DISABLED|CAUTIOUS|MODERATE|AGGRESSIVE|EXTRA_AGGRESSIVE','prevention':'DISABLED|CAUTIOUS|MODERATE|AGGRESSIVE|EXTRA_AGGRESSIVE'}

@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *PostMitreAttacksOK) Code() int {
 }
 
 func (o *PostMitreAttacksOK) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksOK ", 200)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksOK", 200)
 }
 
 func (o *PostMitreAttacksOK) String() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksOK ", 200)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksOK", 200)
 }
 
 func (o *PostMitreAttacksOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *PostMitreAttacksForbidden) Code() int {
 }
 
 func (o *PostMitreAttacksForbidden) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksForbidden %s", 403, payload)
 }
 
 func (o *PostMitreAttacksForbidden) String() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksForbidden %s", 403, payload)
 }
 
 func (o *PostMitreAttacksForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *PostMitreAttacksTooManyRequests) Code() int {
 }
 
 func (o *PostMitreAttacksTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksTooManyRequests %s", 429, payload)
 }
 
 func (o *PostMitreAttacksTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksTooManyRequests %s", 429, payload)
 }
 
 func (o *PostMitreAttacksTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *PostMitreAttacksInternalServerError) Code() int {
 }
 
 func (o *PostMitreAttacksInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksInternalServerError %s", 500, payload)
 }
 
 func (o *PostMitreAttacksInternalServerError) String() string {
-	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksInternalServerError %s", 500, payload)
 }
 
 func (o *PostMitreAttacksInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

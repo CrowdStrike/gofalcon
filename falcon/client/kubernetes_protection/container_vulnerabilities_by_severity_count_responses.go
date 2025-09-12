@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ContainerVulnerabilitiesBySeverityCountOK) Code() int {
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountOK %s", 200, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountOK %s", 200, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *ContainerVulnerabilitiesBySeverityCountForbidden) Code() int {
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountForbidden %s", 403, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountForbidden %s", 403, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ContainerVulnerabilitiesBySeverityCountTooManyRequests) Code() int {
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ContainerVulnerabilitiesBySeverityCountInternalServerError) Code() int 
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/vulnerability-count-by-severity/v1][%d] containerVulnerabilitiesBySeverityCountInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerVulnerabilitiesBySeverityCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

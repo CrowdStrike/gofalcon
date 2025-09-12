@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryBlockListFilterOK) Code() int {
 }
 
 func (o *QueryBlockListFilterOK) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterOK %s", 200, payload)
 }
 
 func (o *QueryBlockListFilterOK) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterOK %s", 200, payload)
 }
 
 func (o *QueryBlockListFilterOK) GetPayload() *models.MsaQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryBlockListFilterForbidden) Code() int {
 }
 
 func (o *QueryBlockListFilterForbidden) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterForbidden %s", 403, payload)
 }
 
 func (o *QueryBlockListFilterForbidden) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterForbidden %s", 403, payload)
 }
 
 func (o *QueryBlockListFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryBlockListFilterTooManyRequests) Code() int {
 }
 
 func (o *QueryBlockListFilterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryBlockListFilterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryBlockListFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryBlockListFilterInternalServerError) Code() int {
 }
 
 func (o *QueryBlockListFilterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterInternalServerError %s", 500, payload)
 }
 
 func (o *QueryBlockListFilterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterInternalServerError %s", 500, payload)
 }
 
 func (o *QueryBlockListFilterInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

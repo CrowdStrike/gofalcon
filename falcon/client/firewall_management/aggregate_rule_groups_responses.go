@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateRuleGroupsOK) Code() int {
 }
 
 func (o *AggregateRuleGroupsOK) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsOK %s", 200, payload)
 }
 
 func (o *AggregateRuleGroupsOK) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsOK %s", 200, payload)
 }
 
 func (o *AggregateRuleGroupsOK) GetPayload() *models.FwmgrAPIAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateRuleGroupsBadRequest) Code() int {
 }
 
 func (o *AggregateRuleGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateRuleGroupsBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregateRuleGroupsForbidden) Code() int {
 }
 
 func (o *AggregateRuleGroupsForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *AggregateRuleGroupsForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *AggregateRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateRuleGroupsTooManyRequests) Code() int {
 }
 
 func (o *AggregateRuleGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateRuleGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -571,11 +580,11 @@ func (o *AggregateRuleGroupsInternalServerError) Code() int {
 }
 
 func (o *AggregateRuleGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsInternalServerError ", 500)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsInternalServerError", 500)
 }
 
 func (o *AggregateRuleGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsInternalServerError ", 500)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsInternalServerError", 500)
 }
 
 func (o *AggregateRuleGroupsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

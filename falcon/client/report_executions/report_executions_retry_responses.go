@@ -6,6 +6,7 @@ package report_executions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ReportExecutionsRetryOK) Code() int {
 }
 
 func (o *ReportExecutionsRetryOK) Error() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK %s", 200, payload)
 }
 
 func (o *ReportExecutionsRetryOK) String() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK %s", 200, payload)
 }
 
 func (o *ReportExecutionsRetryOK) GetPayload() *models.DomainReportExecutionsResponseV1 {
@@ -228,11 +231,13 @@ func (o *ReportExecutionsRetryBadRequest) Code() int {
 }
 
 func (o *ReportExecutionsRetryBadRequest) Error() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryBadRequest %s", 400, payload)
 }
 
 func (o *ReportExecutionsRetryBadRequest) String() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryBadRequest %s", 400, payload)
 }
 
 func (o *ReportExecutionsRetryBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *ReportExecutionsRetryForbidden) Code() int {
 }
 
 func (o *ReportExecutionsRetryForbidden) Error() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryForbidden %s", 403, payload)
 }
 
 func (o *ReportExecutionsRetryForbidden) String() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryForbidden %s", 403, payload)
 }
 
 func (o *ReportExecutionsRetryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ReportExecutionsRetryTooManyRequests) Code() int {
 }
 
 func (o *ReportExecutionsRetryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryTooManyRequests %s", 429, payload)
 }
 
 func (o *ReportExecutionsRetryTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryTooManyRequests %s", 429, payload)
 }
 
 func (o *ReportExecutionsRetryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ReportExecutionsRetryInternalServerError) Code() int {
 }
 
 func (o *ReportExecutionsRetryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryInternalServerError %s", 500, payload)
 }
 
 func (o *ReportExecutionsRetryInternalServerError) String() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryInternalServerError %s", 500, payload)
 }
 
 func (o *ReportExecutionsRetryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

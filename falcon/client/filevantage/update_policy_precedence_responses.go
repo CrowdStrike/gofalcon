@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdatePolicyPrecedenceOK) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceOK) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyPrecedenceOK) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyPrecedenceOK) GetPayload() *models.PoliciesPrecedenceResponse {
@@ -234,11 +237,13 @@ func (o *UpdatePolicyPrecedenceBadRequest) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *UpdatePolicyPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *UpdatePolicyPrecedenceBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *UpdatePolicyPrecedenceForbidden) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyPrecedenceForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *UpdatePolicyPrecedenceConflict) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceConflict) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceConflict %s", 409, payload)
 }
 
 func (o *UpdatePolicyPrecedenceConflict) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceConflict %s", 409, payload)
 }
 
 func (o *UpdatePolicyPrecedenceConflict) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *UpdatePolicyPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdatePolicyPrecedenceInternalServerError) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-precedence/v1][%d] updatePolicyPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyPrecedenceInternalServerError) GetPayload() *models.MsaspecResponseFields {

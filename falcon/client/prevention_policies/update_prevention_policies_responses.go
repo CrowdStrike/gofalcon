@@ -6,6 +6,7 @@ package prevention_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdatePreventionPoliciesOK) Code() int {
 }
 
 func (o *UpdatePreventionPoliciesOK) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesOK %s", 200, payload)
 }
 
 func (o *UpdatePreventionPoliciesOK) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesOK %s", 200, payload)
 }
 
 func (o *UpdatePreventionPoliciesOK) GetPayload() *models.PreventionRespV1 {
@@ -234,11 +237,13 @@ func (o *UpdatePreventionPoliciesBadRequest) Code() int {
 }
 
 func (o *UpdatePreventionPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *UpdatePreventionPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *UpdatePreventionPoliciesBadRequest) GetPayload() *models.PreventionRespV1 {
@@ -344,11 +349,13 @@ func (o *UpdatePreventionPoliciesForbidden) Code() int {
 }
 
 func (o *UpdatePreventionPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdatePreventionPoliciesForbidden) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdatePreventionPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *UpdatePreventionPoliciesNotFound) Code() int {
 }
 
 func (o *UpdatePreventionPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesNotFound %s", 404, payload)
 }
 
 func (o *UpdatePreventionPoliciesNotFound) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesNotFound %s", 404, payload)
 }
 
 func (o *UpdatePreventionPoliciesNotFound) GetPayload() *models.PreventionRespV1 {
@@ -568,11 +577,13 @@ func (o *UpdatePreventionPoliciesTooManyRequests) Code() int {
 }
 
 func (o *UpdatePreventionPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePreventionPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePreventionPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdatePreventionPoliciesInternalServerError) Code() int {
 }
 
 func (o *UpdatePreventionPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePreventionPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePreventionPoliciesInternalServerError) GetPayload() *models.PreventionRespV1 {

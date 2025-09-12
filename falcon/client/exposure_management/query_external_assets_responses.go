@@ -6,6 +6,7 @@ package exposure_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryExternalAssetsOK) Code() int {
 }
 
 func (o *QueryExternalAssetsOK) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsOK %s", 200, payload)
 }
 
 func (o *QueryExternalAssetsOK) String() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsOK %s", 200, payload)
 }
 
 func (o *QueryExternalAssetsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryExternalAssetsBadRequest) Code() int {
 }
 
 func (o *QueryExternalAssetsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *QueryExternalAssetsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *QueryExternalAssetsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryExternalAssetsForbidden) Code() int {
 }
 
 func (o *QueryExternalAssetsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *QueryExternalAssetsForbidden) String() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *QueryExternalAssetsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryExternalAssetsTooManyRequests) Code() int {
 }
 
 func (o *QueryExternalAssetsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryExternalAssetsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryExternalAssetsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryExternalAssetsInternalServerError) Code() int {
 }
 
 func (o *QueryExternalAssetsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryExternalAssetsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/external-assets/v1][%d] queryExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryExternalAssetsInternalServerError) GetPayload() *models.MsaspecResponseFields {

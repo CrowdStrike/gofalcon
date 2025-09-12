@@ -9,12 +9,38 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new ngsiem API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new ngsiem API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new ngsiem API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,8 +51,82 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
+
+// This client is generated with a few options you might find useful for your swagger spec.
+//
+// Feel free to add you own set of options.
+
+// WithContentType allows the client to force the Content-Type header
+// to negotiate a specific Consumer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithContentType(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ConsumesMediaTypes = []string{mime}
+	}
+}
+
+// WithContentTypeStarStar sets the Content-Type header to "*/*".
+func WithContentTypeStarStar(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"*/*"}
+}
+
+// WithContentTypeApplicationJSON sets the Content-Type header to "application/json".
+func WithContentTypeApplicationJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/json"}
+}
+
+// WithContentTypeApplicationxWwwFormUrlencoded sets the Content-Type header to "application/x-www-form-urlencoded".
+func WithContentTypeApplicationxWwwFormUrlencoded(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/x-www-form-urlencoded"}
+}
+
+// WithContentTypeMultipartFormData sets the Content-Type header to "multipart/form-data".
+func WithContentTypeMultipartFormData(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"multipart/form-data"}
+}
+
+// WithAccept allows the client to force the Accept header
+// to negotiate a specific Producer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithAccept(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ProducesMediaTypes = []string{mime}
+	}
+}
+
+// WithAcceptStarStar sets the Accept header to "*/*".
+func WithAcceptStarStar(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"*/*"}
+}
+
+// WithAcceptApplicationJSON sets the Accept header to "application/json".
+func WithAcceptApplicationJSON(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/json"}
+}
+
+// WithAcceptApplicationOctetStream sets the Accept header to "application/octet-stream".
+func WithAcceptApplicationOctetStream(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/octet-stream"}
+}
+
+// WithAcceptApplicationxNdjson sets the Accept header to "application/x-ndjson".
+func WithAcceptApplicationxNdjson(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/x-ndjson"}
+}
+
+// WithAcceptTextHTML sets the Accept header to "text/html".
+func WithAcceptTextHTML(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"text/html"}
+}
+
+// WithAcceptTextPlain sets the Accept header to "text/plain".
+func WithAcceptTextPlain(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"text/plain"}
+}
 
 // ClientService is the interface for Client methods
 type ClientService interface {
@@ -483,7 +583,7 @@ func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption
 		ID:                 "GetLookupFile",
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"application/octet-stream", "application/json"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -521,7 +621,7 @@ func (a *Client) GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, op
 		ID:                 "GetLookupFromPackageV1",
 		Method:             "GET",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{package}/{filename}",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ProducesMediaTypes: []string{"application/octet-stream", "application/json"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -559,7 +659,7 @@ func (a *Client) GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackag
 		ID:                 "GetLookupFromPackageWithNamespaceV1",
 		Method:             "GET",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ProducesMediaTypes: []string{"application/octet-stream", "application/json"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -597,7 +697,7 @@ func (a *Client) GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*
 		ID:                 "GetLookupV1",
 		Method:             "GET",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{filename}",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ProducesMediaTypes: []string{"application/octet-stream", "application/json"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -749,7 +849,7 @@ func (a *Client) GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...Clie
 		ID:                 "GetSearchStatusV1",
 		Method:             "GET",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/queryjobs/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/x-ndjson", "text/html", "text/plain"},
+		ProducesMediaTypes: []string{"application/json", "text/plain", "text/html", "application/x-ndjson"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -939,7 +1039,7 @@ func (a *Client) StartSearchV1(params *StartSearchV1Params, opts ...ClientOption
 		ID:                 "StartSearchV1",
 		Method:             "POST",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/queryjobs",
-		ProducesMediaTypes: []string{"application/json", "text/html", "text/plain"},
+		ProducesMediaTypes: []string{"application/json", "text/plain", "text/html"},
 		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,

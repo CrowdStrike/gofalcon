@@ -32,7 +32,7 @@ type ItautomationCreatePolicyRequest struct {
 
 	// The platform for the policy
 	// Required: true
-	// Enum: [Windows Mac Linux]
+	// Enum: ["Windows","Mac","Linux"]
 	Platform *string `json:"platform"`
 }
 

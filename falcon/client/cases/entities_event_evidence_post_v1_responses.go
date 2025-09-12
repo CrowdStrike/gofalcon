@@ -6,6 +6,7 @@ package cases
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesEventEvidencePostV1OK) Code() int {
 }
 
 func (o *EntitiesEventEvidencePostV1OK) Error() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1OK) String() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1OK) GetPayload() *models.OperationsUpdateCaseResponseVM {
@@ -228,11 +231,13 @@ func (o *EntitiesEventEvidencePostV1BadRequest) Code() int {
 }
 
 func (o *EntitiesEventEvidencePostV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1BadRequest) GetPayload() *models.OperationsUpdateCaseResponseVM {
@@ -338,11 +343,13 @@ func (o *EntitiesEventEvidencePostV1Forbidden) Code() int {
 }
 
 func (o *EntitiesEventEvidencePostV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *EntitiesEventEvidencePostV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesEventEvidencePostV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesEventEvidencePostV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesEventEvidencePostV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cases/entities/event-evidence/v1][%d] entitiesEventEvidencePostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesEventEvidencePostV1InternalServerError) GetPayload() *models.OperationsUpdateCaseResponseVM {

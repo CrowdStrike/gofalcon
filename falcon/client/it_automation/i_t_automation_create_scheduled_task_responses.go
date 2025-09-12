@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationCreateScheduledTaskCreated) Code() int {
 }
 
 func (o *ITAutomationCreateScheduledTaskCreated) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskCreated) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskCreated) GetPayload() *models.ItautomationCreateScheduledTaskResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationCreateScheduledTaskBadRequest) Code() int {
 }
 
 func (o *ITAutomationCreateScheduledTaskBadRequest) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskBadRequest) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationCreateScheduledTaskForbidden) Code() int {
 }
 
 func (o *ITAutomationCreateScheduledTaskForbidden) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskForbidden) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationCreateScheduledTaskTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationCreateScheduledTaskTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationCreateScheduledTaskInternalServerError) Code() int {
 }
 
 func (o *ITAutomationCreateScheduledTaskInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskInternalServerError) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationCreateScheduledTaskInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreateScheduledTaskInternalServerError) GetPayload() *models.MsaspecResponseFields {

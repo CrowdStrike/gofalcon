@@ -6,6 +6,7 @@ package case_files
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesFilesDownloadPostV1OK) Code() int {
 }
 
 func (o *EntitiesFilesDownloadPostV1OK) Error() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1OK) String() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1OK) GetPayload() *models.APIDownloadResponseV1 {
@@ -228,11 +231,13 @@ func (o *EntitiesFilesDownloadPostV1BadRequest) Code() int {
 }
 
 func (o *EntitiesFilesDownloadPostV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *EntitiesFilesDownloadPostV1Forbidden) Code() int {
 }
 
 func (o *EntitiesFilesDownloadPostV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *EntitiesFilesDownloadPostV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesFilesDownloadPostV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesFilesDownloadPostV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesFilesDownloadPostV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/entities/files/download/v1][%d] entitiesFilesDownloadPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesFilesDownloadPostV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

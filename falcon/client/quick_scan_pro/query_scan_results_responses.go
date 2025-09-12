@@ -6,6 +6,7 @@ package quick_scan_pro
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryScanResultsOK) Code() int {
 }
 
 func (o *QueryScanResultsOK) Error() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsOK %s", 200, payload)
 }
 
 func (o *QueryScanResultsOK) String() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsOK %s", 200, payload)
 }
 
 func (o *QueryScanResultsOK) GetPayload() *models.QuickscanproQueryScanResultsResponse {
@@ -222,11 +225,13 @@ func (o *QueryScanResultsForbidden) Code() int {
 }
 
 func (o *QueryScanResultsForbidden) Error() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsForbidden %s", 403, payload)
 }
 
 func (o *QueryScanResultsForbidden) String() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsForbidden %s", 403, payload)
 }
 
 func (o *QueryScanResultsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryScanResultsTooManyRequests) Code() int {
 }
 
 func (o *QueryScanResultsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScanResultsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScanResultsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryScanResultsInternalServerError) Code() int {
 }
 
 func (o *QueryScanResultsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScanResultsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quickscanpro/queries/scans/v1][%d] queryScanResultsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScanResultsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

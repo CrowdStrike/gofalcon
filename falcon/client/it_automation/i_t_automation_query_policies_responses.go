@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationQueryPoliciesOK) Code() int {
 }
 
 func (o *ITAutomationQueryPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesOK %s", 200, payload)
 }
 
 func (o *ITAutomationQueryPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesOK %s", 200, payload)
 }
 
 func (o *ITAutomationQueryPoliciesOK) GetPayload() *models.ItautomationQueryPolicyResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationQueryPoliciesBadRequest) Code() int {
 }
 
 func (o *ITAutomationQueryPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationQueryPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationQueryPoliciesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationQueryPoliciesForbidden) Code() int {
 }
 
 func (o *ITAutomationQueryPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationQueryPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationQueryPoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationQueryPoliciesTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationQueryPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationQueryPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationQueryPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationQueryPoliciesInternalServerError) Code() int {
 }
 
 func (o *ITAutomationQueryPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationQueryPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/policies/v1][%d] iTAutomationQueryPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationQueryPoliciesInternalServerError) GetPayload() *models.MsaspecResponseFields {

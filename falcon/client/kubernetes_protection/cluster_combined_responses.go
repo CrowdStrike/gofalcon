@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ClusterCombinedOK) Code() int {
 }
 
 func (o *ClusterCombinedOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedOK %s", 200, payload)
 }
 
 func (o *ClusterCombinedOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedOK %s", 200, payload)
 }
 
 func (o *ClusterCombinedOK) GetPayload() *models.ModelsClusterEntityResponse {
@@ -222,11 +225,13 @@ func (o *ClusterCombinedForbidden) Code() int {
 }
 
 func (o *ClusterCombinedForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedForbidden %s", 403, payload)
 }
 
 func (o *ClusterCombinedForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedForbidden %s", 403, payload)
 }
 
 func (o *ClusterCombinedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ClusterCombinedTooManyRequests) Code() int {
 }
 
 func (o *ClusterCombinedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *ClusterCombinedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *ClusterCombinedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ClusterCombinedInternalServerError) Code() int {
 }
 
 func (o *ClusterCombinedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *ClusterCombinedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/clusters/v1][%d] clusterCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *ClusterCombinedInternalServerError) GetPayload() *models.CoreEntitiesResponse {

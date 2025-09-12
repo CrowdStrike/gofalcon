@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RTRExecuteCommandCreated) Code() int {
 }
 
 func (o *RTRExecuteCommandCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandCreated %s", 201, payload)
 }
 
 func (o *RTRExecuteCommandCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandCreated %s", 201, payload)
 }
 
 func (o *RTRExecuteCommandCreated) GetPayload() *models.DomainCommandExecuteResponseWrapper {
@@ -228,11 +231,13 @@ func (o *RTRExecuteCommandBadRequest) Code() int {
 }
 
 func (o *RTRExecuteCommandBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandBadRequest %s", 400, payload)
 }
 
 func (o *RTRExecuteCommandBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandBadRequest %s", 400, payload)
 }
 
 func (o *RTRExecuteCommandBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *RTRExecuteCommandForbidden) Code() int {
 }
 
 func (o *RTRExecuteCommandForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandForbidden %s", 403, payload)
 }
 
 func (o *RTRExecuteCommandForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandForbidden %s", 403, payload)
 }
 
 func (o *RTRExecuteCommandForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RTRExecuteCommandTooManyRequests) Code() int {
 }
 
 func (o *RTRExecuteCommandTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRExecuteCommandTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRExecuteCommandTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RTRExecuteCommandInternalServerError) Code() int {
 }
 
 func (o *RTRExecuteCommandInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandInternalServerError %s", 500, payload)
 }
 
 func (o *RTRExecuteCommandInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandInternalServerError %s", 500, payload)
 }
 
 func (o *RTRExecuteCommandInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

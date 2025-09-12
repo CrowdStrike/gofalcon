@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateAWSAccountCreated) Code() int {
 }
 
 func (o *CreateAWSAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated %s", 201, payload)
 }
 
 func (o *CreateAWSAccountCreated) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated %s", 201, payload)
 }
 
 func (o *CreateAWSAccountCreated) GetPayload() *models.K8sregCreateAWSAccResp {
@@ -234,11 +237,13 @@ func (o *CreateAWSAccountMultiStatus) Code() int {
 }
 
 func (o *CreateAWSAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateAWSAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateAWSAccountMultiStatus) GetPayload() *models.K8sregCreateAWSAccResp {
@@ -344,11 +349,13 @@ func (o *CreateAWSAccountBadRequest) Code() int {
 }
 
 func (o *CreateAWSAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateAWSAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateAWSAccountBadRequest) GetPayload() *models.K8sregCreateAWSAccResp {
@@ -454,11 +461,13 @@ func (o *CreateAWSAccountForbidden) Code() int {
 }
 
 func (o *CreateAWSAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateAWSAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateAWSAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *CreateAWSAccountTooManyRequests) Code() int {
 }
 
 func (o *CreateAWSAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateAWSAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateAWSAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateAWSAccountInternalServerError) Code() int {
 }
 
 func (o *CreateAWSAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateAWSAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateAWSAccountInternalServerError) GetPayload() *models.K8sregCreateAWSAccResp {

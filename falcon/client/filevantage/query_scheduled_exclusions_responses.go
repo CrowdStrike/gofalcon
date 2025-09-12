@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryScheduledExclusionsOK) Code() int {
 }
 
 func (o *QueryScheduledExclusionsOK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsOK %s", 200, payload)
 }
 
 func (o *QueryScheduledExclusionsOK) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsOK %s", 200, payload)
 }
 
 func (o *QueryScheduledExclusionsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryScheduledExclusionsBadRequest) Code() int {
 }
 
 func (o *QueryScheduledExclusionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsBadRequest %s", 400, payload)
 }
 
 func (o *QueryScheduledExclusionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsBadRequest %s", 400, payload)
 }
 
 func (o *QueryScheduledExclusionsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryScheduledExclusionsForbidden) Code() int {
 }
 
 func (o *QueryScheduledExclusionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsForbidden %s", 403, payload)
 }
 
 func (o *QueryScheduledExclusionsForbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsForbidden %s", 403, payload)
 }
 
 func (o *QueryScheduledExclusionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryScheduledExclusionsTooManyRequests) Code() int {
 }
 
 func (o *QueryScheduledExclusionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScheduledExclusionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScheduledExclusionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryScheduledExclusionsInternalServerError) Code() int {
 }
 
 func (o *QueryScheduledExclusionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScheduledExclusionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policy-scheduled-exclusions/v1][%d] queryScheduledExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScheduledExclusionsInternalServerError) GetPayload() *models.MsaspecResponseFields {

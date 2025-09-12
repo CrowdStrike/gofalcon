@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *DeleteRuleOverrideOK) Code() int {
 }
 
 func (o *DeleteRuleOverrideOK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideOK %s", 200, payload)
 }
 
 func (o *DeleteRuleOverrideOK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideOK %s", 200, payload)
 }
 
 func (o *DeleteRuleOverrideOK) GetPayload() *models.CommonDeleteRuleOverrideResponse {
@@ -240,11 +243,13 @@ func (o *DeleteRuleOverrideNoContent) Code() int {
 }
 
 func (o *DeleteRuleOverrideNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNoContent %s", 204, payload)
 }
 
 func (o *DeleteRuleOverrideNoContent) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNoContent %s", 204, payload)
 }
 
 func (o *DeleteRuleOverrideNoContent) GetPayload() *models.CommonEntitiesResponse {
@@ -350,11 +355,13 @@ func (o *DeleteRuleOverrideBadRequest) Code() int {
 }
 
 func (o *DeleteRuleOverrideBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideBadRequest %s", 400, payload)
 }
 
 func (o *DeleteRuleOverrideBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideBadRequest %s", 400, payload)
 }
 
 func (o *DeleteRuleOverrideBadRequest) GetPayload() *models.CommonEntitiesResponse {
@@ -460,11 +467,13 @@ func (o *DeleteRuleOverrideForbidden) Code() int {
 }
 
 func (o *DeleteRuleOverrideForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideForbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleOverrideForbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideForbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleOverrideForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -570,11 +579,13 @@ func (o *DeleteRuleOverrideNotFound) Code() int {
 }
 
 func (o *DeleteRuleOverrideNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNotFound %s", 404, payload)
 }
 
 func (o *DeleteRuleOverrideNotFound) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideNotFound %s", 404, payload)
 }
 
 func (o *DeleteRuleOverrideNotFound) GetPayload() *models.CommonDeleteRuleOverrideResponse {
@@ -684,11 +695,13 @@ func (o *DeleteRuleOverrideTooManyRequests) Code() int {
 }
 
 func (o *DeleteRuleOverrideTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleOverrideTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleOverrideTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *DeleteRuleOverrideInternalServerError) Code() int {
 }
 
 func (o *DeleteRuleOverrideInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleOverrideInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rule-overrides/v1][%d] deleteRuleOverrideInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleOverrideInternalServerError) GetPayload() *models.CommonEntitiesResponse {

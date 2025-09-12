@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetDeviceCountCollectionQueriesByFilterOK) Code() int {
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterOK) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterOK %s", 200, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterOK) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterOK %s", 200, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterOK) GetPayload() *models.MsaQueryResponse {
@@ -222,11 +225,13 @@ func (o *GetDeviceCountCollectionQueriesByFilterForbidden) Code() int {
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterForbidden) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterForbidden %s", 403, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterForbidden) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterForbidden %s", 403, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) Code() int {
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetDeviceCountCollectionQueriesByFilterInternalServerError) Code() int 
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *GetDeviceCountCollectionQueriesByFilterInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

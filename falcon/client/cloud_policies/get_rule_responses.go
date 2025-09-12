@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetRuleOK) Code() int {
 }
 
 func (o *GetRuleOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleOK %s", 200, payload)
 }
 
 func (o *GetRuleOK) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleOK %s", 200, payload)
 }
 
 func (o *GetRuleOK) GetPayload() *models.CommonGetRulesResponse {
@@ -228,11 +231,13 @@ func (o *GetRuleForbidden) Code() int {
 }
 
 func (o *GetRuleForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleForbidden %s", 403, payload)
 }
 
 func (o *GetRuleForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleForbidden %s", 403, payload)
 }
 
 func (o *GetRuleForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *GetRuleNotFound) Code() int {
 }
 
 func (o *GetRuleNotFound) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleNotFound %s", 404, payload)
 }
 
 func (o *GetRuleNotFound) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleNotFound %s", 404, payload)
 }
 
 func (o *GetRuleNotFound) GetPayload() *models.CommonGetRulesResponse {
@@ -452,11 +459,13 @@ func (o *GetRuleTooManyRequests) Code() int {
 }
 
 func (o *GetRuleTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetRuleInternalServerError) Code() int {
 }
 
 func (o *GetRuleInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/rules/v1][%d] getRuleInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleInternalServerError) GetPayload() *models.CommonEntitiesResponse {

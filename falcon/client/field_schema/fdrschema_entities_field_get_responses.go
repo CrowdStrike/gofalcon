@@ -6,6 +6,7 @@ package field_schema
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *FdrschemaEntitiesFieldGetOK) Code() int {
 }
 
 func (o *FdrschemaEntitiesFieldGetOK) Error() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetOK %s", 200, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetOK) String() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetOK %s", 200, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetOK) GetPayload() *models.SchemaSensorFieldResponseV1 {
@@ -222,11 +225,13 @@ func (o *FdrschemaEntitiesFieldGetForbidden) Code() int {
 }
 
 func (o *FdrschemaEntitiesFieldGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetForbidden %s", 403, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetForbidden) String() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetForbidden %s", 403, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *FdrschemaEntitiesFieldGetTooManyRequests) Code() int {
 }
 
 func (o *FdrschemaEntitiesFieldGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetTooManyRequests %s", 429, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetTooManyRequests %s", 429, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *FdrschemaEntitiesFieldGetInternalServerError) Code() int {
 }
 
 func (o *FdrschemaEntitiesFieldGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetInternalServerError %s", 500, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/entities/schema-fields/v1][%d] fdrschemaEntitiesFieldGetInternalServerError %s", 500, payload)
 }
 
 func (o *FdrschemaEntitiesFieldGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

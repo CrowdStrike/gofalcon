@@ -6,6 +6,7 @@ package unidentified_containers
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *SearchOK) Code() int {
 }
 
 func (o *SearchOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchOK %s", 200, payload)
 }
 
 func (o *SearchOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchOK %s", 200, payload)
 }
 
 func (o *SearchOK) GetPayload() *models.UnidentifiedcontainersUnidentifiedContainerAPIResponse {
@@ -222,11 +225,13 @@ func (o *SearchForbidden) Code() int {
 }
 
 func (o *SearchForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchForbidden %s", 403, payload)
 }
 
 func (o *SearchForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchForbidden %s", 403, payload)
 }
 
 func (o *SearchForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *SearchTooManyRequests) Code() int {
 }
 
 func (o *SearchTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *SearchInternalServerError) Code() int {
 }
 
 func (o *SearchInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchInternalServerError %s", 500, payload)
 }
 
 func (o *SearchInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/unidentified-containers/v1][%d] searchInternalServerError %s", 500, payload)
 }
 
 func (o *SearchInternalServerError) GetPayload() *models.CoreEntitiesResponse {

@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeprovisionOK) Code() int {
 }
 
 func (o *DeprovisionOK) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionOK %s", 200, payload)
 }
 
 func (o *DeprovisionOK) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionOK %s", 200, payload)
 }
 
 func (o *DeprovisionOK) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -234,11 +237,13 @@ func (o *DeprovisionBadRequest) Code() int {
 }
 
 func (o *DeprovisionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionBadRequest %s", 400, payload)
 }
 
 func (o *DeprovisionBadRequest) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionBadRequest %s", 400, payload)
 }
 
 func (o *DeprovisionBadRequest) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -344,11 +349,13 @@ func (o *DeprovisionForbidden) Code() int {
 }
 
 func (o *DeprovisionForbidden) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionForbidden %s", 403, payload)
 }
 
 func (o *DeprovisionForbidden) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionForbidden %s", 403, payload)
 }
 
 func (o *DeprovisionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *DeprovisionNotFound) Code() int {
 }
 
 func (o *DeprovisionNotFound) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionNotFound %s", 404, payload)
 }
 
 func (o *DeprovisionNotFound) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionNotFound %s", 404, payload)
 }
 
 func (o *DeprovisionNotFound) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -568,11 +577,13 @@ func (o *DeprovisionTooManyRequests) Code() int {
 }
 
 func (o *DeprovisionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionTooManyRequests %s", 429, payload)
 }
 
 func (o *DeprovisionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionTooManyRequests %s", 429, payload)
 }
 
 func (o *DeprovisionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeprovisionInternalServerError) Code() int {
 }
 
 func (o *DeprovisionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionInternalServerError %s", 500, payload)
 }
 
 func (o *DeprovisionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/deprovision/v1][%d] deprovisionInternalServerError %s", 500, payload)
 }
 
 func (o *DeprovisionInternalServerError) GetPayload() *models.ClientSystemDefinitionCreateResponse {

@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateNotificationsV1OK) Code() int {
 }
 
 func (o *UpdateNotificationsV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1OK %s", 200, payload)
 }
 
 func (o *UpdateNotificationsV1OK) String() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1OK %s", 200, payload)
 }
 
 func (o *UpdateNotificationsV1OK) GetPayload() *models.DomainNotificationEntitiesResponseV1 {
@@ -234,11 +237,13 @@ func (o *UpdateNotificationsV1BadRequest) Code() int {
 }
 
 func (o *UpdateNotificationsV1BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdateNotificationsV1BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdateNotificationsV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -344,11 +349,13 @@ func (o *UpdateNotificationsV1Unauthorized) Code() int {
 }
 
 func (o *UpdateNotificationsV1Unauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Unauthorized %s", 401, payload)
 }
 
 func (o *UpdateNotificationsV1Unauthorized) String() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Unauthorized %s", 401, payload)
 }
 
 func (o *UpdateNotificationsV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -454,11 +461,13 @@ func (o *UpdateNotificationsV1Forbidden) Code() int {
 }
 
 func (o *UpdateNotificationsV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdateNotificationsV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdateNotificationsV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -568,11 +577,13 @@ func (o *UpdateNotificationsV1TooManyRequests) Code() int {
 }
 
 func (o *UpdateNotificationsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNotificationsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNotificationsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateNotificationsV1InternalServerError) Code() int {
 }
 
 func (o *UpdateNotificationsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNotificationsV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /recon/entities/notifications/v1][%d] updateNotificationsV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNotificationsV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

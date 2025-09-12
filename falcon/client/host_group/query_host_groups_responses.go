@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryHostGroupsOK) Code() int {
 }
 
 func (o *QueryHostGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsOK %s", 200, payload)
 }
 
 func (o *QueryHostGroupsOK) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsOK %s", 200, payload)
 }
 
 func (o *QueryHostGroupsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryHostGroupsBadRequest) Code() int {
 }
 
 func (o *QueryHostGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryHostGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryHostGroupsBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryHostGroupsForbidden) Code() int {
 }
 
 func (o *QueryHostGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryHostGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryHostGroupsTooManyRequests) Code() int {
 }
 
 func (o *QueryHostGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryHostGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryHostGroupsInternalServerError) Code() int {
 }
 
 func (o *QueryHostGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryHostGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryHostGroupsInternalServerError) GetPayload() *models.MsaQueryResponse {

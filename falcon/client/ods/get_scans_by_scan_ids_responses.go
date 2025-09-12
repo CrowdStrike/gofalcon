@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetScansByScanIdsOK) Code() int {
 }
 
 func (o *GetScansByScanIdsOK) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsOK %s", 200, payload)
 }
 
 func (o *GetScansByScanIdsOK) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsOK %s", 200, payload)
 }
 
 func (o *GetScansByScanIdsOK) GetPayload() *models.EntitiesODSScanResponse {
@@ -228,11 +231,13 @@ func (o *GetScansByScanIdsForbidden) Code() int {
 }
 
 func (o *GetScansByScanIdsForbidden) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsForbidden %s", 403, payload)
 }
 
 func (o *GetScansByScanIdsForbidden) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsForbidden %s", 403, payload)
 }
 
 func (o *GetScansByScanIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *GetScansByScanIdsNotFound) Code() int {
 }
 
 func (o *GetScansByScanIdsNotFound) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsNotFound %s", 404, payload)
 }
 
 func (o *GetScansByScanIdsNotFound) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsNotFound %s", 404, payload)
 }
 
 func (o *GetScansByScanIdsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetScansByScanIdsTooManyRequests) Code() int {
 }
 
 func (o *GetScansByScanIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansByScanIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansByScanIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetScansByScanIdsInternalServerError) Code() int {
 }
 
 func (o *GetScansByScanIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetScansByScanIdsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetScansByScanIdsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

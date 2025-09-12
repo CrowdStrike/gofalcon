@@ -6,6 +6,7 @@ package container_images
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *AggregateImageCountByBaseOSOK) Code() int {
 }
 
 func (o *AggregateImageCountByBaseOSOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSOK %s", 200, payload)
 }
 
 func (o *AggregateImageCountByBaseOSOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSOK %s", 200, payload)
 }
 
 func (o *AggregateImageCountByBaseOSOK) GetPayload() *models.ImagesAPIImageCountByBaseOS {
@@ -222,11 +225,13 @@ func (o *AggregateImageCountByBaseOSForbidden) Code() int {
 }
 
 func (o *AggregateImageCountByBaseOSForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageCountByBaseOSForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageCountByBaseOSForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *AggregateImageCountByBaseOSTooManyRequests) Code() int {
 }
 
 func (o *AggregateImageCountByBaseOSTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageCountByBaseOSTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageCountByBaseOSTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *AggregateImageCountByBaseOSInternalServerError) Code() int {
 }
 
 func (o *AggregateImageCountByBaseOSInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageCountByBaseOSInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-os-distribution/v1][%d] aggregateImageCountByBaseOSInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageCountByBaseOSInternalServerError) GetPayload() *models.CoreEntitiesResponse {

@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRDeleteScriptsOK) Code() int {
 }
 
 func (o *RTRDeleteScriptsOK) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsOK %s", 200, payload)
 }
 
 func (o *RTRDeleteScriptsOK) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsOK %s", 200, payload)
 }
 
 func (o *RTRDeleteScriptsOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -234,11 +237,13 @@ func (o *RTRDeleteScriptsBadRequest) Code() int {
 }
 
 func (o *RTRDeleteScriptsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsBadRequest %s", 400, payload)
 }
 
 func (o *RTRDeleteScriptsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsBadRequest %s", 400, payload)
 }
 
 func (o *RTRDeleteScriptsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -344,11 +349,13 @@ func (o *RTRDeleteScriptsForbidden) Code() int {
 }
 
 func (o *RTRDeleteScriptsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsForbidden %s", 403, payload)
 }
 
 func (o *RTRDeleteScriptsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsForbidden %s", 403, payload)
 }
 
 func (o *RTRDeleteScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRDeleteScriptsNotFound) Code() int {
 }
 
 func (o *RTRDeleteScriptsNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsNotFound %s", 404, payload)
 }
 
 func (o *RTRDeleteScriptsNotFound) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsNotFound %s", 404, payload)
 }
 
 func (o *RTRDeleteScriptsNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *RTRDeleteScriptsTooManyRequests) Code() int {
 }
 
 func (o *RTRDeleteScriptsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRDeleteScriptsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRDeleteScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRDeleteScriptsInternalServerError) Code() int {
 }
 
 func (o *RTRDeleteScriptsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRDeleteScriptsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRDeleteScriptsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetLocationsOK) Code() int {
 }
 
 func (o *GetLocationsOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsOK %s", 200, payload)
 }
 
 func (o *GetLocationsOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsOK %s", 200, payload)
 }
 
 func (o *GetLocationsOK) GetPayload() *models.K8sregGetLocationsResp {
@@ -234,11 +237,13 @@ func (o *GetLocationsMultiStatus) Code() int {
 }
 
 func (o *GetLocationsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsMultiStatus %s", 207, payload)
 }
 
 func (o *GetLocationsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsMultiStatus %s", 207, payload)
 }
 
 func (o *GetLocationsMultiStatus) GetPayload() *models.K8sregGetLocationsResp {
@@ -344,11 +349,13 @@ func (o *GetLocationsBadRequest) Code() int {
 }
 
 func (o *GetLocationsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsBadRequest %s", 400, payload)
 }
 
 func (o *GetLocationsBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsBadRequest %s", 400, payload)
 }
 
 func (o *GetLocationsBadRequest) GetPayload() *models.K8sregGetLocationsResp {
@@ -454,11 +461,13 @@ func (o *GetLocationsForbidden) Code() int {
 }
 
 func (o *GetLocationsForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsForbidden %s", 403, payload)
 }
 
 func (o *GetLocationsForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsForbidden %s", 403, payload)
 }
 
 func (o *GetLocationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetLocationsTooManyRequests) Code() int {
 }
 
 func (o *GetLocationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetLocationsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetLocationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetLocationsInternalServerError) Code() int {
 }
 
 func (o *GetLocationsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *GetLocationsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *GetLocationsInternalServerError) GetPayload() *models.K8sregGetLocationsResp {

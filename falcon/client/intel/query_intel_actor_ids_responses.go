@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryIntelActorIdsOK) Code() int {
 }
 
 func (o *QueryIntelActorIdsOK) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsOK %s", 200, payload)
 }
 
 func (o *QueryIntelActorIdsOK) String() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsOK %s", 200, payload)
 }
 
 func (o *QueryIntelActorIdsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryIntelActorIdsBadRequest) Code() int {
 }
 
 func (o *QueryIntelActorIdsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelActorIdsBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelActorIdsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *QueryIntelActorIdsForbidden) Code() int {
 }
 
 func (o *QueryIntelActorIdsForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelActorIdsForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelActorIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryIntelActorIdsTooManyRequests) Code() int {
 }
 
 func (o *QueryIntelActorIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelActorIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelActorIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryIntelActorIdsInternalServerError) Code() int {
 }
 
 func (o *QueryIntelActorIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelActorIdsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/actors/v1][%d] queryIntelActorIdsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelActorIdsInternalServerError) GetPayload() *models.MsaErrorsOnly {

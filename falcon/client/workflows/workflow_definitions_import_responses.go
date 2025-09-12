@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *WorkflowDefinitionsImportOK) Code() int {
 }
 
 func (o *WorkflowDefinitionsImportOK) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsImportOK) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsImportOK) GetPayload() *models.DefinitionsDefinitionImportResponse {
@@ -234,11 +237,13 @@ func (o *WorkflowDefinitionsImportBadRequest) Code() int {
 }
 
 func (o *WorkflowDefinitionsImportBadRequest) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsImportBadRequest) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsImportBadRequest) GetPayload() *models.DefinitionsDefinitionImportResponse {
@@ -344,11 +349,13 @@ func (o *WorkflowDefinitionsImportForbidden) Code() int {
 }
 
 func (o *WorkflowDefinitionsImportForbidden) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsImportForbidden) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsImportForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *WorkflowDefinitionsImportNotFound) Code() int {
 }
 
 func (o *WorkflowDefinitionsImportNotFound) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsImportNotFound) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsImportNotFound) GetPayload() *models.DefinitionsDefinitionImportResponse {
@@ -568,11 +577,13 @@ func (o *WorkflowDefinitionsImportTooManyRequests) Code() int {
 }
 
 func (o *WorkflowDefinitionsImportTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsImportTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsImportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *WorkflowDefinitionsImportInternalServerError) Code() int {
 }
 
 func (o *WorkflowDefinitionsImportInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsImportInternalServerError) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/definitions/import/v1][%d] workflowDefinitionsImportInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsImportInternalServerError) GetPayload() *models.DefinitionsDefinitionImportResponse {

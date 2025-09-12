@@ -17,7 +17,7 @@ import (
 // swagger:model falconforitapi.Guardrails
 type FalconforitapiGuardrails struct {
 
-	// run time limit millis
+	// Maximum runtime limit in milliseconds. Example: 120000
 	RunTimeLimitMillis int64 `json:"run_time_limit_millis,omitempty"`
 }
 

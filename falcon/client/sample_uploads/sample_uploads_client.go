@@ -9,12 +9,38 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new sample uploads API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new sample uploads API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new sample uploads API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,8 +51,77 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
+
+// This client is generated with a few options you might find useful for your swagger spec.
+//
+// Feel free to add you own set of options.
+
+// WithContentType allows the client to force the Content-Type header
+// to negotiate a specific Consumer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithContentType(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ConsumesMediaTypes = []string{mime}
+	}
+}
+
+// WithContentTypeStarStar sets the Content-Type header to "*/*".
+func WithContentTypeStarStar(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"*/*"}
+}
+
+// WithContentTypeApplicationJSON sets the Content-Type header to "application/json".
+func WithContentTypeApplicationJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/json"}
+}
+
+// WithContentTypeApplicationOctetStream sets the Content-Type header to "application/octet-stream".
+func WithContentTypeApplicationOctetStream(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/octet-stream"}
+}
+
+// WithContentTypeApplicationx7zCompressed sets the Content-Type header to "application/x-7z-compressed".
+func WithContentTypeApplicationx7zCompressed(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/x-7z-compressed"}
+}
+
+// WithContentTypeApplicationxZipCompressed sets the Content-Type header to "application/x-zip-compressed".
+func WithContentTypeApplicationxZipCompressed(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/x-zip-compressed"}
+}
+
+// WithContentTypeApplicationZip sets the Content-Type header to "application/zip".
+func WithContentTypeApplicationZip(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/zip"}
+}
+
+// WithContentTypeMultipartFormData sets the Content-Type header to "multipart/form-data".
+func WithContentTypeMultipartFormData(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"multipart/form-data"}
+}
+
+// WithAccept allows the client to force the Accept header
+// to negotiate a specific Producer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithAccept(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ProducesMediaTypes = []string{mime}
+	}
+}
+
+// WithAcceptApplicationJSON sets the Accept header to "application/json".
+func WithAcceptApplicationJSON(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/json"}
+}
+
+// WithAcceptApplicationOctetStream sets the Accept header to "application/octet-stream".
+func WithAcceptApplicationOctetStream(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/octet-stream"}
+}
 
 // ClientService is the interface for Client methods
 type ClientService interface {
@@ -182,7 +277,7 @@ func (a *Client) ArchiveUploadV1(params *ArchiveUploadV1Params, opts ...ClientOp
 		Method:             "POST",
 		PathPattern:        "/archives/entities/archives/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/octet-stream", "application/x-7z-compressed", "application/x-zip-compressed", "application/zip"},
+		ConsumesMediaTypes: []string{"application/octet-stream", "application/zip", "application/x-7z-compressed", "application/x-zip-compressed"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ArchiveUploadV1Reader{formats: a.formats},
@@ -412,7 +507,7 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*
 		ID:                 "GetSampleV3",
 		Method:             "GET",
 		PathPattern:        "/samples/entities/samples/v3",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ProducesMediaTypes: []string{"application/octet-stream", "application/json"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -451,7 +546,7 @@ func (a *Client) UploadSampleV3(params *UploadSampleV3Params, opts ...ClientOpti
 		Method:             "POST",
 		PathPattern:        "/samples/entities/samples/v3",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/octet-stream", "multipart/form-data"},
+		ConsumesMediaTypes: []string{"multipart/form-data", "application/octet-stream"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UploadSampleV3Reader{formats: a.formats},

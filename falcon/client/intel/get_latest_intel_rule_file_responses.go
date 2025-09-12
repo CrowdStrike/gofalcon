@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -134,11 +135,11 @@ func (o *GetLatestIntelRuleFileOK) Code() int {
 }
 
 func (o *GetLatestIntelRuleFileOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK", 200)
 }
 
 func (o *GetLatestIntelRuleFileOK) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK", 200)
 }
 
 func (o *GetLatestIntelRuleFileOK) GetPayload() io.Writer {
@@ -228,11 +229,11 @@ func (o *GetLatestIntelRuleFileNotModified) Code() int {
 }
 
 func (o *GetLatestIntelRuleFileNotModified) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified ", 304)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified", 304)
 }
 
 func (o *GetLatestIntelRuleFileNotModified) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified ", 304)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified", 304)
 }
 
 func (o *GetLatestIntelRuleFileNotModified) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -298,11 +299,13 @@ func (o *GetLatestIntelRuleFileBadRequest) Code() int {
 }
 
 func (o *GetLatestIntelRuleFileBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileBadRequest %s", 400, payload)
 }
 
 func (o *GetLatestIntelRuleFileBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileBadRequest %s", 400, payload)
 }
 
 func (o *GetLatestIntelRuleFileBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -408,11 +411,13 @@ func (o *GetLatestIntelRuleFileForbidden) Code() int {
 }
 
 func (o *GetLatestIntelRuleFileForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileForbidden %s", 403, payload)
 }
 
 func (o *GetLatestIntelRuleFileForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileForbidden %s", 403, payload)
 }
 
 func (o *GetLatestIntelRuleFileForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -518,11 +523,13 @@ func (o *GetLatestIntelRuleFileNotFound) Code() int {
 }
 
 func (o *GetLatestIntelRuleFileNotFound) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotFound %s", 404, payload)
 }
 
 func (o *GetLatestIntelRuleFileNotFound) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotFound %s", 404, payload)
 }
 
 func (o *GetLatestIntelRuleFileNotFound) GetPayload() *models.MsaErrorsOnly {
@@ -632,11 +639,13 @@ func (o *GetLatestIntelRuleFileTooManyRequests) Code() int {
 }
 
 func (o *GetLatestIntelRuleFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileTooManyRequests %s", 429, payload)
 }
 
 func (o *GetLatestIntelRuleFileTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileTooManyRequests %s", 429, payload)
 }
 
 func (o *GetLatestIntelRuleFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -753,11 +762,13 @@ func (o *GetLatestIntelRuleFileInternalServerError) Code() int {
 }
 
 func (o *GetLatestIntelRuleFileInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileInternalServerError %s", 500, payload)
 }
 
 func (o *GetLatestIntelRuleFileInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileInternalServerError %s", 500, payload)
 }
 
 func (o *GetLatestIntelRuleFileInternalServerError) GetPayload() *models.MsaErrorsOnly {

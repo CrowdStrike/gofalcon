@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateRuleGroupValidationOK) Code() int {
 }
 
 func (o *UpdateRuleGroupValidationOK) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationOK %s", 200, payload)
 }
 
 func (o *UpdateRuleGroupValidationOK) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationOK %s", 200, payload)
 }
 
 func (o *UpdateRuleGroupValidationOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *UpdateRuleGroupValidationBadRequest) Code() int {
 }
 
 func (o *UpdateRuleGroupValidationBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRuleGroupValidationBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRuleGroupValidationBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdateRuleGroupValidationForbidden) Code() int {
 }
 
 func (o *UpdateRuleGroupValidationForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationForbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleGroupValidationForbidden) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationForbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleGroupValidationForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateRuleGroupValidationTooManyRequests) Code() int {
 }
 
 func (o *UpdateRuleGroupValidationTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleGroupValidationTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleGroupValidationTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateRuleGroupValidationInternalServerError) Code() int {
 }
 
 func (o *UpdateRuleGroupValidationInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleGroupValidationInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleGroupValidationInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

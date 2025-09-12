@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetD4CGCPUserScriptsAttachmentOK) Code() int {
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentOK) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
@@ -228,11 +231,13 @@ func (o *GetD4CGCPUserScriptsAttachmentBadRequest) Code() int {
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentBadRequest) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
@@ -338,11 +343,13 @@ func (o *GetD4CGCPUserScriptsAttachmentForbidden) Code() int {
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetD4CGCPUserScriptsAttachmentTooManyRequests) Code() int {
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetD4CGCPUserScriptsAttachmentInternalServerError) Code() int {
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getD4CGCPUserScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CGCPUserScriptsAttachmentInternalServerError) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {

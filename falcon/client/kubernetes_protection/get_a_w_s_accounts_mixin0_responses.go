@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetAWSAccountsMixin0OK) Code() int {
 }
 
 func (o *GetAWSAccountsMixin0OK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0OK %s", 200, payload)
 }
 
 func (o *GetAWSAccountsMixin0OK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0OK %s", 200, payload)
 }
 
 func (o *GetAWSAccountsMixin0OK) GetPayload() *models.K8sregGetAWSAccountsResp {
@@ -234,11 +237,13 @@ func (o *GetAWSAccountsMixin0MultiStatus) Code() int {
 }
 
 func (o *GetAWSAccountsMixin0MultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0MultiStatus %s", 207, payload)
 }
 
 func (o *GetAWSAccountsMixin0MultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0MultiStatus %s", 207, payload)
 }
 
 func (o *GetAWSAccountsMixin0MultiStatus) GetPayload() *models.K8sregGetAWSAccountsResp {
@@ -344,11 +349,13 @@ func (o *GetAWSAccountsMixin0BadRequest) Code() int {
 }
 
 func (o *GetAWSAccountsMixin0BadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *GetAWSAccountsMixin0BadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *GetAWSAccountsMixin0BadRequest) GetPayload() *models.K8sregGetAWSAccountsResp {
@@ -454,11 +461,13 @@ func (o *GetAWSAccountsMixin0Forbidden) Code() int {
 }
 
 func (o *GetAWSAccountsMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *GetAWSAccountsMixin0Forbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *GetAWSAccountsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetAWSAccountsMixin0TooManyRequests) Code() int {
 }
 
 func (o *GetAWSAccountsMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *GetAWSAccountsMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *GetAWSAccountsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetAWSAccountsMixin0InternalServerError) Code() int {
 }
 
 func (o *GetAWSAccountsMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *GetAWSAccountsMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *GetAWSAccountsMixin0InternalServerError) GetPayload() *models.K8sregGetAWSAccountsResp {

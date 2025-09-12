@@ -6,6 +6,7 @@ package ml_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteMLExclusionsV1OK) Code() int {
 }
 
 func (o *DeleteMLExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1OK %s", 200, payload)
 }
 
 func (o *DeleteMLExclusionsV1OK) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1OK %s", 200, payload)
 }
 
 func (o *DeleteMLExclusionsV1OK) GetPayload() *models.ExclusionsRespV1 {
@@ -228,11 +231,13 @@ func (o *DeleteMLExclusionsV1BadRequest) Code() int {
 }
 
 func (o *DeleteMLExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteMLExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteMLExclusionsV1BadRequest) GetPayload() *models.ExclusionsRespV1 {
@@ -338,11 +343,13 @@ func (o *DeleteMLExclusionsV1Forbidden) Code() int {
 }
 
 func (o *DeleteMLExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteMLExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *DeleteMLExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *DeleteMLExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteMLExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteMLExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteMLExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *DeleteMLExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteMLExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteMLExclusionsV1InternalServerError) GetPayload() *models.ExclusionsRespV1 {

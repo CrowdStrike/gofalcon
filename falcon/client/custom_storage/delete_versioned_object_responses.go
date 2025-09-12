@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DeleteVersionedObjectOK) Code() int {
 }
 
 func (o *DeleteVersionedObjectOK) Error() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectOK %s", 200, payload)
 }
 
 func (o *DeleteVersionedObjectOK) String() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectOK %s", 200, payload)
 }
 
 func (o *DeleteVersionedObjectOK) GetPayload() *models.CustomStorageResponse {
@@ -222,11 +225,13 @@ func (o *DeleteVersionedObjectForbidden) Code() int {
 }
 
 func (o *DeleteVersionedObjectForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectForbidden %s", 403, payload)
 }
 
 func (o *DeleteVersionedObjectForbidden) String() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectForbidden %s", 403, payload)
 }
 
 func (o *DeleteVersionedObjectForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DeleteVersionedObjectTooManyRequests) Code() int {
 }
 
 func (o *DeleteVersionedObjectTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteVersionedObjectTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteVersionedObjectTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DeleteVersionedObjectInternalServerError) Code() int {
 }
 
 func (o *DeleteVersionedObjectInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteVersionedObjectInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] deleteVersionedObjectInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteVersionedObjectInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package case_files
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregatesFileDetailsPostV1OK) Code() int {
 }
 
 func (o *AggregatesFileDetailsPostV1OK) Error() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1OK %s", 200, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1OK) String() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1OK %s", 200, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1OK) GetPayload() *models.APIAggregatesResponseV1 {
@@ -228,11 +231,13 @@ func (o *AggregatesFileDetailsPostV1BadRequest) Code() int {
 }
 
 func (o *AggregatesFileDetailsPostV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregatesFileDetailsPostV1Forbidden) Code() int {
 }
 
 func (o *AggregatesFileDetailsPostV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregatesFileDetailsPostV1TooManyRequests) Code() int {
 }
 
 func (o *AggregatesFileDetailsPostV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregatesFileDetailsPostV1InternalServerError) Code() int {
 }
 
 func (o *AggregatesFileDetailsPostV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregatesFileDetailsPostV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

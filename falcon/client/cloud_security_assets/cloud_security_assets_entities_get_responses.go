@@ -6,6 +6,7 @@ package cloud_security_assets
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CloudSecurityAssetsEntitiesGetOK) Code() int {
 }
 
 func (o *CloudSecurityAssetsEntitiesGetOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetOK %s", 200, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetOK) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetOK %s", 200, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetOK) GetPayload() *models.AssetsGetResourcesResponse {
@@ -240,11 +243,13 @@ func (o *CloudSecurityAssetsEntitiesGetBadRequest) Code() int {
 }
 
 func (o *CloudSecurityAssetsEntitiesGetBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetBadRequest) GetPayload() *models.RestCursorResponseFields {
@@ -350,11 +355,13 @@ func (o *CloudSecurityAssetsEntitiesGetForbidden) Code() int {
 }
 
 func (o *CloudSecurityAssetsEntitiesGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *CloudSecurityAssetsEntitiesGetNotFound) Code() int {
 }
 
 func (o *CloudSecurityAssetsEntitiesGetNotFound) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetNotFound %s", 404, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetNotFound) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetNotFound %s", 404, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetNotFound) GetPayload() *models.RestCursorResponseFields {
@@ -570,11 +579,13 @@ func (o *CloudSecurityAssetsEntitiesGetRequestTimeout) Code() int {
 }
 
 func (o *CloudSecurityAssetsEntitiesGetRequestTimeout) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetRequestTimeout) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetRequestTimeout) GetPayload() *models.RestCursorResponseFields {
@@ -684,11 +695,13 @@ func (o *CloudSecurityAssetsEntitiesGetTooManyRequests) Code() int {
 }
 
 func (o *CloudSecurityAssetsEntitiesGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CloudSecurityAssetsEntitiesGetInternalServerError) Code() int {
 }
 
 func (o *CloudSecurityAssetsEntitiesGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/entities/resources/v1][%d] cloudSecurityAssetsEntitiesGetInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityAssetsEntitiesGetInternalServerError) GetPayload() *models.RestCursorResponseFields {

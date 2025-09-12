@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ProvisionAWSAccountsCreated) Code() int {
 }
 
 func (o *ProvisionAWSAccountsCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsCreated %s", 201, payload)
 }
 
 func (o *ProvisionAWSAccountsCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsCreated %s", 201, payload)
 }
 
 func (o *ProvisionAWSAccountsCreated) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -228,11 +231,13 @@ func (o *ProvisionAWSAccountsBadRequest) Code() int {
 }
 
 func (o *ProvisionAWSAccountsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *ProvisionAWSAccountsBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *ProvisionAWSAccountsBadRequest) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -338,11 +343,13 @@ func (o *ProvisionAWSAccountsForbidden) Code() int {
 }
 
 func (o *ProvisionAWSAccountsForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *ProvisionAWSAccountsForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *ProvisionAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ProvisionAWSAccountsTooManyRequests) Code() int {
 }
 
 func (o *ProvisionAWSAccountsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *ProvisionAWSAccountsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *ProvisionAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ProvisionAWSAccountsInternalServerError) Code() int {
 }
 
 func (o *ProvisionAWSAccountsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *ProvisionAWSAccountsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *ProvisionAWSAccountsInternalServerError) GetPayload() *models.ModelsAWSAccountsV1 {

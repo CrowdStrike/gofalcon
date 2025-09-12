@@ -65,7 +65,7 @@ type SensorUpdatePolicyV1 struct {
 
 	// The name of the platform
 	// Required: true
-	// Enum: [Windows Mac Linux]
+	// Enum: ["Windows","Mac","Linux"]
 	PlatformName *string `json:"platform_name"`
 
 	// settings

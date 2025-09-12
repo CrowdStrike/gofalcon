@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *UpdateSavedQueryFromTemplateOK) Code() int {
 }
 
 func (o *UpdateSavedQueryFromTemplateOK) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateOK %s", 200, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateOK) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateOK %s", 200, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateOK) GetPayload() *models.APIUpdateSavedQueryResponseV1 {
@@ -240,11 +243,13 @@ func (o *UpdateSavedQueryFromTemplateBadRequest) Code() int {
 }
 
 func (o *UpdateSavedQueryFromTemplateBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateBadRequest %s", 400, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateBadRequest %s", 400, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *UpdateSavedQueryFromTemplateUnauthorized) Code() int {
 }
 
 func (o *UpdateSavedQueryFromTemplateUnauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateUnauthorized) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *UpdateSavedQueryFromTemplateForbidden) Code() int {
 }
 
 func (o *UpdateSavedQueryFromTemplateForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateForbidden %s", 403, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateForbidden) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateForbidden %s", 403, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *UpdateSavedQueryFromTemplateNotFound) Code() int {
 }
 
 func (o *UpdateSavedQueryFromTemplateNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateNotFound %s", 404, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateNotFound) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateNotFound %s", 404, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *UpdateSavedQueryFromTemplateTooManyRequests) Code() int {
 }
 
 func (o *UpdateSavedQueryFromTemplateTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *UpdateSavedQueryFromTemplateInternalServerError) Code() int {
 }
 
 func (o *UpdateSavedQueryFromTemplateInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/savedqueries-template/v1][%d] updateSavedQueryFromTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateSavedQueryFromTemplateInternalServerError) GetPayload() *models.MsaspecResponseFields {

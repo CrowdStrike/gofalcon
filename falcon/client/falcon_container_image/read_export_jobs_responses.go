@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ReadExportJobsOK) Code() int {
 }
 
 func (o *ReadExportJobsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsOK %s", 200, payload)
 }
 
 func (o *ReadExportJobsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsOK %s", 200, payload)
 }
 
 func (o *ReadExportJobsOK) GetPayload() *models.ExportsExportsResponse {
@@ -228,11 +231,13 @@ func (o *ReadExportJobsBadRequest) Code() int {
 }
 
 func (o *ReadExportJobsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsBadRequest %s", 400, payload)
 }
 
 func (o *ReadExportJobsBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsBadRequest %s", 400, payload)
 }
 
 func (o *ReadExportJobsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ReadExportJobsForbidden) Code() int {
 }
 
 func (o *ReadExportJobsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsForbidden %s", 403, payload)
 }
 
 func (o *ReadExportJobsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsForbidden %s", 403, payload)
 }
 
 func (o *ReadExportJobsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ReadExportJobsTooManyRequests) Code() int {
 }
 
 func (o *ReadExportJobsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadExportJobsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadExportJobsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ReadExportJobsInternalServerError) Code() int {
 }
 
 func (o *ReadExportJobsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadExportJobsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/v1][%d] readExportJobsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadExportJobsInternalServerError) GetPayload() *models.MsaspecResponseFields {

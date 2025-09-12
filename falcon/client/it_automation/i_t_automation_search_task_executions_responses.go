@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationSearchTaskExecutionsOK) Code() int {
 }
 
 func (o *ITAutomationSearchTaskExecutionsOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsOK) GetPayload() *models.ItautomationSearchTaskExecutionResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationSearchTaskExecutionsBadRequest) Code() int {
 }
 
 func (o *ITAutomationSearchTaskExecutionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationSearchTaskExecutionsForbidden) Code() int {
 }
 
 func (o *ITAutomationSearchTaskExecutionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationSearchTaskExecutionsTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationSearchTaskExecutionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationSearchTaskExecutionsInternalServerError) Code() int {
 }
 
 func (o *ITAutomationSearchTaskExecutionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-executions/v1][%d] iTAutomationSearchTaskExecutionsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchTaskExecutionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

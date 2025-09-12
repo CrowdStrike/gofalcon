@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *StartActionsAccepted) Code() int {
 }
 
 func (o *StartActionsAccepted) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsAccepted %s", 202, payload)
 }
 
 func (o *StartActionsAccepted) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsAccepted %s", 202, payload)
 }
 
 func (o *StartActionsAccepted) GetPayload() *models.ActionsActionResponse {
@@ -234,11 +237,13 @@ func (o *StartActionsBadRequest) Code() int {
 }
 
 func (o *StartActionsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsBadRequest %s", 400, payload)
 }
 
 func (o *StartActionsBadRequest) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsBadRequest %s", 400, payload)
 }
 
 func (o *StartActionsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *StartActionsForbidden) Code() int {
 }
 
 func (o *StartActionsForbidden) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsForbidden %s", 403, payload)
 }
 
 func (o *StartActionsForbidden) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsForbidden %s", 403, payload)
 }
 
 func (o *StartActionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *StartActionsConflict) Code() int {
 }
 
 func (o *StartActionsConflict) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsConflict %s", 409, payload)
 }
 
 func (o *StartActionsConflict) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsConflict %s", 409, payload)
 }
 
 func (o *StartActionsConflict) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *StartActionsTooManyRequests) Code() int {
 }
 
 func (o *StartActionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsTooManyRequests %s", 429, payload)
 }
 
 func (o *StartActionsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsTooManyRequests %s", 429, payload)
 }
 
 func (o *StartActionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *StartActionsInternalServerError) Code() int {
 }
 
 func (o *StartActionsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsInternalServerError %s", 500, payload)
 }
 
 func (o *StartActionsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/actions/v1][%d] startActionsInternalServerError %s", 500, payload)
 }
 
 func (o *StartActionsInternalServerError) GetPayload() *models.MsaspecResponseFields {

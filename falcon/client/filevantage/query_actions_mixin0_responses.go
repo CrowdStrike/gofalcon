@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryActionsMixin0OK) Code() int {
 }
 
 func (o *QueryActionsMixin0OK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0OK %s", 200, payload)
 }
 
 func (o *QueryActionsMixin0OK) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0OK %s", 200, payload)
 }
 
 func (o *QueryActionsMixin0OK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryActionsMixin0BadRequest) Code() int {
 }
 
 func (o *QueryActionsMixin0BadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *QueryActionsMixin0BadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *QueryActionsMixin0BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryActionsMixin0Forbidden) Code() int {
 }
 
 func (o *QueryActionsMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *QueryActionsMixin0Forbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *QueryActionsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryActionsMixin0TooManyRequests) Code() int {
 }
 
 func (o *QueryActionsMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryActionsMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryActionsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryActionsMixin0InternalServerError) Code() int {
 }
 
 func (o *QueryActionsMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *QueryActionsMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/actions/v1][%d] queryActionsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *QueryActionsMixin0InternalServerError) GetPayload() *models.MsaspecResponseFields {

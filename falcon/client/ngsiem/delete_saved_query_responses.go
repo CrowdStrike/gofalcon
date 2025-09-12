@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *DeleteSavedQueryOK) Code() int {
 }
 
 func (o *DeleteSavedQueryOK) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryOK %s", 200, payload)
 }
 
 func (o *DeleteSavedQueryOK) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryOK %s", 200, payload)
 }
 
 func (o *DeleteSavedQueryOK) GetPayload() *models.APIDeleteSavedQueryResponseV1 {
@@ -240,11 +243,13 @@ func (o *DeleteSavedQueryBadRequest) Code() int {
 }
 
 func (o *DeleteSavedQueryBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryBadRequest %s", 400, payload)
 }
 
 func (o *DeleteSavedQueryBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryBadRequest %s", 400, payload)
 }
 
 func (o *DeleteSavedQueryBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *DeleteSavedQueryUnauthorized) Code() int {
 }
 
 func (o *DeleteSavedQueryUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteSavedQueryUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteSavedQueryUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *DeleteSavedQueryForbidden) Code() int {
 }
 
 func (o *DeleteSavedQueryForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryForbidden %s", 403, payload)
 }
 
 func (o *DeleteSavedQueryForbidden) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryForbidden %s", 403, payload)
 }
 
 func (o *DeleteSavedQueryForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *DeleteSavedQueryNotFound) Code() int {
 }
 
 func (o *DeleteSavedQueryNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryNotFound %s", 404, payload)
 }
 
 func (o *DeleteSavedQueryNotFound) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryNotFound %s", 404, payload)
 }
 
 func (o *DeleteSavedQueryNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *DeleteSavedQueryTooManyRequests) Code() int {
 }
 
 func (o *DeleteSavedQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteSavedQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteSavedQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *DeleteSavedQueryInternalServerError) Code() int {
 }
 
 func (o *DeleteSavedQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteSavedQueryInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/savedqueries/v1][%d] deleteSavedQueryInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteSavedQueryInternalServerError) GetPayload() *models.MsaspecResponseFields {

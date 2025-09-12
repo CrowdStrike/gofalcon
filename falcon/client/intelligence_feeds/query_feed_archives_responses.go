@@ -6,6 +6,7 @@ package intelligence_feeds
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryFeedArchivesOK) Code() int {
 }
 
 func (o *QueryFeedArchivesOK) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesOK %s", 200, payload)
 }
 
 func (o *QueryFeedArchivesOK) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesOK %s", 200, payload)
 }
 
 func (o *QueryFeedArchivesOK) GetPayload() *models.RestapiIndicatorFeedQueryResponse {
@@ -226,11 +229,11 @@ func (o *QueryFeedArchivesBadRequest) Code() int {
 }
 
 func (o *QueryFeedArchivesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesBadRequest ", 400)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesBadRequest", 400)
 }
 
 func (o *QueryFeedArchivesBadRequest) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesBadRequest ", 400)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesBadRequest", 400)
 }
 
 func (o *QueryFeedArchivesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -325,11 +328,13 @@ func (o *QueryFeedArchivesForbidden) Code() int {
 }
 
 func (o *QueryFeedArchivesForbidden) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesForbidden %s", 403, payload)
 }
 
 func (o *QueryFeedArchivesForbidden) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesForbidden %s", 403, payload)
 }
 
 func (o *QueryFeedArchivesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -439,11 +444,13 @@ func (o *QueryFeedArchivesTooManyRequests) Code() int {
 }
 
 func (o *QueryFeedArchivesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryFeedArchivesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryFeedArchivesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -558,11 +565,11 @@ func (o *QueryFeedArchivesInternalServerError) Code() int {
 }
 
 func (o *QueryFeedArchivesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesInternalServerError ", 500)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesInternalServerError", 500)
 }
 
 func (o *QueryFeedArchivesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesInternalServerError ", 500)
+	return fmt.Sprintf("[GET /indicator-feed/queries/feed/v1][%d] queryFeedArchivesInternalServerError", 500)
 }
 
 func (o *QueryFeedArchivesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

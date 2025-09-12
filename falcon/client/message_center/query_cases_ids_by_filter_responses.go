@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryCasesIdsByFilterOK) Code() int {
 }
 
 func (o *QueryCasesIdsByFilterOK) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterOK %s", 200, payload)
 }
 
 func (o *QueryCasesIdsByFilterOK) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterOK %s", 200, payload)
 }
 
 func (o *QueryCasesIdsByFilterOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryCasesIdsByFilterBadRequest) Code() int {
 }
 
 func (o *QueryCasesIdsByFilterBadRequest) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterBadRequest %s", 400, payload)
 }
 
 func (o *QueryCasesIdsByFilterBadRequest) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterBadRequest %s", 400, payload)
 }
 
 func (o *QueryCasesIdsByFilterBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryCasesIdsByFilterForbidden) Code() int {
 }
 
 func (o *QueryCasesIdsByFilterForbidden) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterForbidden %s", 403, payload)
 }
 
 func (o *QueryCasesIdsByFilterForbidden) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterForbidden %s", 403, payload)
 }
 
 func (o *QueryCasesIdsByFilterForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *QueryCasesIdsByFilterTooManyRequests) Code() int {
 }
 
 func (o *QueryCasesIdsByFilterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCasesIdsByFilterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCasesIdsByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryCasesIdsByFilterInternalServerError) Code() int {
 }
 
 func (o *QueryCasesIdsByFilterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCasesIdsByFilterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCasesIdsByFilterInternalServerError) GetPayload() *models.MsaspecResponseFields {

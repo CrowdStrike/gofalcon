@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *TriggerScanCreated) Code() int {
 }
 
 func (o *TriggerScanCreated) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanCreated %s", 201, payload)
 }
 
 func (o *TriggerScanCreated) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanCreated %s", 201, payload)
 }
 
 func (o *TriggerScanCreated) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *TriggerScanMultiStatus) Code() int {
 }
 
 func (o *TriggerScanMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanMultiStatus %s", 207, payload)
 }
 
 func (o *TriggerScanMultiStatus) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanMultiStatus %s", 207, payload)
 }
 
 func (o *TriggerScanMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *TriggerScanBadRequest) Code() int {
 }
 
 func (o *TriggerScanBadRequest) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanBadRequest %s", 400, payload)
 }
 
 func (o *TriggerScanBadRequest) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanBadRequest %s", 400, payload)
 }
 
 func (o *TriggerScanBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *TriggerScanForbidden) Code() int {
 }
 
 func (o *TriggerScanForbidden) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanForbidden %s", 403, payload)
 }
 
 func (o *TriggerScanForbidden) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanForbidden %s", 403, payload)
 }
 
 func (o *TriggerScanForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *TriggerScanTooManyRequests) Code() int {
 }
 
 func (o *TriggerScanTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanTooManyRequests %s", 429, payload)
 }
 
 func (o *TriggerScanTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanTooManyRequests %s", 429, payload)
 }
 
 func (o *TriggerScanTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *TriggerScanInternalServerError) Code() int {
 }
 
 func (o *TriggerScanInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanInternalServerError %s", 500, payload)
 }
 
 func (o *TriggerScanInternalServerError) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanInternalServerError %s", 500, payload)
 }
 
 func (o *TriggerScanInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {

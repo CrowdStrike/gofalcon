@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetVersionedObjectMetadataOK) Code() int {
 }
 
 func (o *GetVersionedObjectMetadataOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataOK %s", 200, payload)
 }
 
 func (o *GetVersionedObjectMetadataOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataOK %s", 200, payload)
 }
 
 func (o *GetVersionedObjectMetadataOK) GetPayload() *models.CustomStorageResponse {
@@ -222,11 +225,13 @@ func (o *GetVersionedObjectMetadataForbidden) Code() int {
 }
 
 func (o *GetVersionedObjectMetadataForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetVersionedObjectMetadataForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetVersionedObjectMetadataForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetVersionedObjectMetadataTooManyRequests) Code() int {
 }
 
 func (o *GetVersionedObjectMetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetVersionedObjectMetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetVersionedObjectMetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetVersionedObjectMetadataInternalServerError) Code() int {
 }
 
 func (o *GetVersionedObjectMetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetVersionedObjectMetadataInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetVersionedObjectMetadataInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

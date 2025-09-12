@@ -6,6 +6,7 @@ package container_images
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *AggregateImageAssessmentHistoryOK) Code() int {
 }
 
 func (o *AggregateImageAssessmentHistoryOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryOK %s", 200, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryOK %s", 200, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryOK) GetPayload() *models.ImagesAPIImageAssessmentHistory {
@@ -222,11 +225,13 @@ func (o *AggregateImageAssessmentHistoryForbidden) Code() int {
 }
 
 func (o *AggregateImageAssessmentHistoryForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *AggregateImageAssessmentHistoryTooManyRequests) Code() int {
 }
 
 func (o *AggregateImageAssessmentHistoryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *AggregateImageAssessmentHistoryInternalServerError) Code() int {
 }
 
 func (o *AggregateImageAssessmentHistoryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/assessment-history/v1][%d] aggregateImageAssessmentHistoryInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageAssessmentHistoryInternalServerError) GetPayload() *models.CoreEntitiesResponse {

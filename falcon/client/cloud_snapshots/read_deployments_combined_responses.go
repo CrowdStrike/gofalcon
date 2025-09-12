@@ -6,6 +6,7 @@ package cloud_snapshots
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ReadDeploymentsCombinedOK) Code() int {
 }
 
 func (o *ReadDeploymentsCombinedOK) Error() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedOK %s", 200, payload)
 }
 
 func (o *ReadDeploymentsCombinedOK) String() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedOK %s", 200, payload)
 }
 
 func (o *ReadDeploymentsCombinedOK) GetPayload() *models.DeploymentsEntityResponse {
@@ -228,11 +231,13 @@ func (o *ReadDeploymentsCombinedBadRequest) Code() int {
 }
 
 func (o *ReadDeploymentsCombinedBadRequest) Error() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedBadRequest %s", 400, payload)
 }
 
 func (o *ReadDeploymentsCombinedBadRequest) String() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedBadRequest %s", 400, payload)
 }
 
 func (o *ReadDeploymentsCombinedBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ReadDeploymentsCombinedForbidden) Code() int {
 }
 
 func (o *ReadDeploymentsCombinedForbidden) Error() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedForbidden %s", 403, payload)
 }
 
 func (o *ReadDeploymentsCombinedForbidden) String() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedForbidden %s", 403, payload)
 }
 
 func (o *ReadDeploymentsCombinedForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *ReadDeploymentsCombinedTooManyRequests) Code() int {
 }
 
 func (o *ReadDeploymentsCombinedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDeploymentsCombinedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDeploymentsCombinedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ReadDeploymentsCombinedInternalServerError) Code() int {
 }
 
 func (o *ReadDeploymentsCombinedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDeploymentsCombinedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/combined/deployments/v1][%d] readDeploymentsCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDeploymentsCombinedInternalServerError) GetPayload() *models.MsaspecResponseFields {

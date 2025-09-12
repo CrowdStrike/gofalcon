@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ListLookupFilesOK) Code() int {
 }
 
 func (o *ListLookupFilesOK) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesOK %s", 200, payload)
 }
 
 func (o *ListLookupFilesOK) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesOK %s", 200, payload)
 }
 
 func (o *ListLookupFilesOK) GetPayload() *models.APIListLookupFilesResponseV1 {
@@ -240,11 +243,13 @@ func (o *ListLookupFilesBadRequest) Code() int {
 }
 
 func (o *ListLookupFilesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesBadRequest %s", 400, payload)
 }
 
 func (o *ListLookupFilesBadRequest) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesBadRequest %s", 400, payload)
 }
 
 func (o *ListLookupFilesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *ListLookupFilesUnauthorized) Code() int {
 }
 
 func (o *ListLookupFilesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesUnauthorized %s", 401, payload)
 }
 
 func (o *ListLookupFilesUnauthorized) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesUnauthorized %s", 401, payload)
 }
 
 func (o *ListLookupFilesUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *ListLookupFilesForbidden) Code() int {
 }
 
 func (o *ListLookupFilesForbidden) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesForbidden %s", 403, payload)
 }
 
 func (o *ListLookupFilesForbidden) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesForbidden %s", 403, payload)
 }
 
 func (o *ListLookupFilesForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *ListLookupFilesNotFound) Code() int {
 }
 
 func (o *ListLookupFilesNotFound) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesNotFound %s", 404, payload)
 }
 
 func (o *ListLookupFilesNotFound) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesNotFound %s", 404, payload)
 }
 
 func (o *ListLookupFilesNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *ListLookupFilesTooManyRequests) Code() int {
 }
 
 func (o *ListLookupFilesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *ListLookupFilesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *ListLookupFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ListLookupFilesInternalServerError) Code() int {
 }
 
 func (o *ListLookupFilesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesInternalServerError %s", 500, payload)
 }
 
 func (o *ListLookupFilesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/lookupfiles/v1][%d] listLookupFilesInternalServerError %s", 500, payload)
 }
 
 func (o *ListLookupFilesInternalServerError) GetPayload() *models.MsaspecResponseFields {

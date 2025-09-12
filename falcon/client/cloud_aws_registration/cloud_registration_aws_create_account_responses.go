@@ -6,6 +6,7 @@ package cloud_aws_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudRegistrationAwsCreateAccountCreated) Code() int {
 }
 
 func (o *CloudRegistrationAwsCreateAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountCreated %s", 201, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountCreated %s", 201, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountCreated) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
@@ -234,11 +237,13 @@ func (o *CloudRegistrationAwsCreateAccountMultiStatus) Code() int {
 }
 
 func (o *CloudRegistrationAwsCreateAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountMultiStatus) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
@@ -344,11 +349,13 @@ func (o *CloudRegistrationAwsCreateAccountBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationAwsCreateAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CloudRegistrationAwsCreateAccountForbidden) Code() int {
 }
 
 func (o *CloudRegistrationAwsCreateAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudRegistrationAwsCreateAccountTooManyRequests) Code() int {
 }
 
 func (o *CloudRegistrationAwsCreateAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudRegistrationAwsCreateAccountInternalServerError) Code() int {
 }
 
 func (o *CloudRegistrationAwsCreateAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsCreateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAwsCreateAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {

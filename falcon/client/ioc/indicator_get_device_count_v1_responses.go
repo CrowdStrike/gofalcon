@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *IndicatorGetDeviceCountV1OK) Code() int {
 }
 
 func (o *IndicatorGetDeviceCountV1OK) Error() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1OK %s", 200, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1OK) String() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1OK %s", 200, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1OK) GetPayload() *models.APIDeviceCountRespV1 {
@@ -228,11 +231,13 @@ func (o *IndicatorGetDeviceCountV1BadRequest) Code() int {
 }
 
 func (o *IndicatorGetDeviceCountV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1BadRequest %s", 400, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1BadRequest %s", 400, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *IndicatorGetDeviceCountV1Forbidden) Code() int {
 }
 
 func (o *IndicatorGetDeviceCountV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *IndicatorGetDeviceCountV1TooManyRequests) Code() int {
 }
 
 func (o *IndicatorGetDeviceCountV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *IndicatorGetDeviceCountV1InternalServerError) Code() int {
 }
 
 func (o *IndicatorGetDeviceCountV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/aggregates/indicators/device-count/v1][%d] indicatorGetDeviceCountV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorGetDeviceCountV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ContainerCountByRegistryOK) Code() int {
 }
 
 func (o *ContainerCountByRegistryOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryOK %s", 200, payload)
 }
 
 func (o *ContainerCountByRegistryOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryOK %s", 200, payload)
 }
 
 func (o *ContainerCountByRegistryOK) GetPayload() *models.ModelsAPIFilterResponse {
@@ -222,11 +225,13 @@ func (o *ContainerCountByRegistryForbidden) Code() int {
 }
 
 func (o *ContainerCountByRegistryForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryForbidden %s", 403, payload)
 }
 
 func (o *ContainerCountByRegistryForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryForbidden %s", 403, payload)
 }
 
 func (o *ContainerCountByRegistryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ContainerCountByRegistryTooManyRequests) Code() int {
 }
 
 func (o *ContainerCountByRegistryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerCountByRegistryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerCountByRegistryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ContainerCountByRegistryInternalServerError) Code() int {
 }
 
 func (o *ContainerCountByRegistryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerCountByRegistryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-registry/v1][%d] containerCountByRegistryInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerCountByRegistryInternalServerError) GetPayload() *models.CoreEntitiesResponse {

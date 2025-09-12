@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -25,8 +26,8 @@ type ITAutomationUpdatePoliciesReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *ITAutomationUpdatePoliciesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 201:
-		result := NewITAutomationUpdatePoliciesCreated()
+	case 200:
+		result := NewITAutomationUpdatePoliciesOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -60,17 +61,17 @@ func (o *ITAutomationUpdatePoliciesReader) ReadResponse(response runtime.ClientR
 	}
 }
 
-// NewITAutomationUpdatePoliciesCreated creates a ITAutomationUpdatePoliciesCreated with default headers values
-func NewITAutomationUpdatePoliciesCreated() *ITAutomationUpdatePoliciesCreated {
-	return &ITAutomationUpdatePoliciesCreated{}
+// NewITAutomationUpdatePoliciesOK creates a ITAutomationUpdatePoliciesOK with default headers values
+func NewITAutomationUpdatePoliciesOK() *ITAutomationUpdatePoliciesOK {
+	return &ITAutomationUpdatePoliciesOK{}
 }
 
 /*
-ITAutomationUpdatePoliciesCreated describes a response with status code 201, with default header values.
+ITAutomationUpdatePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
-type ITAutomationUpdatePoliciesCreated struct {
+type ITAutomationUpdatePoliciesOK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -87,49 +88,51 @@ type ITAutomationUpdatePoliciesCreated struct {
 	Payload *models.ItautomationUpdatePolicyResponse
 }
 
-// IsSuccess returns true when this i t automation update policies created response has a 2xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsSuccess() bool {
+// IsSuccess returns true when this i t automation update policies o k response has a 2xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this i t automation update policies created response has a 3xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsRedirect() bool {
+// IsRedirect returns true when this i t automation update policies o k response has a 3xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this i t automation update policies created response has a 4xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsClientError() bool {
+// IsClientError returns true when this i t automation update policies o k response has a 4xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this i t automation update policies created response has a 5xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsServerError() bool {
+// IsServerError returns true when this i t automation update policies o k response has a 5xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this i t automation update policies created response a status code equal to that given
-func (o *ITAutomationUpdatePoliciesCreated) IsCode(code int) bool {
-	return code == 201
+// IsCode returns true when this i t automation update policies o k response a status code equal to that given
+func (o *ITAutomationUpdatePoliciesOK) IsCode(code int) bool {
+	return code == 200
 }
 
-// Code gets the status code for the i t automation update policies created response
-func (o *ITAutomationUpdatePoliciesCreated) Code() int {
-	return 201
+// Code gets the status code for the i t automation update policies o k response
+func (o *ITAutomationUpdatePoliciesOK) Code() int {
+	return 200
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesCreated  %+v", 201, o.Payload)
+func (o *ITAutomationUpdatePoliciesOK) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesOK %s", 200, payload)
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesCreated  %+v", 201, o.Payload)
+func (o *ITAutomationUpdatePoliciesOK) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesOK %s", 200, payload)
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) GetPayload() *models.ItautomationUpdatePolicyResponse {
+func (o *ITAutomationUpdatePoliciesOK) GetPayload() *models.ItautomationUpdatePolicyResponse {
 	return o.Payload
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *ITAutomationUpdatePoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -228,11 +231,13 @@ func (o *ITAutomationUpdatePoliciesBadRequest) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesInternalServerError) GetPayload() *models.MsaspecResponseFields {

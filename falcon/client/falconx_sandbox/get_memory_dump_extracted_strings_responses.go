@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetMemoryDumpExtractedStringsOK) Code() int {
 }
 
 func (o *GetMemoryDumpExtractedStringsOK) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsOK %s", 200, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsOK) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsOK %s", 200, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -234,11 +237,13 @@ func (o *GetMemoryDumpExtractedStringsBadRequest) Code() int {
 }
 
 func (o *GetMemoryDumpExtractedStringsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsBadRequest %s", 400, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsBadRequest) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsBadRequest %s", 400, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetMemoryDumpExtractedStringsForbidden) Code() int {
 }
 
 func (o *GetMemoryDumpExtractedStringsForbidden) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsForbidden %s", 403, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsForbidden) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsForbidden %s", 403, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *GetMemoryDumpExtractedStringsNotFound) Code() int {
 }
 
 func (o *GetMemoryDumpExtractedStringsNotFound) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsNotFound %s", 404, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsNotFound) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsNotFound %s", 404, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetMemoryDumpExtractedStringsTooManyRequests) Code() int {
 }
 
 func (o *GetMemoryDumpExtractedStringsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetMemoryDumpExtractedStringsInternalServerError) Code() int {
 }
 
 func (o *GetMemoryDumpExtractedStringsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsInternalServerError %s", 500, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/extracted-strings/v1][%d] getMemoryDumpExtractedStringsInternalServerError %s", 500, payload)
 }
 
 func (o *GetMemoryDumpExtractedStringsInternalServerError) GetPayload() *models.MsaspecResponseFields {

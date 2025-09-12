@@ -6,6 +6,7 @@ package certificate_based_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CbExclusionsQueryV1OK) Code() int {
 }
 
 func (o *CbExclusionsQueryV1OK) Error() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1OK %s", 200, payload)
 }
 
 func (o *CbExclusionsQueryV1OK) String() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1OK %s", 200, payload)
 }
 
 func (o *CbExclusionsQueryV1OK) GetPayload() *models.MsaspecQueryResponse {
@@ -234,11 +237,13 @@ func (o *CbExclusionsQueryV1BadRequest) Code() int {
 }
 
 func (o *CbExclusionsQueryV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1BadRequest %s", 400, payload)
 }
 
 func (o *CbExclusionsQueryV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1BadRequest %s", 400, payload)
 }
 
 func (o *CbExclusionsQueryV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CbExclusionsQueryV1Unauthorized) Code() int {
 }
 
 func (o *CbExclusionsQueryV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Unauthorized %s", 401, payload)
 }
 
 func (o *CbExclusionsQueryV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Unauthorized %s", 401, payload)
 }
 
 func (o *CbExclusionsQueryV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CbExclusionsQueryV1Forbidden) Code() int {
 }
 
 func (o *CbExclusionsQueryV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Forbidden %s", 403, payload)
 }
 
 func (o *CbExclusionsQueryV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1Forbidden %s", 403, payload)
 }
 
 func (o *CbExclusionsQueryV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CbExclusionsQueryV1TooManyRequests) Code() int {
 }
 
 func (o *CbExclusionsQueryV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CbExclusionsQueryV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CbExclusionsQueryV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CbExclusionsQueryV1InternalServerError) Code() int {
 }
 
 func (o *CbExclusionsQueryV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1InternalServerError %s", 500, payload)
 }
 
 func (o *CbExclusionsQueryV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/queries/cert-based-exclusions/v1][%d] cbExclusionsQueryV1InternalServerError %s", 500, payload)
 }
 
 func (o *CbExclusionsQueryV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetExecutorNodesOK) Code() int {
 }
 
 func (o *GetExecutorNodesOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesOK %s", 200, payload)
 }
 
 func (o *GetExecutorNodesOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesOK %s", 200, payload)
 }
 
 func (o *GetExecutorNodesOK) GetPayload() *models.TypesListExecutorNodesResponse {
@@ -234,11 +237,13 @@ func (o *GetExecutorNodesBadRequest) Code() int {
 }
 
 func (o *GetExecutorNodesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesBadRequest %s", 400, payload)
 }
 
 func (o *GetExecutorNodesBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesBadRequest %s", 400, payload)
 }
 
 func (o *GetExecutorNodesBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetExecutorNodesUnauthorized) Code() int {
 }
 
 func (o *GetExecutorNodesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesUnauthorized %s", 401, payload)
 }
 
 func (o *GetExecutorNodesUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesUnauthorized %s", 401, payload)
 }
 
 func (o *GetExecutorNodesUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetExecutorNodesForbidden) Code() int {
 }
 
 func (o *GetExecutorNodesForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesForbidden %s", 403, payload)
 }
 
 func (o *GetExecutorNodesForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesForbidden %s", 403, payload)
 }
 
 func (o *GetExecutorNodesForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetExecutorNodesTooManyRequests) Code() int {
 }
 
 func (o *GetExecutorNodesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExecutorNodesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExecutorNodesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetExecutorNodesInternalServerError) Code() int {
 }
 
 func (o *GetExecutorNodesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesInternalServerError %s", 500, payload)
 }
 
 func (o *GetExecutorNodesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes][%d] getExecutorNodesInternalServerError %s", 500, payload)
 }
 
 func (o *GetExecutorNodesInternalServerError) GetPayload() *models.TypesErrorMessage {

@@ -6,6 +6,7 @@ package incidents
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PerformIncidentActionOK) Code() int {
 }
 
 func (o *PerformIncidentActionOK) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK %s", 200, payload)
 }
 
 func (o *PerformIncidentActionOK) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK %s", 200, payload)
 }
 
 func (o *PerformIncidentActionOK) GetPayload() *models.DomainMsaIncidentPerformActionResponse {
@@ -234,11 +237,13 @@ func (o *PerformIncidentActionBadRequest) Code() int {
 }
 
 func (o *PerformIncidentActionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformIncidentActionBadRequest) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformIncidentActionBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -344,11 +349,13 @@ func (o *PerformIncidentActionForbidden) Code() int {
 }
 
 func (o *PerformIncidentActionForbidden) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionForbidden %s", 403, payload)
 }
 
 func (o *PerformIncidentActionForbidden) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionForbidden %s", 403, payload)
 }
 
 func (o *PerformIncidentActionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *PerformIncidentActionConflict) Code() int {
 }
 
 func (o *PerformIncidentActionConflict) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionConflict %s", 409, payload)
 }
 
 func (o *PerformIncidentActionConflict) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionConflict %s", 409, payload)
 }
 
 func (o *PerformIncidentActionConflict) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *PerformIncidentActionTooManyRequests) Code() int {
 }
 
 func (o *PerformIncidentActionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformIncidentActionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformIncidentActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PerformIncidentActionInternalServerError) Code() int {
 }
 
 func (o *PerformIncidentActionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformIncidentActionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformIncidentActionInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

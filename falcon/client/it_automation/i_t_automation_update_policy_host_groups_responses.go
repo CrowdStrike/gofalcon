@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ITAutomationUpdatePolicyHostGroupsOK) Code() int {
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsOK) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsOK) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsOK) GetPayload() *models.ItautomationUpdatePolicyResponse {
@@ -234,11 +237,13 @@ func (o *ITAutomationUpdatePolicyHostGroupsBadRequest) Code() int {
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *ITAutomationUpdatePolicyHostGroupsForbidden) Code() int {
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *ITAutomationUpdatePolicyHostGroupsNotFound) Code() int {
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsNotFound) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *ITAutomationUpdatePolicyHostGroupsTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ITAutomationUpdatePolicyHostGroupsInternalServerError) Code() int {
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-host-groups/v1][%d] iTAutomationUpdatePolicyHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePolicyHostGroupsInternalServerError) GetPayload() *models.MsaspecResponseFields {

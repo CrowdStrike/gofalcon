@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryHiddenDevicesOK) Code() int {
 }
 
 func (o *QueryHiddenDevicesOK) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesOK %s", 200, payload)
 }
 
 func (o *QueryHiddenDevicesOK) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesOK %s", 200, payload)
 }
 
 func (o *QueryHiddenDevicesOK) GetPayload() *models.MsaQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryHiddenDevicesForbidden) Code() int {
 }
 
 func (o *QueryHiddenDevicesForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesForbidden %s", 403, payload)
 }
 
 func (o *QueryHiddenDevicesForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesForbidden %s", 403, payload)
 }
 
 func (o *QueryHiddenDevicesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryHiddenDevicesTooManyRequests) Code() int {
 }
 
 func (o *QueryHiddenDevicesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryHiddenDevicesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryHiddenDevicesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryHiddenDevicesInternalServerError) Code() int {
 }
 
 func (o *QueryHiddenDevicesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryHiddenDevicesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryHiddenDevicesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

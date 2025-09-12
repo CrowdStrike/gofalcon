@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ValidateFilepathPatternOK) Code() int {
 }
 
 func (o *ValidateFilepathPatternOK) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternOK %s", 200, payload)
 }
 
 func (o *ValidateFilepathPatternOK) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternOK %s", 200, payload)
 }
 
 func (o *ValidateFilepathPatternOK) GetPayload() *models.FwmgrAPIValidateFilepathResponse {
@@ -228,11 +231,13 @@ func (o *ValidateFilepathPatternBadRequest) Code() int {
 }
 
 func (o *ValidateFilepathPatternBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternBadRequest %s", 400, payload)
 }
 
 func (o *ValidateFilepathPatternBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternBadRequest %s", 400, payload)
 }
 
 func (o *ValidateFilepathPatternBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ValidateFilepathPatternForbidden) Code() int {
 }
 
 func (o *ValidateFilepathPatternForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternForbidden %s", 403, payload)
 }
 
 func (o *ValidateFilepathPatternForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternForbidden %s", 403, payload)
 }
 
 func (o *ValidateFilepathPatternForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ValidateFilepathPatternTooManyRequests) Code() int {
 }
 
 func (o *ValidateFilepathPatternTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternTooManyRequests %s", 429, payload)
 }
 
 func (o *ValidateFilepathPatternTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternTooManyRequests %s", 429, payload)
 }
 
 func (o *ValidateFilepathPatternTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ValidateFilepathPatternInternalServerError) Code() int {
 }
 
 func (o *ValidateFilepathPatternInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternInternalServerError %s", 500, payload)
 }
 
 func (o *ValidateFilepathPatternInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternInternalServerError %s", 500, payload)
 }
 
 func (o *ValidateFilepathPatternInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

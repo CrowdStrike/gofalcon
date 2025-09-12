@@ -6,6 +6,7 @@ package detects
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateDetectsByIdsV2OK) Code() int {
 }
 
 func (o *UpdateDetectsByIdsV2OK) Error() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2OK %s", 200, payload)
 }
 
 func (o *UpdateDetectsByIdsV2OK) String() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2OK %s", 200, payload)
 }
 
 func (o *UpdateDetectsByIdsV2OK) GetPayload() *models.MsaReplyMetaOnly {
@@ -228,11 +231,13 @@ func (o *UpdateDetectsByIdsV2BadRequest) Code() int {
 }
 
 func (o *UpdateDetectsByIdsV2BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2BadRequest %s", 400, payload)
 }
 
 func (o *UpdateDetectsByIdsV2BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2BadRequest %s", 400, payload)
 }
 
 func (o *UpdateDetectsByIdsV2BadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *UpdateDetectsByIdsV2Forbidden) Code() int {
 }
 
 func (o *UpdateDetectsByIdsV2Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2Forbidden %s", 403, payload)
 }
 
 func (o *UpdateDetectsByIdsV2Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2Forbidden %s", 403, payload)
 }
 
 func (o *UpdateDetectsByIdsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateDetectsByIdsV2TooManyRequests) Code() int {
 }
 
 func (o *UpdateDetectsByIdsV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDetectsByIdsV2TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDetectsByIdsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateDetectsByIdsV2InternalServerError) Code() int {
 }
 
 func (o *UpdateDetectsByIdsV2InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDetectsByIdsV2InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDetectsByIdsV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

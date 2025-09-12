@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetRuleGroupsOK) Code() int {
 }
 
 func (o *GetRuleGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsOK %s", 200, payload)
 }
 
 func (o *GetRuleGroupsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsOK %s", 200, payload)
 }
 
 func (o *GetRuleGroupsOK) GetPayload() *models.FwmgrAPIRuleGroupsResponse {
@@ -228,11 +231,13 @@ func (o *GetRuleGroupsBadRequest) Code() int {
 }
 
 func (o *GetRuleGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *GetRuleGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *GetRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetRuleGroupsForbidden) Code() int {
 }
 
 func (o *GetRuleGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *GetRuleGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *GetRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetRuleGroupsTooManyRequests) Code() int {
 }
 
 func (o *GetRuleGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetRuleGroupsInternalServerError) Code() int {
 }
 
 func (o *GetRuleGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetGroupsHierV2OK) Code() int {
 }
 
 func (o *GetGroupsHierV2OK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2OK %s", 200, payload)
 }
 
 func (o *GetGroupsHierV2OK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2OK %s", 200, payload)
 }
 
 func (o *GetGroupsHierV2OK) GetPayload() *models.TypesGroupHierarchyResponse {
@@ -234,11 +237,13 @@ func (o *GetGroupsHierV2BadRequest) Code() int {
 }
 
 func (o *GetGroupsHierV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2BadRequest %s", 400, payload)
 }
 
 func (o *GetGroupsHierV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2BadRequest %s", 400, payload)
 }
 
 func (o *GetGroupsHierV2BadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetGroupsHierV2Unauthorized) Code() int {
 }
 
 func (o *GetGroupsHierV2Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Unauthorized %s", 401, payload)
 }
 
 func (o *GetGroupsHierV2Unauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Unauthorized %s", 401, payload)
 }
 
 func (o *GetGroupsHierV2Unauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetGroupsHierV2Forbidden) Code() int {
 }
 
 func (o *GetGroupsHierV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Forbidden %s", 403, payload)
 }
 
 func (o *GetGroupsHierV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2Forbidden %s", 403, payload)
 }
 
 func (o *GetGroupsHierV2Forbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetGroupsHierV2TooManyRequests) Code() int {
 }
 
 func (o *GetGroupsHierV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetGroupsHierV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetGroupsHierV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetGroupsHierV2InternalServerError) Code() int {
 }
 
 func (o *GetGroupsHierV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetGroupsHierV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/groups/hier/v2][%d] getGroupsHierV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetGroupsHierV2InternalServerError) GetPayload() *models.TypesErrorMessage {

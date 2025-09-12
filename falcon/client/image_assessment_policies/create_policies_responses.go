@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *CreatePoliciesOK) Code() int {
 }
 
 func (o *CreatePoliciesOK) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesOK %s", 200, payload)
 }
 
 func (o *CreatePoliciesOK) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesOK %s", 200, payload)
 }
 
 func (o *CreatePoliciesOK) GetPayload() *models.ModelsPolicyEntityResponse {
@@ -222,11 +225,13 @@ func (o *CreatePoliciesForbidden) Code() int {
 }
 
 func (o *CreatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreatePoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *CreatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *CreatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *CreatePoliciesInternalServerError) Code() int {
 }
 
 func (o *CreatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policies/v1][%d] createPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePoliciesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

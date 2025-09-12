@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CreateCSPMAwsAccountCreated) Code() int {
 }
 
 func (o *CreateCSPMAwsAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated %s", 201, payload)
 }
 
 func (o *CreateCSPMAwsAccountCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated %s", 201, payload)
 }
 
 func (o *CreateCSPMAwsAccountCreated) GetPayload() *models.RegistrationAWSAccountResponseV2 {
@@ -240,11 +243,13 @@ func (o *CreateCSPMAwsAccountMultiStatus) Code() int {
 }
 
 func (o *CreateCSPMAwsAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateCSPMAwsAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateCSPMAwsAccountMultiStatus) GetPayload() *models.RegistrationAWSAccountResponseV2 {
@@ -350,11 +355,13 @@ func (o *CreateCSPMAwsAccountBadRequest) Code() int {
 }
 
 func (o *CreateCSPMAwsAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateCSPMAwsAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateCSPMAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *CreateCSPMAwsAccountForbidden) Code() int {
 }
 
 func (o *CreateCSPMAwsAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateCSPMAwsAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateCSPMAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *CreateCSPMAwsAccountConflict) Code() int {
 }
 
 func (o *CreateCSPMAwsAccountConflict) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountConflict %s", 409, payload)
 }
 
 func (o *CreateCSPMAwsAccountConflict) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountConflict %s", 409, payload)
 }
 
 func (o *CreateCSPMAwsAccountConflict) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *CreateCSPMAwsAccountTooManyRequests) Code() int {
 }
 
 func (o *CreateCSPMAwsAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCSPMAwsAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCSPMAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CreateCSPMAwsAccountInternalServerError) Code() int {
 }
 
 func (o *CreateCSPMAwsAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateCSPMAwsAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateCSPMAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {

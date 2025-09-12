@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *BatchActiveResponderCmdCreated) Code() int {
 }
 
 func (o *BatchActiveResponderCmdCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdCreated %s", 201, payload)
 }
 
 func (o *BatchActiveResponderCmdCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdCreated %s", 201, payload)
 }
 
 func (o *BatchActiveResponderCmdCreated) GetPayload() *models.DomainMultiCommandExecuteResponseWrapper {
@@ -228,11 +231,13 @@ func (o *BatchActiveResponderCmdBadRequest) Code() int {
 }
 
 func (o *BatchActiveResponderCmdBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdBadRequest %s", 400, payload)
 }
 
 func (o *BatchActiveResponderCmdBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdBadRequest %s", 400, payload)
 }
 
 func (o *BatchActiveResponderCmdBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *BatchActiveResponderCmdForbidden) Code() int {
 }
 
 func (o *BatchActiveResponderCmdForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdForbidden %s", 403, payload)
 }
 
 func (o *BatchActiveResponderCmdForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdForbidden %s", 403, payload)
 }
 
 func (o *BatchActiveResponderCmdForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *BatchActiveResponderCmdTooManyRequests) Code() int {
 }
 
 func (o *BatchActiveResponderCmdTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchActiveResponderCmdTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchActiveResponderCmdTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *BatchActiveResponderCmdInternalServerError) Code() int {
 }
 
 func (o *BatchActiveResponderCmdInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdInternalServerError %s", 500, payload)
 }
 
 func (o *BatchActiveResponderCmdInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdInternalServerError %s", 500, payload)
 }
 
 func (o *BatchActiveResponderCmdInternalServerError) GetPayload() *models.DomainAPIError {

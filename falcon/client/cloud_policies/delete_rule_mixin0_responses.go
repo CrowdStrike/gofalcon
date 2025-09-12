@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteRuleMixin0OK) Code() int {
 }
 
 func (o *DeleteRuleMixin0OK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0OK %s", 200, payload)
 }
 
 func (o *DeleteRuleMixin0OK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0OK %s", 200, payload)
 }
 
 func (o *DeleteRuleMixin0OK) GetPayload() *models.CommonDeleteRuleResponse {
@@ -228,11 +231,13 @@ func (o *DeleteRuleMixin0Forbidden) Code() int {
 }
 
 func (o *DeleteRuleMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0Forbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleMixin0Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0Forbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *DeleteRuleMixin0NotFound) Code() int {
 }
 
 func (o *DeleteRuleMixin0NotFound) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0NotFound %s", 404, payload)
 }
 
 func (o *DeleteRuleMixin0NotFound) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0NotFound %s", 404, payload)
 }
 
 func (o *DeleteRuleMixin0NotFound) GetPayload() *models.CommonDeleteRuleResponse {
@@ -452,11 +459,13 @@ func (o *DeleteRuleMixin0TooManyRequests) Code() int {
 }
 
 func (o *DeleteRuleMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteRuleMixin0InternalServerError) Code() int {
 }
 
 func (o *DeleteRuleMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-policies/entities/rules/v1][%d] deleteRuleMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleMixin0InternalServerError) GetPayload() *models.CommonEntitiesResponse {

@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GrantUserRoleIdsOK) Code() int {
 }
 
 func (o *GrantUserRoleIdsOK) Error() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK %s", 200, payload)
 }
 
 func (o *GrantUserRoleIdsOK) String() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK %s", 200, payload)
 }
 
 func (o *GrantUserRoleIdsOK) GetPayload() *models.APIUserRoleIDsResponse {
@@ -228,11 +231,13 @@ func (o *GrantUserRoleIdsBadRequest) Code() int {
 }
 
 func (o *GrantUserRoleIdsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsBadRequest %s", 400, payload)
 }
 
 func (o *GrantUserRoleIdsBadRequest) String() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsBadRequest %s", 400, payload)
 }
 
 func (o *GrantUserRoleIdsBadRequest) GetPayload() *models.MsaEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *GrantUserRoleIdsForbidden) Code() int {
 }
 
 func (o *GrantUserRoleIdsForbidden) Error() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsForbidden %s", 403, payload)
 }
 
 func (o *GrantUserRoleIdsForbidden) String() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsForbidden %s", 403, payload)
 }
 
 func (o *GrantUserRoleIdsForbidden) GetPayload() *models.MsaEntitiesResponse {
@@ -452,11 +459,13 @@ func (o *GrantUserRoleIdsTooManyRequests) Code() int {
 }
 
 func (o *GrantUserRoleIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GrantUserRoleIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GrantUserRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GrantUserRoleIdsInternalServerError) Code() int {
 }
 
 func (o *GrantUserRoleIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GrantUserRoleIdsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GrantUserRoleIdsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

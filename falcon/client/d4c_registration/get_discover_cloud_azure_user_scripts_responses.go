@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetDiscoverCloudAzureUserScriptsOK) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsOK) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetDiscoverCloudAzureUserScriptsMultiStatus) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsMultiStatus %s", 207, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsMultiStatus %s", 207, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsMultiStatus) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetDiscoverCloudAzureUserScriptsBadRequest) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsBadRequest) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {
@@ -454,11 +461,13 @@ func (o *GetDiscoverCloudAzureUserScriptsForbidden) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetDiscoverCloudAzureUserScriptsTooManyRequests) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetDiscoverCloudAzureUserScriptsInternalServerError) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts/v1][%d] getDiscoverCloudAzureUserScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsInternalServerError) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {

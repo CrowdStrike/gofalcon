@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *UpdatePolicyExclusionsOK) Code() int {
 }
 
 func (o *UpdatePolicyExclusionsOK) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyExclusionsOK) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyExclusionsOK) GetPayload() *models.ModelsPolicyExclusionEntityResponse {
@@ -222,11 +225,13 @@ func (o *UpdatePolicyExclusionsForbidden) Code() int {
 }
 
 func (o *UpdatePolicyExclusionsForbidden) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyExclusionsForbidden) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyExclusionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *UpdatePolicyExclusionsTooManyRequests) Code() int {
 }
 
 func (o *UpdatePolicyExclusionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyExclusionsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyExclusionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *UpdatePolicyExclusionsInternalServerError) Code() int {
 }
 
 func (o *UpdatePolicyExclusionsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyExclusionsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-exclusions/v1][%d] updatePolicyExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyExclusionsInternalServerError) GetPayload() *models.CoreEntitiesResponse {

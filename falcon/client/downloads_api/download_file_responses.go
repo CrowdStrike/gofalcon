@@ -6,6 +6,7 @@ package downloads_api
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DownloadFileOK) Code() int {
 }
 
 func (o *DownloadFileOK) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileOK %s", 200, payload)
 }
 
 func (o *DownloadFileOK) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileOK %s", 200, payload)
 }
 
 func (o *DownloadFileOK) GetPayload() *models.CommonEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *DownloadFileBadRequest) Code() int {
 }
 
 func (o *DownloadFileBadRequest) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileBadRequest %s", 400, payload)
 }
 
 func (o *DownloadFileBadRequest) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileBadRequest %s", 400, payload)
 }
 
 func (o *DownloadFileBadRequest) GetPayload() *models.CommonEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *DownloadFileUnauthorized) Code() int {
 }
 
 func (o *DownloadFileUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileUnauthorized %s", 401, payload)
 }
 
 func (o *DownloadFileUnauthorized) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileUnauthorized %s", 401, payload)
 }
 
 func (o *DownloadFileUnauthorized) GetPayload() *models.CommonEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *DownloadFileForbidden) Code() int {
 }
 
 func (o *DownloadFileForbidden) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileForbidden %s", 403, payload)
 }
 
 func (o *DownloadFileForbidden) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileForbidden %s", 403, payload)
 }
 
 func (o *DownloadFileForbidden) GetPayload() *models.CommonEntitiesResponse {
@@ -568,11 +577,13 @@ func (o *DownloadFileTooManyRequests) Code() int {
 }
 
 func (o *DownloadFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadFileTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DownloadFileInternalServerError) Code() int {
 }
 
 func (o *DownloadFileInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadFileInternalServerError) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadFileInternalServerError) GetPayload() *models.CommonEntitiesResponse {

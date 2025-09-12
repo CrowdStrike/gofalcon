@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteScheduledExclusionsOK) Code() int {
 }
 
 func (o *DeleteScheduledExclusionsOK) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsOK %s", 200, payload)
 }
 
 func (o *DeleteScheduledExclusionsOK) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsOK %s", 200, payload)
 }
 
 func (o *DeleteScheduledExclusionsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -234,11 +237,13 @@ func (o *DeleteScheduledExclusionsBadRequest) Code() int {
 }
 
 func (o *DeleteScheduledExclusionsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteScheduledExclusionsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteScheduledExclusionsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *DeleteScheduledExclusionsForbidden) Code() int {
 }
 
 func (o *DeleteScheduledExclusionsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsForbidden %s", 403, payload)
 }
 
 func (o *DeleteScheduledExclusionsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsForbidden %s", 403, payload)
 }
 
 func (o *DeleteScheduledExclusionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *DeleteScheduledExclusionsNotFound) Code() int {
 }
 
 func (o *DeleteScheduledExclusionsNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsNotFound %s", 404, payload)
 }
 
 func (o *DeleteScheduledExclusionsNotFound) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsNotFound %s", 404, payload)
 }
 
 func (o *DeleteScheduledExclusionsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *DeleteScheduledExclusionsTooManyRequests) Code() int {
 }
 
 func (o *DeleteScheduledExclusionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteScheduledExclusionsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteScheduledExclusionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteScheduledExclusionsInternalServerError) Code() int {
 }
 
 func (o *DeleteScheduledExclusionsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteScheduledExclusionsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policy-scheduled-exclusions/v1][%d] deleteScheduledExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteScheduledExclusionsInternalServerError) GetPayload() *models.MsaspecResponseFields {

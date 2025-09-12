@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateRegistryEntitiesCreated) Code() int {
 }
 
 func (o *CreateRegistryEntitiesCreated) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesCreated %s", 201, payload)
 }
 
 func (o *CreateRegistryEntitiesCreated) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesCreated %s", 201, payload)
 }
 
 func (o *CreateRegistryEntitiesCreated) GetPayload() *models.DomainExternalRegistryResponse {
@@ -234,11 +237,13 @@ func (o *CreateRegistryEntitiesBadRequest) Code() int {
 }
 
 func (o *CreateRegistryEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *CreateRegistryEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *CreateRegistryEntitiesBadRequest) GetPayload() *models.DomainExternalRegistryResponse {
@@ -344,11 +349,13 @@ func (o *CreateRegistryEntitiesForbidden) Code() int {
 }
 
 func (o *CreateRegistryEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesForbidden %s", 403, payload)
 }
 
 func (o *CreateRegistryEntitiesForbidden) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesForbidden %s", 403, payload)
 }
 
 func (o *CreateRegistryEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *CreateRegistryEntitiesConflict) Code() int {
 }
 
 func (o *CreateRegistryEntitiesConflict) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesConflict %s", 409, payload)
 }
 
 func (o *CreateRegistryEntitiesConflict) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesConflict %s", 409, payload)
 }
 
 func (o *CreateRegistryEntitiesConflict) GetPayload() *models.DomainExternalRegistryResponse {
@@ -568,11 +577,13 @@ func (o *CreateRegistryEntitiesTooManyRequests) Code() int {
 }
 
 func (o *CreateRegistryEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRegistryEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRegistryEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateRegistryEntitiesInternalServerError) Code() int {
 }
 
 func (o *CreateRegistryEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRegistryEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/registries/v1][%d] createRegistryEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRegistryEntitiesInternalServerError) GetPayload() *models.DomainExternalRegistryResponse {

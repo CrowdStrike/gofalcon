@@ -6,6 +6,7 @@ package threatgraph
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -142,11 +143,13 @@ func (o *EntitiesVerticesGetv2OK) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2OK) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2OK %s", 200, payload)
 }
 
 func (o *EntitiesVerticesGetv2OK) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2OK %s", 200, payload)
 }
 
 func (o *EntitiesVerticesGetv2OK) GetPayload() *models.ThreatgraphVertexDetailsResponse {
@@ -252,11 +255,13 @@ func (o *EntitiesVerticesGetv2BadRequest) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesVerticesGetv2BadRequest) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesVerticesGetv2BadRequest) GetPayload() *models.ThreatgraphVertexDetailsResponse {
@@ -362,11 +367,13 @@ func (o *EntitiesVerticesGetv2Unauthorized) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesVerticesGetv2Unauthorized) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesVerticesGetv2Unauthorized) GetPayload() *models.ThreatgraphVertexDetailsResponse {
@@ -472,11 +479,13 @@ func (o *EntitiesVerticesGetv2Forbidden) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesVerticesGetv2Forbidden) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesVerticesGetv2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -582,11 +591,13 @@ func (o *EntitiesVerticesGetv2NotFound) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2NotFound) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2NotFound %s", 404, payload)
 }
 
 func (o *EntitiesVerticesGetv2NotFound) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2NotFound %s", 404, payload)
 }
 
 func (o *EntitiesVerticesGetv2NotFound) GetPayload() *models.ThreatgraphVertexDetailsResponse {
@@ -692,11 +703,13 @@ func (o *EntitiesVerticesGetv2Gone) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2Gone) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Gone  %+v", 410, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Gone %s", 410, payload)
 }
 
 func (o *EntitiesVerticesGetv2Gone) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Gone  %+v", 410, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2Gone %s", 410, payload)
 }
 
 func (o *EntitiesVerticesGetv2Gone) GetPayload() *models.ThreatgraphVertexDetailsResponse {
@@ -806,11 +819,13 @@ func (o *EntitiesVerticesGetv2TooManyRequests) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesVerticesGetv2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesVerticesGetv2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -927,11 +942,13 @@ func (o *EntitiesVerticesGetv2InternalServerError) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesVerticesGetv2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesVerticesGetv2InternalServerError) GetPayload() *models.ThreatgraphVertexDetailsResponse {
@@ -1037,11 +1054,13 @@ func (o *EntitiesVerticesGetv2BadGateway) Code() int {
 }
 
 func (o *EntitiesVerticesGetv2BadGateway) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadGateway  %+v", 502, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadGateway %s", 502, payload)
 }
 
 func (o *EntitiesVerticesGetv2BadGateway) String() string {
-	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadGateway  %+v", 502, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/entities/{vertex-type}/v2][%d] entitiesVerticesGetv2BadGateway %s", 502, payload)
 }
 
 func (o *EntitiesVerticesGetv2BadGateway) GetPayload() *models.ThreatgraphVertexDetailsResponse {

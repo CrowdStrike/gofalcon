@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateUserCreated) Code() int {
 }
 
 func (o *CreateUserCreated) Error() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated %s", 201, payload)
 }
 
 func (o *CreateUserCreated) String() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated %s", 201, payload)
 }
 
 func (o *CreateUserCreated) GetPayload() *models.APIUserMetadataResponse {
@@ -228,11 +231,13 @@ func (o *CreateUserBadRequest) Code() int {
 }
 
 func (o *CreateUserBadRequest) Error() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserBadRequest %s", 400, payload)
 }
 
 func (o *CreateUserBadRequest) String() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserBadRequest %s", 400, payload)
 }
 
 func (o *CreateUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *CreateUserForbidden) Code() int {
 }
 
 func (o *CreateUserForbidden) Error() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserForbidden %s", 403, payload)
 }
 
 func (o *CreateUserForbidden) String() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserForbidden %s", 403, payload)
 }
 
 func (o *CreateUserForbidden) GetPayload() *models.MsaEntitiesResponse {
@@ -452,11 +459,13 @@ func (o *CreateUserTooManyRequests) Code() int {
 }
 
 func (o *CreateUserTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateUserTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateUserInternalServerError) Code() int {
 }
 
 func (o *CreateUserInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserInternalServerError %s", 500, payload)
 }
 
 func (o *CreateUserInternalServerError) String() string {
-	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserInternalServerError %s", 500, payload)
 }
 
 func (o *CreateUserInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package quick_scan
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *GetScansAggregatesOK) Code() int {
 }
 
 func (o *GetScansAggregatesOK) Error() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesOK ", 200)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesOK", 200)
 }
 
 func (o *GetScansAggregatesOK) String() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesOK ", 200)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesOK", 200)
 }
 
 func (o *GetScansAggregatesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *GetScansAggregatesForbidden) Code() int {
 }
 
 func (o *GetScansAggregatesForbidden) Error() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesForbidden %s", 403, payload)
 }
 
 func (o *GetScansAggregatesForbidden) String() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesForbidden %s", 403, payload)
 }
 
 func (o *GetScansAggregatesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *GetScansAggregatesTooManyRequests) Code() int {
 }
 
 func (o *GetScansAggregatesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansAggregatesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansAggregatesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *GetScansAggregatesInternalServerError) Code() int {
 }
 
 func (o *GetScansAggregatesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesInternalServerError %s", 500, payload)
 }
 
 func (o *GetScansAggregatesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesInternalServerError %s", 500, payload)
 }
 
 func (o *GetScansAggregatesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

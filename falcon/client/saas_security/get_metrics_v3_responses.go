@@ -6,6 +6,7 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetMetricsV3OK) Code() int {
 }
 
 func (o *GetMetricsV3OK) Error() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3OK %s", 200, payload)
 }
 
 func (o *GetMetricsV3OK) String() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3OK %s", 200, payload)
 }
 
 func (o *GetMetricsV3OK) GetPayload() *models.GetMetrics {
@@ -222,11 +225,13 @@ func (o *GetMetricsV3Forbidden) Code() int {
 }
 
 func (o *GetMetricsV3Forbidden) Error() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3Forbidden %s", 403, payload)
 }
 
 func (o *GetMetricsV3Forbidden) String() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3Forbidden %s", 403, payload)
 }
 
 func (o *GetMetricsV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetMetricsV3TooManyRequests) Code() int {
 }
 
 func (o *GetMetricsV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMetricsV3TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMetricsV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetMetricsV3InternalServerError) Code() int {
 }
 
 func (o *GetMetricsV3InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetMetricsV3InternalServerError) String() string {
-	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/aggregates/check-metrics/v3][%d] getMetricsV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetMetricsV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateTotalDeviceCountsOK) Code() int {
 }
 
 func (o *AggregateTotalDeviceCountsOK) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsOK %s", 200, payload)
 }
 
 func (o *AggregateTotalDeviceCountsOK) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsOK %s", 200, payload)
 }
 
 func (o *AggregateTotalDeviceCountsOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateTotalDeviceCountsBadRequest) Code() int {
 }
 
 func (o *AggregateTotalDeviceCountsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateTotalDeviceCountsBadRequest) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateTotalDeviceCountsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregateTotalDeviceCountsForbidden) Code() int {
 }
 
 func (o *AggregateTotalDeviceCountsForbidden) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsForbidden %s", 403, payload)
 }
 
 func (o *AggregateTotalDeviceCountsForbidden) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsForbidden %s", 403, payload)
 }
 
 func (o *AggregateTotalDeviceCountsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AggregateTotalDeviceCountsTooManyRequests) Code() int {
 }
 
 func (o *AggregateTotalDeviceCountsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateTotalDeviceCountsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateTotalDeviceCountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateTotalDeviceCountsInternalServerError) Code() int {
 }
 
 func (o *AggregateTotalDeviceCountsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateTotalDeviceCountsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/total-device-counts/v1][%d] aggregateTotalDeviceCountsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateTotalDeviceCountsInternalServerError) GetPayload() *models.MsaspecResponseFields {

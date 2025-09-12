@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *WorkflowDefinitionsCombinedOK) Code() int {
 }
 
 func (o *WorkflowDefinitionsCombinedOK) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedOK) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedOK) GetPayload() *models.DefinitionsDefinitionExternalResponse {
@@ -234,11 +237,13 @@ func (o *WorkflowDefinitionsCombinedBadRequest) Code() int {
 }
 
 func (o *WorkflowDefinitionsCombinedBadRequest) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedBadRequest) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedBadRequest) GetPayload() *models.DefinitionsDefinitionExternalResponse {
@@ -344,11 +349,13 @@ func (o *WorkflowDefinitionsCombinedForbidden) Code() int {
 }
 
 func (o *WorkflowDefinitionsCombinedForbidden) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedForbidden) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *WorkflowDefinitionsCombinedNotFound) Code() int {
 }
 
 func (o *WorkflowDefinitionsCombinedNotFound) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedNotFound) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedNotFound) GetPayload() *models.DefinitionsDefinitionExternalResponse {
@@ -568,11 +577,13 @@ func (o *WorkflowDefinitionsCombinedTooManyRequests) Code() int {
 }
 
 func (o *WorkflowDefinitionsCombinedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *WorkflowDefinitionsCombinedInternalServerError) Code() int {
 }
 
 func (o *WorkflowDefinitionsCombinedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/definitions/v1][%d] workflowDefinitionsCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsCombinedInternalServerError) GetPayload() *models.DefinitionsDefinitionExternalResponse {

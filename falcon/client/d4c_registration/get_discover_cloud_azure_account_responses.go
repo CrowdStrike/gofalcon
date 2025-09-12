@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetDiscoverCloudAzureAccountOK) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureAccountOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountOK) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetDiscoverCloudAzureAccountMultiStatus) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountMultiStatus %s", 207, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountMultiStatus) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountMultiStatus %s", 207, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountMultiStatus) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetDiscoverCloudAzureAccountBadRequest) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureAccountBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountBadRequest) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -454,11 +461,13 @@ func (o *GetDiscoverCloudAzureAccountForbidden) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureAccountForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetDiscoverCloudAzureAccountTooManyRequests) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetDiscoverCloudAzureAccountInternalServerError) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/account/v1][%d] getDiscoverCloudAzureAccountInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureAccountInternalServerError) GetPayload() *models.RegistrationAzureAccountResponseV1 {

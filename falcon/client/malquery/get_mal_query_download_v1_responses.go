@@ -6,6 +6,7 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -128,11 +129,11 @@ func (o *GetMalQueryDownloadV1OK) Code() int {
 }
 
 func (o *GetMalQueryDownloadV1OK) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1OK ", 200)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1OK", 200)
 }
 
 func (o *GetMalQueryDownloadV1OK) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1OK ", 200)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1OK", 200)
 }
 
 func (o *GetMalQueryDownloadV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -227,11 +228,13 @@ func (o *GetMalQueryDownloadV1BadRequest) Code() int {
 }
 
 func (o *GetMalQueryDownloadV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1BadRequest %s", 400, payload)
 }
 
 func (o *GetMalQueryDownloadV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1BadRequest %s", 400, payload)
 }
 
 func (o *GetMalQueryDownloadV1BadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -337,11 +340,13 @@ func (o *GetMalQueryDownloadV1Unauthorized) Code() int {
 }
 
 func (o *GetMalQueryDownloadV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetMalQueryDownloadV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetMalQueryDownloadV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
@@ -447,11 +452,13 @@ func (o *GetMalQueryDownloadV1Forbidden) Code() int {
 }
 
 func (o *GetMalQueryDownloadV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Forbidden %s", 403, payload)
 }
 
 func (o *GetMalQueryDownloadV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Forbidden %s", 403, payload)
 }
 
 func (o *GetMalQueryDownloadV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -557,11 +564,13 @@ func (o *GetMalQueryDownloadV1NotFound) Code() int {
 }
 
 func (o *GetMalQueryDownloadV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1NotFound %s", 404, payload)
 }
 
 func (o *GetMalQueryDownloadV1NotFound) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1NotFound %s", 404, payload)
 }
 
 func (o *GetMalQueryDownloadV1NotFound) GetPayload() *models.MsaErrorsOnly {
@@ -671,11 +680,13 @@ func (o *GetMalQueryDownloadV1TooManyRequests) Code() int {
 }
 
 func (o *GetMalQueryDownloadV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMalQueryDownloadV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMalQueryDownloadV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -792,11 +803,13 @@ func (o *GetMalQueryDownloadV1InternalServerError) Code() int {
 }
 
 func (o *GetMalQueryDownloadV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetMalQueryDownloadV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetMalQueryDownloadV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package sensor_download
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *GetSensorInstallersEntitiesV2OK) Code() int {
 }
 
 func (o *GetSensorInstallersEntitiesV2OK) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2OK %s", 200, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2OK) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2OK %s", 200, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2OK) GetPayload() *models.DomainSensorInstallersV2 {
@@ -240,11 +243,13 @@ func (o *GetSensorInstallersEntitiesV2MultiStatus) Code() int {
 }
 
 func (o *GetSensorInstallersEntitiesV2MultiStatus) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2MultiStatus %s", 207, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2MultiStatus) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2MultiStatus %s", 207, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2MultiStatus) GetPayload() *models.DomainSensorInstallersV1 {
@@ -350,11 +355,13 @@ func (o *GetSensorInstallersEntitiesV2BadRequest) Code() int {
 }
 
 func (o *GetSensorInstallersEntitiesV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2BadRequest %s", 400, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2BadRequest %s", 400, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2BadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -460,11 +467,13 @@ func (o *GetSensorInstallersEntitiesV2Forbidden) Code() int {
 }
 
 func (o *GetSensorInstallersEntitiesV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2Forbidden %s", 403, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2Forbidden %s", 403, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -570,11 +579,13 @@ func (o *GetSensorInstallersEntitiesV2NotFound) Code() int {
 }
 
 func (o *GetSensorInstallersEntitiesV2NotFound) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2NotFound %s", 404, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2NotFound) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2NotFound %s", 404, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2NotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -684,11 +695,13 @@ func (o *GetSensorInstallersEntitiesV2TooManyRequests) Code() int {
 }
 
 func (o *GetSensorInstallersEntitiesV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *GetSensorInstallersEntitiesV2InternalServerError) Code() int {
 }
 
 func (o *GetSensorInstallersEntitiesV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/installers/v2][%d] getSensorInstallersEntitiesV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorInstallersEntitiesV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

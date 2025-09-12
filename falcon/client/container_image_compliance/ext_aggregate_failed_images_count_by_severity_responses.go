@@ -6,6 +6,7 @@ package container_image_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtAggregateFailedImagesCountBySeverityOK) Code() int {
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityOK) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -234,11 +237,13 @@ func (o *ExtAggregateFailedImagesCountBySeverityBadRequest) Code() int {
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityBadRequest) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -344,11 +349,13 @@ func (o *ExtAggregateFailedImagesCountBySeverityUnauthorized) Code() int {
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityUnauthorized) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -454,11 +461,13 @@ func (o *ExtAggregateFailedImagesCountBySeverityForbidden) Code() int {
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityForbidden) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -568,11 +577,13 @@ func (o *ExtAggregateFailedImagesCountBySeverityTooManyRequests) Code() int {
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtAggregateFailedImagesCountBySeverityInternalServerError) Code() int 
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-images-count-by-severity/v2][%d] extAggregateFailedImagesCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedImagesCountBySeverityInternalServerError) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {

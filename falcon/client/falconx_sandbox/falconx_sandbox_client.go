@@ -9,12 +9,38 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new falconx sandbox API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new falconx sandbox API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new falconx sandbox API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,8 +51,92 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
+
+// This client is generated with a few options you might find useful for your swagger spec.
+//
+// Feel free to add you own set of options.
+
+// WithContentType allows the client to force the Content-Type header
+// to negotiate a specific Consumer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithContentType(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ConsumesMediaTypes = []string{mime}
+	}
+}
+
+// WithContentTypeStarStar sets the Content-Type header to "*/*".
+func WithContentTypeStarStar(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"*/*"}
+}
+
+// WithContentTypeApplicationJSON sets the Content-Type header to "application/json".
+func WithContentTypeApplicationJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/json"}
+}
+
+// WithContentTypeApplicationOctetStream sets the Content-Type header to "application/octet-stream".
+func WithContentTypeApplicationOctetStream(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/octet-stream"}
+}
+
+// WithContentTypeMultipartFormData sets the Content-Type header to "multipart/form-data".
+func WithContentTypeMultipartFormData(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"multipart/form-data"}
+}
+
+// WithAccept allows the client to force the Accept header
+// to negotiate a specific Producer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithAccept(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ProducesMediaTypes = []string{mime}
+	}
+}
+
+// WithAcceptStarStar sets the Accept header to "*/*".
+func WithAcceptStarStar(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"*/*"}
+}
+
+// WithAcceptApplicationGzip sets the Accept header to "application/gzip".
+func WithAcceptApplicationGzip(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/gzip"}
+}
+
+// WithAcceptApplicationJSON sets the Accept header to "application/json".
+func WithAcceptApplicationJSON(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/json"}
+}
+
+// WithAcceptApplicationOctetStream sets the Accept header to "application/octet-stream".
+func WithAcceptApplicationOctetStream(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/octet-stream"}
+}
+
+// WithAcceptImageJpeg sets the Accept header to "image/jpeg".
+func WithAcceptImageJpeg(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"image/jpeg"}
+}
+
+// WithAcceptImagePng sets the Accept header to "image/png".
+func WithAcceptImagePng(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"image/png"}
+}
+
+// WithAcceptTextCsv sets the Accept header to "text/csv".
+func WithAcceptTextCsv(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"text/csv"}
+}
+
+// WithAcceptTextPlain sets the Accept header to "text/plain".
+func WithAcceptTextPlain(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"text/plain"}
+}
 
 // ClientService is the interface for Client methods
 type ClientService interface {
@@ -151,7 +261,7 @@ func (a *Client) GetArtifacts(params *GetArtifactsParams, opts ...ClientOption) 
 		ID:                 "GetArtifacts",
 		Method:             "GET",
 		PathPattern:        "/falconx/entities/artifacts/v1",
-		ProducesMediaTypes: []string{"*/*", "application/gzip", "application/json", "application/octet-stream", "image/jpeg", "image/png", "text/csv", "text/plain"},
+		ProducesMediaTypes: []string{"*/*", "application/octet-stream", "application/json", "text/plain", "text/csv", "image/png", "image/jpeg", "application/gzip"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -189,7 +299,7 @@ func (a *Client) GetMemoryDump(params *GetMemoryDumpParams, opts ...ClientOption
 		ID:                 "GetMemoryDump",
 		Method:             "GET",
 		PathPattern:        "/falconx/entities/memory-dump/v1",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ProducesMediaTypes: []string{"application/octet-stream", "application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -341,7 +451,7 @@ func (a *Client) GetSampleV2(params *GetSampleV2Params, opts ...ClientOption) (*
 		ID:                 "GetSampleV2",
 		Method:             "GET",
 		PathPattern:        "/samples/entities/samples/v2",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ProducesMediaTypes: []string{"application/octet-stream", "application/json"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -608,7 +718,7 @@ func (a *Client) UploadSampleV2(params *UploadSampleV2Params, opts ...ClientOpti
 		Method:             "POST",
 		PathPattern:        "/samples/entities/samples/v2",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/octet-stream", "multipart/form-data"},
+		ConsumesMediaTypes: []string{"multipart/form-data", "application/octet-stream"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UploadSampleV2Reader{formats: a.formats},

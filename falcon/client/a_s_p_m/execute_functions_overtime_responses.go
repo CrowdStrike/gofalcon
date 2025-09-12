@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ExecuteFunctionsOvertimeOK) Code() int {
 }
 
 func (o *ExecuteFunctionsOvertimeOK) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeOK) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeOK) GetPayload() *models.TypesOvertimeResponse {
@@ -240,11 +243,13 @@ func (o *ExecuteFunctionsOvertimeBadRequest) Code() int {
 }
 
 func (o *ExecuteFunctionsOvertimeBadRequest) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeBadRequest) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *ExecuteFunctionsOvertimeUnauthorized) Code() int {
 }
 
 func (o *ExecuteFunctionsOvertimeUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeUnauthorized) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *ExecuteFunctionsOvertimeForbidden) Code() int {
 }
 
 func (o *ExecuteFunctionsOvertimeForbidden) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeForbidden) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *ExecuteFunctionsOvertimeTooManyRequests) Code() int {
 }
 
 func (o *ExecuteFunctionsOvertimeTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *ExecuteFunctionsOvertimeInternalServerError) Code() int {
 }
 
 func (o *ExecuteFunctionsOvertimeInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeInternalServerError) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ExecuteFunctionsOvertimeServiceUnavailable) Code() int {
 }
 
 func (o *ExecuteFunctionsOvertimeServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions-overtime/v1][%d] executeFunctionsOvertimeServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsOvertimeServiceUnavailable) GetPayload() *models.TypesErrorMessage {

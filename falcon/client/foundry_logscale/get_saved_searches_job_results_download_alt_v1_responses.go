@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -134,11 +135,11 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1OK) Code() int {
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1OK) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1OK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1OK", 200)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1OK) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1OK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1OK", 200)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1OK) GetPayload() io.Writer {
@@ -242,11 +243,13 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1BadRequest) Code() int {
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1BadRequest %s", 400, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1BadRequest %s", 400, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1BadRequest) GetPayload() *models.APIEntitiesResponse {
@@ -352,11 +355,13 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1Unauthorized) Code() int {
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1Unauthorized) GetPayload() *models.APIEntitiesResponse {
@@ -462,11 +467,13 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1Forbidden) Code() int {
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Forbidden %s", 403, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1Forbidden %s", 403, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -572,11 +579,13 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1NotFound) Code() int {
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1NotFound %s", 404, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1NotFound) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1NotFound %s", 404, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1NotFound) GetPayload() *models.APIEntitiesResponse {
@@ -686,11 +695,13 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1TooManyRequests) Code() int {
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -807,11 +818,13 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1InternalServerError) Code() int 
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-job-results-download/v1][%d] getSavedSearchesJobResultsDownloadAltV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetSavedSearchesJobResultsDownloadAltV1InternalServerError) GetPayload() *models.APIEntitiesResponse {

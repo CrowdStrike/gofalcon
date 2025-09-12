@@ -22,7 +22,7 @@ type DomainUserAction struct {
 
 	// Action name
 	// Required: true
-	// Enum: [reset_password reset_2fa]
+	// Enum: ["reset_password","reset_2fa"]
 	ActionName *string `json:"action_name"`
 
 	// Value for action, if any

@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateRuleGroupValidationCreated) Code() int {
 }
 
 func (o *CreateRuleGroupValidationCreated) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationCreated %s", 201, payload)
 }
 
 func (o *CreateRuleGroupValidationCreated) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationCreated %s", 201, payload)
 }
 
 func (o *CreateRuleGroupValidationCreated) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *CreateRuleGroupValidationBadRequest) Code() int {
 }
 
 func (o *CreateRuleGroupValidationBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationBadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleGroupValidationBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationBadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleGroupValidationBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CreateRuleGroupValidationForbidden) Code() int {
 }
 
 func (o *CreateRuleGroupValidationForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleGroupValidationForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleGroupValidationForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CreateRuleGroupValidationTooManyRequests) Code() int {
 }
 
 func (o *CreateRuleGroupValidationTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleGroupValidationTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleGroupValidationTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateRuleGroupValidationInternalServerError) Code() int {
 }
 
 func (o *CreateRuleGroupValidationInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleGroupValidationInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/validation/v1][%d] createRuleGroupValidationInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleGroupValidationInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

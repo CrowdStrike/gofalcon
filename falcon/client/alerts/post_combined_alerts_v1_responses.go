@@ -6,6 +6,7 @@ package alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *PostCombinedAlertsV1OK) Code() int {
 }
 
 func (o *PostCombinedAlertsV1OK) Error() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1OK %s", 200, payload)
 }
 
 func (o *PostCombinedAlertsV1OK) String() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1OK %s", 200, payload)
 }
 
 func (o *PostCombinedAlertsV1OK) GetPayload() *models.DetectsapiPostCombinedAlertsV1ResponseSwagger {
@@ -228,11 +231,13 @@ func (o *PostCombinedAlertsV1BadRequest) Code() int {
 }
 
 func (o *PostCombinedAlertsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1BadRequest %s", 400, payload)
 }
 
 func (o *PostCombinedAlertsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1BadRequest %s", 400, payload)
 }
 
 func (o *PostCombinedAlertsV1BadRequest) GetPayload() *models.DetectsapiPostCombinedAlertsV1ResponseSwagger {
@@ -338,11 +343,13 @@ func (o *PostCombinedAlertsV1Forbidden) Code() int {
 }
 
 func (o *PostCombinedAlertsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1Forbidden %s", 403, payload)
 }
 
 func (o *PostCombinedAlertsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1Forbidden %s", 403, payload)
 }
 
 func (o *PostCombinedAlertsV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *PostCombinedAlertsV1TooManyRequests) Code() int {
 }
 
 func (o *PostCombinedAlertsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostCombinedAlertsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostCombinedAlertsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *PostCombinedAlertsV1InternalServerError) Code() int {
 }
 
 func (o *PostCombinedAlertsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostCombinedAlertsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/combined/alerts/v1][%d] postCombinedAlertsV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostCombinedAlertsV1InternalServerError) GetPayload() *models.DetectsapiPostCombinedAlertsV1ResponseSwagger {

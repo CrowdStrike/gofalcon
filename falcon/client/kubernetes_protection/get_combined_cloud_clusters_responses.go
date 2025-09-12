@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCombinedCloudClustersOK) Code() int {
 }
 
 func (o *GetCombinedCloudClustersOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersOK %s", 200, payload)
 }
 
 func (o *GetCombinedCloudClustersOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersOK %s", 200, payload)
 }
 
 func (o *GetCombinedCloudClustersOK) GetPayload() *models.K8sregListClusterCloudResp {
@@ -234,11 +237,13 @@ func (o *GetCombinedCloudClustersMultiStatus) Code() int {
 }
 
 func (o *GetCombinedCloudClustersMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersMultiStatus %s", 207, payload)
 }
 
 func (o *GetCombinedCloudClustersMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersMultiStatus %s", 207, payload)
 }
 
 func (o *GetCombinedCloudClustersMultiStatus) GetPayload() *models.K8sregListClusterCloudResp {
@@ -344,11 +349,13 @@ func (o *GetCombinedCloudClustersBadRequest) Code() int {
 }
 
 func (o *GetCombinedCloudClustersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedCloudClustersBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedCloudClustersBadRequest) GetPayload() *models.K8sregListClusterCloudResp {
@@ -454,11 +461,13 @@ func (o *GetCombinedCloudClustersForbidden) Code() int {
 }
 
 func (o *GetCombinedCloudClustersForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedCloudClustersForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedCloudClustersForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetCombinedCloudClustersTooManyRequests) Code() int {
 }
 
 func (o *GetCombinedCloudClustersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedCloudClustersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedCloudClustersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCombinedCloudClustersInternalServerError) Code() int {
 }
 
 func (o *GetCombinedCloudClustersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedCloudClustersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud_cluster/v1][%d] getCombinedCloudClustersInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedCloudClustersInternalServerError) GetPayload() *models.K8sregListClusterCloudResp {

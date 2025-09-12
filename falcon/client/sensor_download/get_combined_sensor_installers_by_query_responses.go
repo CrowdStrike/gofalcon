@@ -6,6 +6,7 @@ package sensor_download
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetCombinedSensorInstallersByQueryOK) Code() int {
 }
 
 func (o *GetCombinedSensorInstallersByQueryOK) Error() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryOK %s", 200, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryOK) String() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryOK %s", 200, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryOK) GetPayload() *models.DomainSensorInstallersV1 {
@@ -228,11 +231,13 @@ func (o *GetCombinedSensorInstallersByQueryBadRequest) Code() int {
 }
 
 func (o *GetCombinedSensorInstallersByQueryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryBadRequest) String() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryBadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -338,11 +343,13 @@ func (o *GetCombinedSensorInstallersByQueryForbidden) Code() int {
 }
 
 func (o *GetCombinedSensorInstallersByQueryForbidden) Error() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryForbidden) String() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetCombinedSensorInstallersByQueryTooManyRequests) Code() int {
 }
 
 func (o *GetCombinedSensorInstallersByQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetCombinedSensorInstallersByQueryInternalServerError) Code() int {
 }
 
 func (o *GetCombinedSensorInstallersByQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedSensorInstallersByQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

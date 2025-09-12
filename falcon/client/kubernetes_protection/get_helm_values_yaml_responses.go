@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetHelmValuesYamlOK) Code() int {
 }
 
 func (o *GetHelmValuesYamlOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlOK %s", 200, payload)
 }
 
 func (o *GetHelmValuesYamlOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlOK %s", 200, payload)
 }
 
 func (o *GetHelmValuesYamlOK) GetPayload() models.K8sregHelmYAMLResp {
@@ -226,11 +229,13 @@ func (o *GetHelmValuesYamlBadRequest) Code() int {
 }
 
 func (o *GetHelmValuesYamlBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlBadRequest %s", 400, payload)
 }
 
 func (o *GetHelmValuesYamlBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlBadRequest %s", 400, payload)
 }
 
 func (o *GetHelmValuesYamlBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetHelmValuesYamlForbidden) Code() int {
 }
 
 func (o *GetHelmValuesYamlForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlForbidden %s", 403, payload)
 }
 
 func (o *GetHelmValuesYamlForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlForbidden %s", 403, payload)
 }
 
 func (o *GetHelmValuesYamlForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -450,11 +457,13 @@ func (o *GetHelmValuesYamlTooManyRequests) Code() int {
 }
 
 func (o *GetHelmValuesYamlTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlTooManyRequests %s", 429, payload)
 }
 
 func (o *GetHelmValuesYamlTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlTooManyRequests %s", 429, payload)
 }
 
 func (o *GetHelmValuesYamlTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -571,11 +580,13 @@ func (o *GetHelmValuesYamlInternalServerError) Code() int {
 }
 
 func (o *GetHelmValuesYamlInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlInternalServerError %s", 500, payload)
 }
 
 func (o *GetHelmValuesYamlInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/integration/agent/v1][%d] getHelmValuesYamlInternalServerError %s", 500, payload)
 }
 
 func (o *GetHelmValuesYamlInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

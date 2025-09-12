@@ -6,6 +6,7 @@ package prevention_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryCombinedPreventionPoliciesOK) Code() int {
 }
 
 func (o *QueryCombinedPreventionPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesOK) GetPayload() *models.PreventionRespV1 {
@@ -228,11 +231,13 @@ func (o *QueryCombinedPreventionPoliciesBadRequest) Code() int {
 }
 
 func (o *QueryCombinedPreventionPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesBadRequest) GetPayload() *models.PreventionRespV1 {
@@ -338,11 +343,13 @@ func (o *QueryCombinedPreventionPoliciesForbidden) Code() int {
 }
 
 func (o *QueryCombinedPreventionPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryCombinedPreventionPoliciesTooManyRequests) Code() int {
 }
 
 func (o *QueryCombinedPreventionPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryCombinedPreventionPoliciesInternalServerError) Code() int {
 }
 
 func (o *QueryCombinedPreventionPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention/v1][%d] queryCombinedPreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedPreventionPoliciesInternalServerError) GetPayload() *models.PreventionRespV1 {

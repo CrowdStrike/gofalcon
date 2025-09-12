@@ -37,7 +37,7 @@ type HostGroupsHostGroupV1 struct {
 	Description *string `json:"description"`
 
 	// The method by which this host group is managed
-	// Enum: [static dynamic staticByID]
+	// Enum: ["static","dynamic","staticByID"]
 	GroupType string `json:"group_type,omitempty"`
 
 	// The identifier of this host group

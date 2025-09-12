@@ -6,6 +6,7 @@ package identity_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *APIPreemptProxyPostPolicyRulesOK) Code() int {
 }
 
 func (o *APIPreemptProxyPostPolicyRulesOK) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesOK ", 200)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesOK", 200)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesOK) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesOK ", 200)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesOK", 200)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *APIPreemptProxyPostPolicyRulesForbidden) Code() int {
 }
 
 func (o *APIPreemptProxyPostPolicyRulesForbidden) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesForbidden) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *APIPreemptProxyPostPolicyRulesTooManyRequests) Code() int {
 }
 
 func (o *APIPreemptProxyPostPolicyRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *APIPreemptProxyPostPolicyRulesInternalServerError) Code() int {
 }
 
 func (o *APIPreemptProxyPostPolicyRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyPostPolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *APIPreemptProxyPostPolicyRulesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

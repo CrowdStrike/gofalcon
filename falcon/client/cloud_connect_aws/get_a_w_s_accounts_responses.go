@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetAWSAccountsOK) Code() int {
 }
 
 func (o *GetAWSAccountsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsOK %s", 200, payload)
 }
 
 func (o *GetAWSAccountsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsOK %s", 200, payload)
 }
 
 func (o *GetAWSAccountsOK) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -234,11 +237,13 @@ func (o *GetAWSAccountsBadRequest) Code() int {
 }
 
 func (o *GetAWSAccountsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *GetAWSAccountsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *GetAWSAccountsBadRequest) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -344,11 +349,13 @@ func (o *GetAWSAccountsForbidden) Code() int {
 }
 
 func (o *GetAWSAccountsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *GetAWSAccountsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *GetAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *GetAWSAccountsNotFound) Code() int {
 }
 
 func (o *GetAWSAccountsNotFound) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsNotFound %s", 404, payload)
 }
 
 func (o *GetAWSAccountsNotFound) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsNotFound %s", 404, payload)
 }
 
 func (o *GetAWSAccountsNotFound) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -568,11 +577,13 @@ func (o *GetAWSAccountsTooManyRequests) Code() int {
 }
 
 func (o *GetAWSAccountsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAWSAccountsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetAWSAccountsInternalServerError) Code() int {
 }
 
 func (o *GetAWSAccountsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAWSAccountsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAWSAccountsInternalServerError) GetPayload() *models.ModelsAWSAccountsV1 {

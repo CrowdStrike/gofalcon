@@ -6,6 +6,7 @@ package event_schema
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *FdrschemaQueriesEventGetOK) Code() int {
 }
 
 func (o *FdrschemaQueriesEventGetOK) Error() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetOK %s", 200, payload)
 }
 
 func (o *FdrschemaQueriesEventGetOK) String() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetOK %s", 200, payload)
 }
 
 func (o *FdrschemaQueriesEventGetOK) GetPayload() *models.MsaspecQueryResponse {
@@ -222,11 +225,13 @@ func (o *FdrschemaQueriesEventGetForbidden) Code() int {
 }
 
 func (o *FdrschemaQueriesEventGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetForbidden %s", 403, payload)
 }
 
 func (o *FdrschemaQueriesEventGetForbidden) String() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetForbidden %s", 403, payload)
 }
 
 func (o *FdrschemaQueriesEventGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *FdrschemaQueriesEventGetTooManyRequests) Code() int {
 }
 
 func (o *FdrschemaQueriesEventGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetTooManyRequests %s", 429, payload)
 }
 
 func (o *FdrschemaQueriesEventGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetTooManyRequests %s", 429, payload)
 }
 
 func (o *FdrschemaQueriesEventGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *FdrschemaQueriesEventGetInternalServerError) Code() int {
 }
 
 func (o *FdrschemaQueriesEventGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetInternalServerError %s", 500, payload)
 }
 
 func (o *FdrschemaQueriesEventGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/queries/schema-events/v1][%d] fdrschemaQueriesEventGetInternalServerError %s", 500, payload)
 }
 
 func (o *FdrschemaQueriesEventGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

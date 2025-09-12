@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateNetworkLocationsCreated) Code() int {
 }
 
 func (o *CreateNetworkLocationsCreated) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsCreated %s", 201, payload)
 }
 
 func (o *CreateNetworkLocationsCreated) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsCreated %s", 201, payload)
 }
 
 func (o *CreateNetworkLocationsCreated) GetPayload() *models.FwmgrAPINetworkLocationsResponse {
@@ -228,11 +231,13 @@ func (o *CreateNetworkLocationsBadRequest) Code() int {
 }
 
 func (o *CreateNetworkLocationsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *CreateNetworkLocationsBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *CreateNetworkLocationsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CreateNetworkLocationsForbidden) Code() int {
 }
 
 func (o *CreateNetworkLocationsForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *CreateNetworkLocationsForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *CreateNetworkLocationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CreateNetworkLocationsTooManyRequests) Code() int {
 }
 
 func (o *CreateNetworkLocationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateNetworkLocationsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateNetworkLocationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateNetworkLocationsInternalServerError) Code() int {
 }
 
 func (o *CreateNetworkLocationsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateNetworkLocationsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateNetworkLocationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

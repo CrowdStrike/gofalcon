@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteAWSAccountsOK) Code() int {
 }
 
 func (o *DeleteAWSAccountsOK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsOK %s", 200, payload)
 }
 
 func (o *DeleteAWSAccountsOK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsOK %s", 200, payload)
 }
 
 func (o *DeleteAWSAccountsOK) GetPayload() *models.ModelsBaseResponseV1 {
@@ -228,11 +231,13 @@ func (o *DeleteAWSAccountsBadRequest) Code() int {
 }
 
 func (o *DeleteAWSAccountsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteAWSAccountsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteAWSAccountsBadRequest) GetPayload() *models.ModelsBaseResponseV1 {
@@ -338,11 +343,13 @@ func (o *DeleteAWSAccountsForbidden) Code() int {
 }
 
 func (o *DeleteAWSAccountsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *DeleteAWSAccountsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *DeleteAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *DeleteAWSAccountsTooManyRequests) Code() int {
 }
 
 func (o *DeleteAWSAccountsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteAWSAccountsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteAWSAccountsInternalServerError) Code() int {
 }
 
 func (o *DeleteAWSAccountsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteAWSAccountsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteAWSAccountsInternalServerError) GetPayload() *models.ModelsBaseResponseV1 {

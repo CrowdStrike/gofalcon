@@ -6,6 +6,7 @@ package iocs
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *EntitiesProcessesOK) Code() int {
 }
 
 func (o *EntitiesProcessesOK) Error() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesOK %s", 200, payload)
 }
 
 func (o *EntitiesProcessesOK) String() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesOK %s", 200, payload)
 }
 
 func (o *EntitiesProcessesOK) GetPayload() *models.ProcessesapiMsaProcessDetailResponse {
@@ -222,11 +225,13 @@ func (o *EntitiesProcessesForbidden) Code() int {
 }
 
 func (o *EntitiesProcessesForbidden) Error() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesForbidden %s", 403, payload)
 }
 
 func (o *EntitiesProcessesForbidden) String() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesForbidden %s", 403, payload)
 }
 
 func (o *EntitiesProcessesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *EntitiesProcessesTooManyRequests) Code() int {
 }
 
 func (o *EntitiesProcessesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesTooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesProcessesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesTooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesProcessesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *EntitiesProcessesInternalServerError) Code() int {
 }
 
 func (o *EntitiesProcessesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesInternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesProcessesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesInternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesProcessesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

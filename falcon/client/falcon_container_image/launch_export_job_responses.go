@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *LaunchExportJobOK) Code() int {
 }
 
 func (o *LaunchExportJobOK) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobOK %s", 200, payload)
 }
 
 func (o *LaunchExportJobOK) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobOK %s", 200, payload)
 }
 
 func (o *LaunchExportJobOK) GetPayload() *models.ExportsLaunchExportResponse {
@@ -228,11 +231,13 @@ func (o *LaunchExportJobBadRequest) Code() int {
 }
 
 func (o *LaunchExportJobBadRequest) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobBadRequest %s", 400, payload)
 }
 
 func (o *LaunchExportJobBadRequest) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobBadRequest %s", 400, payload)
 }
 
 func (o *LaunchExportJobBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *LaunchExportJobForbidden) Code() int {
 }
 
 func (o *LaunchExportJobForbidden) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobForbidden %s", 403, payload)
 }
 
 func (o *LaunchExportJobForbidden) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobForbidden %s", 403, payload)
 }
 
 func (o *LaunchExportJobForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *LaunchExportJobTooManyRequests) Code() int {
 }
 
 func (o *LaunchExportJobTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobTooManyRequests %s", 429, payload)
 }
 
 func (o *LaunchExportJobTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobTooManyRequests %s", 429, payload)
 }
 
 func (o *LaunchExportJobTooManyRequests) GetPayload() *models.MsaspecResponseFields {
@@ -573,11 +582,13 @@ func (o *LaunchExportJobInternalServerError) Code() int {
 }
 
 func (o *LaunchExportJobInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobInternalServerError %s", 500, payload)
 }
 
 func (o *LaunchExportJobInternalServerError) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/exports/v1][%d] launchExportJobInternalServerError %s", 500, payload)
 }
 
 func (o *LaunchExportJobInternalServerError) GetPayload() *models.MsaspecResponseFields {

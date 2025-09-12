@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationCreateUserGroupCreated) Code() int {
 }
 
 func (o *ITAutomationCreateUserGroupCreated) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreateUserGroupCreated) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreateUserGroupCreated) GetPayload() *models.ItautomationCreateUserGroupResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationCreateUserGroupBadRequest) Code() int {
 }
 
 func (o *ITAutomationCreateUserGroupBadRequest) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreateUserGroupBadRequest) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreateUserGroupBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationCreateUserGroupForbidden) Code() int {
 }
 
 func (o *ITAutomationCreateUserGroupForbidden) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreateUserGroupForbidden) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreateUserGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationCreateUserGroupTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationCreateUserGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreateUserGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreateUserGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationCreateUserGroupInternalServerError) Code() int {
 }
 
 func (o *ITAutomationCreateUserGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreateUserGroupInternalServerError) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/it-user-groups/v1][%d] iTAutomationCreateUserGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreateUserGroupInternalServerError) GetPayload() *models.MsaspecResponseFields {

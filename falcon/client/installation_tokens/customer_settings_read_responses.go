@@ -6,6 +6,7 @@ package installation_tokens
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CustomerSettingsReadOK) Code() int {
 }
 
 func (o *CustomerSettingsReadOK) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadOK %s", 200, payload)
 }
 
 func (o *CustomerSettingsReadOK) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadOK %s", 200, payload)
 }
 
 func (o *CustomerSettingsReadOK) GetPayload() *models.APICustomerSettingsResponseV1 {
@@ -228,11 +231,13 @@ func (o *CustomerSettingsReadBadRequest) Code() int {
 }
 
 func (o *CustomerSettingsReadBadRequest) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest %s", 400, payload)
 }
 
 func (o *CustomerSettingsReadBadRequest) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest %s", 400, payload)
 }
 
 func (o *CustomerSettingsReadBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CustomerSettingsReadForbidden) Code() int {
 }
 
 func (o *CustomerSettingsReadForbidden) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadForbidden %s", 403, payload)
 }
 
 func (o *CustomerSettingsReadForbidden) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadForbidden %s", 403, payload)
 }
 
 func (o *CustomerSettingsReadForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CustomerSettingsReadTooManyRequests) Code() int {
 }
 
 func (o *CustomerSettingsReadTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadTooManyRequests %s", 429, payload)
 }
 
 func (o *CustomerSettingsReadTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadTooManyRequests %s", 429, payload)
 }
 
 func (o *CustomerSettingsReadTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CustomerSettingsReadInternalServerError) Code() int {
 }
 
 func (o *CustomerSettingsReadInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError %s", 500, payload)
 }
 
 func (o *CustomerSettingsReadInternalServerError) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError %s", 500, payload)
 }
 
 func (o *CustomerSettingsReadInternalServerError) GetPayload() *models.MsaspecResponseFields {

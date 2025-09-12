@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *AddUserGroupMembersOK) Code() int {
 }
 
 func (o *AddUserGroupMembersOK) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersOK %s", 200, payload)
 }
 
 func (o *AddUserGroupMembersOK) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersOK %s", 200, payload)
 }
 
 func (o *AddUserGroupMembersOK) GetPayload() *models.DomainUserGroupMembersResponseV1 {
@@ -234,11 +237,13 @@ func (o *AddUserGroupMembersMultiStatus) Code() int {
 }
 
 func (o *AddUserGroupMembersMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersMultiStatus %s", 207, payload)
 }
 
 func (o *AddUserGroupMembersMultiStatus) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersMultiStatus %s", 207, payload)
 }
 
 func (o *AddUserGroupMembersMultiStatus) GetPayload() *models.DomainUserGroupMembersResponseV1 {
@@ -344,11 +349,13 @@ func (o *AddUserGroupMembersBadRequest) Code() int {
 }
 
 func (o *AddUserGroupMembersBadRequest) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersBadRequest %s", 400, payload)
 }
 
 func (o *AddUserGroupMembersBadRequest) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersBadRequest %s", 400, payload)
 }
 
 func (o *AddUserGroupMembersBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *AddUserGroupMembersForbidden) Code() int {
 }
 
 func (o *AddUserGroupMembersForbidden) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *AddUserGroupMembersForbidden) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *AddUserGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *AddUserGroupMembersTooManyRequests) Code() int {
 }
 
 func (o *AddUserGroupMembersTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *AddUserGroupMembersTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *AddUserGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *AddUserGroupMembersInternalServerError) Code() int {
 }
 
 func (o *AddUserGroupMembersInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *AddUserGroupMembersInternalServerError) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-group-members/v1][%d] addUserGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *AddUserGroupMembersInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

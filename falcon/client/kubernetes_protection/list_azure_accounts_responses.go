@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ListAzureAccountsOK) Code() int {
 }
 
 func (o *ListAzureAccountsOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsOK %s", 200, payload)
 }
 
 func (o *ListAzureAccountsOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsOK %s", 200, payload)
 }
 
 func (o *ListAzureAccountsOK) GetPayload() *models.K8sregGetAzureSubscriptionsResp {
@@ -234,11 +237,13 @@ func (o *ListAzureAccountsMultiStatus) Code() int {
 }
 
 func (o *ListAzureAccountsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsMultiStatus %s", 207, payload)
 }
 
 func (o *ListAzureAccountsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsMultiStatus %s", 207, payload)
 }
 
 func (o *ListAzureAccountsMultiStatus) GetPayload() *models.K8sregGetAzureSubscriptionsResp {
@@ -344,11 +349,13 @@ func (o *ListAzureAccountsBadRequest) Code() int {
 }
 
 func (o *ListAzureAccountsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsBadRequest %s", 400, payload)
 }
 
 func (o *ListAzureAccountsBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsBadRequest %s", 400, payload)
 }
 
 func (o *ListAzureAccountsBadRequest) GetPayload() *models.K8sregGetAzureSubscriptionsResp {
@@ -454,11 +461,13 @@ func (o *ListAzureAccountsForbidden) Code() int {
 }
 
 func (o *ListAzureAccountsForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsForbidden %s", 403, payload)
 }
 
 func (o *ListAzureAccountsForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsForbidden %s", 403, payload)
 }
 
 func (o *ListAzureAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *ListAzureAccountsTooManyRequests) Code() int {
 }
 
 func (o *ListAzureAccountsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListAzureAccountsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListAzureAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ListAzureAccountsInternalServerError) Code() int {
 }
 
 func (o *ListAzureAccountsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *ListAzureAccountsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *ListAzureAccountsInternalServerError) GetPayload() *models.K8sregGetAzureSubscriptionsResp {

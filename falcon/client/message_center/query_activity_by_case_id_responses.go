@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryActivityByCaseIDOK) Code() int {
 }
 
 func (o *QueryActivityByCaseIDOK) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdOK %s", 200, payload)
 }
 
 func (o *QueryActivityByCaseIDOK) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdOK %s", 200, payload)
 }
 
 func (o *QueryActivityByCaseIDOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryActivityByCaseIDBadRequest) Code() int {
 }
 
 func (o *QueryActivityByCaseIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdBadRequest %s", 400, payload)
 }
 
 func (o *QueryActivityByCaseIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdBadRequest %s", 400, payload)
 }
 
 func (o *QueryActivityByCaseIDBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryActivityByCaseIDForbidden) Code() int {
 }
 
 func (o *QueryActivityByCaseIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdForbidden %s", 403, payload)
 }
 
 func (o *QueryActivityByCaseIDForbidden) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdForbidden %s", 403, payload)
 }
 
 func (o *QueryActivityByCaseIDForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *QueryActivityByCaseIDTooManyRequests) Code() int {
 }
 
 func (o *QueryActivityByCaseIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryActivityByCaseIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryActivityByCaseIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryActivityByCaseIDInternalServerError) Code() int {
 }
 
 func (o *QueryActivityByCaseIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdInternalServerError %s", 500, payload)
 }
 
 func (o *QueryActivityByCaseIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdInternalServerError %s", 500, payload)
 }
 
 func (o *QueryActivityByCaseIDInternalServerError) GetPayload() *models.MsaspecResponseFields {

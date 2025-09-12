@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateRuleGroupOK) Code() int {
 }
 
 func (o *UpdateRuleGroupOK) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupOK %s", 200, payload)
 }
 
 func (o *UpdateRuleGroupOK) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupOK %s", 200, payload)
 }
 
 func (o *UpdateRuleGroupOK) GetPayload() *models.FwmgrAPIQueryResponse {
@@ -228,11 +231,13 @@ func (o *UpdateRuleGroupBadRequest) Code() int {
 }
 
 func (o *UpdateRuleGroupBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRuleGroupBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRuleGroupBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdateRuleGroupForbidden) Code() int {
 }
 
 func (o *UpdateRuleGroupForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupForbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleGroupForbidden) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupForbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateRuleGroupTooManyRequests) Code() int {
 }
 
 func (o *UpdateRuleGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateRuleGroupInternalServerError) Code() int {
 }
 
 func (o *UpdateRuleGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleGroupInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleGroupInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package tailored_intelligence
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetRulesEntitiesOK) Code() int {
 }
 
 func (o *GetRulesEntitiesOK) Error() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesOK %s", 200, payload)
 }
 
 func (o *GetRulesEntitiesOK) String() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesOK %s", 200, payload)
 }
 
 func (o *GetRulesEntitiesOK) GetPayload() *models.DomainRuleEntitiesResponse {
@@ -228,11 +231,13 @@ func (o *GetRulesEntitiesBadRequest) Code() int {
 }
 
 func (o *GetRulesEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *GetRulesEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *GetRulesEntitiesBadRequest) GetPayload() *models.DomainRuleEntitiesResponse {
@@ -336,11 +341,11 @@ func (o *GetRulesEntitiesForbidden) Code() int {
 }
 
 func (o *GetRulesEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesForbidden ", 403)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesForbidden", 403)
 }
 
 func (o *GetRulesEntitiesForbidden) String() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesForbidden ", 403)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesForbidden", 403)
 }
 
 func (o *GetRulesEntitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -439,11 +444,13 @@ func (o *GetRulesEntitiesTooManyRequests) Code() int {
 }
 
 func (o *GetRulesEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -560,11 +567,13 @@ func (o *GetRulesEntitiesInternalServerError) Code() int {
 }
 
 func (o *GetRulesEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesEntitiesInternalServerError) GetPayload() *models.DomainRuleEntitiesResponse {

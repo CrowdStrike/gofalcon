@@ -6,6 +6,7 @@ package cloud_snapshots
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCredentialsMixin0Mixin60OK) Code() int {
 }
 
 func (o *GetCredentialsMixin0Mixin60OK) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60OK %s", 200, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60OK) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60OK %s", 200, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60OK) GetPayload() *models.ModelsRegistryCredentialsResponse {
@@ -234,11 +237,13 @@ func (o *GetCredentialsMixin0Mixin60BadRequest) Code() int {
 }
 
 func (o *GetCredentialsMixin0Mixin60BadRequest) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60BadRequest %s", 400, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60BadRequest) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60BadRequest %s", 400, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60BadRequest) GetPayload() *models.MsaAPIError {
@@ -344,11 +349,13 @@ func (o *GetCredentialsMixin0Mixin60Unauthorized) Code() int {
 }
 
 func (o *GetCredentialsMixin0Mixin60Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Unauthorized %s", 401, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60Unauthorized) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Unauthorized %s", 401, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60Unauthorized) GetPayload() *models.MsaAPIError {
@@ -454,11 +461,13 @@ func (o *GetCredentialsMixin0Mixin60Forbidden) Code() int {
 }
 
 func (o *GetCredentialsMixin0Mixin60Forbidden) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Forbidden %s", 403, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60Forbidden) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60Forbidden %s", 403, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60Forbidden) GetPayload() *models.MsaAPIError {
@@ -568,11 +577,13 @@ func (o *GetCredentialsMixin0Mixin60TooManyRequests) Code() int {
 }
 
 func (o *GetCredentialsMixin0Mixin60TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60TooManyRequests %s", 429, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60TooManyRequests %s", 429, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCredentialsMixin0Mixin60InternalServerError) Code() int {
 }
 
 func (o *GetCredentialsMixin0Mixin60InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60InternalServerError %s", 500, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60InternalServerError) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/image-registry-credentials/v1][%d] getCredentialsMixin0Mixin60InternalServerError %s", 500, payload)
 }
 
 func (o *GetCredentialsMixin0Mixin60InternalServerError) GetPayload() *models.ModelsRegistryCredentialsResponse {

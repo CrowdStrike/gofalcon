@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *SearchObjectsByVersionOK) Code() int {
 }
 
 func (o *SearchObjectsByVersionOK) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionOK %s", 200, payload)
 }
 
 func (o *SearchObjectsByVersionOK) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionOK %s", 200, payload)
 }
 
 func (o *SearchObjectsByVersionOK) GetPayload() *models.CustomStorageResponse {
@@ -222,11 +225,13 @@ func (o *SearchObjectsByVersionForbidden) Code() int {
 }
 
 func (o *SearchObjectsByVersionForbidden) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionForbidden %s", 403, payload)
 }
 
 func (o *SearchObjectsByVersionForbidden) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionForbidden %s", 403, payload)
 }
 
 func (o *SearchObjectsByVersionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *SearchObjectsByVersionTooManyRequests) Code() int {
 }
 
 func (o *SearchObjectsByVersionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchObjectsByVersionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchObjectsByVersionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *SearchObjectsByVersionInternalServerError) Code() int {
 }
 
 func (o *SearchObjectsByVersionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionInternalServerError %s", 500, payload)
 }
 
 func (o *SearchObjectsByVersionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] searchObjectsByVersionInternalServerError %s", 500, payload)
 }
 
 func (o *SearchObjectsByVersionInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

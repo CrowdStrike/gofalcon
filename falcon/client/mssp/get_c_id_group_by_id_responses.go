@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCIDGroupByIDOK) Code() int {
 }
 
 func (o *GetCIDGroupByIDOK) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdOK %s", 200, payload)
 }
 
 func (o *GetCIDGroupByIDOK) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdOK %s", 200, payload)
 }
 
 func (o *GetCIDGroupByIDOK) GetPayload() *models.DomainCIDGroupsResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetCIDGroupByIDMultiStatus) Code() int {
 }
 
 func (o *GetCIDGroupByIDMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdMultiStatus %s", 207, payload)
 }
 
 func (o *GetCIDGroupByIDMultiStatus) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdMultiStatus %s", 207, payload)
 }
 
 func (o *GetCIDGroupByIDMultiStatus) GetPayload() *models.DomainCIDGroupsResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetCIDGroupByIDBadRequest) Code() int {
 }
 
 func (o *GetCIDGroupByIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdBadRequest %s", 400, payload)
 }
 
 func (o *GetCIDGroupByIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdBadRequest %s", 400, payload)
 }
 
 func (o *GetCIDGroupByIDBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetCIDGroupByIDForbidden) Code() int {
 }
 
 func (o *GetCIDGroupByIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdForbidden %s", 403, payload)
 }
 
 func (o *GetCIDGroupByIDForbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdForbidden %s", 403, payload)
 }
 
 func (o *GetCIDGroupByIDForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *GetCIDGroupByIDTooManyRequests) Code() int {
 }
 
 func (o *GetCIDGroupByIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCIDGroupByIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCIDGroupByIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCIDGroupByIDInternalServerError) Code() int {
 }
 
 func (o *GetCIDGroupByIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdInternalServerError %s", 500, payload)
 }
 
 func (o *GetCIDGroupByIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdInternalServerError %s", 500, payload)
 }
 
 func (o *GetCIDGroupByIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package cloud_oci_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudSecurityRegistrationOciCreateAccountCreated) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountCreated %s", 201, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountCreated %s", 201, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountCreated) GetPayload() *models.DomainOCITenancyCreateResponseExtV1 {
@@ -234,11 +237,13 @@ func (o *CloudSecurityRegistrationOciCreateAccountMultiStatus) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountMultiStatus) GetPayload() *models.DomainOCITenancyCreateResponseExtV1 {
@@ -344,11 +349,13 @@ func (o *CloudSecurityRegistrationOciCreateAccountBadRequest) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountBadRequest) GetPayload() *models.DomainOCITenancyCreateResponseExtV1 {
@@ -454,11 +461,13 @@ func (o *CloudSecurityRegistrationOciCreateAccountForbidden) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudSecurityRegistrationOciCreateAccountTooManyRequests) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudSecurityRegistrationOciCreateAccountInternalServerError) Code() in
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciCreateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciCreateAccountInternalServerError) GetPayload() *models.DomainOCITenancyCreateResponseExtV1 {

@@ -54,7 +54,7 @@ type ExecutionsTriggerResult struct {
 
 	// Current status of execution for the activity.
 	// Required: true
-	// Enum: [Pending Succeeded Failed Skipped]
+	// Enum: ["Pending","Succeeded","Failed","Skipped"]
 	Status *string `json:"status"`
 
 	// Type of the trigger
@@ -62,7 +62,7 @@ type ExecutionsTriggerResult struct {
 
 	// Current status of execution for the activity rendered in the UI.
 	// Required: true
-	// Enum: [Pending Action Performed Executing Error Skipped Retrying]
+	// Enum: ["Pending","Action Performed","Executing","Error","Skipped","Retrying"]
 	UIStatus *string `json:"ui_status"`
 }
 

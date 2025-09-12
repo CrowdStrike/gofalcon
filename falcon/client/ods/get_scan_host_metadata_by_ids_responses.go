@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetScanHostMetadataByIdsOK) Code() int {
 }
 
 func (o *GetScanHostMetadataByIdsOK) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsOK %s", 200, payload)
 }
 
 func (o *GetScanHostMetadataByIdsOK) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsOK %s", 200, payload)
 }
 
 func (o *GetScanHostMetadataByIdsOK) GetPayload() *models.EntitiesODSScanHostResponse {
@@ -228,11 +231,13 @@ func (o *GetScanHostMetadataByIdsForbidden) Code() int {
 }
 
 func (o *GetScanHostMetadataByIdsForbidden) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsForbidden %s", 403, payload)
 }
 
 func (o *GetScanHostMetadataByIdsForbidden) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsForbidden %s", 403, payload)
 }
 
 func (o *GetScanHostMetadataByIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *GetScanHostMetadataByIdsNotFound) Code() int {
 }
 
 func (o *GetScanHostMetadataByIdsNotFound) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsNotFound %s", 404, payload)
 }
 
 func (o *GetScanHostMetadataByIdsNotFound) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsNotFound %s", 404, payload)
 }
 
 func (o *GetScanHostMetadataByIdsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetScanHostMetadataByIdsTooManyRequests) Code() int {
 }
 
 func (o *GetScanHostMetadataByIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScanHostMetadataByIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScanHostMetadataByIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetScanHostMetadataByIdsInternalServerError) Code() int {
 }
 
 func (o *GetScanHostMetadataByIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetScanHostMetadataByIdsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetScanHostMetadataByIdsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

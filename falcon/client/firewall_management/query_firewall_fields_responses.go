@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryFirewallFieldsOK) Code() int {
 }
 
 func (o *QueryFirewallFieldsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK %s", 200, payload)
 }
 
 func (o *QueryFirewallFieldsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK %s", 200, payload)
 }
 
 func (o *QueryFirewallFieldsOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryFirewallFieldsForbidden) Code() int {
 }
 
 func (o *QueryFirewallFieldsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsForbidden %s", 403, payload)
 }
 
 func (o *QueryFirewallFieldsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsForbidden %s", 403, payload)
 }
 
 func (o *QueryFirewallFieldsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryFirewallFieldsTooManyRequests) Code() int {
 }
 
 func (o *QueryFirewallFieldsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryFirewallFieldsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryFirewallFieldsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryFirewallFieldsInternalServerError) Code() int {
 }
 
 func (o *QueryFirewallFieldsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryFirewallFieldsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryFirewallFieldsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

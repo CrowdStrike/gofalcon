@@ -6,6 +6,7 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetSupportedSaasV3OK) Code() int {
 }
 
 func (o *GetSupportedSaasV3OK) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3OK %s", 200, payload)
 }
 
 func (o *GetSupportedSaasV3OK) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3OK %s", 200, payload)
 }
 
 func (o *GetSupportedSaasV3OK) GetPayload() *models.GetSupportedSaas {
@@ -222,11 +225,13 @@ func (o *GetSupportedSaasV3Forbidden) Code() int {
 }
 
 func (o *GetSupportedSaasV3Forbidden) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3Forbidden %s", 403, payload)
 }
 
 func (o *GetSupportedSaasV3Forbidden) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3Forbidden %s", 403, payload)
 }
 
 func (o *GetSupportedSaasV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetSupportedSaasV3TooManyRequests) Code() int {
 }
 
 func (o *GetSupportedSaasV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSupportedSaasV3TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSupportedSaasV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetSupportedSaasV3InternalServerError) Code() int {
 }
 
 func (o *GetSupportedSaasV3InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetSupportedSaasV3InternalServerError) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/supported-saas/v3][%d] getSupportedSaasV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetSupportedSaasV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

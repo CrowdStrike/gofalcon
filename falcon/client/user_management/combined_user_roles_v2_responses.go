@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CombinedUserRolesV2OK) Code() int {
 }
 
 func (o *CombinedUserRolesV2OK) Error() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2OK %s", 200, payload)
 }
 
 func (o *CombinedUserRolesV2OK) String() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2OK %s", 200, payload)
 }
 
 func (o *CombinedUserRolesV2OK) GetPayload() *models.FlightcontrolapiCombinedUserRolesResponseV2 {
@@ -228,11 +231,13 @@ func (o *CombinedUserRolesV2BadRequest) Code() int {
 }
 
 func (o *CombinedUserRolesV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2BadRequest %s", 400, payload)
 }
 
 func (o *CombinedUserRolesV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2BadRequest %s", 400, payload)
 }
 
 func (o *CombinedUserRolesV2BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CombinedUserRolesV2Forbidden) Code() int {
 }
 
 func (o *CombinedUserRolesV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2Forbidden %s", 403, payload)
 }
 
 func (o *CombinedUserRolesV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2Forbidden %s", 403, payload)
 }
 
 func (o *CombinedUserRolesV2Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CombinedUserRolesV2TooManyRequests) Code() int {
 }
 
 func (o *CombinedUserRolesV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedUserRolesV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedUserRolesV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CombinedUserRolesV2InternalServerError) Code() int {
 }
 
 func (o *CombinedUserRolesV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2InternalServerError %s", 500, payload)
 }
 
 func (o *CombinedUserRolesV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/combined/user-roles/v2][%d] combinedUserRolesV2InternalServerError %s", 500, payload)
 }
 
 func (o *CombinedUserRolesV2InternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteUserV1OK) Code() int {
 }
 
 func (o *DeleteUserV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1OK %s", 200, payload)
 }
 
 func (o *DeleteUserV1OK) String() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1OK %s", 200, payload)
 }
 
 func (o *DeleteUserV1OK) GetPayload() *models.MsaspecResponseFields {
@@ -228,11 +231,13 @@ func (o *DeleteUserV1BadRequest) Code() int {
 }
 
 func (o *DeleteUserV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteUserV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteUserV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *DeleteUserV1Forbidden) Code() int {
 }
 
 func (o *DeleteUserV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteUserV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteUserV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *DeleteUserV1TooManyRequests) Code() int {
 }
 
 func (o *DeleteUserV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteUserV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteUserV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteUserV1InternalServerError) Code() int {
 }
 
 func (o *DeleteUserV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteUserV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteUserV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

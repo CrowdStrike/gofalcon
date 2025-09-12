@@ -6,6 +6,7 @@ package quick_scan_pro
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *UploadFileMixin0Mixin93OK) Code() int {
 }
 
 func (o *UploadFileMixin0Mixin93OK) Error() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93OK %s", 200, payload)
 }
 
 func (o *UploadFileMixin0Mixin93OK) String() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93OK %s", 200, payload)
 }
 
 func (o *UploadFileMixin0Mixin93OK) GetPayload() *models.QuickscanproFileUploadResponse {
@@ -222,11 +225,13 @@ func (o *UploadFileMixin0Mixin93Forbidden) Code() int {
 }
 
 func (o *UploadFileMixin0Mixin93Forbidden) Error() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93Forbidden %s", 403, payload)
 }
 
 func (o *UploadFileMixin0Mixin93Forbidden) String() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93Forbidden %s", 403, payload)
 }
 
 func (o *UploadFileMixin0Mixin93Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *UploadFileMixin0Mixin93TooManyRequests) Code() int {
 }
 
 func (o *UploadFileMixin0Mixin93TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93TooManyRequests %s", 429, payload)
 }
 
 func (o *UploadFileMixin0Mixin93TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93TooManyRequests %s", 429, payload)
 }
 
 func (o *UploadFileMixin0Mixin93TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *UploadFileMixin0Mixin93InternalServerError) Code() int {
 }
 
 func (o *UploadFileMixin0Mixin93InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93InternalServerError %s", 500, payload)
 }
 
 func (o *UploadFileMixin0Mixin93InternalServerError) String() string {
-	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93InternalServerError %s", 500, payload)
 }
 
 func (o *UploadFileMixin0Mixin93InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

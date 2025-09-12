@@ -6,6 +6,7 @@ package container_alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadContainerAlertsCountBySeverityOK) Code() int {
 }
 
 func (o *ReadContainerAlertsCountBySeverityOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityOK) GetPayload() *models.AlertsContainerAlertsCountValue {
@@ -222,11 +225,13 @@ func (o *ReadContainerAlertsCountBySeverityForbidden) Code() int {
 }
 
 func (o *ReadContainerAlertsCountBySeverityForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadContainerAlertsCountBySeverityTooManyRequests) Code() int {
 }
 
 func (o *ReadContainerAlertsCountBySeverityTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadContainerAlertsCountBySeverityInternalServerError) Code() int {
 }
 
 func (o *ReadContainerAlertsCountBySeverityInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count-by-severity/v1][%d] readContainerAlertsCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ReadContainerAlertsCountBySeverityInternalServerError) GetPayload() *models.CoreEntitiesResponse {

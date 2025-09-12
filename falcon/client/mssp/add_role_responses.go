@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *AddRoleOK) Code() int {
 }
 
 func (o *AddRoleOK) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleOK %s", 200, payload)
 }
 
 func (o *AddRoleOK) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleOK %s", 200, payload)
 }
 
 func (o *AddRoleOK) GetPayload() *models.DomainMSSPRoleResponseV1 {
@@ -234,11 +237,13 @@ func (o *AddRoleMultiStatus) Code() int {
 }
 
 func (o *AddRoleMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleMultiStatus %s", 207, payload)
 }
 
 func (o *AddRoleMultiStatus) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleMultiStatus %s", 207, payload)
 }
 
 func (o *AddRoleMultiStatus) GetPayload() *models.DomainMSSPRoleResponseV1 {
@@ -344,11 +349,13 @@ func (o *AddRoleBadRequest) Code() int {
 }
 
 func (o *AddRoleBadRequest) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleBadRequest %s", 400, payload)
 }
 
 func (o *AddRoleBadRequest) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleBadRequest %s", 400, payload)
 }
 
 func (o *AddRoleBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *AddRoleForbidden) Code() int {
 }
 
 func (o *AddRoleForbidden) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleForbidden %s", 403, payload)
 }
 
 func (o *AddRoleForbidden) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleForbidden %s", 403, payload)
 }
 
 func (o *AddRoleForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *AddRoleTooManyRequests) Code() int {
 }
 
 func (o *AddRoleTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleTooManyRequests %s", 429, payload)
 }
 
 func (o *AddRoleTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleTooManyRequests %s", 429, payload)
 }
 
 func (o *AddRoleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *AddRoleInternalServerError) Code() int {
 }
 
 func (o *AddRoleInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleInternalServerError %s", 500, payload)
 }
 
 func (o *AddRoleInternalServerError) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleInternalServerError %s", 500, payload)
 }
 
 func (o *AddRoleInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

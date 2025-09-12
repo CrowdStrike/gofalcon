@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregatePreventionPolicyOK) Code() int {
 }
 
 func (o *AggregatePreventionPolicyOK) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyOK %s", 200, payload)
 }
 
 func (o *AggregatePreventionPolicyOK) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyOK %s", 200, payload)
 }
 
 func (o *AggregatePreventionPolicyOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregatePreventionPolicyBadRequest) Code() int {
 }
 
 func (o *AggregatePreventionPolicyBadRequest) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyBadRequest %s", 400, payload)
 }
 
 func (o *AggregatePreventionPolicyBadRequest) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyBadRequest %s", 400, payload)
 }
 
 func (o *AggregatePreventionPolicyBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregatePreventionPolicyForbidden) Code() int {
 }
 
 func (o *AggregatePreventionPolicyForbidden) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyForbidden %s", 403, payload)
 }
 
 func (o *AggregatePreventionPolicyForbidden) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyForbidden %s", 403, payload)
 }
 
 func (o *AggregatePreventionPolicyForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AggregatePreventionPolicyTooManyRequests) Code() int {
 }
 
 func (o *AggregatePreventionPolicyTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatePreventionPolicyTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatePreventionPolicyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregatePreventionPolicyInternalServerError) Code() int {
 }
 
 func (o *AggregatePreventionPolicyInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyInternalServerError %s", 500, payload)
 }
 
 func (o *AggregatePreventionPolicyInternalServerError) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/prevention-policies/v1][%d] aggregatePreventionPolicyInternalServerError %s", 500, payload)
 }
 
 func (o *AggregatePreventionPolicyInternalServerError) GetPayload() *models.MsaspecResponseFields {

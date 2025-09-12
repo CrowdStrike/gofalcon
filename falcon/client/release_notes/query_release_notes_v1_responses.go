@@ -6,6 +6,7 @@ package release_notes
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *QueryReleaseNotesV1OK) Code() int {
 }
 
 func (o *QueryReleaseNotesV1OK) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1OK %s", 200, payload)
 }
 
 func (o *QueryReleaseNotesV1OK) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1OK %s", 200, payload)
 }
 
 func (o *QueryReleaseNotesV1OK) GetPayload() *models.StringWrapper {
@@ -234,11 +237,13 @@ func (o *QueryReleaseNotesV1BadRequest) Code() int {
 }
 
 func (o *QueryReleaseNotesV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1BadRequest %s", 400, payload)
 }
 
 func (o *QueryReleaseNotesV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1BadRequest %s", 400, payload)
 }
 
 func (o *QueryReleaseNotesV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *QueryReleaseNotesV1Forbidden) Code() int {
 }
 
 func (o *QueryReleaseNotesV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1Forbidden %s", 403, payload)
 }
 
 func (o *QueryReleaseNotesV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1Forbidden %s", 403, payload)
 }
 
 func (o *QueryReleaseNotesV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *QueryReleaseNotesV1NotFound) Code() int {
 }
 
 func (o *QueryReleaseNotesV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1NotFound %s", 404, payload)
 }
 
 func (o *QueryReleaseNotesV1NotFound) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1NotFound %s", 404, payload)
 }
 
 func (o *QueryReleaseNotesV1NotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *QueryReleaseNotesV1TooManyRequests) Code() int {
 }
 
 func (o *QueryReleaseNotesV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryReleaseNotesV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryReleaseNotesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *QueryReleaseNotesV1InternalServerError) Code() int {
 }
 
 func (o *QueryReleaseNotesV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueryReleaseNotesV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/queries/release-notes/v1][%d] queryReleaseNotesV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueryReleaseNotesV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package container_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadVulnerabilitiesByImageCountOK) Code() int {
 }
 
 func (o *ReadVulnerabilitiesByImageCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountOK %s", 200, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountOK %s", 200, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountOK) GetPayload() *models.VulnerabilitiesAPIVulnByImageCount {
@@ -222,11 +225,13 @@ func (o *ReadVulnerabilitiesByImageCountForbidden) Code() int {
 }
 
 func (o *ReadVulnerabilitiesByImageCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountForbidden %s", 403, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountForbidden %s", 403, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadVulnerabilitiesByImageCountTooManyRequests) Code() int {
 }
 
 func (o *ReadVulnerabilitiesByImageCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadVulnerabilitiesByImageCountInternalServerError) Code() int {
 }
 
 func (o *ReadVulnerabilitiesByImageCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-image-count/v1][%d] readVulnerabilitiesByImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadVulnerabilitiesByImageCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

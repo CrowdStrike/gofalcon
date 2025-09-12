@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateRuleOverrideOK) Code() int {
 }
 
 func (o *CreateRuleOverrideOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideOK %s", 200, payload)
 }
 
 func (o *CreateRuleOverrideOK) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideOK %s", 200, payload)
 }
 
 func (o *CreateRuleOverrideOK) GetPayload() *models.CommonCreateRuleOverrideResponse {
@@ -228,11 +231,13 @@ func (o *CreateRuleOverrideBadRequest) Code() int {
 }
 
 func (o *CreateRuleOverrideBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideBadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleOverrideBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideBadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleOverrideBadRequest) GetPayload() *models.CommonEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *CreateRuleOverrideForbidden) Code() int {
 }
 
 func (o *CreateRuleOverrideForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleOverrideForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleOverrideForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CreateRuleOverrideTooManyRequests) Code() int {
 }
 
 func (o *CreateRuleOverrideTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleOverrideTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleOverrideTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateRuleOverrideInternalServerError) Code() int {
 }
 
 func (o *CreateRuleOverrideInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleOverrideInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rule-overrides/v1][%d] createRuleOverrideInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleOverrideInternalServerError) GetPayload() *models.CommonEntitiesResponse {

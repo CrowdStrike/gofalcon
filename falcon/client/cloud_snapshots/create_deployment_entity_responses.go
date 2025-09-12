@@ -6,6 +6,7 @@ package cloud_snapshots
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateDeploymentEntityOK) Code() int {
 }
 
 func (o *CreateDeploymentEntityOK) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityOK %s", 200, payload)
 }
 
 func (o *CreateDeploymentEntityOK) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityOK %s", 200, payload)
 }
 
 func (o *CreateDeploymentEntityOK) GetPayload() *models.DeploymentsEntityResponse {
@@ -228,11 +231,13 @@ func (o *CreateDeploymentEntityBadRequest) Code() int {
 }
 
 func (o *CreateDeploymentEntityBadRequest) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityBadRequest %s", 400, payload)
 }
 
 func (o *CreateDeploymentEntityBadRequest) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityBadRequest %s", 400, payload)
 }
 
 func (o *CreateDeploymentEntityBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CreateDeploymentEntityForbidden) Code() int {
 }
 
 func (o *CreateDeploymentEntityForbidden) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityForbidden %s", 403, payload)
 }
 
 func (o *CreateDeploymentEntityForbidden) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityForbidden %s", 403, payload)
 }
 
 func (o *CreateDeploymentEntityForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CreateDeploymentEntityTooManyRequests) Code() int {
 }
 
 func (o *CreateDeploymentEntityTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateDeploymentEntityTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateDeploymentEntityTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateDeploymentEntityInternalServerError) Code() int {
 }
 
 func (o *CreateDeploymentEntityInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityInternalServerError %s", 500, payload)
 }
 
 func (o *CreateDeploymentEntityInternalServerError) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityInternalServerError %s", 500, payload)
 }
 
 func (o *CreateDeploymentEntityInternalServerError) GetPayload() *models.MsaspecResponseFields {

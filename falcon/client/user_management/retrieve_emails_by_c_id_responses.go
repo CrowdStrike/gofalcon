@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RetrieveEmailsByCIDOK) Code() int {
 }
 
 func (o *RetrieveEmailsByCIDOK) Error() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdOK %s", 200, payload)
 }
 
 func (o *RetrieveEmailsByCIDOK) String() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdOK %s", 200, payload)
 }
 
 func (o *RetrieveEmailsByCIDOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *RetrieveEmailsByCIDBadRequest) Code() int {
 }
 
 func (o *RetrieveEmailsByCIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveEmailsByCIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveEmailsByCIDBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *RetrieveEmailsByCIDForbidden) Code() int {
 }
 
 func (o *RetrieveEmailsByCIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdForbidden %s", 403, payload)
 }
 
 func (o *RetrieveEmailsByCIDForbidden) String() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdForbidden %s", 403, payload)
 }
 
 func (o *RetrieveEmailsByCIDForbidden) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *RetrieveEmailsByCIDTooManyRequests) Code() int {
 }
 
 func (o *RetrieveEmailsByCIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveEmailsByCIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveEmailsByCIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RetrieveEmailsByCIDInternalServerError) Code() int {
 }
 
 func (o *RetrieveEmailsByCIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveEmailsByCIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveEmailsByCIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

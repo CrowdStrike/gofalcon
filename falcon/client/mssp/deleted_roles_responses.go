@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeletedRolesOK) Code() int {
 }
 
 func (o *DeletedRolesOK) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesOK %s", 200, payload)
 }
 
 func (o *DeletedRolesOK) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesOK %s", 200, payload)
 }
 
 func (o *DeletedRolesOK) GetPayload() *models.DomainMSSPRoleResponseV1 {
@@ -234,11 +237,13 @@ func (o *DeletedRolesMultiStatus) Code() int {
 }
 
 func (o *DeletedRolesMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesMultiStatus %s", 207, payload)
 }
 
 func (o *DeletedRolesMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesMultiStatus %s", 207, payload)
 }
 
 func (o *DeletedRolesMultiStatus) GetPayload() *models.DomainMSSPRoleResponseV1 {
@@ -344,11 +349,13 @@ func (o *DeletedRolesBadRequest) Code() int {
 }
 
 func (o *DeletedRolesBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesBadRequest %s", 400, payload)
 }
 
 func (o *DeletedRolesBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesBadRequest %s", 400, payload)
 }
 
 func (o *DeletedRolesBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *DeletedRolesForbidden) Code() int {
 }
 
 func (o *DeletedRolesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesForbidden %s", 403, payload)
 }
 
 func (o *DeletedRolesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesForbidden %s", 403, payload)
 }
 
 func (o *DeletedRolesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *DeletedRolesTooManyRequests) Code() int {
 }
 
 func (o *DeletedRolesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletedRolesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletedRolesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeletedRolesInternalServerError) Code() int {
 }
 
 func (o *DeletedRolesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesInternalServerError %s", 500, payload)
 }
 
 func (o *DeletedRolesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesInternalServerError %s", 500, payload)
 }
 
 func (o *DeletedRolesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

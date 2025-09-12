@@ -6,6 +6,7 @@ package incidents
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryBehaviorsOK) Code() int {
 }
 
 func (o *QueryBehaviorsOK) Error() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsOK %s", 200, payload)
 }
 
 func (o *QueryBehaviorsOK) String() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsOK %s", 200, payload)
 }
 
 func (o *QueryBehaviorsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryBehaviorsBadRequest) Code() int {
 }
 
 func (o *QueryBehaviorsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsBadRequest %s", 400, payload)
 }
 
 func (o *QueryBehaviorsBadRequest) String() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsBadRequest %s", 400, payload)
 }
 
 func (o *QueryBehaviorsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *QueryBehaviorsForbidden) Code() int {
 }
 
 func (o *QueryBehaviorsForbidden) Error() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsForbidden %s", 403, payload)
 }
 
 func (o *QueryBehaviorsForbidden) String() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsForbidden %s", 403, payload)
 }
 
 func (o *QueryBehaviorsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryBehaviorsTooManyRequests) Code() int {
 }
 
 func (o *QueryBehaviorsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryBehaviorsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryBehaviorsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryBehaviorsInternalServerError) Code() int {
 }
 
 func (o *QueryBehaviorsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryBehaviorsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryBehaviorsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

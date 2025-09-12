@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdatePolicyRuleGroupsOK) Code() int {
 }
 
 func (o *UpdatePolicyRuleGroupsOK) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsOK) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsOK) GetPayload() *models.PoliciesResponse {
@@ -228,11 +231,13 @@ func (o *UpdatePolicyRuleGroupsBadRequest) Code() int {
 }
 
 func (o *UpdatePolicyRuleGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdatePolicyRuleGroupsForbidden) Code() int {
 }
 
 func (o *UpdatePolicyRuleGroupsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdatePolicyRuleGroupsTooManyRequests) Code() int {
 }
 
 func (o *UpdatePolicyRuleGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdatePolicyRuleGroupsInternalServerError) Code() int {
 }
 
 func (o *UpdatePolicyRuleGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policies-rule-groups/v1][%d] updatePolicyRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyRuleGroupsInternalServerError) GetPayload() *models.MsaspecResponseFields {

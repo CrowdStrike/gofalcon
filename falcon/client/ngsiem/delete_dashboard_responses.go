@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *DeleteDashboardOK) Code() int {
 }
 
 func (o *DeleteDashboardOK) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardOK %s", 200, payload)
 }
 
 func (o *DeleteDashboardOK) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardOK %s", 200, payload)
 }
 
 func (o *DeleteDashboardOK) GetPayload() *models.APIDeleteDashboardResponseV1 {
@@ -240,11 +243,13 @@ func (o *DeleteDashboardBadRequest) Code() int {
 }
 
 func (o *DeleteDashboardBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardBadRequest %s", 400, payload)
 }
 
 func (o *DeleteDashboardBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardBadRequest %s", 400, payload)
 }
 
 func (o *DeleteDashboardBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *DeleteDashboardUnauthorized) Code() int {
 }
 
 func (o *DeleteDashboardUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteDashboardUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteDashboardUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *DeleteDashboardForbidden) Code() int {
 }
 
 func (o *DeleteDashboardForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardForbidden %s", 403, payload)
 }
 
 func (o *DeleteDashboardForbidden) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardForbidden %s", 403, payload)
 }
 
 func (o *DeleteDashboardForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *DeleteDashboardNotFound) Code() int {
 }
 
 func (o *DeleteDashboardNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardNotFound %s", 404, payload)
 }
 
 func (o *DeleteDashboardNotFound) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardNotFound %s", 404, payload)
 }
 
 func (o *DeleteDashboardNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *DeleteDashboardTooManyRequests) Code() int {
 }
 
 func (o *DeleteDashboardTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteDashboardTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteDashboardTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *DeleteDashboardInternalServerError) Code() int {
 }
 
 func (o *DeleteDashboardInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteDashboardInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/dashboards/v1][%d] deleteDashboardInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteDashboardInternalServerError) GetPayload() *models.MsaspecResponseFields {

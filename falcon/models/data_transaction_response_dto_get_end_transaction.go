@@ -42,7 +42,7 @@ type DataTransactionResponseDtoGetEndTransaction struct {
 
 	// Status
 	// Required: true
-	// Enum: [cancelled closed done in_progress pending]
+	// Enum: ["cancelled","closed","done","in_progress","pending"]
 	Status *string `json:"status"`
 }
 

@@ -6,6 +6,7 @@ package drift_indicators
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadDriftIndicatorsCountOK) Code() int {
 }
 
 func (o *ReadDriftIndicatorsCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountOK %s", 200, payload)
 }
 
 func (o *ReadDriftIndicatorsCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountOK %s", 200, payload)
 }
 
 func (o *ReadDriftIndicatorsCountOK) GetPayload() *models.DriftindicatorsDriftIndicatorsCountValue {
@@ -222,11 +225,13 @@ func (o *ReadDriftIndicatorsCountForbidden) Code() int {
 }
 
 func (o *ReadDriftIndicatorsCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountForbidden %s", 403, payload)
 }
 
 func (o *ReadDriftIndicatorsCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountForbidden %s", 403, payload)
 }
 
 func (o *ReadDriftIndicatorsCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadDriftIndicatorsCountTooManyRequests) Code() int {
 }
 
 func (o *ReadDriftIndicatorsCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDriftIndicatorsCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDriftIndicatorsCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadDriftIndicatorsCountInternalServerError) Code() int {
 }
 
 func (o *ReadDriftIndicatorsCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDriftIndicatorsCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/drift-indicators/count/v1][%d] readDriftIndicatorsCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDriftIndicatorsCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

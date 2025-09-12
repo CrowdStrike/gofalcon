@@ -51,7 +51,7 @@ type APIMSAAggregateQueryRequest struct {
 
 	// type
 	// Required: true
-	// Enum: [terms date_range]
+	// Enum: ["terms","date_range"]
 	Type *string `json:"type"`
 }
 

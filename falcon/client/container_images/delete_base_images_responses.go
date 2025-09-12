@@ -6,6 +6,7 @@ package container_images
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteBaseImagesOK) Code() int {
 }
 
 func (o *DeleteBaseImagesOK) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesOK %s", 200, payload)
 }
 
 func (o *DeleteBaseImagesOK) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesOK %s", 200, payload)
 }
 
 func (o *DeleteBaseImagesOK) GetPayload() *models.CoreEntitiesResponse {
@@ -228,11 +231,13 @@ func (o *DeleteBaseImagesBadRequest) Code() int {
 }
 
 func (o *DeleteBaseImagesBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesBadRequest %s", 400, payload)
 }
 
 func (o *DeleteBaseImagesBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesBadRequest %s", 400, payload)
 }
 
 func (o *DeleteBaseImagesBadRequest) GetPayload() *models.CoreEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *DeleteBaseImagesForbidden) Code() int {
 }
 
 func (o *DeleteBaseImagesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesForbidden %s", 403, payload)
 }
 
 func (o *DeleteBaseImagesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesForbidden %s", 403, payload)
 }
 
 func (o *DeleteBaseImagesForbidden) GetPayload() *models.MsaAPIError {
@@ -452,11 +459,13 @@ func (o *DeleteBaseImagesTooManyRequests) Code() int {
 }
 
 func (o *DeleteBaseImagesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteBaseImagesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteBaseImagesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteBaseImagesInternalServerError) Code() int {
 }
 
 func (o *DeleteBaseImagesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteBaseImagesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/base-images/v1][%d] deleteBaseImagesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteBaseImagesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

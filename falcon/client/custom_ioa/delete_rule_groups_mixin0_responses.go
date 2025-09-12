@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteRuleGroupsMixin0OK) Code() int {
 }
 
 func (o *DeleteRuleGroupsMixin0OK) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0OK %s", 200, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0OK) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0OK %s", 200, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0OK) GetPayload() *models.MsaReplyMetaOnly {
@@ -228,11 +231,13 @@ func (o *DeleteRuleGroupsMixin0Forbidden) Code() int {
 }
 
 func (o *DeleteRuleGroupsMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *DeleteRuleGroupsMixin0NotFound) Code() int {
 }
 
 func (o *DeleteRuleGroupsMixin0NotFound) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0NotFound %s", 404, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0NotFound) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0NotFound %s", 404, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *DeleteRuleGroupsMixin0TooManyRequests) Code() int {
 }
 
 func (o *DeleteRuleGroupsMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteRuleGroupsMixin0InternalServerError) Code() int {
 }
 
 func (o *DeleteRuleGroupsMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleGroupsMixin0InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

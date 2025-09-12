@@ -6,6 +6,7 @@ package ml_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryMLExclusionsV1OK) Code() int {
 }
 
 func (o *QueryMLExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1OK %s", 200, payload)
 }
 
 func (o *QueryMLExclusionsV1OK) String() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1OK %s", 200, payload)
 }
 
 func (o *QueryMLExclusionsV1OK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryMLExclusionsV1BadRequest) Code() int {
 }
 
 func (o *QueryMLExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *QueryMLExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *QueryMLExclusionsV1BadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryMLExclusionsV1Forbidden) Code() int {
 }
 
 func (o *QueryMLExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *QueryMLExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *QueryMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryMLExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *QueryMLExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryMLExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryMLExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryMLExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *QueryMLExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueryMLExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueryMLExclusionsV1InternalServerError) GetPayload() *models.MsaQueryResponse {

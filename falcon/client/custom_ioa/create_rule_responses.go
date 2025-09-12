@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateRuleCreated) Code() int {
 }
 
 func (o *CreateRuleCreated) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleCreated %s", 201, payload)
 }
 
 func (o *CreateRuleCreated) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleCreated %s", 201, payload)
 }
 
 func (o *CreateRuleCreated) GetPayload() *models.APIRulesResponse {
@@ -228,11 +231,13 @@ func (o *CreateRuleForbidden) Code() int {
 }
 
 func (o *CreateRuleForbidden) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleForbidden) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *CreateRuleNotFound) Code() int {
 }
 
 func (o *CreateRuleNotFound) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleNotFound %s", 404, payload)
 }
 
 func (o *CreateRuleNotFound) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleNotFound %s", 404, payload)
 }
 
 func (o *CreateRuleNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CreateRuleTooManyRequests) Code() int {
 }
 
 func (o *CreateRuleTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateRuleInternalServerError) Code() int {
 }
 
 func (o *CreateRuleInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

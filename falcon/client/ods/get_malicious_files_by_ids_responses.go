@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetMaliciousFilesByIdsOK) Code() int {
 }
 
 func (o *GetMaliciousFilesByIdsOK) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsOK %s", 200, payload)
 }
 
 func (o *GetMaliciousFilesByIdsOK) String() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsOK %s", 200, payload)
 }
 
 func (o *GetMaliciousFilesByIdsOK) GetPayload() *models.EntitiesODSScanMaliciousFileResponse {
@@ -228,11 +231,13 @@ func (o *GetMaliciousFilesByIdsForbidden) Code() int {
 }
 
 func (o *GetMaliciousFilesByIdsForbidden) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsForbidden %s", 403, payload)
 }
 
 func (o *GetMaliciousFilesByIdsForbidden) String() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsForbidden %s", 403, payload)
 }
 
 func (o *GetMaliciousFilesByIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *GetMaliciousFilesByIdsNotFound) Code() int {
 }
 
 func (o *GetMaliciousFilesByIdsNotFound) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsNotFound %s", 404, payload)
 }
 
 func (o *GetMaliciousFilesByIdsNotFound) String() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsNotFound %s", 404, payload)
 }
 
 func (o *GetMaliciousFilesByIdsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetMaliciousFilesByIdsTooManyRequests) Code() int {
 }
 
 func (o *GetMaliciousFilesByIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMaliciousFilesByIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMaliciousFilesByIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetMaliciousFilesByIdsInternalServerError) Code() int {
 }
 
 func (o *GetMaliciousFilesByIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetMaliciousFilesByIdsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetMaliciousFilesByIdsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

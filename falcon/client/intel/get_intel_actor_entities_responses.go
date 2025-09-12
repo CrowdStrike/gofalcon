@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetIntelActorEntitiesOK) Code() int {
 }
 
 func (o *GetIntelActorEntitiesOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesOK %s", 200, payload)
 }
 
 func (o *GetIntelActorEntitiesOK) String() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesOK %s", 200, payload)
 }
 
 func (o *GetIntelActorEntitiesOK) GetPayload() *models.DomainActorsResponse {
@@ -222,11 +225,13 @@ func (o *GetIntelActorEntitiesForbidden) Code() int {
 }
 
 func (o *GetIntelActorEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *GetIntelActorEntitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *GetIntelActorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetIntelActorEntitiesTooManyRequests) Code() int {
 }
 
 func (o *GetIntelActorEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelActorEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelActorEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetIntelActorEntitiesInternalServerError) Code() int {
 }
 
 func (o *GetIntelActorEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelActorEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelActorEntitiesInternalServerError) GetPayload() *models.MsaErrorsOnly {

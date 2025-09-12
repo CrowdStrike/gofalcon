@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) Code() int {
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated %s", 201, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated %s", 201, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
@@ -228,11 +231,13 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) Code() int {
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
@@ -338,11 +343,13 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) Code() int {
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdForbidden %s", 403, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdForbidden %s", 403, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) Code() int {
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) Code() i
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {

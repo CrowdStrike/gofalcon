@@ -6,6 +6,7 @@ package spotlight_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *QueryVulnerabilitiesOK) Code() int {
 }
 
 func (o *QueryVulnerabilitiesOK) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *QueryVulnerabilitiesOK) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *QueryVulnerabilitiesOK) GetPayload() *models.DomainSPAPIQueryResponse {
@@ -240,11 +243,13 @@ func (o *QueryVulnerabilitiesBadRequest) Code() int {
 }
 
 func (o *QueryVulnerabilitiesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesBadRequest %s", 400, payload)
 }
 
 func (o *QueryVulnerabilitiesBadRequest) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesBadRequest %s", 400, payload)
 }
 
 func (o *QueryVulnerabilitiesBadRequest) GetPayload() *models.DomainSPAPIQueryResponse {
@@ -350,11 +355,13 @@ func (o *QueryVulnerabilitiesForbidden) Code() int {
 }
 
 func (o *QueryVulnerabilitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryVulnerabilitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *QueryVulnerabilitiesNotFound) Code() int {
 }
 
 func (o *QueryVulnerabilitiesNotFound) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesNotFound %s", 404, payload)
 }
 
 func (o *QueryVulnerabilitiesNotFound) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesNotFound %s", 404, payload)
 }
 
 func (o *QueryVulnerabilitiesNotFound) GetPayload() *models.DomainSPAPIQueryResponse {
@@ -574,11 +583,13 @@ func (o *QueryVulnerabilitiesTooManyRequests) Code() int {
 }
 
 func (o *QueryVulnerabilitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryVulnerabilitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *QueryVulnerabilitiesInternalServerError) Code() int {
 }
 
 func (o *QueryVulnerabilitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryVulnerabilitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryVulnerabilitiesInternalServerError) GetPayload() *models.DomainSPAPIQueryResponse {
@@ -805,11 +818,13 @@ func (o *QueryVulnerabilitiesServiceUnavailable) Code() int {
 }
 
 func (o *QueryVulnerabilitiesServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesServiceUnavailable %s", 503, payload)
 }
 
 func (o *QueryVulnerabilitiesServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesServiceUnavailable %s", 503, payload)
 }
 
 func (o *QueryVulnerabilitiesServiceUnavailable) GetPayload() *models.DomainSPAPIQueryResponse {

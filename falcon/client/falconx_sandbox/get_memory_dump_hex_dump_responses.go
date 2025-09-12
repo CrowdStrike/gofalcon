@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetMemoryDumpHexDumpOK) Code() int {
 }
 
 func (o *GetMemoryDumpHexDumpOK) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpOK %s", 200, payload)
 }
 
 func (o *GetMemoryDumpHexDumpOK) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpOK %s", 200, payload)
 }
 
 func (o *GetMemoryDumpHexDumpOK) GetPayload() *models.MsaspecQueryResponse {
@@ -234,11 +237,13 @@ func (o *GetMemoryDumpHexDumpBadRequest) Code() int {
 }
 
 func (o *GetMemoryDumpHexDumpBadRequest) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpBadRequest %s", 400, payload)
 }
 
 func (o *GetMemoryDumpHexDumpBadRequest) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpBadRequest %s", 400, payload)
 }
 
 func (o *GetMemoryDumpHexDumpBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetMemoryDumpHexDumpForbidden) Code() int {
 }
 
 func (o *GetMemoryDumpHexDumpForbidden) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpForbidden %s", 403, payload)
 }
 
 func (o *GetMemoryDumpHexDumpForbidden) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpForbidden %s", 403, payload)
 }
 
 func (o *GetMemoryDumpHexDumpForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *GetMemoryDumpHexDumpNotFound) Code() int {
 }
 
 func (o *GetMemoryDumpHexDumpNotFound) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpNotFound %s", 404, payload)
 }
 
 func (o *GetMemoryDumpHexDumpNotFound) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpNotFound %s", 404, payload)
 }
 
 func (o *GetMemoryDumpHexDumpNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetMemoryDumpHexDumpTooManyRequests) Code() int {
 }
 
 func (o *GetMemoryDumpHexDumpTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMemoryDumpHexDumpTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMemoryDumpHexDumpTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetMemoryDumpHexDumpInternalServerError) Code() int {
 }
 
 func (o *GetMemoryDumpHexDumpInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpInternalServerError %s", 500, payload)
 }
 
 func (o *GetMemoryDumpHexDumpInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/memory-dump/hex-dump/v1][%d] getMemoryDumpHexDumpInternalServerError %s", 500, payload)
 }
 
 func (o *GetMemoryDumpHexDumpInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package cases
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueriesCasesGetV1OK) Code() int {
 }
 
 func (o *QueriesCasesGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1OK %s", 200, payload)
 }
 
 func (o *QueriesCasesGetV1OK) String() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1OK %s", 200, payload)
 }
 
 func (o *QueriesCasesGetV1OK) GetPayload() *models.CasesapiGetQueriesCasesV1Response {
@@ -228,11 +231,13 @@ func (o *QueriesCasesGetV1BadRequest) Code() int {
 }
 
 func (o *QueriesCasesGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *QueriesCasesGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *QueriesCasesGetV1BadRequest) GetPayload() *models.CasesapiGetQueriesCasesV1Response {
@@ -338,11 +343,13 @@ func (o *QueriesCasesGetV1Forbidden) Code() int {
 }
 
 func (o *QueriesCasesGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesCasesGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesCasesGetV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueriesCasesGetV1TooManyRequests) Code() int {
 }
 
 func (o *QueriesCasesGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesCasesGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesCasesGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueriesCasesGetV1InternalServerError) Code() int {
 }
 
 func (o *QueriesCasesGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesCasesGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cases/queries/cases/v1][%d] queriesCasesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesCasesGetV1InternalServerError) GetPayload() *models.CasesapiGetQueriesCasesV1Response {

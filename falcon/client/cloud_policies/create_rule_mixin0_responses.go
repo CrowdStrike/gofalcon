@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateRuleMixin0OK) Code() int {
 }
 
 func (o *CreateRuleMixin0OK) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0OK %s", 200, payload)
 }
 
 func (o *CreateRuleMixin0OK) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0OK %s", 200, payload)
 }
 
 func (o *CreateRuleMixin0OK) GetPayload() *models.CommonCreateRuleResponse {
@@ -234,11 +237,13 @@ func (o *CreateRuleMixin0BadRequest) Code() int {
 }
 
 func (o *CreateRuleMixin0BadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0BadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleMixin0BadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0BadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleMixin0BadRequest) GetPayload() *models.CommonCreateRuleResponse {
@@ -344,11 +349,13 @@ func (o *CreateRuleMixin0Forbidden) Code() int {
 }
 
 func (o *CreateRuleMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Forbidden %s", 403, payload)
 }
 
 func (o *CreateRuleMixin0Forbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Forbidden %s", 403, payload)
 }
 
 func (o *CreateRuleMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *CreateRuleMixin0Conflict) Code() int {
 }
 
 func (o *CreateRuleMixin0Conflict) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Conflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Conflict %s", 409, payload)
 }
 
 func (o *CreateRuleMixin0Conflict) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Conflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0Conflict %s", 409, payload)
 }
 
 func (o *CreateRuleMixin0Conflict) GetPayload() *models.CommonEntitiesResponse {
@@ -568,11 +577,13 @@ func (o *CreateRuleMixin0TooManyRequests) Code() int {
 }
 
 func (o *CreateRuleMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateRuleMixin0InternalServerError) Code() int {
 }
 
 func (o *CreateRuleMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-policies/entities/rules/v1][%d] createRuleMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleMixin0InternalServerError) GetPayload() *models.CommonEntitiesResponse {

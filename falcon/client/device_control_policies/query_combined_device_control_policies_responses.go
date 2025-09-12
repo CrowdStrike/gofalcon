@@ -6,6 +6,7 @@ package device_control_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryCombinedDeviceControlPoliciesOK) Code() int {
 }
 
 func (o *QueryCombinedDeviceControlPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesOK) GetPayload() *models.DeviceControlRespV1 {
@@ -228,11 +231,13 @@ func (o *QueryCombinedDeviceControlPoliciesBadRequest) Code() int {
 }
 
 func (o *QueryCombinedDeviceControlPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesBadRequest) GetPayload() *models.DeviceControlRespV1 {
@@ -338,11 +343,13 @@ func (o *QueryCombinedDeviceControlPoliciesForbidden) Code() int {
 }
 
 func (o *QueryCombinedDeviceControlPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) Code() int {
 }
 
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryCombinedDeviceControlPoliciesInternalServerError) Code() int {
 }
 
 func (o *QueryCombinedDeviceControlPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedDeviceControlPoliciesInternalServerError) GetPayload() *models.DeviceControlRespV1 {

@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetRolesByIDOK) Code() int {
 }
 
 func (o *GetRolesByIDOK) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdOK %s", 200, payload)
 }
 
 func (o *GetRolesByIDOK) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdOK %s", 200, payload)
 }
 
 func (o *GetRolesByIDOK) GetPayload() *models.DomainMSSPRoleResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetRolesByIDMultiStatus) Code() int {
 }
 
 func (o *GetRolesByIDMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdMultiStatus %s", 207, payload)
 }
 
 func (o *GetRolesByIDMultiStatus) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdMultiStatus %s", 207, payload)
 }
 
 func (o *GetRolesByIDMultiStatus) GetPayload() *models.DomainMSSPRoleResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetRolesByIDBadRequest) Code() int {
 }
 
 func (o *GetRolesByIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdBadRequest %s", 400, payload)
 }
 
 func (o *GetRolesByIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdBadRequest %s", 400, payload)
 }
 
 func (o *GetRolesByIDBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetRolesByIDForbidden) Code() int {
 }
 
 func (o *GetRolesByIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdForbidden %s", 403, payload)
 }
 
 func (o *GetRolesByIDForbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdForbidden %s", 403, payload)
 }
 
 func (o *GetRolesByIDForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *GetRolesByIDTooManyRequests) Code() int {
 }
 
 func (o *GetRolesByIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRolesByIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRolesByIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetRolesByIDInternalServerError) Code() int {
 }
 
 func (o *GetRolesByIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdInternalServerError %s", 500, payload)
 }
 
 func (o *GetRolesByIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdInternalServerError %s", 500, payload)
 }
 
 func (o *GetRolesByIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

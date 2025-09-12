@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RegenerateAPIKeyOK) Code() int {
 }
 
 func (o *RegenerateAPIKeyOK) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyOK %s", 200, payload)
 }
 
 func (o *RegenerateAPIKeyOK) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyOK %s", 200, payload)
 }
 
 func (o *RegenerateAPIKeyOK) GetPayload() *models.K8sregRegenAPIKeyResp {
@@ -234,11 +237,13 @@ func (o *RegenerateAPIKeyMultiStatus) Code() int {
 }
 
 func (o *RegenerateAPIKeyMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyMultiStatus %s", 207, payload)
 }
 
 func (o *RegenerateAPIKeyMultiStatus) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyMultiStatus %s", 207, payload)
 }
 
 func (o *RegenerateAPIKeyMultiStatus) GetPayload() *models.K8sregRegenAPIKeyResp {
@@ -344,11 +349,13 @@ func (o *RegenerateAPIKeyBadRequest) Code() int {
 }
 
 func (o *RegenerateAPIKeyBadRequest) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyBadRequest %s", 400, payload)
 }
 
 func (o *RegenerateAPIKeyBadRequest) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyBadRequest %s", 400, payload)
 }
 
 func (o *RegenerateAPIKeyBadRequest) GetPayload() *models.K8sregRegenAPIKeyResp {
@@ -454,11 +461,13 @@ func (o *RegenerateAPIKeyForbidden) Code() int {
 }
 
 func (o *RegenerateAPIKeyForbidden) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyForbidden %s", 403, payload)
 }
 
 func (o *RegenerateAPIKeyForbidden) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyForbidden %s", 403, payload)
 }
 
 func (o *RegenerateAPIKeyForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *RegenerateAPIKeyTooManyRequests) Code() int {
 }
 
 func (o *RegenerateAPIKeyTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyTooManyRequests %s", 429, payload)
 }
 
 func (o *RegenerateAPIKeyTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyTooManyRequests %s", 429, payload)
 }
 
 func (o *RegenerateAPIKeyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RegenerateAPIKeyInternalServerError) Code() int {
 }
 
 func (o *RegenerateAPIKeyInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyInternalServerError %s", 500, payload)
 }
 
 func (o *RegenerateAPIKeyInternalServerError) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyInternalServerError %s", 500, payload)
 }
 
 func (o *RegenerateAPIKeyInternalServerError) GetPayload() *models.K8sregRegenAPIKeyResp {

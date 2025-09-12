@@ -23,7 +23,7 @@ type ItautomationCreateTaskRequest struct {
 
 	// Access type of the task
 	// Required: true
-	// Enum: [Public Shared]
+	// Enum: ["Public","Shared"]
 	AccessType *string `json:"access_type"`
 
 	// Assigned user group IDs of the task, when access_type is Shared. Use GET /it-automation/queries/it-user-groups/v1 to fetch user group IDs
@@ -66,7 +66,7 @@ type ItautomationCreateTaskRequest struct {
 
 	// Type of task
 	// Required: true
-	// Enum: [query remediation]
+	// Enum: ["query","remediation"]
 	TaskType *string `json:"task_type"`
 
 	// Conditions that trigger remediation scripts execution

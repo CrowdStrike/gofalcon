@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ExecuteFunctionDataOK) Code() int {
 }
 
 func (o *ExecuteFunctionDataOK) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionDataOK) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionDataOK) GetPayload() *models.TypesGeneralQueryResponse {
@@ -240,11 +243,13 @@ func (o *ExecuteFunctionDataBadRequest) Code() int {
 }
 
 func (o *ExecuteFunctionDataBadRequest) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionDataBadRequest) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionDataBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *ExecuteFunctionDataUnauthorized) Code() int {
 }
 
 func (o *ExecuteFunctionDataUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionDataUnauthorized) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionDataUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *ExecuteFunctionDataForbidden) Code() int {
 }
 
 func (o *ExecuteFunctionDataForbidden) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionDataForbidden) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionDataForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *ExecuteFunctionDataTooManyRequests) Code() int {
 }
 
 func (o *ExecuteFunctionDataTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionDataTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionDataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *ExecuteFunctionDataInternalServerError) Code() int {
 }
 
 func (o *ExecuteFunctionDataInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionDataInternalServerError) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionDataInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ExecuteFunctionDataServiceUnavailable) Code() int {
 }
 
 func (o *ExecuteFunctionDataServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionDataServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/function-data/v1][%d] executeFunctionDataServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionDataServiceUnavailable) GetPayload() *models.TypesErrorMessage {

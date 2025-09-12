@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteUserGroupsOK) Code() int {
 }
 
 func (o *DeleteUserGroupsOK) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsOK %s", 200, payload)
 }
 
 func (o *DeleteUserGroupsOK) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsOK %s", 200, payload)
 }
 
 func (o *DeleteUserGroupsOK) GetPayload() *models.MsaEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *DeleteUserGroupsMultiStatus) Code() int {
 }
 
 func (o *DeleteUserGroupsMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteUserGroupsMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteUserGroupsMultiStatus) GetPayload() *models.MsaEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *DeleteUserGroupsBadRequest) Code() int {
 }
 
 func (o *DeleteUserGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteUserGroupsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteUserGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *DeleteUserGroupsForbidden) Code() int {
 }
 
 func (o *DeleteUserGroupsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *DeleteUserGroupsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *DeleteUserGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *DeleteUserGroupsTooManyRequests) Code() int {
 }
 
 func (o *DeleteUserGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteUserGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteUserGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteUserGroupsInternalServerError) Code() int {
 }
 
 func (o *DeleteUserGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteUserGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteUserGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

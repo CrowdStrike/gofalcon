@@ -6,6 +6,7 @@ package quick_scan
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetScansOK) Code() int {
 }
 
 func (o *GetScansOK) Error() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK %s", 200, payload)
 }
 
 func (o *GetScansOK) String() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK %s", 200, payload)
 }
 
 func (o *GetScansOK) GetPayload() *models.MlscannerapiScanV1Response {
@@ -234,11 +237,13 @@ func (o *GetScansBadRequest) Code() int {
 }
 
 func (o *GetScansBadRequest) Error() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansBadRequest %s", 400, payload)
 }
 
 func (o *GetScansBadRequest) String() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansBadRequest %s", 400, payload)
 }
 
 func (o *GetScansBadRequest) GetPayload() *models.MlscannerapiScanV1Response {
@@ -344,11 +349,13 @@ func (o *GetScansForbidden) Code() int {
 }
 
 func (o *GetScansForbidden) Error() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansForbidden %s", 403, payload)
 }
 
 func (o *GetScansForbidden) String() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansForbidden %s", 403, payload)
 }
 
 func (o *GetScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *GetScansNotFound) Code() int {
 }
 
 func (o *GetScansNotFound) Error() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansNotFound %s", 404, payload)
 }
 
 func (o *GetScansNotFound) String() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansNotFound %s", 404, payload)
 }
 
 func (o *GetScansNotFound) GetPayload() *models.MlscannerapiScanV1Response {
@@ -568,11 +577,13 @@ func (o *GetScansTooManyRequests) Code() int {
 }
 
 func (o *GetScansTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetScansInternalServerError) Code() int {
 }
 
 func (o *GetScansInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError %s", 500, payload)
 }
 
 func (o *GetScansInternalServerError) String() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError %s", 500, payload)
 }
 
 func (o *GetScansInternalServerError) GetPayload() *models.MlscannerapiScanV1Response {

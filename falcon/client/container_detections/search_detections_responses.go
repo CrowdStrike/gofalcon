@@ -6,6 +6,7 @@ package container_detections
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *SearchDetectionsOK) Code() int {
 }
 
 func (o *SearchDetectionsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsOK %s", 200, payload)
 }
 
 func (o *SearchDetectionsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsOK %s", 200, payload)
 }
 
 func (o *SearchDetectionsOK) GetPayload() *models.CommonGenericEntityResponseString {
@@ -222,11 +225,13 @@ func (o *SearchDetectionsForbidden) Code() int {
 }
 
 func (o *SearchDetectionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsForbidden %s", 403, payload)
 }
 
 func (o *SearchDetectionsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsForbidden %s", 403, payload)
 }
 
 func (o *SearchDetectionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *SearchDetectionsTooManyRequests) Code() int {
 }
 
 func (o *SearchDetectionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchDetectionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchDetectionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *SearchDetectionsInternalServerError) Code() int {
 }
 
 func (o *SearchDetectionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchDetectionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/detections/v1][%d] searchDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchDetectionsInternalServerError) GetPayload() *models.CoreEntitiesResponse {

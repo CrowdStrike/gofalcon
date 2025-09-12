@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCSPMGCPValidateAccountsExtOK) Code() int {
 }
 
 func (o *GetCSPMGCPValidateAccountsExtOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtOK %s", 200, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtOK) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtOK %s", 200, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtOK) GetPayload() *models.RegistrationGCPAccountValidationResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetCSPMGCPValidateAccountsExtBadRequest) Code() int {
 }
 
 func (o *GetCSPMGCPValidateAccountsExtBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtBadRequest) GetPayload() *models.RegistrationGCPAccountValidationResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetCSPMGCPValidateAccountsExtForbidden) Code() int {
 }
 
 func (o *GetCSPMGCPValidateAccountsExtForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetCSPMGCPValidateAccountsExtNotFound) Code() int {
 }
 
 func (o *GetCSPMGCPValidateAccountsExtNotFound) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtNotFound %s", 404, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtNotFound) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtNotFound %s", 404, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtNotFound) GetPayload() *models.RegistrationGCPAccountValidationResponseV1 {
@@ -568,11 +577,13 @@ func (o *GetCSPMGCPValidateAccountsExtTooManyRequests) Code() int {
 }
 
 func (o *GetCSPMGCPValidateAccountsExtTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCSPMGCPValidateAccountsExtInternalServerError) Code() int {
 }
 
 func (o *GetCSPMGCPValidateAccountsExtInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMGCPValidateAccountsExtInternalServerError) GetPayload() *models.RegistrationGCPAccountValidationResponseV1 {

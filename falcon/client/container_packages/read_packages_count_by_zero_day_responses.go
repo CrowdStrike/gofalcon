@@ -6,6 +6,7 @@ package container_packages
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPackagesCountByZeroDayOK) Code() int {
 }
 
 func (o *ReadPackagesCountByZeroDayOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayOK %s", 200, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayOK %s", 200, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayOK) GetPayload() *models.CommonCountResponse {
@@ -222,11 +225,13 @@ func (o *ReadPackagesCountByZeroDayForbidden) Code() int {
 }
 
 func (o *ReadPackagesCountByZeroDayForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPackagesCountByZeroDayTooManyRequests) Code() int {
 }
 
 func (o *ReadPackagesCountByZeroDayTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPackagesCountByZeroDayInternalServerError) Code() int {
 }
 
 func (o *ReadPackagesCountByZeroDayInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/count-by-zero-day/v1][%d] readPackagesCountByZeroDayInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesCountByZeroDayInternalServerError) GetPayload() *models.CoreEntitiesResponse {

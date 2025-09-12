@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateNetworkLocationsPrecedenceOK) Code() int {
 }
 
 func (o *UpdateNetworkLocationsPrecedenceOK) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceOK %s", 200, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceOK) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceOK %s", 200, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *UpdateNetworkLocationsPrecedenceBadRequest) Code() int {
 }
 
 func (o *UpdateNetworkLocationsPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdateNetworkLocationsPrecedenceForbidden) Code() int {
 }
 
 func (o *UpdateNetworkLocationsPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateNetworkLocationsPrecedenceInternalServerError) Code() int {
 }
 
 func (o *UpdateNetworkLocationsPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNetworkLocationsPrecedenceInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

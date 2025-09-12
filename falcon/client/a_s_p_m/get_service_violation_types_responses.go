@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *GetServiceViolationTypesOK) Code() int {
 }
 
 func (o *GetServiceViolationTypesOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesOK %s", 200, payload)
 }
 
 func (o *GetServiceViolationTypesOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesOK %s", 200, payload)
 }
 
 func (o *GetServiceViolationTypesOK) GetPayload() *models.TypesGetViolationTypesResponse {
@@ -240,11 +243,13 @@ func (o *GetServiceViolationTypesBadRequest) Code() int {
 }
 
 func (o *GetServiceViolationTypesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesBadRequest %s", 400, payload)
 }
 
 func (o *GetServiceViolationTypesBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesBadRequest %s", 400, payload)
 }
 
 func (o *GetServiceViolationTypesBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *GetServiceViolationTypesUnauthorized) Code() int {
 }
 
 func (o *GetServiceViolationTypesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesUnauthorized %s", 401, payload)
 }
 
 func (o *GetServiceViolationTypesUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesUnauthorized %s", 401, payload)
 }
 
 func (o *GetServiceViolationTypesUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *GetServiceViolationTypesForbidden) Code() int {
 }
 
 func (o *GetServiceViolationTypesForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesForbidden %s", 403, payload)
 }
 
 func (o *GetServiceViolationTypesForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesForbidden %s", 403, payload)
 }
 
 func (o *GetServiceViolationTypesForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *GetServiceViolationTypesTooManyRequests) Code() int {
 }
 
 func (o *GetServiceViolationTypesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetServiceViolationTypesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetServiceViolationTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *GetServiceViolationTypesInternalServerError) Code() int {
 }
 
 func (o *GetServiceViolationTypesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesInternalServerError %s", 500, payload)
 }
 
 func (o *GetServiceViolationTypesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesInternalServerError %s", 500, payload)
 }
 
 func (o *GetServiceViolationTypesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *GetServiceViolationTypesServiceUnavailable) Code() int {
 }
 
 func (o *GetServiceViolationTypesServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetServiceViolationTypesServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/services/violations/types][%d] getServiceViolationTypesServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetServiceViolationTypesServiceUnavailable) GetPayload() *models.TypesErrorMessage {

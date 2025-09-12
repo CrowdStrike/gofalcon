@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteCSPMAwsAccountOK) Code() int {
 }
 
 func (o *DeleteCSPMAwsAccountOK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountOK %s", 200, payload)
 }
 
 func (o *DeleteCSPMAwsAccountOK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountOK %s", 200, payload)
 }
 
 func (o *DeleteCSPMAwsAccountOK) GetPayload() *models.MsaspecResponseFields {
@@ -234,11 +237,13 @@ func (o *DeleteCSPMAwsAccountMultiStatus) Code() int {
 }
 
 func (o *DeleteCSPMAwsAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCSPMAwsAccountMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCSPMAwsAccountMultiStatus) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *DeleteCSPMAwsAccountBadRequest) Code() int {
 }
 
 func (o *DeleteCSPMAwsAccountBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCSPMAwsAccountBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCSPMAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *DeleteCSPMAwsAccountForbidden) Code() int {
 }
 
 func (o *DeleteCSPMAwsAccountForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *DeleteCSPMAwsAccountForbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *DeleteCSPMAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *DeleteCSPMAwsAccountTooManyRequests) Code() int {
 }
 
 func (o *DeleteCSPMAwsAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCSPMAwsAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCSPMAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteCSPMAwsAccountInternalServerError) Code() int {
 }
 
 func (o *DeleteCSPMAwsAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCSPMAwsAccountInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCSPMAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRDeletePutFilesOK) Code() int {
 }
 
 func (o *RTRDeletePutFilesOK) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesOK %s", 200, payload)
 }
 
 func (o *RTRDeletePutFilesOK) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesOK %s", 200, payload)
 }
 
 func (o *RTRDeletePutFilesOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -234,11 +237,13 @@ func (o *RTRDeletePutFilesBadRequest) Code() int {
 }
 
 func (o *RTRDeletePutFilesBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesBadRequest %s", 400, payload)
 }
 
 func (o *RTRDeletePutFilesBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesBadRequest %s", 400, payload)
 }
 
 func (o *RTRDeletePutFilesBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -344,11 +349,13 @@ func (o *RTRDeletePutFilesForbidden) Code() int {
 }
 
 func (o *RTRDeletePutFilesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesForbidden %s", 403, payload)
 }
 
 func (o *RTRDeletePutFilesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesForbidden %s", 403, payload)
 }
 
 func (o *RTRDeletePutFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRDeletePutFilesNotFound) Code() int {
 }
 
 func (o *RTRDeletePutFilesNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesNotFound %s", 404, payload)
 }
 
 func (o *RTRDeletePutFilesNotFound) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesNotFound %s", 404, payload)
 }
 
 func (o *RTRDeletePutFilesNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *RTRDeletePutFilesTooManyRequests) Code() int {
 }
 
 func (o *RTRDeletePutFilesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRDeletePutFilesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRDeletePutFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRDeletePutFilesInternalServerError) Code() int {
 }
 
 func (o *RTRDeletePutFilesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesInternalServerError %s", 500, payload)
 }
 
 func (o *RTRDeletePutFilesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/put-files/v1][%d] rTRDeletePutFilesInternalServerError %s", 500, payload)
 }
 
 func (o *RTRDeletePutFilesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ITAutomationGetTaskGroupsByQueryOK) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryOK) GetPayload() *models.ItautomationGetTaskGroupsResponse {
@@ -234,11 +237,13 @@ func (o *ITAutomationGetTaskGroupsByQueryMultiStatus) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryMultiStatus %s", 207, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryMultiStatus) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryMultiStatus %s", 207, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryMultiStatus) GetPayload() *models.ItautomationGetTaskGroupsResponse {
@@ -344,11 +349,13 @@ func (o *ITAutomationGetTaskGroupsByQueryBadRequest) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *ITAutomationGetTaskGroupsByQueryForbidden) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *ITAutomationGetTaskGroupsByQueryTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ITAutomationGetTaskGroupsByQueryInternalServerError) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-groups/v1][%d] iTAutomationGetTaskGroupsByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsByQueryInternalServerError) GetPayload() *models.MsaspecResponseFields {

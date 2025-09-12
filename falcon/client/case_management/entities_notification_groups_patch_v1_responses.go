@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesNotificationGroupsPatchV1OK) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsPatchV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1OK %s", 200, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1OK) String() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1OK %s", 200, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1OK) GetPayload() *models.APINotificationGroupV1Response {
@@ -228,11 +231,13 @@ func (o *EntitiesNotificationGroupsPatchV1BadRequest) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsPatchV1BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *EntitiesNotificationGroupsPatchV1Forbidden) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsPatchV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *EntitiesNotificationGroupsPatchV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsPatchV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesNotificationGroupsPatchV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsPatchV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsPatchV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesNotificationGroupsPatchV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

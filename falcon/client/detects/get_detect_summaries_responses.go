@@ -6,6 +6,7 @@ package detects
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetDetectSummariesOK) Code() int {
 }
 
 func (o *GetDetectSummariesOK) Error() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesOK %s", 200, payload)
 }
 
 func (o *GetDetectSummariesOK) String() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesOK %s", 200, payload)
 }
 
 func (o *GetDetectSummariesOK) GetPayload() *models.DomainMsaDetectSummariesResponse {
@@ -228,11 +231,13 @@ func (o *GetDetectSummariesBadRequest) Code() int {
 }
 
 func (o *GetDetectSummariesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesBadRequest %s", 400, payload)
 }
 
 func (o *GetDetectSummariesBadRequest) String() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesBadRequest %s", 400, payload)
 }
 
 func (o *GetDetectSummariesBadRequest) GetPayload() *models.DomainMsaDetectSummariesResponse {
@@ -338,11 +343,13 @@ func (o *GetDetectSummariesForbidden) Code() int {
 }
 
 func (o *GetDetectSummariesForbidden) Error() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesForbidden %s", 403, payload)
 }
 
 func (o *GetDetectSummariesForbidden) String() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesForbidden %s", 403, payload)
 }
 
 func (o *GetDetectSummariesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetDetectSummariesTooManyRequests) Code() int {
 }
 
 func (o *GetDetectSummariesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDetectSummariesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDetectSummariesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetDetectSummariesInternalServerError) Code() int {
 }
 
 func (o *GetDetectSummariesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesInternalServerError %s", 500, payload)
 }
 
 func (o *GetDetectSummariesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesInternalServerError %s", 500, payload)
 }
 
 func (o *GetDetectSummariesInternalServerError) GetPayload() *models.DomainMsaDetectSummariesResponse {

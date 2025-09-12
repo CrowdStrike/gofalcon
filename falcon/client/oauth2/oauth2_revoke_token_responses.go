@@ -6,6 +6,7 @@ package oauth2
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *Oauth2RevokeTokenOK) Code() int {
 }
 
 func (o *Oauth2RevokeTokenOK) Error() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenOK %s", 200, payload)
 }
 
 func (o *Oauth2RevokeTokenOK) String() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenOK %s", 200, payload)
 }
 
 func (o *Oauth2RevokeTokenOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -228,11 +231,13 @@ func (o *Oauth2RevokeTokenBadRequest) Code() int {
 }
 
 func (o *Oauth2RevokeTokenBadRequest) Error() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenBadRequest %s", 400, payload)
 }
 
 func (o *Oauth2RevokeTokenBadRequest) String() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenBadRequest %s", 400, payload)
 }
 
 func (o *Oauth2RevokeTokenBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *Oauth2RevokeTokenForbidden) Code() int {
 }
 
 func (o *Oauth2RevokeTokenForbidden) Error() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenForbidden %s", 403, payload)
 }
 
 func (o *Oauth2RevokeTokenForbidden) String() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenForbidden %s", 403, payload)
 }
 
 func (o *Oauth2RevokeTokenForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *Oauth2RevokeTokenTooManyRequests) Code() int {
 }
 
 func (o *Oauth2RevokeTokenTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenTooManyRequests %s", 429, payload)
 }
 
 func (o *Oauth2RevokeTokenTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenTooManyRequests %s", 429, payload)
 }
 
 func (o *Oauth2RevokeTokenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *Oauth2RevokeTokenInternalServerError) Code() int {
 }
 
 func (o *Oauth2RevokeTokenInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenInternalServerError %s", 500, payload)
 }
 
 func (o *Oauth2RevokeTokenInternalServerError) String() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenInternalServerError %s", 500, payload)
 }
 
 func (o *Oauth2RevokeTokenInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

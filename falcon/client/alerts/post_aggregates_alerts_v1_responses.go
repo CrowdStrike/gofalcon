@@ -6,6 +6,7 @@ package alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *PostAggregatesAlertsV1OK) Code() int {
 }
 
 func (o *PostAggregatesAlertsV1OK) Error() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK %s", 200, payload)
 }
 
 func (o *PostAggregatesAlertsV1OK) String() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK %s", 200, payload)
 }
 
 func (o *PostAggregatesAlertsV1OK) GetPayload() *models.DetectsapiAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *PostAggregatesAlertsV1BadRequest) Code() int {
 }
 
 func (o *PostAggregatesAlertsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest %s", 400, payload)
 }
 
 func (o *PostAggregatesAlertsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest %s", 400, payload)
 }
 
 func (o *PostAggregatesAlertsV1BadRequest) GetPayload() *models.DetectsapiAggregatesResponse {
@@ -338,11 +343,13 @@ func (o *PostAggregatesAlertsV1Forbidden) Code() int {
 }
 
 func (o *PostAggregatesAlertsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1Forbidden %s", 403, payload)
 }
 
 func (o *PostAggregatesAlertsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1Forbidden %s", 403, payload)
 }
 
 func (o *PostAggregatesAlertsV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *PostAggregatesAlertsV1TooManyRequests) Code() int {
 }
 
 func (o *PostAggregatesAlertsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostAggregatesAlertsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostAggregatesAlertsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *PostAggregatesAlertsV1InternalServerError) Code() int {
 }
 
 func (o *PostAggregatesAlertsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostAggregatesAlertsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostAggregatesAlertsV1InternalServerError) GetPayload() *models.DetectsapiAggregatesResponse {

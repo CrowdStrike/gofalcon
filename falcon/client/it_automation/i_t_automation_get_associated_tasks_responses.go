@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationGetAssociatedTasksOK) Code() int {
 }
 
 func (o *ITAutomationGetAssociatedTasksOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksOK) GetPayload() *models.ItautomationFileTaskAssociationResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationGetAssociatedTasksBadRequest) Code() int {
 }
 
 func (o *ITAutomationGetAssociatedTasksBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationGetAssociatedTasksForbidden) Code() int {
 }
 
 func (o *ITAutomationGetAssociatedTasksForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationGetAssociatedTasksTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationGetAssociatedTasksTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationGetAssociatedTasksInternalServerError) Code() int {
 }
 
 func (o *ITAutomationGetAssociatedTasksInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/associated-tasks/v1][%d] iTAutomationGetAssociatedTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetAssociatedTasksInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

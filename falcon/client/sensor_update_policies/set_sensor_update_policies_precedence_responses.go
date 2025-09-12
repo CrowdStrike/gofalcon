@@ -6,6 +6,7 @@ package sensor_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *SetSensorUpdatePoliciesPrecedenceOK) Code() int {
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) Code() int {
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *SetSensorUpdatePoliciesPrecedenceForbidden) Code() int {
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) Code() int {
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {

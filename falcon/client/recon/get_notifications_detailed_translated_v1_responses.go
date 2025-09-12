@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetNotificationsDetailedTranslatedV1OK) Code() int {
 }
 
 func (o *GetNotificationsDetailedTranslatedV1OK) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1OK %s", 200, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1OK) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1OK %s", 200, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1OK) GetPayload() *models.DomainNotificationDetailsResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetNotificationsDetailedTranslatedV1BadRequest) Code() int {
 }
 
 func (o *GetNotificationsDetailedTranslatedV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1BadRequest %s", 400, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1BadRequest %s", 400, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -344,11 +349,13 @@ func (o *GetNotificationsDetailedTranslatedV1Unauthorized) Code() int {
 }
 
 func (o *GetNotificationsDetailedTranslatedV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetNotificationsDetailedTranslatedV1Forbidden) Code() int {
 }
 
 func (o *GetNotificationsDetailedTranslatedV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Forbidden %s", 403, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1Forbidden %s", 403, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -568,11 +577,13 @@ func (o *GetNotificationsDetailedTranslatedV1TooManyRequests) Code() int {
 }
 
 func (o *GetNotificationsDetailedTranslatedV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetNotificationsDetailedTranslatedV1InternalServerError) Code() int {
 }
 
 func (o *GetNotificationsDetailedTranslatedV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-detailed-translated/v1][%d] getNotificationsDetailedTranslatedV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetNotificationsDetailedTranslatedV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

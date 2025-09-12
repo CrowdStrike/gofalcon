@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RTRCheckActiveResponderCommandStatusOK) Code() int {
 }
 
 func (o *RTRCheckActiveResponderCommandStatusOK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusOK %s", 200, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusOK) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusOK %s", 200, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusOK) GetPayload() *models.DomainStatusResponseWrapper {
@@ -228,11 +231,13 @@ func (o *RTRCheckActiveResponderCommandStatusUnauthorized) Code() int {
 }
 
 func (o *RTRCheckActiveResponderCommandStatusUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusUnauthorized %s", 401, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusUnauthorized) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusUnauthorized %s", 401, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusUnauthorized) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *RTRCheckActiveResponderCommandStatusForbidden) Code() int {
 }
 
 func (o *RTRCheckActiveResponderCommandStatusForbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusForbidden %s", 403, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusForbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusForbidden %s", 403, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) Code() int {
 }
 
 func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RTRCheckActiveResponderCommandStatusInternalServerError) Code() int {
 }
 
 func (o *RTRCheckActiveResponderCommandStatusInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusInternalServerError %s", 500, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusInternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusInternalServerError %s", 500, payload)
 }
 
 func (o *RTRCheckActiveResponderCommandStatusInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

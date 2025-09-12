@@ -6,6 +6,7 @@ package container_alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *SearchAndReadContainerAlertsOK) Code() int {
 }
 
 func (o *SearchAndReadContainerAlertsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsOK %s", 200, payload)
 }
 
 func (o *SearchAndReadContainerAlertsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsOK %s", 200, payload)
 }
 
 func (o *SearchAndReadContainerAlertsOK) GetPayload() *models.AlertsContainerAlertsEntityResponse {
@@ -222,11 +225,13 @@ func (o *SearchAndReadContainerAlertsForbidden) Code() int {
 }
 
 func (o *SearchAndReadContainerAlertsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsForbidden %s", 403, payload)
 }
 
 func (o *SearchAndReadContainerAlertsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsForbidden %s", 403, payload)
 }
 
 func (o *SearchAndReadContainerAlertsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *SearchAndReadContainerAlertsTooManyRequests) Code() int {
 }
 
 func (o *SearchAndReadContainerAlertsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchAndReadContainerAlertsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchAndReadContainerAlertsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *SearchAndReadContainerAlertsInternalServerError) Code() int {
 }
 
 func (o *SearchAndReadContainerAlertsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchAndReadContainerAlertsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/container-alerts/v1][%d] searchAndReadContainerAlertsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchAndReadContainerAlertsInternalServerError) GetPayload() *models.CoreEntitiesResponse {

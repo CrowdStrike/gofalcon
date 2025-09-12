@@ -6,6 +6,7 @@ package cao_hunting
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetArchiveExportOK) Code() int {
 }
 
 func (o *GetArchiveExportOK) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportOK %s", 200, payload)
 }
 
 func (o *GetArchiveExportOK) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportOK %s", 200, payload)
 }
 
 func (o *GetArchiveExportOK) GetPayload() []int64 {
@@ -232,11 +235,13 @@ func (o *GetArchiveExportBadRequest) Code() int {
 }
 
 func (o *GetArchiveExportBadRequest) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportBadRequest %s", 400, payload)
 }
 
 func (o *GetArchiveExportBadRequest) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportBadRequest %s", 400, payload)
 }
 
 func (o *GetArchiveExportBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -342,11 +347,13 @@ func (o *GetArchiveExportForbidden) Code() int {
 }
 
 func (o *GetArchiveExportForbidden) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportForbidden %s", 403, payload)
 }
 
 func (o *GetArchiveExportForbidden) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportForbidden %s", 403, payload)
 }
 
 func (o *GetArchiveExportForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -456,11 +463,13 @@ func (o *GetArchiveExportTooManyRequests) Code() int {
 }
 
 func (o *GetArchiveExportTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetArchiveExportTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetArchiveExportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -577,11 +586,13 @@ func (o *GetArchiveExportClientClosedRequest) Code() int {
 }
 
 func (o *GetArchiveExportClientClosedRequest) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportClientClosedRequest %s", 499, payload)
 }
 
 func (o *GetArchiveExportClientClosedRequest) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportClientClosedRequest %s", 499, payload)
 }
 
 func (o *GetArchiveExportClientClosedRequest) GetPayload() *models.MsaspecResponseFields {
@@ -687,11 +698,13 @@ func (o *GetArchiveExportInternalServerError) Code() int {
 }
 
 func (o *GetArchiveExportInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportInternalServerError %s", 500, payload)
 }
 
 func (o *GetArchiveExportInternalServerError) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/archive-exports/v1][%d] getArchiveExportInternalServerError %s", 500, payload)
 }
 
 func (o *GetArchiveExportInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRListFilesV2OK) Code() int {
 }
 
 func (o *RTRListFilesV2OK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2OK %s", 200, payload)
 }
 
 func (o *RTRListFilesV2OK) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2OK %s", 200, payload)
 }
 
 func (o *RTRListFilesV2OK) GetPayload() *models.DomainListFilesV2ResponseWrapper {
@@ -234,11 +237,13 @@ func (o *RTRListFilesV2BadRequest) Code() int {
 }
 
 func (o *RTRListFilesV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2BadRequest %s", 400, payload)
 }
 
 func (o *RTRListFilesV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2BadRequest %s", 400, payload)
 }
 
 func (o *RTRListFilesV2BadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRListFilesV2Forbidden) Code() int {
 }
 
 func (o *RTRListFilesV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2Forbidden %s", 403, payload)
 }
 
 func (o *RTRListFilesV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2Forbidden %s", 403, payload)
 }
 
 func (o *RTRListFilesV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRListFilesV2NotFound) Code() int {
 }
 
 func (o *RTRListFilesV2NotFound) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2NotFound %s", 404, payload)
 }
 
 func (o *RTRListFilesV2NotFound) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2NotFound %s", 404, payload)
 }
 
 func (o *RTRListFilesV2NotFound) GetPayload() *models.DomainAPIError {
@@ -568,11 +577,13 @@ func (o *RTRListFilesV2TooManyRequests) Code() int {
 }
 
 func (o *RTRListFilesV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListFilesV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListFilesV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRListFilesV2InternalServerError) Code() int {
 }
 
 func (o *RTRListFilesV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2InternalServerError %s", 500, payload)
 }
 
 func (o *RTRListFilesV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2InternalServerError %s", 500, payload)
 }
 
 func (o *RTRListFilesV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

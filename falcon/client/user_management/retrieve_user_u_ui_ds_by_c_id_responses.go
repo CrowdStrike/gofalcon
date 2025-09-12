@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RetrieveUserUUIDsByCIDOK) Code() int {
 }
 
 func (o *RetrieveUserUUIDsByCIDOK) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdOK %s", 200, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDOK) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdOK %s", 200, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *RetrieveUserUUIDsByCIDBadRequest) Code() int {
 }
 
 func (o *RetrieveUserUUIDsByCIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *RetrieveUserUUIDsByCIDForbidden) Code() int {
 }
 
 func (o *RetrieveUserUUIDsByCIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdForbidden %s", 403, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDForbidden) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdForbidden %s", 403, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDForbidden) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *RetrieveUserUUIDsByCIDTooManyRequests) Code() int {
 }
 
 func (o *RetrieveUserUUIDsByCIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RetrieveUserUUIDsByCIDInternalServerError) Code() int {
 }
 
 func (o *RetrieveUserUUIDsByCIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveUserUUIDsByCIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

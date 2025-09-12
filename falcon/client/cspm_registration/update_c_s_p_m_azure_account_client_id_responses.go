@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateCSPMAzureAccountClientIDCreated) Code() int {
 }
 
 func (o *UpdateCSPMAzureAccountClientIDCreated) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdCreated %s", 201, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDCreated) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdCreated %s", 201, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDCreated) GetPayload() *models.RegistrationAzureTenantConfigurationResponseV1 {
@@ -228,11 +231,13 @@ func (o *UpdateCSPMAzureAccountClientIDBadRequest) Code() int {
 }
 
 func (o *UpdateCSPMAzureAccountClientIDBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDBadRequest) GetPayload() *models.RegistrationAzureTenantConfigurationResponseV1 {
@@ -338,11 +343,13 @@ func (o *UpdateCSPMAzureAccountClientIDForbidden) Code() int {
 }
 
 func (o *UpdateCSPMAzureAccountClientIDForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdForbidden %s", 403, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdForbidden %s", 403, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) Code() int {
 }
 
 func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateCSPMAzureAccountClientIDInternalServerError) Code() int {
 }
 
 func (o *UpdateCSPMAzureAccountClientIDInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCSPMAzureAccountClientIDInternalServerError) GetPayload() *models.RegistrationAzureTenantConfigurationResponseV1 {

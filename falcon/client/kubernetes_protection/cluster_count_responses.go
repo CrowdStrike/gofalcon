@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ClusterCountOK) Code() int {
 }
 
 func (o *ClusterCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountOK %s", 200, payload)
 }
 
 func (o *ClusterCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountOK %s", 200, payload)
 }
 
 func (o *ClusterCountOK) GetPayload() *models.CommonCountResponse {
@@ -222,11 +225,13 @@ func (o *ClusterCountForbidden) Code() int {
 }
 
 func (o *ClusterCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountForbidden %s", 403, payload)
 }
 
 func (o *ClusterCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountForbidden %s", 403, payload)
 }
 
 func (o *ClusterCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ClusterCountTooManyRequests) Code() int {
 }
 
 func (o *ClusterCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ClusterCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ClusterCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ClusterCountInternalServerError) Code() int {
 }
 
 func (o *ClusterCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountInternalServerError %s", 500, payload)
 }
 
 func (o *ClusterCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count/v1][%d] clusterCountInternalServerError %s", 500, payload)
 }
 
 func (o *ClusterCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

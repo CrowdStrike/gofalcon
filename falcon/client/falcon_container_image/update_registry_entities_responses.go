@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateRegistryEntitiesOK) Code() int {
 }
 
 func (o *UpdateRegistryEntitiesOK) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesOK %s", 200, payload)
 }
 
 func (o *UpdateRegistryEntitiesOK) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesOK %s", 200, payload)
 }
 
 func (o *UpdateRegistryEntitiesOK) GetPayload() *models.DomainExternalRegistryResponse {
@@ -234,11 +237,13 @@ func (o *UpdateRegistryEntitiesBadRequest) Code() int {
 }
 
 func (o *UpdateRegistryEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRegistryEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRegistryEntitiesBadRequest) GetPayload() *models.DomainExternalRegistryResponse {
@@ -344,11 +349,13 @@ func (o *UpdateRegistryEntitiesForbidden) Code() int {
 }
 
 func (o *UpdateRegistryEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesForbidden %s", 403, payload)
 }
 
 func (o *UpdateRegistryEntitiesForbidden) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesForbidden %s", 403, payload)
 }
 
 func (o *UpdateRegistryEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *UpdateRegistryEntitiesNotFound) Code() int {
 }
 
 func (o *UpdateRegistryEntitiesNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesNotFound %s", 404, payload)
 }
 
 func (o *UpdateRegistryEntitiesNotFound) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesNotFound %s", 404, payload)
 }
 
 func (o *UpdateRegistryEntitiesNotFound) GetPayload() *models.DomainExternalRegistryResponse {
@@ -568,11 +577,13 @@ func (o *UpdateRegistryEntitiesTooManyRequests) Code() int {
 }
 
 func (o *UpdateRegistryEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRegistryEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRegistryEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateRegistryEntitiesInternalServerError) Code() int {
 }
 
 func (o *UpdateRegistryEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRegistryEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/registries/v1][%d] updateRegistryEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRegistryEntitiesInternalServerError) GetPayload() *models.DomainExternalRegistryResponse {

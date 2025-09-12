@@ -21,11 +21,11 @@ import (
 type DevicecontrolapiUSBExceptionBase struct {
 
 	// Action to be taken when the exception is matched
-	// Enum: [FULL_ACCESS BLOCK_EXECUTE BLOCK_WRITE_EXECUTE BLOCK_ALL WHITELIST]
+	// Enum: ["FULL_ACCESS","BLOCK_EXECUTE","BLOCK_WRITE_EXECUTE","BLOCK_ALL","WHITELIST"]
 	Action string `json:"action,omitempty"`
 
 	// USB Device class
-	// Enum: [ANY AUDIO_VIDEO IMAGING MASS_STORAGE MOBILE PRINTER WIRELESS]
+	// Enum: ["ANY","AUDIO_VIDEO","IMAGING","MASS_STORAGE","MOBILE","PRINTER","WIRELESS"]
 	Class string `json:"class,omitempty"`
 
 	// Composite ID of the vendor ID, product ID, and serial number. Format: <vendor ID>_<product ID>_<serial number>

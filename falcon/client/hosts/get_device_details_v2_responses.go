@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetDeviceDetailsV2OK) Code() int {
 }
 
 func (o *GetDeviceDetailsV2OK) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2OK %s", 200, payload)
 }
 
 func (o *GetDeviceDetailsV2OK) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2OK %s", 200, payload)
 }
 
 func (o *GetDeviceDetailsV2OK) GetPayload() *models.DeviceapiDeviceDetailsResponseSwagger {
@@ -222,11 +225,13 @@ func (o *GetDeviceDetailsV2Forbidden) Code() int {
 }
 
 func (o *GetDeviceDetailsV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetDeviceDetailsV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetDeviceDetailsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetDeviceDetailsV2TooManyRequests) Code() int {
 }
 
 func (o *GetDeviceDetailsV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetDeviceDetailsV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetDeviceDetailsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetDeviceDetailsV2InternalServerError) Code() int {
 }
 
 func (o *GetDeviceDetailsV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetDeviceDetailsV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices/v2][%d] getDeviceDetailsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetDeviceDetailsV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

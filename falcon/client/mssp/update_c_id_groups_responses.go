@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateCIDGroupsOK) Code() int {
 }
 
 func (o *UpdateCIDGroupsOK) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsOK %s", 200, payload)
 }
 
 func (o *UpdateCIDGroupsOK) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsOK %s", 200, payload)
 }
 
 func (o *UpdateCIDGroupsOK) GetPayload() *models.DomainCIDGroupsResponseV1 {
@@ -234,11 +237,13 @@ func (o *UpdateCIDGroupsMultiStatus) Code() int {
 }
 
 func (o *UpdateCIDGroupsMultiStatus) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *UpdateCIDGroupsMultiStatus) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *UpdateCIDGroupsMultiStatus) GetPayload() *models.DomainCIDGroupsResponseV1 {
@@ -344,11 +349,13 @@ func (o *UpdateCIDGroupsBadRequest) Code() int {
 }
 
 func (o *UpdateCIDGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCIDGroupsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCIDGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *UpdateCIDGroupsForbidden) Code() int {
 }
 
 func (o *UpdateCIDGroupsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdateCIDGroupsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdateCIDGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *UpdateCIDGroupsTooManyRequests) Code() int {
 }
 
 func (o *UpdateCIDGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCIDGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCIDGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateCIDGroupsInternalServerError) Code() int {
 }
 
 func (o *UpdateCIDGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCIDGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCIDGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

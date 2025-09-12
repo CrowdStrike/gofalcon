@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateRuleGroupsOK) Code() int {
 }
 
 func (o *CreateRuleGroupsOK) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsOK %s", 200, payload)
 }
 
 func (o *CreateRuleGroupsOK) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsOK %s", 200, payload)
 }
 
 func (o *CreateRuleGroupsOK) GetPayload() *models.RulegroupsResponse {
@@ -234,11 +237,13 @@ func (o *CreateRuleGroupsBadRequest) Code() int {
 }
 
 func (o *CreateRuleGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleGroupsBadRequest) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateRuleGroupsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CreateRuleGroupsForbidden) Code() int {
 }
 
 func (o *CreateRuleGroupsForbidden) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleGroupsForbidden) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *CreateRuleGroupsConflict) Code() int {
 }
 
 func (o *CreateRuleGroupsConflict) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsConflict %s", 409, payload)
 }
 
 func (o *CreateRuleGroupsConflict) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsConflict %s", 409, payload)
 }
 
 func (o *CreateRuleGroupsConflict) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CreateRuleGroupsTooManyRequests) Code() int {
 }
 
 func (o *CreateRuleGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateRuleGroupsInternalServerError) Code() int {
 }
 
 func (o *CreateRuleGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/rule-groups/v1][%d] createRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateRuleGroupsInternalServerError) GetPayload() *models.MsaspecResponseFields {

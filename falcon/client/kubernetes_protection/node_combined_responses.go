@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *NodeCombinedOK) Code() int {
 }
 
 func (o *NodeCombinedOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedOK %s", 200, payload)
 }
 
 func (o *NodeCombinedOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedOK %s", 200, payload)
 }
 
 func (o *NodeCombinedOK) GetPayload() *models.ModelsNodeEntityResponse {
@@ -222,11 +225,13 @@ func (o *NodeCombinedForbidden) Code() int {
 }
 
 func (o *NodeCombinedForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedForbidden %s", 403, payload)
 }
 
 func (o *NodeCombinedForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedForbidden %s", 403, payload)
 }
 
 func (o *NodeCombinedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *NodeCombinedTooManyRequests) Code() int {
 }
 
 func (o *NodeCombinedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *NodeCombinedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *NodeCombinedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *NodeCombinedInternalServerError) Code() int {
 }
 
 func (o *NodeCombinedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *NodeCombinedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/nodes/v1][%d] nodeCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *NodeCombinedInternalServerError) GetPayload() *models.CoreEntitiesResponse {

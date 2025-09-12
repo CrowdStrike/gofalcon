@@ -6,6 +6,7 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *IntegrationBuilderUploadV3OK) Code() int {
 }
 
 func (o *IntegrationBuilderUploadV3OK) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3OK %s", 200, payload)
 }
 
 func (o *IntegrationBuilderUploadV3OK) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3OK %s", 200, payload)
 }
 
 func (o *IntegrationBuilderUploadV3OK) GetPayload() *models.UploadDataResponse {
@@ -222,11 +225,13 @@ func (o *IntegrationBuilderUploadV3Forbidden) Code() int {
 }
 
 func (o *IntegrationBuilderUploadV3Forbidden) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3Forbidden %s", 403, payload)
 }
 
 func (o *IntegrationBuilderUploadV3Forbidden) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3Forbidden %s", 403, payload)
 }
 
 func (o *IntegrationBuilderUploadV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *IntegrationBuilderUploadV3TooManyRequests) Code() int {
 }
 
 func (o *IntegrationBuilderUploadV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3TooManyRequests %s", 429, payload)
 }
 
 func (o *IntegrationBuilderUploadV3TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3TooManyRequests %s", 429, payload)
 }
 
 func (o *IntegrationBuilderUploadV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *IntegrationBuilderUploadV3InternalServerError) Code() int {
 }
 
 func (o *IntegrationBuilderUploadV3InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3InternalServerError %s", 500, payload)
 }
 
 func (o *IntegrationBuilderUploadV3InternalServerError) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-upload/v3][%d] integrationBuilderUploadV3InternalServerError %s", 500, payload)
 }
 
 func (o *IntegrationBuilderUploadV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetSampleV3OK) Code() int {
 }
 
 func (o *GetSampleV3OK) Error() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3OK %s", 200, payload)
 }
 
 func (o *GetSampleV3OK) String() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3OK %s", 200, payload)
 }
 
 func (o *GetSampleV3OK) GetPayload() string {
@@ -232,11 +235,13 @@ func (o *GetSampleV3BadRequest) Code() int {
 }
 
 func (o *GetSampleV3BadRequest) Error() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3BadRequest %s", 400, payload)
 }
 
 func (o *GetSampleV3BadRequest) String() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3BadRequest %s", 400, payload)
 }
 
 func (o *GetSampleV3BadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -342,11 +347,13 @@ func (o *GetSampleV3Forbidden) Code() int {
 }
 
 func (o *GetSampleV3Forbidden) Error() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3Forbidden %s", 403, payload)
 }
 
 func (o *GetSampleV3Forbidden) String() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3Forbidden %s", 403, payload)
 }
 
 func (o *GetSampleV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetSampleV3NotFound) Code() int {
 }
 
 func (o *GetSampleV3NotFound) Error() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3NotFound %s", 404, payload)
 }
 
 func (o *GetSampleV3NotFound) String() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3NotFound %s", 404, payload)
 }
 
 func (o *GetSampleV3NotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -566,11 +575,13 @@ func (o *GetSampleV3TooManyRequests) Code() int {
 }
 
 func (o *GetSampleV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSampleV3TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSampleV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -687,11 +698,13 @@ func (o *GetSampleV3InternalServerError) Code() int {
 }
 
 func (o *GetSampleV3InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetSampleV3InternalServerError) String() string {
-	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetSampleV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

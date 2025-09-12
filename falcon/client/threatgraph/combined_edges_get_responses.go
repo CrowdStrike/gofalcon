@@ -6,6 +6,7 @@ package threatgraph
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *CombinedEdgesGetOK) Code() int {
 }
 
 func (o *CombinedEdgesGetOK) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetOK", 200)
 }
 
 func (o *CombinedEdgesGetOK) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetOK", 200)
 }
 
 func (o *CombinedEdgesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *CombinedEdgesGetForbidden) Code() int {
 }
 
 func (o *CombinedEdgesGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetForbidden %s", 403, payload)
 }
 
 func (o *CombinedEdgesGetForbidden) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetForbidden %s", 403, payload)
 }
 
 func (o *CombinedEdgesGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *CombinedEdgesGetTooManyRequests) Code() int {
 }
 
 func (o *CombinedEdgesGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedEdgesGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedEdgesGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *CombinedEdgesGetInternalServerError) Code() int {
 }
 
 func (o *CombinedEdgesGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedEdgesGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/edges/v1][%d] combinedEdgesGetInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedEdgesGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

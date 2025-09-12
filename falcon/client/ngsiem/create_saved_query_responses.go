@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CreateSavedQueryOK) Code() int {
 }
 
 func (o *CreateSavedQueryOK) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryOK %s", 200, payload)
 }
 
 func (o *CreateSavedQueryOK) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryOK %s", 200, payload)
 }
 
 func (o *CreateSavedQueryOK) GetPayload() *models.APICreateSavedQueryResponseV1 {
@@ -240,11 +243,13 @@ func (o *CreateSavedQueryBadRequest) Code() int {
 }
 
 func (o *CreateSavedQueryBadRequest) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryBadRequest %s", 400, payload)
 }
 
 func (o *CreateSavedQueryBadRequest) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryBadRequest %s", 400, payload)
 }
 
 func (o *CreateSavedQueryBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *CreateSavedQueryUnauthorized) Code() int {
 }
 
 func (o *CreateSavedQueryUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryUnauthorized %s", 401, payload)
 }
 
 func (o *CreateSavedQueryUnauthorized) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryUnauthorized %s", 401, payload)
 }
 
 func (o *CreateSavedQueryUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *CreateSavedQueryForbidden) Code() int {
 }
 
 func (o *CreateSavedQueryForbidden) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryForbidden %s", 403, payload)
 }
 
 func (o *CreateSavedQueryForbidden) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryForbidden %s", 403, payload)
 }
 
 func (o *CreateSavedQueryForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *CreateSavedQueryNotFound) Code() int {
 }
 
 func (o *CreateSavedQueryNotFound) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryNotFound %s", 404, payload)
 }
 
 func (o *CreateSavedQueryNotFound) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryNotFound %s", 404, payload)
 }
 
 func (o *CreateSavedQueryNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *CreateSavedQueryTooManyRequests) Code() int {
 }
 
 func (o *CreateSavedQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSavedQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSavedQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CreateSavedQueryInternalServerError) Code() int {
 }
 
 func (o *CreateSavedQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryInternalServerError %s", 500, payload)
 }
 
 func (o *CreateSavedQueryInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/savedqueries-template/v1][%d] createSavedQueryInternalServerError %s", 500, payload)
 }
 
 func (o *CreateSavedQueryInternalServerError) GetPayload() *models.MsaspecResponseFields {

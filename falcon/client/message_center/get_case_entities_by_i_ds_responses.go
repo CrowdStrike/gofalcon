@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetCaseEntitiesByIDsOK) Code() int {
 }
 
 func (o *GetCaseEntitiesByIDsOK) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsOK %s", 200, payload)
 }
 
 func (o *GetCaseEntitiesByIDsOK) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsOK %s", 200, payload)
 }
 
 func (o *GetCaseEntitiesByIDsOK) GetPayload() *models.APIMessageCenterCasesResponse {
@@ -228,11 +231,13 @@ func (o *GetCaseEntitiesByIDsBadRequest) Code() int {
 }
 
 func (o *GetCaseEntitiesByIDsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetCaseEntitiesByIDsBadRequest) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetCaseEntitiesByIDsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetCaseEntitiesByIDsForbidden) Code() int {
 }
 
 func (o *GetCaseEntitiesByIDsForbidden) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsForbidden %s", 403, payload)
 }
 
 func (o *GetCaseEntitiesByIDsForbidden) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsForbidden %s", 403, payload)
 }
 
 func (o *GetCaseEntitiesByIDsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetCaseEntitiesByIDsTooManyRequests) Code() int {
 }
 
 func (o *GetCaseEntitiesByIDsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCaseEntitiesByIDsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCaseEntitiesByIDsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetCaseEntitiesByIDsInternalServerError) Code() int {
 }
 
 func (o *GetCaseEntitiesByIDsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCaseEntitiesByIDsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCaseEntitiesByIDsInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesSlasPostV1OK) Code() int {
 }
 
 func (o *EntitiesSlasPostV1OK) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesSlasPostV1OK) String() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesSlasPostV1OK) GetPayload() *models.APISLAV1Response {
@@ -228,11 +231,13 @@ func (o *EntitiesSlasPostV1BadRequest) Code() int {
 }
 
 func (o *EntitiesSlasPostV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesSlasPostV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesSlasPostV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *EntitiesSlasPostV1Forbidden) Code() int {
 }
 
 func (o *EntitiesSlasPostV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesSlasPostV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesSlasPostV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *EntitiesSlasPostV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesSlasPostV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesSlasPostV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesSlasPostV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesSlasPostV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesSlasPostV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesSlasPostV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/entities/slas/v1][%d] entitiesSlasPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesSlasPostV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

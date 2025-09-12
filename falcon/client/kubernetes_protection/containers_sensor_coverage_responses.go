@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ContainersSensorCoverageOK) Code() int {
 }
 
 func (o *ContainersSensorCoverageOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageOK %s", 200, payload)
 }
 
 func (o *ContainersSensorCoverageOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageOK %s", 200, payload)
 }
 
 func (o *ContainersSensorCoverageOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *ContainersSensorCoverageForbidden) Code() int {
 }
 
 func (o *ContainersSensorCoverageForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageForbidden %s", 403, payload)
 }
 
 func (o *ContainersSensorCoverageForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageForbidden %s", 403, payload)
 }
 
 func (o *ContainersSensorCoverageForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ContainersSensorCoverageTooManyRequests) Code() int {
 }
 
 func (o *ContainersSensorCoverageTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainersSensorCoverageTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainersSensorCoverageTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ContainersSensorCoverageInternalServerError) Code() int {
 }
 
 func (o *ContainersSensorCoverageInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageInternalServerError %s", 500, payload)
 }
 
 func (o *ContainersSensorCoverageInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/sensor-coverage/v1][%d] containersSensorCoverageInternalServerError %s", 500, payload)
 }
 
 func (o *ContainersSensorCoverageInternalServerError) GetPayload() *models.CoreEntitiesResponse {

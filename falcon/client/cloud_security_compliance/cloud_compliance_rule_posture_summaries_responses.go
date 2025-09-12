@@ -6,6 +6,7 @@ package cloud_security_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudComplianceRulePostureSummariesOK) Code() int {
 }
 
 func (o *CloudComplianceRulePostureSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesOK %s", 200, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesOK) String() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesOK %s", 200, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesOK) GetPayload() *models.ComplianceRulePostureSummaryResponse {
@@ -234,11 +237,13 @@ func (o *CloudComplianceRulePostureSummariesBadRequest) Code() int {
 }
 
 func (o *CloudComplianceRulePostureSummariesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesBadRequest %s", 400, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesBadRequest %s", 400, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesBadRequest) GetPayload() *models.RestCursorResponseFields {
@@ -344,11 +349,13 @@ func (o *CloudComplianceRulePostureSummariesForbidden) Code() int {
 }
 
 func (o *CloudComplianceRulePostureSummariesForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesForbidden %s", 403, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesForbidden %s", 403, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *CloudComplianceRulePostureSummariesRequestTimeout) Code() int {
 }
 
 func (o *CloudComplianceRulePostureSummariesRequestTimeout) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesRequestTimeout) String() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesRequestTimeout) GetPayload() *models.RestCursorResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudComplianceRulePostureSummariesTooManyRequests) Code() int {
 }
 
 func (o *CloudComplianceRulePostureSummariesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudComplianceRulePostureSummariesInternalServerError) Code() int {
 }
 
 func (o *CloudComplianceRulePostureSummariesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesInternalServerError %s", 500, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-compliance/entities/rule-posture-summaries/v1][%d] cloudComplianceRulePostureSummariesInternalServerError %s", 500, payload)
 }
 
 func (o *CloudComplianceRulePostureSummariesInternalServerError) GetPayload() *models.RestCursorResponseFields {

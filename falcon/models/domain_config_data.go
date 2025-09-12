@@ -59,6 +59,9 @@ type DomainConfigData struct {
 	// resource response
 	ResourceResponse string `json:"resource_response,omitempty"`
 
+	// tags
+	Tags []string `json:"tags"`
+
 	// token parameters
 	TokenParameters map[string][]string `json:"token_parameters,omitempty"`
 

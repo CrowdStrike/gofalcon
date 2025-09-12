@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeletePoliciesOK) Code() int {
 }
 
 func (o *DeletePoliciesOK) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesOK %s", 200, payload)
 }
 
 func (o *DeletePoliciesOK) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesOK %s", 200, payload)
 }
 
 func (o *DeletePoliciesOK) GetPayload() *models.PoliciesDeleteResponse {
@@ -228,11 +231,13 @@ func (o *DeletePoliciesBadRequest) Code() int {
 }
 
 func (o *DeletePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *DeletePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *DeletePoliciesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *DeletePoliciesForbidden) Code() int {
 }
 
 func (o *DeletePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeletePoliciesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeletePoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *DeletePoliciesTooManyRequests) Code() int {
 }
 
 func (o *DeletePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeletePoliciesInternalServerError) Code() int {
 }
 
 func (o *DeletePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /filevantage/entities/policies/v1][%d] deletePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePoliciesInternalServerError) GetPayload() *models.MsaspecResponseFields {

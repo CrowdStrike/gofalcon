@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CombinedImagesFindingsOK) Code() int {
 }
 
 func (o *CombinedImagesFindingsOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsOK %s", 200, payload)
 }
 
 func (o *CombinedImagesFindingsOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsOK %s", 200, payload)
 }
 
 func (o *CombinedImagesFindingsOK) GetPayload() *models.DomainAPIResponseImagesFindingsV1 {
@@ -228,11 +231,13 @@ func (o *CombinedImagesFindingsBadRequest) Code() int {
 }
 
 func (o *CombinedImagesFindingsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedImagesFindingsBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedImagesFindingsBadRequest) GetPayload() *models.DomainAPIResponseImagesFindingsV1 {
@@ -338,11 +343,13 @@ func (o *CombinedImagesFindingsForbidden) Code() int {
 }
 
 func (o *CombinedImagesFindingsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsForbidden %s", 403, payload)
 }
 
 func (o *CombinedImagesFindingsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsForbidden %s", 403, payload)
 }
 
 func (o *CombinedImagesFindingsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CombinedImagesFindingsTooManyRequests) Code() int {
 }
 
 func (o *CombinedImagesFindingsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedImagesFindingsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedImagesFindingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CombinedImagesFindingsInternalServerError) Code() int {
 }
 
 func (o *CombinedImagesFindingsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedImagesFindingsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-images/v2][%d] combinedImagesFindingsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedImagesFindingsInternalServerError) GetPayload() *models.DomainAPIResponseImagesFindingsV1 {

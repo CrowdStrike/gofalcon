@@ -6,6 +6,7 @@ package container_packages
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPackagesCombinedOK) Code() int {
 }
 
 func (o *ReadPackagesCombinedOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedOK %s", 200, payload)
 }
 
 func (o *ReadPackagesCombinedOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedOK %s", 200, payload)
 }
 
 func (o *ReadPackagesCombinedOK) GetPayload() *models.PackagesAPICombinedPackage {
@@ -222,11 +225,13 @@ func (o *ReadPackagesCombinedForbidden) Code() int {
 }
 
 func (o *ReadPackagesCombinedForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesCombinedForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesCombinedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPackagesCombinedTooManyRequests) Code() int {
 }
 
 func (o *ReadPackagesCombinedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesCombinedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesCombinedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPackagesCombinedInternalServerError) Code() int {
 }
 
 func (o *ReadPackagesCombinedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesCombinedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/v1][%d] readPackagesCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesCombinedInternalServerError) GetPayload() *models.CoreEntitiesResponse {

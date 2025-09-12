@@ -6,6 +6,7 @@ package ioa_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteIOAExclusionsV1OK) Code() int {
 }
 
 func (o *DeleteIOAExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1OK %s", 200, payload)
 }
 
 func (o *DeleteIOAExclusionsV1OK) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1OK %s", 200, payload)
 }
 
 func (o *DeleteIOAExclusionsV1OK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteIOAExclusionsV1BadRequest) Code() int {
 }
 
 func (o *DeleteIOAExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteIOAExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteIOAExclusionsV1BadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *DeleteIOAExclusionsV1Forbidden) Code() int {
 }
 
 func (o *DeleteIOAExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteIOAExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteIOAExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *DeleteIOAExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *DeleteIOAExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteIOAExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteIOAExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteIOAExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *DeleteIOAExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteIOAExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteIOAExclusionsV1InternalServerError) GetPayload() *models.MsaQueryResponse {

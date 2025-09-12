@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DeletePolicyGroupOK) Code() int {
 }
 
 func (o *DeletePolicyGroupOK) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupOK %s", 200, payload)
 }
 
 func (o *DeletePolicyGroupOK) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupOK %s", 200, payload)
 }
 
 func (o *DeletePolicyGroupOK) GetPayload() *models.CoreEntitiesResponse {
@@ -222,11 +225,13 @@ func (o *DeletePolicyGroupForbidden) Code() int {
 }
 
 func (o *DeletePolicyGroupForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupForbidden %s", 403, payload)
 }
 
 func (o *DeletePolicyGroupForbidden) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupForbidden %s", 403, payload)
 }
 
 func (o *DeletePolicyGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DeletePolicyGroupTooManyRequests) Code() int {
 }
 
 func (o *DeletePolicyGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePolicyGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePolicyGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DeletePolicyGroupInternalServerError) Code() int {
 }
 
 func (o *DeletePolicyGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePolicyGroupInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policy-groups/v1][%d] deletePolicyGroupInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePolicyGroupInternalServerError) GetPayload() *models.CoreEntitiesResponse {

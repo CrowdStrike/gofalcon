@@ -6,6 +6,7 @@ package certificate_based_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CbExclusionsDeleteV1OK) Code() int {
 }
 
 func (o *CbExclusionsDeleteV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1OK %s", 200, payload)
 }
 
 func (o *CbExclusionsDeleteV1OK) String() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1OK %s", 200, payload)
 }
 
 func (o *CbExclusionsDeleteV1OK) GetPayload() *models.APICertBasedExclusionRespV1 {
@@ -234,11 +237,13 @@ func (o *CbExclusionsDeleteV1BadRequest) Code() int {
 }
 
 func (o *CbExclusionsDeleteV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *CbExclusionsDeleteV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *CbExclusionsDeleteV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CbExclusionsDeleteV1Unauthorized) Code() int {
 }
 
 func (o *CbExclusionsDeleteV1Unauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Unauthorized %s", 401, payload)
 }
 
 func (o *CbExclusionsDeleteV1Unauthorized) String() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Unauthorized %s", 401, payload)
 }
 
 func (o *CbExclusionsDeleteV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CbExclusionsDeleteV1Forbidden) Code() int {
 }
 
 func (o *CbExclusionsDeleteV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *CbExclusionsDeleteV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *CbExclusionsDeleteV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CbExclusionsDeleteV1TooManyRequests) Code() int {
 }
 
 func (o *CbExclusionsDeleteV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CbExclusionsDeleteV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CbExclusionsDeleteV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CbExclusionsDeleteV1InternalServerError) Code() int {
 }
 
 func (o *CbExclusionsDeleteV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *CbExclusionsDeleteV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *CbExclusionsDeleteV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

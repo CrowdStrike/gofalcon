@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ValidateOK) Code() int {
 }
 
 func (o *ValidateOK) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateOK %s", 200, payload)
 }
 
 func (o *ValidateOK) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateOK %s", 200, payload)
 }
 
 func (o *ValidateOK) GetPayload() *models.APIValidationResponseV1 {
@@ -234,11 +237,13 @@ func (o *ValidateForbidden) Code() int {
 }
 
 func (o *ValidateForbidden) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateForbidden %s", 403, payload)
 }
 
 func (o *ValidateForbidden) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateForbidden %s", 403, payload)
 }
 
 func (o *ValidateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -344,11 +349,13 @@ func (o *ValidateNotFound) Code() int {
 }
 
 func (o *ValidateNotFound) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateNotFound %s", 404, payload)
 }
 
 func (o *ValidateNotFound) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateNotFound %s", 404, payload)
 }
 
 func (o *ValidateNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *ValidateUnprocessableEntity) Code() int {
 }
 
 func (o *ValidateUnprocessableEntity) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateUnprocessableEntity  %+v", 422, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateUnprocessableEntity %s", 422, payload)
 }
 
 func (o *ValidateUnprocessableEntity) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateUnprocessableEntity  %+v", 422, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateUnprocessableEntity %s", 422, payload)
 }
 
 func (o *ValidateUnprocessableEntity) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *ValidateTooManyRequests) Code() int {
 }
 
 func (o *ValidateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateTooManyRequests %s", 429, payload)
 }
 
 func (o *ValidateTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateTooManyRequests %s", 429, payload)
 }
 
 func (o *ValidateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ValidateInternalServerError) Code() int {
 }
 
 func (o *ValidateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateInternalServerError %s", 500, payload)
 }
 
 func (o *ValidateInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateInternalServerError %s", 500, payload)
 }
 
 func (o *ValidateInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

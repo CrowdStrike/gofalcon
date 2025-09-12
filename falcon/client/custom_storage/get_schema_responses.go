@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -116,11 +117,11 @@ func (o *GetSchemaOK) Code() int {
 }
 
 func (o *GetSchemaOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaOK", 200)
 }
 
 func (o *GetSchemaOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaOK", 200)
 }
 
 func (o *GetSchemaOK) GetPayload() io.Writer {
@@ -224,11 +225,13 @@ func (o *GetSchemaForbidden) Code() int {
 }
 
 func (o *GetSchemaForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaForbidden %s", 403, payload)
 }
 
 func (o *GetSchemaForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaForbidden %s", 403, payload)
 }
 
 func (o *GetSchemaForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +341,13 @@ func (o *GetSchemaTooManyRequests) Code() int {
 }
 
 func (o *GetSchemaTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSchemaTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSchemaTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -459,11 +464,13 @@ func (o *GetSchemaInternalServerError) Code() int {
 }
 
 func (o *GetSchemaInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaInternalServerError %s", 500, payload)
 }
 
 func (o *GetSchemaInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}][%d] getSchemaInternalServerError %s", 500, payload)
 }
 
 func (o *GetSchemaInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ClustersByKubernetesVersionCountOK) Code() int {
 }
 
 func (o *ClustersByKubernetesVersionCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountOK %s", 200, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountOK %s", 200, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *ClustersByKubernetesVersionCountForbidden) Code() int {
 }
 
 func (o *ClustersByKubernetesVersionCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountForbidden %s", 403, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountForbidden %s", 403, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ClustersByKubernetesVersionCountTooManyRequests) Code() int {
 }
 
 func (o *ClustersByKubernetesVersionCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ClustersByKubernetesVersionCountInternalServerError) Code() int {
 }
 
 func (o *ClustersByKubernetesVersionCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountInternalServerError %s", 500, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-kubernetes-version/v1][%d] clustersByKubernetesVersionCountInternalServerError %s", 500, payload)
 }
 
 func (o *ClustersByKubernetesVersionCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

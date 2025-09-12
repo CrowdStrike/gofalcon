@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -122,11 +123,11 @@ func (o *GetServicesCountOK) Code() int {
 }
 
 func (o *GetServicesCountOK) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountOK", 200)
 }
 
 func (o *GetServicesCountOK) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountOK", 200)
 }
 
 func (o *GetServicesCountOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -221,11 +222,13 @@ func (o *GetServicesCountBadRequest) Code() int {
 }
 
 func (o *GetServicesCountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountBadRequest %s", 400, payload)
 }
 
 func (o *GetServicesCountBadRequest) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountBadRequest %s", 400, payload)
 }
 
 func (o *GetServicesCountBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -331,11 +334,13 @@ func (o *GetServicesCountUnauthorized) Code() int {
 }
 
 func (o *GetServicesCountUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountUnauthorized %s", 401, payload)
 }
 
 func (o *GetServicesCountUnauthorized) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountUnauthorized %s", 401, payload)
 }
 
 func (o *GetServicesCountUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -441,11 +446,13 @@ func (o *GetServicesCountForbidden) Code() int {
 }
 
 func (o *GetServicesCountForbidden) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountForbidden %s", 403, payload)
 }
 
 func (o *GetServicesCountForbidden) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountForbidden %s", 403, payload)
 }
 
 func (o *GetServicesCountForbidden) GetPayload() *models.TypesErrorMessage {
@@ -555,11 +562,13 @@ func (o *GetServicesCountTooManyRequests) Code() int {
 }
 
 func (o *GetServicesCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountTooManyRequests %s", 429, payload)
 }
 
 func (o *GetServicesCountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountTooManyRequests %s", 429, payload)
 }
 
 func (o *GetServicesCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -676,11 +685,13 @@ func (o *GetServicesCountInternalServerError) Code() int {
 }
 
 func (o *GetServicesCountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountInternalServerError %s", 500, payload)
 }
 
 func (o *GetServicesCountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/services/count][%d] getServicesCountInternalServerError %s", 500, payload)
 }
 
 func (o *GetServicesCountInternalServerError) GetPayload() *models.TypesErrorMessage {

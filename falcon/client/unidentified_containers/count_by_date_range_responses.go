@@ -6,6 +6,7 @@ package unidentified_containers
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *CountByDateRangeOK) Code() int {
 }
 
 func (o *CountByDateRangeOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeOK %s", 200, payload)
 }
 
 func (o *CountByDateRangeOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeOK %s", 200, payload)
 }
 
 func (o *CountByDateRangeOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *CountByDateRangeForbidden) Code() int {
 }
 
 func (o *CountByDateRangeForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeForbidden %s", 403, payload)
 }
 
 func (o *CountByDateRangeForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeForbidden %s", 403, payload)
 }
 
 func (o *CountByDateRangeForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *CountByDateRangeTooManyRequests) Code() int {
 }
 
 func (o *CountByDateRangeTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeTooManyRequests %s", 429, payload)
 }
 
 func (o *CountByDateRangeTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeTooManyRequests %s", 429, payload)
 }
 
 func (o *CountByDateRangeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *CountByDateRangeInternalServerError) Code() int {
 }
 
 func (o *CountByDateRangeInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeInternalServerError %s", 500, payload)
 }
 
 func (o *CountByDateRangeInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count-by-date/v1][%d] countByDateRangeInternalServerError %s", 500, payload)
 }
 
 func (o *CountByDateRangeInternalServerError) GetPayload() *models.CoreEntitiesResponse {

@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetPatternsOK) Code() int {
 }
 
 func (o *GetPatternsOK) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsOK %s", 200, payload)
 }
 
 func (o *GetPatternsOK) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsOK %s", 200, payload)
 }
 
 func (o *GetPatternsOK) GetPayload() *models.APIPatternsResponse {
@@ -222,11 +225,13 @@ func (o *GetPatternsForbidden) Code() int {
 }
 
 func (o *GetPatternsForbidden) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsForbidden %s", 403, payload)
 }
 
 func (o *GetPatternsForbidden) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsForbidden %s", 403, payload)
 }
 
 func (o *GetPatternsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetPatternsTooManyRequests) Code() int {
 }
 
 func (o *GetPatternsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetPatternsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetPatternsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetPatternsInternalServerError) Code() int {
 }
 
 func (o *GetPatternsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsInternalServerError %s", 500, payload)
 }
 
 func (o *GetPatternsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsInternalServerError %s", 500, payload)
 }
 
 func (o *GetPatternsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

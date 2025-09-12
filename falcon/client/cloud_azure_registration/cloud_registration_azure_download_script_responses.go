@@ -6,6 +6,7 @@ package cloud_azure_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CloudRegistrationAzureDownloadScriptOK) Code() int {
 }
 
 func (o *CloudRegistrationAzureDownloadScriptOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptOK) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptOK) GetPayload() *models.AzureAzureProvisionGetAccountScriptResponseV1 {
@@ -228,11 +231,13 @@ func (o *CloudRegistrationAzureDownloadScriptBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationAzureDownloadScriptBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CloudRegistrationAzureDownloadScriptForbidden) Code() int {
 }
 
 func (o *CloudRegistrationAzureDownloadScriptForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CloudRegistrationAzureDownloadScriptTooManyRequests) Code() int {
 }
 
 func (o *CloudRegistrationAzureDownloadScriptTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CloudRegistrationAzureDownloadScriptInternalServerError) Code() int {
 }
 
 func (o *CloudRegistrationAzureDownloadScriptInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/scripts/v1][%d] cloudRegistrationAzureDownloadScriptInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureDownloadScriptInternalServerError) GetPayload() *models.MsaspecResponseFields {

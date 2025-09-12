@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetConfigurationDetectionsOK) Code() int {
 }
 
 func (o *GetConfigurationDetectionsOK) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsOK %s", 200, payload)
 }
 
 func (o *GetConfigurationDetectionsOK) String() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsOK %s", 200, payload)
 }
 
 func (o *GetConfigurationDetectionsOK) GetPayload() *models.RegistrationExternalIOMEventResponse {
@@ -228,11 +231,13 @@ func (o *GetConfigurationDetectionsBadRequest) Code() int {
 }
 
 func (o *GetConfigurationDetectionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsBadRequest %s", 400, payload)
 }
 
 func (o *GetConfigurationDetectionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsBadRequest %s", 400, payload)
 }
 
 func (o *GetConfigurationDetectionsBadRequest) GetPayload() *models.RegistrationExternalIOMEventResponse {
@@ -338,11 +343,13 @@ func (o *GetConfigurationDetectionsForbidden) Code() int {
 }
 
 func (o *GetConfigurationDetectionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsForbidden %s", 403, payload)
 }
 
 func (o *GetConfigurationDetectionsForbidden) String() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsForbidden %s", 403, payload)
 }
 
 func (o *GetConfigurationDetectionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetConfigurationDetectionsTooManyRequests) Code() int {
 }
 
 func (o *GetConfigurationDetectionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetConfigurationDetectionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetConfigurationDetectionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetConfigurationDetectionsInternalServerError) Code() int {
 }
 
 func (o *GetConfigurationDetectionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *GetConfigurationDetectionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *GetConfigurationDetectionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

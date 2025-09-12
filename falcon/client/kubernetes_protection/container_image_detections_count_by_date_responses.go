@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ContainerImageDetectionsCountByDateOK) Code() int {
 }
 
 func (o *ContainerImageDetectionsCountByDateOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateOK %s", 200, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateOK %s", 200, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateOK) GetPayload() *models.ModelsAPIFilterResponse {
@@ -222,11 +225,13 @@ func (o *ContainerImageDetectionsCountByDateForbidden) Code() int {
 }
 
 func (o *ContainerImageDetectionsCountByDateForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateForbidden %s", 403, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateForbidden %s", 403, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ContainerImageDetectionsCountByDateTooManyRequests) Code() int {
 }
 
 func (o *ContainerImageDetectionsCountByDateTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ContainerImageDetectionsCountByDateInternalServerError) Code() int {
 }
 
 func (o *ContainerImageDetectionsCountByDateInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/image-detections-count-by-date/v1][%d] containerImageDetectionsCountByDateInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerImageDetectionsCountByDateInternalServerError) GetPayload() *models.CoreEntitiesResponse {

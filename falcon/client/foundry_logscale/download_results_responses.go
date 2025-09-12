@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -134,11 +135,11 @@ func (o *DownloadResultsOK) Code() int {
 }
 
 func (o *DownloadResultsOK) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsOK", 200)
 }
 
 func (o *DownloadResultsOK) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsOK", 200)
 }
 
 func (o *DownloadResultsOK) GetPayload() io.Writer {
@@ -242,11 +243,13 @@ func (o *DownloadResultsBadRequest) Code() int {
 }
 
 func (o *DownloadResultsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsBadRequest %s", 400, payload)
 }
 
 func (o *DownloadResultsBadRequest) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsBadRequest %s", 400, payload)
 }
 
 func (o *DownloadResultsBadRequest) GetPayload() *models.APIEntitiesResponse {
@@ -352,11 +355,13 @@ func (o *DownloadResultsUnauthorized) Code() int {
 }
 
 func (o *DownloadResultsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsUnauthorized %s", 401, payload)
 }
 
 func (o *DownloadResultsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsUnauthorized %s", 401, payload)
 }
 
 func (o *DownloadResultsUnauthorized) GetPayload() *models.APIEntitiesResponse {
@@ -462,11 +467,13 @@ func (o *DownloadResultsForbidden) Code() int {
 }
 
 func (o *DownloadResultsForbidden) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsForbidden %s", 403, payload)
 }
 
 func (o *DownloadResultsForbidden) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsForbidden %s", 403, payload)
 }
 
 func (o *DownloadResultsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -572,11 +579,13 @@ func (o *DownloadResultsNotFound) Code() int {
 }
 
 func (o *DownloadResultsNotFound) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsNotFound %s", 404, payload)
 }
 
 func (o *DownloadResultsNotFound) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsNotFound %s", 404, payload)
 }
 
 func (o *DownloadResultsNotFound) GetPayload() *models.APIEntitiesResponse {
@@ -686,11 +695,13 @@ func (o *DownloadResultsTooManyRequests) Code() int {
 }
 
 func (o *DownloadResultsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadResultsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadResultsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -807,11 +818,13 @@ func (o *DownloadResultsInternalServerError) Code() int {
 }
 
 func (o *DownloadResultsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadResultsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/job-results-download/v1][%d] downloadResultsInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadResultsInternalServerError) GetPayload() *models.APIEntitiesResponse {

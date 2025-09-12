@@ -6,6 +6,7 @@ package content_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateContentUpdatePoliciesCreated) Code() int {
 }
 
 func (o *CreateContentUpdatePoliciesCreated) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesCreated %s", 201, payload)
 }
 
 func (o *CreateContentUpdatePoliciesCreated) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesCreated %s", 201, payload)
 }
 
 func (o *CreateContentUpdatePoliciesCreated) GetPayload() *models.ContentUpdateRespV1 {
@@ -234,11 +237,13 @@ func (o *CreateContentUpdatePoliciesBadRequest) Code() int {
 }
 
 func (o *CreateContentUpdatePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreateContentUpdatePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreateContentUpdatePoliciesBadRequest) GetPayload() *models.ContentUpdateRespV1 {
@@ -344,11 +349,13 @@ func (o *CreateContentUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *CreateContentUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreateContentUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreateContentUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *CreateContentUpdatePoliciesNotFound) Code() int {
 }
 
 func (o *CreateContentUpdatePoliciesNotFound) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *CreateContentUpdatePoliciesNotFound) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *CreateContentUpdatePoliciesNotFound) GetPayload() *models.ContentUpdateRespV1 {
@@ -568,11 +577,13 @@ func (o *CreateContentUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *CreateContentUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateContentUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateContentUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateContentUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *CreateContentUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateContentUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update/v1][%d] createContentUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateContentUpdatePoliciesInternalServerError) GetPayload() *models.ContentUpdateRespV1 {

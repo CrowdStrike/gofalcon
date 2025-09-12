@@ -6,6 +6,7 @@ package sensor_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QuerySensorUpdateKernelsDistinctOK) Code() int {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctOK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctOK %s", 200, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctOK) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctOK %s", 200, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QuerySensorUpdateKernelsDistinctBadRequest) Code() int {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctBadRequest %s", 400, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctBadRequest %s", 400, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QuerySensorUpdateKernelsDistinctForbidden) Code() int {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctForbidden %s", 403, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctForbidden %s", 403, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QuerySensorUpdateKernelsDistinctTooManyRequests) Code() int {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctTooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctTooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QuerySensorUpdateKernelsDistinctInternalServerError) Code() int {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctInternalServerError %s", 500, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctInternalServerError %s", 500, payload)
 }
 
 func (o *QuerySensorUpdateKernelsDistinctInternalServerError) GetPayload() *models.MsaQueryResponse {

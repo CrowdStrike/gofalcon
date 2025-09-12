@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *RTRListQueuedSessionsOK) Code() int {
 }
 
 func (o *RTRListQueuedSessionsOK) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsOK %s", 200, payload)
 }
 
 func (o *RTRListQueuedSessionsOK) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsOK %s", 200, payload)
 }
 
 func (o *RTRListQueuedSessionsOK) GetPayload() *models.DomainQueuedSessionResponseWrapper {
@@ -240,11 +243,13 @@ func (o *RTRListQueuedSessionsBadRequest) Code() int {
 }
 
 func (o *RTRListQueuedSessionsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRListQueuedSessionsBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRListQueuedSessionsBadRequest) GetPayload() *models.DomainAPIError {
@@ -350,11 +355,13 @@ func (o *RTRListQueuedSessionsUnauthorized) Code() int {
 }
 
 func (o *RTRListQueuedSessionsUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsUnauthorized %s", 401, payload)
 }
 
 func (o *RTRListQueuedSessionsUnauthorized) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsUnauthorized %s", 401, payload)
 }
 
 func (o *RTRListQueuedSessionsUnauthorized) GetPayload() *models.DomainAPIError {
@@ -460,11 +467,13 @@ func (o *RTRListQueuedSessionsForbidden) Code() int {
 }
 
 func (o *RTRListQueuedSessionsForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRListQueuedSessionsForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRListQueuedSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -570,11 +579,13 @@ func (o *RTRListQueuedSessionsNotFound) Code() int {
 }
 
 func (o *RTRListQueuedSessionsNotFound) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRListQueuedSessionsNotFound) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRListQueuedSessionsNotFound) GetPayload() *models.DomainAPIError {
@@ -684,11 +695,13 @@ func (o *RTRListQueuedSessionsTooManyRequests) Code() int {
 }
 
 func (o *RTRListQueuedSessionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListQueuedSessionsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListQueuedSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *RTRListQueuedSessionsInternalServerError) Code() int {
 }
 
 func (o *RTRListQueuedSessionsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListQueuedSessionsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListQueuedSessionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

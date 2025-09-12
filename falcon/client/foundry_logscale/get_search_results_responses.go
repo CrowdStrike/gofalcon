@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetSearchResultsOK) Code() int {
 }
 
 func (o *GetSearchResultsOK) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsOK %s", 200, payload)
 }
 
 func (o *GetSearchResultsOK) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsOK %s", 200, payload)
 }
 
 func (o *GetSearchResultsOK) GetPayload() *models.ApidomainQueryResponseWrapperV1 {
@@ -234,11 +237,13 @@ func (o *GetSearchResultsBadRequest) Code() int {
 }
 
 func (o *GetSearchResultsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsBadRequest %s", 400, payload)
 }
 
 func (o *GetSearchResultsBadRequest) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsBadRequest %s", 400, payload)
 }
 
 func (o *GetSearchResultsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetSearchResultsForbidden) Code() int {
 }
 
 func (o *GetSearchResultsForbidden) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsForbidden %s", 403, payload)
 }
 
 func (o *GetSearchResultsForbidden) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsForbidden %s", 403, payload)
 }
 
 func (o *GetSearchResultsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetSearchResultsNotFound) Code() int {
 }
 
 func (o *GetSearchResultsNotFound) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsNotFound %s", 404, payload)
 }
 
 func (o *GetSearchResultsNotFound) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsNotFound %s", 404, payload)
 }
 
 func (o *GetSearchResultsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetSearchResultsTooManyRequests) Code() int {
 }
 
 func (o *GetSearchResultsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSearchResultsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSearchResultsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetSearchResultsInternalServerError) Code() int {
 }
 
 func (o *GetSearchResultsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSearchResultsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSearchResultsInternalServerError) GetPayload() *models.MsaspecResponseFields {

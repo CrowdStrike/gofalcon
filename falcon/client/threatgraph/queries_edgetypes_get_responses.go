@@ -6,6 +6,7 @@ package threatgraph
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *QueriesEdgetypesGetOK) Code() int {
 }
 
 func (o *QueriesEdgetypesGetOK) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetOK", 200)
 }
 
 func (o *QueriesEdgetypesGetOK) String() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetOK", 200)
 }
 
 func (o *QueriesEdgetypesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *QueriesEdgetypesGetForbidden) Code() int {
 }
 
 func (o *QueriesEdgetypesGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetForbidden %s", 403, payload)
 }
 
 func (o *QueriesEdgetypesGetForbidden) String() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetForbidden %s", 403, payload)
 }
 
 func (o *QueriesEdgetypesGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *QueriesEdgetypesGetTooManyRequests) Code() int {
 }
 
 func (o *QueriesEdgetypesGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetTooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesEdgetypesGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetTooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesEdgetypesGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *QueriesEdgetypesGetInternalServerError) Code() int {
 }
 
 func (o *QueriesEdgetypesGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetInternalServerError %s", 500, payload)
 }
 
 func (o *QueriesEdgetypesGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/queries/edge-types/v1][%d] queriesEdgetypesGetInternalServerError %s", 500, payload)
 }
 
 func (o *QueriesEdgetypesGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package release_notes
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetEntityIDsByQueryPOSTV2OK) Code() int {
 }
 
 func (o *GetEntityIDsByQueryPOSTV2OK) Error() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2OK %s", 200, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2OK) String() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2OK %s", 200, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2OK) GetPayload() *models.ReleasenotesReleaseNoteWrapperV2 {
@@ -234,11 +237,13 @@ func (o *GetEntityIDsByQueryPOSTV2BadRequest) Code() int {
 }
 
 func (o *GetEntityIDsByQueryPOSTV2BadRequest) Error() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2BadRequest %s", 400, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2BadRequest) String() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2BadRequest %s", 400, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetEntityIDsByQueryPOSTV2Forbidden) Code() int {
 }
 
 func (o *GetEntityIDsByQueryPOSTV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2Forbidden %s", 403, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2Forbidden %s", 403, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetEntityIDsByQueryPOSTV2NotFound) Code() int {
 }
 
 func (o *GetEntityIDsByQueryPOSTV2NotFound) Error() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2NotFound %s", 404, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2NotFound) String() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2NotFound %s", 404, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2NotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetEntityIDsByQueryPOSTV2TooManyRequests) Code() int {
 }
 
 func (o *GetEntityIDsByQueryPOSTV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetEntityIDsByQueryPOSTV2InternalServerError) Code() int {
 }
 
 func (o *GetEntityIDsByQueryPOSTV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /deployment-coordinator/entities/release-notes/GET/v2][%d] getEntityIDsByQueryPOSTV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetEntityIDsByQueryPOSTV2InternalServerError) GetPayload() *models.MsaspecResponseFields {

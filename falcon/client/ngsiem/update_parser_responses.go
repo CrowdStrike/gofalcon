@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *UpdateParserOK) Code() int {
 }
 
 func (o *UpdateParserOK) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserOK %s", 200, payload)
 }
 
 func (o *UpdateParserOK) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserOK %s", 200, payload)
 }
 
 func (o *UpdateParserOK) GetPayload() *models.APIUpdateParserResponseV1 {
@@ -240,11 +243,13 @@ func (o *UpdateParserBadRequest) Code() int {
 }
 
 func (o *UpdateParserBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserBadRequest %s", 400, payload)
 }
 
 func (o *UpdateParserBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserBadRequest %s", 400, payload)
 }
 
 func (o *UpdateParserBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *UpdateParserUnauthorized) Code() int {
 }
 
 func (o *UpdateParserUnauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateParserUnauthorized) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateParserUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *UpdateParserForbidden) Code() int {
 }
 
 func (o *UpdateParserForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserForbidden %s", 403, payload)
 }
 
 func (o *UpdateParserForbidden) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserForbidden %s", 403, payload)
 }
 
 func (o *UpdateParserForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *UpdateParserNotFound) Code() int {
 }
 
 func (o *UpdateParserNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserNotFound %s", 404, payload)
 }
 
 func (o *UpdateParserNotFound) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserNotFound %s", 404, payload)
 }
 
 func (o *UpdateParserNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *UpdateParserTooManyRequests) Code() int {
 }
 
 func (o *UpdateParserTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateParserTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateParserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *UpdateParserInternalServerError) Code() int {
 }
 
 func (o *UpdateParserInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateParserInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/parsers/v1][%d] updateParserInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateParserInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetD4CAWSAccountScriptsAttachmentOK) Code() int {
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentOK) GetPayload() *models.RegistrationAWSProvisionGetAccountScriptResponseV2 {
@@ -228,11 +231,13 @@ func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) Code() int {
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetD4CAWSAccountScriptsAttachmentForbidden) Code() int {
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) Code() int {
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) Code() int {
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) GetPayload() *models.MsaspecResponseFields {

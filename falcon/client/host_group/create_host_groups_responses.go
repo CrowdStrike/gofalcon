@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateHostGroupsCreated) Code() int {
 }
 
 func (o *CreateHostGroupsCreated) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated %s", 201, payload)
 }
 
 func (o *CreateHostGroupsCreated) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated %s", 201, payload)
 }
 
 func (o *CreateHostGroupsCreated) GetPayload() *models.HostGroupsRespV1 {
@@ -228,11 +231,13 @@ func (o *CreateHostGroupsBadRequest) Code() int {
 }
 
 func (o *CreateHostGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateHostGroupsBadRequest) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateHostGroupsBadRequest) GetPayload() *models.HostGroupsRespV1 {
@@ -338,11 +343,13 @@ func (o *CreateHostGroupsForbidden) Code() int {
 }
 
 func (o *CreateHostGroupsForbidden) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateHostGroupsForbidden) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateHostGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CreateHostGroupsTooManyRequests) Code() int {
 }
 
 func (o *CreateHostGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateHostGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateHostGroupsInternalServerError) Code() int {
 }
 
 func (o *CreateHostGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateHostGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateHostGroupsInternalServerError) GetPayload() *models.HostGroupsRespV1 {

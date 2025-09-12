@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PreviewRuleV1OK) Code() int {
 }
 
 func (o *PreviewRuleV1OK) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1OK %s", 200, payload)
 }
 
 func (o *PreviewRuleV1OK) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1OK %s", 200, payload)
 }
 
 func (o *PreviewRuleV1OK) GetPayload() *models.DomainAggregatesResponse {
@@ -234,11 +237,13 @@ func (o *PreviewRuleV1BadRequest) Code() int {
 }
 
 func (o *PreviewRuleV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1BadRequest %s", 400, payload)
 }
 
 func (o *PreviewRuleV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1BadRequest %s", 400, payload)
 }
 
 func (o *PreviewRuleV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -344,11 +349,13 @@ func (o *PreviewRuleV1Unauthorized) Code() int {
 }
 
 func (o *PreviewRuleV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Unauthorized %s", 401, payload)
 }
 
 func (o *PreviewRuleV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Unauthorized %s", 401, payload)
 }
 
 func (o *PreviewRuleV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PreviewRuleV1Forbidden) Code() int {
 }
 
 func (o *PreviewRuleV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Forbidden %s", 403, payload)
 }
 
 func (o *PreviewRuleV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Forbidden %s", 403, payload)
 }
 
 func (o *PreviewRuleV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -568,11 +577,13 @@ func (o *PreviewRuleV1TooManyRequests) Code() int {
 }
 
 func (o *PreviewRuleV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PreviewRuleV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PreviewRuleV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PreviewRuleV1InternalServerError) Code() int {
 }
 
 func (o *PreviewRuleV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1InternalServerError %s", 500, payload)
 }
 
 func (o *PreviewRuleV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1InternalServerError %s", 500, payload)
 }
 
 func (o *PreviewRuleV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryComplianceControlsOK) Code() int {
 }
 
 func (o *QueryComplianceControlsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsOK %s", 200, payload)
 }
 
 func (o *QueryComplianceControlsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsOK %s", 200, payload)
 }
 
 func (o *QueryComplianceControlsOK) GetPayload() *models.CommonQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryComplianceControlsBadRequest) Code() int {
 }
 
 func (o *QueryComplianceControlsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsBadRequest %s", 400, payload)
 }
 
 func (o *QueryComplianceControlsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsBadRequest %s", 400, payload)
 }
 
 func (o *QueryComplianceControlsBadRequest) GetPayload() *models.CommonEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *QueryComplianceControlsForbidden) Code() int {
 }
 
 func (o *QueryComplianceControlsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsForbidden %s", 403, payload)
 }
 
 func (o *QueryComplianceControlsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsForbidden %s", 403, payload)
 }
 
 func (o *QueryComplianceControlsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryComplianceControlsTooManyRequests) Code() int {
 }
 
 func (o *QueryComplianceControlsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryComplianceControlsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryComplianceControlsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryComplianceControlsInternalServerError) Code() int {
 }
 
 func (o *QueryComplianceControlsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryComplianceControlsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/compliance/controls/v1][%d] queryComplianceControlsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryComplianceControlsInternalServerError) GetPayload() *models.CommonEntitiesResponse {

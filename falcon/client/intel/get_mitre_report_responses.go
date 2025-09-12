@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *GetMitreReportOK) Code() int {
 }
 
 func (o *GetMitreReportOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK ", 200)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK", 200)
 }
 
 func (o *GetMitreReportOK) String() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK ", 200)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK", 200)
 }
 
 func (o *GetMitreReportOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *GetMitreReportForbidden) Code() int {
 }
 
 func (o *GetMitreReportForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportForbidden %s", 403, payload)
 }
 
 func (o *GetMitreReportForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportForbidden %s", 403, payload)
 }
 
 func (o *GetMitreReportForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *GetMitreReportTooManyRequests) Code() int {
 }
 
 func (o *GetMitreReportTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMitreReportTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetMitreReportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *GetMitreReportInternalServerError) Code() int {
 }
 
 func (o *GetMitreReportInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportInternalServerError %s", 500, payload)
 }
 
 func (o *GetMitreReportInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportInternalServerError %s", 500, payload)
 }
 
 func (o *GetMitreReportInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

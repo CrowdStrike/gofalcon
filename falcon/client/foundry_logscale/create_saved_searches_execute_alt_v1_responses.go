@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateSavedSearchesExecuteAltV1OK) Code() int {
 }
 
 func (o *CreateSavedSearchesExecuteAltV1OK) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1OK %s", 200, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1OK) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1OK %s", 200, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1OK) GetPayload() *models.ApidomainQueryResponseWrapperV1 {
@@ -234,11 +237,13 @@ func (o *CreateSavedSearchesExecuteAltV1BadRequest) Code() int {
 }
 
 func (o *CreateSavedSearchesExecuteAltV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CreateSavedSearchesExecuteAltV1Forbidden) Code() int {
 }
 
 func (o *CreateSavedSearchesExecuteAltV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CreateSavedSearchesExecuteAltV1NotFound) Code() int {
 }
 
 func (o *CreateSavedSearchesExecuteAltV1NotFound) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1NotFound %s", 404, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1NotFound) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1NotFound %s", 404, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1NotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CreateSavedSearchesExecuteAltV1TooManyRequests) Code() int {
 }
 
 func (o *CreateSavedSearchesExecuteAltV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateSavedSearchesExecuteAltV1InternalServerError) Code() int {
 }
 
 func (o *CreateSavedSearchesExecuteAltV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-execute/v1][%d] createSavedSearchesExecuteAltV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateSavedSearchesExecuteAltV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

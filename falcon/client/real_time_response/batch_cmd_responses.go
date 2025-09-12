@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *BatchCmdCreated) Code() int {
 }
 
 func (o *BatchCmdCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdCreated %s", 201, payload)
 }
 
 func (o *BatchCmdCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdCreated %s", 201, payload)
 }
 
 func (o *BatchCmdCreated) GetPayload() *models.DomainMultiCommandExecuteResponseWrapper {
@@ -228,11 +231,13 @@ func (o *BatchCmdBadRequest) Code() int {
 }
 
 func (o *BatchCmdBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdBadRequest %s", 400, payload)
 }
 
 func (o *BatchCmdBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdBadRequest %s", 400, payload)
 }
 
 func (o *BatchCmdBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *BatchCmdForbidden) Code() int {
 }
 
 func (o *BatchCmdForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdForbidden %s", 403, payload)
 }
 
 func (o *BatchCmdForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdForbidden %s", 403, payload)
 }
 
 func (o *BatchCmdForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *BatchCmdTooManyRequests) Code() int {
 }
 
 func (o *BatchCmdTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchCmdTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchCmdTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *BatchCmdInternalServerError) Code() int {
 }
 
 func (o *BatchCmdInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdInternalServerError %s", 500, payload)
 }
 
 func (o *BatchCmdInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-command/v1][%d] batchCmdInternalServerError %s", 500, payload)
 }
 
 func (o *BatchCmdInternalServerError) GetPayload() *models.DomainAPIError {

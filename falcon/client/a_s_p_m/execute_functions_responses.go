@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ExecuteFunctionsOK) Code() int {
 }
 
 func (o *ExecuteFunctionsOK) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsOK) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsOK) GetPayload() *models.TypesGeneralQueryResponse {
@@ -240,11 +243,13 @@ func (o *ExecuteFunctionsBadRequest) Code() int {
 }
 
 func (o *ExecuteFunctionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *ExecuteFunctionsUnauthorized) Code() int {
 }
 
 func (o *ExecuteFunctionsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *ExecuteFunctionsForbidden) Code() int {
 }
 
 func (o *ExecuteFunctionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsForbidden) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *ExecuteFunctionsTooManyRequests) Code() int {
 }
 
 func (o *ExecuteFunctionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *ExecuteFunctionsInternalServerError) Code() int {
 }
 
 func (o *ExecuteFunctionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ExecuteFunctionsServiceUnavailable) Code() int {
 }
 
 func (o *ExecuteFunctionsServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/functions/v1][%d] executeFunctionsServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsServiceUnavailable) GetPayload() *models.TypesErrorMessage {

@@ -6,6 +6,7 @@ package cloud_oci_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CloudSecurityRegistrationOciValidateTenancyOK) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyOK %s", 200, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyOK) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyOK %s", 200, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyOK) GetPayload() *models.DomainOCITenancyValidationResponse {
@@ -228,11 +231,13 @@ func (o *CloudSecurityRegistrationOciValidateTenancyBadRequest) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyBadRequest) GetPayload() *models.DomainOCITenancyValidationResponse {
@@ -338,11 +343,13 @@ func (o *CloudSecurityRegistrationOciValidateTenancyForbidden) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CloudSecurityRegistrationOciValidateTenancyTooManyRequests) Code() int 
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CloudSecurityRegistrationOciValidateTenancyInternalServerError) Code() 
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-validate/v1][%d] cloudSecurityRegistrationOciValidateTenancyInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciValidateTenancyInternalServerError) GetPayload() *models.DomainOCITenancyValidationResponse {

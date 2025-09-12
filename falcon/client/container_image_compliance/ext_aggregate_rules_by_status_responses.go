@@ -6,6 +6,7 @@ package container_image_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtAggregateRulesByStatusOK) Code() int {
 }
 
 func (o *ExtAggregateRulesByStatusOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusOK %s", 200, payload)
 }
 
 func (o *ExtAggregateRulesByStatusOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusOK %s", 200, payload)
 }
 
 func (o *ExtAggregateRulesByStatusOK) GetPayload() *models.DomainAggregateRulesByStatusResponse {
@@ -234,11 +237,13 @@ func (o *ExtAggregateRulesByStatusBadRequest) Code() int {
 }
 
 func (o *ExtAggregateRulesByStatusBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateRulesByStatusBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateRulesByStatusBadRequest) GetPayload() *models.DomainAggregateRulesByStatusResponse {
@@ -344,11 +349,13 @@ func (o *ExtAggregateRulesByStatusUnauthorized) Code() int {
 }
 
 func (o *ExtAggregateRulesByStatusUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateRulesByStatusUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateRulesByStatusUnauthorized) GetPayload() *models.DomainAggregateRulesByStatusResponse {
@@ -454,11 +461,13 @@ func (o *ExtAggregateRulesByStatusForbidden) Code() int {
 }
 
 func (o *ExtAggregateRulesByStatusForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateRulesByStatusForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateRulesByStatusForbidden) GetPayload() *models.DomainAggregateRulesByStatusResponse {
@@ -568,11 +577,13 @@ func (o *ExtAggregateRulesByStatusTooManyRequests) Code() int {
 }
 
 func (o *ExtAggregateRulesByStatusTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateRulesByStatusTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateRulesByStatusTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtAggregateRulesByStatusInternalServerError) Code() int {
 }
 
 func (o *ExtAggregateRulesByStatusInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateRulesByStatusInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules-by-status/v2][%d] extAggregateRulesByStatusInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateRulesByStatusInternalServerError) GetPayload() *models.DomainAggregateRulesByStatusResponse {

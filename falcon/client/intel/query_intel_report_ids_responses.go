@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryIntelReportIdsOK) Code() int {
 }
 
 func (o *QueryIntelReportIdsOK) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsOK %s", 200, payload)
 }
 
 func (o *QueryIntelReportIdsOK) String() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsOK %s", 200, payload)
 }
 
 func (o *QueryIntelReportIdsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryIntelReportIdsBadRequest) Code() int {
 }
 
 func (o *QueryIntelReportIdsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelReportIdsBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelReportIdsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *QueryIntelReportIdsForbidden) Code() int {
 }
 
 func (o *QueryIntelReportIdsForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelReportIdsForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelReportIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryIntelReportIdsTooManyRequests) Code() int {
 }
 
 func (o *QueryIntelReportIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelReportIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelReportIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryIntelReportIdsInternalServerError) Code() int {
 }
 
 func (o *QueryIntelReportIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelReportIdsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/reports/v1][%d] queryIntelReportIdsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelReportIdsInternalServerError) GetPayload() *models.MsaErrorsOnly {

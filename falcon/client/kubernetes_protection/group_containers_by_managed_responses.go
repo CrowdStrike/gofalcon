@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GroupContainersByManagedOK) Code() int {
 }
 
 func (o *GroupContainersByManagedOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedOK %s", 200, payload)
 }
 
 func (o *GroupContainersByManagedOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedOK %s", 200, payload)
 }
 
 func (o *GroupContainersByManagedOK) GetPayload() *models.ModelsContainerCoverageResponseEntity {
@@ -222,11 +225,13 @@ func (o *GroupContainersByManagedForbidden) Code() int {
 }
 
 func (o *GroupContainersByManagedForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedForbidden %s", 403, payload)
 }
 
 func (o *GroupContainersByManagedForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedForbidden %s", 403, payload)
 }
 
 func (o *GroupContainersByManagedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GroupContainersByManagedTooManyRequests) Code() int {
 }
 
 func (o *GroupContainersByManagedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedTooManyRequests %s", 429, payload)
 }
 
 func (o *GroupContainersByManagedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedTooManyRequests %s", 429, payload)
 }
 
 func (o *GroupContainersByManagedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GroupContainersByManagedInternalServerError) Code() int {
 }
 
 func (o *GroupContainersByManagedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedInternalServerError %s", 500, payload)
 }
 
 func (o *GroupContainersByManagedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/group-by-managed/v1][%d] groupContainersByManagedInternalServerError %s", 500, payload)
 }
 
 func (o *GroupContainersByManagedInternalServerError) GetPayload() *models.CoreEntitiesResponse {

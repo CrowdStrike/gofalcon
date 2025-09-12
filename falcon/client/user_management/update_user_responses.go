@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateUserOK) Code() int {
 }
 
 func (o *UpdateUserOK) Error() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK %s", 200, payload)
 }
 
 func (o *UpdateUserOK) String() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK %s", 200, payload)
 }
 
 func (o *UpdateUserOK) GetPayload() *models.APIUserMetadataResponse {
@@ -234,11 +237,13 @@ func (o *UpdateUserBadRequest) Code() int {
 }
 
 func (o *UpdateUserBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserBadRequest %s", 400, payload)
 }
 
 func (o *UpdateUserBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserBadRequest %s", 400, payload)
 }
 
 func (o *UpdateUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *UpdateUserForbidden) Code() int {
 }
 
 func (o *UpdateUserForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserForbidden %s", 403, payload)
 }
 
 func (o *UpdateUserForbidden) String() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserForbidden %s", 403, payload)
 }
 
 func (o *UpdateUserForbidden) GetPayload() *models.MsaEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *UpdateUserNotFound) Code() int {
 }
 
 func (o *UpdateUserNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserNotFound %s", 404, payload)
 }
 
 func (o *UpdateUserNotFound) String() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserNotFound %s", 404, payload)
 }
 
 func (o *UpdateUserNotFound) GetPayload() *models.MsaEntitiesResponse {
@@ -568,11 +577,13 @@ func (o *UpdateUserTooManyRequests) Code() int {
 }
 
 func (o *UpdateUserTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateUserTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateUserInternalServerError) Code() int {
 }
 
 func (o *UpdateUserInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateUserInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateUserInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

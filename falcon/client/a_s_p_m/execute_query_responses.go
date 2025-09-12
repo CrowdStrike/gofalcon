@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ExecuteQueryOK) Code() int {
 }
 
 func (o *ExecuteQueryOK) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryOK %s", 200, payload)
 }
 
 func (o *ExecuteQueryOK) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryOK %s", 200, payload)
 }
 
 func (o *ExecuteQueryOK) GetPayload() *models.TypesQueryResponse {
@@ -240,11 +243,13 @@ func (o *ExecuteQueryBadRequest) Code() int {
 }
 
 func (o *ExecuteQueryBadRequest) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteQueryBadRequest) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteQueryBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *ExecuteQueryUnauthorized) Code() int {
 }
 
 func (o *ExecuteQueryUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteQueryUnauthorized) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteQueryUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *ExecuteQueryForbidden) Code() int {
 }
 
 func (o *ExecuteQueryForbidden) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryForbidden %s", 403, payload)
 }
 
 func (o *ExecuteQueryForbidden) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryForbidden %s", 403, payload)
 }
 
 func (o *ExecuteQueryForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *ExecuteQueryTooManyRequests) Code() int {
 }
 
 func (o *ExecuteQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *ExecuteQueryInternalServerError) Code() int {
 }
 
 func (o *ExecuteQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteQueryInternalServerError) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ExecuteQueryServiceUnavailable) Code() int {
 }
 
 func (o *ExecuteQueryServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteQueryServiceUnavailable) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/query][%d] executeQueryServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteQueryServiceUnavailable) GetPayload() *models.TypesErrorMessage {

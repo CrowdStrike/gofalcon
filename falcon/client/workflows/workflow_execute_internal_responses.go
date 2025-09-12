@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *WorkflowExecuteInternalOK) Code() int {
 }
 
 func (o *WorkflowExecuteInternalOK) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalOK %s", 200, payload)
 }
 
 func (o *WorkflowExecuteInternalOK) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalOK %s", 200, payload)
 }
 
 func (o *WorkflowExecuteInternalOK) GetPayload() *models.APIResourceIDsResponse {
@@ -234,11 +237,13 @@ func (o *WorkflowExecuteInternalBadRequest) Code() int {
 }
 
 func (o *WorkflowExecuteInternalBadRequest) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowExecuteInternalBadRequest) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowExecuteInternalBadRequest) GetPayload() *models.APIResourceIDsResponse {
@@ -344,11 +349,13 @@ func (o *WorkflowExecuteInternalForbidden) Code() int {
 }
 
 func (o *WorkflowExecuteInternalForbidden) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalForbidden %s", 403, payload)
 }
 
 func (o *WorkflowExecuteInternalForbidden) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalForbidden %s", 403, payload)
 }
 
 func (o *WorkflowExecuteInternalForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *WorkflowExecuteInternalNotFound) Code() int {
 }
 
 func (o *WorkflowExecuteInternalNotFound) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalNotFound %s", 404, payload)
 }
 
 func (o *WorkflowExecuteInternalNotFound) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalNotFound %s", 404, payload)
 }
 
 func (o *WorkflowExecuteInternalNotFound) GetPayload() *models.APIResourceIDsResponse {
@@ -568,11 +577,13 @@ func (o *WorkflowExecuteInternalTooManyRequests) Code() int {
 }
 
 func (o *WorkflowExecuteInternalTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowExecuteInternalTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowExecuteInternalTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *WorkflowExecuteInternalInternalServerError) Code() int {
 }
 
 func (o *WorkflowExecuteInternalInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowExecuteInternalInternalServerError) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/execute/internal/v1][%d] workflowExecuteInternalInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowExecuteInternalInternalServerError) GetPayload() *models.APIResourceIDsResponse {

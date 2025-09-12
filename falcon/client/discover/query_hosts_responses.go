@@ -6,6 +6,7 @@ package discover
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryHostsOK) Code() int {
 }
 
 func (o *QueryHostsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK %s", 200, payload)
 }
 
 func (o *QueryHostsOK) String() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK %s", 200, payload)
 }
 
 func (o *QueryHostsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryHostsBadRequest) Code() int {
 }
 
 func (o *QueryHostsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest %s", 400, payload)
 }
 
 func (o *QueryHostsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest %s", 400, payload)
 }
 
 func (o *QueryHostsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryHostsForbidden) Code() int {
 }
 
 func (o *QueryHostsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsForbidden %s", 403, payload)
 }
 
 func (o *QueryHostsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsForbidden %s", 403, payload)
 }
 
 func (o *QueryHostsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryHostsTooManyRequests) Code() int {
 }
 
 func (o *QueryHostsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryHostsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryHostsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryHostsInternalServerError) Code() int {
 }
 
 func (o *QueryHostsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryHostsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryHostsInternalServerError) GetPayload() *models.MsaspecResponseFields {

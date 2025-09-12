@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetRuleTypesOK) Code() int {
 }
 
 func (o *GetRuleTypesOK) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesOK %s", 200, payload)
 }
 
 func (o *GetRuleTypesOK) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesOK %s", 200, payload)
 }
 
 func (o *GetRuleTypesOK) GetPayload() *models.APIRuleTypesResponse {
@@ -228,11 +231,13 @@ func (o *GetRuleTypesForbidden) Code() int {
 }
 
 func (o *GetRuleTypesForbidden) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesForbidden %s", 403, payload)
 }
 
 func (o *GetRuleTypesForbidden) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesForbidden %s", 403, payload)
 }
 
 func (o *GetRuleTypesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *GetRuleTypesNotFound) Code() int {
 }
 
 func (o *GetRuleTypesNotFound) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesNotFound %s", 404, payload)
 }
 
 func (o *GetRuleTypesNotFound) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesNotFound %s", 404, payload)
 }
 
 func (o *GetRuleTypesNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetRuleTypesTooManyRequests) Code() int {
 }
 
 func (o *GetRuleTypesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleTypesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetRuleTypesInternalServerError) Code() int {
 }
 
 func (o *GetRuleTypesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleTypesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleTypesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

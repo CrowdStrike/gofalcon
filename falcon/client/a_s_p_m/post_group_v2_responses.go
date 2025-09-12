@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -128,11 +129,11 @@ func (o *PostGroupV2OK) Code() int {
 }
 
 func (o *PostGroupV2OK) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2OK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2OK", 200)
 }
 
 func (o *PostGroupV2OK) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2OK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2OK", 200)
 }
 
 func (o *PostGroupV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -225,11 +226,11 @@ func (o *PostGroupV2Created) Code() int {
 }
 
 func (o *PostGroupV2Created) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Created ", 201)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Created", 201)
 }
 
 func (o *PostGroupV2Created) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Created ", 201)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Created", 201)
 }
 
 func (o *PostGroupV2Created) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -324,11 +325,13 @@ func (o *PostGroupV2BadRequest) Code() int {
 }
 
 func (o *PostGroupV2BadRequest) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2BadRequest %s", 400, payload)
 }
 
 func (o *PostGroupV2BadRequest) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2BadRequest %s", 400, payload)
 }
 
 func (o *PostGroupV2BadRequest) GetPayload() *models.TypesErrorMessage {
@@ -434,11 +437,13 @@ func (o *PostGroupV2Unauthorized) Code() int {
 }
 
 func (o *PostGroupV2Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Unauthorized %s", 401, payload)
 }
 
 func (o *PostGroupV2Unauthorized) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Unauthorized %s", 401, payload)
 }
 
 func (o *PostGroupV2Unauthorized) GetPayload() *models.TypesErrorMessage {
@@ -544,11 +549,13 @@ func (o *PostGroupV2Forbidden) Code() int {
 }
 
 func (o *PostGroupV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Forbidden %s", 403, payload)
 }
 
 func (o *PostGroupV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2Forbidden %s", 403, payload)
 }
 
 func (o *PostGroupV2Forbidden) GetPayload() *models.TypesErrorMessage {
@@ -658,11 +665,13 @@ func (o *PostGroupV2TooManyRequests) Code() int {
 }
 
 func (o *PostGroupV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2TooManyRequests %s", 429, payload)
 }
 
 func (o *PostGroupV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2TooManyRequests %s", 429, payload)
 }
 
 func (o *PostGroupV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -779,11 +788,13 @@ func (o *PostGroupV2InternalServerError) Code() int {
 }
 
 func (o *PostGroupV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2InternalServerError %s", 500, payload)
 }
 
 func (o *PostGroupV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/v2][%d] postGroupV2InternalServerError %s", 500, payload)
 }
 
 func (o *PostGroupV2InternalServerError) GetPayload() *models.TypesErrorMessage {

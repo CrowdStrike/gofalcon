@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetCSPMAzureUserScriptsAttachmentOK) Code() int {
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentOK) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {
@@ -228,11 +231,13 @@ func (o *GetCSPMAzureUserScriptsAttachmentBadRequest) Code() int {
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentBadRequest) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {
@@ -338,11 +343,13 @@ func (o *GetCSPMAzureUserScriptsAttachmentForbidden) Code() int {
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetCSPMAzureUserScriptsAttachmentTooManyRequests) Code() int {
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetCSPMAzureUserScriptsAttachmentInternalServerError) Code() int {
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/user-scripts-download/v1][%d] getCSPMAzureUserScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMAzureUserScriptsAttachmentInternalServerError) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {

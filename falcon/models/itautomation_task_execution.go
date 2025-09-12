@@ -84,7 +84,7 @@ type ItautomationTaskExecution struct {
 
 	// Type of task execution.
 	// Required: true
-	// Enum: [query remediation]
+	// Enum: ["query","remediation"]
 	TaskType *string `json:"task_type"`
 
 	// Conditions that trigger remediation scripts

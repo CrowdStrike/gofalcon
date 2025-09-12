@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetSummaryReportsOK) Code() int {
 }
 
 func (o *GetSummaryReportsOK) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsOK %s", 200, payload)
 }
 
 func (o *GetSummaryReportsOK) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsOK %s", 200, payload)
 }
 
 func (o *GetSummaryReportsOK) GetPayload() *models.FalconxSummaryReportV1Response {
@@ -228,11 +231,13 @@ func (o *GetSummaryReportsBadRequest) Code() int {
 }
 
 func (o *GetSummaryReportsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsBadRequest %s", 400, payload)
 }
 
 func (o *GetSummaryReportsBadRequest) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsBadRequest %s", 400, payload)
 }
 
 func (o *GetSummaryReportsBadRequest) GetPayload() *models.FalconxSummaryReportV1Response {
@@ -338,11 +343,13 @@ func (o *GetSummaryReportsForbidden) Code() int {
 }
 
 func (o *GetSummaryReportsForbidden) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsForbidden %s", 403, payload)
 }
 
 func (o *GetSummaryReportsForbidden) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsForbidden %s", 403, payload)
 }
 
 func (o *GetSummaryReportsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetSummaryReportsTooManyRequests) Code() int {
 }
 
 func (o *GetSummaryReportsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSummaryReportsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSummaryReportsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetSummaryReportsInternalServerError) Code() int {
 }
 
 func (o *GetSummaryReportsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSummaryReportsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSummaryReportsInternalServerError) GetPayload() *models.FalconxSummaryReportV1Response {

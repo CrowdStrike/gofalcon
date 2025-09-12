@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *UpdatePoliciesOK) Code() int {
 }
 
 func (o *UpdatePoliciesOK) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesOK %s", 200, payload)
 }
 
 func (o *UpdatePoliciesOK) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesOK %s", 200, payload)
 }
 
 func (o *UpdatePoliciesOK) GetPayload() *models.ModelsPolicyEntityResponse {
@@ -222,11 +225,13 @@ func (o *UpdatePoliciesForbidden) Code() int {
 }
 
 func (o *UpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdatePoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *UpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *UpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *UpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *UpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /container-security/entities/image-assessment-policies/v1][%d] updatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePoliciesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

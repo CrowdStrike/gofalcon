@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetClustersOK) Code() int {
 }
 
 func (o *GetClustersOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersOK %s", 200, payload)
 }
 
 func (o *GetClustersOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersOK %s", 200, payload)
 }
 
 func (o *GetClustersOK) GetPayload() *models.K8sregGetClustersResp {
@@ -234,11 +237,13 @@ func (o *GetClustersMultiStatus) Code() int {
 }
 
 func (o *GetClustersMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersMultiStatus %s", 207, payload)
 }
 
 func (o *GetClustersMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersMultiStatus %s", 207, payload)
 }
 
 func (o *GetClustersMultiStatus) GetPayload() *models.K8sregGetClustersResp {
@@ -344,11 +349,13 @@ func (o *GetClustersBadRequest) Code() int {
 }
 
 func (o *GetClustersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersBadRequest %s", 400, payload)
 }
 
 func (o *GetClustersBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersBadRequest %s", 400, payload)
 }
 
 func (o *GetClustersBadRequest) GetPayload() *models.K8sregGetClustersResp {
@@ -454,11 +461,13 @@ func (o *GetClustersForbidden) Code() int {
 }
 
 func (o *GetClustersForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersForbidden %s", 403, payload)
 }
 
 func (o *GetClustersForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersForbidden %s", 403, payload)
 }
 
 func (o *GetClustersForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetClustersTooManyRequests) Code() int {
 }
 
 func (o *GetClustersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersTooManyRequests %s", 429, payload)
 }
 
 func (o *GetClustersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersTooManyRequests %s", 429, payload)
 }
 
 func (o *GetClustersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetClustersInternalServerError) Code() int {
 }
 
 func (o *GetClustersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersInternalServerError %s", 500, payload)
 }
 
 func (o *GetClustersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersInternalServerError %s", 500, payload)
 }
 
 func (o *GetClustersInternalServerError) GetPayload() *models.K8sregGetClustersResp {

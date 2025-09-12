@@ -6,6 +6,7 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetSecurityChecksV3OK) Code() int {
 }
 
 func (o *GetSecurityChecksV3OK) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3OK %s", 200, payload)
 }
 
 func (o *GetSecurityChecksV3OK) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3OK %s", 200, payload)
 }
 
 func (o *GetSecurityChecksV3OK) GetPayload() *models.GetSecurityChecks {
@@ -222,11 +225,13 @@ func (o *GetSecurityChecksV3Forbidden) Code() int {
 }
 
 func (o *GetSecurityChecksV3Forbidden) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3Forbidden %s", 403, payload)
 }
 
 func (o *GetSecurityChecksV3Forbidden) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3Forbidden %s", 403, payload)
 }
 
 func (o *GetSecurityChecksV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetSecurityChecksV3TooManyRequests) Code() int {
 }
 
 func (o *GetSecurityChecksV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSecurityChecksV3TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetSecurityChecksV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetSecurityChecksV3InternalServerError) Code() int {
 }
 
 func (o *GetSecurityChecksV3InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetSecurityChecksV3InternalServerError) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/checks/v3][%d] getSecurityChecksV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetSecurityChecksV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

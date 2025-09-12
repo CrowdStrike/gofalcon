@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateCaseV2OK) Code() int {
 }
 
 func (o *CreateCaseV2OK) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2OK %s", 200, payload)
 }
 
 func (o *CreateCaseV2OK) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2OK %s", 200, payload)
 }
 
 func (o *CreateCaseV2OK) GetPayload() *models.MsaReplyAffectedEntities {
@@ -228,11 +231,13 @@ func (o *CreateCaseV2BadRequest) Code() int {
 }
 
 func (o *CreateCaseV2BadRequest) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2BadRequest %s", 400, payload)
 }
 
 func (o *CreateCaseV2BadRequest) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2BadRequest %s", 400, payload)
 }
 
 func (o *CreateCaseV2BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CreateCaseV2Forbidden) Code() int {
 }
 
 func (o *CreateCaseV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2Forbidden %s", 403, payload)
 }
 
 func (o *CreateCaseV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2Forbidden %s", 403, payload)
 }
 
 func (o *CreateCaseV2Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CreateCaseV2TooManyRequests) Code() int {
 }
 
 func (o *CreateCaseV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCaseV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCaseV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateCaseV2InternalServerError) Code() int {
 }
 
 func (o *CreateCaseV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2InternalServerError %s", 500, payload)
 }
 
 func (o *CreateCaseV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case/v2][%d] createCaseV2InternalServerError %s", 500, payload)
 }
 
 func (o *CreateCaseV2InternalServerError) GetPayload() *models.MsaspecResponseFields {

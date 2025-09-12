@@ -6,6 +6,7 @@ package device_control_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PerformDeviceControlPoliciesActionOK) Code() int {
 }
 
 func (o *PerformDeviceControlPoliciesActionOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionOK %s", 200, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionOK %s", 200, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionOK) GetPayload() *models.DeviceControlRespV1 {
@@ -234,11 +237,13 @@ func (o *PerformDeviceControlPoliciesActionBadRequest) Code() int {
 }
 
 func (o *PerformDeviceControlPoliciesActionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionBadRequest) GetPayload() *models.DeviceControlRespV1 {
@@ -344,11 +349,13 @@ func (o *PerformDeviceControlPoliciesActionForbidden) Code() int {
 }
 
 func (o *PerformDeviceControlPoliciesActionForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionForbidden %s", 403, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionForbidden %s", 403, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PerformDeviceControlPoliciesActionNotFound) Code() int {
 }
 
 func (o *PerformDeviceControlPoliciesActionNotFound) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionNotFound %s", 404, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionNotFound) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionNotFound %s", 404, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionNotFound) GetPayload() *models.DeviceControlRespV1 {
@@ -568,11 +577,13 @@ func (o *PerformDeviceControlPoliciesActionTooManyRequests) Code() int {
 }
 
 func (o *PerformDeviceControlPoliciesActionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PerformDeviceControlPoliciesActionInternalServerError) Code() int {
 }
 
 func (o *PerformDeviceControlPoliciesActionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformDeviceControlPoliciesActionInternalServerError) GetPayload() *models.DeviceControlRespV1 {

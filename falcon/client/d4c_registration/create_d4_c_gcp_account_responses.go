@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateD4CGcpAccountCreated) Code() int {
 }
 
 func (o *CreateD4CGcpAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountCreated %s", 201, payload)
 }
 
 func (o *CreateD4CGcpAccountCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountCreated %s", 201, payload)
 }
 
 func (o *CreateD4CGcpAccountCreated) GetPayload() *models.RegistrationGCPAccountResponseV1 {
@@ -234,11 +237,13 @@ func (o *CreateD4CGcpAccountMultiStatus) Code() int {
 }
 
 func (o *CreateD4CGcpAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateD4CGcpAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateD4CGcpAccountMultiStatus) GetPayload() *models.RegistrationGCPAccountResponseV1 {
@@ -344,11 +349,13 @@ func (o *CreateD4CGcpAccountBadRequest) Code() int {
 }
 
 func (o *CreateD4CGcpAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateD4CGcpAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateD4CGcpAccountBadRequest) GetPayload() *models.RegistrationGCPAccountResponseV1 {
@@ -454,11 +461,13 @@ func (o *CreateD4CGcpAccountForbidden) Code() int {
 }
 
 func (o *CreateD4CGcpAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateD4CGcpAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateD4CGcpAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *CreateD4CGcpAccountTooManyRequests) Code() int {
 }
 
 func (o *CreateD4CGcpAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateD4CGcpAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateD4CGcpAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateD4CGcpAccountInternalServerError) Code() int {
 }
 
 func (o *CreateD4CGcpAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateD4CGcpAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createD4CGcpAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateD4CGcpAccountInternalServerError) GetPayload() *models.RegistrationGCPAccountResponseV1 {

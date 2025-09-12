@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ExtractionGetV1OK) Code() int {
 }
 
 func (o *ExtractionGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1OK %s", 200, payload)
 }
 
 func (o *ExtractionGetV1OK) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1OK %s", 200, payload)
 }
 
 func (o *ExtractionGetV1OK) GetPayload() *models.ClientExtractionCreateResponseV1 {
@@ -228,11 +231,13 @@ func (o *ExtractionGetV1BadRequest) Code() int {
 }
 
 func (o *ExtractionGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1BadRequest %s", 400, payload)
 }
 
 func (o *ExtractionGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1BadRequest %s", 400, payload)
 }
 
 func (o *ExtractionGetV1BadRequest) GetPayload() *models.ClientExtractionCreateResponseV1 {
@@ -338,11 +343,13 @@ func (o *ExtractionGetV1Forbidden) Code() int {
 }
 
 func (o *ExtractionGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1Forbidden %s", 403, payload)
 }
 
 func (o *ExtractionGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1Forbidden %s", 403, payload)
 }
 
 func (o *ExtractionGetV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ExtractionGetV1TooManyRequests) Code() int {
 }
 
 func (o *ExtractionGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ExtractionGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ExtractionGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ExtractionGetV1InternalServerError) Code() int {
 }
 
 func (o *ExtractionGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *ExtractionGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extractions/v1][%d] extractionGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *ExtractionGetV1InternalServerError) GetPayload() *models.ClientExtractionCreateResponseV1 {

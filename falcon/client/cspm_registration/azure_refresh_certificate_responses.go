@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AzureRefreshCertificateOK) Code() int {
 }
 
 func (o *AzureRefreshCertificateOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateOK %s", 200, payload)
 }
 
 func (o *AzureRefreshCertificateOK) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateOK %s", 200, payload)
 }
 
 func (o *AzureRefreshCertificateOK) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
@@ -228,11 +231,13 @@ func (o *AzureRefreshCertificateBadRequest) Code() int {
 }
 
 func (o *AzureRefreshCertificateBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateBadRequest %s", 400, payload)
 }
 
 func (o *AzureRefreshCertificateBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateBadRequest %s", 400, payload)
 }
 
 func (o *AzureRefreshCertificateBadRequest) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
@@ -338,11 +343,13 @@ func (o *AzureRefreshCertificateForbidden) Code() int {
 }
 
 func (o *AzureRefreshCertificateForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateForbidden %s", 403, payload)
 }
 
 func (o *AzureRefreshCertificateForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateForbidden %s", 403, payload)
 }
 
 func (o *AzureRefreshCertificateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AzureRefreshCertificateTooManyRequests) Code() int {
 }
 
 func (o *AzureRefreshCertificateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateTooManyRequests %s", 429, payload)
 }
 
 func (o *AzureRefreshCertificateTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateTooManyRequests %s", 429, payload)
 }
 
 func (o *AzureRefreshCertificateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AzureRefreshCertificateInternalServerError) Code() int {
 }
 
 func (o *AzureRefreshCertificateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateInternalServerError %s", 500, payload)
 }
 
 func (o *AzureRefreshCertificateInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/refresh-certificate/v1][%d] azureRefreshCertificateInternalServerError %s", 500, payload)
 }
 
 func (o *AzureRefreshCertificateInternalServerError) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {

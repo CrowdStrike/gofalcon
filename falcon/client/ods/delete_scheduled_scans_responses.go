@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteScheduledScansOK) Code() int {
 }
 
 func (o *DeleteScheduledScansOK) Error() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansOK %s", 200, payload)
 }
 
 func (o *DeleteScheduledScansOK) String() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansOK %s", 200, payload)
 }
 
 func (o *DeleteScheduledScansOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteScheduledScansForbidden) Code() int {
 }
 
 func (o *DeleteScheduledScansForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansForbidden %s", 403, payload)
 }
 
 func (o *DeleteScheduledScansForbidden) String() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansForbidden %s", 403, payload)
 }
 
 func (o *DeleteScheduledScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *DeleteScheduledScansNotFound) Code() int {
 }
 
 func (o *DeleteScheduledScansNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansNotFound %s", 404, payload)
 }
 
 func (o *DeleteScheduledScansNotFound) String() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansNotFound %s", 404, payload)
 }
 
 func (o *DeleteScheduledScansNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *DeleteScheduledScansTooManyRequests) Code() int {
 }
 
 func (o *DeleteScheduledScansTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteScheduledScansTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteScheduledScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteScheduledScansInternalServerError) Code() int {
 }
 
 func (o *DeleteScheduledScansInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteScheduledScansInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteScheduledScansInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

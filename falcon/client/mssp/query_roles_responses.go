@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryRolesOK) Code() int {
 }
 
 func (o *QueryRolesOK) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesOK %s", 200, payload)
 }
 
 func (o *QueryRolesOK) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesOK %s", 200, payload)
 }
 
 func (o *QueryRolesOK) GetPayload() *models.MsaQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryRolesForbidden) Code() int {
 }
 
 func (o *QueryRolesForbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesForbidden %s", 403, payload)
 }
 
 func (o *QueryRolesForbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesForbidden %s", 403, payload)
 }
 
 func (o *QueryRolesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -336,11 +341,13 @@ func (o *QueryRolesTooManyRequests) Code() int {
 }
 
 func (o *QueryRolesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRolesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRolesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryRolesInternalServerError) Code() int {
 }
 
 func (o *QueryRolesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRolesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRolesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

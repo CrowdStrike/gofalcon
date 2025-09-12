@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationGetTaskExecutionsByQueryOK) Code() int {
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryOK) GetPayload() *models.ItautomationGetTaskExecutionResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationGetTaskExecutionsByQueryBadRequest) Code() int {
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationGetTaskExecutionsByQueryForbidden) Code() int {
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationGetTaskExecutionsByQueryTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationGetTaskExecutionsByQueryInternalServerError) Code() int {
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/combined/task-executions/v1][%d] iTAutomationGetTaskExecutionsByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetTaskExecutionsByQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetBehaviorDetectionsOK) Code() int {
 }
 
 func (o *GetBehaviorDetectionsOK) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsOK %s", 200, payload)
 }
 
 func (o *GetBehaviorDetectionsOK) String() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsOK %s", 200, payload)
 }
 
 func (o *GetBehaviorDetectionsOK) GetPayload() *models.RegistrationExternalIOAEventResponse {
@@ -228,11 +231,13 @@ func (o *GetBehaviorDetectionsBadRequest) Code() int {
 }
 
 func (o *GetBehaviorDetectionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsBadRequest %s", 400, payload)
 }
 
 func (o *GetBehaviorDetectionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsBadRequest %s", 400, payload)
 }
 
 func (o *GetBehaviorDetectionsBadRequest) GetPayload() *models.RegistrationExternalIOAEventResponse {
@@ -338,11 +343,13 @@ func (o *GetBehaviorDetectionsForbidden) Code() int {
 }
 
 func (o *GetBehaviorDetectionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsForbidden %s", 403, payload)
 }
 
 func (o *GetBehaviorDetectionsForbidden) String() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsForbidden %s", 403, payload)
 }
 
 func (o *GetBehaviorDetectionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetBehaviorDetectionsTooManyRequests) Code() int {
 }
 
 func (o *GetBehaviorDetectionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetBehaviorDetectionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetBehaviorDetectionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetBehaviorDetectionsInternalServerError) Code() int {
 }
 
 func (o *GetBehaviorDetectionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *GetBehaviorDetectionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *GetBehaviorDetectionsInternalServerError) GetPayload() *models.RegistrationExternalIOAEventResponse {

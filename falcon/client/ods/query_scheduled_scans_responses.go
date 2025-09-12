@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryScheduledScansOK) Code() int {
 }
 
 func (o *QueryScheduledScansOK) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansOK %s", 200, payload)
 }
 
 func (o *QueryScheduledScansOK) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansOK %s", 200, payload)
 }
 
 func (o *QueryScheduledScansOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryScheduledScansForbidden) Code() int {
 }
 
 func (o *QueryScheduledScansForbidden) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansForbidden %s", 403, payload)
 }
 
 func (o *QueryScheduledScansForbidden) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansForbidden %s", 403, payload)
 }
 
 func (o *QueryScheduledScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *QueryScheduledScansNotFound) Code() int {
 }
 
 func (o *QueryScheduledScansNotFound) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansNotFound %s", 404, payload)
 }
 
 func (o *QueryScheduledScansNotFound) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansNotFound %s", 404, payload)
 }
 
 func (o *QueryScheduledScansNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *QueryScheduledScansTooManyRequests) Code() int {
 }
 
 func (o *QueryScheduledScansTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScheduledScansTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScheduledScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryScheduledScansInternalServerError) Code() int {
 }
 
 func (o *QueryScheduledScansInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScheduledScansInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScheduledScansInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

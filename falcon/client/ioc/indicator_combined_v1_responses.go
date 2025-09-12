@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *IndicatorCombinedV1OK) Code() int {
 }
 
 func (o *IndicatorCombinedV1OK) Error() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1OK %s", 200, payload)
 }
 
 func (o *IndicatorCombinedV1OK) String() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1OK %s", 200, payload)
 }
 
 func (o *IndicatorCombinedV1OK) GetPayload() *models.APIIndicatorRespV1 {
@@ -228,11 +231,13 @@ func (o *IndicatorCombinedV1BadRequest) Code() int {
 }
 
 func (o *IndicatorCombinedV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1BadRequest %s", 400, payload)
 }
 
 func (o *IndicatorCombinedV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1BadRequest %s", 400, payload)
 }
 
 func (o *IndicatorCombinedV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *IndicatorCombinedV1Forbidden) Code() int {
 }
 
 func (o *IndicatorCombinedV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorCombinedV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorCombinedV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *IndicatorCombinedV1TooManyRequests) Code() int {
 }
 
 func (o *IndicatorCombinedV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorCombinedV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorCombinedV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *IndicatorCombinedV1InternalServerError) Code() int {
 }
 
 func (o *IndicatorCombinedV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorCombinedV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorCombinedV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

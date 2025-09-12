@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExecutionResultsOK) Code() int {
 }
 
 func (o *ExecutionResultsOK) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsOK %s", 200, payload)
 }
 
 func (o *ExecutionResultsOK) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsOK %s", 200, payload)
 }
 
 func (o *ExecutionResultsOK) GetPayload() *models.APIExecutionResultsResponse {
@@ -234,11 +237,13 @@ func (o *ExecutionResultsBadRequest) Code() int {
 }
 
 func (o *ExecutionResultsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsBadRequest %s", 400, payload)
 }
 
 func (o *ExecutionResultsBadRequest) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsBadRequest %s", 400, payload)
 }
 
 func (o *ExecutionResultsBadRequest) GetPayload() *models.APIExecutionResultsResponse {
@@ -344,11 +349,13 @@ func (o *ExecutionResultsForbidden) Code() int {
 }
 
 func (o *ExecutionResultsForbidden) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsForbidden %s", 403, payload)
 }
 
 func (o *ExecutionResultsForbidden) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsForbidden %s", 403, payload)
 }
 
 func (o *ExecutionResultsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *ExecutionResultsNotFound) Code() int {
 }
 
 func (o *ExecutionResultsNotFound) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsNotFound %s", 404, payload)
 }
 
 func (o *ExecutionResultsNotFound) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsNotFound %s", 404, payload)
 }
 
 func (o *ExecutionResultsNotFound) GetPayload() *models.APIExecutionResultsResponse {
@@ -568,11 +577,13 @@ func (o *ExecutionResultsTooManyRequests) Code() int {
 }
 
 func (o *ExecutionResultsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecutionResultsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecutionResultsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExecutionResultsInternalServerError) Code() int {
 }
 
 func (o *ExecutionResultsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsInternalServerError %s", 500, payload)
 }
 
 func (o *ExecutionResultsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/execution-results/v1][%d] executionResultsInternalServerError %s", 500, payload)
 }
 
 func (o *ExecutionResultsInternalServerError) GetPayload() *models.APIExecutionResultsResponse {

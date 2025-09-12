@@ -6,6 +6,7 @@ package container_images
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateImageCountByStateOK) Code() int {
 }
 
 func (o *AggregateImageCountByStateOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateOK %s", 200, payload)
 }
 
 func (o *AggregateImageCountByStateOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateOK %s", 200, payload)
 }
 
 func (o *AggregateImageCountByStateOK) GetPayload() *models.ImagesAPIImageCountByState {
@@ -228,11 +231,13 @@ func (o *AggregateImageCountByStateBadRequest) Code() int {
 }
 
 func (o *AggregateImageCountByStateBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateBadRequest %s", 400, payload)
 }
 
 func (o *AggregateImageCountByStateBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateBadRequest %s", 400, payload)
 }
 
 func (o *AggregateImageCountByStateBadRequest) GetPayload() *models.CoreEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *AggregateImageCountByStateForbidden) Code() int {
 }
 
 func (o *AggregateImageCountByStateForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageCountByStateForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageCountByStateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateImageCountByStateTooManyRequests) Code() int {
 }
 
 func (o *AggregateImageCountByStateTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageCountByStateTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageCountByStateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateImageCountByStateInternalServerError) Code() int {
 }
 
 func (o *AggregateImageCountByStateInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageCountByStateInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-state/v1][%d] aggregateImageCountByStateInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageCountByStateInternalServerError) GetPayload() *models.CoreEntitiesResponse {

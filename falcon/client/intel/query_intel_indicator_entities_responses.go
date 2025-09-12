@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -122,11 +123,13 @@ func (o *QueryIntelIndicatorEntitiesOK) Code() int {
 }
 
 func (o *QueryIntelIndicatorEntitiesOK) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesOK %s", 200, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesOK) String() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesOK %s", 200, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesOK) GetPayload() *models.DomainPublicIndicatorsV3Response {
@@ -239,11 +242,13 @@ func (o *QueryIntelIndicatorEntitiesBadRequest) Code() int {
 }
 
 func (o *QueryIntelIndicatorEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -349,11 +354,13 @@ func (o *QueryIntelIndicatorEntitiesForbidden) Code() int {
 }
 
 func (o *QueryIntelIndicatorEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -463,11 +470,13 @@ func (o *QueryIntelIndicatorEntitiesTooManyRequests) Code() int {
 }
 
 func (o *QueryIntelIndicatorEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -584,11 +593,13 @@ func (o *QueryIntelIndicatorEntitiesInternalServerError) Code() int {
 }
 
 func (o *QueryIntelIndicatorEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] queryIntelIndicatorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelIndicatorEntitiesInternalServerError) GetPayload() *models.MsaErrorsOnly {

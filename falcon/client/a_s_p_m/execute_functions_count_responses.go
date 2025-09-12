@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ExecuteFunctionsCountOK) Code() int {
 }
 
 func (o *ExecuteFunctionsCountOK) Error() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsCountOK) String() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsCountOK) GetPayload() *models.TypesCountResponse {
@@ -240,11 +243,13 @@ func (o *ExecuteFunctionsCountBadRequest) Code() int {
 }
 
 func (o *ExecuteFunctionsCountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsCountBadRequest) String() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsCountBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *ExecuteFunctionsCountUnauthorized) Code() int {
 }
 
 func (o *ExecuteFunctionsCountUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsCountUnauthorized) String() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsCountUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *ExecuteFunctionsCountForbidden) Code() int {
 }
 
 func (o *ExecuteFunctionsCountForbidden) Error() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsCountForbidden) String() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsCountForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *ExecuteFunctionsCountTooManyRequests) Code() int {
 }
 
 func (o *ExecuteFunctionsCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsCountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *ExecuteFunctionsCountInternalServerError) Code() int {
 }
 
 func (o *ExecuteFunctionsCountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsCountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsCountInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ExecuteFunctionsCountServiceUnavailable) Code() int {
 }
 
 func (o *ExecuteFunctionsCountServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsCountServiceUnavailable) String() string {
-	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /application-security/aggregates/functions/count/v1][%d] executeFunctionsCountServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsCountServiceUnavailable) GetPayload() *models.TypesErrorMessage {

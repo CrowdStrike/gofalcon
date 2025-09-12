@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,32 +20,33 @@ import (
 // swagger:model falconforitapi.Schedule
 type FalconforitapiSchedule struct {
 
-	// day of month
+	// Day of the month to run a Monthly schedule. Example: 5
 	DayOfMonth int32 `json:"day_of_month,omitempty"`
 
-	// days of week
+	// Days of the week to run a Weekly schedule on. Example: ["Monday", "Tuesday"]
 	DaysOfWeek []string `json:"days_of_week"`
 
-	// end time
+	// Time that the schedule will stop running, in RFC3339 format. Example: 2026-05-14T22:17:00.000Z
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"end_time,omitempty"`
 
-	// frequency
+	// Frequency of runs
 	// Required: true
+	// Enum: ["One-Time","Minutes","Hourly","Daily","Weekly","Monthly"]
 	Frequency *string `json:"frequency"`
 
-	// interval
+	// Minute interval for frequency:Minutes. Example: 30
 	// Required: true
 	Interval *int32 `json:"interval"`
 
-	// start time
+	// Time that the schedule will first run, in RFC3339 format. Example: 2025-05-14T22:17:00.000Z
 	// Format: date-time
 	StartTime strfmt.DateTime `json:"start_time,omitempty"`
 
-	// time
+	// 24-hour time that a schedule should run at. Example: 17:17
 	Time string `json:"time,omitempty"`
 
-	// timezone
+	// Timezone offset the time is set for. Example: -0500
 	Timezone string `json:"timezone,omitempty"`
 }
 
@@ -86,9 +88,55 @@ func (m *FalconforitapiSchedule) validateEndTime(formats strfmt.Registry) error 
 	return nil
 }
 
+var falconforitapiScheduleTypeFrequencyPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["One-Time","Minutes","Hourly","Daily","Weekly","Monthly"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		falconforitapiScheduleTypeFrequencyPropEnum = append(falconforitapiScheduleTypeFrequencyPropEnum, v)
+	}
+}
+
+const (
+
+	// FalconforitapiScheduleFrequencyOneDashTime captures enum value "One-Time"
+	FalconforitapiScheduleFrequencyOneDashTime string = "One-Time"
+
+	// FalconforitapiScheduleFrequencyMinutes captures enum value "Minutes"
+	FalconforitapiScheduleFrequencyMinutes string = "Minutes"
+
+	// FalconforitapiScheduleFrequencyHourly captures enum value "Hourly"
+	FalconforitapiScheduleFrequencyHourly string = "Hourly"
+
+	// FalconforitapiScheduleFrequencyDaily captures enum value "Daily"
+	FalconforitapiScheduleFrequencyDaily string = "Daily"
+
+	// FalconforitapiScheduleFrequencyWeekly captures enum value "Weekly"
+	FalconforitapiScheduleFrequencyWeekly string = "Weekly"
+
+	// FalconforitapiScheduleFrequencyMonthly captures enum value "Monthly"
+	FalconforitapiScheduleFrequencyMonthly string = "Monthly"
+)
+
+// prop value enum
+func (m *FalconforitapiSchedule) validateFrequencyEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, falconforitapiScheduleTypeFrequencyPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
 func (m *FalconforitapiSchedule) validateFrequency(formats strfmt.Registry) error {
 
 	if err := validate.Required("frequency", "body", m.Frequency); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateFrequencyEnum("frequency", "body", *m.Frequency); err != nil {
 		return err
 	}
 

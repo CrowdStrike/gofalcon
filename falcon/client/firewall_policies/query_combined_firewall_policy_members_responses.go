@@ -6,6 +6,7 @@ package firewall_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *QueryCombinedFirewallPolicyMembersOK) Code() int {
 }
 
 func (o *QueryCombinedFirewallPolicyMembersOK) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK %s", 200, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersOK) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK %s", 200, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersOK) GetPayload() *models.BasePolicyMembersRespV1 {
@@ -234,11 +237,13 @@ func (o *QueryCombinedFirewallPolicyMembersBadRequest) Code() int {
 }
 
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) GetPayload() *models.BasePolicyMembersRespV1 {
@@ -344,11 +349,13 @@ func (o *QueryCombinedFirewallPolicyMembersForbidden) Code() int {
 }
 
 func (o *QueryCombinedFirewallPolicyMembersForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *QueryCombinedFirewallPolicyMembersNotFound) Code() int {
 }
 
 func (o *QueryCombinedFirewallPolicyMembersNotFound) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersNotFound) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersNotFound) GetPayload() *models.BasePolicyMembersRespV1 {
@@ -568,11 +577,13 @@ func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) Code() int {
 }
 
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *QueryCombinedFirewallPolicyMembersInternalServerError) Code() int {
 }
 
 func (o *QueryCombinedFirewallPolicyMembersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedFirewallPolicyMembersInternalServerError) GetPayload() *models.BasePolicyMembersRespV1 {

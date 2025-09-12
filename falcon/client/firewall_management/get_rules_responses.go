@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetRulesOK) Code() int {
 }
 
 func (o *GetRulesOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesOK %s", 200, payload)
 }
 
 func (o *GetRulesOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesOK %s", 200, payload)
 }
 
 func (o *GetRulesOK) GetPayload() *models.FwmgrAPIRulesResponse {
@@ -228,11 +231,13 @@ func (o *GetRulesBadRequest) Code() int {
 }
 
 func (o *GetRulesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesBadRequest %s", 400, payload)
 }
 
 func (o *GetRulesBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesBadRequest %s", 400, payload)
 }
 
 func (o *GetRulesBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetRulesForbidden) Code() int {
 }
 
 func (o *GetRulesForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesForbidden %s", 403, payload)
 }
 
 func (o *GetRulesForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesForbidden %s", 403, payload)
 }
 
 func (o *GetRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetRulesTooManyRequests) Code() int {
 }
 
 func (o *GetRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetRulesInternalServerError) Code() int {
 }
 
 func (o *GetRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesInternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesInternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

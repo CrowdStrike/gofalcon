@@ -6,6 +6,7 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetMalQueryRequestV1OK) Code() int {
 }
 
 func (o *GetMalQueryRequestV1OK) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1OK %s", 200, payload)
 }
 
 func (o *GetMalQueryRequestV1OK) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1OK %s", 200, payload)
 }
 
 func (o *GetMalQueryRequestV1OK) GetPayload() *models.MalqueryRequestResponse {
@@ -234,11 +237,13 @@ func (o *GetMalQueryRequestV1BadRequest) Code() int {
 }
 
 func (o *GetMalQueryRequestV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1BadRequest %s", 400, payload)
 }
 
 func (o *GetMalQueryRequestV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1BadRequest %s", 400, payload)
 }
 
 func (o *GetMalQueryRequestV1BadRequest) GetPayload() *models.MalqueryRequestResponse {
@@ -344,11 +349,13 @@ func (o *GetMalQueryRequestV1Unauthorized) Code() int {
 }
 
 func (o *GetMalQueryRequestV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetMalQueryRequestV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetMalQueryRequestV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetMalQueryRequestV1Forbidden) Code() int {
 }
 
 func (o *GetMalQueryRequestV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Forbidden %s", 403, payload)
 }
 
 func (o *GetMalQueryRequestV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Forbidden %s", 403, payload)
 }
 
 func (o *GetMalQueryRequestV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *GetMalQueryRequestV1TooManyRequests) Code() int {
 }
 
 func (o *GetMalQueryRequestV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMalQueryRequestV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMalQueryRequestV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetMalQueryRequestV1InternalServerError) Code() int {
 }
 
 func (o *GetMalQueryRequestV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetMalQueryRequestV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetMalQueryRequestV1InternalServerError) GetPayload() *models.MalqueryRequestResponse {

@@ -6,6 +6,7 @@ package identity_entities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetSensorAggregatesOK) Code() int {
 }
 
 func (o *GetSensorAggregatesOK) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesOK %s", 200, payload)
 }
 
 func (o *GetSensorAggregatesOK) String() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesOK %s", 200, payload)
 }
 
 func (o *GetSensorAggregatesOK) GetPayload() *models.MsaAggregatesResponse {
@@ -222,11 +225,13 @@ func (o *GetSensorAggregatesForbidden) Code() int {
 }
 
 func (o *GetSensorAggregatesForbidden) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesForbidden %s", 403, payload)
 }
 
 func (o *GetSensorAggregatesForbidden) String() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesForbidden %s", 403, payload)
 }
 
 func (o *GetSensorAggregatesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetSensorAggregatesTooManyRequests) Code() int {
 }
 
 func (o *GetSensorAggregatesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorAggregatesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorAggregatesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetSensorAggregatesInternalServerError) Code() int {
 }
 
 func (o *GetSensorAggregatesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorAggregatesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/aggregates/devices/GET/v1][%d] getSensorAggregatesInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorAggregatesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

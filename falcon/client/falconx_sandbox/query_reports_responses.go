@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryReportsOK) Code() int {
 }
 
 func (o *QueryReportsOK) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK %s", 200, payload)
 }
 
 func (o *QueryReportsOK) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK %s", 200, payload)
 }
 
 func (o *QueryReportsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryReportsBadRequest) Code() int {
 }
 
 func (o *QueryReportsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest %s", 400, payload)
 }
 
 func (o *QueryReportsBadRequest) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest %s", 400, payload)
 }
 
 func (o *QueryReportsBadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryReportsForbidden) Code() int {
 }
 
 func (o *QueryReportsForbidden) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsForbidden %s", 403, payload)
 }
 
 func (o *QueryReportsForbidden) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsForbidden %s", 403, payload)
 }
 
 func (o *QueryReportsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryReportsTooManyRequests) Code() int {
 }
 
 func (o *QueryReportsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryReportsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryReportsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryReportsInternalServerError) Code() int {
 }
 
 func (o *QueryReportsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryReportsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryReportsInternalServerError) GetPayload() *models.MsaspecQueryResponse {

@@ -83,6 +83,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
 	"github.com/crowdstrike/gofalcon/falcon/client/it_automation"
+	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
@@ -93,7 +94,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ngsiem"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
-	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
+	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
@@ -175,7 +176,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CaseManagement = case_management.New(transport, formats)
 	cli.Cases = cases.New(transport, formats)
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
-	cli.ItAutomation = it_automation.New(transport, formats)
 	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
 	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
@@ -252,7 +252,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Ngsiem = ngsiem.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
-	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
+	cli.Operations = operations.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
@@ -448,8 +448,6 @@ type CrowdStrikeAPISpecification struct {
 
 	IdentityEntities identity_entities.ClientService
 
-	ItAutomation it_automation.ClientService
-
 	IdentityProtection identity_protection.ClientService
 
 	ImageAssessmentPolicies image_assessment_policies.ClientService
@@ -496,7 +494,7 @@ type CrowdStrikeAPISpecification struct {
 
 	Ods ods.ClientService
 
-	OverwatchDashboard overwatch_dashboard.ClientService
+	Operations operations.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
 
@@ -635,6 +633,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
 	c.ItAutomation.SetTransport(transport)
+	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LookupFiles.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
@@ -645,7 +644,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ngsiem.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
-	c.OverwatchDashboard.SetTransport(transport)
+	c.Operations.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)

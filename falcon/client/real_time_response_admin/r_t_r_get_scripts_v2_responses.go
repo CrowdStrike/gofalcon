@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRGetScriptsV2OK) Code() int {
 }
 
 func (o *RTRGetScriptsV2OK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2OK %s", 200, payload)
 }
 
 func (o *RTRGetScriptsV2OK) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2OK %s", 200, payload)
 }
 
 func (o *RTRGetScriptsV2OK) GetPayload() *models.EmpowerapiMsaPFResponseV2 {
@@ -234,11 +237,13 @@ func (o *RTRGetScriptsV2BadRequest) Code() int {
 }
 
 func (o *RTRGetScriptsV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2BadRequest %s", 400, payload)
 }
 
 func (o *RTRGetScriptsV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2BadRequest %s", 400, payload)
 }
 
 func (o *RTRGetScriptsV2BadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRGetScriptsV2Forbidden) Code() int {
 }
 
 func (o *RTRGetScriptsV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2Forbidden %s", 403, payload)
 }
 
 func (o *RTRGetScriptsV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2Forbidden %s", 403, payload)
 }
 
 func (o *RTRGetScriptsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRGetScriptsV2NotFound) Code() int {
 }
 
 func (o *RTRGetScriptsV2NotFound) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2NotFound %s", 404, payload)
 }
 
 func (o *RTRGetScriptsV2NotFound) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2NotFound %s", 404, payload)
 }
 
 func (o *RTRGetScriptsV2NotFound) GetPayload() *models.DomainAPIError {
@@ -568,11 +577,13 @@ func (o *RTRGetScriptsV2TooManyRequests) Code() int {
 }
 
 func (o *RTRGetScriptsV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *RTRGetScriptsV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *RTRGetScriptsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRGetScriptsV2InternalServerError) Code() int {
 }
 
 func (o *RTRGetScriptsV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2InternalServerError %s", 500, payload)
 }
 
 func (o *RTRGetScriptsV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2InternalServerError %s", 500, payload)
 }
 
 func (o *RTRGetScriptsV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

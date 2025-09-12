@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetFileContentForExportJobsV1OK) Code() int {
 }
 
 func (o *GetFileContentForExportJobsV1OK) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1OK %s", 200, payload)
 }
 
 func (o *GetFileContentForExportJobsV1OK) String() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1OK %s", 200, payload)
 }
 
 func (o *GetFileContentForExportJobsV1OK) GetPayload() []int64 {
@@ -232,11 +235,13 @@ func (o *GetFileContentForExportJobsV1BadRequest) Code() int {
 }
 
 func (o *GetFileContentForExportJobsV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1BadRequest %s", 400, payload)
 }
 
 func (o *GetFileContentForExportJobsV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1BadRequest %s", 400, payload)
 }
 
 func (o *GetFileContentForExportJobsV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -342,11 +347,13 @@ func (o *GetFileContentForExportJobsV1Unauthorized) Code() int {
 }
 
 func (o *GetFileContentForExportJobsV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetFileContentForExportJobsV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetFileContentForExportJobsV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -452,11 +459,13 @@ func (o *GetFileContentForExportJobsV1Forbidden) Code() int {
 }
 
 func (o *GetFileContentForExportJobsV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Forbidden %s", 403, payload)
 }
 
 func (o *GetFileContentForExportJobsV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1Forbidden %s", 403, payload)
 }
 
 func (o *GetFileContentForExportJobsV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -566,11 +575,13 @@ func (o *GetFileContentForExportJobsV1TooManyRequests) Code() int {
 }
 
 func (o *GetFileContentForExportJobsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetFileContentForExportJobsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetFileContentForExportJobsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -687,11 +698,13 @@ func (o *GetFileContentForExportJobsV1InternalServerError) Code() int {
 }
 
 func (o *GetFileContentForExportJobsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetFileContentForExportJobsV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/export-files/v1][%d] getFileContentForExportJobsV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetFileContentForExportJobsV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

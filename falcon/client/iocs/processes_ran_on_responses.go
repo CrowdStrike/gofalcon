@@ -6,6 +6,7 @@ package iocs
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ProcessesRanOnOK) Code() int {
 }
 
 func (o *ProcessesRanOnOK) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnOK %s", 200, payload)
 }
 
 func (o *ProcessesRanOnOK) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnOK %s", 200, payload)
 }
 
 func (o *ProcessesRanOnOK) GetPayload() *models.IocapiMsaReplyProcessesRanOn {
@@ -222,11 +225,13 @@ func (o *ProcessesRanOnForbidden) Code() int {
 }
 
 func (o *ProcessesRanOnForbidden) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnForbidden %s", 403, payload)
 }
 
 func (o *ProcessesRanOnForbidden) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnForbidden %s", 403, payload)
 }
 
 func (o *ProcessesRanOnForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ProcessesRanOnTooManyRequests) Code() int {
 }
 
 func (o *ProcessesRanOnTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnTooManyRequests %s", 429, payload)
 }
 
 func (o *ProcessesRanOnTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnTooManyRequests %s", 429, payload)
 }
 
 func (o *ProcessesRanOnTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ProcessesRanOnInternalServerError) Code() int {
 }
 
 func (o *ProcessesRanOnInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnInternalServerError %s", 500, payload)
 }
 
 func (o *ProcessesRanOnInternalServerError) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnInternalServerError %s", 500, payload)
 }
 
 func (o *ProcessesRanOnInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

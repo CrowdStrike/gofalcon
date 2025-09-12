@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RunIntegrationTaskV2OK) Code() int {
 }
 
 func (o *RunIntegrationTaskV2OK) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2OK %s", 200, payload)
 }
 
 func (o *RunIntegrationTaskV2OK) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2OK %s", 200, payload)
 }
 
 func (o *RunIntegrationTaskV2OK) GetPayload() *models.TypesIntegrationTaskTestConnectionResponse {
@@ -234,11 +237,13 @@ func (o *RunIntegrationTaskV2BadRequest) Code() int {
 }
 
 func (o *RunIntegrationTaskV2BadRequest) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2BadRequest %s", 400, payload)
 }
 
 func (o *RunIntegrationTaskV2BadRequest) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2BadRequest %s", 400, payload)
 }
 
 func (o *RunIntegrationTaskV2BadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *RunIntegrationTaskV2Unauthorized) Code() int {
 }
 
 func (o *RunIntegrationTaskV2Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Unauthorized %s", 401, payload)
 }
 
 func (o *RunIntegrationTaskV2Unauthorized) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Unauthorized %s", 401, payload)
 }
 
 func (o *RunIntegrationTaskV2Unauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *RunIntegrationTaskV2Forbidden) Code() int {
 }
 
 func (o *RunIntegrationTaskV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Forbidden %s", 403, payload)
 }
 
 func (o *RunIntegrationTaskV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2Forbidden %s", 403, payload)
 }
 
 func (o *RunIntegrationTaskV2Forbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *RunIntegrationTaskV2TooManyRequests) Code() int {
 }
 
 func (o *RunIntegrationTaskV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2TooManyRequests %s", 429, payload)
 }
 
 func (o *RunIntegrationTaskV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2TooManyRequests %s", 429, payload)
 }
 
 func (o *RunIntegrationTaskV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RunIntegrationTaskV2InternalServerError) Code() int {
 }
 
 func (o *RunIntegrationTaskV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2InternalServerError %s", 500, payload)
 }
 
 func (o *RunIntegrationTaskV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2][%d] runIntegrationTaskV2InternalServerError %s", 500, payload)
 }
 
 func (o *RunIntegrationTaskV2InternalServerError) GetPayload() *models.TypesErrorMessage {

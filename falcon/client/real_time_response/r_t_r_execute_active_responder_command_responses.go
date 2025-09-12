@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RTRExecuteActiveResponderCommandCreated) Code() int {
 }
 
 func (o *RTRExecuteActiveResponderCommandCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandCreated %s", 201, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandCreated %s", 201, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandCreated) GetPayload() *models.DomainCommandExecuteResponseWrapper {
@@ -228,11 +231,13 @@ func (o *RTRExecuteActiveResponderCommandBadRequest) Code() int {
 }
 
 func (o *RTRExecuteActiveResponderCommandBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandBadRequest %s", 400, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandBadRequest %s", 400, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *RTRExecuteActiveResponderCommandForbidden) Code() int {
 }
 
 func (o *RTRExecuteActiveResponderCommandForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandForbidden %s", 403, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandForbidden %s", 403, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RTRExecuteActiveResponderCommandTooManyRequests) Code() int {
 }
 
 func (o *RTRExecuteActiveResponderCommandTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RTRExecuteActiveResponderCommandInternalServerError) Code() int {
 }
 
 func (o *RTRExecuteActiveResponderCommandInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandInternalServerError %s", 500, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandInternalServerError %s", 500, payload)
 }
 
 func (o *RTRExecuteActiveResponderCommandInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

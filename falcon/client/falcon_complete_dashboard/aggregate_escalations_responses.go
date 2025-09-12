@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *AggregateEscalationsOK) Code() int {
 }
 
 func (o *AggregateEscalationsOK) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsOK %s", 200, payload)
 }
 
 func (o *AggregateEscalationsOK) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsOK %s", 200, payload)
 }
 
 func (o *AggregateEscalationsOK) GetPayload() *models.MsaAggregatesResponse {
@@ -222,11 +225,13 @@ func (o *AggregateEscalationsForbidden) Code() int {
 }
 
 func (o *AggregateEscalationsForbidden) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsForbidden %s", 403, payload)
 }
 
 func (o *AggregateEscalationsForbidden) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsForbidden %s", 403, payload)
 }
 
 func (o *AggregateEscalationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *AggregateEscalationsTooManyRequests) Code() int {
 }
 
 func (o *AggregateEscalationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateEscalationsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateEscalationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *AggregateEscalationsInternalServerError) Code() int {
 }
 
 func (o *AggregateEscalationsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateEscalationsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateEscalationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

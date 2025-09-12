@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetGroupId09V2OK) Code() int {
 }
 
 func (o *GetGroupId09V2OK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2OK %s", 200, payload)
 }
 
 func (o *GetGroupId09V2OK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2OK %s", 200, payload)
 }
 
 func (o *GetGroupId09V2OK) GetPayload() *models.TypesGroupDetails {
@@ -234,11 +237,13 @@ func (o *GetGroupId09V2BadRequest) Code() int {
 }
 
 func (o *GetGroupId09V2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2BadRequest %s", 400, payload)
 }
 
 func (o *GetGroupId09V2BadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2BadRequest %s", 400, payload)
 }
 
 func (o *GetGroupId09V2BadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetGroupId09V2Unauthorized) Code() int {
 }
 
 func (o *GetGroupId09V2Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Unauthorized %s", 401, payload)
 }
 
 func (o *GetGroupId09V2Unauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Unauthorized %s", 401, payload)
 }
 
 func (o *GetGroupId09V2Unauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetGroupId09V2Forbidden) Code() int {
 }
 
 func (o *GetGroupId09V2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Forbidden %s", 403, payload)
 }
 
 func (o *GetGroupId09V2Forbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2Forbidden %s", 403, payload)
 }
 
 func (o *GetGroupId09V2Forbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetGroupId09V2TooManyRequests) Code() int {
 }
 
 func (o *GetGroupId09V2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetGroupId09V2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetGroupId09V2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetGroupId09V2InternalServerError) Code() int {
 }
 
 func (o *GetGroupId09V2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2InternalServerError %s", 500, payload)
 }
 
 func (o *GetGroupId09V2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/group/{ID}/v2][%d] getGroupId09V2InternalServerError %s", 500, payload)
 }
 
 func (o *GetGroupId09V2InternalServerError) GetPayload() *models.TypesErrorMessage {

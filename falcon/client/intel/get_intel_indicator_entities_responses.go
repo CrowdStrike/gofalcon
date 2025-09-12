@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetIntelIndicatorEntitiesOK) Code() int {
 }
 
 func (o *GetIntelIndicatorEntitiesOK) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesOK %s", 200, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesOK) String() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesOK %s", 200, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesOK) GetPayload() *models.DomainPublicIndicatorsV3Response {
@@ -222,11 +225,13 @@ func (o *GetIntelIndicatorEntitiesForbidden) Code() int {
 }
 
 func (o *GetIntelIndicatorEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesForbidden) String() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetIntelIndicatorEntitiesTooManyRequests) Code() int {
 }
 
 func (o *GetIntelIndicatorEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetIntelIndicatorEntitiesInternalServerError) Code() int {
 }
 
 func (o *GetIntelIndicatorEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelIndicatorEntitiesInternalServerError) GetPayload() *models.MsaErrorsOnly {

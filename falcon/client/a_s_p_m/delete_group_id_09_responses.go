@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -116,11 +117,11 @@ func (o *DeleteGroupId09OK) Code() int {
 }
 
 func (o *DeleteGroupId09OK) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09OK ", 200)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09OK", 200)
 }
 
 func (o *DeleteGroupId09OK) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09OK ", 200)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09OK", 200)
 }
 
 func (o *DeleteGroupId09OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -215,11 +216,13 @@ func (o *DeleteGroupId09Unauthorized) Code() int {
 }
 
 func (o *DeleteGroupId09Unauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Unauthorized %s", 401, payload)
 }
 
 func (o *DeleteGroupId09Unauthorized) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Unauthorized %s", 401, payload)
 }
 
 func (o *DeleteGroupId09Unauthorized) GetPayload() *models.TypesErrorMessage {
@@ -325,11 +328,13 @@ func (o *DeleteGroupId09Forbidden) Code() int {
 }
 
 func (o *DeleteGroupId09Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Forbidden %s", 403, payload)
 }
 
 func (o *DeleteGroupId09Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09Forbidden %s", 403, payload)
 }
 
 func (o *DeleteGroupId09Forbidden) GetPayload() *models.TypesErrorMessage {
@@ -439,11 +444,13 @@ func (o *DeleteGroupId09TooManyRequests) Code() int {
 }
 
 func (o *DeleteGroupId09TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteGroupId09TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteGroupId09TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -560,11 +567,13 @@ func (o *DeleteGroupId09InternalServerError) Code() int {
 }
 
 func (o *DeleteGroupId09InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteGroupId09InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/group/{ID}][%d] deleteGroupId09InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteGroupId09InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package spotlight_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CombinedQueryVulnerabilitiesOK) Code() int {
 }
 
 func (o *CombinedQueryVulnerabilitiesOK) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesOK) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesOK) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
@@ -240,11 +243,13 @@ func (o *CombinedQueryVulnerabilitiesBadRequest) Code() int {
 }
 
 func (o *CombinedQueryVulnerabilitiesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesBadRequest %s", 400, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesBadRequest) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesBadRequest %s", 400, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesBadRequest) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
@@ -350,11 +355,13 @@ func (o *CombinedQueryVulnerabilitiesForbidden) Code() int {
 }
 
 func (o *CombinedQueryVulnerabilitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *CombinedQueryVulnerabilitiesNotFound) Code() int {
 }
 
 func (o *CombinedQueryVulnerabilitiesNotFound) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesNotFound %s", 404, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesNotFound) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesNotFound %s", 404, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesNotFound) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
@@ -574,11 +583,13 @@ func (o *CombinedQueryVulnerabilitiesTooManyRequests) Code() int {
 }
 
 func (o *CombinedQueryVulnerabilitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *CombinedQueryVulnerabilitiesInternalServerError) Code() int {
 }
 
 func (o *CombinedQueryVulnerabilitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesInternalServerError) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
@@ -805,11 +818,13 @@ func (o *CombinedQueryVulnerabilitiesServiceUnavailable) Code() int {
 }
 
 func (o *CombinedQueryVulnerabilitiesServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesServiceUnavailable %s", 503, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesServiceUnavailable %s", 503, payload)
 }
 
 func (o *CombinedQueryVulnerabilitiesServiceUnavailable) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {

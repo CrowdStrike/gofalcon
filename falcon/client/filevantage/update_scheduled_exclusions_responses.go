@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateScheduledExclusionsOK) Code() int {
 }
 
 func (o *UpdateScheduledExclusionsOK) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsOK %s", 200, payload)
 }
 
 func (o *UpdateScheduledExclusionsOK) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsOK %s", 200, payload)
 }
 
 func (o *UpdateScheduledExclusionsOK) GetPayload() *models.ScheduledexclusionsResponse {
@@ -234,11 +237,13 @@ func (o *UpdateScheduledExclusionsBadRequest) Code() int {
 }
 
 func (o *UpdateScheduledExclusionsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateScheduledExclusionsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateScheduledExclusionsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *UpdateScheduledExclusionsForbidden) Code() int {
 }
 
 func (o *UpdateScheduledExclusionsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsForbidden %s", 403, payload)
 }
 
 func (o *UpdateScheduledExclusionsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsForbidden %s", 403, payload)
 }
 
 func (o *UpdateScheduledExclusionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *UpdateScheduledExclusionsNotFound) Code() int {
 }
 
 func (o *UpdateScheduledExclusionsNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsNotFound %s", 404, payload)
 }
 
 func (o *UpdateScheduledExclusionsNotFound) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsNotFound %s", 404, payload)
 }
 
 func (o *UpdateScheduledExclusionsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *UpdateScheduledExclusionsTooManyRequests) Code() int {
 }
 
 func (o *UpdateScheduledExclusionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateScheduledExclusionsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateScheduledExclusionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateScheduledExclusionsInternalServerError) Code() int {
 }
 
 func (o *UpdateScheduledExclusionsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateScheduledExclusionsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /filevantage/entities/policy-scheduled-exclusions/v1][%d] updateScheduledExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateScheduledExclusionsInternalServerError) GetPayload() *models.MsaspecResponseFields {

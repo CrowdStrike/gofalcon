@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetD4CGCPServiceAccountsExtOK) Code() int {
 }
 
 func (o *GetD4CGCPServiceAccountsExtOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtOK %s", 200, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtOK %s", 200, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtOK) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {
@@ -228,11 +231,13 @@ func (o *GetD4CGCPServiceAccountsExtBadRequest) Code() int {
 }
 
 func (o *GetD4CGCPServiceAccountsExtBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtBadRequest) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {
@@ -338,11 +343,13 @@ func (o *GetD4CGCPServiceAccountsExtForbidden) Code() int {
 }
 
 func (o *GetD4CGCPServiceAccountsExtForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetD4CGCPServiceAccountsExtTooManyRequests) Code() int {
 }
 
 func (o *GetD4CGCPServiceAccountsExtTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetD4CGCPServiceAccountsExtInternalServerError) Code() int {
 }
 
 func (o *GetD4CGCPServiceAccountsExtInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/service-accounts/v1][%d] getD4CGCPServiceAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CGCPServiceAccountsExtInternalServerError) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {

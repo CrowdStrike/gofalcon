@@ -6,6 +6,7 @@ package configuration_assessment
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetRuleDetailsOK) Code() int {
 }
 
 func (o *GetRuleDetailsOK) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsOK %s", 200, payload)
 }
 
 func (o *GetRuleDetailsOK) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsOK %s", 200, payload)
 }
 
 func (o *GetRuleDetailsOK) GetPayload() *models.DomainAPIRuleDetailsResponseV1 {
@@ -222,11 +225,13 @@ func (o *GetRuleDetailsForbidden) Code() int {
 }
 
 func (o *GetRuleDetailsForbidden) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsForbidden %s", 403, payload)
 }
 
 func (o *GetRuleDetailsForbidden) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsForbidden %s", 403, payload)
 }
 
 func (o *GetRuleDetailsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetRuleDetailsTooManyRequests) Code() int {
 }
 
 func (o *GetRuleDetailsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleDetailsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuleDetailsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetRuleDetailsInternalServerError) Code() int {
 }
 
 func (o *GetRuleDetailsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleDetailsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/rule-details/v1][%d] getRuleDetailsInternalServerError %s", 500, payload)
 }
 
 func (o *GetRuleDetailsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

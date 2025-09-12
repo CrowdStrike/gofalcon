@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CreateParserFromTemplateOK) Code() int {
 }
 
 func (o *CreateParserFromTemplateOK) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateOK %s", 200, payload)
 }
 
 func (o *CreateParserFromTemplateOK) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateOK %s", 200, payload)
 }
 
 func (o *CreateParserFromTemplateOK) GetPayload() *models.APICreateParserFromTemplateResponseV1 {
@@ -240,11 +243,13 @@ func (o *CreateParserFromTemplateBadRequest) Code() int {
 }
 
 func (o *CreateParserFromTemplateBadRequest) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateBadRequest %s", 400, payload)
 }
 
 func (o *CreateParserFromTemplateBadRequest) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateBadRequest %s", 400, payload)
 }
 
 func (o *CreateParserFromTemplateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *CreateParserFromTemplateUnauthorized) Code() int {
 }
 
 func (o *CreateParserFromTemplateUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *CreateParserFromTemplateUnauthorized) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *CreateParserFromTemplateUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *CreateParserFromTemplateForbidden) Code() int {
 }
 
 func (o *CreateParserFromTemplateForbidden) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateForbidden %s", 403, payload)
 }
 
 func (o *CreateParserFromTemplateForbidden) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateForbidden %s", 403, payload)
 }
 
 func (o *CreateParserFromTemplateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *CreateParserFromTemplateNotFound) Code() int {
 }
 
 func (o *CreateParserFromTemplateNotFound) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateNotFound %s", 404, payload)
 }
 
 func (o *CreateParserFromTemplateNotFound) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateNotFound %s", 404, payload)
 }
 
 func (o *CreateParserFromTemplateNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *CreateParserFromTemplateTooManyRequests) Code() int {
 }
 
 func (o *CreateParserFromTemplateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateParserFromTemplateTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateParserFromTemplateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CreateParserFromTemplateInternalServerError) Code() int {
 }
 
 func (o *CreateParserFromTemplateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *CreateParserFromTemplateInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/parsers-template/v1][%d] createParserFromTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *CreateParserFromTemplateInternalServerError) GetPayload() *models.MsaspecResponseFields {

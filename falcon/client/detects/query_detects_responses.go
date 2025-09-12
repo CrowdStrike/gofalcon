@@ -6,6 +6,7 @@ package detects
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryDetectsOK) Code() int {
 }
 
 func (o *QueryDetectsOK) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsOK %s", 200, payload)
 }
 
 func (o *QueryDetectsOK) String() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsOK %s", 200, payload)
 }
 
 func (o *QueryDetectsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryDetectsBadRequest) Code() int {
 }
 
 func (o *QueryDetectsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsBadRequest %s", 400, payload)
 }
 
 func (o *QueryDetectsBadRequest) String() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsBadRequest %s", 400, payload)
 }
 
 func (o *QueryDetectsBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryDetectsForbidden) Code() int {
 }
 
 func (o *QueryDetectsForbidden) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsForbidden %s", 403, payload)
 }
 
 func (o *QueryDetectsForbidden) String() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsForbidden %s", 403, payload)
 }
 
 func (o *QueryDetectsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryDetectsTooManyRequests) Code() int {
 }
 
 func (o *QueryDetectsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDetectsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDetectsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryDetectsInternalServerError) Code() int {
 }
 
 func (o *QueryDetectsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDetectsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDetectsInternalServerError) GetPayload() *models.MsaQueryResponse {

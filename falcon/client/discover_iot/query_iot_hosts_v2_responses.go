@@ -6,6 +6,7 @@ package discover_iot
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryIotHostsV2OK) Code() int {
 }
 
 func (o *QueryIotHostsV2OK) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2OK %s", 200, payload)
 }
 
 func (o *QueryIotHostsV2OK) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2OK %s", 200, payload)
 }
 
 func (o *QueryIotHostsV2OK) GetPayload() *models.DomainDiscoverAPIResponse {
@@ -228,11 +231,13 @@ func (o *QueryIotHostsV2BadRequest) Code() int {
 }
 
 func (o *QueryIotHostsV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2BadRequest %s", 400, payload)
 }
 
 func (o *QueryIotHostsV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2BadRequest %s", 400, payload)
 }
 
 func (o *QueryIotHostsV2BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryIotHostsV2Forbidden) Code() int {
 }
 
 func (o *QueryIotHostsV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2Forbidden %s", 403, payload)
 }
 
 func (o *QueryIotHostsV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2Forbidden %s", 403, payload)
 }
 
 func (o *QueryIotHostsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryIotHostsV2TooManyRequests) Code() int {
 }
 
 func (o *QueryIotHostsV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIotHostsV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIotHostsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryIotHostsV2InternalServerError) Code() int {
 }
 
 func (o *QueryIotHostsV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2InternalServerError %s", 500, payload)
 }
 
 func (o *QueryIotHostsV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v2][%d] queryIotHostsV2InternalServerError %s", 500, payload)
 }
 
 func (o *QueryIotHostsV2InternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ListDashboardsOK) Code() int {
 }
 
 func (o *ListDashboardsOK) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsOK %s", 200, payload)
 }
 
 func (o *ListDashboardsOK) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsOK %s", 200, payload)
 }
 
 func (o *ListDashboardsOK) GetPayload() *models.APIListDashboardsResponseV1 {
@@ -240,11 +243,13 @@ func (o *ListDashboardsBadRequest) Code() int {
 }
 
 func (o *ListDashboardsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsBadRequest %s", 400, payload)
 }
 
 func (o *ListDashboardsBadRequest) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsBadRequest %s", 400, payload)
 }
 
 func (o *ListDashboardsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *ListDashboardsUnauthorized) Code() int {
 }
 
 func (o *ListDashboardsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsUnauthorized %s", 401, payload)
 }
 
 func (o *ListDashboardsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsUnauthorized %s", 401, payload)
 }
 
 func (o *ListDashboardsUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *ListDashboardsForbidden) Code() int {
 }
 
 func (o *ListDashboardsForbidden) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsForbidden %s", 403, payload)
 }
 
 func (o *ListDashboardsForbidden) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsForbidden %s", 403, payload)
 }
 
 func (o *ListDashboardsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *ListDashboardsNotFound) Code() int {
 }
 
 func (o *ListDashboardsNotFound) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsNotFound %s", 404, payload)
 }
 
 func (o *ListDashboardsNotFound) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsNotFound %s", 404, payload)
 }
 
 func (o *ListDashboardsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *ListDashboardsTooManyRequests) Code() int {
 }
 
 func (o *ListDashboardsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListDashboardsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListDashboardsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ListDashboardsInternalServerError) Code() int {
 }
 
 func (o *ListDashboardsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsInternalServerError %s", 500, payload)
 }
 
 func (o *ListDashboardsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/dashboards/v1][%d] listDashboardsInternalServerError %s", 500, payload)
 }
 
 func (o *ListDashboardsInternalServerError) GetPayload() *models.MsaspecResponseFields {

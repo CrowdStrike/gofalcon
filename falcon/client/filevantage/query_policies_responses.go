@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryPoliciesOK) Code() int {
 }
 
 func (o *QueryPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryPoliciesOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryPoliciesBadRequest) Code() int {
 }
 
 func (o *QueryPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryPoliciesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryPoliciesForbidden) Code() int {
 }
 
 func (o *QueryPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryPoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryPoliciesTooManyRequests) Code() int {
 }
 
 func (o *QueryPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryPoliciesInternalServerError) Code() int {
 }
 
 func (o *QueryPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/policies/v1][%d] queryPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPoliciesInternalServerError) GetPayload() *models.MsaspecResponseFields {

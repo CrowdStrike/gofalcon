@@ -6,6 +6,7 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PostMalQueryHuntV1OK) Code() int {
 }
 
 func (o *PostMalQueryHuntV1OK) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryHuntV1OK) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryHuntV1OK) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -234,11 +237,13 @@ func (o *PostMalQueryHuntV1BadRequest) Code() int {
 }
 
 func (o *PostMalQueryHuntV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryHuntV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryHuntV1BadRequest) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -344,11 +349,13 @@ func (o *PostMalQueryHuntV1Unauthorized) Code() int {
 }
 
 func (o *PostMalQueryHuntV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryHuntV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryHuntV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PostMalQueryHuntV1Forbidden) Code() int {
 }
 
 func (o *PostMalQueryHuntV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryHuntV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryHuntV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *PostMalQueryHuntV1TooManyRequests) Code() int {
 }
 
 func (o *PostMalQueryHuntV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryHuntV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryHuntV1TooManyRequests) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -689,11 +700,13 @@ func (o *PostMalQueryHuntV1InternalServerError) Code() int {
 }
 
 func (o *PostMalQueryHuntV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryHuntV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] postMalQueryHuntV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryHuntV1InternalServerError) GetPayload() *models.MalqueryExternalQueryResponse {

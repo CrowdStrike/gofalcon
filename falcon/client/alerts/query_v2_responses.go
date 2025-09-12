@@ -6,6 +6,7 @@ package alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryV2OK) Code() int {
 }
 
 func (o *QueryV2OK) Error() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2OK %s", 200, payload)
 }
 
 func (o *QueryV2OK) String() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2OK %s", 200, payload)
 }
 
 func (o *QueryV2OK) GetPayload() *models.DetectsapiAlertQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryV2BadRequest) Code() int {
 }
 
 func (o *QueryV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2BadRequest %s", 400, payload)
 }
 
 func (o *QueryV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2BadRequest %s", 400, payload)
 }
 
 func (o *QueryV2BadRequest) GetPayload() *models.DetectsapiAlertQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryV2Forbidden) Code() int {
 }
 
 func (o *QueryV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2Forbidden %s", 403, payload)
 }
 
 func (o *QueryV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2Forbidden %s", 403, payload)
 }
 
 func (o *QueryV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryV2TooManyRequests) Code() int {
 }
 
 func (o *QueryV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryV2InternalServerError) Code() int {
 }
 
 func (o *QueryV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2InternalServerError %s", 500, payload)
 }
 
 func (o *QueryV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v2][%d] queryV2InternalServerError %s", 500, payload)
 }
 
 func (o *QueryV2InternalServerError) GetPayload() *models.DetectsapiAlertQueryResponse {

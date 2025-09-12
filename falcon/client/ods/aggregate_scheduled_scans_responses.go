@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateScheduledScansOK) Code() int {
 }
 
 func (o *AggregateScheduledScansOK) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansOK %s", 200, payload)
 }
 
 func (o *AggregateScheduledScansOK) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansOK %s", 200, payload)
 }
 
 func (o *AggregateScheduledScansOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateScheduledScansForbidden) Code() int {
 }
 
 func (o *AggregateScheduledScansForbidden) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansForbidden %s", 403, payload)
 }
 
 func (o *AggregateScheduledScansForbidden) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansForbidden %s", 403, payload)
 }
 
 func (o *AggregateScheduledScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *AggregateScheduledScansNotFound) Code() int {
 }
 
 func (o *AggregateScheduledScansNotFound) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansNotFound %s", 404, payload)
 }
 
 func (o *AggregateScheduledScansNotFound) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansNotFound %s", 404, payload)
 }
 
 func (o *AggregateScheduledScansNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AggregateScheduledScansTooManyRequests) Code() int {
 }
 
 func (o *AggregateScheduledScansTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateScheduledScansTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateScheduledScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateScheduledScansInternalServerError) Code() int {
 }
 
 func (o *AggregateScheduledScansInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateScheduledScansInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scheduled-scans/v1][%d] aggregateScheduledScansInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateScheduledScansInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

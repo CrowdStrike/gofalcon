@@ -90,7 +90,7 @@ type CloudSecurityRegistrationOciGetAccountParams struct {
 
 	/* Sort.
 
-	   Field and direction for sorting results - allowed sort fields are Set{created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age, overall_status}
+	   Field and direction for sorting results - allowed sort fields are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
 	*/
 	Sort *string
 

@@ -9,12 +9,38 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new message center API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new message center API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new message center API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,8 +51,112 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
+
+// This client is generated with a few options you might find useful for your swagger spec.
+//
+// Feel free to add you own set of options.
+
+// WithContentType allows the client to force the Content-Type header
+// to negotiate a specific Consumer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithContentType(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ConsumesMediaTypes = []string{mime}
+	}
+}
+
+// WithContentTypeApplicationJSON sets the Content-Type header to "application/json".
+func WithContentTypeApplicationJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/json"}
+}
+
+// WithContentTypeMultipartFormData sets the Content-Type header to "multipart/form-data".
+func WithContentTypeMultipartFormData(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"multipart/form-data"}
+}
+
+// WithAccept allows the client to force the Accept header
+// to negotiate a specific Producer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithAccept(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ProducesMediaTypes = []string{mime}
+	}
+}
+
+// WithAcceptApplicationJSON sets the Accept header to "application/json".
+func WithAcceptApplicationJSON(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/json"}
+}
+
+// WithAcceptApplicationMsword sets the Accept header to "application/msword".
+func WithAcceptApplicationMsword(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/msword"}
+}
+
+// WithAcceptApplicationPdf sets the Accept header to "application/pdf".
+func WithAcceptApplicationPdf(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/pdf"}
+}
+
+// WithAcceptApplicationVndMsExcel sets the Accept header to "application/vnd.ms-excel".
+func WithAcceptApplicationVndMsExcel(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/vnd.ms-excel"}
+}
+
+// WithAcceptApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation sets the Accept header to "application/vnd.openxmlformats-officedocument.presentationml.presentation".
+func WithAcceptApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/vnd.openxmlformats-officedocument.presentationml.presentation"}
+}
+
+// WithAcceptApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet sets the Accept header to "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet".
+func WithAcceptApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+}
+
+// WithAcceptApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument sets the Accept header to "application/vnd.openxmlformats-officedocument.wordprocessingml.document".
+func WithAcceptApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/vnd.openxmlformats-officedocument.wordprocessingml.document"}
+}
+
+// WithAcceptApplicationZip sets the Accept header to "application/zip".
+func WithAcceptApplicationZip(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/zip"}
+}
+
+// WithAcceptImageBmp sets the Accept header to "image/bmp".
+func WithAcceptImageBmp(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"image/bmp"}
+}
+
+// WithAcceptImageGif sets the Accept header to "image/gif".
+func WithAcceptImageGif(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"image/gif"}
+}
+
+// WithAcceptImageJpeg sets the Accept header to "image/jpeg".
+func WithAcceptImageJpeg(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"image/jpeg"}
+}
+
+// WithAcceptImageJpg sets the Accept header to "image/jpg".
+func WithAcceptImageJpg(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"image/jpg"}
+}
+
+// WithAcceptImagePng sets the Accept header to "image/png".
+func WithAcceptImagePng(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"image/png"}
+}
+
+// WithAcceptTextPlain sets the Accept header to "text/plain".
+func WithAcceptTextPlain(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"text/plain"}
+}
 
 // ClientService is the interface for Client methods
 type ClientService interface {
@@ -213,7 +343,7 @@ func (a *Client) CaseDownloadAttachment(params *CaseDownloadAttachmentParams, op
 		ID:                 "CaseDownloadAttachment",
 		Method:             "GET",
 		PathPattern:        "/message-center/entities/case-attachment/v1",
-		ProducesMediaTypes: []string{"application/json", "application/msword", "application/pdf", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/zip", "image/bmp", "image/gif", "image/jpeg", "image/jpg", "image/png", "text/plain"},
+		ProducesMediaTypes: []string{"application/json", "image/png", "image/bmp", "image/jpeg", "image/jpg", "image/gif", "application/zip", "application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "text/plain"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,

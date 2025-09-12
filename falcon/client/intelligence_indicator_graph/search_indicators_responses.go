@@ -6,6 +6,7 @@ package intelligence_indicator_graph
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *SearchIndicatorsOK) Code() int {
 }
 
 func (o *SearchIndicatorsOK) Error() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsOK %s", 200, payload)
 }
 
 func (o *SearchIndicatorsOK) String() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsOK %s", 200, payload)
 }
 
 func (o *SearchIndicatorsOK) GetPayload() *models.RestapiIndicatorResponse {
@@ -232,11 +235,11 @@ func (o *SearchIndicatorsBadRequest) Code() int {
 }
 
 func (o *SearchIndicatorsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsBadRequest ", 400)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsBadRequest", 400)
 }
 
 func (o *SearchIndicatorsBadRequest) String() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsBadRequest ", 400)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsBadRequest", 400)
 }
 
 func (o *SearchIndicatorsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -331,11 +334,13 @@ func (o *SearchIndicatorsForbidden) Code() int {
 }
 
 func (o *SearchIndicatorsForbidden) Error() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsForbidden %s", 403, payload)
 }
 
 func (o *SearchIndicatorsForbidden) String() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsForbidden %s", 403, payload)
 }
 
 func (o *SearchIndicatorsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -439,11 +444,11 @@ func (o *SearchIndicatorsNotFound) Code() int {
 }
 
 func (o *SearchIndicatorsNotFound) Error() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsNotFound ", 404)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsNotFound", 404)
 }
 
 func (o *SearchIndicatorsNotFound) String() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsNotFound ", 404)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsNotFound", 404)
 }
 
 func (o *SearchIndicatorsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -542,11 +547,13 @@ func (o *SearchIndicatorsTooManyRequests) Code() int {
 }
 
 func (o *SearchIndicatorsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchIndicatorsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchIndicatorsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -661,11 +668,11 @@ func (o *SearchIndicatorsInternalServerError) Code() int {
 }
 
 func (o *SearchIndicatorsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsInternalServerError ", 500)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsInternalServerError", 500)
 }
 
 func (o *SearchIndicatorsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsInternalServerError ", 500)
+	return fmt.Sprintf("[POST /intelligence/combined/indicators/v1][%d] searchIndicatorsInternalServerError", 500)
 }
 
 func (o *SearchIndicatorsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetD4CAwsConsoleSetupURLsOK) Code() int {
 }
 
 func (o *GetD4CAwsConsoleSetupURLsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsOK %s", 200, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsOK %s", 200, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsOK) GetPayload() *models.RegistrationAWSConsoleURLResponseV2 {
@@ -234,11 +237,13 @@ func (o *GetD4CAwsConsoleSetupURLsMultiStatus) Code() int {
 }
 
 func (o *GetD4CAwsConsoleSetupURLsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsMultiStatus %s", 207, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsMultiStatus %s", 207, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsMultiStatus) GetPayload() *models.RegistrationAWSAccountConsoleURL {
@@ -344,11 +349,13 @@ func (o *GetD4CAwsConsoleSetupURLsBadRequest) Code() int {
 }
 
 func (o *GetD4CAwsConsoleSetupURLsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetD4CAwsConsoleSetupURLsForbidden) Code() int {
 }
 
 func (o *GetD4CAwsConsoleSetupURLsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsForbidden %s", 403, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsForbidden %s", 403, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) Code() int {
 }
 
 func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetD4CAwsConsoleSetupURLsInternalServerError) Code() int {
 }
 
 func (o *GetD4CAwsConsoleSetupURLsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CAwsConsoleSetupURLsInternalServerError) GetPayload() *models.MsaspecResponseFields {

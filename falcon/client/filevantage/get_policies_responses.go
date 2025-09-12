@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetPoliciesOK) Code() int {
 }
 
 func (o *GetPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesOK %s", 200, payload)
 }
 
 func (o *GetPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesOK %s", 200, payload)
 }
 
 func (o *GetPoliciesOK) GetPayload() *models.PoliciesResponse {
@@ -228,11 +231,13 @@ func (o *GetPoliciesBadRequest) Code() int {
 }
 
 func (o *GetPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *GetPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *GetPoliciesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetPoliciesForbidden) Code() int {
 }
 
 func (o *GetPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetPoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetPoliciesTooManyRequests) Code() int {
 }
 
 func (o *GetPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetPoliciesInternalServerError) Code() int {
 }
 
 func (o *GetPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/policies/v1][%d] getPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetPoliciesInternalServerError) GetPayload() *models.MsaspecResponseFields {

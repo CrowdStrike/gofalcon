@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -122,11 +123,11 @@ func (o *DeleteExecutorNodeOK) Code() int {
 }
 
 func (o *DeleteExecutorNodeOK) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeOK ", 200)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeOK", 200)
 }
 
 func (o *DeleteExecutorNodeOK) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeOK ", 200)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeOK", 200)
 }
 
 func (o *DeleteExecutorNodeOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -221,11 +222,13 @@ func (o *DeleteExecutorNodeBadRequest) Code() int {
 }
 
 func (o *DeleteExecutorNodeBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeBadRequest %s", 400, payload)
 }
 
 func (o *DeleteExecutorNodeBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeBadRequest %s", 400, payload)
 }
 
 func (o *DeleteExecutorNodeBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -331,11 +334,13 @@ func (o *DeleteExecutorNodeUnauthorized) Code() int {
 }
 
 func (o *DeleteExecutorNodeUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteExecutorNodeUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteExecutorNodeUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -441,11 +446,13 @@ func (o *DeleteExecutorNodeForbidden) Code() int {
 }
 
 func (o *DeleteExecutorNodeForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeForbidden %s", 403, payload)
 }
 
 func (o *DeleteExecutorNodeForbidden) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeForbidden %s", 403, payload)
 }
 
 func (o *DeleteExecutorNodeForbidden) GetPayload() *models.TypesErrorMessage {
@@ -555,11 +562,13 @@ func (o *DeleteExecutorNodeTooManyRequests) Code() int {
 }
 
 func (o *DeleteExecutorNodeTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteExecutorNodeTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteExecutorNodeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -676,11 +685,13 @@ func (o *DeleteExecutorNodeInternalServerError) Code() int {
 }
 
 func (o *DeleteExecutorNodeInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteExecutorNodeInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/executor_nodes/{ID}][%d] deleteExecutorNodeInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteExecutorNodeInternalServerError) GetPayload() *models.TypesErrorMessage {

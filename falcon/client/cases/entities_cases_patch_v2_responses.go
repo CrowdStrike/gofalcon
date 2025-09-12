@@ -6,6 +6,7 @@ package cases
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesCasesPatchV2OK) Code() int {
 }
 
 func (o *EntitiesCasesPatchV2OK) Error() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2OK %s", 200, payload)
 }
 
 func (o *EntitiesCasesPatchV2OK) String() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2OK %s", 200, payload)
 }
 
 func (o *EntitiesCasesPatchV2OK) GetPayload() *models.OperationsUpdateCaseResponseVM {
@@ -228,11 +231,13 @@ func (o *EntitiesCasesPatchV2BadRequest) Code() int {
 }
 
 func (o *EntitiesCasesPatchV2BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesCasesPatchV2BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesCasesPatchV2BadRequest) GetPayload() *models.OperationsUpdateCaseResponseVM {
@@ -338,11 +343,13 @@ func (o *EntitiesCasesPatchV2Forbidden) Code() int {
 }
 
 func (o *EntitiesCasesPatchV2Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesCasesPatchV2Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesCasesPatchV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *EntitiesCasesPatchV2TooManyRequests) Code() int {
 }
 
 func (o *EntitiesCasesPatchV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesCasesPatchV2TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesCasesPatchV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesCasesPatchV2InternalServerError) Code() int {
 }
 
 func (o *EntitiesCasesPatchV2InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesCasesPatchV2InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cases/entities/cases/v2][%d] entitiesCasesPatchV2InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesCasesPatchV2InternalServerError) GetPayload() *models.OperationsUpdateCaseResponseVM {

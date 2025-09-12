@@ -6,6 +6,7 @@ package releases
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CombinedReleasesV1Mixin0OK) Code() int {
 }
 
 func (o *CombinedReleasesV1Mixin0OK) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0OK %s", 200, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0OK) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0OK %s", 200, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0OK) GetPayload() *models.ReleasesReleaseWrapper {
@@ -234,11 +237,13 @@ func (o *CombinedReleasesV1Mixin0BadRequest) Code() int {
 }
 
 func (o *CombinedReleasesV1Mixin0BadRequest) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0BadRequest %s", 400, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0BadRequest) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0BadRequest %s", 400, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CombinedReleasesV1Mixin0Forbidden) Code() int {
 }
 
 func (o *CombinedReleasesV1Mixin0Forbidden) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0Forbidden %s", 403, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0Forbidden) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0Forbidden %s", 403, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CombinedReleasesV1Mixin0NotFound) Code() int {
 }
 
 func (o *CombinedReleasesV1Mixin0NotFound) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0NotFound %s", 404, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0NotFound) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0NotFound %s", 404, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0NotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CombinedReleasesV1Mixin0TooManyRequests) Code() int {
 }
 
 func (o *CombinedReleasesV1Mixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CombinedReleasesV1Mixin0InternalServerError) Code() int {
 }
 
 func (o *CombinedReleasesV1Mixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0InternalServerError %s", 500, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0InternalServerError) String() string {
-	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0InternalServerError %s", 500, payload)
 }
 
 func (o *CombinedReleasesV1Mixin0InternalServerError) GetPayload() *models.MsaspecResponseFields {

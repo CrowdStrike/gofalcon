@@ -6,6 +6,7 @@ package sensor_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteSensorUpdatePoliciesOK) Code() int {
 }
 
 func (o *DeleteSensorUpdatePoliciesOK) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesOK) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteSensorUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *DeleteSensorUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *DeleteSensorUpdatePoliciesNotFound) Code() int {
 }
 
 func (o *DeleteSensorUpdatePoliciesNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesNotFound) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesNotFound) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *DeleteSensorUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *DeleteSensorUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteSensorUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *DeleteSensorUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteSensorUpdatePoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {

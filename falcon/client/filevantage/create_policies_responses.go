@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreatePoliciesOK) Code() int {
 }
 
 func (o *CreatePoliciesOK) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesOK %s", 200, payload)
 }
 
 func (o *CreatePoliciesOK) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesOK %s", 200, payload)
 }
 
 func (o *CreatePoliciesOK) GetPayload() *models.PoliciesResponse {
@@ -234,11 +237,13 @@ func (o *CreatePoliciesBadRequest) Code() int {
 }
 
 func (o *CreatePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreatePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreatePoliciesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CreatePoliciesForbidden) Code() int {
 }
 
 func (o *CreatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreatePoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *CreatePoliciesConflict) Code() int {
 }
 
 func (o *CreatePoliciesConflict) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesConflict %s", 409, payload)
 }
 
 func (o *CreatePoliciesConflict) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesConflict %s", 409, payload)
 }
 
 func (o *CreatePoliciesConflict) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CreatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *CreatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreatePoliciesInternalServerError) Code() int {
 }
 
 func (o *CreatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/policies/v1][%d] createPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePoliciesInternalServerError) GetPayload() *models.MsaspecResponseFields {

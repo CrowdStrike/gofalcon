@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *PutObjectOK) Code() int {
 }
 
 func (o *PutObjectOK) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectOK %s", 200, payload)
 }
 
 func (o *PutObjectOK) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectOK %s", 200, payload)
 }
 
 func (o *PutObjectOK) GetPayload() *models.CustomStorageResponse {
@@ -222,11 +225,13 @@ func (o *PutObjectForbidden) Code() int {
 }
 
 func (o *PutObjectForbidden) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectForbidden %s", 403, payload)
 }
 
 func (o *PutObjectForbidden) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectForbidden %s", 403, payload)
 }
 
 func (o *PutObjectForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *PutObjectTooManyRequests) Code() int {
 }
 
 func (o *PutObjectTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectTooManyRequests %s", 429, payload)
 }
 
 func (o *PutObjectTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectTooManyRequests %s", 429, payload)
 }
 
 func (o *PutObjectTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *PutObjectInternalServerError) Code() int {
 }
 
 func (o *PutObjectInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectInternalServerError %s", 500, payload)
 }
 
 func (o *PutObjectInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectInternalServerError %s", 500, payload)
 }
 
 func (o *PutObjectInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

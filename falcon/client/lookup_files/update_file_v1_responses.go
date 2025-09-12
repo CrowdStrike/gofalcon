@@ -6,6 +6,7 @@ package lookup_files
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateFileV1OK) Code() int {
 }
 
 func (o *UpdateFileV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1OK %s", 200, payload)
 }
 
 func (o *UpdateFileV1OK) String() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1OK %s", 200, payload)
 }
 
 func (o *UpdateFileV1OK) GetPayload() *models.DomainLookupFileWrapper {
@@ -234,11 +237,13 @@ func (o *UpdateFileV1BadRequest) Code() int {
 }
 
 func (o *UpdateFileV1BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdateFileV1BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdateFileV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *UpdateFileV1Forbidden) Code() int {
 }
 
 func (o *UpdateFileV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdateFileV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdateFileV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *UpdateFileV1NotFound) Code() int {
 }
 
 func (o *UpdateFileV1NotFound) Error() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1NotFound %s", 404, payload)
 }
 
 func (o *UpdateFileV1NotFound) String() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1NotFound %s", 404, payload)
 }
 
 func (o *UpdateFileV1NotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *UpdateFileV1TooManyRequests) Code() int {
 }
 
 func (o *UpdateFileV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateFileV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateFileV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateFileV1InternalServerError) Code() int {
 }
 
 func (o *UpdateFileV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateFileV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /loggingapi/entities/lookup-files/v1][%d] updateFileV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateFileV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

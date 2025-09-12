@@ -6,6 +6,7 @@ package incidents
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CrowdScoreOK) Code() int {
 }
 
 func (o *CrowdScoreOK) Error() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreOK %s", 200, payload)
 }
 
 func (o *CrowdScoreOK) String() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreOK %s", 200, payload)
 }
 
 func (o *CrowdScoreOK) GetPayload() *models.DomainMsaEnvironmentScoreResponse {
@@ -228,11 +231,13 @@ func (o *CrowdScoreBadRequest) Code() int {
 }
 
 func (o *CrowdScoreBadRequest) Error() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreBadRequest %s", 400, payload)
 }
 
 func (o *CrowdScoreBadRequest) String() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreBadRequest %s", 400, payload)
 }
 
 func (o *CrowdScoreBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *CrowdScoreForbidden) Code() int {
 }
 
 func (o *CrowdScoreForbidden) Error() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreForbidden %s", 403, payload)
 }
 
 func (o *CrowdScoreForbidden) String() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreForbidden %s", 403, payload)
 }
 
 func (o *CrowdScoreForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CrowdScoreTooManyRequests) Code() int {
 }
 
 func (o *CrowdScoreTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreTooManyRequests %s", 429, payload)
 }
 
 func (o *CrowdScoreTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreTooManyRequests %s", 429, payload)
 }
 
 func (o *CrowdScoreTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CrowdScoreInternalServerError) Code() int {
 }
 
 func (o *CrowdScoreInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreInternalServerError %s", 500, payload)
 }
 
 func (o *CrowdScoreInternalServerError) String() string {
-	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreInternalServerError %s", 500, payload)
 }
 
 func (o *CrowdScoreInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

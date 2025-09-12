@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryCombinedHostGroupsOK) Code() int {
 }
 
 func (o *QueryCombinedHostGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsOK %s", 200, payload)
 }
 
 func (o *QueryCombinedHostGroupsOK) String() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsOK %s", 200, payload)
 }
 
 func (o *QueryCombinedHostGroupsOK) GetPayload() *models.HostGroupsRespV1 {
@@ -228,11 +231,13 @@ func (o *QueryCombinedHostGroupsBadRequest) Code() int {
 }
 
 func (o *QueryCombinedHostGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedHostGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedHostGroupsBadRequest) GetPayload() *models.HostGroupsRespV1 {
@@ -338,11 +343,13 @@ func (o *QueryCombinedHostGroupsForbidden) Code() int {
 }
 
 func (o *QueryCombinedHostGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedHostGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryCombinedHostGroupsTooManyRequests) Code() int {
 }
 
 func (o *QueryCombinedHostGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedHostGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryCombinedHostGroupsInternalServerError) Code() int {
 }
 
 func (o *QueryCombinedHostGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedHostGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedHostGroupsInternalServerError) GetPayload() *models.HostGroupsRespV1 {

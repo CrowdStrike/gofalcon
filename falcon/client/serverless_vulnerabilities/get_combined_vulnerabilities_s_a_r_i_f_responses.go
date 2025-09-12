@@ -6,6 +6,7 @@ package serverless_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetCombinedVulnerabilitiesSARIFOK) Code() int {
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFOK) Error() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFOK %s", 200, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFOK) String() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFOK %s", 200, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFOK) GetPayload() *models.VulnerabilitiesVulnerabilityEntitySARIFResponse {
@@ -228,11 +231,13 @@ func (o *GetCombinedVulnerabilitiesSARIFBadRequest) Code() int {
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFBadRequest) Error() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFBadRequest) String() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetCombinedVulnerabilitiesSARIFForbidden) Code() int {
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFForbidden) Error() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFForbidden) String() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetCombinedVulnerabilitiesSARIFTooManyRequests) Code() int {
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetCombinedVulnerabilitiesSARIFInternalServerError) Code() int {
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFInternalServerError) String() string {
-	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /lambdas/combined/vulnerabilities/sarif/v1][%d] getCombinedVulnerabilitiesSARIFInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedVulnerabilitiesSARIFInternalServerError) GetPayload() *models.MsaspecResponseFields {

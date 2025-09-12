@@ -6,6 +6,7 @@ package installation_tokens
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *TokensQueryOK) Code() int {
 }
 
 func (o *TokensQueryOK) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK %s", 200, payload)
 }
 
 func (o *TokensQueryOK) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK %s", 200, payload)
 }
 
 func (o *TokensQueryOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *TokensQueryBadRequest) Code() int {
 }
 
 func (o *TokensQueryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest %s", 400, payload)
 }
 
 func (o *TokensQueryBadRequest) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest %s", 400, payload)
 }
 
 func (o *TokensQueryBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *TokensQueryForbidden) Code() int {
 }
 
 func (o *TokensQueryForbidden) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryForbidden %s", 403, payload)
 }
 
 func (o *TokensQueryForbidden) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryForbidden %s", 403, payload)
 }
 
 func (o *TokensQueryForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *TokensQueryTooManyRequests) Code() int {
 }
 
 func (o *TokensQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *TokensQueryInternalServerError) Code() int {
 }
 
 func (o *TokensQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError %s", 500, payload)
 }
 
 func (o *TokensQueryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError %s", 500, payload)
 }
 
 func (o *TokensQueryInternalServerError) GetPayload() *models.MsaspecResponseFields {

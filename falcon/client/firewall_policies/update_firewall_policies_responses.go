@@ -6,6 +6,7 @@ package firewall_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateFirewallPoliciesOK) Code() int {
 }
 
 func (o *UpdateFirewallPoliciesOK) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesOK %s", 200, payload)
 }
 
 func (o *UpdateFirewallPoliciesOK) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesOK %s", 200, payload)
 }
 
 func (o *UpdateFirewallPoliciesOK) GetPayload() *models.FirewallRespV1 {
@@ -234,11 +237,13 @@ func (o *UpdateFirewallPoliciesBadRequest) Code() int {
 }
 
 func (o *UpdateFirewallPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *UpdateFirewallPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *UpdateFirewallPoliciesBadRequest) GetPayload() *models.FirewallRespV1 {
@@ -344,11 +349,13 @@ func (o *UpdateFirewallPoliciesForbidden) Code() int {
 }
 
 func (o *UpdateFirewallPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdateFirewallPoliciesForbidden) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdateFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *UpdateFirewallPoliciesNotFound) Code() int {
 }
 
 func (o *UpdateFirewallPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesNotFound %s", 404, payload)
 }
 
 func (o *UpdateFirewallPoliciesNotFound) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesNotFound %s", 404, payload)
 }
 
 func (o *UpdateFirewallPoliciesNotFound) GetPayload() *models.FirewallRespV1 {
@@ -568,11 +577,13 @@ func (o *UpdateFirewallPoliciesTooManyRequests) Code() int {
 }
 
 func (o *UpdateFirewallPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateFirewallPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateFirewallPoliciesInternalServerError) Code() int {
 }
 
 func (o *UpdateFirewallPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateFirewallPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateFirewallPoliciesInternalServerError) GetPayload() *models.FirewallRespV1 {

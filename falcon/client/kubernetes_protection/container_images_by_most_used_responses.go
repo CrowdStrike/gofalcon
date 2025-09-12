@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ContainerImagesByMostUsedOK) Code() int {
 }
 
 func (o *ContainerImagesByMostUsedOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedOK %s", 200, payload)
 }
 
 func (o *ContainerImagesByMostUsedOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedOK %s", 200, payload)
 }
 
 func (o *ContainerImagesByMostUsedOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *ContainerImagesByMostUsedForbidden) Code() int {
 }
 
 func (o *ContainerImagesByMostUsedForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedForbidden %s", 403, payload)
 }
 
 func (o *ContainerImagesByMostUsedForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedForbidden %s", 403, payload)
 }
 
 func (o *ContainerImagesByMostUsedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ContainerImagesByMostUsedTooManyRequests) Code() int {
 }
 
 func (o *ContainerImagesByMostUsedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerImagesByMostUsedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerImagesByMostUsedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ContainerImagesByMostUsedInternalServerError) Code() int {
 }
 
 func (o *ContainerImagesByMostUsedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerImagesByMostUsedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/most-used/v1][%d] containerImagesByMostUsedInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerImagesByMostUsedInternalServerError) GetPayload() *models.CoreEntitiesResponse {

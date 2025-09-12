@@ -6,6 +6,7 @@ package container_packages
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPackagesByImageCountOK) Code() int {
 }
 
 func (o *ReadPackagesByImageCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountOK %s", 200, payload)
 }
 
 func (o *ReadPackagesByImageCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountOK %s", 200, payload)
 }
 
 func (o *ReadPackagesByImageCountOK) GetPayload() *models.PackagesAPIPackagesByImageCount {
@@ -222,11 +225,13 @@ func (o *ReadPackagesByImageCountForbidden) Code() int {
 }
 
 func (o *ReadPackagesByImageCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesByImageCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesByImageCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPackagesByImageCountTooManyRequests) Code() int {
 }
 
 func (o *ReadPackagesByImageCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesByImageCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesByImageCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPackagesByImageCountInternalServerError) Code() int {
 }
 
 func (o *ReadPackagesByImageCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesByImageCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/packages/by-image-count/v1][%d] readPackagesByImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesByImageCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

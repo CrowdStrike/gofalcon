@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *WorkflowUpdateHumanInputV1OK) Code() int {
 }
 
 func (o *WorkflowUpdateHumanInputV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1OK %s", 200, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1OK) String() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1OK %s", 200, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1OK) GetPayload() *models.APIResourceIDsResponse {
@@ -234,11 +237,13 @@ func (o *WorkflowUpdateHumanInputV1BadRequest) Code() int {
 }
 
 func (o *WorkflowUpdateHumanInputV1BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1BadRequest %s", 400, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1BadRequest %s", 400, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1BadRequest) GetPayload() *models.APIResourceIDsResponse {
@@ -344,11 +349,13 @@ func (o *WorkflowUpdateHumanInputV1Forbidden) Code() int {
 }
 
 func (o *WorkflowUpdateHumanInputV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1Forbidden %s", 403, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1Forbidden %s", 403, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *WorkflowUpdateHumanInputV1NotFound) Code() int {
 }
 
 func (o *WorkflowUpdateHumanInputV1NotFound) Error() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1NotFound %s", 404, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1NotFound) String() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1NotFound %s", 404, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1NotFound) GetPayload() *models.APIResourceIDsResponse {
@@ -568,11 +577,13 @@ func (o *WorkflowUpdateHumanInputV1TooManyRequests) Code() int {
 }
 
 func (o *WorkflowUpdateHumanInputV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1TooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1TooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *WorkflowUpdateHumanInputV1InternalServerError) Code() int {
 }
 
 func (o *WorkflowUpdateHumanInputV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1InternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /workflows/entities/human-inputs/v1][%d] workflowUpdateHumanInputV1InternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowUpdateHumanInputV1InternalServerError) GetPayload() *models.APIResourceIDsResponse {

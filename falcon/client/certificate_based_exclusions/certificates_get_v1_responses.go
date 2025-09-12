@@ -6,6 +6,7 @@ package certificate_based_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CertificatesGetV1OK) Code() int {
 }
 
 func (o *CertificatesGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1OK %s", 200, payload)
 }
 
 func (o *CertificatesGetV1OK) String() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1OK %s", 200, payload)
 }
 
 func (o *CertificatesGetV1OK) GetPayload() *models.APIRespCertificatesV1 {
@@ -234,11 +237,13 @@ func (o *CertificatesGetV1BadRequest) Code() int {
 }
 
 func (o *CertificatesGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *CertificatesGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *CertificatesGetV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CertificatesGetV1Unauthorized) Code() int {
 }
 
 func (o *CertificatesGetV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Unauthorized %s", 401, payload)
 }
 
 func (o *CertificatesGetV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Unauthorized %s", 401, payload)
 }
 
 func (o *CertificatesGetV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CertificatesGetV1Forbidden) Code() int {
 }
 
 func (o *CertificatesGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *CertificatesGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *CertificatesGetV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CertificatesGetV1TooManyRequests) Code() int {
 }
 
 func (o *CertificatesGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CertificatesGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CertificatesGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CertificatesGetV1InternalServerError) Code() int {
 }
 
 func (o *CertificatesGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *CertificatesGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /exclusions/entities/certificates/v1][%d] certificatesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *CertificatesGetV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

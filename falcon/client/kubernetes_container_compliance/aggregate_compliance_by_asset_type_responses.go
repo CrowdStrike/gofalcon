@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateComplianceByAssetTypeOK) Code() int {
 }
 
 func (o *AggregateComplianceByAssetTypeOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeOK %s", 200, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeOK %s", 200, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeOK) GetPayload() *models.DomainAPIAggregateResponseComplianceByAssetTypeV1 {
@@ -228,11 +231,13 @@ func (o *AggregateComplianceByAssetTypeBadRequest) Code() int {
 }
 
 func (o *AggregateComplianceByAssetTypeBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeBadRequest %s", 400, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeBadRequest %s", 400, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeBadRequest) GetPayload() *models.DomainAPIAggregateResponseComplianceByAssetTypeV1 {
@@ -338,11 +343,13 @@ func (o *AggregateComplianceByAssetTypeForbidden) Code() int {
 }
 
 func (o *AggregateComplianceByAssetTypeForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeForbidden %s", 403, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeForbidden %s", 403, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateComplianceByAssetTypeTooManyRequests) Code() int {
 }
 
 func (o *AggregateComplianceByAssetTypeTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateComplianceByAssetTypeInternalServerError) Code() int {
 }
 
 func (o *AggregateComplianceByAssetTypeInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-asset-type/v2][%d] aggregateComplianceByAssetTypeInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateComplianceByAssetTypeInternalServerError) GetPayload() *models.DomainAPIAggregateResponseComplianceByAssetTypeV1 {

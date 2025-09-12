@@ -6,6 +6,7 @@ package detects
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetAggregateDetectsOK) Code() int {
 }
 
 func (o *GetAggregateDetectsOK) Error() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsOK %s", 200, payload)
 }
 
 func (o *GetAggregateDetectsOK) String() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsOK %s", 200, payload)
 }
 
 func (o *GetAggregateDetectsOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *GetAggregateDetectsBadRequest) Code() int {
 }
 
 func (o *GetAggregateDetectsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsBadRequest %s", 400, payload)
 }
 
 func (o *GetAggregateDetectsBadRequest) String() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsBadRequest %s", 400, payload)
 }
 
 func (o *GetAggregateDetectsBadRequest) GetPayload() *models.MsaAggregatesResponse {
@@ -338,11 +343,13 @@ func (o *GetAggregateDetectsForbidden) Code() int {
 }
 
 func (o *GetAggregateDetectsForbidden) Error() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsForbidden %s", 403, payload)
 }
 
 func (o *GetAggregateDetectsForbidden) String() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsForbidden %s", 403, payload)
 }
 
 func (o *GetAggregateDetectsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetAggregateDetectsTooManyRequests) Code() int {
 }
 
 func (o *GetAggregateDetectsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAggregateDetectsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAggregateDetectsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetAggregateDetectsInternalServerError) Code() int {
 }
 
 func (o *GetAggregateDetectsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAggregateDetectsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAggregateDetectsInternalServerError) GetPayload() *models.MsaAggregatesResponse {

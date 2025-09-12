@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetChangesOK) Code() int {
 }
 
 func (o *GetChangesOK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK %s", 200, payload)
 }
 
 func (o *GetChangesOK) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK %s", 200, payload)
 }
 
 func (o *GetChangesOK) GetPayload() *models.PublicGetChangesResponse {
@@ -228,11 +231,13 @@ func (o *GetChangesBadRequest) Code() int {
 }
 
 func (o *GetChangesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest %s", 400, payload)
 }
 
 func (o *GetChangesBadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest %s", 400, payload)
 }
 
 func (o *GetChangesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetChangesForbidden) Code() int {
 }
 
 func (o *GetChangesForbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesForbidden %s", 403, payload)
 }
 
 func (o *GetChangesForbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesForbidden %s", 403, payload)
 }
 
 func (o *GetChangesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetChangesTooManyRequests) Code() int {
 }
 
 func (o *GetChangesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetChangesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetChangesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetChangesInternalServerError) Code() int {
 }
 
 func (o *GetChangesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError %s", 500, payload)
 }
 
 func (o *GetChangesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError %s", 500, payload)
 }
 
 func (o *GetChangesInternalServerError) GetPayload() *models.MsaspecResponseFields {

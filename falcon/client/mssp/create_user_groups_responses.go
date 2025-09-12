@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateUserGroupsOK) Code() int {
 }
 
 func (o *CreateUserGroupsOK) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsOK %s", 200, payload)
 }
 
 func (o *CreateUserGroupsOK) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsOK %s", 200, payload)
 }
 
 func (o *CreateUserGroupsOK) GetPayload() *models.DomainUserGroupsResponseV1 {
@@ -234,11 +237,13 @@ func (o *CreateUserGroupsMultiStatus) Code() int {
 }
 
 func (o *CreateUserGroupsMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *CreateUserGroupsMultiStatus) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *CreateUserGroupsMultiStatus) GetPayload() *models.DomainUserGroupsResponseV1 {
@@ -344,11 +349,13 @@ func (o *CreateUserGroupsBadRequest) Code() int {
 }
 
 func (o *CreateUserGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateUserGroupsBadRequest) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateUserGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *CreateUserGroupsForbidden) Code() int {
 }
 
 func (o *CreateUserGroupsForbidden) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateUserGroupsForbidden) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateUserGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *CreateUserGroupsTooManyRequests) Code() int {
 }
 
 func (o *CreateUserGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateUserGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateUserGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateUserGroupsInternalServerError) Code() int {
 }
 
 func (o *CreateUserGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateUserGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateUserGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

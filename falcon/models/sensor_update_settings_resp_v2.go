@@ -39,12 +39,12 @@ type SensorUpdateSettingsRespV2 struct {
 
 	// The release stage this build is in
 	// Required: true
-	// Enum: [prod early_adopter ]
+	// Enum: ["prod","early_adopter",""]
 	Stage *string `json:"stage"`
 
 	// The uninstall protection setting to apply to devices in the policy
 	// Required: true
-	// Enum: [ENABLED DISABLED MAINTENANCE_MODE IGNORE UNKNOWN]
+	// Enum: ["ENABLED","DISABLED","MAINTENANCE_MODE","IGNORE","UNKNOWN"]
 	UninstallProtection *string `json:"uninstall_protection"`
 
 	// variants

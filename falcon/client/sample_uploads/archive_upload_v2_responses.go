@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ArchiveUploadV2OK) Code() int {
 }
 
 func (o *ArchiveUploadV2OK) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2OK %s", 200, payload)
 }
 
 func (o *ArchiveUploadV2OK) String() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2OK %s", 200, payload)
 }
 
 func (o *ArchiveUploadV2OK) GetPayload() *models.ClientArchiveCreateResponseV1 {
@@ -234,11 +237,13 @@ func (o *ArchiveUploadV2Accepted) Code() int {
 }
 
 func (o *ArchiveUploadV2Accepted) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Accepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Accepted %s", 202, payload)
 }
 
 func (o *ArchiveUploadV2Accepted) String() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Accepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Accepted %s", 202, payload)
 }
 
 func (o *ArchiveUploadV2Accepted) GetPayload() *models.ClientArchiveCreateResponseV1 {
@@ -344,11 +349,13 @@ func (o *ArchiveUploadV2BadRequest) Code() int {
 }
 
 func (o *ArchiveUploadV2BadRequest) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2BadRequest %s", 400, payload)
 }
 
 func (o *ArchiveUploadV2BadRequest) String() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2BadRequest %s", 400, payload)
 }
 
 func (o *ArchiveUploadV2BadRequest) GetPayload() *models.ClientArchiveCreateResponseV1 {
@@ -454,11 +461,13 @@ func (o *ArchiveUploadV2Forbidden) Code() int {
 }
 
 func (o *ArchiveUploadV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Forbidden %s", 403, payload)
 }
 
 func (o *ArchiveUploadV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2Forbidden %s", 403, payload)
 }
 
 func (o *ArchiveUploadV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *ArchiveUploadV2TooManyRequests) Code() int {
 }
 
 func (o *ArchiveUploadV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2TooManyRequests %s", 429, payload)
 }
 
 func (o *ArchiveUploadV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2TooManyRequests %s", 429, payload)
 }
 
 func (o *ArchiveUploadV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ArchiveUploadV2InternalServerError) Code() int {
 }
 
 func (o *ArchiveUploadV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2InternalServerError %s", 500, payload)
 }
 
 func (o *ArchiveUploadV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2InternalServerError %s", 500, payload)
 }
 
 func (o *ArchiveUploadV2InternalServerError) GetPayload() *models.ClientArchiveCreateResponseV1 {

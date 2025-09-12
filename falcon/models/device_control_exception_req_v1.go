@@ -21,7 +21,7 @@ import (
 type DeviceControlExceptionReqV1 struct {
 
 	// Action to be taken for devices matching this exception. Note: BLOCK_EXECUTE and BLOCK_WRITE_EXECUTE only valid for MASS_STORAGE class
-	// Enum: [FULL_ACCESS BLOCK_ALL BLOCK_EXECUTE BLOCK_WRITE_EXECUTE]
+	// Enum: ["FULL_ACCESS","BLOCK_ALL","BLOCK_EXECUTE","BLOCK_WRITE_EXECUTE"]
 	Action string `json:"action,omitempty"`
 
 	// Combined identifier in the format 'vendorID_productID_serialNumber'. Not allowed if use_wildcard is true.

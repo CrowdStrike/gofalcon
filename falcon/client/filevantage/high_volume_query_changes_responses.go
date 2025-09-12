@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *HighVolumeQueryChangesOK) Code() int {
 }
 
 func (o *HighVolumeQueryChangesOK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesOK %s", 200, payload)
 }
 
 func (o *HighVolumeQueryChangesOK) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesOK %s", 200, payload)
 }
 
 func (o *HighVolumeQueryChangesOK) GetPayload() *models.ChangesHighVolumeQueryResponse {
@@ -228,11 +231,13 @@ func (o *HighVolumeQueryChangesBadRequest) Code() int {
 }
 
 func (o *HighVolumeQueryChangesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesBadRequest %s", 400, payload)
 }
 
 func (o *HighVolumeQueryChangesBadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesBadRequest %s", 400, payload)
 }
 
 func (o *HighVolumeQueryChangesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *HighVolumeQueryChangesForbidden) Code() int {
 }
 
 func (o *HighVolumeQueryChangesForbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesForbidden %s", 403, payload)
 }
 
 func (o *HighVolumeQueryChangesForbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesForbidden %s", 403, payload)
 }
 
 func (o *HighVolumeQueryChangesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *HighVolumeQueryChangesTooManyRequests) Code() int {
 }
 
 func (o *HighVolumeQueryChangesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesTooManyRequests %s", 429, payload)
 }
 
 func (o *HighVolumeQueryChangesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesTooManyRequests %s", 429, payload)
 }
 
 func (o *HighVolumeQueryChangesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *HighVolumeQueryChangesInternalServerError) Code() int {
 }
 
 func (o *HighVolumeQueryChangesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesInternalServerError %s", 500, payload)
 }
 
 func (o *HighVolumeQueryChangesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v3][%d] highVolumeQueryChangesInternalServerError %s", 500, payload)
 }
 
 func (o *HighVolumeQueryChangesInternalServerError) GetPayload() *models.MsaspecResponseFields {

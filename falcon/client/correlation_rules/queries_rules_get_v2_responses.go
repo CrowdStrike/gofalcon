@@ -6,6 +6,7 @@ package correlation_rules
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *QueriesRulesGetV2OK) Code() int {
 }
 
 func (o *QueriesRulesGetV2OK) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2OK %s", 200, payload)
 }
 
 func (o *QueriesRulesGetV2OK) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2OK %s", 200, payload)
 }
 
 func (o *QueriesRulesGetV2OK) GetPayload() *models.MsaspecQueryResponse {
@@ -240,11 +243,13 @@ func (o *QueriesRulesGetV2BadRequest) Code() int {
 }
 
 func (o *QueriesRulesGetV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2BadRequest %s", 400, payload)
 }
 
 func (o *QueriesRulesGetV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2BadRequest %s", 400, payload)
 }
 
 func (o *QueriesRulesGetV2BadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -350,11 +355,13 @@ func (o *QueriesRulesGetV2Unauthorized) Code() int {
 }
 
 func (o *QueriesRulesGetV2Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Unauthorized %s", 401, payload)
 }
 
 func (o *QueriesRulesGetV2Unauthorized) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Unauthorized %s", 401, payload)
 }
 
 func (o *QueriesRulesGetV2Unauthorized) GetPayload() *models.MsaspecQueryResponse {
@@ -460,11 +467,13 @@ func (o *QueriesRulesGetV2Forbidden) Code() int {
 }
 
 func (o *QueriesRulesGetV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Forbidden %s", 403, payload)
 }
 
 func (o *QueriesRulesGetV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2Forbidden %s", 403, payload)
 }
 
 func (o *QueriesRulesGetV2Forbidden) GetPayload() *models.MsaspecQueryResponse {
@@ -570,11 +579,13 @@ func (o *QueriesRulesGetV2NotFound) Code() int {
 }
 
 func (o *QueriesRulesGetV2NotFound) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2NotFound %s", 404, payload)
 }
 
 func (o *QueriesRulesGetV2NotFound) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2NotFound %s", 404, payload)
 }
 
 func (o *QueriesRulesGetV2NotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -684,11 +695,13 @@ func (o *QueriesRulesGetV2TooManyRequests) Code() int {
 }
 
 func (o *QueriesRulesGetV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesRulesGetV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesRulesGetV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *QueriesRulesGetV2InternalServerError) Code() int {
 }
 
 func (o *QueriesRulesGetV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesRulesGetV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/queries/rules/v2][%d] queriesRulesGetV2InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesRulesGetV2InternalServerError) GetPayload() *models.MsaspecQueryResponse {

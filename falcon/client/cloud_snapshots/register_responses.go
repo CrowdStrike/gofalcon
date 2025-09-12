@@ -6,6 +6,7 @@ package cloud_snapshots
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RegisterOK) Code() int {
 }
 
 func (o *RegisterOK) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerOK %s", 200, payload)
 }
 
 func (o *RegisterOK) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerOK %s", 200, payload)
 }
 
 func (o *RegisterOK) GetPayload() *models.ModelsAccountStatusResponse {
@@ -228,11 +231,13 @@ func (o *RegisterBadRequest) Code() int {
 }
 
 func (o *RegisterBadRequest) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerBadRequest %s", 400, payload)
 }
 
 func (o *RegisterBadRequest) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerBadRequest %s", 400, payload)
 }
 
 func (o *RegisterBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *RegisterForbidden) Code() int {
 }
 
 func (o *RegisterForbidden) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerForbidden %s", 403, payload)
 }
 
 func (o *RegisterForbidden) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerForbidden %s", 403, payload)
 }
 
 func (o *RegisterForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *RegisterTooManyRequests) Code() int {
 }
 
 func (o *RegisterTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerTooManyRequests %s", 429, payload)
 }
 
 func (o *RegisterTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerTooManyRequests %s", 429, payload)
 }
 
 func (o *RegisterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RegisterInternalServerError) Code() int {
 }
 
 func (o *RegisterInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerInternalServerError %s", 500, payload)
 }
 
 func (o *RegisterInternalServerError) String() string {
-	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /snapshots/entities/accounts/v1][%d] registerInternalServerError %s", 500, payload)
 }
 
 func (o *RegisterInternalServerError) GetPayload() *models.MsaspecResponseFields {

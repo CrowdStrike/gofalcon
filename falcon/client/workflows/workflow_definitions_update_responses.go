@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *WorkflowDefinitionsUpdateOK) Code() int {
 }
 
 func (o *WorkflowDefinitionsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateOK) GetPayload() *models.APIResourceIDsResponse {
@@ -234,11 +237,13 @@ func (o *WorkflowDefinitionsUpdateBadRequest) Code() int {
 }
 
 func (o *WorkflowDefinitionsUpdateBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateBadRequest) String() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateBadRequest) GetPayload() *models.APIResourceIDsResponse {
@@ -344,11 +349,13 @@ func (o *WorkflowDefinitionsUpdateForbidden) Code() int {
 }
 
 func (o *WorkflowDefinitionsUpdateForbidden) Error() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateForbidden) String() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *WorkflowDefinitionsUpdateNotFound) Code() int {
 }
 
 func (o *WorkflowDefinitionsUpdateNotFound) Error() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateNotFound) String() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateNotFound) GetPayload() *models.APIResourceIDsResponse {
@@ -568,11 +577,13 @@ func (o *WorkflowDefinitionsUpdateTooManyRequests) Code() int {
 }
 
 func (o *WorkflowDefinitionsUpdateTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *WorkflowDefinitionsUpdateInternalServerError) Code() int {
 }
 
 func (o *WorkflowDefinitionsUpdateInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /workflows/entities/definitions/v1][%d] workflowDefinitionsUpdateInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsUpdateInternalServerError) GetPayload() *models.APIResourceIDsResponse {

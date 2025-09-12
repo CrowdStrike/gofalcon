@@ -6,6 +6,7 @@ package quarantine
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *UpdateQuarantinedDetectsByIdsOK) Code() int {
 }
 
 func (o *UpdateQuarantinedDetectsByIdsOK) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsOK %s", 200, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsOK) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsOK %s", 200, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -222,11 +225,13 @@ func (o *UpdateQuarantinedDetectsByIdsForbidden) Code() int {
 }
 
 func (o *UpdateQuarantinedDetectsByIdsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsForbidden %s", 403, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsForbidden %s", 403, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) Code() int {
 }
 
 func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *UpdateQuarantinedDetectsByIdsInternalServerError) Code() int {
 }
 
 func (o *UpdateQuarantinedDetectsByIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateQuarantinedDetectsByIdsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

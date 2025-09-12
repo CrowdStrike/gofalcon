@@ -6,6 +6,7 @@ package cases
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesCaseTagsDeleteV1OK) Code() int {
 }
 
 func (o *EntitiesCaseTagsDeleteV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1OK) String() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1OK) GetPayload() *models.OperationsUpdateCaseResponseVM {
@@ -228,11 +231,13 @@ func (o *EntitiesCaseTagsDeleteV1BadRequest) Code() int {
 }
 
 func (o *EntitiesCaseTagsDeleteV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1BadRequest) GetPayload() *models.OperationsUpdateCaseResponseVM {
@@ -338,11 +343,13 @@ func (o *EntitiesCaseTagsDeleteV1Forbidden) Code() int {
 }
 
 func (o *EntitiesCaseTagsDeleteV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *EntitiesCaseTagsDeleteV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesCaseTagsDeleteV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesCaseTagsDeleteV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesCaseTagsDeleteV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cases/entities/case-tags/v1][%d] entitiesCaseTagsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesCaseTagsDeleteV1InternalServerError) GetPayload() *models.OperationsUpdateCaseResponseVM {

@@ -6,6 +6,7 @@ package device_content
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueriesStatesV1OK) Code() int {
 }
 
 func (o *QueriesStatesV1OK) Error() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1OK %s", 200, payload)
 }
 
 func (o *QueriesStatesV1OK) String() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1OK %s", 200, payload)
 }
 
 func (o *QueriesStatesV1OK) GetPayload() *models.DevicecontentapiQueryResponseV1 {
@@ -222,11 +225,13 @@ func (o *QueriesStatesV1Forbidden) Code() int {
 }
 
 func (o *QueriesStatesV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesStatesV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesStatesV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueriesStatesV1TooManyRequests) Code() int {
 }
 
 func (o *QueriesStatesV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesStatesV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesStatesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueriesStatesV1InternalServerError) Code() int {
 }
 
 func (o *QueriesStatesV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesStatesV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /device-content/queries/states/v1][%d] queriesStatesV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesStatesV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

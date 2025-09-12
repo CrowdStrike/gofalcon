@@ -6,6 +6,7 @@ package intelligence_feeds
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ListFeedTypesOK) Code() int {
 }
 
 func (o *ListFeedTypesOK) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesOK %s", 200, payload)
 }
 
 func (o *ListFeedTypesOK) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesOK %s", 200, payload)
 }
 
 func (o *ListFeedTypesOK) GetPayload() *models.RestapiIndicatorGetFeedsResponse {
@@ -226,11 +229,11 @@ func (o *ListFeedTypesBadRequest) Code() int {
 }
 
 func (o *ListFeedTypesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesBadRequest ", 400)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesBadRequest", 400)
 }
 
 func (o *ListFeedTypesBadRequest) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesBadRequest ", 400)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesBadRequest", 400)
 }
 
 func (o *ListFeedTypesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -325,11 +328,13 @@ func (o *ListFeedTypesForbidden) Code() int {
 }
 
 func (o *ListFeedTypesForbidden) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesForbidden %s", 403, payload)
 }
 
 func (o *ListFeedTypesForbidden) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesForbidden %s", 403, payload)
 }
 
 func (o *ListFeedTypesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -439,11 +444,13 @@ func (o *ListFeedTypesTooManyRequests) Code() int {
 }
 
 func (o *ListFeedTypesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *ListFeedTypesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *ListFeedTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -558,11 +565,11 @@ func (o *ListFeedTypesInternalServerError) Code() int {
 }
 
 func (o *ListFeedTypesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesInternalServerError ", 500)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesInternalServerError", 500)
 }
 
 func (o *ListFeedTypesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesInternalServerError ", 500)
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesInternalServerError", 500)
 }
 
 func (o *ListFeedTypesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

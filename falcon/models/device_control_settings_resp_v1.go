@@ -30,12 +30,12 @@ type DeviceControlSettingsRespV1 struct {
 
 	// Does the end user receives a notification when the policy is violated
 	// Required: true
-	// Enum: [SILENT NOTIFY_USER]
+	// Enum: ["SILENT","NOTIFY_USER"]
 	EndUserNotification *string `json:"end_user_notification"`
 
 	// [How] is this policy enforced
 	// Required: true
-	// Enum: [MONITOR_ONLY MONITOR_ENFORCE OFF]
+	// Enum: ["MONITOR_ONLY","MONITOR_ENFORCE","OFF"]
 	EnforcementMode *string `json:"enforcement_mode"`
 
 	// Is file metadata processor enabled or not? true|false

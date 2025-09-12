@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *KubernetesIomByDateRangeOK) Code() int {
 }
 
 func (o *KubernetesIomByDateRangeOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeOK %s", 200, payload)
 }
 
 func (o *KubernetesIomByDateRangeOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeOK %s", 200, payload)
 }
 
 func (o *KubernetesIomByDateRangeOK) GetPayload() *models.K8siomsKubernetesIOMFieldValue {
@@ -222,11 +225,13 @@ func (o *KubernetesIomByDateRangeForbidden) Code() int {
 }
 
 func (o *KubernetesIomByDateRangeForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomByDateRangeForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomByDateRangeForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *KubernetesIomByDateRangeTooManyRequests) Code() int {
 }
 
 func (o *KubernetesIomByDateRangeTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomByDateRangeTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomByDateRangeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *KubernetesIomByDateRangeInternalServerError) Code() int {
 }
 
 func (o *KubernetesIomByDateRangeInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomByDateRangeInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count-by-date/v1][%d] kubernetesIomByDateRangeInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomByDateRangeInternalServerError) GetPayload() *models.CoreEntitiesResponse {

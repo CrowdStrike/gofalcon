@@ -6,6 +6,7 @@ package cao_hunting
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -90,7 +91,7 @@ type GetIntelligenceQueriesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIIntelligenceQueryEntityResponse
+	Payload *models.CaohuntingapiIntelligenceQueryEntityResponse
 }
 
 // IsSuccess returns true when this get intelligence queries o k response has a 2xx status code
@@ -124,14 +125,16 @@ func (o *GetIntelligenceQueriesOK) Code() int {
 }
 
 func (o *GetIntelligenceQueriesOK) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesOK %s", 200, payload)
 }
 
 func (o *GetIntelligenceQueriesOK) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesOK %s", 200, payload)
 }
 
-func (o *GetIntelligenceQueriesOK) GetPayload() *models.APIIntelligenceQueryEntityResponse {
+func (o *GetIntelligenceQueriesOK) GetPayload() *models.CaohuntingapiIntelligenceQueryEntityResponse {
 	return o.Payload
 }
 
@@ -166,7 +169,7 @@ func (o *GetIntelligenceQueriesOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIIntelligenceQueryEntityResponse)
+	o.Payload = new(models.CaohuntingapiIntelligenceQueryEntityResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -234,11 +237,13 @@ func (o *GetIntelligenceQueriesBadRequest) Code() int {
 }
 
 func (o *GetIntelligenceQueriesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesBadRequest %s", 400, payload)
 }
 
 func (o *GetIntelligenceQueriesBadRequest) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesBadRequest %s", 400, payload)
 }
 
 func (o *GetIntelligenceQueriesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetIntelligenceQueriesForbidden) Code() int {
 }
 
 func (o *GetIntelligenceQueriesForbidden) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesForbidden %s", 403, payload)
 }
 
 func (o *GetIntelligenceQueriesForbidden) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesForbidden %s", 403, payload)
 }
 
 func (o *GetIntelligenceQueriesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -458,11 +465,13 @@ func (o *GetIntelligenceQueriesTooManyRequests) Code() int {
 }
 
 func (o *GetIntelligenceQueriesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelligenceQueriesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelligenceQueriesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -579,11 +588,13 @@ func (o *GetIntelligenceQueriesClientClosedRequest) Code() int {
 }
 
 func (o *GetIntelligenceQueriesClientClosedRequest) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesClientClosedRequest %s", 499, payload)
 }
 
 func (o *GetIntelligenceQueriesClientClosedRequest) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesClientClosedRequest %s", 499, payload)
 }
 
 func (o *GetIntelligenceQueriesClientClosedRequest) GetPayload() *models.MsaspecResponseFields {
@@ -689,11 +700,13 @@ func (o *GetIntelligenceQueriesInternalServerError) Code() int {
 }
 
 func (o *GetIntelligenceQueriesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelligenceQueriesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelligenceQueriesInternalServerError) GetPayload() *models.MsaspecResponseFields {

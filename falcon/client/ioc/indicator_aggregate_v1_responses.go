@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *IndicatorAggregateV1OK) Code() int {
 }
 
 func (o *IndicatorAggregateV1OK) Error() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1OK %s", 200, payload)
 }
 
 func (o *IndicatorAggregateV1OK) String() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1OK %s", 200, payload)
 }
 
 func (o *IndicatorAggregateV1OK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *IndicatorAggregateV1BadRequest) Code() int {
 }
 
 func (o *IndicatorAggregateV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1BadRequest %s", 400, payload)
 }
 
 func (o *IndicatorAggregateV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1BadRequest %s", 400, payload)
 }
 
 func (o *IndicatorAggregateV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *IndicatorAggregateV1Forbidden) Code() int {
 }
 
 func (o *IndicatorAggregateV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorAggregateV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorAggregateV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *IndicatorAggregateV1TooManyRequests) Code() int {
 }
 
 func (o *IndicatorAggregateV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorAggregateV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorAggregateV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *IndicatorAggregateV1InternalServerError) Code() int {
 }
 
 func (o *IndicatorAggregateV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorAggregateV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorAggregateV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

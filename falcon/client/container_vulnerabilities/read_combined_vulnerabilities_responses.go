@@ -6,6 +6,7 @@ package container_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadCombinedVulnerabilitiesOK) Code() int {
 }
 
 func (o *ReadCombinedVulnerabilitiesOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesOK) GetPayload() *models.VulnerabilitiesAPICombinedVulnerability {
@@ -222,11 +225,13 @@ func (o *ReadCombinedVulnerabilitiesForbidden) Code() int {
 }
 
 func (o *ReadCombinedVulnerabilitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadCombinedVulnerabilitiesTooManyRequests) Code() int {
 }
 
 func (o *ReadCombinedVulnerabilitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadCombinedVulnerabilitiesInternalServerError) Code() int {
 }
 
 func (o *ReadCombinedVulnerabilitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/v1][%d] readCombinedVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadCombinedVulnerabilitiesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

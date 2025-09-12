@@ -6,6 +6,7 @@ package spotlight_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetRemediationsV2OK) Code() int {
 }
 
 func (o *GetRemediationsV2OK) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2OK %s", 200, payload)
 }
 
 func (o *GetRemediationsV2OK) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2OK %s", 200, payload)
 }
 
 func (o *GetRemediationsV2OK) GetPayload() *models.DomainSPAPIRemediationEntitiesResponseV2 {
@@ -228,11 +231,13 @@ func (o *GetRemediationsV2Forbidden) Code() int {
 }
 
 func (o *GetRemediationsV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetRemediationsV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetRemediationsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -342,11 +347,13 @@ func (o *GetRemediationsV2TooManyRequests) Code() int {
 }
 
 func (o *GetRemediationsV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetRemediationsV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetRemediationsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -463,11 +470,13 @@ func (o *GetRemediationsV2InternalServerError) Code() int {
 }
 
 func (o *GetRemediationsV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetRemediationsV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetRemediationsV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetRemediationsV2ServiceUnavailable) Code() int {
 }
 
 func (o *GetRemediationsV2ServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2ServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2ServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetRemediationsV2ServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2ServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2ServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetRemediationsV2ServiceUnavailable) GetPayload() *models.DomainSPAPIRemediationEntitiesResponseV2 {

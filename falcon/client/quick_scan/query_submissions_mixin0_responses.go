@@ -6,6 +6,7 @@ package quick_scan
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QuerySubmissionsMixin0OK) Code() int {
 }
 
 func (o *QuerySubmissionsMixin0OK) Error() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0OK %s", 200, payload)
 }
 
 func (o *QuerySubmissionsMixin0OK) String() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0OK %s", 200, payload)
 }
 
 func (o *QuerySubmissionsMixin0OK) GetPayload() *models.MlscannerapiQueryResponse {
@@ -228,11 +231,13 @@ func (o *QuerySubmissionsMixin0BadRequest) Code() int {
 }
 
 func (o *QuerySubmissionsMixin0BadRequest) Error() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *QuerySubmissionsMixin0BadRequest) String() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *QuerySubmissionsMixin0BadRequest) GetPayload() *models.MlscannerapiQueryResponse {
@@ -338,11 +343,13 @@ func (o *QuerySubmissionsMixin0Forbidden) Code() int {
 }
 
 func (o *QuerySubmissionsMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *QuerySubmissionsMixin0Forbidden) String() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *QuerySubmissionsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QuerySubmissionsMixin0TooManyRequests) Code() int {
 }
 
 func (o *QuerySubmissionsMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySubmissionsMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySubmissionsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QuerySubmissionsMixin0InternalServerError) Code() int {
 }
 
 func (o *QuerySubmissionsMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *QuerySubmissionsMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *QuerySubmissionsMixin0InternalServerError) GetPayload() *models.MlscannerapiQueryResponse {

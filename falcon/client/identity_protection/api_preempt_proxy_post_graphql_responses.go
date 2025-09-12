@@ -6,6 +6,7 @@ package identity_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *APIPreemptProxyPostGraphqlOK) Code() int {
 }
 
 func (o *APIPreemptProxyPostGraphqlOK) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK ", 200)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK", 200)
 }
 
 func (o *APIPreemptProxyPostGraphqlOK) String() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK ", 200)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK", 200)
 }
 
 func (o *APIPreemptProxyPostGraphqlOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *APIPreemptProxyPostGraphqlForbidden) Code() int {
 }
 
 func (o *APIPreemptProxyPostGraphqlForbidden) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlForbidden %s", 403, payload)
 }
 
 func (o *APIPreemptProxyPostGraphqlForbidden) String() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlForbidden %s", 403, payload)
 }
 
 func (o *APIPreemptProxyPostGraphqlForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *APIPreemptProxyPostGraphqlTooManyRequests) Code() int {
 }
 
 func (o *APIPreemptProxyPostGraphqlTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlTooManyRequests %s", 429, payload)
 }
 
 func (o *APIPreemptProxyPostGraphqlTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlTooManyRequests %s", 429, payload)
 }
 
 func (o *APIPreemptProxyPostGraphqlTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *APIPreemptProxyPostGraphqlInternalServerError) Code() int {
 }
 
 func (o *APIPreemptProxyPostGraphqlInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlInternalServerError %s", 500, payload)
 }
 
 func (o *APIPreemptProxyPostGraphqlInternalServerError) String() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlInternalServerError %s", 500, payload)
 }
 
 func (o *APIPreemptProxyPostGraphqlInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

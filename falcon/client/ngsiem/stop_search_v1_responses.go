@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -116,11 +117,11 @@ func (o *StopSearchV1OK) Code() int {
 }
 
 func (o *StopSearchV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1OK ", 200)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1OK", 200)
 }
 
 func (o *StopSearchV1OK) String() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1OK ", 200)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1OK", 200)
 }
 
 func (o *StopSearchV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -215,11 +216,13 @@ func (o *StopSearchV1Unauthorized) Code() int {
 }
 
 func (o *StopSearchV1Unauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *StopSearchV1Unauthorized) String() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *StopSearchV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -325,11 +328,13 @@ func (o *StopSearchV1Forbidden) Code() int {
 }
 
 func (o *StopSearchV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Forbidden %s", 403, payload)
 }
 
 func (o *StopSearchV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1Forbidden %s", 403, payload)
 }
 
 func (o *StopSearchV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -439,11 +444,13 @@ func (o *StopSearchV1TooManyRequests) Code() int {
 }
 
 func (o *StopSearchV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *StopSearchV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *StopSearchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -560,11 +567,13 @@ func (o *StopSearchV1InternalServerError) Code() int {
 }
 
 func (o *StopSearchV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *StopSearchV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /humio/api/v1/repositories/{repository}/queryjobs/{id}][%d] stopSearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *StopSearchV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

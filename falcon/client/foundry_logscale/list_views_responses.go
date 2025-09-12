@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ListViewsOK) Code() int {
 }
 
 func (o *ListViewsOK) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsOK %s", 200, payload)
 }
 
 func (o *ListViewsOK) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsOK %s", 200, payload)
 }
 
 func (o *ListViewsOK) GetPayload() *models.ApidomainRepoViewListItemWrapperV1 {
@@ -234,11 +237,13 @@ func (o *ListViewsBadRequest) Code() int {
 }
 
 func (o *ListViewsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsBadRequest %s", 400, payload)
 }
 
 func (o *ListViewsBadRequest) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsBadRequest %s", 400, payload)
 }
 
 func (o *ListViewsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *ListViewsForbidden) Code() int {
 }
 
 func (o *ListViewsForbidden) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsForbidden %s", 403, payload)
 }
 
 func (o *ListViewsForbidden) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsForbidden %s", 403, payload)
 }
 
 func (o *ListViewsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *ListViewsNotFound) Code() int {
 }
 
 func (o *ListViewsNotFound) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsNotFound %s", 404, payload)
 }
 
 func (o *ListViewsNotFound) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsNotFound %s", 404, payload)
 }
 
 func (o *ListViewsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *ListViewsTooManyRequests) Code() int {
 }
 
 func (o *ListViewsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListViewsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListViewsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ListViewsInternalServerError) Code() int {
 }
 
 func (o *ListViewsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsInternalServerError %s", 500, payload)
 }
 
 func (o *ListViewsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsInternalServerError %s", 500, payload)
 }
 
 func (o *ListViewsInternalServerError) GetPayload() *models.MsaspecResponseFields {

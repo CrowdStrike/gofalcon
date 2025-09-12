@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetActionsMixin0OK) Code() int {
 }
 
 func (o *GetActionsMixin0OK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0OK %s", 200, payload)
 }
 
 func (o *GetActionsMixin0OK) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0OK %s", 200, payload)
 }
 
 func (o *GetActionsMixin0OK) GetPayload() *models.ActionsGetActionResponse {
@@ -228,11 +231,13 @@ func (o *GetActionsMixin0BadRequest) Code() int {
 }
 
 func (o *GetActionsMixin0BadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *GetActionsMixin0BadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *GetActionsMixin0BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetActionsMixin0Forbidden) Code() int {
 }
 
 func (o *GetActionsMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *GetActionsMixin0Forbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *GetActionsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetActionsMixin0TooManyRequests) Code() int {
 }
 
 func (o *GetActionsMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *GetActionsMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *GetActionsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetActionsMixin0InternalServerError) Code() int {
 }
 
 func (o *GetActionsMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *GetActionsMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/actions/v1][%d] getActionsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *GetActionsMixin0InternalServerError) GetPayload() *models.MsaspecResponseFields {

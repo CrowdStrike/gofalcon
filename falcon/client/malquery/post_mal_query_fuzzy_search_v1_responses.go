@@ -6,6 +6,7 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PostMalQueryFuzzySearchV1OK) Code() int {
 }
 
 func (o *PostMalQueryFuzzySearchV1OK) Error() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1OK) String() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1OK) GetPayload() *models.MalqueryFuzzySearchResponse {
@@ -234,11 +237,13 @@ func (o *PostMalQueryFuzzySearchV1BadRequest) Code() int {
 }
 
 func (o *PostMalQueryFuzzySearchV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1BadRequest) GetPayload() *models.MalqueryFuzzySearchResponse {
@@ -344,11 +349,13 @@ func (o *PostMalQueryFuzzySearchV1Unauthorized) Code() int {
 }
 
 func (o *PostMalQueryFuzzySearchV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PostMalQueryFuzzySearchV1Forbidden) Code() int {
 }
 
 func (o *PostMalQueryFuzzySearchV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *PostMalQueryFuzzySearchV1TooManyRequests) Code() int {
 }
 
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PostMalQueryFuzzySearchV1InternalServerError) Code() int {
 }
 
 func (o *PostMalQueryFuzzySearchV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryFuzzySearchV1InternalServerError) GetPayload() *models.MalqueryFuzzySearchResponse {

@@ -6,6 +6,7 @@ package event_schema
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *FdrschemaCombinedEventGetOK) Code() int {
 }
 
 func (o *FdrschemaCombinedEventGetOK) Error() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetOK %s", 200, payload)
 }
 
 func (o *FdrschemaCombinedEventGetOK) String() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetOK %s", 200, payload)
 }
 
 func (o *FdrschemaCombinedEventGetOK) GetPayload() *models.SchemaSensorEventResponseV1 {
@@ -222,11 +225,13 @@ func (o *FdrschemaCombinedEventGetForbidden) Code() int {
 }
 
 func (o *FdrschemaCombinedEventGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetForbidden %s", 403, payload)
 }
 
 func (o *FdrschemaCombinedEventGetForbidden) String() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetForbidden %s", 403, payload)
 }
 
 func (o *FdrschemaCombinedEventGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *FdrschemaCombinedEventGetTooManyRequests) Code() int {
 }
 
 func (o *FdrschemaCombinedEventGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetTooManyRequests %s", 429, payload)
 }
 
 func (o *FdrschemaCombinedEventGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetTooManyRequests %s", 429, payload)
 }
 
 func (o *FdrschemaCombinedEventGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *FdrschemaCombinedEventGetInternalServerError) Code() int {
 }
 
 func (o *FdrschemaCombinedEventGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetInternalServerError %s", 500, payload)
 }
 
 func (o *FdrschemaCombinedEventGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fdr/combined/schema-members/v1][%d] fdrschemaCombinedEventGetInternalServerError %s", 500, payload)
 }
 
 func (o *FdrschemaCombinedEventGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -44,6 +44,10 @@ type ApimodelsControl struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// origin
+	// Required: true
+	Origin *string `json:"origin"`
+
 	// requirement
 	Requirement string `json:"requirement,omitempty"`
 
@@ -72,6 +76,10 @@ func (m *ApimodelsControl) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOrigin(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -110,6 +118,15 @@ func (m *ApimodelsControl) validateCode(formats strfmt.Registry) error {
 func (m *ApimodelsControl) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ApimodelsControl) validateOrigin(formats strfmt.Registry) error {
+
+	if err := validate.Required("origin", "body", m.Origin); err != nil {
 		return err
 	}
 

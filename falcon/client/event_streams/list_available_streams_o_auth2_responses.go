@@ -6,6 +6,7 @@ package event_streams
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ListAvailableStreamsOAuth2OK) Code() int {
 }
 
 func (o *ListAvailableStreamsOAuth2OK) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2OK %s", 200, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2OK) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2OK %s", 200, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2OK) GetPayload() *models.MainDiscoveryResponseV2 {
@@ -228,11 +231,13 @@ func (o *ListAvailableStreamsOAuth2BadRequest) Code() int {
 }
 
 func (o *ListAvailableStreamsOAuth2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2BadRequest %s", 400, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2BadRequest) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2BadRequest %s", 400, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2BadRequest) GetPayload() *models.MainDiscoveryResponseV2 {
@@ -338,11 +343,13 @@ func (o *ListAvailableStreamsOAuth2Forbidden) Code() int {
 }
 
 func (o *ListAvailableStreamsOAuth2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2Forbidden %s", 403, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2Forbidden) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2Forbidden %s", 403, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ListAvailableStreamsOAuth2TooManyRequests) Code() int {
 }
 
 func (o *ListAvailableStreamsOAuth2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2TooManyRequests %s", 429, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2TooManyRequests %s", 429, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ListAvailableStreamsOAuth2InternalServerError) Code() int {
 }
 
 func (o *ListAvailableStreamsOAuth2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2InternalServerError %s", 500, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2InternalServerError %s", 500, payload)
 }
 
 func (o *ListAvailableStreamsOAuth2InternalServerError) GetPayload() *models.MainDiscoveryResponseV2 {

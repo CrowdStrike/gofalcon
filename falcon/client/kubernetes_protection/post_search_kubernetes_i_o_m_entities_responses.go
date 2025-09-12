@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -84,7 +85,7 @@ type PostSearchKubernetesIOMEntitiesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.K8siomsSearchResult
+	Payload *models.K8siomsSearchResponse
 }
 
 // IsSuccess returns true when this post search kubernetes i o m entities o k response has a 2xx status code
@@ -118,14 +119,16 @@ func (o *PostSearchKubernetesIOMEntitiesOK) Code() int {
 }
 
 func (o *PostSearchKubernetesIOMEntitiesOK) Error() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesOK %s", 200, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesOK) String() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesOK %s", 200, payload)
 }
 
-func (o *PostSearchKubernetesIOMEntitiesOK) GetPayload() *models.K8siomsSearchResult {
+func (o *PostSearchKubernetesIOMEntitiesOK) GetPayload() *models.K8siomsSearchResponse {
 	return o.Payload
 }
 
@@ -160,7 +163,7 @@ func (o *PostSearchKubernetesIOMEntitiesOK) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.K8siomsSearchResult)
+	o.Payload = new(models.K8siomsSearchResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -228,11 +231,13 @@ func (o *PostSearchKubernetesIOMEntitiesBadRequest) Code() int {
 }
 
 func (o *PostSearchKubernetesIOMEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesBadRequest) GetPayload() *models.CoreEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *PostSearchKubernetesIOMEntitiesForbidden) Code() int {
 }
 
 func (o *PostSearchKubernetesIOMEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesForbidden %s", 403, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesForbidden) String() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesForbidden %s", 403, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *PostSearchKubernetesIOMEntitiesTooManyRequests) Code() int {
 }
 
 func (o *PostSearchKubernetesIOMEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *PostSearchKubernetesIOMEntitiesInternalServerError) Code() int {
 }
 
 func (o *PostSearchKubernetesIOMEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *PostSearchKubernetesIOMEntitiesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

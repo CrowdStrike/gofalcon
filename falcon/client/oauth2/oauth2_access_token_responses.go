@@ -6,6 +6,7 @@ package oauth2
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -119,11 +120,13 @@ func (o *Oauth2AccessTokenCreated) Code() int {
 }
 
 func (o *Oauth2AccessTokenCreated) Error() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenCreated %s", 201, payload)
 }
 
 func (o *Oauth2AccessTokenCreated) String() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenCreated %s", 201, payload)
 }
 
 func (o *Oauth2AccessTokenCreated) GetPayload() *models.DomainAccessTokenResponseV1 {
@@ -236,11 +239,13 @@ func (o *Oauth2AccessTokenBadRequest) Code() int {
 }
 
 func (o *Oauth2AccessTokenBadRequest) Error() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenBadRequest %s", 400, payload)
 }
 
 func (o *Oauth2AccessTokenBadRequest) String() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenBadRequest %s", 400, payload)
 }
 
 func (o *Oauth2AccessTokenBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -346,11 +351,13 @@ func (o *Oauth2AccessTokenForbidden) Code() int {
 }
 
 func (o *Oauth2AccessTokenForbidden) Error() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenForbidden %s", 403, payload)
 }
 
 func (o *Oauth2AccessTokenForbidden) String() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenForbidden %s", 403, payload)
 }
 
 func (o *Oauth2AccessTokenForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *Oauth2AccessTokenTooManyRequests) Code() int {
 }
 
 func (o *Oauth2AccessTokenTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenTooManyRequests %s", 429, payload)
 }
 
 func (o *Oauth2AccessTokenTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenTooManyRequests %s", 429, payload)
 }
 
 func (o *Oauth2AccessTokenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -581,11 +590,13 @@ func (o *Oauth2AccessTokenInternalServerError) Code() int {
 }
 
 func (o *Oauth2AccessTokenInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenInternalServerError %s", 500, payload)
 }
 
 func (o *Oauth2AccessTokenInternalServerError) String() string {
-	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenInternalServerError %s", 500, payload)
 }
 
 func (o *Oauth2AccessTokenInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

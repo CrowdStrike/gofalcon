@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesOK) Code() int {
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesOK) GetPayload() *models.CommonCountResponse {
@@ -222,11 +225,13 @@ func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesForbidden) Code() in
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests) Cod
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/count-by-zero-day/v1][%d] findContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *FindContainersCountAffectedByZeroDayVulnerabilitiesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

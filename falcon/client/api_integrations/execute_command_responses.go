@@ -6,6 +6,7 @@ package api_integrations
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExecuteCommandOK) Code() int {
 }
 
 func (o *ExecuteCommandOK) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandOK %s", 200, payload)
 }
 
 func (o *ExecuteCommandOK) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandOK %s", 200, payload)
 }
 
 func (o *ExecuteCommandOK) GetPayload() *models.DomainExecuteCommandResultsV1 {
@@ -234,11 +237,13 @@ func (o *ExecuteCommandBadRequest) Code() int {
 }
 
 func (o *ExecuteCommandBadRequest) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteCommandBadRequest) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteCommandBadRequest) GetPayload() *models.DomainExecuteCommandResultsV1 {
@@ -344,11 +349,13 @@ func (o *ExecuteCommandForbidden) Code() int {
 }
 
 func (o *ExecuteCommandForbidden) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandForbidden %s", 403, payload)
 }
 
 func (o *ExecuteCommandForbidden) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandForbidden %s", 403, payload)
 }
 
 func (o *ExecuteCommandForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *ExecuteCommandNotFound) Code() int {
 }
 
 func (o *ExecuteCommandNotFound) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandNotFound %s", 404, payload)
 }
 
 func (o *ExecuteCommandNotFound) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandNotFound %s", 404, payload)
 }
 
 func (o *ExecuteCommandNotFound) GetPayload() *models.DomainExecuteCommandResultsV1 {
@@ -568,11 +577,13 @@ func (o *ExecuteCommandTooManyRequests) Code() int {
 }
 
 func (o *ExecuteCommandTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteCommandTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteCommandTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExecuteCommandInternalServerError) Code() int {
 }
 
 func (o *ExecuteCommandInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteCommandInternalServerError) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute/v1][%d] executeCommandInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteCommandInternalServerError) GetPayload() *models.DomainExecuteCommandResultsV1 {

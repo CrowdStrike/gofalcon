@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *GetCSPMInventoryBAServicesOK) Code() int {
 }
 
 func (o *GetCSPMInventoryBAServicesOK) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesOK %s", 200, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesOK) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesOK %s", 200, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesOK) GetPayload() *models.TypesGeneralQueryResponse {
@@ -240,11 +243,13 @@ func (o *GetCSPMInventoryBAServicesBadRequest) Code() int {
 }
 
 func (o *GetCSPMInventoryBAServicesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesBadRequest) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *GetCSPMInventoryBAServicesUnauthorized) Code() int {
 }
 
 func (o *GetCSPMInventoryBAServicesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesUnauthorized %s", 401, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesUnauthorized) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesUnauthorized %s", 401, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *GetCSPMInventoryBAServicesForbidden) Code() int {
 }
 
 func (o *GetCSPMInventoryBAServicesForbidden) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesForbidden) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *GetCSPMInventoryBAServicesTooManyRequests) Code() int {
 }
 
 func (o *GetCSPMInventoryBAServicesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *GetCSPMInventoryBAServicesInternalServerError) Code() int {
 }
 
 func (o *GetCSPMInventoryBAServicesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesInternalServerError) GetPayload() *models.TypesErrorMessage {
@@ -805,11 +818,13 @@ func (o *GetCSPMInventoryBAServicesServiceUnavailable) Code() int {
 }
 
 func (o *GetCSPMInventoryBAServicesServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/cspm-inventory-ba-services/v1][%d] getCSPMInventoryBAServicesServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetCSPMInventoryBAServicesServiceUnavailable) GetPayload() *models.TypesErrorMessage {

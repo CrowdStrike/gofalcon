@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateRuleOK) Code() int {
 }
 
 func (o *UpdateRuleOK) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleOK %s", 200, payload)
 }
 
 func (o *UpdateRuleOK) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleOK %s", 200, payload)
 }
 
 func (o *UpdateRuleOK) GetPayload() *models.CommonGetRulesResponse {
@@ -234,11 +237,13 @@ func (o *UpdateRuleBadRequest) Code() int {
 }
 
 func (o *UpdateRuleBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRuleBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleBadRequest %s", 400, payload)
 }
 
 func (o *UpdateRuleBadRequest) GetPayload() *models.CommonEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *UpdateRuleForbidden) Code() int {
 }
 
 func (o *UpdateRuleForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleForbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleForbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *UpdateRuleConflict) Code() int {
 }
 
 func (o *UpdateRuleConflict) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleConflict %s", 409, payload)
 }
 
 func (o *UpdateRuleConflict) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleConflict %s", 409, payload)
 }
 
 func (o *UpdateRuleConflict) GetPayload() *models.CommonEntitiesResponse {
@@ -568,11 +577,13 @@ func (o *UpdateRuleTooManyRequests) Code() int {
 }
 
 func (o *UpdateRuleTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateRuleInternalServerError) Code() int {
 }
 
 func (o *UpdateRuleInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-policies/entities/rules/v1][%d] updateRuleInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleInternalServerError) GetPayload() *models.CommonEntitiesResponse {

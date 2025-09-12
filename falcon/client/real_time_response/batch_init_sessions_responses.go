@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *BatchInitSessionsCreated) Code() int {
 }
 
 func (o *BatchInitSessionsCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsCreated %s", 201, payload)
 }
 
 func (o *BatchInitSessionsCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsCreated %s", 201, payload)
 }
 
 func (o *BatchInitSessionsCreated) GetPayload() *models.DomainBatchInitSessionResponse {
@@ -228,11 +231,13 @@ func (o *BatchInitSessionsBadRequest) Code() int {
 }
 
 func (o *BatchInitSessionsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsBadRequest %s", 400, payload)
 }
 
 func (o *BatchInitSessionsBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsBadRequest %s", 400, payload)
 }
 
 func (o *BatchInitSessionsBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *BatchInitSessionsForbidden) Code() int {
 }
 
 func (o *BatchInitSessionsForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsForbidden %s", 403, payload)
 }
 
 func (o *BatchInitSessionsForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsForbidden %s", 403, payload)
 }
 
 func (o *BatchInitSessionsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *BatchInitSessionsTooManyRequests) Code() int {
 }
 
 func (o *BatchInitSessionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchInitSessionsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchInitSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *BatchInitSessionsInternalServerError) Code() int {
 }
 
 func (o *BatchInitSessionsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *BatchInitSessionsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *BatchInitSessionsInternalServerError) GetPayload() *models.DomainAPIError {

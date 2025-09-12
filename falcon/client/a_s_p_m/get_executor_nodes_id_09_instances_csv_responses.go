@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetExecutorNodesId09InstancesCsvOK) Code() int {
 }
 
 func (o *GetExecutorNodesId09InstancesCsvOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvOK %s", 200, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvOK %s", 200, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvOK) GetPayload() string {
@@ -232,11 +235,13 @@ func (o *GetExecutorNodesId09InstancesCsvBadRequest) Code() int {
 }
 
 func (o *GetExecutorNodesId09InstancesCsvBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvBadRequest %s", 400, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvBadRequest %s", 400, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -342,11 +347,13 @@ func (o *GetExecutorNodesId09InstancesCsvUnauthorized) Code() int {
 }
 
 func (o *GetExecutorNodesId09InstancesCsvUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvUnauthorized %s", 401, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvUnauthorized %s", 401, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -452,11 +459,13 @@ func (o *GetExecutorNodesId09InstancesCsvForbidden) Code() int {
 }
 
 func (o *GetExecutorNodesId09InstancesCsvForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvForbidden %s", 403, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvForbidden %s", 403, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvForbidden) GetPayload() *models.TypesErrorMessage {
@@ -566,11 +575,13 @@ func (o *GetExecutorNodesId09InstancesCsvTooManyRequests) Code() int {
 }
 
 func (o *GetExecutorNodesId09InstancesCsvTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -687,11 +698,13 @@ func (o *GetExecutorNodesId09InstancesCsvInternalServerError) Code() int {
 }
 
 func (o *GetExecutorNodesId09InstancesCsvInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvInternalServerError %s", 500, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv][%d] getExecutorNodesId09InstancesCsvInternalServerError %s", 500, payload)
 }
 
 func (o *GetExecutorNodesId09InstancesCsvInternalServerError) GetPayload() *models.TypesErrorMessage {

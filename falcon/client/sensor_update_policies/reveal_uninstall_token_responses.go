@@ -6,6 +6,7 @@ package sensor_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RevealUninstallTokenOK) Code() int {
 }
 
 func (o *RevealUninstallTokenOK) Error() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenOK %s", 200, payload)
 }
 
 func (o *RevealUninstallTokenOK) String() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenOK %s", 200, payload)
 }
 
 func (o *RevealUninstallTokenOK) GetPayload() *models.UninstallTokenRespV1 {
@@ -228,11 +231,13 @@ func (o *RevealUninstallTokenBadRequest) Code() int {
 }
 
 func (o *RevealUninstallTokenBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenBadRequest %s", 400, payload)
 }
 
 func (o *RevealUninstallTokenBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenBadRequest %s", 400, payload)
 }
 
 func (o *RevealUninstallTokenBadRequest) GetPayload() *models.UninstallTokenRespV1 {
@@ -338,11 +343,13 @@ func (o *RevealUninstallTokenForbidden) Code() int {
 }
 
 func (o *RevealUninstallTokenForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenForbidden %s", 403, payload)
 }
 
 func (o *RevealUninstallTokenForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenForbidden %s", 403, payload)
 }
 
 func (o *RevealUninstallTokenForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *RevealUninstallTokenTooManyRequests) Code() int {
 }
 
 func (o *RevealUninstallTokenTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenTooManyRequests %s", 429, payload)
 }
 
 func (o *RevealUninstallTokenTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenTooManyRequests %s", 429, payload)
 }
 
 func (o *RevealUninstallTokenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RevealUninstallTokenInternalServerError) Code() int {
 }
 
 func (o *RevealUninstallTokenInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenInternalServerError %s", 500, payload)
 }
 
 func (o *RevealUninstallTokenInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenInternalServerError %s", 500, payload)
 }
 
 func (o *RevealUninstallTokenInternalServerError) GetPayload() *models.UninstallTokenRespV1 {

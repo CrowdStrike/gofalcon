@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ListReposOK) Code() int {
 }
 
 func (o *ListReposOK) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposOK %s", 200, payload)
 }
 
 func (o *ListReposOK) String() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposOK %s", 200, payload)
 }
 
 func (o *ListReposOK) GetPayload() *models.ApidomainRepoViewListItemWrapperV1 {
@@ -234,11 +237,13 @@ func (o *ListReposBadRequest) Code() int {
 }
 
 func (o *ListReposBadRequest) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposBadRequest %s", 400, payload)
 }
 
 func (o *ListReposBadRequest) String() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposBadRequest %s", 400, payload)
 }
 
 func (o *ListReposBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *ListReposForbidden) Code() int {
 }
 
 func (o *ListReposForbidden) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposForbidden %s", 403, payload)
 }
 
 func (o *ListReposForbidden) String() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposForbidden %s", 403, payload)
 }
 
 func (o *ListReposForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *ListReposNotFound) Code() int {
 }
 
 func (o *ListReposNotFound) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposNotFound %s", 404, payload)
 }
 
 func (o *ListReposNotFound) String() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposNotFound %s", 404, payload)
 }
 
 func (o *ListReposNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *ListReposTooManyRequests) Code() int {
 }
 
 func (o *ListReposTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposTooManyRequests %s", 429, payload)
 }
 
 func (o *ListReposTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposTooManyRequests %s", 429, payload)
 }
 
 func (o *ListReposTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ListReposInternalServerError) Code() int {
 }
 
 func (o *ListReposInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposInternalServerError %s", 500, payload)
 }
 
 func (o *ListReposInternalServerError) String() string {
-	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposInternalServerError %s", 500, payload)
 }
 
 func (o *ListReposInternalServerError) GetPayload() *models.MsaspecResponseFields {

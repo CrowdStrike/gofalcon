@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetDiscoverCloudAzureTenantIDsOK) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsOK) GetPayload() *models.RegistrationAzureTenantIDsResponseV1 {
@@ -228,11 +231,13 @@ func (o *GetDiscoverCloudAzureTenantIDsBadRequest) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsBadRequest) GetPayload() *models.RegistrationAzureTenantIDsResponseV1 {
@@ -338,11 +343,13 @@ func (o *GetDiscoverCloudAzureTenantIDsForbidden) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetDiscoverCloudAzureTenantIDsTooManyRequests) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetDiscoverCloudAzureTenantIDsInternalServerError) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/tenant-id/v1][%d] getDiscoverCloudAzureTenantIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureTenantIDsInternalServerError) GetPayload() *models.RegistrationAzureTenantIDsResponseV1 {

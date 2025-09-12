@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RevokeUserRoleIdsOK) Code() int {
 }
 
 func (o *RevokeUserRoleIdsOK) Error() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK %s", 200, payload)
 }
 
 func (o *RevokeUserRoleIdsOK) String() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK %s", 200, payload)
 }
 
 func (o *RevokeUserRoleIdsOK) GetPayload() *models.APIUserRoleIDsResponse {
@@ -228,11 +231,13 @@ func (o *RevokeUserRoleIdsBadRequest) Code() int {
 }
 
 func (o *RevokeUserRoleIdsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsBadRequest %s", 400, payload)
 }
 
 func (o *RevokeUserRoleIdsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsBadRequest %s", 400, payload)
 }
 
 func (o *RevokeUserRoleIdsBadRequest) GetPayload() *models.MsaEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *RevokeUserRoleIdsForbidden) Code() int {
 }
 
 func (o *RevokeUserRoleIdsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsForbidden %s", 403, payload)
 }
 
 func (o *RevokeUserRoleIdsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsForbidden %s", 403, payload)
 }
 
 func (o *RevokeUserRoleIdsForbidden) GetPayload() *models.MsaEntitiesResponse {
@@ -452,11 +459,13 @@ func (o *RevokeUserRoleIdsTooManyRequests) Code() int {
 }
 
 func (o *RevokeUserRoleIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *RevokeUserRoleIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *RevokeUserRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RevokeUserRoleIdsInternalServerError) Code() int {
 }
 
 func (o *RevokeUserRoleIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *RevokeUserRoleIdsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *RevokeUserRoleIdsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

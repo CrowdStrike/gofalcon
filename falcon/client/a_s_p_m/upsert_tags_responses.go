@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -134,11 +135,11 @@ func (o *UpsertTagsOK) Code() int {
 }
 
 func (o *UpsertTagsOK) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsOK ", 200)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsOK", 200)
 }
 
 func (o *UpsertTagsOK) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsOK ", 200)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsOK", 200)
 }
 
 func (o *UpsertTagsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -231,11 +232,11 @@ func (o *UpsertTagsCreated) Code() int {
 }
 
 func (o *UpsertTagsCreated) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsCreated ", 201)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsCreated", 201)
 }
 
 func (o *UpsertTagsCreated) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsCreated ", 201)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsCreated", 201)
 }
 
 func (o *UpsertTagsCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -330,11 +331,13 @@ func (o *UpsertTagsBadRequest) Code() int {
 }
 
 func (o *UpsertTagsBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsBadRequest %s", 400, payload)
 }
 
 func (o *UpsertTagsBadRequest) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsBadRequest %s", 400, payload)
 }
 
 func (o *UpsertTagsBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -440,11 +443,13 @@ func (o *UpsertTagsUnauthorized) Code() int {
 }
 
 func (o *UpsertTagsUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsUnauthorized %s", 401, payload)
 }
 
 func (o *UpsertTagsUnauthorized) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsUnauthorized %s", 401, payload)
 }
 
 func (o *UpsertTagsUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -550,11 +555,13 @@ func (o *UpsertTagsForbidden) Code() int {
 }
 
 func (o *UpsertTagsForbidden) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsForbidden %s", 403, payload)
 }
 
 func (o *UpsertTagsForbidden) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsForbidden %s", 403, payload)
 }
 
 func (o *UpsertTagsForbidden) GetPayload() *models.TypesErrorMessage {
@@ -664,11 +671,13 @@ func (o *UpsertTagsTooManyRequests) Code() int {
 }
 
 func (o *UpsertTagsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpsertTagsTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpsertTagsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -785,11 +794,13 @@ func (o *UpsertTagsInternalServerError) Code() int {
 }
 
 func (o *UpsertTagsInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsInternalServerError %s", 500, payload)
 }
 
 func (o *UpsertTagsInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsInternalServerError %s", 500, payload)
 }
 
 func (o *UpsertTagsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -895,11 +906,13 @@ func (o *UpsertTagsServiceUnavailable) Code() int {
 }
 
 func (o *UpsertTagsServiceUnavailable) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsServiceUnavailable %s", 503, payload)
 }
 
 func (o *UpsertTagsServiceUnavailable) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/tags][%d] upsertTagsServiceUnavailable %s", 503, payload)
 }
 
 func (o *UpsertTagsServiceUnavailable) GetPayload() *models.TypesErrorMessage {

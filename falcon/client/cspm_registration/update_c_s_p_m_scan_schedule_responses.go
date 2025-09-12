@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateCSPMScanScheduleOK) Code() int {
 }
 
 func (o *UpdateCSPMScanScheduleOK) Error() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleOK %s", 200, payload)
 }
 
 func (o *UpdateCSPMScanScheduleOK) String() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleOK %s", 200, payload)
 }
 
 func (o *UpdateCSPMScanScheduleOK) GetPayload() *models.RegistrationScanScheduleResponseV1 {
@@ -228,11 +231,13 @@ func (o *UpdateCSPMScanScheduleBadRequest) Code() int {
 }
 
 func (o *UpdateCSPMScanScheduleBadRequest) Error() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCSPMScanScheduleBadRequest) String() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleBadRequest %s", 400, payload)
 }
 
 func (o *UpdateCSPMScanScheduleBadRequest) GetPayload() *models.RegistrationScanScheduleResponseV1 {
@@ -338,11 +343,13 @@ func (o *UpdateCSPMScanScheduleForbidden) Code() int {
 }
 
 func (o *UpdateCSPMScanScheduleForbidden) Error() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleForbidden %s", 403, payload)
 }
 
 func (o *UpdateCSPMScanScheduleForbidden) String() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleForbidden %s", 403, payload)
 }
 
 func (o *UpdateCSPMScanScheduleForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateCSPMScanScheduleTooManyRequests) Code() int {
 }
 
 func (o *UpdateCSPMScanScheduleTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCSPMScanScheduleTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateCSPMScanScheduleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateCSPMScanScheduleInternalServerError) Code() int {
 }
 
 func (o *UpdateCSPMScanScheduleInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCSPMScanScheduleInternalServerError) String() string {
-	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateCSPMScanScheduleInternalServerError) GetPayload() *models.RegistrationScanScheduleResponseV1 {

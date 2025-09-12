@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetNotificationsExposedDataRecordsV1OK) Code() int {
 }
 
 func (o *GetNotificationsExposedDataRecordsV1OK) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1OK %s", 200, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1OK) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1OK %s", 200, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1OK) GetPayload() *models.APINotificationExposedDataRecordEntitiesResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetNotificationsExposedDataRecordsV1BadRequest) Code() int {
 }
 
 func (o *GetNotificationsExposedDataRecordsV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1BadRequest %s", 400, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1BadRequest %s", 400, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -344,11 +349,13 @@ func (o *GetNotificationsExposedDataRecordsV1Unauthorized) Code() int {
 }
 
 func (o *GetNotificationsExposedDataRecordsV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetNotificationsExposedDataRecordsV1Forbidden) Code() int {
 }
 
 func (o *GetNotificationsExposedDataRecordsV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Forbidden %s", 403, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1Forbidden %s", 403, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -568,11 +577,13 @@ func (o *GetNotificationsExposedDataRecordsV1TooManyRequests) Code() int {
 }
 
 func (o *GetNotificationsExposedDataRecordsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetNotificationsExposedDataRecordsV1InternalServerError) Code() int {
 }
 
 func (o *GetNotificationsExposedDataRecordsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/notifications-exposed-data-records/v1][%d] getNotificationsExposedDataRecordsV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetNotificationsExposedDataRecordsV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

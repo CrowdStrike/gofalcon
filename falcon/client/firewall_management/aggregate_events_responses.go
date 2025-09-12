@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateEventsOK) Code() int {
 }
 
 func (o *AggregateEventsOK) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsOK %s", 200, payload)
 }
 
 func (o *AggregateEventsOK) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsOK %s", 200, payload)
 }
 
 func (o *AggregateEventsOK) GetPayload() *models.FwmgrAPIAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateEventsBadRequest) Code() int {
 }
 
 func (o *AggregateEventsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateEventsBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateEventsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregateEventsForbidden) Code() int {
 }
 
 func (o *AggregateEventsForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsForbidden %s", 403, payload)
 }
 
 func (o *AggregateEventsForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsForbidden %s", 403, payload)
 }
 
 func (o *AggregateEventsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateEventsTooManyRequests) Code() int {
 }
 
 func (o *AggregateEventsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateEventsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateEventsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateEventsInternalServerError) Code() int {
 }
 
 func (o *AggregateEventsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateEventsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateEventsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
