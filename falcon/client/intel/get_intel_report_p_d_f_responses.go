@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -122,11 +123,11 @@ func (o *GetIntelReportPDFOK) Code() int {
 }
 
 func (o *GetIntelReportPDFOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK", 200)
 }
 
 func (o *GetIntelReportPDFOK) String() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK", 200)
 }
 
 func (o *GetIntelReportPDFOK) GetPayload() io.Writer {
@@ -230,11 +231,13 @@ func (o *GetIntelReportPDFBadRequest) Code() int {
 }
 
 func (o *GetIntelReportPDFBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFBadRequest %s", 400, payload)
 }
 
 func (o *GetIntelReportPDFBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFBadRequest %s", 400, payload)
 }
 
 func (o *GetIntelReportPDFBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -340,11 +343,13 @@ func (o *GetIntelReportPDFForbidden) Code() int {
 }
 
 func (o *GetIntelReportPDFForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFForbidden %s", 403, payload)
 }
 
 func (o *GetIntelReportPDFForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFForbidden %s", 403, payload)
 }
 
 func (o *GetIntelReportPDFForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +459,13 @@ func (o *GetIntelReportPDFTooManyRequests) Code() int {
 }
 
 func (o *GetIntelReportPDFTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelReportPDFTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelReportPDFTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -575,11 +582,13 @@ func (o *GetIntelReportPDFInternalServerError) Code() int {
 }
 
 func (o *GetIntelReportPDFInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelReportPDFInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelReportPDFInternalServerError) GetPayload() *models.MsaErrorsOnly {

@@ -6,6 +6,7 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *IntegrationBuilderResetV3OK) Code() int {
 }
 
 func (o *IntegrationBuilderResetV3OK) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3OK %s", 200, payload)
 }
 
 func (o *IntegrationBuilderResetV3OK) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3OK %s", 200, payload)
 }
 
 func (o *IntegrationBuilderResetV3OK) GetPayload() *models.GetTransactionStatus {
@@ -222,11 +225,13 @@ func (o *IntegrationBuilderResetV3Forbidden) Code() int {
 }
 
 func (o *IntegrationBuilderResetV3Forbidden) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3Forbidden %s", 403, payload)
 }
 
 func (o *IntegrationBuilderResetV3Forbidden) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3Forbidden %s", 403, payload)
 }
 
 func (o *IntegrationBuilderResetV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *IntegrationBuilderResetV3TooManyRequests) Code() int {
 }
 
 func (o *IntegrationBuilderResetV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3TooManyRequests %s", 429, payload)
 }
 
 func (o *IntegrationBuilderResetV3TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3TooManyRequests %s", 429, payload)
 }
 
 func (o *IntegrationBuilderResetV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *IntegrationBuilderResetV3InternalServerError) Code() int {
 }
 
 func (o *IntegrationBuilderResetV3InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3InternalServerError %s", 500, payload)
 }
 
 func (o *IntegrationBuilderResetV3InternalServerError) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/custom-integration-reset/v3][%d] integrationBuilderResetV3InternalServerError %s", 500, payload)
 }
 
 func (o *IntegrationBuilderResetV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

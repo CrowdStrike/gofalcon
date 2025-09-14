@@ -6,6 +6,7 @@ package response_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *SetRTResponsePoliciesPrecedenceOK) Code() int {
 }
 
 func (o *SetRTResponsePoliciesPrecedenceOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *SetRTResponsePoliciesPrecedenceBadRequest) Code() int {
 }
 
 func (o *SetRTResponsePoliciesPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *SetRTResponsePoliciesPrecedenceForbidden) Code() int {
 }
 
 func (o *SetRTResponsePoliciesPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *SetRTResponsePoliciesPrecedenceInternalServerError) Code() int {
 }
 
 func (o *SetRTResponsePoliciesPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetRTResponsePoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {

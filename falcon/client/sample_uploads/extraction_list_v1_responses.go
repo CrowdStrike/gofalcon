@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ExtractionListV1OK) Code() int {
 }
 
 func (o *ExtractionListV1OK) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1OK %s", 200, payload)
 }
 
 func (o *ExtractionListV1OK) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1OK %s", 200, payload)
 }
 
 func (o *ExtractionListV1OK) GetPayload() *models.ClientExtractionListFilesResponseV1 {
@@ -228,11 +231,13 @@ func (o *ExtractionListV1BadRequest) Code() int {
 }
 
 func (o *ExtractionListV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1BadRequest %s", 400, payload)
 }
 
 func (o *ExtractionListV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1BadRequest %s", 400, payload)
 }
 
 func (o *ExtractionListV1BadRequest) GetPayload() *models.ClientExtractionListFilesResponseV1 {
@@ -338,11 +343,13 @@ func (o *ExtractionListV1Forbidden) Code() int {
 }
 
 func (o *ExtractionListV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1Forbidden %s", 403, payload)
 }
 
 func (o *ExtractionListV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1Forbidden %s", 403, payload)
 }
 
 func (o *ExtractionListV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ExtractionListV1TooManyRequests) Code() int {
 }
 
 func (o *ExtractionListV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ExtractionListV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ExtractionListV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ExtractionListV1InternalServerError) Code() int {
 }
 
 func (o *ExtractionListV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1InternalServerError %s", 500, payload)
 }
 
 func (o *ExtractionListV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1InternalServerError %s", 500, payload)
 }
 
 func (o *ExtractionListV1InternalServerError) GetPayload() *models.ClientExtractionListFilesResponseV1 {

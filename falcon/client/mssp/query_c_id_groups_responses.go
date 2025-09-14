@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryCIDGroupsOK) Code() int {
 }
 
 func (o *QueryCIDGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsOK %s", 200, payload)
 }
 
 func (o *QueryCIDGroupsOK) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsOK %s", 200, payload)
 }
 
 func (o *QueryCIDGroupsOK) GetPayload() *models.MsaQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryCIDGroupsForbidden) Code() int {
 }
 
 func (o *QueryCIDGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryCIDGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryCIDGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -336,11 +341,13 @@ func (o *QueryCIDGroupsTooManyRequests) Code() int {
 }
 
 func (o *QueryCIDGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCIDGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCIDGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryCIDGroupsInternalServerError) Code() int {
 }
 
 func (o *QueryCIDGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCIDGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCIDGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

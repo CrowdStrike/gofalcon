@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdatePolicyContainerV1OK) Code() int {
 }
 
 func (o *UpdatePolicyContainerV1OK) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1OK %s", 200, payload)
 }
 
 func (o *UpdatePolicyContainerV1OK) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1OK %s", 200, payload)
 }
 
 func (o *UpdatePolicyContainerV1OK) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -234,11 +237,13 @@ func (o *UpdatePolicyContainerV1Created) Code() int {
 }
 
 func (o *UpdatePolicyContainerV1Created) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Created %s", 201, payload)
 }
 
 func (o *UpdatePolicyContainerV1Created) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Created %s", 201, payload)
 }
 
 func (o *UpdatePolicyContainerV1Created) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *UpdatePolicyContainerV1BadRequest) Code() int {
 }
 
 func (o *UpdatePolicyContainerV1BadRequest) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdatePolicyContainerV1BadRequest) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdatePolicyContainerV1BadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *UpdatePolicyContainerV1Forbidden) Code() int {
 }
 
 func (o *UpdatePolicyContainerV1Forbidden) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyContainerV1Forbidden) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyContainerV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *UpdatePolicyContainerV1TooManyRequests) Code() int {
 }
 
 func (o *UpdatePolicyContainerV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyContainerV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyContainerV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdatePolicyContainerV1InternalServerError) Code() int {
 }
 
 func (o *UpdatePolicyContainerV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyContainerV1InternalServerError) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyContainerV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

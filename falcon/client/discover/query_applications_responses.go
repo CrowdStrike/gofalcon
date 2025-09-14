@@ -6,6 +6,7 @@ package discover
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryApplicationsOK) Code() int {
 }
 
 func (o *QueryApplicationsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsOK %s", 200, payload)
 }
 
 func (o *QueryApplicationsOK) String() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsOK %s", 200, payload)
 }
 
 func (o *QueryApplicationsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryApplicationsBadRequest) Code() int {
 }
 
 func (o *QueryApplicationsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *QueryApplicationsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *QueryApplicationsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryApplicationsForbidden) Code() int {
 }
 
 func (o *QueryApplicationsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsForbidden %s", 403, payload)
 }
 
 func (o *QueryApplicationsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsForbidden %s", 403, payload)
 }
 
 func (o *QueryApplicationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryApplicationsTooManyRequests) Code() int {
 }
 
 func (o *QueryApplicationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryApplicationsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryApplicationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryApplicationsInternalServerError) Code() int {
 }
 
 func (o *QueryApplicationsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryApplicationsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/applications/v1][%d] queryApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryApplicationsInternalServerError) GetPayload() *models.MsaspecResponseFields {

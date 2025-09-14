@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteHostGroupsOK) Code() int {
 }
 
 func (o *DeleteHostGroupsOK) Error() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsOK %s", 200, payload)
 }
 
 func (o *DeleteHostGroupsOK) String() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsOK %s", 200, payload)
 }
 
 func (o *DeleteHostGroupsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteHostGroupsForbidden) Code() int {
 }
 
 func (o *DeleteHostGroupsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *DeleteHostGroupsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *DeleteHostGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *DeleteHostGroupsNotFound) Code() int {
 }
 
 func (o *DeleteHostGroupsNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *DeleteHostGroupsNotFound) String() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *DeleteHostGroupsNotFound) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *DeleteHostGroupsTooManyRequests) Code() int {
 }
 
 func (o *DeleteHostGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteHostGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteHostGroupsInternalServerError) Code() int {
 }
 
 func (o *DeleteHostGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteHostGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteHostGroupsInternalServerError) GetPayload() *models.MsaQueryResponse {

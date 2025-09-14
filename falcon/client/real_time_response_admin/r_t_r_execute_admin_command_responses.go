@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RTRExecuteAdminCommandCreated) Code() int {
 }
 
 func (o *RTRExecuteAdminCommandCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandCreated %s", 201, payload)
 }
 
 func (o *RTRExecuteAdminCommandCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandCreated %s", 201, payload)
 }
 
 func (o *RTRExecuteAdminCommandCreated) GetPayload() *models.DomainCommandExecuteResponseWrapper {
@@ -228,11 +231,13 @@ func (o *RTRExecuteAdminCommandBadRequest) Code() int {
 }
 
 func (o *RTRExecuteAdminCommandBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandBadRequest %s", 400, payload)
 }
 
 func (o *RTRExecuteAdminCommandBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandBadRequest %s", 400, payload)
 }
 
 func (o *RTRExecuteAdminCommandBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *RTRExecuteAdminCommandForbidden) Code() int {
 }
 
 func (o *RTRExecuteAdminCommandForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandForbidden %s", 403, payload)
 }
 
 func (o *RTRExecuteAdminCommandForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandForbidden %s", 403, payload)
 }
 
 func (o *RTRExecuteAdminCommandForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RTRExecuteAdminCommandTooManyRequests) Code() int {
 }
 
 func (o *RTRExecuteAdminCommandTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRExecuteAdminCommandTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRExecuteAdminCommandTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RTRExecuteAdminCommandInternalServerError) Code() int {
 }
 
 func (o *RTRExecuteAdminCommandInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandInternalServerError %s", 500, payload)
 }
 
 func (o *RTRExecuteAdminCommandInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandInternalServerError %s", 500, payload)
 }
 
 func (o *RTRExecuteAdminCommandInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

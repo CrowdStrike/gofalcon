@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -122,11 +123,11 @@ func (o *ArchiveDeleteV1Accepted) Code() int {
 }
 
 func (o *ArchiveDeleteV1Accepted) Error() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Accepted ", 202)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Accepted", 202)
 }
 
 func (o *ArchiveDeleteV1Accepted) String() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Accepted ", 202)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Accepted", 202)
 }
 
 func (o *ArchiveDeleteV1Accepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -219,11 +220,11 @@ func (o *ArchiveDeleteV1BadRequest) Code() int {
 }
 
 func (o *ArchiveDeleteV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1BadRequest ", 400)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1BadRequest", 400)
 }
 
 func (o *ArchiveDeleteV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1BadRequest ", 400)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1BadRequest", 400)
 }
 
 func (o *ArchiveDeleteV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -318,11 +319,13 @@ func (o *ArchiveDeleteV1Forbidden) Code() int {
 }
 
 func (o *ArchiveDeleteV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *ArchiveDeleteV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *ArchiveDeleteV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -426,11 +429,11 @@ func (o *ArchiveDeleteV1NotFound) Code() int {
 }
 
 func (o *ArchiveDeleteV1NotFound) Error() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1NotFound ", 404)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1NotFound", 404)
 }
 
 func (o *ArchiveDeleteV1NotFound) String() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1NotFound ", 404)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1NotFound", 404)
 }
 
 func (o *ArchiveDeleteV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -529,11 +532,13 @@ func (o *ArchiveDeleteV1TooManyRequests) Code() int {
 }
 
 func (o *ArchiveDeleteV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ArchiveDeleteV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ArchiveDeleteV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -648,11 +653,11 @@ func (o *ArchiveDeleteV1InternalServerError) Code() int {
 }
 
 func (o *ArchiveDeleteV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1InternalServerError ", 500)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1InternalServerError", 500)
 }
 
 func (o *ArchiveDeleteV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1InternalServerError ", 500)
+	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1InternalServerError", 500)
 }
 
 func (o *ArchiveDeleteV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

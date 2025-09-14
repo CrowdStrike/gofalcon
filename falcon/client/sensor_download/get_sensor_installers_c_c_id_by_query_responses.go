@@ -6,6 +6,7 @@ package sensor_download
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetSensorInstallersCCIDByQueryOK) Code() int {
 }
 
 func (o *GetSensorInstallersCCIDByQueryOK) Error() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryOK %s", 200, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryOK) String() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryOK %s", 200, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *GetSensorInstallersCCIDByQueryBadRequest) Code() int {
 }
 
 func (o *GetSensorInstallersCCIDByQueryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryBadRequest %s", 400, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryBadRequest) String() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryBadRequest %s", 400, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryBadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -338,11 +343,13 @@ func (o *GetSensorInstallersCCIDByQueryForbidden) Code() int {
 }
 
 func (o *GetSensorInstallersCCIDByQueryForbidden) Error() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryForbidden %s", 403, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryForbidden) String() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryForbidden %s", 403, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetSensorInstallersCCIDByQueryTooManyRequests) Code() int {
 }
 
 func (o *GetSensorInstallersCCIDByQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetSensorInstallersCCIDByQueryInternalServerError) Code() int {
 }
 
 func (o *GetSensorInstallersCCIDByQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /sensors/queries/installers/ccid/v1][%d] getSensorInstallersCCIdByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorInstallersCCIDByQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

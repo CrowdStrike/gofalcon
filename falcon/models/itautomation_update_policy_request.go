@@ -28,7 +28,7 @@ type ItautomationUpdatePolicyRequest struct {
 	ID string `json:"id,omitempty"`
 
 	// Whether the policy is enabled or disabled
-	IsEnabled bool `json:"is_enabled,omitempty"`
+	IsEnabled *bool `json:"is_enabled,omitempty"`
 
 	// Name of the policy. Example: platform_policy
 	Name string `json:"name,omitempty"`

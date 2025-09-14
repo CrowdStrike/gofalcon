@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetEventsOK) Code() int {
 }
 
 func (o *GetEventsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsOK %s", 200, payload)
 }
 
 func (o *GetEventsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsOK %s", 200, payload)
 }
 
 func (o *GetEventsOK) GetPayload() *models.FwmgrAPIEventsResponse {
@@ -228,11 +231,13 @@ func (o *GetEventsBadRequest) Code() int {
 }
 
 func (o *GetEventsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsBadRequest %s", 400, payload)
 }
 
 func (o *GetEventsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsBadRequest %s", 400, payload)
 }
 
 func (o *GetEventsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetEventsForbidden) Code() int {
 }
 
 func (o *GetEventsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsForbidden %s", 403, payload)
 }
 
 func (o *GetEventsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsForbidden %s", 403, payload)
 }
 
 func (o *GetEventsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetEventsTooManyRequests) Code() int {
 }
 
 func (o *GetEventsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEventsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEventsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetEventsInternalServerError) Code() int {
 }
 
 func (o *GetEventsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsInternalServerError %s", 500, payload)
 }
 
 func (o *GetEventsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsInternalServerError %s", 500, payload)
 }
 
 func (o *GetEventsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

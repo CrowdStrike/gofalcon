@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CaseAddAttachmentOK) Code() int {
 }
 
 func (o *CaseAddAttachmentOK) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentOK %s", 200, payload)
 }
 
 func (o *CaseAddAttachmentOK) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentOK %s", 200, payload)
 }
 
 func (o *CaseAddAttachmentOK) GetPayload() *models.APIMessageCenterAttachmentUploadResponse {
@@ -228,11 +231,13 @@ func (o *CaseAddAttachmentBadRequest) Code() int {
 }
 
 func (o *CaseAddAttachmentBadRequest) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *CaseAddAttachmentBadRequest) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *CaseAddAttachmentBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CaseAddAttachmentForbidden) Code() int {
 }
 
 func (o *CaseAddAttachmentForbidden) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentForbidden %s", 403, payload)
 }
 
 func (o *CaseAddAttachmentForbidden) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentForbidden %s", 403, payload)
 }
 
 func (o *CaseAddAttachmentForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CaseAddAttachmentTooManyRequests) Code() int {
 }
 
 func (o *CaseAddAttachmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *CaseAddAttachmentTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *CaseAddAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CaseAddAttachmentInternalServerError) Code() int {
 }
 
 func (o *CaseAddAttachmentInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *CaseAddAttachmentInternalServerError) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *CaseAddAttachmentInternalServerError) GetPayload() *models.MsaspecResponseFields {

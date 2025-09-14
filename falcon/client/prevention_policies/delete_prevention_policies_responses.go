@@ -6,6 +6,7 @@ package prevention_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeletePreventionPoliciesOK) Code() int {
 }
 
 func (o *DeletePreventionPoliciesOK) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesOK %s", 200, payload)
 }
 
 func (o *DeletePreventionPoliciesOK) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesOK %s", 200, payload)
 }
 
 func (o *DeletePreventionPoliciesOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeletePreventionPoliciesForbidden) Code() int {
 }
 
 func (o *DeletePreventionPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeletePreventionPoliciesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeletePreventionPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *DeletePreventionPoliciesNotFound) Code() int {
 }
 
 func (o *DeletePreventionPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeletePreventionPoliciesNotFound) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeletePreventionPoliciesNotFound) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *DeletePreventionPoliciesTooManyRequests) Code() int {
 }
 
 func (o *DeletePreventionPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePreventionPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePreventionPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeletePreventionPoliciesInternalServerError) Code() int {
 }
 
 func (o *DeletePreventionPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePreventionPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePreventionPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {

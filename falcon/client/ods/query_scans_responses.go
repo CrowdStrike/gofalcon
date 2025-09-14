@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryScansOK) Code() int {
 }
 
 func (o *QueryScansOK) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansOK %s", 200, payload)
 }
 
 func (o *QueryScansOK) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansOK %s", 200, payload)
 }
 
 func (o *QueryScansOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryScansForbidden) Code() int {
 }
 
 func (o *QueryScansForbidden) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansForbidden %s", 403, payload)
 }
 
 func (o *QueryScansForbidden) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansForbidden %s", 403, payload)
 }
 
 func (o *QueryScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *QueryScansNotFound) Code() int {
 }
 
 func (o *QueryScansNotFound) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansNotFound %s", 404, payload)
 }
 
 func (o *QueryScansNotFound) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansNotFound %s", 404, payload)
 }
 
 func (o *QueryScansNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *QueryScansTooManyRequests) Code() int {
 }
 
 func (o *QueryScansTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScansTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryScansInternalServerError) Code() int {
 }
 
 func (o *QueryScansInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScansInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansInternalServerError %s", 500, payload)
 }
 
 func (o *QueryScansInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateAWSAccountOK) Code() int {
 }
 
 func (o *UpdateAWSAccountOK) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountOK %s", 200, payload)
 }
 
 func (o *UpdateAWSAccountOK) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountOK %s", 200, payload)
 }
 
 func (o *UpdateAWSAccountOK) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *UpdateAWSAccountMultiStatus) Code() int {
 }
 
 func (o *UpdateAWSAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountMultiStatus %s", 207, payload)
 }
 
 func (o *UpdateAWSAccountMultiStatus) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountMultiStatus %s", 207, payload)
 }
 
 func (o *UpdateAWSAccountMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *UpdateAWSAccountBadRequest) Code() int {
 }
 
 func (o *UpdateAWSAccountBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountBadRequest %s", 400, payload)
 }
 
 func (o *UpdateAWSAccountBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountBadRequest %s", 400, payload)
 }
 
 func (o *UpdateAWSAccountBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *UpdateAWSAccountForbidden) Code() int {
 }
 
 func (o *UpdateAWSAccountForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountForbidden %s", 403, payload)
 }
 
 func (o *UpdateAWSAccountForbidden) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountForbidden %s", 403, payload)
 }
 
 func (o *UpdateAWSAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *UpdateAWSAccountTooManyRequests) Code() int {
 }
 
 func (o *UpdateAWSAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateAWSAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateAWSAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateAWSAccountInternalServerError) Code() int {
 }
 
 func (o *UpdateAWSAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateAWSAccountInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateAWSAccountInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {

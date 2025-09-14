@@ -6,6 +6,7 @@ package content_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *SetContentUpdatePoliciesPrecedenceOK) Code() int {
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *SetContentUpdatePoliciesPrecedenceBadRequest) Code() int {
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *SetContentUpdatePoliciesPrecedenceForbidden) Code() int {
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *SetContentUpdatePoliciesPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *SetContentUpdatePoliciesPrecedenceInternalServerError) Code() int {
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-precedence/v1][%d] setContentUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetContentUpdatePoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {

@@ -6,6 +6,7 @@ package device_control_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetDefaultDeviceControlPoliciesOK) Code() int {
 }
 
 func (o *GetDefaultDeviceControlPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesOK) GetPayload() *models.DeviceControlRespV1 {
@@ -228,11 +231,13 @@ func (o *GetDefaultDeviceControlPoliciesForbidden) Code() int {
 }
 
 func (o *GetDefaultDeviceControlPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *GetDefaultDeviceControlPoliciesNotFound) Code() int {
 }
 
 func (o *GetDefaultDeviceControlPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesNotFound %s", 404, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesNotFound) String() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesNotFound %s", 404, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesNotFound) GetPayload() *models.DeviceControlRespV1 {
@@ -452,11 +459,13 @@ func (o *GetDefaultDeviceControlPoliciesTooManyRequests) Code() int {
 }
 
 func (o *GetDefaultDeviceControlPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetDefaultDeviceControlPoliciesInternalServerError) Code() int {
 }
 
 func (o *GetDefaultDeviceControlPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetDefaultDeviceControlPoliciesInternalServerError) GetPayload() *models.DeviceControlRespV1 {

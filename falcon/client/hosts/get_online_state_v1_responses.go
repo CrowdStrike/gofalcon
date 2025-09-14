@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetOnlineStateV1OK) Code() int {
 }
 
 func (o *GetOnlineStateV1OK) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1OK %s", 200, payload)
 }
 
 func (o *GetOnlineStateV1OK) String() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1OK %s", 200, payload)
 }
 
 func (o *GetOnlineStateV1OK) GetPayload() *models.StateOnlineStateRespV1 {
@@ -228,11 +231,13 @@ func (o *GetOnlineStateV1BadRequest) Code() int {
 }
 
 func (o *GetOnlineStateV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1BadRequest %s", 400, payload)
 }
 
 func (o *GetOnlineStateV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1BadRequest %s", 400, payload)
 }
 
 func (o *GetOnlineStateV1BadRequest) GetPayload() *models.StateOnlineStateRespV1 {
@@ -338,11 +343,13 @@ func (o *GetOnlineStateV1Forbidden) Code() int {
 }
 
 func (o *GetOnlineStateV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1Forbidden %s", 403, payload)
 }
 
 func (o *GetOnlineStateV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1Forbidden %s", 403, payload)
 }
 
 func (o *GetOnlineStateV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetOnlineStateV1TooManyRequests) Code() int {
 }
 
 func (o *GetOnlineStateV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetOnlineStateV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetOnlineStateV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetOnlineStateV1InternalServerError) Code() int {
 }
 
 func (o *GetOnlineStateV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetOnlineStateV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetOnlineStateV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

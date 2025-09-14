@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *NodeCountOK) Code() int {
 }
 
 func (o *NodeCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountOK %s", 200, payload)
 }
 
 func (o *NodeCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountOK %s", 200, payload)
 }
 
 func (o *NodeCountOK) GetPayload() *models.CommonCountResponse {
@@ -222,11 +225,13 @@ func (o *NodeCountForbidden) Code() int {
 }
 
 func (o *NodeCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountForbidden %s", 403, payload)
 }
 
 func (o *NodeCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountForbidden %s", 403, payload)
 }
 
 func (o *NodeCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *NodeCountTooManyRequests) Code() int {
 }
 
 func (o *NodeCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *NodeCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *NodeCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *NodeCountInternalServerError) Code() int {
 }
 
 func (o *NodeCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountInternalServerError %s", 500, payload)
 }
 
 func (o *NodeCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count/v1][%d] nodeCountInternalServerError %s", 500, payload)
 }
 
 func (o *NodeCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

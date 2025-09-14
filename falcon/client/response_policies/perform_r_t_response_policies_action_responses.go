@@ -6,6 +6,7 @@ package response_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PerformRTResponsePoliciesActionOK) Code() int {
 }
 
 func (o *PerformRTResponsePoliciesActionOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK %s", 200, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK %s", 200, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionOK) GetPayload() *models.RemoteResponseRespV1 {
@@ -234,11 +237,13 @@ func (o *PerformRTResponsePoliciesActionBadRequest) Code() int {
 }
 
 func (o *PerformRTResponsePoliciesActionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionBadRequest) GetPayload() *models.RemoteResponseRespV1 {
@@ -344,11 +349,13 @@ func (o *PerformRTResponsePoliciesActionForbidden) Code() int {
 }
 
 func (o *PerformRTResponsePoliciesActionForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionForbidden %s", 403, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionForbidden %s", 403, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PerformRTResponsePoliciesActionNotFound) Code() int {
 }
 
 func (o *PerformRTResponsePoliciesActionNotFound) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionNotFound %s", 404, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionNotFound) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionNotFound %s", 404, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionNotFound) GetPayload() *models.RemoteResponseRespV1 {
@@ -568,11 +577,13 @@ func (o *PerformRTResponsePoliciesActionTooManyRequests) Code() int {
 }
 
 func (o *PerformRTResponsePoliciesActionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PerformRTResponsePoliciesActionInternalServerError) Code() int {
 }
 
 func (o *PerformRTResponsePoliciesActionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformRTResponsePoliciesActionInternalServerError) GetPayload() *models.RemoteResponseRespV1 {

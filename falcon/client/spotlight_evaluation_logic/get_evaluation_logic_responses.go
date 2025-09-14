@@ -6,6 +6,7 @@ package spotlight_evaluation_logic
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetEvaluationLogicOK) Code() int {
 }
 
 func (o *GetEvaluationLogicOK) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicOK %s", 200, payload)
 }
 
 func (o *GetEvaluationLogicOK) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicOK %s", 200, payload)
 }
 
 func (o *GetEvaluationLogicOK) GetPayload() *models.DomainSPAPIEvaluationLogicEntitiesResponseV1 {
@@ -232,11 +235,11 @@ func (o *GetEvaluationLogicBadRequest) Code() int {
 }
 
 func (o *GetEvaluationLogicBadRequest) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicBadRequest ", 400)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicBadRequest", 400)
 }
 
 func (o *GetEvaluationLogicBadRequest) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicBadRequest ", 400)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicBadRequest", 400)
 }
 
 func (o *GetEvaluationLogicBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -331,11 +334,13 @@ func (o *GetEvaluationLogicForbidden) Code() int {
 }
 
 func (o *GetEvaluationLogicForbidden) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicForbidden %s", 403, payload)
 }
 
 func (o *GetEvaluationLogicForbidden) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicForbidden %s", 403, payload)
 }
 
 func (o *GetEvaluationLogicForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -445,11 +450,13 @@ func (o *GetEvaluationLogicTooManyRequests) Code() int {
 }
 
 func (o *GetEvaluationLogicTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEvaluationLogicTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEvaluationLogicTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -564,11 +571,11 @@ func (o *GetEvaluationLogicInternalServerError) Code() int {
 }
 
 func (o *GetEvaluationLogicInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicInternalServerError ", 500)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicInternalServerError", 500)
 }
 
 func (o *GetEvaluationLogicInternalServerError) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicInternalServerError ", 500)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicInternalServerError", 500)
 }
 
 func (o *GetEvaluationLogicInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -661,11 +668,11 @@ func (o *GetEvaluationLogicServiceUnavailable) Code() int {
 }
 
 func (o *GetEvaluationLogicServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicServiceUnavailable ", 503)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicServiceUnavailable", 503)
 }
 
 func (o *GetEvaluationLogicServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicServiceUnavailable ", 503)
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicServiceUnavailable", 503)
 }
 
 func (o *GetEvaluationLogicServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

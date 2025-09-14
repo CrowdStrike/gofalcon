@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationDeleteTaskOK) Code() int {
 }
 
 func (o *ITAutomationDeleteTaskOK) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeleteTaskOK) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeleteTaskOK) GetPayload() *models.ItautomationDeleteTaskResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationDeleteTaskBadRequest) Code() int {
 }
 
 func (o *ITAutomationDeleteTaskBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeleteTaskBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeleteTaskBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationDeleteTaskForbidden) Code() int {
 }
 
 func (o *ITAutomationDeleteTaskForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeleteTaskForbidden) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeleteTaskForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationDeleteTaskTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationDeleteTaskTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeleteTaskTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeleteTaskTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationDeleteTaskInternalServerError) Code() int {
 }
 
 func (o *ITAutomationDeleteTaskInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeleteTaskInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/tasks/v1][%d] iTAutomationDeleteTaskInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeleteTaskInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

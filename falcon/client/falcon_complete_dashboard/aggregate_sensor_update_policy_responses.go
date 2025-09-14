@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateSensorUpdatePolicyOK) Code() int {
 }
 
 func (o *AggregateSensorUpdatePolicyOK) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyOK %s", 200, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyOK) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyOK %s", 200, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateSensorUpdatePolicyBadRequest) Code() int {
 }
 
 func (o *AggregateSensorUpdatePolicyBadRequest) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyBadRequest %s", 400, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyBadRequest) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyBadRequest %s", 400, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregateSensorUpdatePolicyForbidden) Code() int {
 }
 
 func (o *AggregateSensorUpdatePolicyForbidden) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyForbidden %s", 403, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyForbidden) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyForbidden %s", 403, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AggregateSensorUpdatePolicyTooManyRequests) Code() int {
 }
 
 func (o *AggregateSensorUpdatePolicyTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateSensorUpdatePolicyInternalServerError) Code() int {
 }
 
 func (o *AggregateSensorUpdatePolicyInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyInternalServerError) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/sensor-update-policies/v1][%d] aggregateSensorUpdatePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateSensorUpdatePolicyInternalServerError) GetPayload() *models.MsaspecResponseFields {

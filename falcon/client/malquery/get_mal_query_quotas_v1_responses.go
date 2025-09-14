@@ -6,6 +6,7 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *GetMalQueryQuotasV1OK) Code() int {
 }
 
 func (o *GetMalQueryQuotasV1OK) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1OK %s", 200, payload)
 }
 
 func (o *GetMalQueryQuotasV1OK) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1OK %s", 200, payload)
 }
 
 func (o *GetMalQueryQuotasV1OK) GetPayload() *models.MalqueryRateLimitsResponse {
@@ -240,11 +243,13 @@ func (o *GetMalQueryQuotasV1BadRequest) Code() int {
 }
 
 func (o *GetMalQueryQuotasV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1BadRequest %s", 400, payload)
 }
 
 func (o *GetMalQueryQuotasV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1BadRequest %s", 400, payload)
 }
 
 func (o *GetMalQueryQuotasV1BadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -350,11 +355,13 @@ func (o *GetMalQueryQuotasV1Unauthorized) Code() int {
 }
 
 func (o *GetMalQueryQuotasV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetMalQueryQuotasV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetMalQueryQuotasV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
@@ -460,11 +467,13 @@ func (o *GetMalQueryQuotasV1Forbidden) Code() int {
 }
 
 func (o *GetMalQueryQuotasV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Forbidden %s", 403, payload)
 }
 
 func (o *GetMalQueryQuotasV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Forbidden %s", 403, payload)
 }
 
 func (o *GetMalQueryQuotasV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -570,11 +579,13 @@ func (o *GetMalQueryQuotasV1NotFound) Code() int {
 }
 
 func (o *GetMalQueryQuotasV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1NotFound %s", 404, payload)
 }
 
 func (o *GetMalQueryQuotasV1NotFound) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1NotFound %s", 404, payload)
 }
 
 func (o *GetMalQueryQuotasV1NotFound) GetPayload() *models.MalqueryRateLimitsResponse {
@@ -684,11 +695,13 @@ func (o *GetMalQueryQuotasV1TooManyRequests) Code() int {
 }
 
 func (o *GetMalQueryQuotasV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMalQueryQuotasV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetMalQueryQuotasV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *GetMalQueryQuotasV1InternalServerError) Code() int {
 }
 
 func (o *GetMalQueryQuotasV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetMalQueryQuotasV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetMalQueryQuotasV1InternalServerError) GetPayload() *models.MalqueryRateLimitsResponse {

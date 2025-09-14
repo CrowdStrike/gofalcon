@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetD4CAwsAccountOK) Code() int {
 }
 
 func (o *GetD4CAwsAccountOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountOK %s", 200, payload)
 }
 
 func (o *GetD4CAwsAccountOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountOK %s", 200, payload)
 }
 
 func (o *GetD4CAwsAccountOK) GetPayload() *models.RegistrationAWSAccountResponseV2 {
@@ -234,11 +237,13 @@ func (o *GetD4CAwsAccountMultiStatus) Code() int {
 }
 
 func (o *GetD4CAwsAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *GetD4CAwsAccountMultiStatus) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *GetD4CAwsAccountMultiStatus) GetPayload() *models.RegistrationAWSAccountResponseV2 {
@@ -344,11 +349,13 @@ func (o *GetD4CAwsAccountBadRequest) Code() int {
 }
 
 func (o *GetD4CAwsAccountBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CAwsAccountBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetD4CAwsAccountForbidden) Code() int {
 }
 
 func (o *GetD4CAwsAccountForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *GetD4CAwsAccountForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *GetD4CAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetD4CAwsAccountTooManyRequests) Code() int {
 }
 
 func (o *GetD4CAwsAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CAwsAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetD4CAwsAccountInternalServerError) Code() int {
 }
 
 func (o *GetD4CAwsAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CAwsAccountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {

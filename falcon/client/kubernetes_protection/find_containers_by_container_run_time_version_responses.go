@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *FindContainersByContainerRunTimeVersionOK) Code() int {
 }
 
 func (o *FindContainersByContainerRunTimeVersionOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionOK %s", 200, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionOK %s", 200, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionOK) GetPayload() *models.ModelsContainerRuntimePivotResponse {
@@ -222,11 +225,13 @@ func (o *FindContainersByContainerRunTimeVersionForbidden) Code() int {
 }
 
 func (o *FindContainersByContainerRunTimeVersionForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionForbidden %s", 403, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionForbidden %s", 403, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *FindContainersByContainerRunTimeVersionTooManyRequests) Code() int {
 }
 
 func (o *FindContainersByContainerRunTimeVersionTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *FindContainersByContainerRunTimeVersionInternalServerError) Code() int 
 }
 
 func (o *FindContainersByContainerRunTimeVersionInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionInternalServerError %s", 500, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/find-by-runtimeversion/v1][%d] findContainersByContainerRunTimeVersionInternalServerError %s", 500, payload)
 }
 
 func (o *FindContainersByContainerRunTimeVersionInternalServerError) GetPayload() *models.CoreEntitiesResponse {

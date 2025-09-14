@@ -6,6 +6,7 @@ package scheduled_reports
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryByIDOK) Code() int {
 }
 
 func (o *QueryByIDOK) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdOK %s", 200, payload)
 }
 
 func (o *QueryByIDOK) String() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdOK %s", 200, payload)
 }
 
 func (o *QueryByIDOK) GetPayload() *models.DomainScheduledReportsResultV1 {
@@ -228,11 +231,13 @@ func (o *QueryByIDBadRequest) Code() int {
 }
 
 func (o *QueryByIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdBadRequest %s", 400, payload)
 }
 
 func (o *QueryByIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdBadRequest %s", 400, payload)
 }
 
 func (o *QueryByIDBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *QueryByIDForbidden) Code() int {
 }
 
 func (o *QueryByIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdForbidden %s", 403, payload)
 }
 
 func (o *QueryByIDForbidden) String() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdForbidden %s", 403, payload)
 }
 
 func (o *QueryByIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryByIDTooManyRequests) Code() int {
 }
 
 func (o *QueryByIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryByIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryByIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryByIDInternalServerError) Code() int {
 }
 
 func (o *QueryByIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdInternalServerError %s", 500, payload)
 }
 
 func (o *QueryByIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/scheduled-reports/v1][%d] queryByIdInternalServerError %s", 500, payload)
 }
 
 func (o *QueryByIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

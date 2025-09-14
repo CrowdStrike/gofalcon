@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *PodCountOK) Code() int {
 }
 
 func (o *PodCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountOK %s", 200, payload)
 }
 
 func (o *PodCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountOK %s", 200, payload)
 }
 
 func (o *PodCountOK) GetPayload() *models.CommonCountResponse {
@@ -222,11 +225,13 @@ func (o *PodCountForbidden) Code() int {
 }
 
 func (o *PodCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountForbidden %s", 403, payload)
 }
 
 func (o *PodCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountForbidden %s", 403, payload)
 }
 
 func (o *PodCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *PodCountTooManyRequests) Code() int {
 }
 
 func (o *PodCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountTooManyRequests %s", 429, payload)
 }
 
 func (o *PodCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountTooManyRequests %s", 429, payload)
 }
 
 func (o *PodCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *PodCountInternalServerError) Code() int {
 }
 
 func (o *PodCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountInternalServerError %s", 500, payload)
 }
 
 func (o *PodCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/pods/count/v1][%d] podCountInternalServerError %s", 500, payload)
 }
 
 func (o *PodCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

@@ -28,7 +28,7 @@ type HostGroupsCreateGroupReqV1 struct {
 
 	// The type of device group to create
 	// Required: true
-	// Enum: [static dynamic staticByID]
+	// Enum: ["static","dynamic","staticByID"]
 	GroupType *string `json:"group_type"`
 
 	// The name of the group

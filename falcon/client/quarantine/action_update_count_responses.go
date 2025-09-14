@@ -6,6 +6,7 @@ package quarantine
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ActionUpdateCountOK) Code() int {
 }
 
 func (o *ActionUpdateCountOK) Error() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountOK %s", 200, payload)
 }
 
 func (o *ActionUpdateCountOK) String() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountOK %s", 200, payload)
 }
 
 func (o *ActionUpdateCountOK) GetPayload() *models.MsaAggregatesResponse {
@@ -222,11 +225,13 @@ func (o *ActionUpdateCountForbidden) Code() int {
 }
 
 func (o *ActionUpdateCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountForbidden %s", 403, payload)
 }
 
 func (o *ActionUpdateCountForbidden) String() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountForbidden %s", 403, payload)
 }
 
 func (o *ActionUpdateCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ActionUpdateCountTooManyRequests) Code() int {
 }
 
 func (o *ActionUpdateCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ActionUpdateCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ActionUpdateCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ActionUpdateCountInternalServerError) Code() int {
 }
 
 func (o *ActionUpdateCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountInternalServerError %s", 500, payload)
 }
 
 func (o *ActionUpdateCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountInternalServerError %s", 500, payload)
 }
 
 func (o *ActionUpdateCountInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

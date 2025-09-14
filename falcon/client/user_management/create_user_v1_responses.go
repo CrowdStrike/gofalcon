@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateUserV1Created) Code() int {
 }
 
 func (o *CreateUserV1Created) Error() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Created %s", 201, payload)
 }
 
 func (o *CreateUserV1Created) String() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Created %s", 201, payload)
 }
 
 func (o *CreateUserV1Created) GetPayload() *models.FlightcontrolapiUserResponse {
@@ -228,11 +231,13 @@ func (o *CreateUserV1BadRequest) Code() int {
 }
 
 func (o *CreateUserV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateUserV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateUserV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CreateUserV1Forbidden) Code() int {
 }
 
 func (o *CreateUserV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateUserV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateUserV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CreateUserV1TooManyRequests) Code() int {
 }
 
 func (o *CreateUserV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateUserV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateUserV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateUserV1InternalServerError) Code() int {
 }
 
 func (o *CreateUserV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateUserV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateUserV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

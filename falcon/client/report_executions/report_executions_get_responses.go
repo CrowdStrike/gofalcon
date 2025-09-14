@@ -6,6 +6,7 @@ package report_executions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ReportExecutionsGetOK) Code() int {
 }
 
 func (o *ReportExecutionsGetOK) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetOK %s", 200, payload)
 }
 
 func (o *ReportExecutionsGetOK) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetOK %s", 200, payload)
 }
 
 func (o *ReportExecutionsGetOK) GetPayload() *models.DomainReportExecutionsResponseV1 {
@@ -228,11 +231,13 @@ func (o *ReportExecutionsGetBadRequest) Code() int {
 }
 
 func (o *ReportExecutionsGetBadRequest) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetBadRequest %s", 400, payload)
 }
 
 func (o *ReportExecutionsGetBadRequest) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetBadRequest %s", 400, payload)
 }
 
 func (o *ReportExecutionsGetBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *ReportExecutionsGetForbidden) Code() int {
 }
 
 func (o *ReportExecutionsGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetForbidden %s", 403, payload)
 }
 
 func (o *ReportExecutionsGetForbidden) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetForbidden %s", 403, payload)
 }
 
 func (o *ReportExecutionsGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ReportExecutionsGetTooManyRequests) Code() int {
 }
 
 func (o *ReportExecutionsGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetTooManyRequests %s", 429, payload)
 }
 
 func (o *ReportExecutionsGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetTooManyRequests %s", 429, payload)
 }
 
 func (o *ReportExecutionsGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ReportExecutionsGetInternalServerError) Code() int {
 }
 
 func (o *ReportExecutionsGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetInternalServerError %s", 500, payload)
 }
 
 func (o *ReportExecutionsGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetInternalServerError %s", 500, payload)
 }
 
 func (o *ReportExecutionsGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

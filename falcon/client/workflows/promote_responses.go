@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PromoteOK) Code() int {
 }
 
 func (o *PromoteOK) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteOK %s", 200, payload)
 }
 
 func (o *PromoteOK) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteOK %s", 200, payload)
 }
 
 func (o *PromoteOK) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -234,11 +237,13 @@ func (o *PromoteBadRequest) Code() int {
 }
 
 func (o *PromoteBadRequest) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteBadRequest %s", 400, payload)
 }
 
 func (o *PromoteBadRequest) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteBadRequest %s", 400, payload)
 }
 
 func (o *PromoteBadRequest) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -344,11 +349,13 @@ func (o *PromoteForbidden) Code() int {
 }
 
 func (o *PromoteForbidden) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteForbidden %s", 403, payload)
 }
 
 func (o *PromoteForbidden) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteForbidden %s", 403, payload)
 }
 
 func (o *PromoteForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *PromoteNotFound) Code() int {
 }
 
 func (o *PromoteNotFound) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteNotFound %s", 404, payload)
 }
 
 func (o *PromoteNotFound) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteNotFound %s", 404, payload)
 }
 
 func (o *PromoteNotFound) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -568,11 +577,13 @@ func (o *PromoteTooManyRequests) Code() int {
 }
 
 func (o *PromoteTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteTooManyRequests %s", 429, payload)
 }
 
 func (o *PromoteTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteTooManyRequests %s", 429, payload)
 }
 
 func (o *PromoteTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PromoteInternalServerError) Code() int {
 }
 
 func (o *PromoteInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteInternalServerError %s", 500, payload)
 }
 
 func (o *PromoteInternalServerError) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteInternalServerError %s", 500, payload)
 }
 
 func (o *PromoteInternalServerError) GetPayload() *models.ClientSystemDefinitionCreateResponse {

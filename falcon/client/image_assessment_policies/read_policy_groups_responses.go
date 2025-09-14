@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPolicyGroupsOK) Code() int {
 }
 
 func (o *ReadPolicyGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsOK %s", 200, payload)
 }
 
 func (o *ReadPolicyGroupsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsOK %s", 200, payload)
 }
 
 func (o *ReadPolicyGroupsOK) GetPayload() *models.ModelsPolicyGroupEntityResponse {
@@ -222,11 +225,13 @@ func (o *ReadPolicyGroupsForbidden) Code() int {
 }
 
 func (o *ReadPolicyGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsForbidden %s", 403, payload)
 }
 
 func (o *ReadPolicyGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsForbidden %s", 403, payload)
 }
 
 func (o *ReadPolicyGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPolicyGroupsTooManyRequests) Code() int {
 }
 
 func (o *ReadPolicyGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPolicyGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPolicyGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPolicyGroupsInternalServerError) Code() int {
 }
 
 func (o *ReadPolicyGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPolicyGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-groups/v1][%d] readPolicyGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPolicyGroupsInternalServerError) GetPayload() *models.CoreEntitiesResponse {

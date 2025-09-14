@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCloudEventIDsOK) Code() int {
 }
 
 func (o *GetCloudEventIDsOK) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsOK %s", 200, payload)
 }
 
 func (o *GetCloudEventIDsOK) String() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsOK %s", 200, payload)
 }
 
 func (o *GetCloudEventIDsOK) GetPayload() *models.CdrioamanagerGetCloudEventIDsResponse {
@@ -234,11 +237,13 @@ func (o *GetCloudEventIDsMultiStatus) Code() int {
 }
 
 func (o *GetCloudEventIDsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsMultiStatus %s", 207, payload)
 }
 
 func (o *GetCloudEventIDsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsMultiStatus %s", 207, payload)
 }
 
 func (o *GetCloudEventIDsMultiStatus) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetCloudEventIDsBadRequest) Code() int {
 }
 
 func (o *GetCloudEventIDsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetCloudEventIDsBadRequest) String() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetCloudEventIDsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetCloudEventIDsForbidden) Code() int {
 }
 
 func (o *GetCloudEventIDsForbidden) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsForbidden %s", 403, payload)
 }
 
 func (o *GetCloudEventIDsForbidden) String() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsForbidden %s", 403, payload)
 }
 
 func (o *GetCloudEventIDsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetCloudEventIDsTooManyRequests) Code() int {
 }
 
 func (o *GetCloudEventIDsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCloudEventIDsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCloudEventIDsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCloudEventIDsInternalServerError) Code() int {
 }
 
 func (o *GetCloudEventIDsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCloudEventIDsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/cloud-events/v1][%d] getCloudEventIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCloudEventIDsInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateTopFailedImagesOK) Code() int {
 }
 
 func (o *AggregateTopFailedImagesOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesOK %s", 200, payload)
 }
 
 func (o *AggregateTopFailedImagesOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesOK %s", 200, payload)
 }
 
 func (o *AggregateTopFailedImagesOK) GetPayload() *models.DomainAPIAggregateResponseTopFailedImagesV1 {
@@ -228,11 +231,13 @@ func (o *AggregateTopFailedImagesBadRequest) Code() int {
 }
 
 func (o *AggregateTopFailedImagesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesBadRequest %s", 400, payload)
 }
 
 func (o *AggregateTopFailedImagesBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesBadRequest %s", 400, payload)
 }
 
 func (o *AggregateTopFailedImagesBadRequest) GetPayload() *models.DomainAPIAggregateResponseTopFailedImagesV1 {
@@ -338,11 +343,13 @@ func (o *AggregateTopFailedImagesForbidden) Code() int {
 }
 
 func (o *AggregateTopFailedImagesForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesForbidden %s", 403, payload)
 }
 
 func (o *AggregateTopFailedImagesForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesForbidden %s", 403, payload)
 }
 
 func (o *AggregateTopFailedImagesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateTopFailedImagesTooManyRequests) Code() int {
 }
 
 func (o *AggregateTopFailedImagesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateTopFailedImagesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateTopFailedImagesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateTopFailedImagesInternalServerError) Code() int {
 }
 
 func (o *AggregateTopFailedImagesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateTopFailedImagesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/top-failed-images/v2][%d] aggregateTopFailedImagesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateTopFailedImagesInternalServerError) GetPayload() *models.DomainAPIAggregateResponseTopFailedImagesV1 {

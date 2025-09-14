@@ -6,6 +6,7 @@ package content_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryCombinedContentUpdatePoliciesOK) Code() int {
 }
 
 func (o *QueryCombinedContentUpdatePoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesOK) GetPayload() *models.ContentUpdateRespV1 {
@@ -228,11 +231,13 @@ func (o *QueryCombinedContentUpdatePoliciesBadRequest) Code() int {
 }
 
 func (o *QueryCombinedContentUpdatePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesBadRequest) GetPayload() *models.ContentUpdateRespV1 {
@@ -338,11 +343,13 @@ func (o *QueryCombinedContentUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *QueryCombinedContentUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryCombinedContentUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *QueryCombinedContentUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryCombinedContentUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *QueryCombinedContentUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/content-update/v1][%d] queryCombinedContentUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedContentUpdatePoliciesInternalServerError) GetPayload() *models.ContentUpdateRespV1 {

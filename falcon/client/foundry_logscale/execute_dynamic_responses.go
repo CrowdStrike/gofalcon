@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExecuteDynamicOK) Code() int {
 }
 
 func (o *ExecuteDynamicOK) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicOK %s", 200, payload)
 }
 
 func (o *ExecuteDynamicOK) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicOK %s", 200, payload)
 }
 
 func (o *ExecuteDynamicOK) GetPayload() *models.ApidomainQueryResponseWrapperV1 {
@@ -234,11 +237,13 @@ func (o *ExecuteDynamicBadRequest) Code() int {
 }
 
 func (o *ExecuteDynamicBadRequest) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteDynamicBadRequest) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteDynamicBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *ExecuteDynamicForbidden) Code() int {
 }
 
 func (o *ExecuteDynamicForbidden) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicForbidden %s", 403, payload)
 }
 
 func (o *ExecuteDynamicForbidden) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicForbidden %s", 403, payload)
 }
 
 func (o *ExecuteDynamicForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *ExecuteDynamicNotFound) Code() int {
 }
 
 func (o *ExecuteDynamicNotFound) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicNotFound %s", 404, payload)
 }
 
 func (o *ExecuteDynamicNotFound) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicNotFound %s", 404, payload)
 }
 
 func (o *ExecuteDynamicNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *ExecuteDynamicTooManyRequests) Code() int {
 }
 
 func (o *ExecuteDynamicTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteDynamicTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteDynamicTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExecuteDynamicInternalServerError) Code() int {
 }
 
 func (o *ExecuteDynamicInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteDynamicInternalServerError) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteDynamicInternalServerError) GetPayload() *models.MsaspecResponseFields {

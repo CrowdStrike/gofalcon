@@ -6,6 +6,7 @@ package content_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateContentUpdatePoliciesOK) Code() int {
 }
 
 func (o *UpdateContentUpdatePoliciesOK) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesOK) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesOK) GetPayload() *models.ContentUpdateRespV1 {
@@ -234,11 +237,13 @@ func (o *UpdateContentUpdatePoliciesBadRequest) Code() int {
 }
 
 func (o *UpdateContentUpdatePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesBadRequest) GetPayload() *models.ContentUpdateRespV1 {
@@ -344,11 +349,13 @@ func (o *UpdateContentUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *UpdateContentUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *UpdateContentUpdatePoliciesNotFound) Code() int {
 }
 
 func (o *UpdateContentUpdatePoliciesNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesNotFound) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesNotFound) GetPayload() *models.ContentUpdateRespV1 {
@@ -568,11 +577,13 @@ func (o *UpdateContentUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *UpdateContentUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateContentUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *UpdateContentUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/content-update/v1][%d] updateContentUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateContentUpdatePoliciesInternalServerError) GetPayload() *models.ContentUpdateRespV1 {

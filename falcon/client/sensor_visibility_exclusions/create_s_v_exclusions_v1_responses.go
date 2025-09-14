@@ -6,6 +6,7 @@ package sensor_visibility_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateSVExclusionsV1Created) Code() int {
 }
 
 func (o *CreateSVExclusionsV1Created) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Created %s", 201, payload)
 }
 
 func (o *CreateSVExclusionsV1Created) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Created %s", 201, payload)
 }
 
 func (o *CreateSVExclusionsV1Created) GetPayload() *models.ExclusionsRespV1 {
@@ -228,11 +231,13 @@ func (o *CreateSVExclusionsV1BadRequest) Code() int {
 }
 
 func (o *CreateSVExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateSVExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateSVExclusionsV1BadRequest) GetPayload() *models.ExclusionsRespV1 {
@@ -338,11 +343,13 @@ func (o *CreateSVExclusionsV1Forbidden) Code() int {
 }
 
 func (o *CreateSVExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateSVExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateSVExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *CreateSVExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *CreateSVExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSVExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSVExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateSVExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *CreateSVExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateSVExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateSVExclusionsV1InternalServerError) GetPayload() *models.ExclusionsRespV1 {

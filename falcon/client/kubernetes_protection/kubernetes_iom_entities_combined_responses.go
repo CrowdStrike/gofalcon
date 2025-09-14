@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *KubernetesIomEntitiesCombinedOK) Code() int {
 }
 
 func (o *KubernetesIomEntitiesCombinedOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedOK %s", 200, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedOK %s", 200, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedOK) GetPayload() *models.K8siomsKubernetesIOMEntityResponse {
@@ -222,11 +225,13 @@ func (o *KubernetesIomEntitiesCombinedForbidden) Code() int {
 }
 
 func (o *KubernetesIomEntitiesCombinedForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *KubernetesIomEntitiesCombinedTooManyRequests) Code() int {
 }
 
 func (o *KubernetesIomEntitiesCombinedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *KubernetesIomEntitiesCombinedInternalServerError) Code() int {
 }
 
 func (o *KubernetesIomEntitiesCombinedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/kubernetes-ioms/v1][%d] kubernetesIomEntitiesCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomEntitiesCombinedInternalServerError) GetPayload() *models.CoreEntitiesResponse {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetAzureTenantIDsOK) Code() int {
 }
 
 func (o *GetAzureTenantIDsOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsOK %s", 200, payload)
 }
 
 func (o *GetAzureTenantIDsOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsOK %s", 200, payload)
 }
 
 func (o *GetAzureTenantIDsOK) GetPayload() *models.K8sregGetAzureTenantInfoResp {
@@ -234,11 +237,13 @@ func (o *GetAzureTenantIDsMultiStatus) Code() int {
 }
 
 func (o *GetAzureTenantIDsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsMultiStatus %s", 207, payload)
 }
 
 func (o *GetAzureTenantIDsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsMultiStatus %s", 207, payload)
 }
 
 func (o *GetAzureTenantIDsMultiStatus) GetPayload() *models.K8sregGetAzureTenantInfoResp {
@@ -344,11 +349,13 @@ func (o *GetAzureTenantIDsBadRequest) Code() int {
 }
 
 func (o *GetAzureTenantIDsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetAzureTenantIDsBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsBadRequest %s", 400, payload)
 }
 
 func (o *GetAzureTenantIDsBadRequest) GetPayload() *models.K8sregGetAzureTenantInfoResp {
@@ -454,11 +461,13 @@ func (o *GetAzureTenantIDsForbidden) Code() int {
 }
 
 func (o *GetAzureTenantIDsForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsForbidden %s", 403, payload)
 }
 
 func (o *GetAzureTenantIDsForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsForbidden %s", 403, payload)
 }
 
 func (o *GetAzureTenantIDsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetAzureTenantIDsTooManyRequests) Code() int {
 }
 
 func (o *GetAzureTenantIDsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAzureTenantIDsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAzureTenantIDsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetAzureTenantIDsInternalServerError) Code() int {
 }
 
 func (o *GetAzureTenantIDsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAzureTenantIDsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/tenants/azure/v1][%d] getAzureTenantIDsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAzureTenantIDsInternalServerError) GetPayload() *models.K8sregGetAzureTenantInfoResp {

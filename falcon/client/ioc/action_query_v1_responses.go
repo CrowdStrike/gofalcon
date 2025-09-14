@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ActionQueryV1OK) Code() int {
 }
 
 func (o *ActionQueryV1OK) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1OK %s", 200, payload)
 }
 
 func (o *ActionQueryV1OK) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1OK %s", 200, payload)
 }
 
 func (o *ActionQueryV1OK) GetPayload() *models.APIIndicatorQueryRespV1 {
@@ -222,11 +225,13 @@ func (o *ActionQueryV1Forbidden) Code() int {
 }
 
 func (o *ActionQueryV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1Forbidden %s", 403, payload)
 }
 
 func (o *ActionQueryV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1Forbidden %s", 403, payload)
 }
 
 func (o *ActionQueryV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ActionQueryV1TooManyRequests) Code() int {
 }
 
 func (o *ActionQueryV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ActionQueryV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ActionQueryV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ActionQueryV1InternalServerError) Code() int {
 }
 
 func (o *ActionQueryV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1InternalServerError %s", 500, payload)
 }
 
 func (o *ActionQueryV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/actions/v1][%d] actionQueryV1InternalServerError %s", 500, payload)
 }
 
 func (o *ActionQueryV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

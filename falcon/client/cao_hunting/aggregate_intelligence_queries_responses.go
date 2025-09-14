@@ -6,6 +6,7 @@ package cao_hunting
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -96,7 +97,7 @@ type AggregateIntelligenceQueriesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIIntelligenceQueryAggregatesResponse
+	Payload *models.CaohuntingapiIntelligenceQueryAggregatesResponse
 }
 
 // IsSuccess returns true when this aggregate intelligence queries o k response has a 2xx status code
@@ -130,14 +131,16 @@ func (o *AggregateIntelligenceQueriesOK) Code() int {
 }
 
 func (o *AggregateIntelligenceQueriesOK) Error() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesOK %s", 200, payload)
 }
 
 func (o *AggregateIntelligenceQueriesOK) String() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesOK %s", 200, payload)
 }
 
-func (o *AggregateIntelligenceQueriesOK) GetPayload() *models.APIIntelligenceQueryAggregatesResponse {
+func (o *AggregateIntelligenceQueriesOK) GetPayload() *models.CaohuntingapiIntelligenceQueryAggregatesResponse {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *AggregateIntelligenceQueriesOK) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIIntelligenceQueryAggregatesResponse)
+	o.Payload = new(models.CaohuntingapiIntelligenceQueryAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -240,11 +243,13 @@ func (o *AggregateIntelligenceQueriesBadRequest) Code() int {
 }
 
 func (o *AggregateIntelligenceQueriesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesBadRequest %s", 400, payload)
 }
 
 func (o *AggregateIntelligenceQueriesBadRequest) String() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesBadRequest %s", 400, payload)
 }
 
 func (o *AggregateIntelligenceQueriesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *AggregateIntelligenceQueriesForbidden) Code() int {
 }
 
 func (o *AggregateIntelligenceQueriesForbidden) Error() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesForbidden %s", 403, payload)
 }
 
 func (o *AggregateIntelligenceQueriesForbidden) String() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesForbidden %s", 403, payload)
 }
 
 func (o *AggregateIntelligenceQueriesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *AggregateIntelligenceQueriesNotFound) Code() int {
 }
 
 func (o *AggregateIntelligenceQueriesNotFound) Error() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesNotFound %s", 404, payload)
 }
 
 func (o *AggregateIntelligenceQueriesNotFound) String() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesNotFound %s", 404, payload)
 }
 
 func (o *AggregateIntelligenceQueriesNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -574,11 +583,13 @@ func (o *AggregateIntelligenceQueriesTooManyRequests) Code() int {
 }
 
 func (o *AggregateIntelligenceQueriesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateIntelligenceQueriesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateIntelligenceQueriesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *AggregateIntelligenceQueriesClientClosedRequest) Code() int {
 }
 
 func (o *AggregateIntelligenceQueriesClientClosedRequest) Error() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesClientClosedRequest %s", 499, payload)
 }
 
 func (o *AggregateIntelligenceQueriesClientClosedRequest) String() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesClientClosedRequest %s", 499, payload)
 }
 
 func (o *AggregateIntelligenceQueriesClientClosedRequest) GetPayload() *models.MsaspecResponseFields {
@@ -805,11 +818,13 @@ func (o *AggregateIntelligenceQueriesInternalServerError) Code() int {
 }
 
 func (o *AggregateIntelligenceQueriesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateIntelligenceQueriesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateIntelligenceQueriesInternalServerError) GetPayload() *models.MsaspecResponseFields {

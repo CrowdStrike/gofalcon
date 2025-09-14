@@ -6,6 +6,7 @@ package tailored_intelligence
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryRulesOK) Code() int {
 }
 
 func (o *QueryRulesOK) Error() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesOK %s", 200, payload)
 }
 
 func (o *QueryRulesOK) String() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesOK %s", 200, payload)
 }
 
 func (o *QueryRulesOK) GetPayload() *models.DomainQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryRulesBadRequest) Code() int {
 }
 
 func (o *QueryRulesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesBadRequest %s", 400, payload)
 }
 
 func (o *QueryRulesBadRequest) String() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesBadRequest %s", 400, payload)
 }
 
 func (o *QueryRulesBadRequest) GetPayload() *models.DomainQueryResponse {
@@ -336,11 +341,11 @@ func (o *QueryRulesForbidden) Code() int {
 }
 
 func (o *QueryRulesForbidden) Error() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesForbidden ", 403)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesForbidden", 403)
 }
 
 func (o *QueryRulesForbidden) String() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesForbidden ", 403)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesForbidden", 403)
 }
 
 func (o *QueryRulesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -439,11 +444,13 @@ func (o *QueryRulesTooManyRequests) Code() int {
 }
 
 func (o *QueryRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -560,11 +567,13 @@ func (o *QueryRulesInternalServerError) Code() int {
 }
 
 func (o *QueryRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRulesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] queryRulesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRulesInternalServerError) GetPayload() *models.DomainQueryResponse {

@@ -6,6 +6,7 @@ package api_integrations
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCombinedPluginConfigsOK) Code() int {
 }
 
 func (o *GetCombinedPluginConfigsOK) Error() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsOK %s", 200, payload)
 }
 
 func (o *GetCombinedPluginConfigsOK) String() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsOK %s", 200, payload)
 }
 
 func (o *GetCombinedPluginConfigsOK) GetPayload() *models.DomainConfigsV1 {
@@ -234,11 +237,13 @@ func (o *GetCombinedPluginConfigsBadRequest) Code() int {
 }
 
 func (o *GetCombinedPluginConfigsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedPluginConfigsBadRequest) String() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedPluginConfigsBadRequest) GetPayload() *models.DomainConfigsV1 {
@@ -344,11 +349,13 @@ func (o *GetCombinedPluginConfigsForbidden) Code() int {
 }
 
 func (o *GetCombinedPluginConfigsForbidden) Error() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedPluginConfigsForbidden) String() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedPluginConfigsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetCombinedPluginConfigsNotFound) Code() int {
 }
 
 func (o *GetCombinedPluginConfigsNotFound) Error() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsNotFound %s", 404, payload)
 }
 
 func (o *GetCombinedPluginConfigsNotFound) String() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsNotFound %s", 404, payload)
 }
 
 func (o *GetCombinedPluginConfigsNotFound) GetPayload() *models.DomainConfigsV1 {
@@ -568,11 +577,13 @@ func (o *GetCombinedPluginConfigsTooManyRequests) Code() int {
 }
 
 func (o *GetCombinedPluginConfigsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedPluginConfigsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedPluginConfigsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCombinedPluginConfigsInternalServerError) Code() int {
 }
 
 func (o *GetCombinedPluginConfigsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedPluginConfigsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /plugins/combined/configs/v1][%d] getCombinedPluginConfigsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedPluginConfigsInternalServerError) GetPayload() *models.DomainConfigsV1 {

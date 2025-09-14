@@ -6,6 +6,7 @@ package falcon_container_cli
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadImageVulnerabilitiesOK) Code() int {
 }
 
 func (o *ReadImageVulnerabilitiesOK) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *ReadImageVulnerabilitiesOK) String() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *ReadImageVulnerabilitiesOK) GetPayload() *models.CoreEntitiesResponse {
@@ -222,11 +225,13 @@ func (o *ReadImageVulnerabilitiesForbidden) Code() int {
 }
 
 func (o *ReadImageVulnerabilitiesForbidden) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadImageVulnerabilitiesForbidden) String() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadImageVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadImageVulnerabilitiesTooManyRequests) Code() int {
 }
 
 func (o *ReadImageVulnerabilitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadImageVulnerabilitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadImageVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadImageVulnerabilitiesInternalServerError) Code() int {
 }
 
 func (o *ReadImageVulnerabilitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadImageVulnerabilitiesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadImageVulnerabilitiesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetNetworkLocationsOK) Code() int {
 }
 
 func (o *GetNetworkLocationsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *GetNetworkLocationsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *GetNetworkLocationsOK) GetPayload() *models.FwmgrAPINetworkLocationSummariesResponse {
@@ -228,11 +231,13 @@ func (o *GetNetworkLocationsBadRequest) Code() int {
 }
 
 func (o *GetNetworkLocationsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *GetNetworkLocationsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *GetNetworkLocationsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetNetworkLocationsForbidden) Code() int {
 }
 
 func (o *GetNetworkLocationsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *GetNetworkLocationsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *GetNetworkLocationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetNetworkLocationsTooManyRequests) Code() int {
 }
 
 func (o *GetNetworkLocationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetNetworkLocationsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetNetworkLocationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetNetworkLocationsInternalServerError) Code() int {
 }
 
 func (o *GetNetworkLocationsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *GetNetworkLocationsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *GetNetworkLocationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -32,7 +32,7 @@ type FalconforitapiSchedule struct {
 
 	// Frequency of runs
 	// Required: true
-	// Enum: [One-Time Minutes Hourly Daily Weekly Monthly]
+	// Enum: ["One-Time","Minutes","Hourly","Daily","Weekly","Monthly"]
 	Frequency *string `json:"frequency"`
 
 	// Minute interval for frequency:Minutes. Example: 30

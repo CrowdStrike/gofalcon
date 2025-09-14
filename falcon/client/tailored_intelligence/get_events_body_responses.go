@@ -6,6 +6,7 @@ package tailored_intelligence
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetEventsBodyOK) Code() int {
 }
 
 func (o *GetEventsBodyOK) Error() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyOK %s", 200, payload)
 }
 
 func (o *GetEventsBodyOK) String() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyOK %s", 200, payload)
 }
 
 func (o *GetEventsBodyOK) GetPayload() []int64 {
@@ -226,11 +229,13 @@ func (o *GetEventsBodyBadRequest) Code() int {
 }
 
 func (o *GetEventsBodyBadRequest) Error() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyBadRequest %s", 400, payload)
 }
 
 func (o *GetEventsBodyBadRequest) String() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyBadRequest %s", 400, payload)
 }
 
 func (o *GetEventsBodyBadRequest) GetPayload() string {
@@ -332,11 +337,11 @@ func (o *GetEventsBodyForbidden) Code() int {
 }
 
 func (o *GetEventsBodyForbidden) Error() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyForbidden ", 403)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyForbidden", 403)
 }
 
 func (o *GetEventsBodyForbidden) String() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyForbidden ", 403)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyForbidden", 403)
 }
 
 func (o *GetEventsBodyForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -435,11 +440,13 @@ func (o *GetEventsBodyTooManyRequests) Code() int {
 }
 
 func (o *GetEventsBodyTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEventsBodyTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEventsBodyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -556,11 +563,13 @@ func (o *GetEventsBodyInternalServerError) Code() int {
 }
 
 func (o *GetEventsBodyInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyInternalServerError %s", 500, payload)
 }
 
 func (o *GetEventsBodyInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyInternalServerError %s", 500, payload)
 }
 
 func (o *GetEventsBodyInternalServerError) GetPayload() []int64 {

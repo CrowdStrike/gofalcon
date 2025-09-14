@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DistinctContainerImageCountOK) Code() int {
 }
 
 func (o *DistinctContainerImageCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountOK %s", 200, payload)
 }
 
 func (o *DistinctContainerImageCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountOK %s", 200, payload)
 }
 
 func (o *DistinctContainerImageCountOK) GetPayload() *models.ModelsAPIFilterResponse {
@@ -222,11 +225,13 @@ func (o *DistinctContainerImageCountForbidden) Code() int {
 }
 
 func (o *DistinctContainerImageCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountForbidden %s", 403, payload)
 }
 
 func (o *DistinctContainerImageCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountForbidden %s", 403, payload)
 }
 
 func (o *DistinctContainerImageCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DistinctContainerImageCountTooManyRequests) Code() int {
 }
 
 func (o *DistinctContainerImageCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *DistinctContainerImageCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *DistinctContainerImageCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DistinctContainerImageCountInternalServerError) Code() int {
 }
 
 func (o *DistinctContainerImageCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *DistinctContainerImageCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count-by-distinct/v1][%d] distinctContainerImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *DistinctContainerImageCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

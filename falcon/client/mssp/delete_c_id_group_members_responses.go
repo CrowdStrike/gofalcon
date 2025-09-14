@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteCIDGroupMembersOK) Code() int {
 }
 
 func (o *DeleteCIDGroupMembersOK) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersOK %s", 200, payload)
 }
 
 func (o *DeleteCIDGroupMembersOK) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersOK %s", 200, payload)
 }
 
 func (o *DeleteCIDGroupMembersOK) GetPayload() *models.DomainCIDGroupMembersResponseV1 {
@@ -234,11 +237,13 @@ func (o *DeleteCIDGroupMembersMultiStatus) Code() int {
 }
 
 func (o *DeleteCIDGroupMembersMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCIDGroupMembersMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCIDGroupMembersMultiStatus) GetPayload() *models.DomainCIDGroupMembersResponseV1 {
@@ -344,11 +349,13 @@ func (o *DeleteCIDGroupMembersBadRequest) Code() int {
 }
 
 func (o *DeleteCIDGroupMembersBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCIDGroupMembersBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCIDGroupMembersBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *DeleteCIDGroupMembersForbidden) Code() int {
 }
 
 func (o *DeleteCIDGroupMembersForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *DeleteCIDGroupMembersForbidden) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *DeleteCIDGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *DeleteCIDGroupMembersTooManyRequests) Code() int {
 }
 
 func (o *DeleteCIDGroupMembersTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCIDGroupMembersTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCIDGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteCIDGroupMembersInternalServerError) Code() int {
 }
 
 func (o *DeleteCIDGroupMembersInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCIDGroupMembersInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIdGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCIDGroupMembersInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

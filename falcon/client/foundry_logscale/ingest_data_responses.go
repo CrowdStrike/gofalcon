@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *IngestDataOK) Code() int {
 }
 
 func (o *IngestDataOK) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataOK %s", 200, payload)
 }
 
 func (o *IngestDataOK) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataOK %s", 200, payload)
 }
 
 func (o *IngestDataOK) GetPayload() *models.ClientDataIngestResponseWrapperV1 {
@@ -234,11 +237,13 @@ func (o *IngestDataBadRequest) Code() int {
 }
 
 func (o *IngestDataBadRequest) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataBadRequest %s", 400, payload)
 }
 
 func (o *IngestDataBadRequest) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataBadRequest %s", 400, payload)
 }
 
 func (o *IngestDataBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *IngestDataForbidden) Code() int {
 }
 
 func (o *IngestDataForbidden) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataForbidden %s", 403, payload)
 }
 
 func (o *IngestDataForbidden) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataForbidden %s", 403, payload)
 }
 
 func (o *IngestDataForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *IngestDataNotFound) Code() int {
 }
 
 func (o *IngestDataNotFound) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataNotFound %s", 404, payload)
 }
 
 func (o *IngestDataNotFound) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataNotFound %s", 404, payload)
 }
 
 func (o *IngestDataNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *IngestDataTooManyRequests) Code() int {
 }
 
 func (o *IngestDataTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataTooManyRequests %s", 429, payload)
 }
 
 func (o *IngestDataTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataTooManyRequests %s", 429, payload)
 }
 
 func (o *IngestDataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *IngestDataInternalServerError) Code() int {
 }
 
 func (o *IngestDataInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataInternalServerError %s", 500, payload)
 }
 
 func (o *IngestDataInternalServerError) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/data-ingestion/ingest/v1][%d] ingestDataInternalServerError %s", 500, payload)
 }
 
 func (o *IngestDataInternalServerError) GetPayload() *models.MsaspecResponseFields {

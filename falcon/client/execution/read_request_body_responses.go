@@ -6,6 +6,7 @@ package execution
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ReadRequestBodyOK) Code() int {
 }
 
 func (o *ReadRequestBodyOK) Error() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK %s", 200, payload)
 }
 
 func (o *ReadRequestBodyOK) String() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK %s", 200, payload)
 }
 
 func (o *ReadRequestBodyOK) GetPayload() models.MapStringInterface {
@@ -226,11 +229,13 @@ func (o *ReadRequestBodyBadRequest) Code() int {
 }
 
 func (o *ReadRequestBodyBadRequest) Error() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyBadRequest %s", 400, payload)
 }
 
 func (o *ReadRequestBodyBadRequest) String() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyBadRequest %s", 400, payload)
 }
 
 func (o *ReadRequestBodyBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -336,11 +341,13 @@ func (o *ReadRequestBodyForbidden) Code() int {
 }
 
 func (o *ReadRequestBodyForbidden) Error() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyForbidden %s", 403, payload)
 }
 
 func (o *ReadRequestBodyForbidden) String() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyForbidden %s", 403, payload)
 }
 
 func (o *ReadRequestBodyForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -450,11 +457,13 @@ func (o *ReadRequestBodyTooManyRequests) Code() int {
 }
 
 func (o *ReadRequestBodyTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadRequestBodyTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadRequestBodyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -571,11 +580,13 @@ func (o *ReadRequestBodyInternalServerError) Code() int {
 }
 
 func (o *ReadRequestBodyInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyInternalServerError %s", 500, payload)
 }
 
 func (o *ReadRequestBodyInternalServerError) String() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyInternalServerError %s", 500, payload)
 }
 
 func (o *ReadRequestBodyInternalServerError) GetPayload() *models.MsaspecResponseFields {

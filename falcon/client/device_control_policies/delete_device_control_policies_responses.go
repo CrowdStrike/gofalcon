@@ -6,6 +6,7 @@ package device_control_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteDeviceControlPoliciesOK) Code() int {
 }
 
 func (o *DeleteDeviceControlPoliciesOK) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesOK) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteDeviceControlPoliciesForbidden) Code() int {
 }
 
 func (o *DeleteDeviceControlPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *DeleteDeviceControlPoliciesNotFound) Code() int {
 }
 
 func (o *DeleteDeviceControlPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesNotFound) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesNotFound) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *DeleteDeviceControlPoliciesTooManyRequests) Code() int {
 }
 
 func (o *DeleteDeviceControlPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteDeviceControlPoliciesInternalServerError) Code() int {
 }
 
 func (o *DeleteDeviceControlPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteDeviceControlPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {

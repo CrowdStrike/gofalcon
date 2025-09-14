@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -116,11 +117,11 @@ func (o *HeadImageScanInventoryOK) Code() int {
 }
 
 func (o *HeadImageScanInventoryOK) Error() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryOK ", 200)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryOK", 200)
 }
 
 func (o *HeadImageScanInventoryOK) String() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryOK ", 200)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryOK", 200)
 }
 
 func (o *HeadImageScanInventoryOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -213,11 +214,11 @@ func (o *HeadImageScanInventoryBadRequest) Code() int {
 }
 
 func (o *HeadImageScanInventoryBadRequest) Error() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryBadRequest ", 400)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryBadRequest", 400)
 }
 
 func (o *HeadImageScanInventoryBadRequest) String() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryBadRequest ", 400)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryBadRequest", 400)
 }
 
 func (o *HeadImageScanInventoryBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -312,11 +313,13 @@ func (o *HeadImageScanInventoryForbidden) Code() int {
 }
 
 func (o *HeadImageScanInventoryForbidden) Error() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryForbidden %s", 403, payload)
 }
 
 func (o *HeadImageScanInventoryForbidden) String() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryForbidden %s", 403, payload)
 }
 
 func (o *HeadImageScanInventoryForbidden) GetPayload() *models.CoreEntitiesResponse {
@@ -426,11 +429,13 @@ func (o *HeadImageScanInventoryTooManyRequests) Code() int {
 }
 
 func (o *HeadImageScanInventoryTooManyRequests) Error() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryTooManyRequests %s", 429, payload)
 }
 
 func (o *HeadImageScanInventoryTooManyRequests) String() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryTooManyRequests %s", 429, payload)
 }
 
 func (o *HeadImageScanInventoryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -545,11 +550,11 @@ func (o *HeadImageScanInventoryInternalServerError) Code() int {
 }
 
 func (o *HeadImageScanInventoryInternalServerError) Error() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryInternalServerError ", 500)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryInternalServerError", 500)
 }
 
 func (o *HeadImageScanInventoryInternalServerError) String() string {
-	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryInternalServerError ", 500)
+	return fmt.Sprintf("[HEAD /image-assessment/entities/image-inventory/v1][%d] headImageScanInventoryInternalServerError", 500)
 }
 
 func (o *HeadImageScanInventoryInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

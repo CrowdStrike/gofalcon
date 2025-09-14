@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregatePolicyRulesOK) Code() int {
 }
 
 func (o *AggregatePolicyRulesOK) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesOK %s", 200, payload)
 }
 
 func (o *AggregatePolicyRulesOK) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesOK %s", 200, payload)
 }
 
 func (o *AggregatePolicyRulesOK) GetPayload() *models.FwmgrAPIAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregatePolicyRulesBadRequest) Code() int {
 }
 
 func (o *AggregatePolicyRulesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesBadRequest %s", 400, payload)
 }
 
 func (o *AggregatePolicyRulesBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesBadRequest %s", 400, payload)
 }
 
 func (o *AggregatePolicyRulesBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregatePolicyRulesForbidden) Code() int {
 }
 
 func (o *AggregatePolicyRulesForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *AggregatePolicyRulesForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *AggregatePolicyRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregatePolicyRulesTooManyRequests) Code() int {
 }
 
 func (o *AggregatePolicyRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatePolicyRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatePolicyRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregatePolicyRulesInternalServerError) Code() int {
 }
 
 func (o *AggregatePolicyRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregatePolicyRulesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregatePolicyRulesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

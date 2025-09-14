@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtractionCreateV1OK) Code() int {
 }
 
 func (o *ExtractionCreateV1OK) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1OK %s", 200, payload)
 }
 
 func (o *ExtractionCreateV1OK) String() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1OK %s", 200, payload)
 }
 
 func (o *ExtractionCreateV1OK) GetPayload() *models.ClientExtractionCreateResponseV1 {
@@ -234,11 +237,13 @@ func (o *ExtractionCreateV1Accepted) Code() int {
 }
 
 func (o *ExtractionCreateV1Accepted) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Accepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Accepted %s", 202, payload)
 }
 
 func (o *ExtractionCreateV1Accepted) String() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Accepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Accepted %s", 202, payload)
 }
 
 func (o *ExtractionCreateV1Accepted) GetPayload() *models.ClientExtractionCreateResponseV1 {
@@ -344,11 +349,13 @@ func (o *ExtractionCreateV1BadRequest) Code() int {
 }
 
 func (o *ExtractionCreateV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1BadRequest %s", 400, payload)
 }
 
 func (o *ExtractionCreateV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1BadRequest %s", 400, payload)
 }
 
 func (o *ExtractionCreateV1BadRequest) GetPayload() *models.ClientExtractionCreateResponseV1 {
@@ -454,11 +461,13 @@ func (o *ExtractionCreateV1Forbidden) Code() int {
 }
 
 func (o *ExtractionCreateV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Forbidden %s", 403, payload)
 }
 
 func (o *ExtractionCreateV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1Forbidden %s", 403, payload)
 }
 
 func (o *ExtractionCreateV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *ExtractionCreateV1TooManyRequests) Code() int {
 }
 
 func (o *ExtractionCreateV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ExtractionCreateV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ExtractionCreateV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtractionCreateV1InternalServerError) Code() int {
 }
 
 func (o *ExtractionCreateV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1InternalServerError %s", 500, payload)
 }
 
 func (o *ExtractionCreateV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1InternalServerError %s", 500, payload)
 }
 
 func (o *ExtractionCreateV1InternalServerError) GetPayload() *models.ClientExtractionCreateResponseV1 {

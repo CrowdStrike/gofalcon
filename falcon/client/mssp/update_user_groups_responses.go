@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateUserGroupsOK) Code() int {
 }
 
 func (o *UpdateUserGroupsOK) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsOK %s", 200, payload)
 }
 
 func (o *UpdateUserGroupsOK) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsOK %s", 200, payload)
 }
 
 func (o *UpdateUserGroupsOK) GetPayload() *models.DomainUserGroupsResponseV1 {
@@ -234,11 +237,13 @@ func (o *UpdateUserGroupsMultiStatus) Code() int {
 }
 
 func (o *UpdateUserGroupsMultiStatus) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *UpdateUserGroupsMultiStatus) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *UpdateUserGroupsMultiStatus) GetPayload() *models.DomainUserGroupsResponseV1 {
@@ -344,11 +349,13 @@ func (o *UpdateUserGroupsBadRequest) Code() int {
 }
 
 func (o *UpdateUserGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateUserGroupsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateUserGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *UpdateUserGroupsForbidden) Code() int {
 }
 
 func (o *UpdateUserGroupsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdateUserGroupsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdateUserGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *UpdateUserGroupsTooManyRequests) Code() int {
 }
 
 func (o *UpdateUserGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateUserGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateUserGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateUserGroupsInternalServerError) Code() int {
 }
 
 func (o *UpdateUserGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateUserGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateUserGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

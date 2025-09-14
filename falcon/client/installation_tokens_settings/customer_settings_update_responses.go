@@ -6,6 +6,7 @@ package installation_tokens_settings
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CustomerSettingsUpdateOK) Code() int {
 }
 
 func (o *CustomerSettingsUpdateOK) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateOK %s", 200, payload)
 }
 
 func (o *CustomerSettingsUpdateOK) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateOK %s", 200, payload)
 }
 
 func (o *CustomerSettingsUpdateOK) GetPayload() *models.APICustomerSettingsResponseV1 {
@@ -234,11 +237,13 @@ func (o *CustomerSettingsUpdateBadRequest) Code() int {
 }
 
 func (o *CustomerSettingsUpdateBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateBadRequest %s", 400, payload)
 }
 
 func (o *CustomerSettingsUpdateBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateBadRequest %s", 400, payload)
 }
 
 func (o *CustomerSettingsUpdateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CustomerSettingsUpdateForbidden) Code() int {
 }
 
 func (o *CustomerSettingsUpdateForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateForbidden %s", 403, payload)
 }
 
 func (o *CustomerSettingsUpdateForbidden) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateForbidden %s", 403, payload)
 }
 
 func (o *CustomerSettingsUpdateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CustomerSettingsUpdateNotFound) Code() int {
 }
 
 func (o *CustomerSettingsUpdateNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateNotFound %s", 404, payload)
 }
 
 func (o *CustomerSettingsUpdateNotFound) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateNotFound %s", 404, payload)
 }
 
 func (o *CustomerSettingsUpdateNotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -568,11 +577,13 @@ func (o *CustomerSettingsUpdateTooManyRequests) Code() int {
 }
 
 func (o *CustomerSettingsUpdateTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateTooManyRequests %s", 429, payload)
 }
 
 func (o *CustomerSettingsUpdateTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateTooManyRequests %s", 429, payload)
 }
 
 func (o *CustomerSettingsUpdateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CustomerSettingsUpdateInternalServerError) Code() int {
 }
 
 func (o *CustomerSettingsUpdateInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateInternalServerError %s", 500, payload)
 }
 
 func (o *CustomerSettingsUpdateInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateInternalServerError %s", 500, payload)
 }
 
 func (o *CustomerSettingsUpdateInternalServerError) GetPayload() *models.MsaspecResponseFields {

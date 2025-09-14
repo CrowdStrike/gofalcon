@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PerformActionV2Accepted) Code() int {
 }
 
 func (o *PerformActionV2Accepted) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Accepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Accepted %s", 202, payload)
 }
 
 func (o *PerformActionV2Accepted) String() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Accepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Accepted %s", 202, payload)
 }
 
 func (o *PerformActionV2Accepted) GetPayload() *models.MsaReplyAffectedEntities {
@@ -234,11 +237,13 @@ func (o *PerformActionV2BadRequest) Code() int {
 }
 
 func (o *PerformActionV2BadRequest) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2BadRequest %s", 400, payload)
 }
 
 func (o *PerformActionV2BadRequest) String() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2BadRequest %s", 400, payload)
 }
 
 func (o *PerformActionV2BadRequest) GetPayload() *models.MsaReplyAffectedEntities {
@@ -344,11 +349,13 @@ func (o *PerformActionV2Forbidden) Code() int {
 }
 
 func (o *PerformActionV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Forbidden %s", 403, payload)
 }
 
 func (o *PerformActionV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Forbidden %s", 403, payload)
 }
 
 func (o *PerformActionV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *PerformActionV2Conflict) Code() int {
 }
 
 func (o *PerformActionV2Conflict) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Conflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Conflict %s", 409, payload)
 }
 
 func (o *PerformActionV2Conflict) String() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Conflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Conflict %s", 409, payload)
 }
 
 func (o *PerformActionV2Conflict) GetPayload() *models.MsaReplyAffectedEntities {
@@ -568,11 +577,13 @@ func (o *PerformActionV2TooManyRequests) Code() int {
 }
 
 func (o *PerformActionV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2TooManyRequests %s", 429, payload)
 }
 
 func (o *PerformActionV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2TooManyRequests %s", 429, payload)
 }
 
 func (o *PerformActionV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PerformActionV2InternalServerError) Code() int {
 }
 
 func (o *PerformActionV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2InternalServerError %s", 500, payload)
 }
 
 func (o *PerformActionV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2InternalServerError %s", 500, payload)
 }
 
 func (o *PerformActionV2InternalServerError) GetPayload() *models.MsaReplyAffectedEntities {

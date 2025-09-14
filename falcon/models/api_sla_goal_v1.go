@@ -29,7 +29,7 @@ type APISLAGoalV1 struct {
 
 	// type
 	// Required: true
-	// Enum: [ack resolve]
+	// Enum: ["ack","resolve"]
 	Type *string `json:"type"`
 }
 

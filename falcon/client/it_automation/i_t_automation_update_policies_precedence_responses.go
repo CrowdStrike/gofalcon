@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceOK) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceOK) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceOK) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceOK) GetPayload() *models.ItautomationUpdatePoliciesPrecedenceResponse {
@@ -240,11 +243,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceConflict) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceConflict) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict %s", 409, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceConflict) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict %s", 409, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceConflict) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) GetPayload() *models.MsaspecResponseFields {

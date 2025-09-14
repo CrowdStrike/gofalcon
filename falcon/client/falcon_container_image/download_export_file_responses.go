@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DownloadExportFileOK) Code() int {
 }
 
 func (o *DownloadExportFileOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileOK %s", 200, payload)
 }
 
 func (o *DownloadExportFileOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileOK %s", 200, payload)
 }
 
 func (o *DownloadExportFileOK) GetPayload() []int64 {
@@ -226,11 +229,13 @@ func (o *DownloadExportFileForbidden) Code() int {
 }
 
 func (o *DownloadExportFileForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileForbidden %s", 403, payload)
 }
 
 func (o *DownloadExportFileForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileForbidden %s", 403, payload)
 }
 
 func (o *DownloadExportFileForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DownloadExportFileNotFound) Code() int {
 }
 
 func (o *DownloadExportFileNotFound) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileNotFound %s", 404, payload)
 }
 
 func (o *DownloadExportFileNotFound) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileNotFound %s", 404, payload)
 }
 
 func (o *DownloadExportFileNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -450,11 +457,13 @@ func (o *DownloadExportFileTooManyRequests) Code() int {
 }
 
 func (o *DownloadExportFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadExportFileTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileTooManyRequests %s", 429, payload)
 }
 
 func (o *DownloadExportFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -571,11 +580,13 @@ func (o *DownloadExportFileInternalServerError) Code() int {
 }
 
 func (o *DownloadExportFileInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadExportFileInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/exports/files/v1][%d] downloadExportFileInternalServerError %s", 500, payload)
 }
 
 func (o *DownloadExportFileInternalServerError) GetPayload() *models.MsaspecResponseFields {

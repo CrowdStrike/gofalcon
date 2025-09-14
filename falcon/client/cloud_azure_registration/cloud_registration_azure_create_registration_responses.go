@@ -6,6 +6,7 @@ package cloud_azure_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudRegistrationAzureCreateRegistrationCreated) Code() int {
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationCreated %s", 201, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationCreated %s", 201, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationCreated) GetPayload() *models.AzureAzureRegistrationResponseExtV1 {
@@ -234,11 +237,13 @@ func (o *CloudRegistrationAzureCreateRegistrationBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CloudRegistrationAzureCreateRegistrationForbidden) Code() int {
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CloudRegistrationAzureCreateRegistrationConflict) Code() int {
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationConflict) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationConflict %s", 409, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationConflict) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationConflict %s", 409, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationConflict) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudRegistrationAzureCreateRegistrationTooManyRequests) Code() int {
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudRegistrationAzureCreateRegistrationInternalServerError) Code() int
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureCreateRegistrationInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureCreateRegistrationInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *PutObjectByVersionOK) Code() int {
 }
 
 func (o *PutObjectByVersionOK) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionOK %s", 200, payload)
 }
 
 func (o *PutObjectByVersionOK) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionOK %s", 200, payload)
 }
 
 func (o *PutObjectByVersionOK) GetPayload() *models.CustomStorageResponse {
@@ -222,11 +225,13 @@ func (o *PutObjectByVersionForbidden) Code() int {
 }
 
 func (o *PutObjectByVersionForbidden) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionForbidden %s", 403, payload)
 }
 
 func (o *PutObjectByVersionForbidden) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionForbidden %s", 403, payload)
 }
 
 func (o *PutObjectByVersionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *PutObjectByVersionTooManyRequests) Code() int {
 }
 
 func (o *PutObjectByVersionTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *PutObjectByVersionTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *PutObjectByVersionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *PutObjectByVersionInternalServerError) Code() int {
 }
 
 func (o *PutObjectByVersionInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionInternalServerError %s", 500, payload)
 }
 
 func (o *PutObjectByVersionInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}][%d] putObjectByVersionInternalServerError %s", 500, payload)
 }
 
 func (o *PutObjectByVersionInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *IndicatorDeleteV1OK) Code() int {
 }
 
 func (o *IndicatorDeleteV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1OK %s", 200, payload)
 }
 
 func (o *IndicatorDeleteV1OK) String() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1OK %s", 200, payload)
 }
 
 func (o *IndicatorDeleteV1OK) GetPayload() *models.APIIndicatorQueryRespV1 {
@@ -222,11 +225,13 @@ func (o *IndicatorDeleteV1Forbidden) Code() int {
 }
 
 func (o *IndicatorDeleteV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorDeleteV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorDeleteV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *IndicatorDeleteV1TooManyRequests) Code() int {
 }
 
 func (o *IndicatorDeleteV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorDeleteV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorDeleteV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *IndicatorDeleteV1InternalServerError) Code() int {
 }
 
 func (o *IndicatorDeleteV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorDeleteV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorDeleteV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

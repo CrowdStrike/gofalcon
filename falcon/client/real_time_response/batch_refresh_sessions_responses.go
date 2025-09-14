@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *BatchRefreshSessionsCreated) Code() int {
 }
 
 func (o *BatchRefreshSessionsCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsCreated %s", 201, payload)
 }
 
 func (o *BatchRefreshSessionsCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsCreated %s", 201, payload)
 }
 
 func (o *BatchRefreshSessionsCreated) GetPayload() *models.DomainBatchRefreshSessionResponse {
@@ -228,11 +231,13 @@ func (o *BatchRefreshSessionsBadRequest) Code() int {
 }
 
 func (o *BatchRefreshSessionsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsBadRequest %s", 400, payload)
 }
 
 func (o *BatchRefreshSessionsBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsBadRequest %s", 400, payload)
 }
 
 func (o *BatchRefreshSessionsBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *BatchRefreshSessionsForbidden) Code() int {
 }
 
 func (o *BatchRefreshSessionsForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsForbidden %s", 403, payload)
 }
 
 func (o *BatchRefreshSessionsForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsForbidden %s", 403, payload)
 }
 
 func (o *BatchRefreshSessionsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *BatchRefreshSessionsTooManyRequests) Code() int {
 }
 
 func (o *BatchRefreshSessionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchRefreshSessionsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchRefreshSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *BatchRefreshSessionsInternalServerError) Code() int {
 }
 
 func (o *BatchRefreshSessionsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *BatchRefreshSessionsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *BatchRefreshSessionsInternalServerError) GetPayload() *models.DomainAPIError {

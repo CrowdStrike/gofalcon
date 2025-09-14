@@ -6,6 +6,7 @@ package configuration_assessment
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetCombinedAssessmentsQueryOK) Code() int {
 }
 
 func (o *GetCombinedAssessmentsQueryOK) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryOK %s", 200, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryOK) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryOK %s", 200, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryOK) GetPayload() *models.DomainAPICombinedFindingsResponseV1 {
@@ -228,11 +231,13 @@ func (o *GetCombinedAssessmentsQueryBadRequest) Code() int {
 }
 
 func (o *GetCombinedAssessmentsQueryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryBadRequest) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryBadRequest %s", 400, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryBadRequest) GetPayload() *models.DomainAPICombinedFindingsResponseV1 {
@@ -338,11 +343,13 @@ func (o *GetCombinedAssessmentsQueryForbidden) Code() int {
 }
 
 func (o *GetCombinedAssessmentsQueryForbidden) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryForbidden) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetCombinedAssessmentsQueryTooManyRequests) Code() int {
 }
 
 func (o *GetCombinedAssessmentsQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetCombinedAssessmentsQueryInternalServerError) Code() int {
 }
 
 func (o *GetCombinedAssessmentsQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/combined/assessments/v1][%d] getCombinedAssessmentsQueryInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedAssessmentsQueryInternalServerError) GetPayload() *models.DomainAPICombinedFindingsResponseV1 {

@@ -32,7 +32,7 @@ type SensorUpdateSettingsReqV2 struct {
 	ShowEarlyAdopterBuilds bool `json:"show_early_adopter_builds,omitempty"`
 
 	// The uninstall protection state to apply to the policy
-	// Enum: [ENABLED DISABLED MAINTENANCE_MODE IGNORE UNKNOWN]
+	// Enum: ["ENABLED","DISABLED","MAINTENANCE_MODE","IGNORE","UNKNOWN"]
 	UninstallProtection string `json:"uninstall_protection,omitempty"`
 
 	// variants

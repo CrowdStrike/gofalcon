@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetChildrenV2OK) Code() int {
 }
 
 func (o *GetChildrenV2OK) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2OK %s", 200, payload)
 }
 
 func (o *GetChildrenV2OK) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2OK %s", 200, payload)
 }
 
 func (o *GetChildrenV2OK) GetPayload() *models.DomainChildrenResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetChildrenV2MultiStatus) Code() int {
 }
 
 func (o *GetChildrenV2MultiStatus) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2MultiStatus %s", 207, payload)
 }
 
 func (o *GetChildrenV2MultiStatus) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2MultiStatus %s", 207, payload)
 }
 
 func (o *GetChildrenV2MultiStatus) GetPayload() *models.DomainChildrenResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetChildrenV2BadRequest) Code() int {
 }
 
 func (o *GetChildrenV2BadRequest) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2BadRequest %s", 400, payload)
 }
 
 func (o *GetChildrenV2BadRequest) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2BadRequest %s", 400, payload)
 }
 
 func (o *GetChildrenV2BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetChildrenV2Forbidden) Code() int {
 }
 
 func (o *GetChildrenV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2Forbidden %s", 403, payload)
 }
 
 func (o *GetChildrenV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2Forbidden %s", 403, payload)
 }
 
 func (o *GetChildrenV2Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetChildrenV2TooManyRequests) Code() int {
 }
 
 func (o *GetChildrenV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetChildrenV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetChildrenV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetChildrenV2InternalServerError) Code() int {
 }
 
 func (o *GetChildrenV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetChildrenV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetChildrenV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

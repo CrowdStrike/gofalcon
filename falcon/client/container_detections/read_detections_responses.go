@@ -6,6 +6,7 @@ package container_detections
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadDetectionsOK) Code() int {
 }
 
 func (o *ReadDetectionsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsOK %s", 200, payload)
 }
 
 func (o *ReadDetectionsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsOK %s", 200, payload)
 }
 
 func (o *ReadDetectionsOK) GetPayload() *models.DetectionsAPIAssessmentDetections {
@@ -222,11 +225,13 @@ func (o *ReadDetectionsForbidden) Code() int {
 }
 
 func (o *ReadDetectionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsForbidden %s", 403, payload)
 }
 
 func (o *ReadDetectionsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsForbidden %s", 403, payload)
 }
 
 func (o *ReadDetectionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadDetectionsTooManyRequests) Code() int {
 }
 
 func (o *ReadDetectionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDetectionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDetectionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadDetectionsInternalServerError) Code() int {
 }
 
 func (o *ReadDetectionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDetectionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/detections/v1][%d] readDetectionsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDetectionsInternalServerError) GetPayload() *models.CoreEntitiesResponse {

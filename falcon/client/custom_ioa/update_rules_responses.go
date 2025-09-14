@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateRulesOK) Code() int {
 }
 
 func (o *UpdateRulesOK) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesOK %s", 200, payload)
 }
 
 func (o *UpdateRulesOK) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesOK %s", 200, payload)
 }
 
 func (o *UpdateRulesOK) GetPayload() *models.APIRulesResponse {
@@ -228,11 +231,13 @@ func (o *UpdateRulesForbidden) Code() int {
 }
 
 func (o *UpdateRulesForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesForbidden %s", 403, payload)
 }
 
 func (o *UpdateRulesForbidden) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesForbidden %s", 403, payload)
 }
 
 func (o *UpdateRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *UpdateRulesNotFound) Code() int {
 }
 
 func (o *UpdateRulesNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesNotFound %s", 404, payload)
 }
 
 func (o *UpdateRulesNotFound) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesNotFound %s", 404, payload)
 }
 
 func (o *UpdateRulesNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateRulesTooManyRequests) Code() int {
 }
 
 func (o *UpdateRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateRulesInternalServerError) Code() int {
 }
 
 func (o *UpdateRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRulesInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRulesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package container_image_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtAggregateFailedContainersByRulesPathOK) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathOK) GetPayload() *models.DomainAggregateFailedAssetsByRulesResponse {
@@ -234,11 +237,13 @@ func (o *ExtAggregateFailedContainersByRulesPathBadRequest) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathBadRequest) GetPayload() *models.DomainAggregateFailedAssetsByRulesResponse {
@@ -344,11 +349,13 @@ func (o *ExtAggregateFailedContainersByRulesPathUnauthorized) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathUnauthorized) GetPayload() *models.DomainAggregateFailedAssetsByRulesResponse {
@@ -454,11 +461,13 @@ func (o *ExtAggregateFailedContainersByRulesPathForbidden) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathForbidden) GetPayload() *models.DomainAggregateFailedAssetsByRulesResponse {
@@ -568,11 +577,13 @@ func (o *ExtAggregateFailedContainersByRulesPathTooManyRequests) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtAggregateFailedContainersByRulesPathInternalServerError) Code() int 
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-by-rules/v2][%d] extAggregateFailedContainersByRulesPathInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedContainersByRulesPathInternalServerError) GetPayload() *models.DomainAggregateFailedAssetsByRulesResponse {

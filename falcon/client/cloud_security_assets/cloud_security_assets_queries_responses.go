@@ -6,6 +6,7 @@ package cloud_security_assets
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudSecurityAssetsQueriesOK) Code() int {
 }
 
 func (o *CloudSecurityAssetsQueriesOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesOK %s", 200, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesOK) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesOK %s", 200, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesOK) GetPayload() *models.AssetsGetResourceIDsResponse {
@@ -234,11 +237,13 @@ func (o *CloudSecurityAssetsQueriesBadRequest) Code() int {
 }
 
 func (o *CloudSecurityAssetsQueriesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesBadRequest) GetPayload() *models.RestCursorResponseFields {
@@ -344,11 +349,13 @@ func (o *CloudSecurityAssetsQueriesForbidden) Code() int {
 }
 
 func (o *CloudSecurityAssetsQueriesForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *CloudSecurityAssetsQueriesRequestTimeout) Code() int {
 }
 
 func (o *CloudSecurityAssetsQueriesRequestTimeout) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesRequestTimeout) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesRequestTimeout) GetPayload() *models.RestCursorResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudSecurityAssetsQueriesTooManyRequests) Code() int {
 }
 
 func (o *CloudSecurityAssetsQueriesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudSecurityAssetsQueriesInternalServerError) Code() int {
 }
 
 func (o *CloudSecurityAssetsQueriesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/queries/resources/v1][%d] cloudSecurityAssetsQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityAssetsQueriesInternalServerError) GetPayload() *models.RestCursorResponseFields {

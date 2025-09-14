@@ -21,11 +21,12 @@ import (
 type CommonCreateRuleRequest struct {
 
 	// alert info
-	// Required: true
-	AlertInfo *string `json:"alert_info"`
+	AlertInfo string `json:"alert_info,omitempty"`
+
+	// attack types
+	AttackTypes string `json:"attack_types,omitempty"`
 
 	// controls
-	// Required: true
 	Controls []*DbmodelsControlReference `json:"controls"`
 
 	// description
@@ -35,6 +36,10 @@ type CommonCreateRuleRequest struct {
 	// domain
 	// Required: true
 	Domain *string `json:"domain"`
+
+	// logic
+	// Required: true
+	Logic *string `json:"logic"`
 
 	// name
 	// Required: true
@@ -48,25 +53,22 @@ type CommonCreateRuleRequest struct {
 	// Required: true
 	Platform *string `json:"platform"`
 
-	// remediation info
+	// provider
 	// Required: true
-	RemediationInfo *string `json:"remediation_info"`
+	Provider *string `json:"provider"`
+
+	// remediation info
+	RemediationInfo string `json:"remediation_info,omitempty"`
 
 	// remediation url
-	// Required: true
-	RemediationURL *string `json:"remediation_url"`
+	RemediationURL string `json:"remediation_url,omitempty"`
 
 	// resource type
 	// Required: true
 	ResourceType *string `json:"resource_type"`
 
-	// service
-	// Required: true
-	Service *string `json:"service"`
-
 	// severity
-	// Required: true
-	Severity *int32 `json:"severity"`
+	Severity int64 `json:"severity,omitempty"`
 
 	// subdomain
 	// Required: true
@@ -77,10 +79,6 @@ type CommonCreateRuleRequest struct {
 func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAlertInfo(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateControls(formats); err != nil {
 		res = append(res, err)
 	}
@@ -90,6 +88,10 @@ func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDomain(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLogic(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -105,23 +107,11 @@ func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateRemediationInfo(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRemediationURL(formats); err != nil {
+	if err := m.validateProvider(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateResourceType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateService(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSeverity(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -135,19 +125,9 @@ func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonCreateRuleRequest) validateAlertInfo(formats strfmt.Registry) error {
-
-	if err := validate.Required("alert_info", "body", m.AlertInfo); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *CommonCreateRuleRequest) validateControls(formats strfmt.Registry) error {
-
-	if err := validate.Required("controls", "body", m.Controls); err != nil {
-		return err
+	if swag.IsZero(m.Controls) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Controls); i++ {
@@ -189,6 +169,15 @@ func (m *CommonCreateRuleRequest) validateDomain(formats strfmt.Registry) error 
 	return nil
 }
 
+func (m *CommonCreateRuleRequest) validateLogic(formats strfmt.Registry) error {
+
+	if err := validate.Required("logic", "body", m.Logic); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *CommonCreateRuleRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -216,18 +205,9 @@ func (m *CommonCreateRuleRequest) validatePlatform(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *CommonCreateRuleRequest) validateRemediationInfo(formats strfmt.Registry) error {
+func (m *CommonCreateRuleRequest) validateProvider(formats strfmt.Registry) error {
 
-	if err := validate.Required("remediation_info", "body", m.RemediationInfo); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateRemediationURL(formats strfmt.Registry) error {
-
-	if err := validate.Required("remediation_url", "body", m.RemediationURL); err != nil {
+	if err := validate.Required("provider", "body", m.Provider); err != nil {
 		return err
 	}
 
@@ -237,24 +217,6 @@ func (m *CommonCreateRuleRequest) validateRemediationURL(formats strfmt.Registry
 func (m *CommonCreateRuleRequest) validateResourceType(formats strfmt.Registry) error {
 
 	if err := validate.Required("resource_type", "body", m.ResourceType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateService(formats strfmt.Registry) error {
-
-	if err := validate.Required("service", "body", m.Service); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateSeverity(formats strfmt.Registry) error {
-
-	if err := validate.Required("severity", "body", m.Severity); err != nil {
 		return err
 	}
 

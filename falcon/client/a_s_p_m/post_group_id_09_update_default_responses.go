@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -128,11 +129,11 @@ func (o *PostGroupId09UpdateDefaultOK) Code() int {
 }
 
 func (o *PostGroupId09UpdateDefaultOK) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultOK", 200)
 }
 
 func (o *PostGroupId09UpdateDefaultOK) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultOK", 200)
 }
 
 func (o *PostGroupId09UpdateDefaultOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -225,11 +226,11 @@ func (o *PostGroupId09UpdateDefaultCreated) Code() int {
 }
 
 func (o *PostGroupId09UpdateDefaultCreated) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultCreated ", 201)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultCreated", 201)
 }
 
 func (o *PostGroupId09UpdateDefaultCreated) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultCreated ", 201)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultCreated", 201)
 }
 
 func (o *PostGroupId09UpdateDefaultCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -324,11 +325,13 @@ func (o *PostGroupId09UpdateDefaultBadRequest) Code() int {
 }
 
 func (o *PostGroupId09UpdateDefaultBadRequest) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultBadRequest %s", 400, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultBadRequest) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultBadRequest %s", 400, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -434,11 +437,13 @@ func (o *PostGroupId09UpdateDefaultUnauthorized) Code() int {
 }
 
 func (o *PostGroupId09UpdateDefaultUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultUnauthorized %s", 401, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultUnauthorized) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultUnauthorized %s", 401, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -544,11 +549,13 @@ func (o *PostGroupId09UpdateDefaultForbidden) Code() int {
 }
 
 func (o *PostGroupId09UpdateDefaultForbidden) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultForbidden %s", 403, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultForbidden) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultForbidden %s", 403, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultForbidden) GetPayload() *models.TypesErrorMessage {
@@ -658,11 +665,13 @@ func (o *PostGroupId09UpdateDefaultTooManyRequests) Code() int {
 }
 
 func (o *PostGroupId09UpdateDefaultTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultTooManyRequests %s", 429, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultTooManyRequests %s", 429, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -779,11 +788,13 @@ func (o *PostGroupId09UpdateDefaultInternalServerError) Code() int {
 }
 
 func (o *PostGroupId09UpdateDefaultInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultInternalServerError %s", 500, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultInternalServerError) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/group/{ID}/update_default][%d] postGroupId09UpdateDefaultInternalServerError %s", 500, payload)
 }
 
 func (o *PostGroupId09UpdateDefaultInternalServerError) GetPayload() *models.TypesErrorMessage {

@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationDeletePolicyOK) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyOK) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeletePolicyOK) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeletePolicyOK) GetPayload() *models.ItautomationDeletePolicyResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationDeletePolicyBadRequest) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeletePolicyBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeletePolicyBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationDeletePolicyForbidden) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeletePolicyForbidden) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeletePolicyForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationDeletePolicyTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeletePolicyTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeletePolicyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationDeletePolicyInternalServerError) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeletePolicyInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeletePolicyInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationStartExecutionResultsSearchCreated) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchCreated) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated %s", 201, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchCreated) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated %s", 201, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchCreated) GetPayload() *models.ItautomationSearchStatusResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationStartExecutionResultsSearchBadRequest) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchBadRequest) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchBadRequest) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationStartExecutionResultsSearchForbidden) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchForbidden) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchForbidden) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationStartExecutionResultsSearchInternalServerError) Code() int 
 }
 
 func (o *ITAutomationStartExecutionResultsSearchInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchInternalServerError) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

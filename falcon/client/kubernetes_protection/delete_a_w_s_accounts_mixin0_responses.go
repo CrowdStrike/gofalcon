@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteAWSAccountsMixin0OK) Code() int {
 }
 
 func (o *DeleteAWSAccountsMixin0OK) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0OK %s", 200, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0OK) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0OK %s", 200, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0OK) GetPayload() *models.MsaMetaInfo {
@@ -234,11 +237,13 @@ func (o *DeleteAWSAccountsMixin0MultiStatus) Code() int {
 }
 
 func (o *DeleteAWSAccountsMixin0MultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0MultiStatus %s", 207, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0MultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0MultiStatus %s", 207, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0MultiStatus) GetPayload() *models.MsaMetaInfo {
@@ -344,11 +349,13 @@ func (o *DeleteAWSAccountsMixin0BadRequest) Code() int {
 }
 
 func (o *DeleteAWSAccountsMixin0BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0BadRequest %s", 400, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0BadRequest) GetPayload() *models.MsaMetaInfo {
@@ -454,11 +461,13 @@ func (o *DeleteAWSAccountsMixin0Forbidden) Code() int {
 }
 
 func (o *DeleteAWSAccountsMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0Forbidden %s", 403, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *DeleteAWSAccountsMixin0TooManyRequests) Code() int {
 }
 
 func (o *DeleteAWSAccountsMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteAWSAccountsMixin0InternalServerError) Code() int {
 }
 
 func (o *DeleteAWSAccountsMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteAWSAccountsMixin0InternalServerError) GetPayload() *models.MsaMetaInfo {

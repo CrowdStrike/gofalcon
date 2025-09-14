@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryMitreAttacksOK) Code() int {
 }
 
 func (o *QueryMitreAttacksOK) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksOK %s", 200, payload)
 }
 
 func (o *QueryMitreAttacksOK) String() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksOK %s", 200, payload)
 }
 
 func (o *QueryMitreAttacksOK) GetPayload() *models.DomainQueryMitreAttacksResponse {
@@ -222,11 +225,13 @@ func (o *QueryMitreAttacksForbidden) Code() int {
 }
 
 func (o *QueryMitreAttacksForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksForbidden %s", 403, payload)
 }
 
 func (o *QueryMitreAttacksForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksForbidden %s", 403, payload)
 }
 
 func (o *QueryMitreAttacksForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryMitreAttacksTooManyRequests) Code() int {
 }
 
 func (o *QueryMitreAttacksTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryMitreAttacksTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryMitreAttacksTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryMitreAttacksInternalServerError) Code() int {
 }
 
 func (o *QueryMitreAttacksInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksInternalServerError %s", 500, payload)
 }
 
 func (o *QueryMitreAttacksInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksInternalServerError %s", 500, payload)
 }
 
 func (o *QueryMitreAttacksInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

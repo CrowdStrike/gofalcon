@@ -35,7 +35,7 @@ type ItautomationTaskParameter struct {
 
 	// Type of input field
 	// Required: true
-	// Enum: [text option]
+	// Enum: ["text","option"]
 	InputType *string `json:"input_type"`
 
 	// Unique identifier for the parameter, corresponds to placeholder used in task content. Example: api_key
@@ -52,7 +52,7 @@ type ItautomationTaskParameter struct {
 
 	// Type of validation to apply when input_type is text
 	// Required: true
-	// Enum: [text alphanumeric integer float ip filepath filepathwin filepathunix datetime semver macaddress uuid port winhost dnshost]
+	// Enum: ["text","alphanumeric","integer","float","ip","filepath","filepathwin","filepathunix","datetime","semver","macaddress","uuid","port","winhost","dnshost"]
 	ValidationType *string `json:"validation_type"`
 }
 

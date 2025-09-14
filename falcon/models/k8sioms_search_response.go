@@ -15,13 +15,12 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ActivitiesLegacyActivityExternalResponse activities legacy activity external response
+// K8siomsSearchResponse k8sioms search response
 //
-// swagger:model activities.LegacyActivityExternalResponse
-type ActivitiesLegacyActivityExternalResponse struct {
+// swagger:model k8sioms.SearchResponse
+type K8siomsSearchResponse struct {
 
 	// errors
-	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
@@ -30,11 +29,11 @@ type ActivitiesLegacyActivityExternalResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*ActivitiesLegacyExternalActivity `json:"resources"`
+	Resources []*K8siomsSearchResult `json:"resources"`
 }
 
-// Validate validates this activities legacy activity external response
-func (m *ActivitiesLegacyActivityExternalResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this k8sioms search response
+func (m *K8siomsSearchResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,10 +54,9 @@ func (m *ActivitiesLegacyActivityExternalResponse) Validate(formats strfmt.Regis
 	return nil
 }
 
-func (m *ActivitiesLegacyActivityExternalResponse) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+func (m *K8siomsSearchResponse) validateErrors(formats strfmt.Registry) error {
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {
@@ -82,7 +80,7 @@ func (m *ActivitiesLegacyActivityExternalResponse) validateErrors(formats strfmt
 	return nil
 }
 
-func (m *ActivitiesLegacyActivityExternalResponse) validateMeta(formats strfmt.Registry) error {
+func (m *K8siomsSearchResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,7 +100,7 @@ func (m *ActivitiesLegacyActivityExternalResponse) validateMeta(formats strfmt.R
 	return nil
 }
 
-func (m *ActivitiesLegacyActivityExternalResponse) validateResources(formats strfmt.Registry) error {
+func (m *K8siomsSearchResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -129,8 +127,8 @@ func (m *ActivitiesLegacyActivityExternalResponse) validateResources(formats str
 	return nil
 }
 
-// ContextValidate validate this activities legacy activity external response based on the context it is used
-func (m *ActivitiesLegacyActivityExternalResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this k8sioms search response based on the context it is used
+func (m *K8siomsSearchResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -151,7 +149,7 @@ func (m *ActivitiesLegacyActivityExternalResponse) ContextValidate(ctx context.C
 	return nil
 }
 
-func (m *ActivitiesLegacyActivityExternalResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *K8siomsSearchResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -176,7 +174,7 @@ func (m *ActivitiesLegacyActivityExternalResponse) contextValidateErrors(ctx con
 	return nil
 }
 
-func (m *ActivitiesLegacyActivityExternalResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *K8siomsSearchResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -193,7 +191,7 @@ func (m *ActivitiesLegacyActivityExternalResponse) contextValidateMeta(ctx conte
 	return nil
 }
 
-func (m *ActivitiesLegacyActivityExternalResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *K8siomsSearchResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -219,7 +217,7 @@ func (m *ActivitiesLegacyActivityExternalResponse) contextValidateResources(ctx 
 }
 
 // MarshalBinary interface implementation
-func (m *ActivitiesLegacyActivityExternalResponse) MarshalBinary() ([]byte, error) {
+func (m *K8siomsSearchResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -227,8 +225,8 @@ func (m *ActivitiesLegacyActivityExternalResponse) MarshalBinary() ([]byte, erro
 }
 
 // UnmarshalBinary interface implementation
-func (m *ActivitiesLegacyActivityExternalResponse) UnmarshalBinary(b []byte) error {
-	var res ActivitiesLegacyActivityExternalResponse
+func (m *K8siomsSearchResponse) UnmarshalBinary(b []byte) error {
+	var res K8siomsSearchResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -6,6 +6,7 @@ package ml_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateMLExclusionsV1OK) Code() int {
 }
 
 func (o *CreateMLExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1OK %s", 200, payload)
 }
 
 func (o *CreateMLExclusionsV1OK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1OK %s", 200, payload)
 }
 
 func (o *CreateMLExclusionsV1OK) GetPayload() *models.ExclusionsRespV1 {
@@ -228,11 +231,13 @@ func (o *CreateMLExclusionsV1BadRequest) Code() int {
 }
 
 func (o *CreateMLExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateMLExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateMLExclusionsV1BadRequest) GetPayload() *models.ExclusionsRespV1 {
@@ -338,11 +343,13 @@ func (o *CreateMLExclusionsV1Forbidden) Code() int {
 }
 
 func (o *CreateMLExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateMLExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *CreateMLExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *CreateMLExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateMLExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateMLExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateMLExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *CreateMLExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateMLExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateMLExclusionsV1InternalServerError) GetPayload() *models.ExclusionsRespV1 {

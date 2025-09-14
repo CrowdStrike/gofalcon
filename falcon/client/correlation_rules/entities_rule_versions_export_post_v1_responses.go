@@ -6,6 +6,7 @@ package correlation_rules
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *EntitiesRuleVersionsExportPostV1OK) Code() int {
 }
 
 func (o *EntitiesRuleVersionsExportPostV1OK) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1OK) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1OK) GetPayload() *models.APIJobLinkResponseV1 {
@@ -240,11 +243,13 @@ func (o *EntitiesRuleVersionsExportPostV1BadRequest) Code() int {
 }
 
 func (o *EntitiesRuleVersionsExportPostV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1BadRequest) GetPayload() *models.APIJobLinkResponseV1 {
@@ -350,11 +355,13 @@ func (o *EntitiesRuleVersionsExportPostV1Unauthorized) Code() int {
 }
 
 func (o *EntitiesRuleVersionsExportPostV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1Unauthorized) GetPayload() *models.APIJobLinkResponseV1 {
@@ -460,11 +467,13 @@ func (o *EntitiesRuleVersionsExportPostV1Forbidden) Code() int {
 }
 
 func (o *EntitiesRuleVersionsExportPostV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1Forbidden) GetPayload() *models.APIJobLinkResponseV1 {
@@ -570,11 +579,13 @@ func (o *EntitiesRuleVersionsExportPostV1NotFound) Code() int {
 }
 
 func (o *EntitiesRuleVersionsExportPostV1NotFound) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1NotFound) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1NotFound) GetPayload() *models.APIJobLinkResponseV1 {
@@ -684,11 +695,13 @@ func (o *EntitiesRuleVersionsExportPostV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesRuleVersionsExportPostV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *EntitiesRuleVersionsExportPostV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesRuleVersionsExportPostV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRuleVersionsExportPostV1InternalServerError) GetPayload() *models.APIJobLinkResponseV1 {

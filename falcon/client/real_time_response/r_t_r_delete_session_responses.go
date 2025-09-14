@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRDeleteSessionNoContent) Code() int {
 }
 
 func (o *RTRDeleteSessionNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionNoContent %s", 204, payload)
 }
 
 func (o *RTRDeleteSessionNoContent) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionNoContent %s", 204, payload)
 }
 
 func (o *RTRDeleteSessionNoContent) GetPayload() *models.MsaReplyMetaOnly {
@@ -234,11 +237,13 @@ func (o *RTRDeleteSessionBadRequest) Code() int {
 }
 
 func (o *RTRDeleteSessionBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionBadRequest %s", 400, payload)
 }
 
 func (o *RTRDeleteSessionBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionBadRequest %s", 400, payload)
 }
 
 func (o *RTRDeleteSessionBadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRDeleteSessionUnauthorized) Code() int {
 }
 
 func (o *RTRDeleteSessionUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionUnauthorized %s", 401, payload)
 }
 
 func (o *RTRDeleteSessionUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionUnauthorized %s", 401, payload)
 }
 
 func (o *RTRDeleteSessionUnauthorized) GetPayload() *models.DomainAPIError {
@@ -454,11 +461,13 @@ func (o *RTRDeleteSessionForbidden) Code() int {
 }
 
 func (o *RTRDeleteSessionForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionForbidden %s", 403, payload)
 }
 
 func (o *RTRDeleteSessionForbidden) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionForbidden %s", 403, payload)
 }
 
 func (o *RTRDeleteSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *RTRDeleteSessionTooManyRequests) Code() int {
 }
 
 func (o *RTRDeleteSessionTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRDeleteSessionTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRDeleteSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRDeleteSessionInternalServerError) Code() int {
 }
 
 func (o *RTRDeleteSessionInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionInternalServerError %s", 500, payload)
 }
 
 func (o *RTRDeleteSessionInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionInternalServerError %s", 500, payload)
 }
 
 func (o *RTRDeleteSessionInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

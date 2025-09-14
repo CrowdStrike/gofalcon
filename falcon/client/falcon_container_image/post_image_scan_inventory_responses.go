@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -116,11 +117,11 @@ func (o *PostImageScanInventoryOK) Code() int {
 }
 
 func (o *PostImageScanInventoryOK) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryOK ", 200)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryOK", 200)
 }
 
 func (o *PostImageScanInventoryOK) String() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryOK ", 200)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryOK", 200)
 }
 
 func (o *PostImageScanInventoryOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -213,11 +214,11 @@ func (o *PostImageScanInventoryBadRequest) Code() int {
 }
 
 func (o *PostImageScanInventoryBadRequest) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryBadRequest ", 400)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryBadRequest", 400)
 }
 
 func (o *PostImageScanInventoryBadRequest) String() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryBadRequest ", 400)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryBadRequest", 400)
 }
 
 func (o *PostImageScanInventoryBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -312,11 +313,13 @@ func (o *PostImageScanInventoryForbidden) Code() int {
 }
 
 func (o *PostImageScanInventoryForbidden) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryForbidden %s", 403, payload)
 }
 
 func (o *PostImageScanInventoryForbidden) String() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryForbidden %s", 403, payload)
 }
 
 func (o *PostImageScanInventoryForbidden) GetPayload() *models.CoreEntitiesResponse {
@@ -426,11 +429,13 @@ func (o *PostImageScanInventoryTooManyRequests) Code() int {
 }
 
 func (o *PostImageScanInventoryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryTooManyRequests %s", 429, payload)
 }
 
 func (o *PostImageScanInventoryTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryTooManyRequests %s", 429, payload)
 }
 
 func (o *PostImageScanInventoryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -545,11 +550,11 @@ func (o *PostImageScanInventoryInternalServerError) Code() int {
 }
 
 func (o *PostImageScanInventoryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryInternalServerError ", 500)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryInternalServerError", 500)
 }
 
 func (o *PostImageScanInventoryInternalServerError) String() string {
-	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryInternalServerError ", 500)
+	return fmt.Sprintf("[POST /image-assessment/entities/image-inventory/v1][%d] postImageScanInventoryInternalServerError", 500)
 }
 
 func (o *PostImageScanInventoryInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

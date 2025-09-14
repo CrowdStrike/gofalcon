@@ -6,6 +6,7 @@ package cloud_oci_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudSecurityRegistrationOciRotateKeyCreated) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyCreated %s", 201, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyCreated %s", 201, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyCreated) GetPayload() *models.DomainOCITenancyRotateKeyResponseExtV1 {
@@ -234,11 +237,13 @@ func (o *CloudSecurityRegistrationOciRotateKeyMultiStatus) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyMultiStatus) GetPayload() *models.DomainOCITenancyRotateKeyResponseExtV1 {
@@ -344,11 +349,13 @@ func (o *CloudSecurityRegistrationOciRotateKeyBadRequest) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CloudSecurityRegistrationOciRotateKeyForbidden) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudSecurityRegistrationOciRotateKeyTooManyRequests) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudSecurityRegistrationOciRotateKeyInternalServerError) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/account-rotate-keys/v1][%d] cloudSecurityRegistrationOciRotateKeyInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciRotateKeyInternalServerError) GetPayload() *models.MsaspecResponseFields {

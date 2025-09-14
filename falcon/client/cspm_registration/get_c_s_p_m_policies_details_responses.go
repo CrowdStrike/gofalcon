@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCSPMPoliciesDetailsOK) Code() int {
 }
 
 func (o *GetCSPMPoliciesDetailsOK) Error() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsOK %s", 200, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsOK) String() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsOK %s", 200, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsOK) GetPayload() *models.RegistrationPolicyResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetCSPMPoliciesDetailsMultiStatus) Code() int {
 }
 
 func (o *GetCSPMPoliciesDetailsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsMultiStatus %s", 207, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsMultiStatus %s", 207, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsMultiStatus) GetPayload() *models.RegistrationPolicyResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetCSPMPoliciesDetailsBadRequest) Code() int {
 }
 
 func (o *GetCSPMPoliciesDetailsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsBadRequest) String() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsBadRequest) GetPayload() *models.RegistrationPolicyResponseV1 {
@@ -454,11 +461,13 @@ func (o *GetCSPMPoliciesDetailsForbidden) Code() int {
 }
 
 func (o *GetCSPMPoliciesDetailsForbidden) Error() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsForbidden) String() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetCSPMPoliciesDetailsTooManyRequests) Code() int {
 }
 
 func (o *GetCSPMPoliciesDetailsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCSPMPoliciesDetailsInternalServerError) Code() int {
 }
 
 func (o *GetCSPMPoliciesDetailsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v2][%d] getCSPMPoliciesDetailsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMPoliciesDetailsInternalServerError) GetPayload() *models.RegistrationPolicyResponseV1 {

@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetCSPMGCPServiceAccountsExtOK) Code() int {
 }
 
 func (o *GetCSPMGCPServiceAccountsExtOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtOK %s", 200, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtOK %s", 200, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtOK) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {
@@ -228,11 +231,13 @@ func (o *GetCSPMGCPServiceAccountsExtBadRequest) Code() int {
 }
 
 func (o *GetCSPMGCPServiceAccountsExtBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtBadRequest) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {
@@ -338,11 +343,13 @@ func (o *GetCSPMGCPServiceAccountsExtForbidden) Code() int {
 }
 
 func (o *GetCSPMGCPServiceAccountsExtForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetCSPMGCPServiceAccountsExtTooManyRequests) Code() int {
 }
 
 func (o *GetCSPMGCPServiceAccountsExtTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetCSPMGCPServiceAccountsExtInternalServerError) Code() int {
 }
 
 func (o *GetCSPMGCPServiceAccountsExtInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-gcp/entities/service-accounts/v1][%d] getCSPMGCPServiceAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMGCPServiceAccountsExtInternalServerError) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {

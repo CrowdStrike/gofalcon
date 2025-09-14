@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *BatchAdminCmdCreated) Code() int {
 }
 
 func (o *BatchAdminCmdCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdCreated %s", 201, payload)
 }
 
 func (o *BatchAdminCmdCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdCreated %s", 201, payload)
 }
 
 func (o *BatchAdminCmdCreated) GetPayload() *models.DomainMultiCommandExecuteResponseWrapper {
@@ -228,11 +231,13 @@ func (o *BatchAdminCmdBadRequest) Code() int {
 }
 
 func (o *BatchAdminCmdBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdBadRequest %s", 400, payload)
 }
 
 func (o *BatchAdminCmdBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdBadRequest %s", 400, payload)
 }
 
 func (o *BatchAdminCmdBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *BatchAdminCmdForbidden) Code() int {
 }
 
 func (o *BatchAdminCmdForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdForbidden %s", 403, payload)
 }
 
 func (o *BatchAdminCmdForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdForbidden %s", 403, payload)
 }
 
 func (o *BatchAdminCmdForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *BatchAdminCmdTooManyRequests) Code() int {
 }
 
 func (o *BatchAdminCmdTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchAdminCmdTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdTooManyRequests %s", 429, payload)
 }
 
 func (o *BatchAdminCmdTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *BatchAdminCmdInternalServerError) Code() int {
 }
 
 func (o *BatchAdminCmdInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdInternalServerError %s", 500, payload)
 }
 
 func (o *BatchAdminCmdInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdInternalServerError %s", 500, payload)
 }
 
 func (o *BatchAdminCmdInternalServerError) GetPayload() *models.DomainAPIError {

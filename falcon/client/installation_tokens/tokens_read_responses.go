@@ -6,6 +6,7 @@ package installation_tokens
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *TokensReadOK) Code() int {
 }
 
 func (o *TokensReadOK) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadOK %s", 200, payload)
 }
 
 func (o *TokensReadOK) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadOK %s", 200, payload)
 }
 
 func (o *TokensReadOK) GetPayload() *models.APITokenDetailsResponseV1 {
@@ -228,11 +231,13 @@ func (o *TokensReadBadRequest) Code() int {
 }
 
 func (o *TokensReadBadRequest) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest %s", 400, payload)
 }
 
 func (o *TokensReadBadRequest) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest %s", 400, payload)
 }
 
 func (o *TokensReadBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *TokensReadForbidden) Code() int {
 }
 
 func (o *TokensReadForbidden) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadForbidden %s", 403, payload)
 }
 
 func (o *TokensReadForbidden) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadForbidden %s", 403, payload)
 }
 
 func (o *TokensReadForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *TokensReadTooManyRequests) Code() int {
 }
 
 func (o *TokensReadTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensReadTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensReadTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *TokensReadInternalServerError) Code() int {
 }
 
 func (o *TokensReadInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError %s", 500, payload)
 }
 
 func (o *TokensReadInternalServerError) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError %s", 500, payload)
 }
 
 func (o *TokensReadInternalServerError) GetPayload() *models.MsaspecResponseFields {

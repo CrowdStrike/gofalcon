@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryUserGroupMembersOK) Code() int {
 }
 
 func (o *QueryUserGroupMembersOK) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersOK %s", 200, payload)
 }
 
 func (o *QueryUserGroupMembersOK) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersOK %s", 200, payload)
 }
 
 func (o *QueryUserGroupMembersOK) GetPayload() *models.MsaQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryUserGroupMembersForbidden) Code() int {
 }
 
 func (o *QueryUserGroupMembersForbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryUserGroupMembersForbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryUserGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -336,11 +341,13 @@ func (o *QueryUserGroupMembersTooManyRequests) Code() int {
 }
 
 func (o *QueryUserGroupMembersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryUserGroupMembersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryUserGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryUserGroupMembersInternalServerError) Code() int {
 }
 
 func (o *QueryUserGroupMembersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryUserGroupMembersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryUserGroupMembersInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

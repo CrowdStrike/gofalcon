@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DeletePolicyOK) Code() int {
 }
 
 func (o *DeletePolicyOK) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyOK %s", 200, payload)
 }
 
 func (o *DeletePolicyOK) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyOK %s", 200, payload)
 }
 
 func (o *DeletePolicyOK) GetPayload() *models.CoreEntitiesResponse {
@@ -222,11 +225,13 @@ func (o *DeletePolicyForbidden) Code() int {
 }
 
 func (o *DeletePolicyForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyForbidden %s", 403, payload)
 }
 
 func (o *DeletePolicyForbidden) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyForbidden %s", 403, payload)
 }
 
 func (o *DeletePolicyForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DeletePolicyTooManyRequests) Code() int {
 }
 
 func (o *DeletePolicyTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePolicyTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *DeletePolicyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DeletePolicyInternalServerError) Code() int {
 }
 
 func (o *DeletePolicyInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePolicyInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/image-assessment-policies/v1][%d] deletePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *DeletePolicyInternalServerError) GetPayload() *models.CoreEntitiesResponse {

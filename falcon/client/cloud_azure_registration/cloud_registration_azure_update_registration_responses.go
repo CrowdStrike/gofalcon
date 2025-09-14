@@ -6,6 +6,7 @@ package cloud_azure_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CloudRegistrationAzureUpdateRegistrationOK) Code() int {
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationOK) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationOK) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationOK) GetPayload() *models.AzureAzureRegistrationResponseExtV1 {
@@ -240,11 +243,13 @@ func (o *CloudRegistrationAzureUpdateRegistrationBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *CloudRegistrationAzureUpdateRegistrationForbidden) Code() int {
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *CloudRegistrationAzureUpdateRegistrationNotFound) Code() int {
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationNotFound %s", 404, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationNotFound) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationNotFound %s", 404, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *CloudRegistrationAzureUpdateRegistrationConflict) Code() int {
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationConflict) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationConflict %s", 409, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationConflict) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationConflict %s", 409, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationConflict) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *CloudRegistrationAzureUpdateRegistrationTooManyRequests) Code() int {
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CloudRegistrationAzureUpdateRegistrationInternalServerError) Code() int
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureUpdateRegistrationInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureUpdateRegistrationInternalServerError) GetPayload() *models.MsaspecResponseFields {

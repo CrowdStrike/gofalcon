@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetPolicyContainersOK) Code() int {
 }
 
 func (o *GetPolicyContainersOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersOK %s", 200, payload)
 }
 
 func (o *GetPolicyContainersOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersOK %s", 200, payload)
 }
 
 func (o *GetPolicyContainersOK) GetPayload() *models.FwmgrAPIPolicyContainersResponse {
@@ -228,11 +231,13 @@ func (o *GetPolicyContainersBadRequest) Code() int {
 }
 
 func (o *GetPolicyContainersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersBadRequest %s", 400, payload)
 }
 
 func (o *GetPolicyContainersBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersBadRequest %s", 400, payload)
 }
 
 func (o *GetPolicyContainersBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetPolicyContainersForbidden) Code() int {
 }
 
 func (o *GetPolicyContainersForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersForbidden %s", 403, payload)
 }
 
 func (o *GetPolicyContainersForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersForbidden %s", 403, payload)
 }
 
 func (o *GetPolicyContainersForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetPolicyContainersTooManyRequests) Code() int {
 }
 
 func (o *GetPolicyContainersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersTooManyRequests %s", 429, payload)
 }
 
 func (o *GetPolicyContainersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersTooManyRequests %s", 429, payload)
 }
 
 func (o *GetPolicyContainersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetPolicyContainersInternalServerError) Code() int {
 }
 
 func (o *GetPolicyContainersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersInternalServerError %s", 500, payload)
 }
 
 func (o *GetPolicyContainersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersInternalServerError %s", 500, payload)
 }
 
 func (o *GetPolicyContainersInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

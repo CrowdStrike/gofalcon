@@ -6,6 +6,7 @@ package exposure_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryEcosystemSubsidiariesOK) Code() int {
 }
 
 func (o *QueryEcosystemSubsidiariesOK) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesOK %s", 200, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesOK) String() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesOK %s", 200, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesOK) GetPayload() *models.DomainFemEcosystemSubsidiariesQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryEcosystemSubsidiariesBadRequest) Code() int {
 }
 
 func (o *QueryEcosystemSubsidiariesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesBadRequest %s", 400, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesBadRequest) String() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesBadRequest %s", 400, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesBadRequest) GetPayload() *models.DomainFemEcosystemSubsidiariesResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryEcosystemSubsidiariesForbidden) Code() int {
 }
 
 func (o *QueryEcosystemSubsidiariesForbidden) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesForbidden %s", 403, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesForbidden) String() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesForbidden %s", 403, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryEcosystemSubsidiariesTooManyRequests) Code() int {
 }
 
 func (o *QueryEcosystemSubsidiariesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryEcosystemSubsidiariesInternalServerError) Code() int {
 }
 
 func (o *QueryEcosystemSubsidiariesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/queries/ecosystem-subsidiaries/v1][%d] queryEcosystemSubsidiariesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryEcosystemSubsidiariesInternalServerError) GetPayload() *models.DomainFemEcosystemSubsidiariesResponseFields {

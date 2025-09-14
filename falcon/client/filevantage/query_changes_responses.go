@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryChangesOK) Code() int {
 }
 
 func (o *QueryChangesOK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesOK %s", 200, payload)
 }
 
 func (o *QueryChangesOK) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesOK %s", 200, payload)
 }
 
 func (o *QueryChangesOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryChangesBadRequest) Code() int {
 }
 
 func (o *QueryChangesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesBadRequest %s", 400, payload)
 }
 
 func (o *QueryChangesBadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesBadRequest %s", 400, payload)
 }
 
 func (o *QueryChangesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryChangesForbidden) Code() int {
 }
 
 func (o *QueryChangesForbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesForbidden %s", 403, payload)
 }
 
 func (o *QueryChangesForbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesForbidden %s", 403, payload)
 }
 
 func (o *QueryChangesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryChangesTooManyRequests) Code() int {
 }
 
 func (o *QueryChangesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryChangesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryChangesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryChangesInternalServerError) Code() int {
 }
 
 func (o *QueryChangesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryChangesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryChangesInternalServerError) GetPayload() *models.MsaspecResponseFields {

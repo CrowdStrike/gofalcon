@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DeploymentsByDateRangeCountOK) Code() int {
 }
 
 func (o *DeploymentsByDateRangeCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *DeploymentsByDateRangeCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *DeploymentsByDateRangeCountOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *DeploymentsByDateRangeCountForbidden) Code() int {
 }
 
 func (o *DeploymentsByDateRangeCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *DeploymentsByDateRangeCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *DeploymentsByDateRangeCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DeploymentsByDateRangeCountTooManyRequests) Code() int {
 }
 
 func (o *DeploymentsByDateRangeCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *DeploymentsByDateRangeCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *DeploymentsByDateRangeCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DeploymentsByDateRangeCountInternalServerError) Code() int {
 }
 
 func (o *DeploymentsByDateRangeCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *DeploymentsByDateRangeCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/deployments/count-by-date/v1][%d] deploymentsByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *DeploymentsByDateRangeCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

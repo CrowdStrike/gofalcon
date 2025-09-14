@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *AggregateUsersV1OK) Code() int {
 }
 
 func (o *AggregateUsersV1OK) Error() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1OK %s", 200, payload)
 }
 
 func (o *AggregateUsersV1OK) String() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1OK %s", 200, payload)
 }
 
 func (o *AggregateUsersV1OK) GetPayload() *models.FlightcontrolapiAggregatesResponse {
@@ -222,11 +225,13 @@ func (o *AggregateUsersV1Forbidden) Code() int {
 }
 
 func (o *AggregateUsersV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregateUsersV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregateUsersV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *AggregateUsersV1TooManyRequests) Code() int {
 }
 
 func (o *AggregateUsersV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateUsersV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateUsersV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *AggregateUsersV1InternalServerError) Code() int {
 }
 
 func (o *AggregateUsersV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregateUsersV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /user-management/aggregates/users/v1][%d] aggregateUsersV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregateUsersV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

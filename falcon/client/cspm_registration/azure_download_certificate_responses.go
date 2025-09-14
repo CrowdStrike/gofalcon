@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AzureDownloadCertificateOK) Code() int {
 }
 
 func (o *AzureDownloadCertificateOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateOK %s", 200, payload)
 }
 
 func (o *AzureDownloadCertificateOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateOK %s", 200, payload)
 }
 
 func (o *AzureDownloadCertificateOK) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
@@ -228,11 +231,13 @@ func (o *AzureDownloadCertificateBadRequest) Code() int {
 }
 
 func (o *AzureDownloadCertificateBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateBadRequest %s", 400, payload)
 }
 
 func (o *AzureDownloadCertificateBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateBadRequest %s", 400, payload)
 }
 
 func (o *AzureDownloadCertificateBadRequest) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
@@ -338,11 +343,13 @@ func (o *AzureDownloadCertificateForbidden) Code() int {
 }
 
 func (o *AzureDownloadCertificateForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateForbidden %s", 403, payload)
 }
 
 func (o *AzureDownloadCertificateForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateForbidden %s", 403, payload)
 }
 
 func (o *AzureDownloadCertificateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AzureDownloadCertificateTooManyRequests) Code() int {
 }
 
 func (o *AzureDownloadCertificateTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateTooManyRequests %s", 429, payload)
 }
 
 func (o *AzureDownloadCertificateTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateTooManyRequests %s", 429, payload)
 }
 
 func (o *AzureDownloadCertificateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AzureDownloadCertificateInternalServerError) Code() int {
 }
 
 func (o *AzureDownloadCertificateInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateInternalServerError %s", 500, payload)
 }
 
 func (o *AzureDownloadCertificateInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateInternalServerError %s", 500, payload)
 }
 
 func (o *AzureDownloadCertificateInternalServerError) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {

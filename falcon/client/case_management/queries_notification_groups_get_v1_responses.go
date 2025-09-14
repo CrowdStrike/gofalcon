@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueriesNotificationGroupsGetV1OK) Code() int {
 }
 
 func (o *QueriesNotificationGroupsGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1OK %s", 200, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1OK) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1OK %s", 200, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1OK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueriesNotificationGroupsGetV1BadRequest) Code() int {
 }
 
 func (o *QueriesNotificationGroupsGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1BadRequest %s", 400, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1BadRequest %s", 400, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueriesNotificationGroupsGetV1Forbidden) Code() int {
 }
 
 func (o *QueriesNotificationGroupsGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *QueriesNotificationGroupsGetV1TooManyRequests) Code() int {
 }
 
 func (o *QueriesNotificationGroupsGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueriesNotificationGroupsGetV1InternalServerError) Code() int {
 }
 
 func (o *QueriesNotificationGroupsGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/notification-groups/v1][%d] queriesNotificationGroupsGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesNotificationGroupsGetV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

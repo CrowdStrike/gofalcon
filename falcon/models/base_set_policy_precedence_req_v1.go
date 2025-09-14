@@ -26,7 +26,7 @@ type BaseSetPolicyPrecedenceReqV1 struct {
 
 	// The name of the platform for which to set precedence
 	// Required: true
-	// Enum: [Windows Mac Linux]
+	// Enum: ["Windows","Mac","Linux"]
 	PlatformName *string `json:"platform_name"`
 }
 

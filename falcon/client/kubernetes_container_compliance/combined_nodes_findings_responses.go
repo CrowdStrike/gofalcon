@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CombinedNodesFindingsOK) Code() int {
 }
 
 func (o *CombinedNodesFindingsOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsOK %s", 200, payload)
 }
 
 func (o *CombinedNodesFindingsOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsOK %s", 200, payload)
 }
 
 func (o *CombinedNodesFindingsOK) GetPayload() *models.DomainAPIResponseNodesFindingsV1 {
@@ -228,11 +231,13 @@ func (o *CombinedNodesFindingsBadRequest) Code() int {
 }
 
 func (o *CombinedNodesFindingsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedNodesFindingsBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedNodesFindingsBadRequest) GetPayload() *models.DomainAPIResponseNodesFindingsV1 {
@@ -338,11 +343,13 @@ func (o *CombinedNodesFindingsForbidden) Code() int {
 }
 
 func (o *CombinedNodesFindingsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsForbidden %s", 403, payload)
 }
 
 func (o *CombinedNodesFindingsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsForbidden %s", 403, payload)
 }
 
 func (o *CombinedNodesFindingsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CombinedNodesFindingsTooManyRequests) Code() int {
 }
 
 func (o *CombinedNodesFindingsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedNodesFindingsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedNodesFindingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CombinedNodesFindingsInternalServerError) Code() int {
 }
 
 func (o *CombinedNodesFindingsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedNodesFindingsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/findings-by-nodes/v2][%d] combinedNodesFindingsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedNodesFindingsInternalServerError) GetPayload() *models.DomainAPIResponseNodesFindingsV1 {

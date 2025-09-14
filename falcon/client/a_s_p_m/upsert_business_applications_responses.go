@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -134,11 +135,11 @@ func (o *UpsertBusinessApplicationsOK) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsOK) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsOK ", 200)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsOK", 200)
 }
 
 func (o *UpsertBusinessApplicationsOK) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsOK ", 200)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsOK", 200)
 }
 
 func (o *UpsertBusinessApplicationsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -231,11 +232,11 @@ func (o *UpsertBusinessApplicationsCreated) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsCreated) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsCreated ", 201)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsCreated", 201)
 }
 
 func (o *UpsertBusinessApplicationsCreated) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsCreated ", 201)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsCreated", 201)
 }
 
 func (o *UpsertBusinessApplicationsCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -330,11 +331,13 @@ func (o *UpsertBusinessApplicationsBadRequest) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *UpsertBusinessApplicationsBadRequest) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *UpsertBusinessApplicationsBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -440,11 +443,13 @@ func (o *UpsertBusinessApplicationsUnauthorized) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsUnauthorized %s", 401, payload)
 }
 
 func (o *UpsertBusinessApplicationsUnauthorized) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsUnauthorized %s", 401, payload)
 }
 
 func (o *UpsertBusinessApplicationsUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -550,11 +555,13 @@ func (o *UpsertBusinessApplicationsForbidden) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsForbidden) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsForbidden %s", 403, payload)
 }
 
 func (o *UpsertBusinessApplicationsForbidden) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsForbidden %s", 403, payload)
 }
 
 func (o *UpsertBusinessApplicationsForbidden) GetPayload() *models.TypesErrorMessage {
@@ -664,11 +671,13 @@ func (o *UpsertBusinessApplicationsTooManyRequests) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpsertBusinessApplicationsTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpsertBusinessApplicationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -785,11 +794,13 @@ func (o *UpsertBusinessApplicationsInternalServerError) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *UpsertBusinessApplicationsInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *UpsertBusinessApplicationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -895,11 +906,13 @@ func (o *UpsertBusinessApplicationsServiceUnavailable) Code() int {
 }
 
 func (o *UpsertBusinessApplicationsServiceUnavailable) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsServiceUnavailable %s", 503, payload)
 }
 
 func (o *UpsertBusinessApplicationsServiceUnavailable) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/business_applications][%d] upsertBusinessApplicationsServiceUnavailable %s", 503, payload)
 }
 
 func (o *UpsertBusinessApplicationsServiceUnavailable) GetPayload() *models.TypesErrorMessage {

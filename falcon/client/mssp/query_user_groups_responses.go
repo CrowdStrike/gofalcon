@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryUserGroupsOK) Code() int {
 }
 
 func (o *QueryUserGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsOK %s", 200, payload)
 }
 
 func (o *QueryUserGroupsOK) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsOK %s", 200, payload)
 }
 
 func (o *QueryUserGroupsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryUserGroupsBadRequest) Code() int {
 }
 
 func (o *QueryUserGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryUserGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryUserGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *QueryUserGroupsForbidden) Code() int {
 }
 
 func (o *QueryUserGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryUserGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryUserGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryUserGroupsTooManyRequests) Code() int {
 }
 
 func (o *QueryUserGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryUserGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryUserGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryUserGroupsInternalServerError) Code() int {
 }
 
 func (o *QueryUserGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryUserGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryUserGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

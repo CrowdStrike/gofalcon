@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *AggregateCasesOK) Code() int {
 }
 
 func (o *AggregateCasesOK) Error() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesOK %s", 200, payload)
 }
 
 func (o *AggregateCasesOK) String() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesOK %s", 200, payload)
 }
 
 func (o *AggregateCasesOK) GetPayload() *models.MsaAggregatesResponse {
@@ -222,11 +225,13 @@ func (o *AggregateCasesForbidden) Code() int {
 }
 
 func (o *AggregateCasesForbidden) Error() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesForbidden %s", 403, payload)
 }
 
 func (o *AggregateCasesForbidden) String() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesForbidden %s", 403, payload)
 }
 
 func (o *AggregateCasesForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -336,11 +341,13 @@ func (o *AggregateCasesTooManyRequests) Code() int {
 }
 
 func (o *AggregateCasesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateCasesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateCasesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *AggregateCasesInternalServerError) Code() int {
 }
 
 func (o *AggregateCasesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateCasesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateCasesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

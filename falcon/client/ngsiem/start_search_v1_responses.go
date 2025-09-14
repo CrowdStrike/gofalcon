@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *StartSearchV1OK) Code() int {
 }
 
 func (o *StartSearchV1OK) Error() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK %s", 200, payload)
 }
 
 func (o *StartSearchV1OK) String() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1OK %s", 200, payload)
 }
 
 func (o *StartSearchV1OK) GetPayload() *models.APIQueryJobResponse {
@@ -234,11 +237,13 @@ func (o *StartSearchV1BadRequest) Code() int {
 }
 
 func (o *StartSearchV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1BadRequest %s", 400, payload)
 }
 
 func (o *StartSearchV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1BadRequest %s", 400, payload)
 }
 
 func (o *StartSearchV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *StartSearchV1Unauthorized) Code() int {
 }
 
 func (o *StartSearchV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *StartSearchV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *StartSearchV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *StartSearchV1Forbidden) Code() int {
 }
 
 func (o *StartSearchV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Forbidden %s", 403, payload)
 }
 
 func (o *StartSearchV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1Forbidden %s", 403, payload)
 }
 
 func (o *StartSearchV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *StartSearchV1TooManyRequests) Code() int {
 }
 
 func (o *StartSearchV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *StartSearchV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *StartSearchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *StartSearchV1InternalServerError) Code() int {
 }
 
 func (o *StartSearchV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *StartSearchV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /humio/api/v1/repositories/{repository}/queryjobs][%d] startSearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *StartSearchV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

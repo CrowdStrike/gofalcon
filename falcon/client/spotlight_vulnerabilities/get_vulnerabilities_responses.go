@@ -6,6 +6,7 @@ package spotlight_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetVulnerabilitiesOK) Code() int {
 }
 
 func (o *GetVulnerabilitiesOK) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *GetVulnerabilitiesOK) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesOK %s", 200, payload)
 }
 
 func (o *GetVulnerabilitiesOK) GetPayload() *models.DomainSPAPIVulnerabilitiesEntitiesResponseV2 {
@@ -228,11 +231,13 @@ func (o *GetVulnerabilitiesForbidden) Code() int {
 }
 
 func (o *GetVulnerabilitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *GetVulnerabilitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesForbidden %s", 403, payload)
 }
 
 func (o *GetVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -342,11 +347,13 @@ func (o *GetVulnerabilitiesTooManyRequests) Code() int {
 }
 
 func (o *GetVulnerabilitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetVulnerabilitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -463,11 +470,13 @@ func (o *GetVulnerabilitiesInternalServerError) Code() int {
 }
 
 func (o *GetVulnerabilitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetVulnerabilitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetVulnerabilitiesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetVulnerabilitiesServiceUnavailable) Code() int {
 }
 
 func (o *GetVulnerabilitiesServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetVulnerabilitiesServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesServiceUnavailable %s", 503, payload)
 }
 
 func (o *GetVulnerabilitiesServiceUnavailable) GetPayload() *models.DomainSPAPIVulnerabilitiesEntitiesResponseV2 {

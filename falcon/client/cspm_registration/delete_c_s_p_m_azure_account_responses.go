@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *DeleteCSPMAzureAccountOK) Code() int {
 }
 
 func (o *DeleteCSPMAzureAccountOK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK %s", 200, payload)
 }
 
 func (o *DeleteCSPMAzureAccountOK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK %s", 200, payload)
 }
 
 func (o *DeleteCSPMAzureAccountOK) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -240,11 +243,13 @@ func (o *DeleteCSPMAzureAccountMultiStatus) Code() int {
 }
 
 func (o *DeleteCSPMAzureAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCSPMAzureAccountMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCSPMAzureAccountMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -350,11 +355,13 @@ func (o *DeleteCSPMAzureAccountBadRequest) Code() int {
 }
 
 func (o *DeleteCSPMAzureAccountBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCSPMAzureAccountBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCSPMAzureAccountBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -460,11 +467,13 @@ func (o *DeleteCSPMAzureAccountForbidden) Code() int {
 }
 
 func (o *DeleteCSPMAzureAccountForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountForbidden %s", 403, payload)
 }
 
 func (o *DeleteCSPMAzureAccountForbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountForbidden %s", 403, payload)
 }
 
 func (o *DeleteCSPMAzureAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -570,11 +579,13 @@ func (o *DeleteCSPMAzureAccountNotFound) Code() int {
 }
 
 func (o *DeleteCSPMAzureAccountNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountNotFound %s", 404, payload)
 }
 
 func (o *DeleteCSPMAzureAccountNotFound) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountNotFound %s", 404, payload)
 }
 
 func (o *DeleteCSPMAzureAccountNotFound) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -684,11 +695,13 @@ func (o *DeleteCSPMAzureAccountTooManyRequests) Code() int {
 }
 
 func (o *DeleteCSPMAzureAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCSPMAzureAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCSPMAzureAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *DeleteCSPMAzureAccountInternalServerError) Code() int {
 }
 
 func (o *DeleteCSPMAzureAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCSPMAzureAccountInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCSPMAzureAccountInternalServerError) GetPayload() *models.RegistrationAzureAccountResponseV1 {

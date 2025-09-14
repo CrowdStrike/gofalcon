@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QuerySubmissionsOK) Code() int {
 }
 
 func (o *QuerySubmissionsOK) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsOK %s", 200, payload)
 }
 
 func (o *QuerySubmissionsOK) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsOK %s", 200, payload)
 }
 
 func (o *QuerySubmissionsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QuerySubmissionsBadRequest) Code() int {
 }
 
 func (o *QuerySubmissionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsBadRequest %s", 400, payload)
 }
 
 func (o *QuerySubmissionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsBadRequest %s", 400, payload)
 }
 
 func (o *QuerySubmissionsBadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -338,11 +343,13 @@ func (o *QuerySubmissionsForbidden) Code() int {
 }
 
 func (o *QuerySubmissionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsForbidden %s", 403, payload)
 }
 
 func (o *QuerySubmissionsForbidden) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsForbidden %s", 403, payload)
 }
 
 func (o *QuerySubmissionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QuerySubmissionsTooManyRequests) Code() int {
 }
 
 func (o *QuerySubmissionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsTooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySubmissionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsTooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySubmissionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QuerySubmissionsInternalServerError) Code() int {
 }
 
 func (o *QuerySubmissionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsInternalServerError %s", 500, payload)
 }
 
 func (o *QuerySubmissionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsInternalServerError %s", 500, payload)
 }
 
 func (o *QuerySubmissionsInternalServerError) GetPayload() *models.MsaspecQueryResponse {

@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -128,11 +129,11 @@ func (o *SetCloudSecurityIntegrationStateOK) Code() int {
 }
 
 func (o *SetCloudSecurityIntegrationStateOK) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateOK", 200)
 }
 
 func (o *SetCloudSecurityIntegrationStateOK) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateOK", 200)
 }
 
 func (o *SetCloudSecurityIntegrationStateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -225,11 +226,11 @@ func (o *SetCloudSecurityIntegrationStateNoContent) Code() int {
 }
 
 func (o *SetCloudSecurityIntegrationStateNoContent) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateNoContent ", 204)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateNoContent", 204)
 }
 
 func (o *SetCloudSecurityIntegrationStateNoContent) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateNoContent ", 204)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateNoContent", 204)
 }
 
 func (o *SetCloudSecurityIntegrationStateNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -324,11 +325,13 @@ func (o *SetCloudSecurityIntegrationStateBadRequest) Code() int {
 }
 
 func (o *SetCloudSecurityIntegrationStateBadRequest) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateBadRequest %s", 400, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateBadRequest) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateBadRequest %s", 400, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -434,11 +437,13 @@ func (o *SetCloudSecurityIntegrationStateUnauthorized) Code() int {
 }
 
 func (o *SetCloudSecurityIntegrationStateUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateUnauthorized %s", 401, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateUnauthorized) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateUnauthorized %s", 401, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -544,11 +549,13 @@ func (o *SetCloudSecurityIntegrationStateForbidden) Code() int {
 }
 
 func (o *SetCloudSecurityIntegrationStateForbidden) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateForbidden %s", 403, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateForbidden) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateForbidden %s", 403, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateForbidden) GetPayload() *models.TypesErrorMessage {
@@ -658,11 +665,13 @@ func (o *SetCloudSecurityIntegrationStateTooManyRequests) Code() int {
 }
 
 func (o *SetCloudSecurityIntegrationStateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateTooManyRequests %s", 429, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateTooManyRequests %s", 429, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -779,11 +788,13 @@ func (o *SetCloudSecurityIntegrationStateInternalServerError) Code() int {
 }
 
 func (o *SetCloudSecurityIntegrationStateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateInternalServerError %s", 500, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateInternalServerError) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/cloud_security_config][%d] setCloudSecurityIntegrationStateInternalServerError %s", 500, payload)
 }
 
 func (o *SetCloudSecurityIntegrationStateInternalServerError) GetPayload() *models.TypesErrorMessage {

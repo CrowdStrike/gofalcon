@@ -6,6 +6,7 @@ package event_streams
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RefreshActiveStreamSessionOK) Code() int {
 }
 
 func (o *RefreshActiveStreamSessionOK) Error() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionOK %s", 200, payload)
 }
 
 func (o *RefreshActiveStreamSessionOK) String() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionOK %s", 200, payload)
 }
 
 func (o *RefreshActiveStreamSessionOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -228,11 +231,13 @@ func (o *RefreshActiveStreamSessionBadRequest) Code() int {
 }
 
 func (o *RefreshActiveStreamSessionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionBadRequest %s", 400, payload)
 }
 
 func (o *RefreshActiveStreamSessionBadRequest) String() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionBadRequest %s", 400, payload)
 }
 
 func (o *RefreshActiveStreamSessionBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *RefreshActiveStreamSessionForbidden) Code() int {
 }
 
 func (o *RefreshActiveStreamSessionForbidden) Error() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionForbidden %s", 403, payload)
 }
 
 func (o *RefreshActiveStreamSessionForbidden) String() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionForbidden %s", 403, payload)
 }
 
 func (o *RefreshActiveStreamSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RefreshActiveStreamSessionTooManyRequests) Code() int {
 }
 
 func (o *RefreshActiveStreamSessionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionTooManyRequests %s", 429, payload)
 }
 
 func (o *RefreshActiveStreamSessionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionTooManyRequests %s", 429, payload)
 }
 
 func (o *RefreshActiveStreamSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RefreshActiveStreamSessionInternalServerError) Code() int {
 }
 
 func (o *RefreshActiveStreamSessionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionInternalServerError %s", 500, payload)
 }
 
 func (o *RefreshActiveStreamSessionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionInternalServerError %s", 500, payload)
 }
 
 func (o *RefreshActiveStreamSessionInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

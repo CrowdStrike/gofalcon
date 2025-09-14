@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetDiscoverCloudAzureUserScriptsAttachmentOK) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentOK %s", 200, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentOK) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {
@@ -228,11 +231,13 @@ func (o *GetDiscoverCloudAzureUserScriptsAttachmentBadRequest) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentBadRequest) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {
@@ -338,11 +343,13 @@ func (o *GetDiscoverCloudAzureUserScriptsAttachmentForbidden) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentForbidden %s", 403, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests) Code() int {
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetDiscoverCloudAzureUserScriptsAttachmentInternalServerError) Code() i
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/user-scripts-download/v1][%d] getDiscoverCloudAzureUserScriptsAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentInternalServerError) GetPayload() *models.RegistrationAzureProvisionGetUserScriptResponseV1 {

@@ -6,6 +6,7 @@ package alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateV3OK) Code() int {
 }
 
 func (o *UpdateV3OK) Error() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3OK %s", 200, payload)
 }
 
 func (o *UpdateV3OK) String() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3OK %s", 200, payload)
 }
 
 func (o *UpdateV3OK) GetPayload() *models.DetectsapiResponseFields {
@@ -228,11 +231,13 @@ func (o *UpdateV3BadRequest) Code() int {
 }
 
 func (o *UpdateV3BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3BadRequest %s", 400, payload)
 }
 
 func (o *UpdateV3BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3BadRequest %s", 400, payload)
 }
 
 func (o *UpdateV3BadRequest) GetPayload() *models.DetectsapiResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdateV3Forbidden) Code() int {
 }
 
 func (o *UpdateV3Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3Forbidden %s", 403, payload)
 }
 
 func (o *UpdateV3Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3Forbidden %s", 403, payload)
 }
 
 func (o *UpdateV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateV3TooManyRequests) Code() int {
 }
 
 func (o *UpdateV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateV3TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateV3InternalServerError) Code() int {
 }
 
 func (o *UpdateV3InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateV3InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v3][%d] updateV3InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateV3InternalServerError) GetPayload() *models.DetectsapiResponseFields {

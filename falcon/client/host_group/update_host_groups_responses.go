@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateHostGroupsOK) Code() int {
 }
 
 func (o *UpdateHostGroupsOK) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsOK %s", 200, payload)
 }
 
 func (o *UpdateHostGroupsOK) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsOK %s", 200, payload)
 }
 
 func (o *UpdateHostGroupsOK) GetPayload() *models.HostGroupsRespV1 {
@@ -234,11 +237,13 @@ func (o *UpdateHostGroupsBadRequest) Code() int {
 }
 
 func (o *UpdateHostGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateHostGroupsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateHostGroupsBadRequest) GetPayload() *models.HostGroupsRespV1 {
@@ -344,11 +349,13 @@ func (o *UpdateHostGroupsForbidden) Code() int {
 }
 
 func (o *UpdateHostGroupsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdateHostGroupsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *UpdateHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *UpdateHostGroupsNotFound) Code() int {
 }
 
 func (o *UpdateHostGroupsNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *UpdateHostGroupsNotFound) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *UpdateHostGroupsNotFound) GetPayload() *models.HostGroupsRespV1 {
@@ -568,11 +577,13 @@ func (o *UpdateHostGroupsTooManyRequests) Code() int {
 }
 
 func (o *UpdateHostGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateHostGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateHostGroupsInternalServerError) Code() int {
 }
 
 func (o *UpdateHostGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateHostGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateHostGroupsInternalServerError) GetPayload() *models.HostGroupsRespV1 {

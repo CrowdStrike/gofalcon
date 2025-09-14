@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *WorkflowDefinitionsExportOK) Code() int {
 }
 
 func (o *WorkflowDefinitionsExportOK) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsExportOK) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportOK %s", 200, payload)
 }
 
 func (o *WorkflowDefinitionsExportOK) GetPayload() []int64 {
@@ -244,11 +247,13 @@ func (o *WorkflowDefinitionsExportStatus299) Code() int {
 }
 
 func (o *WorkflowDefinitionsExportStatus299) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportStatus299  %+v", 299, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportStatus299 %s", 299, payload)
 }
 
 func (o *WorkflowDefinitionsExportStatus299) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportStatus299  %+v", 299, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportStatus299 %s", 299, payload)
 }
 
 func (o *WorkflowDefinitionsExportStatus299) GetPayload() []int64 {
@@ -359,11 +364,13 @@ func (o *WorkflowDefinitionsExportBadRequest) Code() int {
 }
 
 func (o *WorkflowDefinitionsExportBadRequest) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsExportBadRequest) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowDefinitionsExportBadRequest) GetPayload() []int64 {
@@ -467,11 +474,13 @@ func (o *WorkflowDefinitionsExportForbidden) Code() int {
 }
 
 func (o *WorkflowDefinitionsExportForbidden) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsExportForbidden) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportForbidden %s", 403, payload)
 }
 
 func (o *WorkflowDefinitionsExportForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -577,11 +586,13 @@ func (o *WorkflowDefinitionsExportNotFound) Code() int {
 }
 
 func (o *WorkflowDefinitionsExportNotFound) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsExportNotFound) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportNotFound %s", 404, payload)
 }
 
 func (o *WorkflowDefinitionsExportNotFound) GetPayload() []int64 {
@@ -689,11 +700,13 @@ func (o *WorkflowDefinitionsExportTooManyRequests) Code() int {
 }
 
 func (o *WorkflowDefinitionsExportTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsExportTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowDefinitionsExportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -810,11 +823,13 @@ func (o *WorkflowDefinitionsExportInternalServerError) Code() int {
 }
 
 func (o *WorkflowDefinitionsExportInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsExportInternalServerError) String() string {
-	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowDefinitionsExportInternalServerError) GetPayload() []int64 {

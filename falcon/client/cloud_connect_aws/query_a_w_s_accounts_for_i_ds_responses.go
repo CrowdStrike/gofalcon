@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryAWSAccountsForIDsOK) Code() int {
 }
 
 func (o *QueryAWSAccountsForIDsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsOK %s", 200, payload)
 }
 
 func (o *QueryAWSAccountsForIDsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsOK %s", 200, payload)
 }
 
 func (o *QueryAWSAccountsForIDsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryAWSAccountsForIDsBadRequest) Code() int {
 }
 
 func (o *QueryAWSAccountsForIDsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsBadRequest %s", 400, payload)
 }
 
 func (o *QueryAWSAccountsForIDsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsBadRequest %s", 400, payload)
 }
 
 func (o *QueryAWSAccountsForIDsBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryAWSAccountsForIDsForbidden) Code() int {
 }
 
 func (o *QueryAWSAccountsForIDsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsForbidden %s", 403, payload)
 }
 
 func (o *QueryAWSAccountsForIDsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsForbidden %s", 403, payload)
 }
 
 func (o *QueryAWSAccountsForIDsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryAWSAccountsForIDsTooManyRequests) Code() int {
 }
 
 func (o *QueryAWSAccountsForIDsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryAWSAccountsForIDsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryAWSAccountsForIDsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryAWSAccountsForIDsInternalServerError) Code() int {
 }
 
 func (o *QueryAWSAccountsForIDsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryAWSAccountsForIDsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryAWSAccountsForIDsInternalServerError) GetPayload() *models.MsaQueryResponse {

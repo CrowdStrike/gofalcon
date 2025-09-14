@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APIIntelligenceQueryAggregatesResponse api intelligence query aggregates response
+// CaohuntingapiIntelligenceQueryAggregatesResponse caohuntingapi intelligence query aggregates response
 //
-// swagger:model api.IntelligenceQueryAggregatesResponse
-type APIIntelligenceQueryAggregatesResponse struct {
+// swagger:model caohuntingapi.IntelligenceQueryAggregatesResponse
+type CaohuntingapiIntelligenceQueryAggregatesResponse struct {
 
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
@@ -32,8 +32,8 @@ type APIIntelligenceQueryAggregatesResponse struct {
 	Resources []*MsaAggregationResult `json:"resources"`
 }
 
-// Validate validates this api intelligence query aggregates response
-func (m *APIIntelligenceQueryAggregatesResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this caohuntingapi intelligence query aggregates response
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *APIIntelligenceQueryAggregatesResponse) Validate(formats strfmt.Registr
 	return nil
 }
 
-func (m *APIIntelligenceQueryAggregatesResponse) validateErrors(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -80,7 +80,7 @@ func (m *APIIntelligenceQueryAggregatesResponse) validateErrors(formats strfmt.R
 	return nil
 }
 
-func (m *APIIntelligenceQueryAggregatesResponse) validateMeta(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,7 +100,7 @@ func (m *APIIntelligenceQueryAggregatesResponse) validateMeta(formats strfmt.Reg
 	return nil
 }
 
-func (m *APIIntelligenceQueryAggregatesResponse) validateResources(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -127,8 +127,8 @@ func (m *APIIntelligenceQueryAggregatesResponse) validateResources(formats strfm
 	return nil
 }
 
-// ContextValidate validate this api intelligence query aggregates response based on the context it is used
-func (m *APIIntelligenceQueryAggregatesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this caohuntingapi intelligence query aggregates response based on the context it is used
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -149,7 +149,7 @@ func (m *APIIntelligenceQueryAggregatesResponse) ContextValidate(ctx context.Con
 	return nil
 }
 
-func (m *APIIntelligenceQueryAggregatesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -174,7 +174,7 @@ func (m *APIIntelligenceQueryAggregatesResponse) contextValidateErrors(ctx conte
 	return nil
 }
 
-func (m *APIIntelligenceQueryAggregatesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -191,7 +191,7 @@ func (m *APIIntelligenceQueryAggregatesResponse) contextValidateMeta(ctx context
 	return nil
 }
 
-func (m *APIIntelligenceQueryAggregatesResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -217,7 +217,7 @@ func (m *APIIntelligenceQueryAggregatesResponse) contextValidateResources(ctx co
 }
 
 // MarshalBinary interface implementation
-func (m *APIIntelligenceQueryAggregatesResponse) MarshalBinary() ([]byte, error) {
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -225,8 +225,8 @@ func (m *APIIntelligenceQueryAggregatesResponse) MarshalBinary() ([]byte, error)
 }
 
 // UnmarshalBinary interface implementation
-func (m *APIIntelligenceQueryAggregatesResponse) UnmarshalBinary(b []byte) error {
-	var res APIIntelligenceQueryAggregatesResponse
+func (m *CaohuntingapiIntelligenceQueryAggregatesResponse) UnmarshalBinary(b []byte) error {
+	var res CaohuntingapiIntelligenceQueryAggregatesResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

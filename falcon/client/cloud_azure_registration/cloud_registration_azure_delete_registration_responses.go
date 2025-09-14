@@ -6,6 +6,7 @@ package cloud_azure_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CloudRegistrationAzureDeleteRegistrationOK) Code() int {
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationOK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationOK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationOK) GetPayload() *models.AzureDeleteRegistrationResponseExtV1 {
@@ -228,11 +231,13 @@ func (o *CloudRegistrationAzureDeleteRegistrationBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CloudRegistrationAzureDeleteRegistrationForbidden) Code() int {
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationForbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CloudRegistrationAzureDeleteRegistrationTooManyRequests) Code() int {
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CloudRegistrationAzureDeleteRegistrationInternalServerError) Code() int
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-azure/entities/registrations/v1][%d] cloudRegistrationAzureDeleteRegistrationInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAzureDeleteRegistrationInternalServerError) GetPayload() *models.MsaspecResponseFields {

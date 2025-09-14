@@ -62,7 +62,7 @@ type ItautomationPolicy struct {
 
 	// The platform for the policy
 	// Required: true
-	// Enum: [Windows Linux Mac]
+	// Enum: ["Windows","Linux","Mac"]
 	Target *string `json:"target"`
 }
 

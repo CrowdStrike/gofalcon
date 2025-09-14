@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateNetworkLocationsOK) Code() int {
 }
 
 func (o *UpdateNetworkLocationsOK) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *UpdateNetworkLocationsOK) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *UpdateNetworkLocationsOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *UpdateNetworkLocationsBadRequest) Code() int {
 }
 
 func (o *UpdateNetworkLocationsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateNetworkLocationsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateNetworkLocationsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdateNetworkLocationsForbidden) Code() int {
 }
 
 func (o *UpdateNetworkLocationsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *UpdateNetworkLocationsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *UpdateNetworkLocationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateNetworkLocationsTooManyRequests) Code() int {
 }
 
 func (o *UpdateNetworkLocationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNetworkLocationsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNetworkLocationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateNetworkLocationsInternalServerError) Code() int {
 }
 
 func (o *UpdateNetworkLocationsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNetworkLocationsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNetworkLocationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

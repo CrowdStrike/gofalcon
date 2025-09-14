@@ -15,13 +15,12 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RestapiLookupIndicatorResponse restapi lookup indicator response
+// CaohuntingapiIntelligenceQueryEntityResponse caohuntingapi intelligence query entity response
 //
-// swagger:model restapi.LookupIndicatorResponse
-type RestapiLookupIndicatorResponse struct {
+// swagger:model caohuntingapi.IntelligenceQueryEntityResponse
+type CaohuntingapiIntelligenceQueryEntityResponse struct {
 
 	// errors
-	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
@@ -30,11 +29,11 @@ type RestapiLookupIndicatorResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*FigapiLookupIndicator `json:"resources"`
+	Resources []*CaohuntingapiIntelligenceQueryEntity `json:"resources"`
 }
 
-// Validate validates this restapi lookup indicator response
-func (m *RestapiLookupIndicatorResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this caohuntingapi intelligence query entity response
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,10 +54,9 @@ func (m *RestapiLookupIndicatorResponse) Validate(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *RestapiLookupIndicatorResponse) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) validateErrors(formats strfmt.Registry) error {
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {
@@ -82,7 +80,7 @@ func (m *RestapiLookupIndicatorResponse) validateErrors(formats strfmt.Registry)
 	return nil
 }
 
-func (m *RestapiLookupIndicatorResponse) validateMeta(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,7 +100,7 @@ func (m *RestapiLookupIndicatorResponse) validateMeta(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *RestapiLookupIndicatorResponse) validateResources(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -129,8 +127,8 @@ func (m *RestapiLookupIndicatorResponse) validateResources(formats strfmt.Regist
 	return nil
 }
 
-// ContextValidate validate this restapi lookup indicator response based on the context it is used
-func (m *RestapiLookupIndicatorResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this caohuntingapi intelligence query entity response based on the context it is used
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -151,7 +149,7 @@ func (m *RestapiLookupIndicatorResponse) ContextValidate(ctx context.Context, fo
 	return nil
 }
 
-func (m *RestapiLookupIndicatorResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -176,7 +174,7 @@ func (m *RestapiLookupIndicatorResponse) contextValidateErrors(ctx context.Conte
 	return nil
 }
 
-func (m *RestapiLookupIndicatorResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -193,7 +191,7 @@ func (m *RestapiLookupIndicatorResponse) contextValidateMeta(ctx context.Context
 	return nil
 }
 
-func (m *RestapiLookupIndicatorResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -219,7 +217,7 @@ func (m *RestapiLookupIndicatorResponse) contextValidateResources(ctx context.Co
 }
 
 // MarshalBinary interface implementation
-func (m *RestapiLookupIndicatorResponse) MarshalBinary() ([]byte, error) {
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -227,8 +225,8 @@ func (m *RestapiLookupIndicatorResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *RestapiLookupIndicatorResponse) UnmarshalBinary(b []byte) error {
-	var res RestapiLookupIndicatorResponse
+func (m *CaohuntingapiIntelligenceQueryEntityResponse) UnmarshalBinary(b []byte) error {
+	var res CaohuntingapiIntelligenceQueryEntityResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

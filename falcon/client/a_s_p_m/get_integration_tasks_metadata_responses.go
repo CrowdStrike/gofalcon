@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetIntegrationTasksMetadataOK) Code() int {
 }
 
 func (o *GetIntegrationTasksMetadataOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataOK %s", 200, payload)
 }
 
 func (o *GetIntegrationTasksMetadataOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataOK %s", 200, payload)
 }
 
 func (o *GetIntegrationTasksMetadataOK) GetPayload() *models.TypesGetIntegrationTasksMetadataResponse {
@@ -234,11 +237,13 @@ func (o *GetIntegrationTasksMetadataBadRequest) Code() int {
 }
 
 func (o *GetIntegrationTasksMetadataBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataBadRequest %s", 400, payload)
 }
 
 func (o *GetIntegrationTasksMetadataBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataBadRequest %s", 400, payload)
 }
 
 func (o *GetIntegrationTasksMetadataBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetIntegrationTasksMetadataUnauthorized) Code() int {
 }
 
 func (o *GetIntegrationTasksMetadataUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataUnauthorized %s", 401, payload)
 }
 
 func (o *GetIntegrationTasksMetadataUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataUnauthorized %s", 401, payload)
 }
 
 func (o *GetIntegrationTasksMetadataUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetIntegrationTasksMetadataForbidden) Code() int {
 }
 
 func (o *GetIntegrationTasksMetadataForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetIntegrationTasksMetadataForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetIntegrationTasksMetadataForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetIntegrationTasksMetadataTooManyRequests) Code() int {
 }
 
 func (o *GetIntegrationTasksMetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntegrationTasksMetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntegrationTasksMetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetIntegrationTasksMetadataInternalServerError) Code() int {
 }
 
 func (o *GetIntegrationTasksMetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntegrationTasksMetadataInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_tasks/metadata][%d] getIntegrationTasksMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntegrationTasksMetadataInternalServerError) GetPayload() *models.TypesErrorMessage {

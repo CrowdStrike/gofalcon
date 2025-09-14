@@ -6,6 +6,7 @@ package ioa_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateIOAExclusionsV1Created) Code() int {
 }
 
 func (o *CreateIOAExclusionsV1Created) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Created %s", 201, payload)
 }
 
 func (o *CreateIOAExclusionsV1Created) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Created  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Created %s", 201, payload)
 }
 
 func (o *CreateIOAExclusionsV1Created) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
@@ -228,11 +231,13 @@ func (o *CreateIOAExclusionsV1BadRequest) Code() int {
 }
 
 func (o *CreateIOAExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateIOAExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *CreateIOAExclusionsV1BadRequest) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
@@ -338,11 +343,13 @@ func (o *CreateIOAExclusionsV1Forbidden) Code() int {
 }
 
 func (o *CreateIOAExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateIOAExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *CreateIOAExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *CreateIOAExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *CreateIOAExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateIOAExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CreateIOAExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateIOAExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *CreateIOAExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateIOAExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *CreateIOAExclusionsV1InternalServerError) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {

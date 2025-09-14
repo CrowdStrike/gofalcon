@@ -6,6 +6,7 @@ package response_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteRTResponsePoliciesOK) Code() int {
 }
 
 func (o *DeleteRTResponsePoliciesOK) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteRTResponsePoliciesOK) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteRTResponsePoliciesOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteRTResponsePoliciesForbidden) Code() int {
 }
 
 func (o *DeleteRTResponsePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteRTResponsePoliciesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteRTResponsePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *DeleteRTResponsePoliciesNotFound) Code() int {
 }
 
 func (o *DeleteRTResponsePoliciesNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteRTResponsePoliciesNotFound) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteRTResponsePoliciesNotFound) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *DeleteRTResponsePoliciesTooManyRequests) Code() int {
 }
 
 func (o *DeleteRTResponsePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRTResponsePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRTResponsePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteRTResponsePoliciesInternalServerError) Code() int {
 }
 
 func (o *DeleteRTResponsePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRTResponsePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRTResponsePoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {

@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *IocTypeQueryV1OK) Code() int {
 }
 
 func (o *IocTypeQueryV1OK) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1OK %s", 200, payload)
 }
 
 func (o *IocTypeQueryV1OK) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1OK %s", 200, payload)
 }
 
 func (o *IocTypeQueryV1OK) GetPayload() *models.APIIndicatorQueryRespV1 {
@@ -222,11 +225,13 @@ func (o *IocTypeQueryV1Forbidden) Code() int {
 }
 
 func (o *IocTypeQueryV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1Forbidden %s", 403, payload)
 }
 
 func (o *IocTypeQueryV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1Forbidden %s", 403, payload)
 }
 
 func (o *IocTypeQueryV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *IocTypeQueryV1TooManyRequests) Code() int {
 }
 
 func (o *IocTypeQueryV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IocTypeQueryV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IocTypeQueryV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *IocTypeQueryV1InternalServerError) Code() int {
 }
 
 func (o *IocTypeQueryV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1InternalServerError %s", 500, payload)
 }
 
 func (o *IocTypeQueryV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/queries/ioc-types/v1][%d] iocTypeQueryV1InternalServerError %s", 500, payload)
 }
 
 func (o *IocTypeQueryV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

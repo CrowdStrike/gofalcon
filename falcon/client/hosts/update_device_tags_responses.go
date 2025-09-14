@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateDeviceTagsOK) Code() int {
 }
 
 func (o *UpdateDeviceTagsOK) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK %s", 200, payload)
 }
 
 func (o *UpdateDeviceTagsOK) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK %s", 200, payload)
 }
 
 func (o *UpdateDeviceTagsOK) GetPayload() *models.DeviceapiUpdateDeviceTagsSwaggerV1 {
@@ -234,11 +237,13 @@ func (o *UpdateDeviceTagsAccepted) Code() int {
 }
 
 func (o *UpdateDeviceTagsAccepted) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsAccepted %s", 202, payload)
 }
 
 func (o *UpdateDeviceTagsAccepted) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsAccepted %s", 202, payload)
 }
 
 func (o *UpdateDeviceTagsAccepted) GetPayload() *models.DeviceapiUpdateDeviceTagsSwaggerV1 {
@@ -344,11 +349,13 @@ func (o *UpdateDeviceTagsBadRequest) Code() int {
 }
 
 func (o *UpdateDeviceTagsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateDeviceTagsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateDeviceTagsBadRequest) GetPayload() *models.MsaReplyAffectedEntities {
@@ -454,11 +461,13 @@ func (o *UpdateDeviceTagsForbidden) Code() int {
 }
 
 func (o *UpdateDeviceTagsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsForbidden %s", 403, payload)
 }
 
 func (o *UpdateDeviceTagsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsForbidden %s", 403, payload)
 }
 
 func (o *UpdateDeviceTagsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *UpdateDeviceTagsTooManyRequests) Code() int {
 }
 
 func (o *UpdateDeviceTagsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDeviceTagsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDeviceTagsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateDeviceTagsInternalServerError) Code() int {
 }
 
 func (o *UpdateDeviceTagsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDeviceTagsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDeviceTagsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

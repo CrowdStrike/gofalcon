@@ -6,6 +6,7 @@ package host_migration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *HostMigrationAggregatesV1OK) Code() int {
 }
 
 func (o *HostMigrationAggregatesV1OK) Error() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1OK %s", 200, payload)
 }
 
 func (o *HostMigrationAggregatesV1OK) String() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1OK %s", 200, payload)
 }
 
 func (o *HostMigrationAggregatesV1OK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *HostMigrationAggregatesV1BadRequest) Code() int {
 }
 
 func (o *HostMigrationAggregatesV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1BadRequest %s", 400, payload)
 }
 
 func (o *HostMigrationAggregatesV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1BadRequest %s", 400, payload)
 }
 
 func (o *HostMigrationAggregatesV1BadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -338,11 +343,13 @@ func (o *HostMigrationAggregatesV1Forbidden) Code() int {
 }
 
 func (o *HostMigrationAggregatesV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1Forbidden %s", 403, payload)
 }
 
 func (o *HostMigrationAggregatesV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1Forbidden %s", 403, payload)
 }
 
 func (o *HostMigrationAggregatesV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *HostMigrationAggregatesV1TooManyRequests) Code() int {
 }
 
 func (o *HostMigrationAggregatesV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *HostMigrationAggregatesV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *HostMigrationAggregatesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *HostMigrationAggregatesV1InternalServerError) Code() int {
 }
 
 func (o *HostMigrationAggregatesV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1InternalServerError %s", 500, payload)
 }
 
 func (o *HostMigrationAggregatesV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/aggregates/host-migrations/v1][%d] hostMigrationAggregatesV1InternalServerError %s", 500, payload)
 }
 
 func (o *HostMigrationAggregatesV1InternalServerError) GetPayload() *models.MsaspecQueryResponse {

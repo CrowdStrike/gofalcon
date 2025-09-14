@@ -6,6 +6,7 @@ package real_time_response_audit
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRAuditSessionsOK) Code() int {
 }
 
 func (o *RTRAuditSessionsOK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsOK %s", 200, payload)
 }
 
 func (o *RTRAuditSessionsOK) String() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsOK %s", 200, payload)
 }
 
 func (o *RTRAuditSessionsOK) GetPayload() *models.DomainSessionResponseWrapper {
@@ -234,11 +237,13 @@ func (o *RTRAuditSessionsBadRequest) Code() int {
 }
 
 func (o *RTRAuditSessionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRAuditSessionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRAuditSessionsBadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRAuditSessionsForbidden) Code() int {
 }
 
 func (o *RTRAuditSessionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRAuditSessionsForbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRAuditSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRAuditSessionsNotFound) Code() int {
 }
 
 func (o *RTRAuditSessionsNotFound) Error() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRAuditSessionsNotFound) String() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRAuditSessionsNotFound) GetPayload() *models.DomainAPIError {
@@ -568,11 +577,13 @@ func (o *RTRAuditSessionsTooManyRequests) Code() int {
 }
 
 func (o *RTRAuditSessionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRAuditSessionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRAuditSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRAuditSessionsInternalServerError) Code() int {
 }
 
 func (o *RTRAuditSessionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRAuditSessionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response-audit/combined/sessions/v1][%d] rTRAuditSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRAuditSessionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

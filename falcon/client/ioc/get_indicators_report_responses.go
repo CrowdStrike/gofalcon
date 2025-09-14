@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetIndicatorsReportOK) Code() int {
 }
 
 func (o *GetIndicatorsReportOK) Error() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportOK %s", 200, payload)
 }
 
 func (o *GetIndicatorsReportOK) String() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportOK %s", 200, payload)
 }
 
 func (o *GetIndicatorsReportOK) GetPayload() *models.MsaEntitiesResponse {
@@ -222,11 +225,13 @@ func (o *GetIndicatorsReportForbidden) Code() int {
 }
 
 func (o *GetIndicatorsReportForbidden) Error() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportForbidden %s", 403, payload)
 }
 
 func (o *GetIndicatorsReportForbidden) String() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportForbidden %s", 403, payload)
 }
 
 func (o *GetIndicatorsReportForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetIndicatorsReportTooManyRequests) Code() int {
 }
 
 func (o *GetIndicatorsReportTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIndicatorsReportTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIndicatorsReportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetIndicatorsReportInternalServerError) Code() int {
 }
 
 func (o *GetIndicatorsReportInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportInternalServerError %s", 500, payload)
 }
 
 func (o *GetIndicatorsReportInternalServerError) String() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportInternalServerError %s", 500, payload)
 }
 
 func (o *GetIndicatorsReportInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

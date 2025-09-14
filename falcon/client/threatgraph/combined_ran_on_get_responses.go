@@ -6,6 +6,7 @@ package threatgraph
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *CombinedRanOnGetOK) Code() int {
 }
 
 func (o *CombinedRanOnGetOK) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetOK", 200)
 }
 
 func (o *CombinedRanOnGetOK) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetOK", 200)
 }
 
 func (o *CombinedRanOnGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *CombinedRanOnGetForbidden) Code() int {
 }
 
 func (o *CombinedRanOnGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetForbidden %s", 403, payload)
 }
 
 func (o *CombinedRanOnGetForbidden) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetForbidden %s", 403, payload)
 }
 
 func (o *CombinedRanOnGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *CombinedRanOnGetTooManyRequests) Code() int {
 }
 
 func (o *CombinedRanOnGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedRanOnGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedRanOnGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *CombinedRanOnGetInternalServerError) Code() int {
 }
 
 func (o *CombinedRanOnGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedRanOnGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/ran-on/v1][%d] combinedRanOnGetInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedRanOnGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

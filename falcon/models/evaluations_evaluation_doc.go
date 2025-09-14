@@ -30,6 +30,9 @@ type EvaluationsEvaluationDoc struct {
 	// crn
 	Crn string `json:"crn,omitempty"`
 
+	// error
+	Error string `json:"error,omitempty"`
+
 	// extension
 	Extension *EvaluationExtension `json:"extension,omitempty"`
 

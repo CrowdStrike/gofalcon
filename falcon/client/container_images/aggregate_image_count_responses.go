@@ -6,6 +6,7 @@ package container_images
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateImageCountOK) Code() int {
 }
 
 func (o *AggregateImageCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountOK %s", 200, payload)
 }
 
 func (o *AggregateImageCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountOK %s", 200, payload)
 }
 
 func (o *AggregateImageCountOK) GetPayload() *models.ImagesAPIImageCount {
@@ -228,11 +231,13 @@ func (o *AggregateImageCountBadRequest) Code() int {
 }
 
 func (o *AggregateImageCountBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountBadRequest %s", 400, payload)
 }
 
 func (o *AggregateImageCountBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountBadRequest %s", 400, payload)
 }
 
 func (o *AggregateImageCountBadRequest) GetPayload() *models.CoreEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *AggregateImageCountForbidden) Code() int {
 }
 
 func (o *AggregateImageCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountForbidden %s", 403, payload)
 }
 
 func (o *AggregateImageCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateImageCountTooManyRequests) Code() int {
 }
 
 func (o *AggregateImageCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateImageCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateImageCountInternalServerError) Code() int {
 }
 
 func (o *AggregateImageCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/images/count/v1][%d] aggregateImageCountInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateImageCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

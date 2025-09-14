@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetStaticScriptsOK) Code() int {
 }
 
 func (o *GetStaticScriptsOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsOK %s", 200, payload)
 }
 
 func (o *GetStaticScriptsOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsOK %s", 200, payload)
 }
 
 func (o *GetStaticScriptsOK) GetPayload() *models.K8sregGetScriptsResp {
@@ -234,11 +237,13 @@ func (o *GetStaticScriptsMultiStatus) Code() int {
 }
 
 func (o *GetStaticScriptsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsMultiStatus %s", 207, payload)
 }
 
 func (o *GetStaticScriptsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsMultiStatus %s", 207, payload)
 }
 
 func (o *GetStaticScriptsMultiStatus) GetPayload() *models.K8sregGetScriptsResp {
@@ -344,11 +349,13 @@ func (o *GetStaticScriptsBadRequest) Code() int {
 }
 
 func (o *GetStaticScriptsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsBadRequest %s", 400, payload)
 }
 
 func (o *GetStaticScriptsBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsBadRequest %s", 400, payload)
 }
 
 func (o *GetStaticScriptsBadRequest) GetPayload() *models.K8sregGetScriptsResp {
@@ -454,11 +461,13 @@ func (o *GetStaticScriptsForbidden) Code() int {
 }
 
 func (o *GetStaticScriptsForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetStaticScriptsForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetStaticScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetStaticScriptsTooManyRequests) Code() int {
 }
 
 func (o *GetStaticScriptsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetStaticScriptsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetStaticScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetStaticScriptsInternalServerError) Code() int {
 }
 
 func (o *GetStaticScriptsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetStaticScriptsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/gen/scripts/v1][%d] getStaticScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetStaticScriptsInternalServerError) GetPayload() *models.K8sregGetScriptsResp {

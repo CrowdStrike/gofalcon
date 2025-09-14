@@ -6,6 +6,7 @@ package threatgraph
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *CombinedSummaryGetOK) Code() int {
 }
 
 func (o *CombinedSummaryGetOK) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetOK", 200)
 }
 
 func (o *CombinedSummaryGetOK) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetOK ", 200)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetOK", 200)
 }
 
 func (o *CombinedSummaryGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *CombinedSummaryGetForbidden) Code() int {
 }
 
 func (o *CombinedSummaryGetForbidden) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetForbidden %s", 403, payload)
 }
 
 func (o *CombinedSummaryGetForbidden) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetForbidden %s", 403, payload)
 }
 
 func (o *CombinedSummaryGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *CombinedSummaryGetTooManyRequests) Code() int {
 }
 
 func (o *CombinedSummaryGetTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedSummaryGetTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedSummaryGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *CombinedSummaryGetInternalServerError) Code() int {
 }
 
 func (o *CombinedSummaryGetInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedSummaryGetInternalServerError) String() string {
-	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /threatgraph/combined/{vertex-type}/summary/v1][%d] combinedSummaryGetInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedSummaryGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

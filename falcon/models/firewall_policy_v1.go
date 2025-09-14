@@ -69,7 +69,7 @@ type FirewallPolicyV1 struct {
 
 	// The name of the platform
 	// Required: true
-	// Enum: [Windows Mac Linux]
+	// Enum: ["Windows","Mac","Linux"]
 	PlatformName *string `json:"platform_name"`
 
 	// Firewall rule set id. This id combines several firewall rules and gets attached to the policy

@@ -24,11 +24,11 @@ type DevicecontrolapiReqUpdateUSBBaseV1External struct {
 	CustomNotifications *DevicecontrolapiUSBCustomNotifications `json:"custom_notifications,omitempty"`
 
 	// Determines if a notification will be shown to the end user (omit to keep current)
-	// Enum: [NOTIFY_USER SILENT]
+	// Enum: ["NOTIFY_USER","SILENT"]
 	EndUserNotification string `json:"end_user_notification,omitempty"`
 
 	// Enforcement for the USB policy (omit to keep current). Note: OFF only supported for Mac platform
-	// Enum: [MONITOR_ONLY MONITOR_ENFORCE OFF]
+	// Enum: ["MONITOR_ONLY","MONITOR_ENFORCE","OFF"]
 	EnforcementMode string `json:"enforcement_mode,omitempty"`
 
 	// Boolean value to enable enhanced file metadata collection

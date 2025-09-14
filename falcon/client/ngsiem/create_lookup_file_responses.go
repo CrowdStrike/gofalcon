@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CreateLookupFileOK) Code() int {
 }
 
 func (o *CreateLookupFileOK) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileOK %s", 200, payload)
 }
 
 func (o *CreateLookupFileOK) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileOK %s", 200, payload)
 }
 
 func (o *CreateLookupFileOK) GetPayload() *models.APICreateLookupFileResponseV1 {
@@ -240,11 +243,13 @@ func (o *CreateLookupFileBadRequest) Code() int {
 }
 
 func (o *CreateLookupFileBadRequest) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileBadRequest %s", 400, payload)
 }
 
 func (o *CreateLookupFileBadRequest) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileBadRequest %s", 400, payload)
 }
 
 func (o *CreateLookupFileBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *CreateLookupFileUnauthorized) Code() int {
 }
 
 func (o *CreateLookupFileUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileUnauthorized %s", 401, payload)
 }
 
 func (o *CreateLookupFileUnauthorized) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileUnauthorized %s", 401, payload)
 }
 
 func (o *CreateLookupFileUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *CreateLookupFileForbidden) Code() int {
 }
 
 func (o *CreateLookupFileForbidden) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileForbidden %s", 403, payload)
 }
 
 func (o *CreateLookupFileForbidden) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileForbidden %s", 403, payload)
 }
 
 func (o *CreateLookupFileForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *CreateLookupFileNotFound) Code() int {
 }
 
 func (o *CreateLookupFileNotFound) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileNotFound %s", 404, payload)
 }
 
 func (o *CreateLookupFileNotFound) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileNotFound %s", 404, payload)
 }
 
 func (o *CreateLookupFileNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *CreateLookupFileTooManyRequests) Code() int {
 }
 
 func (o *CreateLookupFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateLookupFileTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateLookupFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CreateLookupFileInternalServerError) Code() int {
 }
 
 func (o *CreateLookupFileInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileInternalServerError %s", 500, payload)
 }
 
 func (o *CreateLookupFileInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/lookupfiles/v1][%d] createLookupFileInternalServerError %s", 500, payload)
 }
 
 func (o *CreateLookupFileInternalServerError) GetPayload() *models.MsaspecResponseFields {

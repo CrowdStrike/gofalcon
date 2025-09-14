@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ServiceNowGetDeploymentsOK) Code() int {
 }
 
 func (o *ServiceNowGetDeploymentsOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsOK %s", 200, payload)
 }
 
 func (o *ServiceNowGetDeploymentsOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsOK %s", 200, payload)
 }
 
 func (o *ServiceNowGetDeploymentsOK) GetPayload() *models.TypesServiceNowDeploymentsResponse {
@@ -234,11 +237,13 @@ func (o *ServiceNowGetDeploymentsBadRequest) Code() int {
 }
 
 func (o *ServiceNowGetDeploymentsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsBadRequest %s", 400, payload)
 }
 
 func (o *ServiceNowGetDeploymentsBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsBadRequest %s", 400, payload)
 }
 
 func (o *ServiceNowGetDeploymentsBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *ServiceNowGetDeploymentsUnauthorized) Code() int {
 }
 
 func (o *ServiceNowGetDeploymentsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsUnauthorized %s", 401, payload)
 }
 
 func (o *ServiceNowGetDeploymentsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsUnauthorized %s", 401, payload)
 }
 
 func (o *ServiceNowGetDeploymentsUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *ServiceNowGetDeploymentsForbidden) Code() int {
 }
 
 func (o *ServiceNowGetDeploymentsForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsForbidden %s", 403, payload)
 }
 
 func (o *ServiceNowGetDeploymentsForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsForbidden %s", 403, payload)
 }
 
 func (o *ServiceNowGetDeploymentsForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *ServiceNowGetDeploymentsTooManyRequests) Code() int {
 }
 
 func (o *ServiceNowGetDeploymentsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsTooManyRequests %s", 429, payload)
 }
 
 func (o *ServiceNowGetDeploymentsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsTooManyRequests %s", 429, payload)
 }
 
 func (o *ServiceNowGetDeploymentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ServiceNowGetDeploymentsInternalServerError) Code() int {
 }
 
 func (o *ServiceNowGetDeploymentsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsInternalServerError %s", 500, payload)
 }
 
 func (o *ServiceNowGetDeploymentsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/servicenow/deployments][%d] serviceNowGetDeploymentsInternalServerError %s", 500, payload)
 }
 
 func (o *ServiceNowGetDeploymentsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

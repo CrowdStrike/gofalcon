@@ -6,6 +6,7 @@ package response_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryRTResponsePoliciesOK) Code() int {
 }
 
 func (o *QueryRTResponsePoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesOK %s", 200, payload)
 }
 
 func (o *QueryRTResponsePoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesOK %s", 200, payload)
 }
 
 func (o *QueryRTResponsePoliciesOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryRTResponsePoliciesBadRequest) Code() int {
 }
 
 func (o *QueryRTResponsePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryRTResponsePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryRTResponsePoliciesBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryRTResponsePoliciesForbidden) Code() int {
 }
 
 func (o *QueryRTResponsePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryRTResponsePoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryRTResponsePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryRTResponsePoliciesTooManyRequests) Code() int {
 }
 
 func (o *QueryRTResponsePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRTResponsePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRTResponsePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryRTResponsePoliciesInternalServerError) Code() int {
 }
 
 func (o *QueryRTResponsePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRTResponsePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRTResponsePoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {

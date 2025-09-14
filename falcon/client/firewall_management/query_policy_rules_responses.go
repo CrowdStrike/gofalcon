@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryPolicyRulesOK) Code() int {
 }
 
 func (o *QueryPolicyRulesOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesOK %s", 200, payload)
 }
 
 func (o *QueryPolicyRulesOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesOK %s", 200, payload)
 }
 
 func (o *QueryPolicyRulesOK) GetPayload() *models.FwmgrAPIQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryPolicyRulesBadRequest) Code() int {
 }
 
 func (o *QueryPolicyRulesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesBadRequest %s", 400, payload)
 }
 
 func (o *QueryPolicyRulesBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesBadRequest %s", 400, payload)
 }
 
 func (o *QueryPolicyRulesBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryPolicyRulesForbidden) Code() int {
 }
 
 func (o *QueryPolicyRulesForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *QueryPolicyRulesForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *QueryPolicyRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryPolicyRulesTooManyRequests) Code() int {
 }
 
 func (o *QueryPolicyRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPolicyRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPolicyRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryPolicyRulesInternalServerError) Code() int {
 }
 
 func (o *QueryPolicyRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPolicyRulesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPolicyRulesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

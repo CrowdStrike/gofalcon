@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *NodesByContainerEngineVersionCountOK) Code() int {
 }
 
 func (o *NodesByContainerEngineVersionCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountOK %s", 200, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountOK %s", 200, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *NodesByContainerEngineVersionCountForbidden) Code() int {
 }
 
 func (o *NodesByContainerEngineVersionCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountForbidden %s", 403, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountForbidden %s", 403, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *NodesByContainerEngineVersionCountTooManyRequests) Code() int {
 }
 
 func (o *NodesByContainerEngineVersionCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountTooManyRequests %s", 429, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountTooManyRequests %s", 429, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *NodesByContainerEngineVersionCountInternalServerError) Code() int {
 }
 
 func (o *NodesByContainerEngineVersionCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountInternalServerError %s", 500, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-container-engine-version/v1][%d] nodesByContainerEngineVersionCountInternalServerError %s", 500, payload)
 }
 
 func (o *NodesByContainerEngineVersionCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

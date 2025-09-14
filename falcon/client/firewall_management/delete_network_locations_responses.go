@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteNetworkLocationsOK) Code() int {
 }
 
 func (o *DeleteNetworkLocationsOK) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *DeleteNetworkLocationsOK) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *DeleteNetworkLocationsOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteNetworkLocationsBadRequest) Code() int {
 }
 
 func (o *DeleteNetworkLocationsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteNetworkLocationsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteNetworkLocationsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *DeleteNetworkLocationsForbidden) Code() int {
 }
 
 func (o *DeleteNetworkLocationsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *DeleteNetworkLocationsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *DeleteNetworkLocationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *DeleteNetworkLocationsTooManyRequests) Code() int {
 }
 
 func (o *DeleteNetworkLocationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteNetworkLocationsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteNetworkLocationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteNetworkLocationsInternalServerError) Code() int {
 }
 
 func (o *DeleteNetworkLocationsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteNetworkLocationsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteNetworkLocationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

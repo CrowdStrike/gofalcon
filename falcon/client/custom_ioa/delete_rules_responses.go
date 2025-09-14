@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteRulesOK) Code() int {
 }
 
 func (o *DeleteRulesOK) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesOK %s", 200, payload)
 }
 
 func (o *DeleteRulesOK) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesOK %s", 200, payload)
 }
 
 func (o *DeleteRulesOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -228,11 +231,13 @@ func (o *DeleteRulesForbidden) Code() int {
 }
 
 func (o *DeleteRulesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesForbidden %s", 403, payload)
 }
 
 func (o *DeleteRulesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesForbidden %s", 403, payload)
 }
 
 func (o *DeleteRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *DeleteRulesNotFound) Code() int {
 }
 
 func (o *DeleteRulesNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesNotFound %s", 404, payload)
 }
 
 func (o *DeleteRulesNotFound) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesNotFound %s", 404, payload)
 }
 
 func (o *DeleteRulesNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *DeleteRulesTooManyRequests) Code() int {
 }
 
 func (o *DeleteRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteRulesInternalServerError) Code() int {
 }
 
 func (o *DeleteRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRulesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRulesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

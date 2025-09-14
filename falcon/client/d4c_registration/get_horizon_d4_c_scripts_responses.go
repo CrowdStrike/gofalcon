@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetHorizonD4CScriptsOK) Code() int {
 }
 
 func (o *GetHorizonD4CScriptsOK) Error() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsOK %s", 200, payload)
 }
 
 func (o *GetHorizonD4CScriptsOK) String() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsOK %s", 200, payload)
 }
 
 func (o *GetHorizonD4CScriptsOK) GetPayload() *models.RegistrationStaticScriptsResponse {
@@ -222,11 +225,13 @@ func (o *GetHorizonD4CScriptsForbidden) Code() int {
 }
 
 func (o *GetHorizonD4CScriptsForbidden) Error() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetHorizonD4CScriptsForbidden) String() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetHorizonD4CScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetHorizonD4CScriptsTooManyRequests) Code() int {
 }
 
 func (o *GetHorizonD4CScriptsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetHorizonD4CScriptsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetHorizonD4CScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetHorizonD4CScriptsInternalServerError) Code() int {
 }
 
 func (o *GetHorizonD4CScriptsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetHorizonD4CScriptsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetHorizonD4CScriptsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

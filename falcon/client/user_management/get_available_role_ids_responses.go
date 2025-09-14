@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetAvailableRoleIdsOK) Code() int {
 }
 
 func (o *GetAvailableRoleIdsOK) Error() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsOK %s", 200, payload)
 }
 
 func (o *GetAvailableRoleIdsOK) String() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsOK %s", 200, payload)
 }
 
 func (o *GetAvailableRoleIdsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *GetAvailableRoleIdsForbidden) Code() int {
 }
 
 func (o *GetAvailableRoleIdsForbidden) Error() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsForbidden %s", 403, payload)
 }
 
 func (o *GetAvailableRoleIdsForbidden) String() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsForbidden %s", 403, payload)
 }
 
 func (o *GetAvailableRoleIdsForbidden) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *GetAvailableRoleIdsNotFound) Code() int {
 }
 
 func (o *GetAvailableRoleIdsNotFound) Error() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsNotFound %s", 404, payload)
 }
 
 func (o *GetAvailableRoleIdsNotFound) String() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsNotFound %s", 404, payload)
 }
 
 func (o *GetAvailableRoleIdsNotFound) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *GetAvailableRoleIdsTooManyRequests) Code() int {
 }
 
 func (o *GetAvailableRoleIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAvailableRoleIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAvailableRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetAvailableRoleIdsInternalServerError) Code() int {
 }
 
 func (o *GetAvailableRoleIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAvailableRoleIdsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-cid/v1][%d] getAvailableRoleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAvailableRoleIdsInternalServerError) GetPayload() *models.MsaQueryResponse {

@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetRulesMetadataByIDOK) Code() int {
 }
 
 func (o *GetRulesMetadataByIDOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdOK %s", 200, payload)
 }
 
 func (o *GetRulesMetadataByIDOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdOK %s", 200, payload)
 }
 
 func (o *GetRulesMetadataByIDOK) GetPayload() *models.DomainRuleMetadataResponse {
@@ -228,11 +231,13 @@ func (o *GetRulesMetadataByIDBadRequest) Code() int {
 }
 
 func (o *GetRulesMetadataByIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdBadRequest %s", 400, payload)
 }
 
 func (o *GetRulesMetadataByIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdBadRequest %s", 400, payload)
 }
 
 func (o *GetRulesMetadataByIDBadRequest) GetPayload() *models.DomainRuleMetadataResponse {
@@ -338,11 +343,13 @@ func (o *GetRulesMetadataByIDForbidden) Code() int {
 }
 
 func (o *GetRulesMetadataByIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdForbidden %s", 403, payload)
 }
 
 func (o *GetRulesMetadataByIDForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdForbidden %s", 403, payload)
 }
 
 func (o *GetRulesMetadataByIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetRulesMetadataByIDTooManyRequests) Code() int {
 }
 
 func (o *GetRulesMetadataByIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesMetadataByIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdTooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesMetadataByIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetRulesMetadataByIDInternalServerError) Code() int {
 }
 
 func (o *GetRulesMetadataByIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdInternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesMetadataByIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/combined/rule-details-by-rule-ids/v1][%d] getRulesMetadataByIdInternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesMetadataByIDInternalServerError) GetPayload() *models.DomainRuleMetadataResponse {

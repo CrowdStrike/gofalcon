@@ -6,6 +6,7 @@ package installation_tokens
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *TokensDeleteOK) Code() int {
 }
 
 func (o *TokensDeleteOK) Error() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK %s", 200, payload)
 }
 
 func (o *TokensDeleteOK) String() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK %s", 200, payload)
 }
 
 func (o *TokensDeleteOK) GetPayload() *models.MsaspecResponseFields {
@@ -234,11 +237,13 @@ func (o *TokensDeleteBadRequest) Code() int {
 }
 
 func (o *TokensDeleteBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteBadRequest %s", 400, payload)
 }
 
 func (o *TokensDeleteBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteBadRequest %s", 400, payload)
 }
 
 func (o *TokensDeleteBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *TokensDeleteForbidden) Code() int {
 }
 
 func (o *TokensDeleteForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden %s", 403, payload)
 }
 
 func (o *TokensDeleteForbidden) String() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden %s", 403, payload)
 }
 
 func (o *TokensDeleteForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *TokensDeleteNotFound) Code() int {
 }
 
 func (o *TokensDeleteNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteNotFound %s", 404, payload)
 }
 
 func (o *TokensDeleteNotFound) String() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteNotFound %s", 404, payload)
 }
 
 func (o *TokensDeleteNotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -568,11 +577,13 @@ func (o *TokensDeleteTooManyRequests) Code() int {
 }
 
 func (o *TokensDeleteTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensDeleteTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensDeleteTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *TokensDeleteInternalServerError) Code() int {
 }
 
 func (o *TokensDeleteInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError %s", 500, payload)
 }
 
 func (o *TokensDeleteInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError %s", 500, payload)
 }
 
 func (o *TokensDeleteInternalServerError) GetPayload() *models.MsaspecResponseFields {

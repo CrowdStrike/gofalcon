@@ -6,6 +6,7 @@ package content_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *QueryPinnableContentVersionsOK) Code() int {
 }
 
 func (o *QueryPinnableContentVersionsOK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsOK %s", 200, payload)
 }
 
 func (o *QueryPinnableContentVersionsOK) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsOK %s", 200, payload)
 }
 
 func (o *QueryPinnableContentVersionsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -234,11 +237,13 @@ func (o *QueryPinnableContentVersionsBadRequest) Code() int {
 }
 
 func (o *QueryPinnableContentVersionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsBadRequest %s", 400, payload)
 }
 
 func (o *QueryPinnableContentVersionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsBadRequest %s", 400, payload)
 }
 
 func (o *QueryPinnableContentVersionsBadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -344,11 +349,13 @@ func (o *QueryPinnableContentVersionsForbidden) Code() int {
 }
 
 func (o *QueryPinnableContentVersionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsForbidden %s", 403, payload)
 }
 
 func (o *QueryPinnableContentVersionsForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsForbidden %s", 403, payload)
 }
 
 func (o *QueryPinnableContentVersionsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *QueryPinnableContentVersionsNotFound) Code() int {
 }
 
 func (o *QueryPinnableContentVersionsNotFound) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsNotFound %s", 404, payload)
 }
 
 func (o *QueryPinnableContentVersionsNotFound) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsNotFound %s", 404, payload)
 }
 
 func (o *QueryPinnableContentVersionsNotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -568,11 +577,13 @@ func (o *QueryPinnableContentVersionsTooManyRequests) Code() int {
 }
 
 func (o *QueryPinnableContentVersionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPinnableContentVersionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPinnableContentVersionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *QueryPinnableContentVersionsInternalServerError) Code() int {
 }
 
 func (o *QueryPinnableContentVersionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPinnableContentVersionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-pin-versions/v1][%d] queryPinnableContentVersionsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPinnableContentVersionsInternalServerError) GetPayload() *models.MsaspecQueryResponse {

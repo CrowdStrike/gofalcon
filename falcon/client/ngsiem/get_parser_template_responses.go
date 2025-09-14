@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *GetParserTemplateOK) Code() int {
 }
 
 func (o *GetParserTemplateOK) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateOK %s", 200, payload)
 }
 
 func (o *GetParserTemplateOK) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateOK %s", 200, payload)
 }
 
 func (o *GetParserTemplateOK) GetPayload() *models.APIGetParserTemplateResponseV1 {
@@ -240,11 +243,13 @@ func (o *GetParserTemplateBadRequest) Code() int {
 }
 
 func (o *GetParserTemplateBadRequest) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateBadRequest %s", 400, payload)
 }
 
 func (o *GetParserTemplateBadRequest) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateBadRequest %s", 400, payload)
 }
 
 func (o *GetParserTemplateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *GetParserTemplateUnauthorized) Code() int {
 }
 
 func (o *GetParserTemplateUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *GetParserTemplateUnauthorized) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *GetParserTemplateUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *GetParserTemplateForbidden) Code() int {
 }
 
 func (o *GetParserTemplateForbidden) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateForbidden %s", 403, payload)
 }
 
 func (o *GetParserTemplateForbidden) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateForbidden %s", 403, payload)
 }
 
 func (o *GetParserTemplateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *GetParserTemplateNotFound) Code() int {
 }
 
 func (o *GetParserTemplateNotFound) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateNotFound %s", 404, payload)
 }
 
 func (o *GetParserTemplateNotFound) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateNotFound %s", 404, payload)
 }
 
 func (o *GetParserTemplateNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *GetParserTemplateTooManyRequests) Code() int {
 }
 
 func (o *GetParserTemplateTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *GetParserTemplateTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *GetParserTemplateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *GetParserTemplateInternalServerError) Code() int {
 }
 
 func (o *GetParserTemplateInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *GetParserTemplateInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/entities/parsers-template/v1][%d] getParserTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *GetParserTemplateInternalServerError) GetPayload() *models.MsaspecResponseFields {

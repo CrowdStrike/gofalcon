@@ -6,6 +6,7 @@ package spotlight_evaluation_logic
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CombinedQueryEvaluationLogicOK) Code() int {
 }
 
 func (o *CombinedQueryEvaluationLogicOK) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicOK %s", 200, payload)
 }
 
 func (o *CombinedQueryEvaluationLogicOK) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicOK %s", 200, payload)
 }
 
 func (o *CombinedQueryEvaluationLogicOK) GetPayload() *models.DomainSPAPIEvaluationLogicCombinedResponseV1 {
@@ -232,11 +235,11 @@ func (o *CombinedQueryEvaluationLogicBadRequest) Code() int {
 }
 
 func (o *CombinedQueryEvaluationLogicBadRequest) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicBadRequest ", 400)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicBadRequest", 400)
 }
 
 func (o *CombinedQueryEvaluationLogicBadRequest) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicBadRequest ", 400)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicBadRequest", 400)
 }
 
 func (o *CombinedQueryEvaluationLogicBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -331,11 +334,13 @@ func (o *CombinedQueryEvaluationLogicForbidden) Code() int {
 }
 
 func (o *CombinedQueryEvaluationLogicForbidden) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicForbidden %s", 403, payload)
 }
 
 func (o *CombinedQueryEvaluationLogicForbidden) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicForbidden %s", 403, payload)
 }
 
 func (o *CombinedQueryEvaluationLogicForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -445,11 +450,13 @@ func (o *CombinedQueryEvaluationLogicTooManyRequests) Code() int {
 }
 
 func (o *CombinedQueryEvaluationLogicTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedQueryEvaluationLogicTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedQueryEvaluationLogicTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -564,11 +571,11 @@ func (o *CombinedQueryEvaluationLogicInternalServerError) Code() int {
 }
 
 func (o *CombinedQueryEvaluationLogicInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicInternalServerError ", 500)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicInternalServerError", 500)
 }
 
 func (o *CombinedQueryEvaluationLogicInternalServerError) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicInternalServerError ", 500)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicInternalServerError", 500)
 }
 
 func (o *CombinedQueryEvaluationLogicInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -661,11 +668,11 @@ func (o *CombinedQueryEvaluationLogicServiceUnavailable) Code() int {
 }
 
 func (o *CombinedQueryEvaluationLogicServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicServiceUnavailable ", 503)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicServiceUnavailable", 503)
 }
 
 func (o *CombinedQueryEvaluationLogicServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicServiceUnavailable ", 503)
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicServiceUnavailable", 503)
 }
 
 func (o *CombinedQueryEvaluationLogicServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

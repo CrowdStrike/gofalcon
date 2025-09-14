@@ -6,6 +6,7 @@ package firewall_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *SetFirewallPoliciesPrecedenceOK) Code() int {
 }
 
 func (o *SetFirewallPoliciesPrecedenceOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *SetFirewallPoliciesPrecedenceBadRequest) Code() int {
 }
 
 func (o *SetFirewallPoliciesPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *SetFirewallPoliciesPrecedenceForbidden) Code() int {
 }
 
 func (o *SetFirewallPoliciesPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *SetFirewallPoliciesPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *SetFirewallPoliciesPrecedenceInternalServerError) Code() int {
 }
 
 func (o *SetFirewallPoliciesPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetFirewallPoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {

@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRListPutFilesOK) Code() int {
 }
 
 func (o *RTRListPutFilesOK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesOK %s", 200, payload)
 }
 
 func (o *RTRListPutFilesOK) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesOK %s", 200, payload)
 }
 
 func (o *RTRListPutFilesOK) GetPayload() *models.BinservapiMsaPutFileResponse {
@@ -234,11 +237,13 @@ func (o *RTRListPutFilesBadRequest) Code() int {
 }
 
 func (o *RTRListPutFilesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesBadRequest %s", 400, payload)
 }
 
 func (o *RTRListPutFilesBadRequest) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesBadRequest %s", 400, payload)
 }
 
 func (o *RTRListPutFilesBadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRListPutFilesForbidden) Code() int {
 }
 
 func (o *RTRListPutFilesForbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesForbidden %s", 403, payload)
 }
 
 func (o *RTRListPutFilesForbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesForbidden %s", 403, payload)
 }
 
 func (o *RTRListPutFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRListPutFilesNotFound) Code() int {
 }
 
 func (o *RTRListPutFilesNotFound) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesNotFound %s", 404, payload)
 }
 
 func (o *RTRListPutFilesNotFound) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesNotFound %s", 404, payload)
 }
 
 func (o *RTRListPutFilesNotFound) GetPayload() *models.DomainAPIError {
@@ -568,11 +577,13 @@ func (o *RTRListPutFilesTooManyRequests) Code() int {
 }
 
 func (o *RTRListPutFilesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListPutFilesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListPutFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRListPutFilesInternalServerError) Code() int {
 }
 
 func (o *RTRListPutFilesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListPutFilesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/put-files/v1][%d] rTRListPutFilesInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListPutFilesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

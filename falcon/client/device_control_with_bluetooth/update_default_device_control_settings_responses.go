@@ -6,6 +6,7 @@ package device_control_with_bluetooth
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateDefaultDeviceControlSettingsOK) Code() int {
 }
 
 func (o *UpdateDefaultDeviceControlSettingsOK) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsOK %s", 200, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsOK) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsOK %s", 200, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsOK) GetPayload() *models.DeviceControlRespDefaultSettingV1 {
@@ -228,11 +231,13 @@ func (o *UpdateDefaultDeviceControlSettingsForbidden) Code() int {
 }
 
 func (o *UpdateDefaultDeviceControlSettingsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsForbidden %s", 403, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsForbidden %s", 403, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdateDefaultDeviceControlSettingsNotFound) Code() int {
 }
 
 func (o *UpdateDefaultDeviceControlSettingsNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsNotFound %s", 404, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsNotFound) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsNotFound %s", 404, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsNotFound) GetPayload() *models.DeviceControlRespV1 {
@@ -452,11 +459,13 @@ func (o *UpdateDefaultDeviceControlSettingsTooManyRequests) Code() int {
 }
 
 func (o *UpdateDefaultDeviceControlSettingsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateDefaultDeviceControlSettingsInternalServerError) Code() int {
 }
 
 func (o *UpdateDefaultDeviceControlSettingsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-default-settings/v1][%d] updateDefaultDeviceControlSettingsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDefaultDeviceControlSettingsInternalServerError) GetPayload() *models.DeviceControlRespV1 {

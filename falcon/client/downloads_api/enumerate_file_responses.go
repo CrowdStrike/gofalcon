@@ -6,6 +6,7 @@ package downloads_api
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *EnumerateFileOK) Code() int {
 }
 
 func (o *EnumerateFileOK) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileOK %s", 200, payload)
 }
 
 func (o *EnumerateFileOK) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileOK %s", 200, payload)
 }
 
 func (o *EnumerateFileOK) GetPayload() *models.CommonEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *EnumerateFileBadRequest) Code() int {
 }
 
 func (o *EnumerateFileBadRequest) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileBadRequest %s", 400, payload)
 }
 
 func (o *EnumerateFileBadRequest) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileBadRequest %s", 400, payload)
 }
 
 func (o *EnumerateFileBadRequest) GetPayload() *models.CommonEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *EnumerateFileUnauthorized) Code() int {
 }
 
 func (o *EnumerateFileUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileUnauthorized %s", 401, payload)
 }
 
 func (o *EnumerateFileUnauthorized) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileUnauthorized %s", 401, payload)
 }
 
 func (o *EnumerateFileUnauthorized) GetPayload() *models.CommonEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *EnumerateFileForbidden) Code() int {
 }
 
 func (o *EnumerateFileForbidden) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileForbidden %s", 403, payload)
 }
 
 func (o *EnumerateFileForbidden) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileForbidden %s", 403, payload)
 }
 
 func (o *EnumerateFileForbidden) GetPayload() *models.CommonEntitiesResponse {
@@ -568,11 +577,13 @@ func (o *EnumerateFileTooManyRequests) Code() int {
 }
 
 func (o *EnumerateFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileTooManyRequests %s", 429, payload)
 }
 
 func (o *EnumerateFileTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileTooManyRequests %s", 429, payload)
 }
 
 func (o *EnumerateFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *EnumerateFileInternalServerError) Code() int {
 }
 
 func (o *EnumerateFileInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileInternalServerError %s", 500, payload)
 }
 
 func (o *EnumerateFileInternalServerError) String() string {
-	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileInternalServerError %s", 500, payload)
 }
 
 func (o *EnumerateFileInternalServerError) GetPayload() *models.CommonEntitiesResponse {

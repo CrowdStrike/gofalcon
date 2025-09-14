@@ -62,6 +62,25 @@ CloudComplianceRulePostureSummariesParams contains all the parameters to send to
 */
 type CloudComplianceRulePostureSummariesParams struct {
 
+	/* Filter.
+
+	     FQL filter, supported properties:
+	  - `account_id`
+	- `account_name`
+	- `business_impact`
+	- `cloud_group`
+	- `cloud_label`
+	- `cloud_label_id`
+	- `cloud_provider`
+	- `cloud_scope`
+	- `environment`
+	- `region`
+	- `resource_type`
+	- `tag_key`
+	- `tag_value`
+	*/
+	Filter *string
+
 	/* Ids.
 
 	   The uuids of compliance rules to retrieve (maximum 300 IDs allowed).
@@ -121,6 +140,17 @@ func (o *CloudComplianceRulePostureSummariesParams) SetHTTPClient(client *http.C
 	o.HTTPClient = client
 }
 
+// WithFilter adds the filter to the cloud compliance rule posture summaries params
+func (o *CloudComplianceRulePostureSummariesParams) WithFilter(filter *string) *CloudComplianceRulePostureSummariesParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the cloud compliance rule posture summaries params
+func (o *CloudComplianceRulePostureSummariesParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WithIds adds the ids to the cloud compliance rule posture summaries params
 func (o *CloudComplianceRulePostureSummariesParams) WithIds(ids []string) *CloudComplianceRulePostureSummariesParams {
 	o.SetIds(ids)
@@ -139,6 +169,23 @@ func (o *CloudComplianceRulePostureSummariesParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Ids != nil {
 

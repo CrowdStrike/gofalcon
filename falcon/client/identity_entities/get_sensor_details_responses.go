@@ -6,6 +6,7 @@ package identity_entities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetSensorDetailsOK) Code() int {
 }
 
 func (o *GetSensorDetailsOK) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsOK %s", 200, payload)
 }
 
 func (o *GetSensorDetailsOK) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsOK %s", 200, payload)
 }
 
 func (o *GetSensorDetailsOK) GetPayload() *models.APISensorDetailsResponseSwagger {
@@ -222,11 +225,13 @@ func (o *GetSensorDetailsForbidden) Code() int {
 }
 
 func (o *GetSensorDetailsForbidden) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsForbidden %s", 403, payload)
 }
 
 func (o *GetSensorDetailsForbidden) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsForbidden %s", 403, payload)
 }
 
 func (o *GetSensorDetailsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetSensorDetailsTooManyRequests) Code() int {
 }
 
 func (o *GetSensorDetailsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorDetailsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorDetailsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetSensorDetailsInternalServerError) Code() int {
 }
 
 func (o *GetSensorDetailsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorDetailsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /identity-protection/entities/devices/GET/v1][%d] getSensorDetailsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorDetailsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

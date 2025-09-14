@@ -6,6 +6,7 @@ package zero_trust_assessment
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetAssessmentV1OK) Code() int {
 }
 
 func (o *GetAssessmentV1OK) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1OK %s", 200, payload)
 }
 
 func (o *GetAssessmentV1OK) String() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1OK %s", 200, payload)
 }
 
 func (o *GetAssessmentV1OK) GetPayload() *models.DomainAssessmentsResponse {
@@ -228,11 +231,13 @@ func (o *GetAssessmentV1BadRequest) Code() int {
 }
 
 func (o *GetAssessmentV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1BadRequest %s", 400, payload)
 }
 
 func (o *GetAssessmentV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1BadRequest %s", 400, payload)
 }
 
 func (o *GetAssessmentV1BadRequest) GetPayload() *models.DomainAssessmentsResponse {
@@ -338,11 +343,13 @@ func (o *GetAssessmentV1Forbidden) Code() int {
 }
 
 func (o *GetAssessmentV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1Forbidden %s", 403, payload)
 }
 
 func (o *GetAssessmentV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1Forbidden %s", 403, payload)
 }
 
 func (o *GetAssessmentV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetAssessmentV1TooManyRequests) Code() int {
 }
 
 func (o *GetAssessmentV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetAssessmentV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetAssessmentV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetAssessmentV1InternalServerError) Code() int {
 }
 
 func (o *GetAssessmentV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetAssessmentV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetAssessmentV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

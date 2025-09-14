@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetConfigurationDetectionIDsV2OK) Code() int {
 }
 
 func (o *GetConfigurationDetectionIDsV2OK) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2OK %s", 200, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2OK) String() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2OK %s", 200, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2OK) GetPayload() *models.RegistrationIOMEventIDsResponseV2 {
@@ -228,11 +231,13 @@ func (o *GetConfigurationDetectionIDsV2BadRequest) Code() int {
 }
 
 func (o *GetConfigurationDetectionIDsV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2BadRequest %s", 400, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2BadRequest %s", 400, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2BadRequest) GetPayload() *models.MsaMetaInfo {
@@ -338,11 +343,13 @@ func (o *GetConfigurationDetectionIDsV2Forbidden) Code() int {
 }
 
 func (o *GetConfigurationDetectionIDsV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2Forbidden) GetPayload() *models.MsaMetaInfo {
@@ -452,11 +459,13 @@ func (o *GetConfigurationDetectionIDsV2TooManyRequests) Code() int {
 }
 
 func (o *GetConfigurationDetectionIDsV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetConfigurationDetectionIDsV2InternalServerError) Code() int {
 }
 
 func (o *GetConfigurationDetectionIDsV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /detects/queries/iom/v2][%d] getConfigurationDetectionIDsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetConfigurationDetectionIDsV2InternalServerError) GetPayload() *models.MsaMetaInfo {

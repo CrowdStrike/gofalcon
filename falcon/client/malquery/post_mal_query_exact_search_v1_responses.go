@@ -6,6 +6,7 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PostMalQueryExactSearchV1OK) Code() int {
 }
 
 func (o *PostMalQueryExactSearchV1OK) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryExactSearchV1OK) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryExactSearchV1OK) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -234,11 +237,13 @@ func (o *PostMalQueryExactSearchV1BadRequest) Code() int {
 }
 
 func (o *PostMalQueryExactSearchV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryExactSearchV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryExactSearchV1BadRequest) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -344,11 +349,13 @@ func (o *PostMalQueryExactSearchV1Unauthorized) Code() int {
 }
 
 func (o *PostMalQueryExactSearchV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryExactSearchV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryExactSearchV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PostMalQueryExactSearchV1Forbidden) Code() int {
 }
 
 func (o *PostMalQueryExactSearchV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryExactSearchV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryExactSearchV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *PostMalQueryExactSearchV1TooManyRequests) Code() int {
 }
 
 func (o *PostMalQueryExactSearchV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryExactSearchV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryExactSearchV1TooManyRequests) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -689,11 +700,13 @@ func (o *PostMalQueryExactSearchV1InternalServerError) Code() int {
 }
 
 func (o *PostMalQueryExactSearchV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryExactSearchV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryExactSearchV1InternalServerError) GetPayload() *models.MalqueryExternalQueryResponse {

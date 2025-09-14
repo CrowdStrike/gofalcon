@@ -6,6 +6,7 @@ package cloud_oci_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudSecurityRegistrationOciDeleteAccountOK) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountOK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountOK %s", 200, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountOK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountOK %s", 200, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountOK) GetPayload() *models.MsaspecResponseFields {
@@ -234,11 +237,13 @@ func (o *CloudSecurityRegistrationOciDeleteAccountMultiStatus) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountMultiStatus) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CloudSecurityRegistrationOciDeleteAccountBadRequest) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CloudSecurityRegistrationOciDeleteAccountForbidden) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountForbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudSecurityRegistrationOciDeleteAccountTooManyRequests) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudSecurityRegistrationOciDeleteAccountInternalServerError) Code() in
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciDeleteAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDeleteAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {

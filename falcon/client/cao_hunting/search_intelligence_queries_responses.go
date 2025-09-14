@@ -6,6 +6,7 @@ package cao_hunting
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *SearchIntelligenceQueriesOK) Code() int {
 }
 
 func (o *SearchIntelligenceQueriesOK) Error() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesOK %s", 200, payload)
 }
 
 func (o *SearchIntelligenceQueriesOK) String() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesOK %s", 200, payload)
 }
 
 func (o *SearchIntelligenceQueriesOK) GetPayload() *models.MsaspecQueryResponse {
@@ -240,11 +243,13 @@ func (o *SearchIntelligenceQueriesBadRequest) Code() int {
 }
 
 func (o *SearchIntelligenceQueriesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesBadRequest %s", 400, payload)
 }
 
 func (o *SearchIntelligenceQueriesBadRequest) String() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesBadRequest %s", 400, payload)
 }
 
 func (o *SearchIntelligenceQueriesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *SearchIntelligenceQueriesForbidden) Code() int {
 }
 
 func (o *SearchIntelligenceQueriesForbidden) Error() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesForbidden %s", 403, payload)
 }
 
 func (o *SearchIntelligenceQueriesForbidden) String() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesForbidden %s", 403, payload)
 }
 
 func (o *SearchIntelligenceQueriesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *SearchIntelligenceQueriesNotFound) Code() int {
 }
 
 func (o *SearchIntelligenceQueriesNotFound) Error() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesNotFound %s", 404, payload)
 }
 
 func (o *SearchIntelligenceQueriesNotFound) String() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesNotFound %s", 404, payload)
 }
 
 func (o *SearchIntelligenceQueriesNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -574,11 +583,13 @@ func (o *SearchIntelligenceQueriesTooManyRequests) Code() int {
 }
 
 func (o *SearchIntelligenceQueriesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchIntelligenceQueriesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchIntelligenceQueriesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *SearchIntelligenceQueriesClientClosedRequest) Code() int {
 }
 
 func (o *SearchIntelligenceQueriesClientClosedRequest) Error() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesClientClosedRequest %s", 499, payload)
 }
 
 func (o *SearchIntelligenceQueriesClientClosedRequest) String() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesClientClosedRequest  %+v", 499, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesClientClosedRequest %s", 499, payload)
 }
 
 func (o *SearchIntelligenceQueriesClientClosedRequest) GetPayload() *models.MsaspecResponseFields {
@@ -805,11 +818,13 @@ func (o *SearchIntelligenceQueriesInternalServerError) Code() int {
 }
 
 func (o *SearchIntelligenceQueriesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *SearchIntelligenceQueriesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /hunting/queries/intelligence-queries/v1][%d] searchIntelligenceQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *SearchIntelligenceQueriesInternalServerError) GetPayload() *models.MsaspecResponseFields {

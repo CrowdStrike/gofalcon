@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRGetPutFileContentsOK) Code() int {
 }
 
 func (o *RTRGetPutFileContentsOK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsOK %s", 200, payload)
 }
 
 func (o *RTRGetPutFileContentsOK) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsOK %s", 200, payload)
 }
 
 func (o *RTRGetPutFileContentsOK) GetPayload() []int64 {
@@ -232,11 +235,13 @@ func (o *RTRGetPutFileContentsBadRequest) Code() int {
 }
 
 func (o *RTRGetPutFileContentsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsBadRequest %s", 400, payload)
 }
 
 func (o *RTRGetPutFileContentsBadRequest) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsBadRequest %s", 400, payload)
 }
 
 func (o *RTRGetPutFileContentsBadRequest) GetPayload() *models.DomainAPIError {
@@ -342,11 +347,13 @@ func (o *RTRGetPutFileContentsForbidden) Code() int {
 }
 
 func (o *RTRGetPutFileContentsForbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsForbidden %s", 403, payload)
 }
 
 func (o *RTRGetPutFileContentsForbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsForbidden %s", 403, payload)
 }
 
 func (o *RTRGetPutFileContentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RTRGetPutFileContentsNotFound) Code() int {
 }
 
 func (o *RTRGetPutFileContentsNotFound) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsNotFound %s", 404, payload)
 }
 
 func (o *RTRGetPutFileContentsNotFound) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsNotFound %s", 404, payload)
 }
 
 func (o *RTRGetPutFileContentsNotFound) GetPayload() *models.DomainAPIError {
@@ -566,11 +575,13 @@ func (o *RTRGetPutFileContentsTooManyRequests) Code() int {
 }
 
 func (o *RTRGetPutFileContentsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRGetPutFileContentsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRGetPutFileContentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -687,11 +698,13 @@ func (o *RTRGetPutFileContentsInternalServerError) Code() int {
 }
 
 func (o *RTRGetPutFileContentsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRGetPutFileContentsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/entities/put-file-contents/v1][%d] rTRGetPutFileContentsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRGetPutFileContentsInternalServerError) GetPayload() *models.DomainAPIError {

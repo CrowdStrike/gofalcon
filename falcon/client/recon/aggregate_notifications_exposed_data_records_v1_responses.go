@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *AggregateNotificationsExposedDataRecordsV1OK) Code() int {
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1OK) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1OK %s", 200, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1OK) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1OK %s", 200, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1OK) GetPayload() *models.DomainAggregatesResponse {
@@ -234,11 +237,13 @@ func (o *AggregateNotificationsExposedDataRecordsV1BadRequest) Code() int {
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -344,11 +349,13 @@ func (o *AggregateNotificationsExposedDataRecordsV1Unauthorized) Code() int {
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Unauthorized %s", 401, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Unauthorized %s", 401, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -454,11 +461,13 @@ func (o *AggregateNotificationsExposedDataRecordsV1Forbidden) Code() int {
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -568,11 +577,13 @@ func (o *AggregateNotificationsExposedDataRecordsV1TooManyRequests) Code() int {
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *AggregateNotificationsExposedDataRecordsV1InternalServerError) Code() i
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /recon/aggregates/notifications-exposed-data-records/GET/v1][%d] aggregateNotificationsExposedDataRecordsV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregateNotificationsExposedDataRecordsV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

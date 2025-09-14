@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CreateDiscoverCloudAzureAccountCreated) Code() int {
 }
 
 func (o *CreateDiscoverCloudAzureAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountCreated %s", 201, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountCreated %s", 201, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountCreated) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -240,11 +243,13 @@ func (o *CreateDiscoverCloudAzureAccountMultiStatus) Code() int {
 }
 
 func (o *CreateDiscoverCloudAzureAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountMultiStatus) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -350,11 +355,13 @@ func (o *CreateDiscoverCloudAzureAccountBadRequest) Code() int {
 }
 
 func (o *CreateDiscoverCloudAzureAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountBadRequest) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -460,11 +467,13 @@ func (o *CreateDiscoverCloudAzureAccountForbidden) Code() int {
 }
 
 func (o *CreateDiscoverCloudAzureAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -570,11 +579,13 @@ func (o *CreateDiscoverCloudAzureAccountConflict) Code() int {
 }
 
 func (o *CreateDiscoverCloudAzureAccountConflict) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountConflict %s", 409, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountConflict) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountConflict %s", 409, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountConflict) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -684,11 +695,13 @@ func (o *CreateDiscoverCloudAzureAccountTooManyRequests) Code() int {
 }
 
 func (o *CreateDiscoverCloudAzureAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CreateDiscoverCloudAzureAccountInternalServerError) Code() int {
 }
 
 func (o *CreateDiscoverCloudAzureAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-azure/entities/account/v1][%d] createDiscoverCloudAzureAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateDiscoverCloudAzureAccountInternalServerError) GetPayload() *models.RegistrationAzureAccountResponseV1 {

@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *CombinedDevicesByFilterOK) Code() int {
 }
 
 func (o *CombinedDevicesByFilterOK) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterOK %s", 200, payload)
 }
 
 func (o *CombinedDevicesByFilterOK) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterOK %s", 200, payload)
 }
 
 func (o *CombinedDevicesByFilterOK) GetPayload() *models.DeviceapiDeviceCombinedResponseSwagger {
@@ -222,11 +225,13 @@ func (o *CombinedDevicesByFilterForbidden) Code() int {
 }
 
 func (o *CombinedDevicesByFilterForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterForbidden %s", 403, payload)
 }
 
 func (o *CombinedDevicesByFilterForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterForbidden %s", 403, payload)
 }
 
 func (o *CombinedDevicesByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *CombinedDevicesByFilterTooManyRequests) Code() int {
 }
 
 func (o *CombinedDevicesByFilterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedDevicesByFilterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedDevicesByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *CombinedDevicesByFilterInternalServerError) Code() int {
 }
 
 func (o *CombinedDevicesByFilterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedDevicesByFilterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices/v1][%d] combinedDevicesByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedDevicesByFilterInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

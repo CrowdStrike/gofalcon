@@ -6,6 +6,7 @@ package correlation_rules
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *AggregatesRuleVersionsPostV1OK) Code() int {
 }
 
 func (o *AggregatesRuleVersionsPostV1OK) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1OK %s", 200, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1OK) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1OK %s", 200, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1OK) GetPayload() *models.APIAggregatesResponseV1 {
@@ -240,11 +243,13 @@ func (o *AggregatesRuleVersionsPostV1BadRequest) Code() int {
 }
 
 func (o *AggregatesRuleVersionsPostV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1BadRequest) GetPayload() *models.APIAggregatesResponseV1 {
@@ -350,11 +355,13 @@ func (o *AggregatesRuleVersionsPostV1Unauthorized) Code() int {
 }
 
 func (o *AggregatesRuleVersionsPostV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Unauthorized %s", 401, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Unauthorized %s", 401, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1Unauthorized) GetPayload() *models.APIAggregatesResponseV1 {
@@ -460,11 +467,13 @@ func (o *AggregatesRuleVersionsPostV1Forbidden) Code() int {
 }
 
 func (o *AggregatesRuleVersionsPostV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1Forbidden) GetPayload() *models.APIAggregatesResponseV1 {
@@ -570,11 +579,13 @@ func (o *AggregatesRuleVersionsPostV1NotFound) Code() int {
 }
 
 func (o *AggregatesRuleVersionsPostV1NotFound) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1NotFound %s", 404, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1NotFound) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1NotFound %s", 404, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1NotFound) GetPayload() *models.APIAggregatesResponseV1 {
@@ -684,11 +695,13 @@ func (o *AggregatesRuleVersionsPostV1TooManyRequests) Code() int {
 }
 
 func (o *AggregatesRuleVersionsPostV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *AggregatesRuleVersionsPostV1InternalServerError) Code() int {
 }
 
 func (o *AggregatesRuleVersionsPostV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregatesRuleVersionsPostV1InternalServerError) GetPayload() *models.APIAggregatesResponseV1 {

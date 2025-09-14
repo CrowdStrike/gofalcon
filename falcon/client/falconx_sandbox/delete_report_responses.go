@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteReportAccepted) Code() int {
 }
 
 func (o *DeleteReportAccepted) Error() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportAccepted %s", 202, payload)
 }
 
 func (o *DeleteReportAccepted) String() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportAccepted  %+v", 202, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportAccepted %s", 202, payload)
 }
 
 func (o *DeleteReportAccepted) GetPayload() *models.FalconxQueryResponse {
@@ -234,11 +237,13 @@ func (o *DeleteReportBadRequest) Code() int {
 }
 
 func (o *DeleteReportBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportBadRequest %s", 400, payload)
 }
 
 func (o *DeleteReportBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportBadRequest %s", 400, payload)
 }
 
 func (o *DeleteReportBadRequest) GetPayload() *models.FalconxErrorsOnly {
@@ -344,11 +349,13 @@ func (o *DeleteReportForbidden) Code() int {
 }
 
 func (o *DeleteReportForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportForbidden %s", 403, payload)
 }
 
 func (o *DeleteReportForbidden) String() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportForbidden %s", 403, payload)
 }
 
 func (o *DeleteReportForbidden) GetPayload() *models.FalconxErrorsOnly {
@@ -454,11 +461,13 @@ func (o *DeleteReportNotFound) Code() int {
 }
 
 func (o *DeleteReportNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportNotFound %s", 404, payload)
 }
 
 func (o *DeleteReportNotFound) String() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportNotFound %s", 404, payload)
 }
 
 func (o *DeleteReportNotFound) GetPayload() *models.FalconxErrorsOnly {
@@ -568,11 +577,13 @@ func (o *DeleteReportTooManyRequests) Code() int {
 }
 
 func (o *DeleteReportTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteReportTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteReportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteReportInternalServerError) Code() int {
 }
 
 func (o *DeleteReportInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteReportInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteReportInternalServerError) GetPayload() *models.FalconxErrorsOnly {

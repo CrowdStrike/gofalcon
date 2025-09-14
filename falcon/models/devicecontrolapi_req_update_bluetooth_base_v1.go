@@ -26,12 +26,12 @@ type DevicecontrolapiReqUpdateBluetoothBaseV1 struct {
 
 	// Determines if a notification will be shown to the end user (omit to keep current)
 	// Required: true
-	// Enum: [NOTIFY_USER SILENT]
+	// Enum: ["NOTIFY_USER","SILENT"]
 	EndUserNotification *string `json:"end_user_notification"`
 
 	// Enforcement for the Bluetooth policy (omit to keep current)
 	// Required: true
-	// Enum: [MONITOR_ONLY MONITOR_ENFORCE OFF]
+	// Enum: ["MONITOR_ONLY","MONITOR_ENFORCE","OFF"]
 	EnforcementMode *string `json:"enforcement_mode"`
 }
 

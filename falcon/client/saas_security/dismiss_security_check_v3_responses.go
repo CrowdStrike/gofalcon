@@ -7,6 +7,7 @@ package saas_security
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -113,11 +114,13 @@ func (o *DismissSecurityCheckV3OK) Code() int {
 }
 
 func (o *DismissSecurityCheckV3OK) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3OK %s", 200, payload)
 }
 
 func (o *DismissSecurityCheckV3OK) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3OK %s", 200, payload)
 }
 
 func (o *DismissSecurityCheckV3OK) GetPayload() *models.DismissSecurityCheck {
@@ -223,11 +226,13 @@ func (o *DismissSecurityCheckV3Forbidden) Code() int {
 }
 
 func (o *DismissSecurityCheckV3Forbidden) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3Forbidden %s", 403, payload)
 }
 
 func (o *DismissSecurityCheckV3Forbidden) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3Forbidden %s", 403, payload)
 }
 
 func (o *DismissSecurityCheckV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -337,11 +342,13 @@ func (o *DismissSecurityCheckV3TooManyRequests) Code() int {
 }
 
 func (o *DismissSecurityCheckV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3TooManyRequests %s", 429, payload)
 }
 
 func (o *DismissSecurityCheckV3TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3TooManyRequests %s", 429, payload)
 }
 
 func (o *DismissSecurityCheckV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -458,11 +465,13 @@ func (o *DismissSecurityCheckV3InternalServerError) Code() int {
 }
 
 func (o *DismissSecurityCheckV3InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3InternalServerError %s", 500, payload)
 }
 
 func (o *DismissSecurityCheckV3InternalServerError) String() string {
-	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /saas-security/entities/check-dismiss/v3][%d] dismissSecurityCheckV3InternalServerError %s", 500, payload)
 }
 
 func (o *DismissSecurityCheckV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

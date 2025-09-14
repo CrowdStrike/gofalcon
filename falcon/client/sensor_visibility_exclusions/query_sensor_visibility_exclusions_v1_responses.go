@@ -6,6 +6,7 @@ package sensor_visibility_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QuerySensorVisibilityExclusionsV1OK) Code() int {
 }
 
 func (o *QuerySensorVisibilityExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1OK %s", 200, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1OK) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1OK %s", 200, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1OK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QuerySensorVisibilityExclusionsV1BadRequest) Code() int {
 }
 
 func (o *QuerySensorVisibilityExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1BadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QuerySensorVisibilityExclusionsV1Forbidden) Code() int {
 }
 
 func (o *QuerySensorVisibilityExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QuerySensorVisibilityExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *QuerySensorVisibilityExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QuerySensorVisibilityExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *QuerySensorVisibilityExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sv-exclusions/v1][%d] querySensorVisibilityExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *QuerySensorVisibilityExclusionsV1InternalServerError) GetPayload() *models.MsaQueryResponse {

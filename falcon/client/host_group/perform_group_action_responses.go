@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PerformGroupActionOK) Code() int {
 }
 
 func (o *PerformGroupActionOK) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionOK %s", 200, payload)
 }
 
 func (o *PerformGroupActionOK) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionOK %s", 200, payload)
 }
 
 func (o *PerformGroupActionOK) GetPayload() *models.HostGroupsRespV1 {
@@ -234,11 +237,13 @@ func (o *PerformGroupActionBadRequest) Code() int {
 }
 
 func (o *PerformGroupActionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformGroupActionBadRequest) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformGroupActionBadRequest) GetPayload() *models.HostGroupsRespV1 {
@@ -344,11 +349,13 @@ func (o *PerformGroupActionForbidden) Code() int {
 }
 
 func (o *PerformGroupActionForbidden) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionForbidden %s", 403, payload)
 }
 
 func (o *PerformGroupActionForbidden) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionForbidden %s", 403, payload)
 }
 
 func (o *PerformGroupActionForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PerformGroupActionNotFound) Code() int {
 }
 
 func (o *PerformGroupActionNotFound) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionNotFound %s", 404, payload)
 }
 
 func (o *PerformGroupActionNotFound) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionNotFound %s", 404, payload)
 }
 
 func (o *PerformGroupActionNotFound) GetPayload() *models.HostGroupsRespV1 {
@@ -568,11 +577,13 @@ func (o *PerformGroupActionTooManyRequests) Code() int {
 }
 
 func (o *PerformGroupActionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformGroupActionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformGroupActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PerformGroupActionInternalServerError) Code() int {
 }
 
 func (o *PerformGroupActionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformGroupActionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformGroupActionInternalServerError) GetPayload() *models.HostGroupsRespV1 {

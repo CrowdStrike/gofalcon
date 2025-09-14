@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ExecuteFunctionDataQueryCountOK) Code() int {
 }
 
 func (o *ExecuteFunctionDataQueryCountOK) Error() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountOK) String() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountOK) GetPayload() *models.TypesCountResponse {
@@ -240,11 +243,13 @@ func (o *ExecuteFunctionDataQueryCountBadRequest) Code() int {
 }
 
 func (o *ExecuteFunctionDataQueryCountBadRequest) Error() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountBadRequest) String() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *ExecuteFunctionDataQueryCountUnauthorized) Code() int {
 }
 
 func (o *ExecuteFunctionDataQueryCountUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountUnauthorized) String() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *ExecuteFunctionDataQueryCountForbidden) Code() int {
 }
 
 func (o *ExecuteFunctionDataQueryCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountForbidden) String() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *ExecuteFunctionDataQueryCountTooManyRequests) Code() int {
 }
 
 func (o *ExecuteFunctionDataQueryCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *ExecuteFunctionDataQueryCountInternalServerError) Code() int {
 }
 
 func (o *ExecuteFunctionDataQueryCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ExecuteFunctionDataQueryCountServiceUnavailable) Code() int {
 }
 
 func (o *ExecuteFunctionDataQueryCountServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/aggregates/query-function-data-count/v1][%d] executeFunctionDataQueryCountServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionDataQueryCountServiceUnavailable) GetPayload() *models.TypesErrorMessage {

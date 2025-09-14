@@ -22,12 +22,12 @@ type DevicecontrolapiReqUpdateUSBClassV1 struct {
 
 	// Action to be taken for devices in this class
 	// Required: true
-	// Enum: [FULL_ACCESS BLOCK_EXECUTE BLOCK_WRITE_EXECUTE BLOCK_ALL WHITELIST]
+	// Enum: ["FULL_ACCESS","BLOCK_EXECUTE","BLOCK_WRITE_EXECUTE","BLOCK_ALL","WHITELIST"]
 	Action *string `json:"action"`
 
 	// USB Device class
 	// Required: true
-	// Enum: [ANY AUDIO_VIDEO IMAGING MASS_STORAGE MOBILE PRINTER WIRELESS]
+	// Enum: ["ANY","AUDIO_VIDEO","IMAGING","MASS_STORAGE","MOBILE","PRINTER","WIRELESS"]
 	Class *string `json:"class"`
 }
 

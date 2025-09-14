@@ -6,6 +6,7 @@ package firewall_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteFirewallPoliciesOK) Code() int {
 }
 
 func (o *DeleteFirewallPoliciesOK) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteFirewallPoliciesOK) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesOK %s", 200, payload)
 }
 
 func (o *DeleteFirewallPoliciesOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteFirewallPoliciesForbidden) Code() int {
 }
 
 func (o *DeleteFirewallPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteFirewallPoliciesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesForbidden %s", 403, payload)
 }
 
 func (o *DeleteFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *DeleteFirewallPoliciesNotFound) Code() int {
 }
 
 func (o *DeleteFirewallPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteFirewallPoliciesNotFound) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesNotFound %s", 404, payload)
 }
 
 func (o *DeleteFirewallPoliciesNotFound) GetPayload() *models.MsaQueryResponse {
@@ -452,11 +459,13 @@ func (o *DeleteFirewallPoliciesTooManyRequests) Code() int {
 }
 
 func (o *DeleteFirewallPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteFirewallPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteFirewallPoliciesInternalServerError) Code() int {
 }
 
 func (o *DeleteFirewallPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteFirewallPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteFirewallPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {

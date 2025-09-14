@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ArchiveGetV1OK) Code() int {
 }
 
 func (o *ArchiveGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1OK %s", 200, payload)
 }
 
 func (o *ArchiveGetV1OK) String() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1OK %s", 200, payload)
 }
 
 func (o *ArchiveGetV1OK) GetPayload() *models.ClientArchiveCreateResponseV1 {
@@ -228,11 +231,13 @@ func (o *ArchiveGetV1BadRequest) Code() int {
 }
 
 func (o *ArchiveGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1BadRequest %s", 400, payload)
 }
 
 func (o *ArchiveGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1BadRequest %s", 400, payload)
 }
 
 func (o *ArchiveGetV1BadRequest) GetPayload() *models.ClientArchiveCreateResponseV1 {
@@ -338,11 +343,13 @@ func (o *ArchiveGetV1Forbidden) Code() int {
 }
 
 func (o *ArchiveGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1Forbidden %s", 403, payload)
 }
 
 func (o *ArchiveGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1Forbidden %s", 403, payload)
 }
 
 func (o *ArchiveGetV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ArchiveGetV1TooManyRequests) Code() int {
 }
 
 func (o *ArchiveGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ArchiveGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ArchiveGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ArchiveGetV1InternalServerError) Code() int {
 }
 
 func (o *ArchiveGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *ArchiveGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] archiveGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *ArchiveGetV1InternalServerError) GetPayload() *models.ClientArchiveCreateResponseV1 {

@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationGetScheduledTasksOK) Code() int {
 }
 
 func (o *ITAutomationGetScheduledTasksOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksOK) GetPayload() *models.ItautomationGetScheduledTaskResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationGetScheduledTasksBadRequest) Code() int {
 }
 
 func (o *ITAutomationGetScheduledTasksBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationGetScheduledTasksForbidden) Code() int {
 }
 
 func (o *ITAutomationGetScheduledTasksForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationGetScheduledTasksTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationGetScheduledTasksTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationGetScheduledTasksInternalServerError) Code() int {
 }
 
 func (o *ITAutomationGetScheduledTasksInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationGetScheduledTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetScheduledTasksInternalServerError) GetPayload() *models.MsaspecResponseFields {

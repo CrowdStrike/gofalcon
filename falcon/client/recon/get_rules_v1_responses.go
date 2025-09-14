@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetRulesV1OK) Code() int {
 }
 
 func (o *GetRulesV1OK) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1OK %s", 200, payload)
 }
 
 func (o *GetRulesV1OK) String() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1OK %s", 200, payload)
 }
 
 func (o *GetRulesV1OK) GetPayload() *models.DomainRulesEntitiesResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetRulesV1BadRequest) Code() int {
 }
 
 func (o *GetRulesV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1BadRequest %s", 400, payload)
 }
 
 func (o *GetRulesV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1BadRequest %s", 400, payload)
 }
 
 func (o *GetRulesV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -344,11 +349,13 @@ func (o *GetRulesV1Unauthorized) Code() int {
 }
 
 func (o *GetRulesV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetRulesV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetRulesV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetRulesV1Forbidden) Code() int {
 }
 
 func (o *GetRulesV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Forbidden %s", 403, payload)
 }
 
 func (o *GetRulesV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Forbidden %s", 403, payload)
 }
 
 func (o *GetRulesV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -568,11 +577,13 @@ func (o *GetRulesV1TooManyRequests) Code() int {
 }
 
 func (o *GetRulesV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetRulesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetRulesV1InternalServerError) Code() int {
 }
 
 func (o *GetRulesV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetRulesV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

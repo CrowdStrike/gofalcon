@@ -33,7 +33,7 @@ type DevicecontrolapiReqCreatePolicyV1 struct {
 	Name string `json:"name,omitempty"`
 
 	// Name of the platform. *Required if clone_id is empty
-	// Enum: [Windows Mac]
+	// Enum: ["Windows","Mac"]
 	PlatformName string `json:"platform_name,omitempty"`
 
 	// Object for the USB base settings. Defaults will be set if omitted

@@ -6,6 +6,7 @@ package sensor_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateSensorUpdatePoliciesCreated) Code() int {
 }
 
 func (o *CreateSensorUpdatePoliciesCreated) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesCreated %s", 201, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesCreated) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesCreated %s", 201, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesCreated) GetPayload() *models.SensorUpdateRespV1 {
@@ -234,11 +237,13 @@ func (o *CreateSensorUpdatePoliciesBadRequest) Code() int {
 }
 
 func (o *CreateSensorUpdatePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesBadRequest) GetPayload() *models.SensorUpdateRespV1 {
@@ -344,11 +349,13 @@ func (o *CreateSensorUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *CreateSensorUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *CreateSensorUpdatePoliciesNotFound) Code() int {
 }
 
 func (o *CreateSensorUpdatePoliciesNotFound) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesNotFound) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesNotFound) GetPayload() *models.SensorUpdateRespV1 {
@@ -568,11 +577,13 @@ func (o *CreateSensorUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *CreateSensorUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateSensorUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *CreateSensorUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateSensorUpdatePoliciesInternalServerError) GetPayload() *models.SensorUpdateRespV1 {

@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetD4CGcpUserScriptsOK) Code() int {
 }
 
 func (o *GetD4CGcpUserScriptsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsOK %s", 200, payload)
 }
 
 func (o *GetD4CGcpUserScriptsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsOK %s", 200, payload)
 }
 
 func (o *GetD4CGcpUserScriptsOK) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetD4CGcpUserScriptsMultiStatus) Code() int {
 }
 
 func (o *GetD4CGcpUserScriptsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsMultiStatus %s", 207, payload)
 }
 
 func (o *GetD4CGcpUserScriptsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsMultiStatus %s", 207, payload)
 }
 
 func (o *GetD4CGcpUserScriptsMultiStatus) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetD4CGcpUserScriptsBadRequest) Code() int {
 }
 
 func (o *GetD4CGcpUserScriptsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CGcpUserScriptsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsBadRequest %s", 400, payload)
 }
 
 func (o *GetD4CGcpUserScriptsBadRequest) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
@@ -454,11 +461,13 @@ func (o *GetD4CGcpUserScriptsForbidden) Code() int {
 }
 
 func (o *GetD4CGcpUserScriptsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetD4CGcpUserScriptsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsForbidden %s", 403, payload)
 }
 
 func (o *GetD4CGcpUserScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetD4CGcpUserScriptsTooManyRequests) Code() int {
 }
 
 func (o *GetD4CGcpUserScriptsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CGcpUserScriptsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetD4CGcpUserScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetD4CGcpUserScriptsInternalServerError) Code() int {
 }
 
 func (o *GetD4CGcpUserScriptsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CGcpUserScriptsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getD4CGcpUserScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *GetD4CGcpUserScriptsInternalServerError) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {

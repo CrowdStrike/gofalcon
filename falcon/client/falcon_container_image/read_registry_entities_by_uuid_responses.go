@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ReadRegistryEntitiesByUUIDOK) Code() int {
 }
 
 func (o *ReadRegistryEntitiesByUUIDOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidOK %s", 200, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidOK %s", 200, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDOK) GetPayload() *models.DomainExternalRegistryListResponse {
@@ -228,11 +231,13 @@ func (o *ReadRegistryEntitiesByUUIDForbidden) Code() int {
 }
 
 func (o *ReadRegistryEntitiesByUUIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidForbidden %s", 403, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidForbidden %s", 403, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *ReadRegistryEntitiesByUUIDNotFound) Code() int {
 }
 
 func (o *ReadRegistryEntitiesByUUIDNotFound) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidNotFound %s", 404, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDNotFound) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidNotFound %s", 404, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDNotFound) GetPayload() *models.DomainExternalRegistryListResponse {
@@ -452,11 +459,13 @@ func (o *ReadRegistryEntitiesByUUIDTooManyRequests) Code() int {
 }
 
 func (o *ReadRegistryEntitiesByUUIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ReadRegistryEntitiesByUUIDInternalServerError) Code() int {
 }
 
 func (o *ReadRegistryEntitiesByUUIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidInternalServerError %s", 500, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/registries/v1][%d] readRegistryEntitiesByUuidInternalServerError %s", 500, payload)
 }
 
 func (o *ReadRegistryEntitiesByUUIDInternalServerError) GetPayload() *models.DomainExternalRegistryListResponse {

@@ -6,6 +6,7 @@ package container_image_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtAggregateFailedContainersCountBySeverityOK) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityOK) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -234,11 +237,13 @@ func (o *ExtAggregateFailedContainersCountBySeverityBadRequest) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityBadRequest) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -344,11 +349,13 @@ func (o *ExtAggregateFailedContainersCountBySeverityUnauthorized) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityUnauthorized) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -454,11 +461,13 @@ func (o *ExtAggregateFailedContainersCountBySeverityForbidden) Code() int {
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityForbidden) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {
@@ -568,11 +577,13 @@ func (o *ExtAggregateFailedContainersCountBySeverityTooManyRequests) Code() int 
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtAggregateFailedContainersCountBySeverityInternalServerError) Code() 
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-containers-count-by-severity/v2][%d] extAggregateFailedContainersCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedContainersCountBySeverityInternalServerError) GetPayload() *models.DomainAggregateFailedAssetCountBySeverityResponse {

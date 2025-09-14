@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryDevicesByFilterScrollOK) Code() int {
 }
 
 func (o *QueryDevicesByFilterScrollOK) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollOK %s", 200, payload)
 }
 
 func (o *QueryDevicesByFilterScrollOK) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollOK %s", 200, payload)
 }
 
 func (o *QueryDevicesByFilterScrollOK) GetPayload() *models.DeviceapiDeviceResponse {
@@ -222,11 +225,13 @@ func (o *QueryDevicesByFilterScrollForbidden) Code() int {
 }
 
 func (o *QueryDevicesByFilterScrollForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollForbidden %s", 403, payload)
 }
 
 func (o *QueryDevicesByFilterScrollForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollForbidden %s", 403, payload)
 }
 
 func (o *QueryDevicesByFilterScrollForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryDevicesByFilterScrollTooManyRequests) Code() int {
 }
 
 func (o *QueryDevicesByFilterScrollTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDevicesByFilterScrollTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDevicesByFilterScrollTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryDevicesByFilterScrollInternalServerError) Code() int {
 }
 
 func (o *QueryDevicesByFilterScrollInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDevicesByFilterScrollInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDevicesByFilterScrollInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

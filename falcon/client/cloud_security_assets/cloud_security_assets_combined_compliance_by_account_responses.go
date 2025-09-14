@@ -6,6 +6,7 @@ package cloud_security_assets
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CloudSecurityAssetsCombinedComplianceByAccountOK) Code() int {
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountOK %s", 200, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountOK) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountOK %s", 200, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountOK) GetPayload() *models.AssetsComplianceResponse {
@@ -240,11 +243,13 @@ func (o *CloudSecurityAssetsCombinedComplianceByAccountBadRequest) Code() int {
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountBadRequest) GetPayload() *models.RestCursorResponseFields {
@@ -350,11 +355,13 @@ func (o *CloudSecurityAssetsCombinedComplianceByAccountForbidden) Code() int {
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *CloudSecurityAssetsCombinedComplianceByAccountNotFound) Code() int {
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountNotFound) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountNotFound %s", 404, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountNotFound) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountNotFound %s", 404, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountNotFound) GetPayload() *models.RestCursorResponseFields {
@@ -570,11 +579,13 @@ func (o *CloudSecurityAssetsCombinedComplianceByAccountRequestTimeout) Code() in
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountRequestTimeout) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountRequestTimeout) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountRequestTimeout %s", 408, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountRequestTimeout) GetPayload() *models.RestCursorResponseFields {
@@ -684,11 +695,13 @@ func (o *CloudSecurityAssetsCombinedComplianceByAccountTooManyRequests) Code() i
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CloudSecurityAssetsCombinedComplianceByAccountInternalServerError) Code
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1][%d] cloudSecurityAssetsCombinedComplianceByAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityAssetsCombinedComplianceByAccountInternalServerError) GetPayload() *models.RestCursorResponseFields {

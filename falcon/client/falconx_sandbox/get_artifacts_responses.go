@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetArtifactsOK) Code() int {
 }
 
 func (o *GetArtifactsOK) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsOK %s", 200, payload)
 }
 
 func (o *GetArtifactsOK) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsOK %s", 200, payload)
 }
 
 func (o *GetArtifactsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -234,11 +237,13 @@ func (o *GetArtifactsBadRequest) Code() int {
 }
 
 func (o *GetArtifactsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsBadRequest %s", 400, payload)
 }
 
 func (o *GetArtifactsBadRequest) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsBadRequest %s", 400, payload)
 }
 
 func (o *GetArtifactsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetArtifactsForbidden) Code() int {
 }
 
 func (o *GetArtifactsForbidden) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsForbidden %s", 403, payload)
 }
 
 func (o *GetArtifactsForbidden) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsForbidden %s", 403, payload)
 }
 
 func (o *GetArtifactsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *GetArtifactsNotFound) Code() int {
 }
 
 func (o *GetArtifactsNotFound) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsNotFound %s", 404, payload)
 }
 
 func (o *GetArtifactsNotFound) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsNotFound %s", 404, payload)
 }
 
 func (o *GetArtifactsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetArtifactsTooManyRequests) Code() int {
 }
 
 func (o *GetArtifactsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetArtifactsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetArtifactsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetArtifactsInternalServerError) Code() int {
 }
 
 func (o *GetArtifactsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsInternalServerError %s", 500, payload)
 }
 
 func (o *GetArtifactsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsInternalServerError %s", 500, payload)
 }
 
 func (o *GetArtifactsInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package discover
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CombinedHostsOK) Code() int {
 }
 
 func (o *CombinedHostsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsOK %s", 200, payload)
 }
 
 func (o *CombinedHostsOK) String() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsOK %s", 200, payload)
 }
 
 func (o *CombinedHostsOK) GetPayload() *models.DomainDiscoverAPICombinedHostsResponse {
@@ -228,11 +231,13 @@ func (o *CombinedHostsBadRequest) Code() int {
 }
 
 func (o *CombinedHostsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedHostsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedHostsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CombinedHostsForbidden) Code() int {
 }
 
 func (o *CombinedHostsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsForbidden %s", 403, payload)
 }
 
 func (o *CombinedHostsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsForbidden %s", 403, payload)
 }
 
 func (o *CombinedHostsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CombinedHostsTooManyRequests) Code() int {
 }
 
 func (o *CombinedHostsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedHostsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedHostsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CombinedHostsInternalServerError) Code() int {
 }
 
 func (o *CombinedHostsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedHostsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/hosts/v1][%d] combinedHostsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedHostsInternalServerError) GetPayload() *models.MsaspecResponseFields {

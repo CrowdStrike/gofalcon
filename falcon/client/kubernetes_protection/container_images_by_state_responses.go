@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ContainerImagesByStateOK) Code() int {
 }
 
 func (o *ContainerImagesByStateOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateOK %s", 200, payload)
 }
 
 func (o *ContainerImagesByStateOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateOK %s", 200, payload)
 }
 
 func (o *ContainerImagesByStateOK) GetPayload() *models.ModelsAPIFilterResponse {
@@ -222,11 +225,13 @@ func (o *ContainerImagesByStateForbidden) Code() int {
 }
 
 func (o *ContainerImagesByStateForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateForbidden %s", 403, payload)
 }
 
 func (o *ContainerImagesByStateForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateForbidden %s", 403, payload)
 }
 
 func (o *ContainerImagesByStateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ContainerImagesByStateTooManyRequests) Code() int {
 }
 
 func (o *ContainerImagesByStateTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerImagesByStateTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateTooManyRequests %s", 429, payload)
 }
 
 func (o *ContainerImagesByStateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ContainerImagesByStateInternalServerError) Code() int {
 }
 
 func (o *ContainerImagesByStateInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerImagesByStateInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/containers/images-by-state/v1][%d] containerImagesByStateInternalServerError %s", 500, payload)
 }
 
 func (o *ContainerImagesByStateInternalServerError) GetPayload() *models.CoreEntitiesResponse {

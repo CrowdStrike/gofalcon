@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *KubernetesIomEntitiesOK) Code() int {
 }
 
 func (o *KubernetesIomEntitiesOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesOK %s", 200, payload)
 }
 
 func (o *KubernetesIomEntitiesOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesOK %s", 200, payload)
 }
 
 func (o *KubernetesIomEntitiesOK) GetPayload() *models.K8siomsKubernetesIOMEntityResponse {
@@ -222,11 +225,13 @@ func (o *KubernetesIomEntitiesForbidden) Code() int {
 }
 
 func (o *KubernetesIomEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomEntitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *KubernetesIomEntitiesTooManyRequests) Code() int {
 }
 
 func (o *KubernetesIomEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *KubernetesIomEntitiesInternalServerError) Code() int {
 }
 
 func (o *KubernetesIomEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/kubernetes-ioms/v1][%d] kubernetesIomEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomEntitiesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

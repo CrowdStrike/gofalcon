@@ -22,7 +22,7 @@ import (
 type ItautomationTask struct {
 
 	// Access type of the task
-	// Enum: [Public Shared]
+	// Enum: ["Public","Shared"]
 	AccessType string `json:"access_type,omitempty"`
 
 	// Assigned user group IDs of the task, when access_type is Shared.

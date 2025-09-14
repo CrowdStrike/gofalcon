@@ -22,7 +22,7 @@ type DevicecontrolapiReqUpdateBluetoothMinorClassV1 struct {
 
 	// Action to be taken for devices in this class
 	// Required: true
-	// Enum: [FULL_ACCESS BLOCK_ALL]
+	// Enum: ["FULL_ACCESS","BLOCK_ALL"]
 	Action *string `json:"action"`
 
 	// Bluetooth Minor Device class name

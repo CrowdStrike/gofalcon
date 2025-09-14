@@ -26,7 +26,7 @@ type QuickscanproURLResult struct {
 
 	// verdict
 	// Required: true
-	// Enum: [clean likely_benign suspicious malicious unknown]
+	// Enum: ["clean","likely_benign","suspicious","malicious","unknown"]
 	Verdict *string `json:"verdict"`
 
 	// verdict reason

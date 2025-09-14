@@ -6,6 +6,7 @@ package discover
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetApplicationsOK) Code() int {
 }
 
 func (o *GetApplicationsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsOK %s", 200, payload)
 }
 
 func (o *GetApplicationsOK) String() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsOK %s", 200, payload)
 }
 
 func (o *GetApplicationsOK) GetPayload() *models.DomainDiscoverAPIApplicationEntitiesResponse {
@@ -228,11 +231,13 @@ func (o *GetApplicationsBadRequest) Code() int {
 }
 
 func (o *GetApplicationsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *GetApplicationsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *GetApplicationsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetApplicationsForbidden) Code() int {
 }
 
 func (o *GetApplicationsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsForbidden %s", 403, payload)
 }
 
 func (o *GetApplicationsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsForbidden %s", 403, payload)
 }
 
 func (o *GetApplicationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetApplicationsTooManyRequests) Code() int {
 }
 
 func (o *GetApplicationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetApplicationsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetApplicationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetApplicationsInternalServerError) Code() int {
 }
 
 func (o *GetApplicationsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *GetApplicationsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/applications/v1][%d] getApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *GetApplicationsInternalServerError) GetPayload() *models.MsaspecResponseFields {

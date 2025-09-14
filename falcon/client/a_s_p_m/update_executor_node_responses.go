@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateExecutorNodeOK) Code() int {
 }
 
 func (o *UpdateExecutorNodeOK) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeOK %s", 200, payload)
 }
 
 func (o *UpdateExecutorNodeOK) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeOK %s", 200, payload)
 }
 
 func (o *UpdateExecutorNodeOK) GetPayload() *models.TypesExecutorNode {
@@ -234,11 +237,13 @@ func (o *UpdateExecutorNodeBadRequest) Code() int {
 }
 
 func (o *UpdateExecutorNodeBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeBadRequest %s", 400, payload)
 }
 
 func (o *UpdateExecutorNodeBadRequest) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeBadRequest %s", 400, payload)
 }
 
 func (o *UpdateExecutorNodeBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *UpdateExecutorNodeUnauthorized) Code() int {
 }
 
 func (o *UpdateExecutorNodeUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateExecutorNodeUnauthorized) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateExecutorNodeUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *UpdateExecutorNodeForbidden) Code() int {
 }
 
 func (o *UpdateExecutorNodeForbidden) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeForbidden %s", 403, payload)
 }
 
 func (o *UpdateExecutorNodeForbidden) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeForbidden %s", 403, payload)
 }
 
 func (o *UpdateExecutorNodeForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *UpdateExecutorNodeTooManyRequests) Code() int {
 }
 
 func (o *UpdateExecutorNodeTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateExecutorNodeTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateExecutorNodeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateExecutorNodeInternalServerError) Code() int {
 }
 
 func (o *UpdateExecutorNodeInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateExecutorNodeInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/executor_nodes][%d] updateExecutorNodeInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateExecutorNodeInternalServerError) GetPayload() *models.TypesErrorMessage {

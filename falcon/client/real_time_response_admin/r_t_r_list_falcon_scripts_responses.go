@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRListFalconScriptsOK) Code() int {
 }
 
 func (o *RTRListFalconScriptsOK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsOK %s", 200, payload)
 }
 
 func (o *RTRListFalconScriptsOK) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsOK %s", 200, payload)
 }
 
 func (o *RTRListFalconScriptsOK) GetPayload() *models.EmpowerapiMsaIDListResponse {
@@ -234,11 +237,13 @@ func (o *RTRListFalconScriptsBadRequest) Code() int {
 }
 
 func (o *RTRListFalconScriptsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsBadRequest %s", 400, payload)
 }
 
 func (o *RTRListFalconScriptsBadRequest) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsBadRequest %s", 400, payload)
 }
 
 func (o *RTRListFalconScriptsBadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRListFalconScriptsForbidden) Code() int {
 }
 
 func (o *RTRListFalconScriptsForbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsForbidden %s", 403, payload)
 }
 
 func (o *RTRListFalconScriptsForbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsForbidden %s", 403, payload)
 }
 
 func (o *RTRListFalconScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRListFalconScriptsNotFound) Code() int {
 }
 
 func (o *RTRListFalconScriptsNotFound) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsNotFound %s", 404, payload)
 }
 
 func (o *RTRListFalconScriptsNotFound) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsNotFound %s", 404, payload)
 }
 
 func (o *RTRListFalconScriptsNotFound) GetPayload() *models.DomainAPIError {
@@ -568,11 +577,13 @@ func (o *RTRListFalconScriptsTooManyRequests) Code() int {
 }
 
 func (o *RTRListFalconScriptsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListFalconScriptsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListFalconScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRListFalconScriptsInternalServerError) Code() int {
 }
 
 func (o *RTRListFalconScriptsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListFalconScriptsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/falcon-scripts/v1][%d] rTRListFalconScriptsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListFalconScriptsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

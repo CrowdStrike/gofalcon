@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CreateDashboardFromTemplateOK) Code() int {
 }
 
 func (o *CreateDashboardFromTemplateOK) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateOK %s", 200, payload)
 }
 
 func (o *CreateDashboardFromTemplateOK) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateOK %s", 200, payload)
 }
 
 func (o *CreateDashboardFromTemplateOK) GetPayload() *models.APICreateDashboardFromTemplateResponseV1 {
@@ -240,11 +243,13 @@ func (o *CreateDashboardFromTemplateBadRequest) Code() int {
 }
 
 func (o *CreateDashboardFromTemplateBadRequest) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateBadRequest %s", 400, payload)
 }
 
 func (o *CreateDashboardFromTemplateBadRequest) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateBadRequest %s", 400, payload)
 }
 
 func (o *CreateDashboardFromTemplateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *CreateDashboardFromTemplateUnauthorized) Code() int {
 }
 
 func (o *CreateDashboardFromTemplateUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *CreateDashboardFromTemplateUnauthorized) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateUnauthorized %s", 401, payload)
 }
 
 func (o *CreateDashboardFromTemplateUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *CreateDashboardFromTemplateForbidden) Code() int {
 }
 
 func (o *CreateDashboardFromTemplateForbidden) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateForbidden %s", 403, payload)
 }
 
 func (o *CreateDashboardFromTemplateForbidden) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateForbidden %s", 403, payload)
 }
 
 func (o *CreateDashboardFromTemplateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *CreateDashboardFromTemplateNotFound) Code() int {
 }
 
 func (o *CreateDashboardFromTemplateNotFound) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateNotFound %s", 404, payload)
 }
 
 func (o *CreateDashboardFromTemplateNotFound) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateNotFound %s", 404, payload)
 }
 
 func (o *CreateDashboardFromTemplateNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *CreateDashboardFromTemplateTooManyRequests) Code() int {
 }
 
 func (o *CreateDashboardFromTemplateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateDashboardFromTemplateTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateDashboardFromTemplateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CreateDashboardFromTemplateInternalServerError) Code() int {
 }
 
 func (o *CreateDashboardFromTemplateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *CreateDashboardFromTemplateInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ngsiem-content/entities/dashboards-template/v1][%d] createDashboardFromTemplateInternalServerError %s", 500, payload)
 }
 
 func (o *CreateDashboardFromTemplateInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadNamespacesByDateRangeCountOK) Code() int {
 }
 
 func (o *ReadNamespacesByDateRangeCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *ReadNamespacesByDateRangeCountForbidden) Code() int {
 }
 
 func (o *ReadNamespacesByDateRangeCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadNamespacesByDateRangeCountTooManyRequests) Code() int {
 }
 
 func (o *ReadNamespacesByDateRangeCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadNamespacesByDateRangeCountInternalServerError) Code() int {
 }
 
 func (o *ReadNamespacesByDateRangeCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count-by-date/v1][%d] readNamespacesByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadNamespacesByDateRangeCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

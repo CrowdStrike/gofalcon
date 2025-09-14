@@ -65,7 +65,7 @@ type ContentUpdatePolicyV1 struct {
 
 	// The name of the platform ('all' is the only option for Content Update Policy)
 	// Required: true
-	// Enum: [all]
+	// Enum: ["all"]
 	PlatformName *string `json:"platform_name"`
 
 	// settings

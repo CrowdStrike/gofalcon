@@ -6,6 +6,7 @@ package installation_tokens
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *TokensUpdateOK) Code() int {
 }
 
 func (o *TokensUpdateOK) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK %s", 200, payload)
 }
 
 func (o *TokensUpdateOK) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK %s", 200, payload)
 }
 
 func (o *TokensUpdateOK) GetPayload() *models.APITokenDetailsResponseV1 {
@@ -234,11 +237,13 @@ func (o *TokensUpdateBadRequest) Code() int {
 }
 
 func (o *TokensUpdateBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateBadRequest %s", 400, payload)
 }
 
 func (o *TokensUpdateBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateBadRequest %s", 400, payload)
 }
 
 func (o *TokensUpdateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *TokensUpdateForbidden) Code() int {
 }
 
 func (o *TokensUpdateForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden %s", 403, payload)
 }
 
 func (o *TokensUpdateForbidden) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden %s", 403, payload)
 }
 
 func (o *TokensUpdateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *TokensUpdateNotFound) Code() int {
 }
 
 func (o *TokensUpdateNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateNotFound %s", 404, payload)
 }
 
 func (o *TokensUpdateNotFound) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateNotFound %s", 404, payload)
 }
 
 func (o *TokensUpdateNotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -568,11 +577,13 @@ func (o *TokensUpdateTooManyRequests) Code() int {
 }
 
 func (o *TokensUpdateTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensUpdateTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensUpdateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *TokensUpdateInternalServerError) Code() int {
 }
 
 func (o *TokensUpdateInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError %s", 500, payload)
 }
 
 func (o *TokensUpdateInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError %s", 500, payload)
 }
 
 func (o *TokensUpdateInternalServerError) GetPayload() *models.MsaspecResponseFields {

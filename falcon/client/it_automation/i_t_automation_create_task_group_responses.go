@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationCreateTaskGroupCreated) Code() int {
 }
 
 func (o *ITAutomationCreateTaskGroupCreated) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupCreated) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupCreated) GetPayload() *models.ItautomationCreateTaskGroupResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationCreateTaskGroupBadRequest) Code() int {
 }
 
 func (o *ITAutomationCreateTaskGroupBadRequest) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupBadRequest) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationCreateTaskGroupForbidden) Code() int {
 }
 
 func (o *ITAutomationCreateTaskGroupForbidden) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupForbidden) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationCreateTaskGroupTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationCreateTaskGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationCreateTaskGroupInternalServerError) Code() int {
 }
 
 func (o *ITAutomationCreateTaskGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupInternalServerError) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-groups/v1][%d] iTAutomationCreateTaskGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreateTaskGroupInternalServerError) GetPayload() *models.MsaspecResponseFields {

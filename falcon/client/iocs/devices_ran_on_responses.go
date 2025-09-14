@@ -6,6 +6,7 @@ package iocs
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DevicesRanOnOK) Code() int {
 }
 
 func (o *DevicesRanOnOK) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnOK %s", 200, payload)
 }
 
 func (o *DevicesRanOnOK) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnOK %s", 200, payload)
 }
 
 func (o *DevicesRanOnOK) GetPayload() *models.IocapiMsaReplyDevicesRanOn {
@@ -222,11 +225,13 @@ func (o *DevicesRanOnForbidden) Code() int {
 }
 
 func (o *DevicesRanOnForbidden) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnForbidden %s", 403, payload)
 }
 
 func (o *DevicesRanOnForbidden) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnForbidden %s", 403, payload)
 }
 
 func (o *DevicesRanOnForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DevicesRanOnTooManyRequests) Code() int {
 }
 
 func (o *DevicesRanOnTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnTooManyRequests %s", 429, payload)
 }
 
 func (o *DevicesRanOnTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnTooManyRequests %s", 429, payload)
 }
 
 func (o *DevicesRanOnTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DevicesRanOnInternalServerError) Code() int {
 }
 
 func (o *DevicesRanOnInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnInternalServerError %s", 500, payload)
 }
 
 func (o *DevicesRanOnInternalServerError) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnInternalServerError %s", 500, payload)
 }
 
 func (o *DevicesRanOnInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

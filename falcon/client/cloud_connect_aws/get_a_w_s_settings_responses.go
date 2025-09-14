@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetAWSSettingsOK) Code() int {
 }
 
 func (o *GetAWSSettingsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsOK %s", 200, payload)
 }
 
 func (o *GetAWSSettingsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsOK %s", 200, payload)
 }
 
 func (o *GetAWSSettingsOK) GetPayload() *models.ModelsCustomerConfigurationsV1 {
@@ -228,11 +231,13 @@ func (o *GetAWSSettingsBadRequest) Code() int {
 }
 
 func (o *GetAWSSettingsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsBadRequest %s", 400, payload)
 }
 
 func (o *GetAWSSettingsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsBadRequest %s", 400, payload)
 }
 
 func (o *GetAWSSettingsBadRequest) GetPayload() *models.ModelsCustomerConfigurationsV1 {
@@ -338,11 +343,13 @@ func (o *GetAWSSettingsForbidden) Code() int {
 }
 
 func (o *GetAWSSettingsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsForbidden %s", 403, payload)
 }
 
 func (o *GetAWSSettingsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsForbidden %s", 403, payload)
 }
 
 func (o *GetAWSSettingsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetAWSSettingsTooManyRequests) Code() int {
 }
 
 func (o *GetAWSSettingsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAWSSettingsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAWSSettingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetAWSSettingsInternalServerError) Code() int {
 }
 
 func (o *GetAWSSettingsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAWSSettingsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsInternalServerError %s", 500, payload)
 }
 
 func (o *GetAWSSettingsInternalServerError) GetPayload() *models.ModelsCustomerConfigurationsV1 {

@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CancelScansOK) Code() int {
 }
 
 func (o *CancelScansOK) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansOK %s", 200, payload)
 }
 
 func (o *CancelScansOK) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansOK %s", 200, payload)
 }
 
 func (o *CancelScansOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *CancelScansForbidden) Code() int {
 }
 
 func (o *CancelScansForbidden) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansForbidden %s", 403, payload)
 }
 
 func (o *CancelScansForbidden) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansForbidden %s", 403, payload)
 }
 
 func (o *CancelScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *CancelScansNotFound) Code() int {
 }
 
 func (o *CancelScansNotFound) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansNotFound %s", 404, payload)
 }
 
 func (o *CancelScansNotFound) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansNotFound %s", 404, payload)
 }
 
 func (o *CancelScansNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CancelScansTooManyRequests) Code() int {
 }
 
 func (o *CancelScansTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansTooManyRequests %s", 429, payload)
 }
 
 func (o *CancelScansTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansTooManyRequests %s", 429, payload)
 }
 
 func (o *CancelScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CancelScansInternalServerError) Code() int {
 }
 
 func (o *CancelScansInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansInternalServerError %s", 500, payload)
 }
 
 func (o *CancelScansInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansInternalServerError %s", 500, payload)
 }
 
 func (o *CancelScansInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

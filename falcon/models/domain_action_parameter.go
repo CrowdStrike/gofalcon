@@ -22,7 +22,7 @@ type DomainActionParameter struct {
 
 	// Action name.
 	// Required: true
-	// Enum: [add_tag delete_tag update_name update_description update_assigned_to update_assigned_to_name unassign update_status add_comment close_with_descriptor]
+	// Enum: ["add_tag","delete_tag","update_name","update_description","update_assigned_to","update_assigned_to_name","unassign","update_status","add_comment","close_with_descriptor"]
 	Name *string `json:"name"`
 
 	// Value for action specified.

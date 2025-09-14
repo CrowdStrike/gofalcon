@@ -6,6 +6,7 @@ package drift_indicators
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *SearchDriftIndicatorsOK) Code() int {
 }
 
 func (o *SearchDriftIndicatorsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsOK %s", 200, payload)
 }
 
 func (o *SearchDriftIndicatorsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsOK %s", 200, payload)
 }
 
 func (o *SearchDriftIndicatorsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -222,11 +225,13 @@ func (o *SearchDriftIndicatorsForbidden) Code() int {
 }
 
 func (o *SearchDriftIndicatorsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsForbidden %s", 403, payload)
 }
 
 func (o *SearchDriftIndicatorsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsForbidden %s", 403, payload)
 }
 
 func (o *SearchDriftIndicatorsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *SearchDriftIndicatorsTooManyRequests) Code() int {
 }
 
 func (o *SearchDriftIndicatorsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchDriftIndicatorsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchDriftIndicatorsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *SearchDriftIndicatorsInternalServerError) Code() int {
 }
 
 func (o *SearchDriftIndicatorsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchDriftIndicatorsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/queries/drift-indicators/v1][%d] searchDriftIndicatorsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchDriftIndicatorsInternalServerError) GetPayload() *models.CoreEntitiesResponse {

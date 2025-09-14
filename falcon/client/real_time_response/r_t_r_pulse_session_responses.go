@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RTRPulseSessionCreated) Code() int {
 }
 
 func (o *RTRPulseSessionCreated) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionCreated %s", 201, payload)
 }
 
 func (o *RTRPulseSessionCreated) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionCreated %s", 201, payload)
 }
 
 func (o *RTRPulseSessionCreated) GetPayload() *models.DomainInitResponseWrapper {
@@ -228,11 +231,13 @@ func (o *RTRPulseSessionBadRequest) Code() int {
 }
 
 func (o *RTRPulseSessionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionBadRequest %s", 400, payload)
 }
 
 func (o *RTRPulseSessionBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionBadRequest %s", 400, payload)
 }
 
 func (o *RTRPulseSessionBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *RTRPulseSessionForbidden) Code() int {
 }
 
 func (o *RTRPulseSessionForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionForbidden %s", 403, payload)
 }
 
 func (o *RTRPulseSessionForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionForbidden %s", 403, payload)
 }
 
 func (o *RTRPulseSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RTRPulseSessionTooManyRequests) Code() int {
 }
 
 func (o *RTRPulseSessionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRPulseSessionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRPulseSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RTRPulseSessionInternalServerError) Code() int {
 }
 
 func (o *RTRPulseSessionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionInternalServerError %s", 500, payload)
 }
 
 func (o *RTRPulseSessionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionInternalServerError %s", 500, payload)
 }
 
 func (o *RTRPulseSessionInternalServerError) GetPayload() *models.DomainAPIError {

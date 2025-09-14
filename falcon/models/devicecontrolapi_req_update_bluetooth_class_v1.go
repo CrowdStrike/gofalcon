@@ -23,7 +23,7 @@ type DevicecontrolapiReqUpdateBluetoothClassV1 struct {
 
 	// Action to be taken for devices in this class
 	// Required: true
-	// Enum: [BLOCK_ALL FULL_ACCESS]
+	// Enum: ["BLOCK_ALL","FULL_ACCESS"]
 	Action *string `json:"action"`
 
 	// The Bluetooth Major Device class name

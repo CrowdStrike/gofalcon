@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *EntitiesRolesV1OK) Code() int {
 }
 
 func (o *EntitiesRolesV1OK) Error() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRolesV1OK) String() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRolesV1OK) GetPayload() *models.FlightcontrolapiGetRolesResponse {
@@ -234,11 +237,13 @@ func (o *EntitiesRolesV1BadRequest) Code() int {
 }
 
 func (o *EntitiesRolesV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRolesV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRolesV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *EntitiesRolesV1Forbidden) Code() int {
 }
 
 func (o *EntitiesRolesV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRolesV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRolesV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *EntitiesRolesV1NotFound) Code() int {
 }
 
 func (o *EntitiesRolesV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRolesV1NotFound) String() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRolesV1NotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *EntitiesRolesV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesRolesV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRolesV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRolesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *EntitiesRolesV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesRolesV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRolesV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /user-management/entities/roles/v1][%d] entitiesRolesV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRolesV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

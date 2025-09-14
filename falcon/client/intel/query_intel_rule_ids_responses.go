@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryIntelRuleIdsOK) Code() int {
 }
 
 func (o *QueryIntelRuleIdsOK) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsOK %s", 200, payload)
 }
 
 func (o *QueryIntelRuleIdsOK) String() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsOK %s", 200, payload)
 }
 
 func (o *QueryIntelRuleIdsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryIntelRuleIdsBadRequest) Code() int {
 }
 
 func (o *QueryIntelRuleIdsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelRuleIdsBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelRuleIdsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *QueryIntelRuleIdsForbidden) Code() int {
 }
 
 func (o *QueryIntelRuleIdsForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelRuleIdsForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelRuleIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryIntelRuleIdsTooManyRequests) Code() int {
 }
 
 func (o *QueryIntelRuleIdsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelRuleIdsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelRuleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryIntelRuleIdsInternalServerError) Code() int {
 }
 
 func (o *QueryIntelRuleIdsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelRuleIdsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelRuleIdsInternalServerError) GetPayload() *models.MsaErrorsOnly {

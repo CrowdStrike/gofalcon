@@ -6,6 +6,7 @@ package quick_scan_pro
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DeleteScanResultOK) Code() int {
 }
 
 func (o *DeleteScanResultOK) Error() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultOK %s", 200, payload)
 }
 
 func (o *DeleteScanResultOK) String() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultOK %s", 200, payload)
 }
 
 func (o *DeleteScanResultOK) GetPayload() *models.MsaspecQueryResponse {
@@ -222,11 +225,13 @@ func (o *DeleteScanResultForbidden) Code() int {
 }
 
 func (o *DeleteScanResultForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultForbidden %s", 403, payload)
 }
 
 func (o *DeleteScanResultForbidden) String() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultForbidden %s", 403, payload)
 }
 
 func (o *DeleteScanResultForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DeleteScanResultTooManyRequests) Code() int {
 }
 
 func (o *DeleteScanResultTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteScanResultTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteScanResultTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DeleteScanResultInternalServerError) Code() int {
 }
 
 func (o *DeleteScanResultInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteScanResultInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /quickscanpro/entities/scans/v1][%d] deleteScanResultInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteScanResultInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *KubernetesIomCountOK) Code() int {
 }
 
 func (o *KubernetesIomCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountOK %s", 200, payload)
 }
 
 func (o *KubernetesIomCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountOK %s", 200, payload)
 }
 
 func (o *KubernetesIomCountOK) GetPayload() *models.K8siomsKubernetesIOMCountValue {
@@ -222,11 +225,13 @@ func (o *KubernetesIomCountForbidden) Code() int {
 }
 
 func (o *KubernetesIomCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountForbidden %s", 403, payload)
 }
 
 func (o *KubernetesIomCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *KubernetesIomCountTooManyRequests) Code() int {
 }
 
 func (o *KubernetesIomCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountTooManyRequests %s", 429, payload)
 }
 
 func (o *KubernetesIomCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *KubernetesIomCountInternalServerError) Code() int {
 }
 
 func (o *KubernetesIomCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/kubernetes-ioms/count/v1][%d] kubernetesIomCountInternalServerError %s", 500, payload)
 }
 
 func (o *KubernetesIomCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

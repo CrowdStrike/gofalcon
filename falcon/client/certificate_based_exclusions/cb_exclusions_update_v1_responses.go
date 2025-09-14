@@ -6,6 +6,7 @@ package certificate_based_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CbExclusionsUpdateV1OK) Code() int {
 }
 
 func (o *CbExclusionsUpdateV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1OK %s", 200, payload)
 }
 
 func (o *CbExclusionsUpdateV1OK) String() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1OK %s", 200, payload)
 }
 
 func (o *CbExclusionsUpdateV1OK) GetPayload() *models.APICertBasedExclusionRespV1 {
@@ -234,11 +237,13 @@ func (o *CbExclusionsUpdateV1BadRequest) Code() int {
 }
 
 func (o *CbExclusionsUpdateV1BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1BadRequest %s", 400, payload)
 }
 
 func (o *CbExclusionsUpdateV1BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1BadRequest %s", 400, payload)
 }
 
 func (o *CbExclusionsUpdateV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *CbExclusionsUpdateV1Unauthorized) Code() int {
 }
 
 func (o *CbExclusionsUpdateV1Unauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Unauthorized %s", 401, payload)
 }
 
 func (o *CbExclusionsUpdateV1Unauthorized) String() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Unauthorized %s", 401, payload)
 }
 
 func (o *CbExclusionsUpdateV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CbExclusionsUpdateV1Forbidden) Code() int {
 }
 
 func (o *CbExclusionsUpdateV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Forbidden %s", 403, payload)
 }
 
 func (o *CbExclusionsUpdateV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1Forbidden %s", 403, payload)
 }
 
 func (o *CbExclusionsUpdateV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CbExclusionsUpdateV1TooManyRequests) Code() int {
 }
 
 func (o *CbExclusionsUpdateV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CbExclusionsUpdateV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CbExclusionsUpdateV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CbExclusionsUpdateV1InternalServerError) Code() int {
 }
 
 func (o *CbExclusionsUpdateV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1InternalServerError %s", 500, payload)
 }
 
 func (o *CbExclusionsUpdateV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /exclusions/entities/cert-based-exclusions/v1][%d] cbExclusionsUpdateV1InternalServerError %s", 500, payload)
 }
 
 func (o *CbExclusionsUpdateV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

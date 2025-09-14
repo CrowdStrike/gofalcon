@@ -6,6 +6,7 @@ package container_image_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtAggregateFailedRulesByClustersOK) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesByClustersOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersOK) GetPayload() *models.DomainAggregateFailedRulesByClustersResponse {
@@ -234,11 +237,13 @@ func (o *ExtAggregateFailedRulesByClustersBadRequest) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesByClustersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersBadRequest) GetPayload() *models.DomainAggregateFailedRulesByClustersResponse {
@@ -344,11 +349,13 @@ func (o *ExtAggregateFailedRulesByClustersUnauthorized) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesByClustersUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersUnauthorized) GetPayload() *models.DomainAggregateFailedRulesByClustersResponse {
@@ -454,11 +461,13 @@ func (o *ExtAggregateFailedRulesByClustersForbidden) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesByClustersForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersForbidden) GetPayload() *models.DomainAggregateFailedRulesByClustersResponse {
@@ -568,11 +577,13 @@ func (o *ExtAggregateFailedRulesByClustersTooManyRequests) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesByClustersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtAggregateFailedRulesByClustersInternalServerError) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesByClustersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-by-clusters/v2][%d] extAggregateFailedRulesByClustersInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedRulesByClustersInternalServerError) GetPayload() *models.DomainAggregateFailedRulesByClustersResponse {

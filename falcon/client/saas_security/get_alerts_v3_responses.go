@@ -6,6 +6,7 @@ package saas_security
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetAlertsV3OK) Code() int {
 }
 
 func (o *GetAlertsV3OK) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3OK %s", 200, payload)
 }
 
 func (o *GetAlertsV3OK) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3OK %s", 200, payload)
 }
 
 func (o *GetAlertsV3OK) GetPayload() *models.GetAlertsResponse {
@@ -222,11 +225,13 @@ func (o *GetAlertsV3Forbidden) Code() int {
 }
 
 func (o *GetAlertsV3Forbidden) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3Forbidden %s", 403, payload)
 }
 
 func (o *GetAlertsV3Forbidden) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3Forbidden %s", 403, payload)
 }
 
 func (o *GetAlertsV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetAlertsV3TooManyRequests) Code() int {
 }
 
 func (o *GetAlertsV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetAlertsV3TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3TooManyRequests %s", 429, payload)
 }
 
 func (o *GetAlertsV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetAlertsV3InternalServerError) Code() int {
 }
 
 func (o *GetAlertsV3InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetAlertsV3InternalServerError) String() string {
-	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /saas-security/entities/alerts/v3][%d] getAlertsV3InternalServerError %s", 500, payload)
 }
 
 func (o *GetAlertsV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

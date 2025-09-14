@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryIntelActorEntitiesOK) Code() int {
 }
 
 func (o *QueryIntelActorEntitiesOK) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesOK %s", 200, payload)
 }
 
 func (o *QueryIntelActorEntitiesOK) String() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesOK %s", 200, payload)
 }
 
 func (o *QueryIntelActorEntitiesOK) GetPayload() *models.DomainActorsResponse {
@@ -228,11 +231,13 @@ func (o *QueryIntelActorEntitiesBadRequest) Code() int {
 }
 
 func (o *QueryIntelActorEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelActorEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *QueryIntelActorEntitiesBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *QueryIntelActorEntitiesForbidden) Code() int {
 }
 
 func (o *QueryIntelActorEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelActorEntitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelActorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryIntelActorEntitiesTooManyRequests) Code() int {
 }
 
 func (o *QueryIntelActorEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelActorEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelActorEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryIntelActorEntitiesInternalServerError) Code() int {
 }
 
 func (o *QueryIntelActorEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelActorEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelActorEntitiesInternalServerError) GetPayload() *models.MsaErrorsOnly {

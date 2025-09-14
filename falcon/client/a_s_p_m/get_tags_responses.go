@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetTagsOK) Code() int {
 }
 
 func (o *GetTagsOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsOK %s", 200, payload)
 }
 
 func (o *GetTagsOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsOK %s", 200, payload)
 }
 
 func (o *GetTagsOK) GetPayload() *models.TypesTagsDataResponse {
@@ -234,11 +237,13 @@ func (o *GetTagsBadRequest) Code() int {
 }
 
 func (o *GetTagsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsBadRequest %s", 400, payload)
 }
 
 func (o *GetTagsBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsBadRequest %s", 400, payload)
 }
 
 func (o *GetTagsBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetTagsUnauthorized) Code() int {
 }
 
 func (o *GetTagsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsUnauthorized %s", 401, payload)
 }
 
 func (o *GetTagsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsUnauthorized %s", 401, payload)
 }
 
 func (o *GetTagsUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetTagsForbidden) Code() int {
 }
 
 func (o *GetTagsForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsForbidden %s", 403, payload)
 }
 
 func (o *GetTagsForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsForbidden %s", 403, payload)
 }
 
 func (o *GetTagsForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetTagsTooManyRequests) Code() int {
 }
 
 func (o *GetTagsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetTagsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetTagsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetTagsInternalServerError) Code() int {
 }
 
 func (o *GetTagsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsInternalServerError %s", 500, payload)
 }
 
 func (o *GetTagsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/tags][%d] getTagsInternalServerError %s", 500, payload)
 }
 
 func (o *GetTagsInternalServerError) GetPayload() *models.TypesErrorMessage {

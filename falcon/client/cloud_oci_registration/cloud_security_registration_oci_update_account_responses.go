@@ -6,6 +6,7 @@ package cloud_oci_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudSecurityRegistrationOciUpdateAccountCreated) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountCreated) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountCreated %s", 201, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountCreated) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountCreated %s", 201, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountCreated) GetPayload() *models.DomainOCITenancyUpdateResponseExtV1 {
@@ -234,11 +237,13 @@ func (o *CloudSecurityRegistrationOciUpdateAccountMultiStatus) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountMultiStatus) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountMultiStatus) GetPayload() *models.DomainOCITenancyUpdateResponseExtV1 {
@@ -344,11 +349,13 @@ func (o *CloudSecurityRegistrationOciUpdateAccountBadRequest) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountBadRequest) GetPayload() *models.DomainOCITenancyUpdateResponseExtV1 {
@@ -454,11 +461,13 @@ func (o *CloudSecurityRegistrationOciUpdateAccountForbidden) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudSecurityRegistrationOciUpdateAccountTooManyRequests) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudSecurityRegistrationOciUpdateAccountInternalServerError) Code() in
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-oci/entities/accounts/v1][%d] cloudSecurityRegistrationOciUpdateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciUpdateAccountInternalServerError) GetPayload() *models.DomainOCITenancyUpdateResponseExtV1 {

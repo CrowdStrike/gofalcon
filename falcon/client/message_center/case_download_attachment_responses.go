@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CaseDownloadAttachmentOK) Code() int {
 }
 
 func (o *CaseDownloadAttachmentOK) Error() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentOK %s", 200, payload)
 }
 
 func (o *CaseDownloadAttachmentOK) String() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentOK %s", 200, payload)
 }
 
 func (o *CaseDownloadAttachmentOK) GetPayload() string {
@@ -232,11 +235,13 @@ func (o *CaseDownloadAttachmentBadRequest) Code() int {
 }
 
 func (o *CaseDownloadAttachmentBadRequest) Error() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *CaseDownloadAttachmentBadRequest) String() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentBadRequest %s", 400, payload)
 }
 
 func (o *CaseDownloadAttachmentBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -342,11 +347,13 @@ func (o *CaseDownloadAttachmentForbidden) Code() int {
 }
 
 func (o *CaseDownloadAttachmentForbidden) Error() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden %s", 403, payload)
 }
 
 func (o *CaseDownloadAttachmentForbidden) String() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden %s", 403, payload)
 }
 
 func (o *CaseDownloadAttachmentForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CaseDownloadAttachmentNotFound) Code() int {
 }
 
 func (o *CaseDownloadAttachmentNotFound) Error() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentNotFound %s", 404, payload)
 }
 
 func (o *CaseDownloadAttachmentNotFound) String() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentNotFound %s", 404, payload)
 }
 
 func (o *CaseDownloadAttachmentNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -566,11 +575,13 @@ func (o *CaseDownloadAttachmentTooManyRequests) Code() int {
 }
 
 func (o *CaseDownloadAttachmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *CaseDownloadAttachmentTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentTooManyRequests %s", 429, payload)
 }
 
 func (o *CaseDownloadAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -687,11 +698,13 @@ func (o *CaseDownloadAttachmentInternalServerError) Code() int {
 }
 
 func (o *CaseDownloadAttachmentInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *CaseDownloadAttachmentInternalServerError) String() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError %s", 500, payload)
 }
 
 func (o *CaseDownloadAttachmentInternalServerError) GetPayload() *models.MsaspecResponseFields {

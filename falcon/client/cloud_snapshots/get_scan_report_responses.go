@@ -6,6 +6,7 @@ package cloud_snapshots
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetScanReportOK) Code() int {
 }
 
 func (o *GetScanReportOK) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportOK %s", 200, payload)
 }
 
 func (o *GetScanReportOK) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportOK %s", 200, payload)
 }
 
 func (o *GetScanReportOK) GetPayload() *models.ScanreportsEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *GetScanReportBadRequest) Code() int {
 }
 
 func (o *GetScanReportBadRequest) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportBadRequest %s", 400, payload)
 }
 
 func (o *GetScanReportBadRequest) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportBadRequest %s", 400, payload)
 }
 
 func (o *GetScanReportBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *GetScanReportForbidden) Code() int {
 }
 
 func (o *GetScanReportForbidden) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportForbidden %s", 403, payload)
 }
 
 func (o *GetScanReportForbidden) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportForbidden %s", 403, payload)
 }
 
 func (o *GetScanReportForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *GetScanReportNotFound) Code() int {
 }
 
 func (o *GetScanReportNotFound) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportNotFound %s", 404, payload)
 }
 
 func (o *GetScanReportNotFound) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportNotFound %s", 404, payload)
 }
 
 func (o *GetScanReportNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetScanReportTooManyRequests) Code() int {
 }
 
 func (o *GetScanReportTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScanReportTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportTooManyRequests %s", 429, payload)
 }
 
 func (o *GetScanReportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetScanReportInternalServerError) Code() int {
 }
 
 func (o *GetScanReportInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportInternalServerError %s", 500, payload)
 }
 
 func (o *GetScanReportInternalServerError) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/scanreports/v1][%d] getScanReportInternalServerError %s", 500, payload)
 }
 
 func (o *GetScanReportInternalServerError) GetPayload() *models.MsaspecResponseFields {

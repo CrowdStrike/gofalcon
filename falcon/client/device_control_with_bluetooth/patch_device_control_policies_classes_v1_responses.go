@@ -6,6 +6,7 @@ package device_control_with_bluetooth
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *PatchDeviceControlPoliciesClassesV1OK) Code() int {
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1OK %s", 200, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1OK) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1OK %s", 200, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1OK) GetPayload() *models.DevicecontrolapiRespPoliciesV2 {
@@ -228,11 +231,13 @@ func (o *PatchDeviceControlPoliciesClassesV1Forbidden) Code() int {
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1Forbidden %s", 403, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1Forbidden %s", 403, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *PatchDeviceControlPoliciesClassesV1NotFound) Code() int {
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1NotFound) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1NotFound %s", 404, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1NotFound) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1NotFound %s", 404, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1NotFound) GetPayload() *models.DeviceControlRespV1 {
@@ -452,11 +459,13 @@ func (o *PatchDeviceControlPoliciesClassesV1TooManyRequests) Code() int {
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *PatchDeviceControlPoliciesClassesV1InternalServerError) Code() int {
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1InternalServerError %s", 500, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/device-control-classes/v1][%d] patchDeviceControlPoliciesClassesV1InternalServerError %s", 500, payload)
 }
 
 func (o *PatchDeviceControlPoliciesClassesV1InternalServerError) GetPayload() *models.DeviceControlRespV1 {

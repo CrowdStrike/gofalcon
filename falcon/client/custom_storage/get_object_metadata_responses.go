@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetObjectMetadataOK) Code() int {
 }
 
 func (o *GetObjectMetadataOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataOK %s", 200, payload)
 }
 
 func (o *GetObjectMetadataOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataOK %s", 200, payload)
 }
 
 func (o *GetObjectMetadataOK) GetPayload() *models.CustomStorageResponse {
@@ -222,11 +225,13 @@ func (o *GetObjectMetadataForbidden) Code() int {
 }
 
 func (o *GetObjectMetadataForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetObjectMetadataForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetObjectMetadataForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetObjectMetadataTooManyRequests) Code() int {
 }
 
 func (o *GetObjectMetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetObjectMetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetObjectMetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetObjectMetadataInternalServerError) Code() int {
 }
 
 func (o *GetObjectMetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetObjectMetadataInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetObjectMetadataInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

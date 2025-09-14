@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesSlasDeleteV1OK) Code() int {
 }
 
 func (o *EntitiesSlasDeleteV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesSlasDeleteV1OK) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesSlasDeleteV1OK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *EntitiesSlasDeleteV1BadRequest) Code() int {
 }
 
 func (o *EntitiesSlasDeleteV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesSlasDeleteV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesSlasDeleteV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *EntitiesSlasDeleteV1Forbidden) Code() int {
 }
 
 func (o *EntitiesSlasDeleteV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesSlasDeleteV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesSlasDeleteV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *EntitiesSlasDeleteV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesSlasDeleteV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesSlasDeleteV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesSlasDeleteV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesSlasDeleteV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesSlasDeleteV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesSlasDeleteV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/slas/v1][%d] entitiesSlasDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesSlasDeleteV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

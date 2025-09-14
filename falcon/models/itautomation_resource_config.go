@@ -32,7 +32,7 @@ type ItautomationResourceConfig struct {
 	MemoryAllocation int32 `json:"memory_allocation,omitempty"`
 
 	// Unit for memory allocation
-	// Enum: [MB GB]
+	// Enum: ["MB","GB"]
 	MemoryAllocationUnit string `json:"memory_allocation_unit,omitempty"`
 
 	// Sets memory pressure level to control system resource allocation during task execution. Allowed values 'Low','Medium','High'

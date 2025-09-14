@@ -23,7 +23,7 @@ type DeviceControlUSBClassExceptionsReqV1 struct {
 
 	// Policy action. Note: BLOCK_EXECUTE and BLOCK_WRITE_EXECUTE are only valid for MASS_STORAGE devices.
 	// Required: true
-	// Enum: [FULL_ACCESS BLOCK_ALL BLOCK_EXECUTE BLOCK_WRITE_EXECUTE]
+	// Enum: ["FULL_ACCESS","BLOCK_ALL","BLOCK_EXECUTE","BLOCK_WRITE_EXECUTE"]
 	Action *string `json:"action"`
 
 	// List of exceptions to the rules of this policy setting. Maximum batch size: 1000.
@@ -32,7 +32,7 @@ type DeviceControlUSBClassExceptionsReqV1 struct {
 
 	// USB Class id
 	// Required: true
-	// Enum: [ANY AUDIO_VIDEO IMAGING MASS_STORAGE MOBILE PRINTER WIRELESS]
+	// Enum: ["ANY","AUDIO_VIDEO","IMAGING","MASS_STORAGE","MOBILE","PRINTER","WIRELESS"]
 	ID *string `json:"id"`
 }
 

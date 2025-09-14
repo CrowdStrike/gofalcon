@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryPlatformsOK) Code() int {
 }
 
 func (o *QueryPlatformsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsOK %s", 200, payload)
 }
 
 func (o *QueryPlatformsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsOK %s", 200, payload)
 }
 
 func (o *QueryPlatformsOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryPlatformsForbidden) Code() int {
 }
 
 func (o *QueryPlatformsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsForbidden %s", 403, payload)
 }
 
 func (o *QueryPlatformsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsForbidden %s", 403, payload)
 }
 
 func (o *QueryPlatformsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryPlatformsTooManyRequests) Code() int {
 }
 
 func (o *QueryPlatformsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPlatformsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryPlatformsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryPlatformsInternalServerError) Code() int {
 }
 
 func (o *QueryPlatformsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPlatformsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryPlatformsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

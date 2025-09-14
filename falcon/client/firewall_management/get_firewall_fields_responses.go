@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetFirewallFieldsOK) Code() int {
 }
 
 func (o *GetFirewallFieldsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsOK %s", 200, payload)
 }
 
 func (o *GetFirewallFieldsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsOK %s", 200, payload)
 }
 
 func (o *GetFirewallFieldsOK) GetPayload() *models.FwmgrAPIFirewallFieldsResponse {
@@ -222,11 +225,13 @@ func (o *GetFirewallFieldsForbidden) Code() int {
 }
 
 func (o *GetFirewallFieldsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsForbidden %s", 403, payload)
 }
 
 func (o *GetFirewallFieldsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsForbidden %s", 403, payload)
 }
 
 func (o *GetFirewallFieldsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetFirewallFieldsTooManyRequests) Code() int {
 }
 
 func (o *GetFirewallFieldsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetFirewallFieldsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetFirewallFieldsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetFirewallFieldsInternalServerError) Code() int {
 }
 
 func (o *GetFirewallFieldsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsInternalServerError %s", 500, payload)
 }
 
 func (o *GetFirewallFieldsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsInternalServerError %s", 500, payload)
 }
 
 func (o *GetFirewallFieldsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

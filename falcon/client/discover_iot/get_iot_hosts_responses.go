@@ -6,6 +6,7 @@ package discover_iot
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetIotHostsOK) Code() int {
 }
 
 func (o *GetIotHostsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsOK %s", 200, payload)
 }
 
 func (o *GetIotHostsOK) String() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsOK %s", 200, payload)
 }
 
 func (o *GetIotHostsOK) GetPayload() *models.DomainDiscoverAPIIoTHostEntitiesResponse {
@@ -228,11 +231,13 @@ func (o *GetIotHostsBadRequest) Code() int {
 }
 
 func (o *GetIotHostsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsBadRequest %s", 400, payload)
 }
 
 func (o *GetIotHostsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsBadRequest %s", 400, payload)
 }
 
 func (o *GetIotHostsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetIotHostsForbidden) Code() int {
 }
 
 func (o *GetIotHostsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsForbidden %s", 403, payload)
 }
 
 func (o *GetIotHostsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsForbidden %s", 403, payload)
 }
 
 func (o *GetIotHostsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetIotHostsTooManyRequests) Code() int {
 }
 
 func (o *GetIotHostsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIotHostsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIotHostsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetIotHostsInternalServerError) Code() int {
 }
 
 func (o *GetIotHostsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsInternalServerError %s", 500, payload)
 }
 
 func (o *GetIotHostsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/entities/iot-hosts/v1][%d] getIotHostsInternalServerError %s", 500, payload)
 }
 
 func (o *GetIotHostsInternalServerError) GetPayload() *models.MsaspecResponseFields {

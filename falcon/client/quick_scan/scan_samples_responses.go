@@ -6,6 +6,7 @@ package quick_scan
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ScanSamplesOK) Code() int {
 }
 
 func (o *ScanSamplesOK) Error() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesOK %s", 200, payload)
 }
 
 func (o *ScanSamplesOK) String() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesOK %s", 200, payload)
 }
 
 func (o *ScanSamplesOK) GetPayload() *models.MlscannerapiQueryResponse {
@@ -228,11 +231,13 @@ func (o *ScanSamplesBadRequest) Code() int {
 }
 
 func (o *ScanSamplesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesBadRequest %s", 400, payload)
 }
 
 func (o *ScanSamplesBadRequest) String() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesBadRequest %s", 400, payload)
 }
 
 func (o *ScanSamplesBadRequest) GetPayload() *models.MlscannerapiQueryResponse {
@@ -338,11 +343,13 @@ func (o *ScanSamplesForbidden) Code() int {
 }
 
 func (o *ScanSamplesForbidden) Error() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesForbidden %s", 403, payload)
 }
 
 func (o *ScanSamplesForbidden) String() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesForbidden %s", 403, payload)
 }
 
 func (o *ScanSamplesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ScanSamplesTooManyRequests) Code() int {
 }
 
 func (o *ScanSamplesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesTooManyRequests %s", 429, payload)
 }
 
 func (o *ScanSamplesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesTooManyRequests %s", 429, payload)
 }
 
 func (o *ScanSamplesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ScanSamplesInternalServerError) Code() int {
 }
 
 func (o *ScanSamplesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesInternalServerError %s", 500, payload)
 }
 
 func (o *ScanSamplesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesInternalServerError %s", 500, payload)
 }
 
 func (o *ScanSamplesInternalServerError) GetPayload() *models.MlscannerapiQueryResponse {

@@ -6,6 +6,7 @@ package exposure_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateExternalAssetsOK) Code() int {
 }
 
 func (o *AggregateExternalAssetsOK) Error() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsOK %s", 200, payload)
 }
 
 func (o *AggregateExternalAssetsOK) String() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsOK %s", 200, payload)
 }
 
 func (o *AggregateExternalAssetsOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateExternalAssetsBadRequest) Code() int {
 }
 
 func (o *AggregateExternalAssetsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateExternalAssetsBadRequest) String() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *AggregateExternalAssetsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregateExternalAssetsForbidden) Code() int {
 }
 
 func (o *AggregateExternalAssetsForbidden) Error() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *AggregateExternalAssetsForbidden) String() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *AggregateExternalAssetsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateExternalAssetsTooManyRequests) Code() int {
 }
 
 func (o *AggregateExternalAssetsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateExternalAssetsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateExternalAssetsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateExternalAssetsInternalServerError) Code() int {
 }
 
 func (o *AggregateExternalAssetsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateExternalAssetsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/aggregates/external-assets/v1][%d] aggregateExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateExternalAssetsInternalServerError) GetPayload() *models.MsaspecResponseFields {

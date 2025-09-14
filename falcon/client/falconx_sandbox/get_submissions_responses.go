@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetSubmissionsOK) Code() int {
 }
 
 func (o *GetSubmissionsOK) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsOK %s", 200, payload)
 }
 
 func (o *GetSubmissionsOK) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsOK %s", 200, payload)
 }
 
 func (o *GetSubmissionsOK) GetPayload() *models.FalconxSubmissionV1Response {
@@ -228,11 +231,13 @@ func (o *GetSubmissionsBadRequest) Code() int {
 }
 
 func (o *GetSubmissionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsBadRequest %s", 400, payload)
 }
 
 func (o *GetSubmissionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsBadRequest %s", 400, payload)
 }
 
 func (o *GetSubmissionsBadRequest) GetPayload() *models.FalconxSubmissionV1Response {
@@ -338,11 +343,13 @@ func (o *GetSubmissionsForbidden) Code() int {
 }
 
 func (o *GetSubmissionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsForbidden %s", 403, payload)
 }
 
 func (o *GetSubmissionsForbidden) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsForbidden %s", 403, payload)
 }
 
 func (o *GetSubmissionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetSubmissionsTooManyRequests) Code() int {
 }
 
 func (o *GetSubmissionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSubmissionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSubmissionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetSubmissionsInternalServerError) Code() int {
 }
 
 func (o *GetSubmissionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSubmissionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsInternalServerError %s", 500, payload)
 }
 
 func (o *GetSubmissionsInternalServerError) GetPayload() *models.FalconxSubmissionV1Response {

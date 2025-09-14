@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -134,11 +135,11 @@ func (o *DeleteTagsOK) Code() int {
 }
 
 func (o *DeleteTagsOK) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsOK", 200)
 }
 
 func (o *DeleteTagsOK) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsOK ", 200)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsOK", 200)
 }
 
 func (o *DeleteTagsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -231,11 +232,11 @@ func (o *DeleteTagsCreated) Code() int {
 }
 
 func (o *DeleteTagsCreated) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsCreated ", 201)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsCreated", 201)
 }
 
 func (o *DeleteTagsCreated) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsCreated ", 201)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsCreated", 201)
 }
 
 func (o *DeleteTagsCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -330,11 +331,13 @@ func (o *DeleteTagsBadRequest) Code() int {
 }
 
 func (o *DeleteTagsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteTagsBadRequest) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteTagsBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -440,11 +443,13 @@ func (o *DeleteTagsUnauthorized) Code() int {
 }
 
 func (o *DeleteTagsUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteTagsUnauthorized) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteTagsUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -550,11 +555,13 @@ func (o *DeleteTagsForbidden) Code() int {
 }
 
 func (o *DeleteTagsForbidden) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsForbidden %s", 403, payload)
 }
 
 func (o *DeleteTagsForbidden) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsForbidden %s", 403, payload)
 }
 
 func (o *DeleteTagsForbidden) GetPayload() *models.TypesErrorMessage {
@@ -664,11 +671,13 @@ func (o *DeleteTagsTooManyRequests) Code() int {
 }
 
 func (o *DeleteTagsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteTagsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteTagsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -785,11 +794,13 @@ func (o *DeleteTagsInternalServerError) Code() int {
 }
 
 func (o *DeleteTagsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteTagsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteTagsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -895,11 +906,13 @@ func (o *DeleteTagsServiceUnavailable) Code() int {
 }
 
 func (o *DeleteTagsServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsServiceUnavailable %s", 503, payload)
 }
 
 func (o *DeleteTagsServiceUnavailable) String() string {
-	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /aspm-api-gateway/api/v1/tags][%d] deleteTagsServiceUnavailable %s", 503, payload)
 }
 
 func (o *DeleteTagsServiceUnavailable) GetPayload() *models.TypesErrorMessage {

@@ -25,7 +25,7 @@ type FalconforitapiConditionGroup struct {
 	Groups []*FalconforitapiConditionGroup `json:"groups"`
 
 	// Logical operator to apply between group statements
-	// Enum: [AND OR]
+	// Enum: ["AND","OR"]
 	Operator string `json:"operator,omitempty"`
 
 	// List of conditional expressions to evaluate

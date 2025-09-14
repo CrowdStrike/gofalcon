@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *QueryGroupMembersOK) Code() int {
 }
 
 func (o *QueryGroupMembersOK) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersOK %s", 200, payload)
 }
 
 func (o *QueryGroupMembersOK) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersOK %s", 200, payload)
 }
 
 func (o *QueryGroupMembersOK) GetPayload() *models.MsaQueryResponse {
@@ -234,11 +237,13 @@ func (o *QueryGroupMembersBadRequest) Code() int {
 }
 
 func (o *QueryGroupMembersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryGroupMembersBadRequest) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryGroupMembersBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -344,11 +349,13 @@ func (o *QueryGroupMembersForbidden) Code() int {
 }
 
 func (o *QueryGroupMembersForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryGroupMembersForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *QueryGroupMembersNotFound) Code() int {
 }
 
 func (o *QueryGroupMembersNotFound) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryGroupMembersNotFound) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryGroupMembersNotFound) GetPayload() *models.MsaQueryResponse {
@@ -568,11 +577,13 @@ func (o *QueryGroupMembersTooManyRequests) Code() int {
 }
 
 func (o *QueryGroupMembersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryGroupMembersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *QueryGroupMembersInternalServerError) Code() int {
 }
 
 func (o *QueryGroupMembersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryGroupMembersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryGroupMembersInternalServerError) GetPayload() *models.MsaQueryResponse {

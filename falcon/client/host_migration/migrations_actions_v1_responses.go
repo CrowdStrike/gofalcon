@@ -6,6 +6,7 @@ package host_migration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *MigrationsActionsV1OK) Code() int {
 }
 
 func (o *MigrationsActionsV1OK) Error() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1OK %s", 200, payload)
 }
 
 func (o *MigrationsActionsV1OK) String() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1OK %s", 200, payload)
 }
 
 func (o *MigrationsActionsV1OK) GetPayload() *models.MsaspecQueryResponse {
@@ -234,11 +237,13 @@ func (o *MigrationsActionsV1BadRequest) Code() int {
 }
 
 func (o *MigrationsActionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1BadRequest %s", 400, payload)
 }
 
 func (o *MigrationsActionsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1BadRequest %s", 400, payload)
 }
 
 func (o *MigrationsActionsV1BadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -344,11 +349,13 @@ func (o *MigrationsActionsV1Forbidden) Code() int {
 }
 
 func (o *MigrationsActionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1Forbidden %s", 403, payload)
 }
 
 func (o *MigrationsActionsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1Forbidden %s", 403, payload)
 }
 
 func (o *MigrationsActionsV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *MigrationsActionsV1NotFound) Code() int {
 }
 
 func (o *MigrationsActionsV1NotFound) Error() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1NotFound %s", 404, payload)
 }
 
 func (o *MigrationsActionsV1NotFound) String() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1NotFound %s", 404, payload)
 }
 
 func (o *MigrationsActionsV1NotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -568,11 +577,13 @@ func (o *MigrationsActionsV1TooManyRequests) Code() int {
 }
 
 func (o *MigrationsActionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *MigrationsActionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *MigrationsActionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *MigrationsActionsV1InternalServerError) Code() int {
 }
 
 func (o *MigrationsActionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *MigrationsActionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /host-migration/entities/migrations-actions/v1][%d] migrationsActionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *MigrationsActionsV1InternalServerError) GetPayload() *models.MsaspecQueryResponse {

@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *NodesByDateRangeCountOK) Code() int {
 }
 
 func (o *NodesByDateRangeCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *NodesByDateRangeCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *NodesByDateRangeCountOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *NodesByDateRangeCountForbidden) Code() int {
 }
 
 func (o *NodesByDateRangeCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *NodesByDateRangeCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *NodesByDateRangeCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *NodesByDateRangeCountTooManyRequests) Code() int {
 }
 
 func (o *NodesByDateRangeCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *NodesByDateRangeCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *NodesByDateRangeCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *NodesByDateRangeCountInternalServerError) Code() int {
 }
 
 func (o *NodesByDateRangeCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *NodesByDateRangeCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-date/v1][%d] nodesByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *NodesByDateRangeCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

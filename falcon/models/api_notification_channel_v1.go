@@ -34,7 +34,7 @@ type APINotificationChannelV1 struct {
 
 	// type
 	// Required: true
-	// Enum: [email slack ms_teams pagerduty]
+	// Enum: ["email","slack","ms_teams","pagerduty"]
 	Type *string `json:"type"`
 }
 

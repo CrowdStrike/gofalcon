@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *IndicatorGetV1OK) Code() int {
 }
 
 func (o *IndicatorGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1OK %s", 200, payload)
 }
 
 func (o *IndicatorGetV1OK) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1OK %s", 200, payload)
 }
 
 func (o *IndicatorGetV1OK) GetPayload() *models.APIIndicatorRespV1 {
@@ -222,11 +225,13 @@ func (o *IndicatorGetV1Forbidden) Code() int {
 }
 
 func (o *IndicatorGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1Forbidden %s", 403, payload)
 }
 
 func (o *IndicatorGetV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *IndicatorGetV1TooManyRequests) Code() int {
 }
 
 func (o *IndicatorGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *IndicatorGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *IndicatorGetV1InternalServerError) Code() int {
 }
 
 func (o *IndicatorGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/indicators/v1][%d] indicatorGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *IndicatorGetV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateNetworkLocationsMetadataOK) Code() int {
 }
 
 func (o *UpdateNetworkLocationsMetadataOK) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataOK %s", 200, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataOK) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataOK %s", 200, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *UpdateNetworkLocationsMetadataBadRequest) Code() int {
 }
 
 func (o *UpdateNetworkLocationsMetadataBadRequest) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataBadRequest %s", 400, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataBadRequest) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataBadRequest %s", 400, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *UpdateNetworkLocationsMetadataForbidden) Code() int {
 }
 
 func (o *UpdateNetworkLocationsMetadataForbidden) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataForbidden %s", 403, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataForbidden) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataForbidden %s", 403, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateNetworkLocationsMetadataTooManyRequests) Code() int {
 }
 
 func (o *UpdateNetworkLocationsMetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateNetworkLocationsMetadataInternalServerError) Code() int {
 }
 
 func (o *UpdateNetworkLocationsMetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataInternalServerError) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateNetworkLocationsMetadataInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

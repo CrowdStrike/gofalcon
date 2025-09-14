@@ -6,6 +6,7 @@ package container_image_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtAggregateFailedRulesCountBySeverityOK) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityOK %s", 200, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityOK) GetPayload() *models.DomainAggregateFailedRulesCountBySeverityResponse {
@@ -234,11 +237,13 @@ func (o *ExtAggregateFailedRulesCountBySeverityBadRequest) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityBadRequest) GetPayload() *models.DomainAggregateFailedRulesCountBySeverityResponse {
@@ -344,11 +349,13 @@ func (o *ExtAggregateFailedRulesCountBySeverityUnauthorized) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityUnauthorized) GetPayload() *models.DomainAggregateFailedRulesCountBySeverityResponse {
@@ -454,11 +461,13 @@ func (o *ExtAggregateFailedRulesCountBySeverityForbidden) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityForbidden) GetPayload() *models.DomainAggregateFailedRulesCountBySeverityResponse {
@@ -568,11 +577,13 @@ func (o *ExtAggregateFailedRulesCountBySeverityTooManyRequests) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtAggregateFailedRulesCountBySeverityInternalServerError) Code() int {
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/failed-rules-count-by-severity/v2][%d] extAggregateFailedRulesCountBySeverityInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateFailedRulesCountBySeverityInternalServerError) GetPayload() *models.DomainAggregateFailedRulesCountBySeverityResponse {

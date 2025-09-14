@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ListCollectionsOK) Code() int {
 }
 
 func (o *ListCollectionsOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsOK %s", 200, payload)
 }
 
 func (o *ListCollectionsOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsOK %s", 200, payload)
 }
 
 func (o *ListCollectionsOK) GetPayload() *models.CustomStorageObjectKeys {
@@ -222,11 +225,13 @@ func (o *ListCollectionsForbidden) Code() int {
 }
 
 func (o *ListCollectionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsForbidden %s", 403, payload)
 }
 
 func (o *ListCollectionsForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsForbidden %s", 403, payload)
 }
 
 func (o *ListCollectionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ListCollectionsTooManyRequests) Code() int {
 }
 
 func (o *ListCollectionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListCollectionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ListCollectionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ListCollectionsInternalServerError) Code() int {
 }
 
 func (o *ListCollectionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsInternalServerError %s", 500, payload)
 }
 
 func (o *ListCollectionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections][%d] listCollectionsInternalServerError %s", 500, payload)
 }
 
 func (o *ListCollectionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

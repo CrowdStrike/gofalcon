@@ -6,6 +6,7 @@ package exposure_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *PostExternalAssetsInventoryV1OK) Code() int {
 }
 
 func (o *PostExternalAssetsInventoryV1OK) Error() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1OK %s", 200, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1OK) String() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1OK %s", 200, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1OK) GetPayload() *models.InventoryapiUserExternalAssetCreateResponseV1 {
@@ -228,11 +231,13 @@ func (o *PostExternalAssetsInventoryV1BadRequest) Code() int {
 }
 
 func (o *PostExternalAssetsInventoryV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1BadRequest %s", 400, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1BadRequest %s", 400, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *PostExternalAssetsInventoryV1Forbidden) Code() int {
 }
 
 func (o *PostExternalAssetsInventoryV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1Forbidden %s", 403, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1Forbidden %s", 403, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *PostExternalAssetsInventoryV1TooManyRequests) Code() int {
 }
 
 func (o *PostExternalAssetsInventoryV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *PostExternalAssetsInventoryV1InternalServerError) Code() int {
 }
 
 func (o *PostExternalAssetsInventoryV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /fem/entities/external-asset-inventory/v1][%d] postExternalAssetsInventoryV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostExternalAssetsInventoryV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

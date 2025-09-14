@@ -6,6 +6,7 @@ package quarantine
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetAggregateFilesOK) Code() int {
 }
 
 func (o *GetAggregateFilesOK) Error() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesOK %s", 200, payload)
 }
 
 func (o *GetAggregateFilesOK) String() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesOK %s", 200, payload)
 }
 
 func (o *GetAggregateFilesOK) GetPayload() *models.MsaAggregatesResponse {
@@ -222,11 +225,13 @@ func (o *GetAggregateFilesForbidden) Code() int {
 }
 
 func (o *GetAggregateFilesForbidden) Error() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesForbidden %s", 403, payload)
 }
 
 func (o *GetAggregateFilesForbidden) String() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesForbidden %s", 403, payload)
 }
 
 func (o *GetAggregateFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetAggregateFilesTooManyRequests) Code() int {
 }
 
 func (o *GetAggregateFilesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAggregateFilesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAggregateFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetAggregateFilesInternalServerError) Code() int {
 }
 
 func (o *GetAggregateFilesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesInternalServerError %s", 500, payload)
 }
 
 func (o *GetAggregateFilesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesInternalServerError %s", 500, payload)
 }
 
 func (o *GetAggregateFilesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

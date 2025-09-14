@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *NodeEnrichmentOK) Code() int {
 }
 
 func (o *NodeEnrichmentOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentOK %s", 200, payload)
 }
 
 func (o *NodeEnrichmentOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentOK %s", 200, payload)
 }
 
 func (o *NodeEnrichmentOK) GetPayload() *models.K8sassetsNodeEnrichmentResponse {
@@ -222,11 +225,13 @@ func (o *NodeEnrichmentForbidden) Code() int {
 }
 
 func (o *NodeEnrichmentForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentForbidden %s", 403, payload)
 }
 
 func (o *NodeEnrichmentForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentForbidden %s", 403, payload)
 }
 
 func (o *NodeEnrichmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *NodeEnrichmentTooManyRequests) Code() int {
 }
 
 func (o *NodeEnrichmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentTooManyRequests %s", 429, payload)
 }
 
 func (o *NodeEnrichmentTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentTooManyRequests %s", 429, payload)
 }
 
 func (o *NodeEnrichmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *NodeEnrichmentInternalServerError) Code() int {
 }
 
 func (o *NodeEnrichmentInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentInternalServerError %s", 500, payload)
 }
 
 func (o *NodeEnrichmentInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/nodes/entities/v1][%d] nodeEnrichmentInternalServerError %s", 500, payload)
 }
 
 func (o *NodeEnrichmentInternalServerError) GetPayload() *models.CoreEntitiesResponse {

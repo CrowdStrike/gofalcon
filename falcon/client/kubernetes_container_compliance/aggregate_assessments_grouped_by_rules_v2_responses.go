@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateAssessmentsGroupedByRulesV2OK) Code() int {
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2OK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2OK %s", 200, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2OK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2OK %s", 200, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2OK) GetPayload() *models.DomainAPIAggregateResponseGroupByRulesV1 {
@@ -228,11 +231,13 @@ func (o *AggregateAssessmentsGroupedByRulesV2BadRequest) Code() int {
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2BadRequest %s", 400, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2BadRequest %s", 400, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2BadRequest) GetPayload() *models.DomainAPIAggregateResponseGroupByRulesV1 {
@@ -338,11 +343,13 @@ func (o *AggregateAssessmentsGroupedByRulesV2Forbidden) Code() int {
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2Forbidden %s", 403, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2Forbidden %s", 403, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateAssessmentsGroupedByRulesV2TooManyRequests) Code() int {
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateAssessmentsGroupedByRulesV2InternalServerError) Code() int {
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2InternalServerError %s", 500, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/rules/v2][%d] aggregateAssessmentsGroupedByRulesV2InternalServerError %s", 500, payload)
 }
 
 func (o *AggregateAssessmentsGroupedByRulesV2InternalServerError) GetPayload() *models.DomainAPIAggregateResponseGroupByRulesV1 {

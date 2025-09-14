@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteSampleV3OK) Code() int {
 }
 
 func (o *DeleteSampleV3OK) Error() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3OK %s", 200, payload)
 }
 
 func (o *DeleteSampleV3OK) String() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3OK %s", 200, payload)
 }
 
 func (o *DeleteSampleV3OK) GetPayload() *models.MsaQueryResponse {
@@ -234,11 +237,13 @@ func (o *DeleteSampleV3BadRequest) Code() int {
 }
 
 func (o *DeleteSampleV3BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3BadRequest %s", 400, payload)
 }
 
 func (o *DeleteSampleV3BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3BadRequest %s", 400, payload)
 }
 
 func (o *DeleteSampleV3BadRequest) GetPayload() *models.MsaQueryResponse {
@@ -344,11 +349,13 @@ func (o *DeleteSampleV3Forbidden) Code() int {
 }
 
 func (o *DeleteSampleV3Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3Forbidden %s", 403, payload)
 }
 
 func (o *DeleteSampleV3Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3Forbidden %s", 403, payload)
 }
 
 func (o *DeleteSampleV3Forbidden) GetPayload() *models.MsaQueryResponse {
@@ -454,11 +461,13 @@ func (o *DeleteSampleV3NotFound) Code() int {
 }
 
 func (o *DeleteSampleV3NotFound) Error() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3NotFound %s", 404, payload)
 }
 
 func (o *DeleteSampleV3NotFound) String() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3NotFound %s", 404, payload)
 }
 
 func (o *DeleteSampleV3NotFound) GetPayload() *models.MsaQueryResponse {
@@ -568,11 +577,13 @@ func (o *DeleteSampleV3TooManyRequests) Code() int {
 }
 
 func (o *DeleteSampleV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteSampleV3TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteSampleV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteSampleV3InternalServerError) Code() int {
 }
 
 func (o *DeleteSampleV3InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteSampleV3InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteSampleV3InternalServerError) GetPayload() *models.MsaQueryResponse {

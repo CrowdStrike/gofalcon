@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCSPMAzureManagementGroupOK) Code() int {
 }
 
 func (o *GetCSPMAzureManagementGroupOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupOK %s", 200, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupOK %s", 200, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupOK) GetPayload() *models.RegistrationAzureManagementGroupResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetCSPMAzureManagementGroupMultiStatus) Code() int {
 }
 
 func (o *GetCSPMAzureManagementGroupMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupMultiStatus %s", 207, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupMultiStatus) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupMultiStatus %s", 207, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupMultiStatus) GetPayload() *models.RegistrationAzureManagementGroupResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetCSPMAzureManagementGroupBadRequest) Code() int {
 }
 
 func (o *GetCSPMAzureManagementGroupBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupBadRequest) GetPayload() *models.RegistrationAzureManagementGroupResponseV1 {
@@ -454,11 +461,13 @@ func (o *GetCSPMAzureManagementGroupForbidden) Code() int {
 }
 
 func (o *GetCSPMAzureManagementGroupForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetCSPMAzureManagementGroupTooManyRequests) Code() int {
 }
 
 func (o *GetCSPMAzureManagementGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCSPMAzureManagementGroupInternalServerError) Code() int {
 }
 
 func (o *GetCSPMAzureManagementGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/management-group/v1][%d] getCSPMAzureManagementGroupInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMAzureManagementGroupInternalServerError) GetPayload() *models.RegistrationAzureManagementGroupResponseV1 {

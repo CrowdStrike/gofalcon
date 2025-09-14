@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainActivityCreationRequest domain activity creation request
+// MessagecenterActivityCreationRequest messagecenter activity creation request
 //
-// swagger:model domain.ActivityCreationRequest
-type DomainActivityCreationRequest struct {
+// swagger:model messagecenter.ActivityCreationRequest
+type MessagecenterActivityCreationRequest struct {
 
 	// body
 	// Required: true
@@ -36,8 +36,8 @@ type DomainActivityCreationRequest struct {
 	UserUUID *string `json:"user_uuid"`
 }
 
-// Validate validates this domain activity creation request
-func (m *DomainActivityCreationRequest) Validate(formats strfmt.Registry) error {
+// Validate validates this messagecenter activity creation request
+func (m *MessagecenterActivityCreationRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateBody(formats); err != nil {
@@ -62,7 +62,7 @@ func (m *DomainActivityCreationRequest) Validate(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *DomainActivityCreationRequest) validateBody(formats strfmt.Registry) error {
+func (m *MessagecenterActivityCreationRequest) validateBody(formats strfmt.Registry) error {
 
 	if err := validate.Required("body", "body", m.Body); err != nil {
 		return err
@@ -71,7 +71,7 @@ func (m *DomainActivityCreationRequest) validateBody(formats strfmt.Registry) er
 	return nil
 }
 
-func (m *DomainActivityCreationRequest) validateCaseID(formats strfmt.Registry) error {
+func (m *MessagecenterActivityCreationRequest) validateCaseID(formats strfmt.Registry) error {
 
 	if err := validate.Required("case_id", "body", m.CaseID); err != nil {
 		return err
@@ -80,7 +80,7 @@ func (m *DomainActivityCreationRequest) validateCaseID(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *DomainActivityCreationRequest) validateType(formats strfmt.Registry) error {
+func (m *MessagecenterActivityCreationRequest) validateType(formats strfmt.Registry) error {
 
 	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
@@ -89,7 +89,7 @@ func (m *DomainActivityCreationRequest) validateType(formats strfmt.Registry) er
 	return nil
 }
 
-func (m *DomainActivityCreationRequest) validateUserUUID(formats strfmt.Registry) error {
+func (m *MessagecenterActivityCreationRequest) validateUserUUID(formats strfmt.Registry) error {
 
 	if err := validate.Required("user_uuid", "body", m.UserUUID); err != nil {
 		return err
@@ -98,13 +98,13 @@ func (m *DomainActivityCreationRequest) validateUserUUID(formats strfmt.Registry
 	return nil
 }
 
-// ContextValidate validates this domain activity creation request based on context it is used
-func (m *DomainActivityCreationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this messagecenter activity creation request based on context it is used
+func (m *MessagecenterActivityCreationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *DomainActivityCreationRequest) MarshalBinary() ([]byte, error) {
+func (m *MessagecenterActivityCreationRequest) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -112,8 +112,8 @@ func (m *DomainActivityCreationRequest) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainActivityCreationRequest) UnmarshalBinary(b []byte) error {
-	var res DomainActivityCreationRequest
+func (m *MessagecenterActivityCreationRequest) UnmarshalBinary(b []byte) error {
+	var res MessagecenterActivityCreationRequest
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

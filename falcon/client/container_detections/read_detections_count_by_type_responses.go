@@ -6,6 +6,7 @@ package container_detections
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadDetectionsCountByTypeOK) Code() int {
 }
 
 func (o *ReadDetectionsCountByTypeOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeOK %s", 200, payload)
 }
 
 func (o *ReadDetectionsCountByTypeOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeOK %s", 200, payload)
 }
 
 func (o *ReadDetectionsCountByTypeOK) GetPayload() *models.DetectionsAPIDetectionsByType {
@@ -222,11 +225,13 @@ func (o *ReadDetectionsCountByTypeForbidden) Code() int {
 }
 
 func (o *ReadDetectionsCountByTypeForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeForbidden %s", 403, payload)
 }
 
 func (o *ReadDetectionsCountByTypeForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeForbidden %s", 403, payload)
 }
 
 func (o *ReadDetectionsCountByTypeForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadDetectionsCountByTypeTooManyRequests) Code() int {
 }
 
 func (o *ReadDetectionsCountByTypeTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDetectionsCountByTypeTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDetectionsCountByTypeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadDetectionsCountByTypeInternalServerError) Code() int {
 }
 
 func (o *ReadDetectionsCountByTypeInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDetectionsCountByTypeInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/detections/count-by-type/v1][%d] readDetectionsCountByTypeInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDetectionsCountByTypeInternalServerError) GetPayload() *models.CoreEntitiesResponse {

@@ -6,6 +6,7 @@ package configuration_assessment_evaluation_logic
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetEvaluationLogicMixin0OK) Code() int {
 }
 
 func (o *GetEvaluationLogicMixin0OK) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0OK %s", 200, payload)
 }
 
 func (o *GetEvaluationLogicMixin0OK) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0OK %s", 200, payload)
 }
 
 func (o *GetEvaluationLogicMixin0OK) GetPayload() *models.DomainAPIEvaluationLogicEntitiesResponseV1 {
@@ -226,11 +229,11 @@ func (o *GetEvaluationLogicMixin0BadRequest) Code() int {
 }
 
 func (o *GetEvaluationLogicMixin0BadRequest) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0BadRequest ", 400)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0BadRequest", 400)
 }
 
 func (o *GetEvaluationLogicMixin0BadRequest) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0BadRequest ", 400)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0BadRequest", 400)
 }
 
 func (o *GetEvaluationLogicMixin0BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -325,11 +328,13 @@ func (o *GetEvaluationLogicMixin0Forbidden) Code() int {
 }
 
 func (o *GetEvaluationLogicMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0Forbidden %s", 403, payload)
 }
 
 func (o *GetEvaluationLogicMixin0Forbidden) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0Forbidden %s", 403, payload)
 }
 
 func (o *GetEvaluationLogicMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -439,11 +444,13 @@ func (o *GetEvaluationLogicMixin0TooManyRequests) Code() int {
 }
 
 func (o *GetEvaluationLogicMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *GetEvaluationLogicMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *GetEvaluationLogicMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -558,11 +565,11 @@ func (o *GetEvaluationLogicMixin0InternalServerError) Code() int {
 }
 
 func (o *GetEvaluationLogicMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0InternalServerError ", 500)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0InternalServerError", 500)
 }
 
 func (o *GetEvaluationLogicMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0InternalServerError ", 500)
+	return fmt.Sprintf("[GET /configuration-assessment/entities/evaluation-logic/v1][%d] getEvaluationLogicMixin0InternalServerError", 500)
 }
 
 func (o *GetEvaluationLogicMixin0InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

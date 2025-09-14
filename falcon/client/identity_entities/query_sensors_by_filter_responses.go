@@ -6,6 +6,7 @@ package identity_entities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QuerySensorsByFilterOK) Code() int {
 }
 
 func (o *QuerySensorsByFilterOK) Error() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterOK %s", 200, payload)
 }
 
 func (o *QuerySensorsByFilterOK) String() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterOK %s", 200, payload)
 }
 
 func (o *QuerySensorsByFilterOK) GetPayload() *models.MsaspecQueryResponse {
@@ -222,11 +225,13 @@ func (o *QuerySensorsByFilterForbidden) Code() int {
 }
 
 func (o *QuerySensorsByFilterForbidden) Error() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterForbidden %s", 403, payload)
 }
 
 func (o *QuerySensorsByFilterForbidden) String() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterForbidden %s", 403, payload)
 }
 
 func (o *QuerySensorsByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QuerySensorsByFilterTooManyRequests) Code() int {
 }
 
 func (o *QuerySensorsByFilterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySensorsByFilterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *QuerySensorsByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QuerySensorsByFilterInternalServerError) Code() int {
 }
 
 func (o *QuerySensorsByFilterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *QuerySensorsByFilterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /identity-protection/queries/devices/v1][%d] querySensorsByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *QuerySensorsByFilterInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

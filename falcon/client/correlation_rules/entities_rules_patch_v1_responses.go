@@ -6,6 +6,7 @@ package correlation_rules
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -142,11 +143,13 @@ func (o *EntitiesRulesPatchV1OK) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRulesPatchV1OK) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRulesPatchV1OK) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -252,11 +255,13 @@ func (o *EntitiesRulesPatchV1BadRequest) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRulesPatchV1BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRulesPatchV1BadRequest) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -362,11 +367,13 @@ func (o *EntitiesRulesPatchV1Unauthorized) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1Unauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRulesPatchV1Unauthorized) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRulesPatchV1Unauthorized) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -472,11 +479,13 @@ func (o *EntitiesRulesPatchV1Forbidden) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRulesPatchV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRulesPatchV1Forbidden) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -582,11 +591,13 @@ func (o *EntitiesRulesPatchV1NotFound) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1NotFound) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRulesPatchV1NotFound) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRulesPatchV1NotFound) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -692,11 +703,13 @@ func (o *EntitiesRulesPatchV1UnprocessableEntity) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1UnprocessableEntity) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1UnprocessableEntity  %+v", 422, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1UnprocessableEntity %s", 422, payload)
 }
 
 func (o *EntitiesRulesPatchV1UnprocessableEntity) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1UnprocessableEntity  %+v", 422, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1UnprocessableEntity %s", 422, payload)
 }
 
 func (o *EntitiesRulesPatchV1UnprocessableEntity) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -806,11 +819,13 @@ func (o *EntitiesRulesPatchV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRulesPatchV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRulesPatchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -927,11 +942,13 @@ func (o *EntitiesRulesPatchV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRulesPatchV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRulesPatchV1InternalServerError) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -1037,11 +1054,13 @@ func (o *EntitiesRulesPatchV1ServiceUnavailable) Code() int {
 }
 
 func (o *EntitiesRulesPatchV1ServiceUnavailable) Error() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1ServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1ServiceUnavailable %s", 503, payload)
 }
 
 func (o *EntitiesRulesPatchV1ServiceUnavailable) String() string {
-	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1ServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /correlation-rules/entities/rules/v1][%d] entitiesRulesPatchV1ServiceUnavailable %s", 503, payload)
 }
 
 func (o *EntitiesRulesPatchV1ServiceUnavailable) GetPayload() *models.APIGetEntitiesRulesResponseV1 {

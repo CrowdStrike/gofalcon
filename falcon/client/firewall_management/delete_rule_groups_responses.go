@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteRuleGroupsOK) Code() int {
 }
 
 func (o *DeleteRuleGroupsOK) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsOK %s", 200, payload)
 }
 
 func (o *DeleteRuleGroupsOK) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsOK %s", 200, payload)
 }
 
 func (o *DeleteRuleGroupsOK) GetPayload() *models.FwmgrAPIQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteRuleGroupsBadRequest) Code() int {
 }
 
 func (o *DeleteRuleGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteRuleGroupsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *DeleteRuleGroupsForbidden) Code() int {
 }
 
 func (o *DeleteRuleGroupsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleGroupsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *DeleteRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *DeleteRuleGroupsTooManyRequests) Code() int {
 }
 
 func (o *DeleteRuleGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteRuleGroupsInternalServerError) Code() int {
 }
 
 func (o *DeleteRuleGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRuleGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

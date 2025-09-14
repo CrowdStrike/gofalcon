@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryRuleGroupsOK) Code() int {
 }
 
 func (o *QueryRuleGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsOK %s", 200, payload)
 }
 
 func (o *QueryRuleGroupsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsOK %s", 200, payload)
 }
 
 func (o *QueryRuleGroupsOK) GetPayload() *models.FwmgrAPIQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryRuleGroupsBadRequest) Code() int {
 }
 
 func (o *QueryRuleGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryRuleGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest %s", 400, payload)
 }
 
 func (o *QueryRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryRuleGroupsForbidden) Code() int {
 }
 
 func (o *QueryRuleGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryRuleGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsForbidden %s", 403, payload)
 }
 
 func (o *QueryRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryRuleGroupsTooManyRequests) Code() int {
 }
 
 func (o *QueryRuleGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRuleGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryRuleGroupsInternalServerError) Code() int {
 }
 
 func (o *QueryRuleGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRuleGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRuleGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

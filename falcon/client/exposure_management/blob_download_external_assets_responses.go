@@ -6,6 +6,7 @@ package exposure_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *BlobDownloadExternalAssetsOK) Code() int {
 }
 
 func (o *BlobDownloadExternalAssetsOK) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsOK %s", 200, payload)
 }
 
 func (o *BlobDownloadExternalAssetsOK) String() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsOK %s", 200, payload)
 }
 
 func (o *BlobDownloadExternalAssetsOK) GetPayload() []int64 {
@@ -226,11 +229,13 @@ func (o *BlobDownloadExternalAssetsBadRequest) Code() int {
 }
 
 func (o *BlobDownloadExternalAssetsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *BlobDownloadExternalAssetsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *BlobDownloadExternalAssetsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -336,11 +341,13 @@ func (o *BlobDownloadExternalAssetsForbidden) Code() int {
 }
 
 func (o *BlobDownloadExternalAssetsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *BlobDownloadExternalAssetsForbidden) String() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *BlobDownloadExternalAssetsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -450,11 +457,13 @@ func (o *BlobDownloadExternalAssetsTooManyRequests) Code() int {
 }
 
 func (o *BlobDownloadExternalAssetsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *BlobDownloadExternalAssetsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *BlobDownloadExternalAssetsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -571,11 +580,13 @@ func (o *BlobDownloadExternalAssetsInternalServerError) Code() int {
 }
 
 func (o *BlobDownloadExternalAssetsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *BlobDownloadExternalAssetsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/blobs-download/v1][%d] blobDownloadExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *BlobDownloadExternalAssetsInternalServerError) GetPayload() *models.MsaspecResponseFields {

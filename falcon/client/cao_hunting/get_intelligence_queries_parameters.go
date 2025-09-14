@@ -68,6 +68,12 @@ type GetIntelligenceQueriesParams struct {
 	*/
 	Ids []string
 
+	/* IncludeTranslatedContent.
+
+	   The AI translated language that should be returned if it exists<br>Accepted values are: <li>SPL</li><li>\_\_all\_\_</li>
+	*/
+	IncludeTranslatedContent []string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -132,6 +138,17 @@ func (o *GetIntelligenceQueriesParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithIncludeTranslatedContent adds the includeTranslatedContent to the get intelligence queries params
+func (o *GetIntelligenceQueriesParams) WithIncludeTranslatedContent(includeTranslatedContent []string) *GetIntelligenceQueriesParams {
+	o.SetIncludeTranslatedContent(includeTranslatedContent)
+	return o
+}
+
+// SetIncludeTranslatedContent adds the includeTranslatedContent to the get intelligence queries params
+func (o *GetIntelligenceQueriesParams) SetIncludeTranslatedContent(includeTranslatedContent []string) {
+	o.IncludeTranslatedContent = includeTranslatedContent
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetIntelligenceQueriesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -147,6 +164,17 @@ func (o *GetIntelligenceQueriesParams) WriteToRequest(r runtime.ClientRequest, r
 
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
+	}
+
+	if o.IncludeTranslatedContent != nil {
+
+		// binding items for include_translated_content
+		joinedIncludeTranslatedContent := o.bindParamIncludeTranslatedContent(reg)
+
+		// query array param include_translated_content
+		if err := r.SetQueryParam("include_translated_content", joinedIncludeTranslatedContent...); err != nil {
 			return err
 		}
 	}
@@ -172,4 +200,21 @@ func (o *GetIntelligenceQueriesParams) bindParamIds(formats strfmt.Registry) []s
 	idsIS := swag.JoinByFormat(idsIC, "multi")
 
 	return idsIS
+}
+
+// bindParamGetIntelligenceQueries binds the parameter include_translated_content
+func (o *GetIntelligenceQueriesParams) bindParamIncludeTranslatedContent(formats strfmt.Registry) []string {
+	includeTranslatedContentIR := o.IncludeTranslatedContent
+
+	var includeTranslatedContentIC []string
+	for _, includeTranslatedContentIIR := range includeTranslatedContentIR { // explode []string
+
+		includeTranslatedContentIIV := includeTranslatedContentIIR // string as string
+		includeTranslatedContentIC = append(includeTranslatedContentIC, includeTranslatedContentIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	includeTranslatedContentIS := swag.JoinByFormat(includeTranslatedContentIC, "multi")
+
+	return includeTranslatedContentIS
 }

@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -128,11 +129,11 @@ func (o *GetIntelRuleFileOK) Code() int {
 }
 
 func (o *GetIntelRuleFileOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK", 200)
 }
 
 func (o *GetIntelRuleFileOK) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK", 200)
 }
 
 func (o *GetIntelRuleFileOK) GetPayload() io.Writer {
@@ -236,11 +237,13 @@ func (o *GetIntelRuleFileBadRequest) Code() int {
 }
 
 func (o *GetIntelRuleFileBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileBadRequest %s", 400, payload)
 }
 
 func (o *GetIntelRuleFileBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileBadRequest %s", 400, payload)
 }
 
 func (o *GetIntelRuleFileBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -346,11 +349,13 @@ func (o *GetIntelRuleFileForbidden) Code() int {
 }
 
 func (o *GetIntelRuleFileForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileForbidden %s", 403, payload)
 }
 
 func (o *GetIntelRuleFileForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileForbidden %s", 403, payload)
 }
 
 func (o *GetIntelRuleFileForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -456,11 +461,13 @@ func (o *GetIntelRuleFileNotFound) Code() int {
 }
 
 func (o *GetIntelRuleFileNotFound) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileNotFound %s", 404, payload)
 }
 
 func (o *GetIntelRuleFileNotFound) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileNotFound %s", 404, payload)
 }
 
 func (o *GetIntelRuleFileNotFound) GetPayload() *models.MsaErrorsOnly {
@@ -570,11 +577,13 @@ func (o *GetIntelRuleFileTooManyRequests) Code() int {
 }
 
 func (o *GetIntelRuleFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelRuleFileTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntelRuleFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -691,11 +700,13 @@ func (o *GetIntelRuleFileInternalServerError) Code() int {
 }
 
 func (o *GetIntelRuleFileInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelRuleFileInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntelRuleFileInternalServerError) GetPayload() *models.MsaErrorsOnly {

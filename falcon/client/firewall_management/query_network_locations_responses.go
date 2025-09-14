@@ -6,6 +6,7 @@ package firewall_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryNetworkLocationsOK) Code() int {
 }
 
 func (o *QueryNetworkLocationsOK) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *QueryNetworkLocationsOK) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsOK %s", 200, payload)
 }
 
 func (o *QueryNetworkLocationsOK) GetPayload() *models.FwmgrAPIQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryNetworkLocationsBadRequest) Code() int {
 }
 
 func (o *QueryNetworkLocationsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *QueryNetworkLocationsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsBadRequest %s", 400, payload)
 }
 
 func (o *QueryNetworkLocationsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryNetworkLocationsForbidden) Code() int {
 }
 
 func (o *QueryNetworkLocationsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *QueryNetworkLocationsForbidden) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsForbidden %s", 403, payload)
 }
 
 func (o *QueryNetworkLocationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryNetworkLocationsTooManyRequests) Code() int {
 }
 
 func (o *QueryNetworkLocationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryNetworkLocationsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryNetworkLocationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryNetworkLocationsInternalServerError) Code() int {
 }
 
 func (o *QueryNetworkLocationsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryNetworkLocationsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryNetworkLocationsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

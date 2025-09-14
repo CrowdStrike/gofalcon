@@ -6,6 +6,7 @@ package content_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PerformContentUpdatePoliciesActionOK) Code() int {
 }
 
 func (o *PerformContentUpdatePoliciesActionOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionOK %s", 200, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionOK %s", 200, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionOK) GetPayload() *models.ContentUpdateRespV1 {
@@ -234,11 +237,13 @@ func (o *PerformContentUpdatePoliciesActionBadRequest) Code() int {
 }
 
 func (o *PerformContentUpdatePoliciesActionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionBadRequest %s", 400, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionBadRequest) GetPayload() *models.ContentUpdateRespV1 {
@@ -344,11 +349,13 @@ func (o *PerformContentUpdatePoliciesActionForbidden) Code() int {
 }
 
 func (o *PerformContentUpdatePoliciesActionForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionForbidden %s", 403, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionForbidden %s", 403, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *PerformContentUpdatePoliciesActionNotFound) Code() int {
 }
 
 func (o *PerformContentUpdatePoliciesActionNotFound) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionNotFound %s", 404, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionNotFound) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionNotFound %s", 404, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionNotFound) GetPayload() *models.ContentUpdateRespV1 {
@@ -568,11 +577,13 @@ func (o *PerformContentUpdatePoliciesActionTooManyRequests) Code() int {
 }
 
 func (o *PerformContentUpdatePoliciesActionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionTooManyRequests %s", 429, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PerformContentUpdatePoliciesActionInternalServerError) Code() int {
 }
 
 func (o *PerformContentUpdatePoliciesActionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/content-update-actions/v1][%d] performContentUpdatePoliciesActionInternalServerError %s", 500, payload)
 }
 
 func (o *PerformContentUpdatePoliciesActionInternalServerError) GetPayload() *models.ContentUpdateRespV1 {

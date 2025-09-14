@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ScheduleScanCreated) Code() int {
 }
 
 func (o *ScheduleScanCreated) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanCreated %s", 201, payload)
 }
 
 func (o *ScheduleScanCreated) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanCreated %s", 201, payload)
 }
 
 func (o *ScheduleScanCreated) GetPayload() *models.EntitiesODSScheduleScanResponse {
@@ -222,11 +225,13 @@ func (o *ScheduleScanForbidden) Code() int {
 }
 
 func (o *ScheduleScanForbidden) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanForbidden %s", 403, payload)
 }
 
 func (o *ScheduleScanForbidden) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanForbidden %s", 403, payload)
 }
 
 func (o *ScheduleScanForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ScheduleScanTooManyRequests) Code() int {
 }
 
 func (o *ScheduleScanTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanTooManyRequests %s", 429, payload)
 }
 
 func (o *ScheduleScanTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanTooManyRequests %s", 429, payload)
 }
 
 func (o *ScheduleScanTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ScheduleScanInternalServerError) Code() int {
 }
 
 func (o *ScheduleScanInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanInternalServerError %s", 500, payload)
 }
 
 func (o *ScheduleScanInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanInternalServerError %s", 500, payload)
 }
 
 func (o *ScheduleScanInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

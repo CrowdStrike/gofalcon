@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -142,11 +143,13 @@ func (o *GetContentsOK) Code() int {
 }
 
 func (o *GetContentsOK) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsOK %s", 200, payload)
 }
 
 func (o *GetContentsOK) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsOK %s", 200, payload)
 }
 
 func (o *GetContentsOK) GetPayload() *models.ContentchangesChangeContentsResponse {
@@ -252,11 +255,13 @@ func (o *GetContentsBadRequest) Code() int {
 }
 
 func (o *GetContentsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsBadRequest %s", 400, payload)
 }
 
 func (o *GetContentsBadRequest) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsBadRequest %s", 400, payload)
 }
 
 func (o *GetContentsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -362,11 +367,13 @@ func (o *GetContentsForbidden) Code() int {
 }
 
 func (o *GetContentsForbidden) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsForbidden %s", 403, payload)
 }
 
 func (o *GetContentsForbidden) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsForbidden %s", 403, payload)
 }
 
 func (o *GetContentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -472,11 +479,13 @@ func (o *GetContentsNotFound) Code() int {
 }
 
 func (o *GetContentsNotFound) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsNotFound %s", 404, payload)
 }
 
 func (o *GetContentsNotFound) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsNotFound %s", 404, payload)
 }
 
 func (o *GetContentsNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -582,11 +591,13 @@ func (o *GetContentsRequestEntityTooLarge) Code() int {
 }
 
 func (o *GetContentsRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsRequestEntityTooLarge  %+v", 413, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsRequestEntityTooLarge %s", 413, payload)
 }
 
 func (o *GetContentsRequestEntityTooLarge) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsRequestEntityTooLarge  %+v", 413, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsRequestEntityTooLarge %s", 413, payload)
 }
 
 func (o *GetContentsRequestEntityTooLarge) GetPayload() *models.MsaspecResponseFields {
@@ -692,11 +703,13 @@ func (o *GetContentsUnsupportedMediaType) Code() int {
 }
 
 func (o *GetContentsUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsUnsupportedMediaType  %+v", 415, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsUnsupportedMediaType %s", 415, payload)
 }
 
 func (o *GetContentsUnsupportedMediaType) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsUnsupportedMediaType  %+v", 415, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsUnsupportedMediaType %s", 415, payload)
 }
 
 func (o *GetContentsUnsupportedMediaType) GetPayload() *models.MsaspecResponseFields {
@@ -802,11 +815,13 @@ func (o *GetContentsStatus425) Code() int {
 }
 
 func (o *GetContentsStatus425) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsStatus425  %+v", 425, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsStatus425 %s", 425, payload)
 }
 
 func (o *GetContentsStatus425) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsStatus425  %+v", 425, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsStatus425 %s", 425, payload)
 }
 
 func (o *GetContentsStatus425) GetPayload() *models.MsaspecResponseFields {
@@ -916,11 +931,13 @@ func (o *GetContentsTooManyRequests) Code() int {
 }
 
 func (o *GetContentsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetContentsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetContentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -1037,11 +1054,13 @@ func (o *GetContentsInternalServerError) Code() int {
 }
 
 func (o *GetContentsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsInternalServerError %s", 500, payload)
 }
 
 func (o *GetContentsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /filevantage/entities/change-content/v1][%d] getContentsInternalServerError %s", 500, payload)
 }
 
 func (o *GetContentsInternalServerError) GetPayload() *models.MsaspecResponseFields {

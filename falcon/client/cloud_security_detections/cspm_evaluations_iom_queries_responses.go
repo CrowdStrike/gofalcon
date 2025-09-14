@@ -6,6 +6,7 @@ package cloud_security_detections
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CspmEvaluationsIomQueriesOK) Code() int {
 }
 
 func (o *CspmEvaluationsIomQueriesOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesOK %s", 200, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesOK) String() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesOK %s", 200, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesOK) GetPayload() *models.EvaluationsQueryIOMsResponse {
@@ -234,11 +237,13 @@ func (o *CspmEvaluationsIomQueriesBadRequest) Code() int {
 }
 
 func (o *CspmEvaluationsIomQueriesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesBadRequest %s", 400, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesBadRequest %s", 400, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesBadRequest) GetPayload() *models.RestCursorResponseFields {
@@ -344,11 +349,13 @@ func (o *CspmEvaluationsIomQueriesForbidden) Code() int {
 }
 
 func (o *CspmEvaluationsIomQueriesForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesForbidden %s", 403, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesForbidden %s", 403, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *CspmEvaluationsIomQueriesRequestTimeout) Code() int {
 }
 
 func (o *CspmEvaluationsIomQueriesRequestTimeout) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesRequestTimeout %s", 408, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesRequestTimeout) String() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesRequestTimeout  %+v", 408, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesRequestTimeout %s", 408, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesRequestTimeout) GetPayload() *models.RestCursorResponseFields {
@@ -568,11 +577,13 @@ func (o *CspmEvaluationsIomQueriesTooManyRequests) Code() int {
 }
 
 func (o *CspmEvaluationsIomQueriesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CspmEvaluationsIomQueriesInternalServerError) Code() int {
 }
 
 func (o *CspmEvaluationsIomQueriesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-security-evaluations/queries/ioms/v1][%d] cspmEvaluationsIomQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *CspmEvaluationsIomQueriesInternalServerError) GetPayload() *models.RestCursorResponseFields {

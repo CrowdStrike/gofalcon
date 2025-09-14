@@ -6,6 +6,7 @@ package tailored_intelligence
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetEventsEntitiesOK) Code() int {
 }
 
 func (o *GetEventsEntitiesOK) Error() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesOK %s", 200, payload)
 }
 
 func (o *GetEventsEntitiesOK) String() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesOK %s", 200, payload)
 }
 
 func (o *GetEventsEntitiesOK) GetPayload() *models.DomainEventEntitiesResponse {
@@ -228,11 +231,13 @@ func (o *GetEventsEntitiesBadRequest) Code() int {
 }
 
 func (o *GetEventsEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *GetEventsEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *GetEventsEntitiesBadRequest) GetPayload() *models.DomainEventEntitiesResponse {
@@ -336,11 +341,11 @@ func (o *GetEventsEntitiesForbidden) Code() int {
 }
 
 func (o *GetEventsEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesForbidden ", 403)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesForbidden", 403)
 }
 
 func (o *GetEventsEntitiesForbidden) String() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesForbidden ", 403)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesForbidden", 403)
 }
 
 func (o *GetEventsEntitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -439,11 +444,13 @@ func (o *GetEventsEntitiesTooManyRequests) Code() int {
 }
 
 func (o *GetEventsEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEventsEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetEventsEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -560,11 +567,13 @@ func (o *GetEventsEntitiesInternalServerError) Code() int {
 }
 
 func (o *GetEventsEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetEventsEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *GetEventsEntitiesInternalServerError) GetPayload() *models.DomainEventEntitiesResponse {

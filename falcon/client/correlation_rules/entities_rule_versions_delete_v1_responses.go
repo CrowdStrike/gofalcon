@@ -6,6 +6,7 @@ package correlation_rules
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *EntitiesRuleVersionsDeleteV1OK) Code() int {
 }
 
 func (o *EntitiesRuleVersionsDeleteV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1OK) String() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1OK) GetPayload() *models.MsaspecQueryResponse {
@@ -240,11 +243,13 @@ func (o *EntitiesRuleVersionsDeleteV1BadRequest) Code() int {
 }
 
 func (o *EntitiesRuleVersionsDeleteV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1BadRequest) GetPayload() *models.MsaspecQueryResponse {
@@ -350,11 +355,13 @@ func (o *EntitiesRuleVersionsDeleteV1Unauthorized) Code() int {
 }
 
 func (o *EntitiesRuleVersionsDeleteV1Unauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1Unauthorized) String() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1Unauthorized) GetPayload() *models.MsaspecQueryResponse {
@@ -460,11 +467,13 @@ func (o *EntitiesRuleVersionsDeleteV1Forbidden) Code() int {
 }
 
 func (o *EntitiesRuleVersionsDeleteV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1Forbidden) GetPayload() *models.MsaspecQueryResponse {
@@ -570,11 +579,13 @@ func (o *EntitiesRuleVersionsDeleteV1NotFound) Code() int {
 }
 
 func (o *EntitiesRuleVersionsDeleteV1NotFound) Error() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1NotFound) String() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1NotFound) GetPayload() *models.MsaspecQueryResponse {
@@ -684,11 +695,13 @@ func (o *EntitiesRuleVersionsDeleteV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesRuleVersionsDeleteV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *EntitiesRuleVersionsDeleteV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesRuleVersionsDeleteV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /correlation-rules/entities/rule-versions/v1][%d] entitiesRuleVersionsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRuleVersionsDeleteV1InternalServerError) GetPayload() *models.MsaspecQueryResponse {

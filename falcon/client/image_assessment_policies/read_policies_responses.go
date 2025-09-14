@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPoliciesOK) Code() int {
 }
 
 func (o *ReadPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesOK %s", 200, payload)
 }
 
 func (o *ReadPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesOK %s", 200, payload)
 }
 
 func (o *ReadPoliciesOK) GetPayload() *models.ModelsPolicyEntityResponse {
@@ -222,11 +225,13 @@ func (o *ReadPoliciesForbidden) Code() int {
 }
 
 func (o *ReadPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesForbidden %s", 403, payload)
 }
 
 func (o *ReadPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesForbidden %s", 403, payload)
 }
 
 func (o *ReadPoliciesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPoliciesTooManyRequests) Code() int {
 }
 
 func (o *ReadPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPoliciesInternalServerError) Code() int {
 }
 
 func (o *ReadPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPoliciesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

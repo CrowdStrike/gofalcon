@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RetrieveUserOK) Code() int {
 }
 
 func (o *RetrieveUserOK) Error() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK %s", 200, payload)
 }
 
 func (o *RetrieveUserOK) String() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK %s", 200, payload)
 }
 
 func (o *RetrieveUserOK) GetPayload() *models.APIUserMetadataResponse {
@@ -234,11 +237,13 @@ func (o *RetrieveUserBadRequest) Code() int {
 }
 
 func (o *RetrieveUserBadRequest) Error() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveUserBadRequest) String() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *RetrieveUserForbidden) Code() int {
 }
 
 func (o *RetrieveUserForbidden) Error() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserForbidden %s", 403, payload)
 }
 
 func (o *RetrieveUserForbidden) String() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserForbidden %s", 403, payload)
 }
 
 func (o *RetrieveUserForbidden) GetPayload() *models.MsaEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *RetrieveUserNotFound) Code() int {
 }
 
 func (o *RetrieveUserNotFound) Error() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserNotFound %s", 404, payload)
 }
 
 func (o *RetrieveUserNotFound) String() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserNotFound %s", 404, payload)
 }
 
 func (o *RetrieveUserNotFound) GetPayload() *models.MsaEntitiesResponse {
@@ -568,11 +577,13 @@ func (o *RetrieveUserTooManyRequests) Code() int {
 }
 
 func (o *RetrieveUserTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveUserTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RetrieveUserInternalServerError) Code() int {
 }
 
 func (o *RetrieveUserInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveUserInternalServerError) String() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveUserInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

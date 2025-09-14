@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetUserGroupsByIDV2OK) Code() int {
 }
 
 func (o *GetUserGroupsByIDV2OK) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2OK %s", 200, payload)
 }
 
 func (o *GetUserGroupsByIDV2OK) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2OK %s", 200, payload)
 }
 
 func (o *GetUserGroupsByIDV2OK) GetPayload() *models.DomainUserGroupsResponseV1 {
@@ -234,11 +237,13 @@ func (o *GetUserGroupsByIDV2MultiStatus) Code() int {
 }
 
 func (o *GetUserGroupsByIDV2MultiStatus) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2MultiStatus %s", 207, payload)
 }
 
 func (o *GetUserGroupsByIDV2MultiStatus) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2MultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2MultiStatus %s", 207, payload)
 }
 
 func (o *GetUserGroupsByIDV2MultiStatus) GetPayload() *models.DomainUserGroupsResponseV1 {
@@ -344,11 +349,13 @@ func (o *GetUserGroupsByIDV2BadRequest) Code() int {
 }
 
 func (o *GetUserGroupsByIDV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2BadRequest %s", 400, payload)
 }
 
 func (o *GetUserGroupsByIDV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2BadRequest %s", 400, payload)
 }
 
 func (o *GetUserGroupsByIDV2BadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetUserGroupsByIDV2Forbidden) Code() int {
 }
 
 func (o *GetUserGroupsByIDV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2Forbidden %s", 403, payload)
 }
 
 func (o *GetUserGroupsByIDV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2Forbidden %s", 403, payload)
 }
 
 func (o *GetUserGroupsByIDV2Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *GetUserGroupsByIDV2TooManyRequests) Code() int {
 }
 
 func (o *GetUserGroupsByIDV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetUserGroupsByIDV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetUserGroupsByIDV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetUserGroupsByIDV2InternalServerError) Code() int {
 }
 
 func (o *GetUserGroupsByIDV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetUserGroupsByIDV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v2][%d] getUserGroupsByIdV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetUserGroupsByIDV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

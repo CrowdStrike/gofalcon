@@ -6,6 +6,7 @@ package sensor_usage_api
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetSensorUsageWeeklyOK) Code() int {
 }
 
 func (o *GetSensorUsageWeeklyOK) Error() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyOK %s", 200, payload)
 }
 
 func (o *GetSensorUsageWeeklyOK) String() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyOK %s", 200, payload)
 }
 
 func (o *GetSensorUsageWeeklyOK) GetPayload() *models.APIWeeklyAverageResponse {
@@ -228,11 +231,13 @@ func (o *GetSensorUsageWeeklyBadRequest) Code() int {
 }
 
 func (o *GetSensorUsageWeeklyBadRequest) Error() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyBadRequest %s", 400, payload)
 }
 
 func (o *GetSensorUsageWeeklyBadRequest) String() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyBadRequest %s", 400, payload)
 }
 
 func (o *GetSensorUsageWeeklyBadRequest) GetPayload() *models.APIHourlyAverageResponse {
@@ -338,11 +343,13 @@ func (o *GetSensorUsageWeeklyForbidden) Code() int {
 }
 
 func (o *GetSensorUsageWeeklyForbidden) Error() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyForbidden %s", 403, payload)
 }
 
 func (o *GetSensorUsageWeeklyForbidden) String() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyForbidden %s", 403, payload)
 }
 
 func (o *GetSensorUsageWeeklyForbidden) GetPayload() *models.APIHourlyAverageResponse {
@@ -452,11 +459,13 @@ func (o *GetSensorUsageWeeklyTooManyRequests) Code() int {
 }
 
 func (o *GetSensorUsageWeeklyTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorUsageWeeklyTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorUsageWeeklyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetSensorUsageWeeklyInternalServerError) Code() int {
 }
 
 func (o *GetSensorUsageWeeklyInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorUsageWeeklyInternalServerError) String() string {
-	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/weekly-average/v1][%d] getSensorUsageWeeklyInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorUsageWeeklyInternalServerError) GetPayload() *models.APIHourlyAverageResponse {

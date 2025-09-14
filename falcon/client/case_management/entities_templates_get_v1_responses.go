@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesTemplatesGetV1OK) Code() int {
 }
 
 func (o *EntitiesTemplatesGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1OK %s", 200, payload)
 }
 
 func (o *EntitiesTemplatesGetV1OK) String() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1OK %s", 200, payload)
 }
 
 func (o *EntitiesTemplatesGetV1OK) GetPayload() *models.APITemplateV1Response {
@@ -228,11 +231,13 @@ func (o *EntitiesTemplatesGetV1BadRequest) Code() int {
 }
 
 func (o *EntitiesTemplatesGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesTemplatesGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesTemplatesGetV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *EntitiesTemplatesGetV1Forbidden) Code() int {
 }
 
 func (o *EntitiesTemplatesGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesTemplatesGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesTemplatesGetV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *EntitiesTemplatesGetV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesTemplatesGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesTemplatesGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesTemplatesGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesTemplatesGetV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesTemplatesGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesTemplatesGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/entities/templates/v1][%d] entitiesTemplatesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesTemplatesGetV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

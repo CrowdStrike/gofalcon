@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteUserOK) Code() int {
 }
 
 func (o *DeleteUserOK) Error() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserOK %s", 200, payload)
 }
 
 func (o *DeleteUserOK) String() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserOK %s", 200, payload)
 }
 
 func (o *DeleteUserOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -234,11 +237,13 @@ func (o *DeleteUserBadRequest) Code() int {
 }
 
 func (o *DeleteUserBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserBadRequest %s", 400, payload)
 }
 
 func (o *DeleteUserBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserBadRequest %s", 400, payload)
 }
 
 func (o *DeleteUserBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -344,11 +349,13 @@ func (o *DeleteUserForbidden) Code() int {
 }
 
 func (o *DeleteUserForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserForbidden %s", 403, payload)
 }
 
 func (o *DeleteUserForbidden) String() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserForbidden %s", 403, payload)
 }
 
 func (o *DeleteUserForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *DeleteUserNotFound) Code() int {
 }
 
 func (o *DeleteUserNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserNotFound %s", 404, payload)
 }
 
 func (o *DeleteUserNotFound) String() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserNotFound %s", 404, payload)
 }
 
 func (o *DeleteUserNotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *DeleteUserTooManyRequests) Code() int {
 }
 
 func (o *DeleteUserTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteUserTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteUserInternalServerError) Code() int {
 }
 
 func (o *DeleteUserInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteUserInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteUserInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

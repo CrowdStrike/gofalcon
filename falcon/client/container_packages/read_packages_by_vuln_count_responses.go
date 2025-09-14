@@ -6,6 +6,7 @@ package container_packages
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPackagesByVulnCountOK) Code() int {
 }
 
 func (o *ReadPackagesByVulnCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountOK %s", 200, payload)
 }
 
 func (o *ReadPackagesByVulnCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountOK %s", 200, payload)
 }
 
 func (o *ReadPackagesByVulnCountOK) GetPayload() *models.PackagesAPIPackagesByVulnCount {
@@ -222,11 +225,13 @@ func (o *ReadPackagesByVulnCountForbidden) Code() int {
 }
 
 func (o *ReadPackagesByVulnCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesByVulnCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesByVulnCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPackagesByVulnCountTooManyRequests) Code() int {
 }
 
 func (o *ReadPackagesByVulnCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesByVulnCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesByVulnCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPackagesByVulnCountInternalServerError) Code() int {
 }
 
 func (o *ReadPackagesByVulnCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesByVulnCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/by-vulnerability-count/v1][%d] readPackagesByVulnCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesByVulnCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

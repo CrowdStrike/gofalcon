@@ -6,6 +6,7 @@ package prevention_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *QueryCombinedPreventionPolicyMembersOK) Code() int {
 }
 
 func (o *QueryCombinedPreventionPolicyMembersOK) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersOK %s", 200, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersOK) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersOK %s", 200, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersOK) GetPayload() *models.BasePolicyMembersRespV1 {
@@ -234,11 +237,13 @@ func (o *QueryCombinedPreventionPolicyMembersBadRequest) Code() int {
 }
 
 func (o *QueryCombinedPreventionPolicyMembersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersBadRequest) GetPayload() *models.BasePolicyMembersRespV1 {
@@ -344,11 +349,13 @@ func (o *QueryCombinedPreventionPolicyMembersForbidden) Code() int {
 }
 
 func (o *QueryCombinedPreventionPolicyMembersForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *QueryCombinedPreventionPolicyMembersNotFound) Code() int {
 }
 
 func (o *QueryCombinedPreventionPolicyMembersNotFound) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersNotFound) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersNotFound) GetPayload() *models.BasePolicyMembersRespV1 {
@@ -568,11 +577,13 @@ func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) Code() int {
 }
 
 func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *QueryCombinedPreventionPolicyMembersInternalServerError) Code() int {
 }
 
 func (o *QueryCombinedPreventionPolicyMembersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedPreventionPolicyMembersInternalServerError) GetPayload() *models.BasePolicyMembersRespV1 {

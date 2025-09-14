@@ -6,6 +6,7 @@ package prevention_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreatePreventionPoliciesCreated) Code() int {
 }
 
 func (o *CreatePreventionPoliciesCreated) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesCreated %s", 201, payload)
 }
 
 func (o *CreatePreventionPoliciesCreated) String() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesCreated %s", 201, payload)
 }
 
 func (o *CreatePreventionPoliciesCreated) GetPayload() *models.PreventionRespV1 {
@@ -234,11 +237,13 @@ func (o *CreatePreventionPoliciesBadRequest) Code() int {
 }
 
 func (o *CreatePreventionPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreatePreventionPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *CreatePreventionPoliciesBadRequest) GetPayload() *models.PreventionRespV1 {
@@ -344,11 +349,13 @@ func (o *CreatePreventionPoliciesForbidden) Code() int {
 }
 
 func (o *CreatePreventionPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreatePreventionPoliciesForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesForbidden %s", 403, payload)
 }
 
 func (o *CreatePreventionPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *CreatePreventionPoliciesNotFound) Code() int {
 }
 
 func (o *CreatePreventionPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesNotFound %s", 404, payload)
 }
 
 func (o *CreatePreventionPoliciesNotFound) String() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesNotFound %s", 404, payload)
 }
 
 func (o *CreatePreventionPoliciesNotFound) GetPayload() *models.PreventionRespV1 {
@@ -568,11 +577,13 @@ func (o *CreatePreventionPoliciesTooManyRequests) Code() int {
 }
 
 func (o *CreatePreventionPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePreventionPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreatePreventionPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreatePreventionPoliciesInternalServerError) Code() int {
 }
 
 func (o *CreatePreventionPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePreventionPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *CreatePreventionPoliciesInternalServerError) GetPayload() *models.PreventionRespV1 {

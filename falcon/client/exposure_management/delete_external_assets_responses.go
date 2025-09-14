@@ -6,6 +6,7 @@ package exposure_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *DeleteExternalAssetsOK) Code() int {
 }
 
 func (o *DeleteExternalAssetsOK) Error() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsOK %s", 200, payload)
 }
 
 func (o *DeleteExternalAssetsOK) String() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsOK %s", 200, payload)
 }
 
 func (o *DeleteExternalAssetsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *DeleteExternalAssetsBadRequest) Code() int {
 }
 
 func (o *DeleteExternalAssetsBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteExternalAssetsBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *DeleteExternalAssetsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *DeleteExternalAssetsForbidden) Code() int {
 }
 
 func (o *DeleteExternalAssetsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *DeleteExternalAssetsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *DeleteExternalAssetsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *DeleteExternalAssetsTooManyRequests) Code() int {
 }
 
 func (o *DeleteExternalAssetsTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteExternalAssetsTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteExternalAssetsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *DeleteExternalAssetsInternalServerError) Code() int {
 }
 
 func (o *DeleteExternalAssetsInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteExternalAssetsInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /fem/entities/external-assets/v1][%d] deleteExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteExternalAssetsInternalServerError) GetPayload() *models.MsaspecResponseFields {

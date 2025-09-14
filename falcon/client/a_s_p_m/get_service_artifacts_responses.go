@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetServiceArtifactsOK) Code() int {
 }
 
 func (o *GetServiceArtifactsOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsOK %s", 200, payload)
 }
 
 func (o *GetServiceArtifactsOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsOK %s", 200, payload)
 }
 
 func (o *GetServiceArtifactsOK) GetPayload() *models.TypesArtifacts {
@@ -234,11 +237,13 @@ func (o *GetServiceArtifactsBadRequest) Code() int {
 }
 
 func (o *GetServiceArtifactsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsBadRequest %s", 400, payload)
 }
 
 func (o *GetServiceArtifactsBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsBadRequest %s", 400, payload)
 }
 
 func (o *GetServiceArtifactsBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetServiceArtifactsUnauthorized) Code() int {
 }
 
 func (o *GetServiceArtifactsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsUnauthorized %s", 401, payload)
 }
 
 func (o *GetServiceArtifactsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsUnauthorized %s", 401, payload)
 }
 
 func (o *GetServiceArtifactsUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetServiceArtifactsForbidden) Code() int {
 }
 
 func (o *GetServiceArtifactsForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsForbidden %s", 403, payload)
 }
 
 func (o *GetServiceArtifactsForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsForbidden %s", 403, payload)
 }
 
 func (o *GetServiceArtifactsForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetServiceArtifactsTooManyRequests) Code() int {
 }
 
 func (o *GetServiceArtifactsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetServiceArtifactsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetServiceArtifactsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetServiceArtifactsInternalServerError) Code() int {
 }
 
 func (o *GetServiceArtifactsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsInternalServerError %s", 500, payload)
 }
 
 func (o *GetServiceArtifactsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/artifacts][%d] getServiceArtifactsInternalServerError %s", 500, payload)
 }
 
 func (o *GetServiceArtifactsInternalServerError) GetPayload() *models.TypesErrorMessage {

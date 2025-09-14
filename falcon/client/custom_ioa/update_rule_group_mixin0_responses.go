@@ -6,6 +6,7 @@ package custom_ioa
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateRuleGroupMixin0OK) Code() int {
 }
 
 func (o *UpdateRuleGroupMixin0OK) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0OK %s", 200, payload)
 }
 
 func (o *UpdateRuleGroupMixin0OK) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0OK %s", 200, payload)
 }
 
 func (o *UpdateRuleGroupMixin0OK) GetPayload() *models.APIRuleGroupsResponse {
@@ -228,11 +231,13 @@ func (o *UpdateRuleGroupMixin0Forbidden) Code() int {
 }
 
 func (o *UpdateRuleGroupMixin0Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0Forbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleGroupMixin0Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0Forbidden %s", 403, payload)
 }
 
 func (o *UpdateRuleGroupMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *UpdateRuleGroupMixin0NotFound) Code() int {
 }
 
 func (o *UpdateRuleGroupMixin0NotFound) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0NotFound %s", 404, payload)
 }
 
 func (o *UpdateRuleGroupMixin0NotFound) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0NotFound %s", 404, payload)
 }
 
 func (o *UpdateRuleGroupMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateRuleGroupMixin0TooManyRequests) Code() int {
 }
 
 func (o *UpdateRuleGroupMixin0TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleGroupMixin0TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateRuleGroupMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateRuleGroupMixin0InternalServerError) Code() int {
 }
 
 func (o *UpdateRuleGroupMixin0InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleGroupMixin0InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateRuleGroupMixin0InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

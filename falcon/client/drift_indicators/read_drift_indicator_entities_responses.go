@@ -6,6 +6,7 @@ package drift_indicators
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadDriftIndicatorEntitiesOK) Code() int {
 }
 
 func (o *ReadDriftIndicatorEntitiesOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesOK %s", 200, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesOK %s", 200, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesOK) GetPayload() *models.DriftindicatorsDriftEntityResponse {
@@ -222,11 +225,13 @@ func (o *ReadDriftIndicatorEntitiesForbidden) Code() int {
 }
 
 func (o *ReadDriftIndicatorEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadDriftIndicatorEntitiesTooManyRequests) Code() int {
 }
 
 func (o *ReadDriftIndicatorEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadDriftIndicatorEntitiesInternalServerError) Code() int {
 }
 
 func (o *ReadDriftIndicatorEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/drift-indicators/v1][%d] readDriftIndicatorEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDriftIndicatorEntitiesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

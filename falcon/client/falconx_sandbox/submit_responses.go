@@ -6,6 +6,7 @@ package falconx_sandbox
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *SubmitOK) Code() int {
 }
 
 func (o *SubmitOK) Error() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitOK %s", 200, payload)
 }
 
 func (o *SubmitOK) String() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitOK %s", 200, payload)
 }
 
 func (o *SubmitOK) GetPayload() *models.FalconxSubmissionV1Response {
@@ -228,11 +231,13 @@ func (o *SubmitBadRequest) Code() int {
 }
 
 func (o *SubmitBadRequest) Error() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitBadRequest %s", 400, payload)
 }
 
 func (o *SubmitBadRequest) String() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitBadRequest %s", 400, payload)
 }
 
 func (o *SubmitBadRequest) GetPayload() *models.FalconxSubmissionV1Response {
@@ -338,11 +343,13 @@ func (o *SubmitForbidden) Code() int {
 }
 
 func (o *SubmitForbidden) Error() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitForbidden %s", 403, payload)
 }
 
 func (o *SubmitForbidden) String() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitForbidden %s", 403, payload)
 }
 
 func (o *SubmitForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *SubmitTooManyRequests) Code() int {
 }
 
 func (o *SubmitTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitTooManyRequests %s", 429, payload)
 }
 
 func (o *SubmitTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitTooManyRequests %s", 429, payload)
 }
 
 func (o *SubmitTooManyRequests) GetPayload() *models.FalconxSubmissionV1Response {
@@ -573,11 +582,13 @@ func (o *SubmitInternalServerError) Code() int {
 }
 
 func (o *SubmitInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitInternalServerError %s", 500, payload)
 }
 
 func (o *SubmitInternalServerError) String() string {
-	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitInternalServerError %s", 500, payload)
 }
 
 func (o *SubmitInternalServerError) GetPayload() *models.FalconxSubmissionV1Response {

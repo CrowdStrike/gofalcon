@@ -6,6 +6,7 @@ package device_control_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryDeviceControlPoliciesOK) Code() int {
 }
 
 func (o *QueryDeviceControlPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryDeviceControlPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesOK %s", 200, payload)
 }
 
 func (o *QueryDeviceControlPoliciesOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryDeviceControlPoliciesBadRequest) Code() int {
 }
 
 func (o *QueryDeviceControlPoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryDeviceControlPoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryDeviceControlPoliciesBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryDeviceControlPoliciesForbidden) Code() int {
 }
 
 func (o *QueryDeviceControlPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryDeviceControlPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryDeviceControlPoliciesTooManyRequests) Code() int {
 }
 
 func (o *QueryDeviceControlPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDeviceControlPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryDeviceControlPoliciesInternalServerError) Code() int {
 }
 
 func (o *QueryDeviceControlPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDeviceControlPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDeviceControlPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {

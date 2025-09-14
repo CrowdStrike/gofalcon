@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetComplianceFrameworksOK) Code() int {
 }
 
 func (o *GetComplianceFrameworksOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksOK %s", 200, payload)
 }
 
 func (o *GetComplianceFrameworksOK) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksOK %s", 200, payload)
 }
 
 func (o *GetComplianceFrameworksOK) GetPayload() *models.CommonGetComplianceFrameworksResponse {
@@ -234,11 +237,13 @@ func (o *GetComplianceFrameworksBadRequest) Code() int {
 }
 
 func (o *GetComplianceFrameworksBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksBadRequest %s", 400, payload)
 }
 
 func (o *GetComplianceFrameworksBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksBadRequest %s", 400, payload)
 }
 
 func (o *GetComplianceFrameworksBadRequest) GetPayload() *models.CommonEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *GetComplianceFrameworksForbidden) Code() int {
 }
 
 func (o *GetComplianceFrameworksForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksForbidden %s", 403, payload)
 }
 
 func (o *GetComplianceFrameworksForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksForbidden %s", 403, payload)
 }
 
 func (o *GetComplianceFrameworksForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *GetComplianceFrameworksNotFound) Code() int {
 }
 
 func (o *GetComplianceFrameworksNotFound) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksNotFound %s", 404, payload)
 }
 
 func (o *GetComplianceFrameworksNotFound) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksNotFound %s", 404, payload)
 }
 
 func (o *GetComplianceFrameworksNotFound) GetPayload() *models.CommonGetComplianceFrameworksResponse {
@@ -568,11 +577,13 @@ func (o *GetComplianceFrameworksTooManyRequests) Code() int {
 }
 
 func (o *GetComplianceFrameworksTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksTooManyRequests %s", 429, payload)
 }
 
 func (o *GetComplianceFrameworksTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksTooManyRequests %s", 429, payload)
 }
 
 func (o *GetComplianceFrameworksTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetComplianceFrameworksInternalServerError) Code() int {
 }
 
 func (o *GetComplianceFrameworksInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksInternalServerError %s", 500, payload)
 }
 
 func (o *GetComplianceFrameworksInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/entities/compliance/frameworks/v1][%d] getComplianceFrameworksInternalServerError %s", 500, payload)
 }
 
 func (o *GetComplianceFrameworksInternalServerError) GetPayload() *models.CommonEntitiesResponse {

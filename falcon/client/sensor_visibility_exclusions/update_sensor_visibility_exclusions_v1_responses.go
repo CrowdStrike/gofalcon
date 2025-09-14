@@ -6,6 +6,7 @@ package sensor_visibility_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateSensorVisibilityExclusionsV1OK) Code() int {
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1OK %s", 200, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1OK) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1OK %s", 200, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1OK) GetPayload() *models.SvExclusionsRespV1 {
@@ -228,11 +231,13 @@ func (o *UpdateSensorVisibilityExclusionsV1BadRequest) Code() int {
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1BadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1BadRequest) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1BadRequest %s", 400, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1BadRequest) GetPayload() *models.SvExclusionsRespV1 {
@@ -338,11 +343,13 @@ func (o *UpdateSensorVisibilityExclusionsV1Forbidden) Code() int {
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1Forbidden) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1Forbidden) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1Forbidden %s", 403, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *UpdateSensorVisibilityExclusionsV1TooManyRequests) Code() int {
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) Code() int {
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1InternalServerError %s", 500, payload)
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) GetPayload() *models.SvExclusionsRespV1 {

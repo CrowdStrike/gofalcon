@@ -6,6 +6,7 @@ package discover
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryAccountsOK) Code() int {
 }
 
 func (o *QueryAccountsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsOK %s", 200, payload)
 }
 
 func (o *QueryAccountsOK) String() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsOK %s", 200, payload)
 }
 
 func (o *QueryAccountsOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryAccountsBadRequest) Code() int {
 }
 
 func (o *QueryAccountsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsBadRequest %s", 400, payload)
 }
 
 func (o *QueryAccountsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsBadRequest %s", 400, payload)
 }
 
 func (o *QueryAccountsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *QueryAccountsForbidden) Code() int {
 }
 
 func (o *QueryAccountsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsForbidden %s", 403, payload)
 }
 
 func (o *QueryAccountsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsForbidden %s", 403, payload)
 }
 
 func (o *QueryAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryAccountsTooManyRequests) Code() int {
 }
 
 func (o *QueryAccountsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryAccountsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryAccountsInternalServerError) Code() int {
 }
 
 func (o *QueryAccountsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryAccountsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryAccountsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package discover_iot
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryIotHostsOK) Code() int {
 }
 
 func (o *QueryIotHostsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsOK %s", 200, payload)
 }
 
 func (o *QueryIotHostsOK) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsOK %s", 200, payload)
 }
 
 func (o *QueryIotHostsOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryIotHostsBadRequest) Code() int {
 }
 
 func (o *QueryIotHostsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIotHostsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsBadRequest %s", 400, payload)
 }
 
 func (o *QueryIotHostsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryIotHostsForbidden) Code() int {
 }
 
 func (o *QueryIotHostsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsForbidden %s", 403, payload)
 }
 
 func (o *QueryIotHostsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsForbidden %s", 403, payload)
 }
 
 func (o *QueryIotHostsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryIotHostsTooManyRequests) Code() int {
 }
 
 func (o *QueryIotHostsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIotHostsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIotHostsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryIotHostsInternalServerError) Code() int {
 }
 
 func (o *QueryIotHostsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIotHostsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/queries/iot-hosts/v1][%d] queryIotHostsInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIotHostsInternalServerError) GetPayload() *models.MsaspecResponseFields {

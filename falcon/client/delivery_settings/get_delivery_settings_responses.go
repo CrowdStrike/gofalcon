@@ -6,6 +6,7 @@ package delivery_settings
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetDeliverySettingsOK) Code() int {
 }
 
 func (o *GetDeliverySettingsOK) Error() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsOK %s", 200, payload)
 }
 
 func (o *GetDeliverySettingsOK) String() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsOK %s", 200, payload)
 }
 
 func (o *GetDeliverySettingsOK) GetPayload() *models.ModelsDeliverySettingsEntityResponse {
@@ -228,11 +231,13 @@ func (o *GetDeliverySettingsBadRequest) Code() int {
 }
 
 func (o *GetDeliverySettingsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsBadRequest %s", 400, payload)
 }
 
 func (o *GetDeliverySettingsBadRequest) String() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsBadRequest %s", 400, payload)
 }
 
 func (o *GetDeliverySettingsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetDeliverySettingsForbidden) Code() int {
 }
 
 func (o *GetDeliverySettingsForbidden) Error() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsForbidden %s", 403, payload)
 }
 
 func (o *GetDeliverySettingsForbidden) String() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsForbidden %s", 403, payload)
 }
 
 func (o *GetDeliverySettingsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetDeliverySettingsTooManyRequests) Code() int {
 }
 
 func (o *GetDeliverySettingsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDeliverySettingsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetDeliverySettingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetDeliverySettingsInternalServerError) Code() int {
 }
 
 func (o *GetDeliverySettingsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsInternalServerError %s", 500, payload)
 }
 
 func (o *GetDeliverySettingsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /delivery-settings/entities/delivery-settings/v1][%d] getDeliverySettingsInternalServerError %s", 500, payload)
 }
 
 func (o *GetDeliverySettingsInternalServerError) GetPayload() *models.MsaspecResponseFields {

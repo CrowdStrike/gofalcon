@@ -6,6 +6,7 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) Code() int {
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1OK %s", 200, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -240,11 +243,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) Code() int {
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1BadRequest %s", 400, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -350,11 +355,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) Code() int {
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized %s", 401, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
@@ -460,11 +467,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) Code() int {
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden %s", 403, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) GetPayload() *models.MsaErrorsOnly {
@@ -570,11 +579,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) Code() int {
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1NotFound %s", 404, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1NotFound %s", 404, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -684,11 +695,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) Code() int {
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) GetPayload() *models.MalqueryExternalQueryResponse {
@@ -805,11 +818,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) Code() i
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) GetPayload() *models.MalqueryExternalQueryResponse {

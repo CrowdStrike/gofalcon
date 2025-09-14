@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteCSPMAzureManagementGroupOK) Code() int {
 }
 
 func (o *DeleteCSPMAzureManagementGroupOK) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupOK %s", 200, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupOK) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupOK %s", 200, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupOK) GetPayload() *models.MsaspecResponseFields {
@@ -234,11 +237,13 @@ func (o *DeleteCSPMAzureManagementGroupMultiStatus) Code() int {
 }
 
 func (o *DeleteCSPMAzureManagementGroupMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupMultiStatus) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *DeleteCSPMAzureManagementGroupBadRequest) Code() int {
 }
 
 func (o *DeleteCSPMAzureManagementGroupBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupBadRequest %s", 400, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *DeleteCSPMAzureManagementGroupForbidden) Code() int {
 }
 
 func (o *DeleteCSPMAzureManagementGroupForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupForbidden %s", 403, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupForbidden) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupForbidden %s", 403, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *DeleteCSPMAzureManagementGroupTooManyRequests) Code() int {
 }
 
 func (o *DeleteCSPMAzureManagementGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteCSPMAzureManagementGroupInternalServerError) Code() int {
 }
 
 func (o *DeleteCSPMAzureManagementGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/management-group/v1][%d] deleteCSPMAzureManagementGroupInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteCSPMAzureManagementGroupInternalServerError) GetPayload() *models.MsaspecResponseFields {

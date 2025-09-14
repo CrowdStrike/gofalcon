@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetAzureTenantConfigOK) Code() int {
 }
 
 func (o *GetAzureTenantConfigOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigOK %s", 200, payload)
 }
 
 func (o *GetAzureTenantConfigOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigOK %s", 200, payload)
 }
 
 func (o *GetAzureTenantConfigOK) GetPayload() *models.K8sregGetAzureTenantConfigResp {
@@ -234,11 +237,13 @@ func (o *GetAzureTenantConfigMultiStatus) Code() int {
 }
 
 func (o *GetAzureTenantConfigMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigMultiStatus %s", 207, payload)
 }
 
 func (o *GetAzureTenantConfigMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigMultiStatus %s", 207, payload)
 }
 
 func (o *GetAzureTenantConfigMultiStatus) GetPayload() *models.K8sregGetAzureTenantConfigResp {
@@ -344,11 +349,13 @@ func (o *GetAzureTenantConfigBadRequest) Code() int {
 }
 
 func (o *GetAzureTenantConfigBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigBadRequest %s", 400, payload)
 }
 
 func (o *GetAzureTenantConfigBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigBadRequest %s", 400, payload)
 }
 
 func (o *GetAzureTenantConfigBadRequest) GetPayload() *models.K8sregGetAzureTenantConfigResp {
@@ -454,11 +461,13 @@ func (o *GetAzureTenantConfigForbidden) Code() int {
 }
 
 func (o *GetAzureTenantConfigForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigForbidden %s", 403, payload)
 }
 
 func (o *GetAzureTenantConfigForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigForbidden %s", 403, payload)
 }
 
 func (o *GetAzureTenantConfigForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetAzureTenantConfigTooManyRequests) Code() int {
 }
 
 func (o *GetAzureTenantConfigTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAzureTenantConfigTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAzureTenantConfigTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetAzureTenantConfigInternalServerError) Code() int {
 }
 
 func (o *GetAzureTenantConfigInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigInternalServerError %s", 500, payload)
 }
 
 func (o *GetAzureTenantConfigInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/config/azure/v1][%d] getAzureTenantConfigInternalServerError %s", 500, payload)
 }
 
 func (o *GetAzureTenantConfigInternalServerError) GetPayload() *models.K8sregGetAzureTenantConfigResp {

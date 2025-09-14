@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ListSavedQueriesOK) Code() int {
 }
 
 func (o *ListSavedQueriesOK) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesOK %s", 200, payload)
 }
 
 func (o *ListSavedQueriesOK) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesOK %s", 200, payload)
 }
 
 func (o *ListSavedQueriesOK) GetPayload() *models.APIListSavedQueriesResponseV1 {
@@ -240,11 +243,13 @@ func (o *ListSavedQueriesBadRequest) Code() int {
 }
 
 func (o *ListSavedQueriesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesBadRequest %s", 400, payload)
 }
 
 func (o *ListSavedQueriesBadRequest) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesBadRequest %s", 400, payload)
 }
 
 func (o *ListSavedQueriesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *ListSavedQueriesUnauthorized) Code() int {
 }
 
 func (o *ListSavedQueriesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesUnauthorized %s", 401, payload)
 }
 
 func (o *ListSavedQueriesUnauthorized) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesUnauthorized %s", 401, payload)
 }
 
 func (o *ListSavedQueriesUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *ListSavedQueriesForbidden) Code() int {
 }
 
 func (o *ListSavedQueriesForbidden) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesForbidden %s", 403, payload)
 }
 
 func (o *ListSavedQueriesForbidden) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesForbidden %s", 403, payload)
 }
 
 func (o *ListSavedQueriesForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *ListSavedQueriesNotFound) Code() int {
 }
 
 func (o *ListSavedQueriesNotFound) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesNotFound %s", 404, payload)
 }
 
 func (o *ListSavedQueriesNotFound) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesNotFound %s", 404, payload)
 }
 
 func (o *ListSavedQueriesNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *ListSavedQueriesTooManyRequests) Code() int {
 }
 
 func (o *ListSavedQueriesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *ListSavedQueriesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesTooManyRequests %s", 429, payload)
 }
 
 func (o *ListSavedQueriesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ListSavedQueriesInternalServerError) Code() int {
 }
 
 func (o *ListSavedQueriesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *ListSavedQueriesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ngsiem-content/queries/savedqueries/v1][%d] listSavedQueriesInternalServerError %s", 500, payload)
 }
 
 func (o *ListSavedQueriesInternalServerError) GetPayload() *models.MsaspecResponseFields {

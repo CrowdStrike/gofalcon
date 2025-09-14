@@ -6,6 +6,7 @@ package cloud_snapshots
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ReadDeploymentsEntitiesOK) Code() int {
 }
 
 func (o *ReadDeploymentsEntitiesOK) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesOK %s", 200, payload)
 }
 
 func (o *ReadDeploymentsEntitiesOK) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesOK %s", 200, payload)
 }
 
 func (o *ReadDeploymentsEntitiesOK) GetPayload() *models.DeploymentsEntityResponse {
@@ -228,11 +231,13 @@ func (o *ReadDeploymentsEntitiesBadRequest) Code() int {
 }
 
 func (o *ReadDeploymentsEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *ReadDeploymentsEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *ReadDeploymentsEntitiesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ReadDeploymentsEntitiesForbidden) Code() int {
 }
 
 func (o *ReadDeploymentsEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadDeploymentsEntitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesForbidden %s", 403, payload)
 }
 
 func (o *ReadDeploymentsEntitiesForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *ReadDeploymentsEntitiesTooManyRequests) Code() int {
 }
 
 func (o *ReadDeploymentsEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDeploymentsEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadDeploymentsEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ReadDeploymentsEntitiesInternalServerError) Code() int {
 }
 
 func (o *ReadDeploymentsEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDeploymentsEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /snapshots/entities/deployments/v1][%d] readDeploymentsEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *ReadDeploymentsEntitiesInternalServerError) GetPayload() *models.MsaspecResponseFields {

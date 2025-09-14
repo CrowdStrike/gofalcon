@@ -6,6 +6,7 @@ package container_alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadContainerAlertsCountOK) Code() int {
 }
 
 func (o *ReadContainerAlertsCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountOK %s", 200, payload)
 }
 
 func (o *ReadContainerAlertsCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountOK %s", 200, payload)
 }
 
 func (o *ReadContainerAlertsCountOK) GetPayload() *models.AlertsContainerAlertsCountValue {
@@ -222,11 +225,13 @@ func (o *ReadContainerAlertsCountForbidden) Code() int {
 }
 
 func (o *ReadContainerAlertsCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountForbidden %s", 403, payload)
 }
 
 func (o *ReadContainerAlertsCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountForbidden %s", 403, payload)
 }
 
 func (o *ReadContainerAlertsCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadContainerAlertsCountTooManyRequests) Code() int {
 }
 
 func (o *ReadContainerAlertsCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadContainerAlertsCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadContainerAlertsCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadContainerAlertsCountInternalServerError) Code() int {
 }
 
 func (o *ReadContainerAlertsCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadContainerAlertsCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/container-alerts/count/v1][%d] readContainerAlertsCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadContainerAlertsCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

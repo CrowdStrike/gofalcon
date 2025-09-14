@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueriesFieldsGetV1OK) Code() int {
 }
 
 func (o *QueriesFieldsGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1OK %s", 200, payload)
 }
 
 func (o *QueriesFieldsGetV1OK) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1OK %s", 200, payload)
 }
 
 func (o *QueriesFieldsGetV1OK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueriesFieldsGetV1BadRequest) Code() int {
 }
 
 func (o *QueriesFieldsGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1BadRequest %s", 400, payload)
 }
 
 func (o *QueriesFieldsGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1BadRequest %s", 400, payload)
 }
 
 func (o *QueriesFieldsGetV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueriesFieldsGetV1Forbidden) Code() int {
 }
 
 func (o *QueriesFieldsGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesFieldsGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1Forbidden %s", 403, payload)
 }
 
 func (o *QueriesFieldsGetV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *QueriesFieldsGetV1TooManyRequests) Code() int {
 }
 
 func (o *QueriesFieldsGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesFieldsGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueriesFieldsGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueriesFieldsGetV1InternalServerError) Code() int {
 }
 
 func (o *QueriesFieldsGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesFieldsGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /casemgmt/queries/fields/v1][%d] queriesFieldsGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueriesFieldsGetV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

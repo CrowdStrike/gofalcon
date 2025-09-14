@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateD4CGCPServiceAccountsExtOK) Code() int {
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtOK) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtOK %s", 200, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtOK) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtOK %s", 200, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtOK) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {
@@ -228,11 +231,13 @@ func (o *UpdateD4CGCPServiceAccountsExtBadRequest) Code() int {
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtBadRequest %s", 400, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtBadRequest) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {
@@ -338,11 +343,13 @@ func (o *UpdateD4CGCPServiceAccountsExtForbidden) Code() int {
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtForbidden %s", 403, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *UpdateD4CGCPServiceAccountsExtTooManyRequests) Code() int {
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateD4CGCPServiceAccountsExtInternalServerError) Code() int {
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-gcp/entities/service-accounts/v1][%d] updateD4CGCPServiceAccountsExtInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateD4CGCPServiceAccountsExtInternalServerError) GetPayload() *models.RegistrationGCPServiceAccountResponseExtV1 {

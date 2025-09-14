@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetAzureInstallScriptOK) Code() int {
 }
 
 func (o *GetAzureInstallScriptOK) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptOK %s", 200, payload)
 }
 
 func (o *GetAzureInstallScriptOK) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptOK %s", 200, payload)
 }
 
 func (o *GetAzureInstallScriptOK) GetPayload() *models.K8sregGetAzureBashScriptResp {
@@ -234,11 +237,13 @@ func (o *GetAzureInstallScriptMultiStatus) Code() int {
 }
 
 func (o *GetAzureInstallScriptMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptMultiStatus %s", 207, payload)
 }
 
 func (o *GetAzureInstallScriptMultiStatus) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptMultiStatus %s", 207, payload)
 }
 
 func (o *GetAzureInstallScriptMultiStatus) GetPayload() *models.K8sregGetAzureBashScriptResp {
@@ -344,11 +349,13 @@ func (o *GetAzureInstallScriptBadRequest) Code() int {
 }
 
 func (o *GetAzureInstallScriptBadRequest) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptBadRequest %s", 400, payload)
 }
 
 func (o *GetAzureInstallScriptBadRequest) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptBadRequest %s", 400, payload)
 }
 
 func (o *GetAzureInstallScriptBadRequest) GetPayload() *models.K8sregGetAzureBashScriptResp {
@@ -454,11 +461,13 @@ func (o *GetAzureInstallScriptForbidden) Code() int {
 }
 
 func (o *GetAzureInstallScriptForbidden) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptForbidden %s", 403, payload)
 }
 
 func (o *GetAzureInstallScriptForbidden) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptForbidden %s", 403, payload)
 }
 
 func (o *GetAzureInstallScriptForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *GetAzureInstallScriptTooManyRequests) Code() int {
 }
 
 func (o *GetAzureInstallScriptTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAzureInstallScriptTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptTooManyRequests %s", 429, payload)
 }
 
 func (o *GetAzureInstallScriptTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetAzureInstallScriptInternalServerError) Code() int {
 }
 
 func (o *GetAzureInstallScriptInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptInternalServerError %s", 500, payload)
 }
 
 func (o *GetAzureInstallScriptInternalServerError) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/user-script/azure/v1][%d] getAzureInstallScriptInternalServerError %s", 500, payload)
 }
 
 func (o *GetAzureInstallScriptInternalServerError) GetPayload() *models.K8sregGetAzureBashScriptResp {

@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCSPMAwsConsoleSetupURLsOK) Code() int {
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsOK %s", 200, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsOK) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsOK %s", 200, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsOK) GetPayload() *models.RegistrationAWSConsoleURLResponseV2 {
@@ -234,11 +237,13 @@ func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) Code() int {
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsMultiStatus %s", 207, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsMultiStatus %s", 207, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) GetPayload() *models.RegistrationAWSConsoleURLResponseV2 {
@@ -344,11 +349,13 @@ func (o *GetCSPMAwsConsoleSetupURLsBadRequest) Code() int {
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsBadRequest %s", 400, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *GetCSPMAwsConsoleSetupURLsForbidden) Code() int {
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsForbidden %s", 403, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) Code() int {
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) Code() int {
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) GetPayload() *models.MsaspecResponseFields {

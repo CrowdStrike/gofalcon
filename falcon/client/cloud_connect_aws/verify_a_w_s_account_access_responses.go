@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *VerifyAWSAccountAccessOK) Code() int {
 }
 
 func (o *VerifyAWSAccountAccessOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessOK %s", 200, payload)
 }
 
 func (o *VerifyAWSAccountAccessOK) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessOK %s", 200, payload)
 }
 
 func (o *VerifyAWSAccountAccessOK) GetPayload() *models.ModelsVerifyAccessResponseV1 {
@@ -228,11 +231,13 @@ func (o *VerifyAWSAccountAccessBadRequest) Code() int {
 }
 
 func (o *VerifyAWSAccountAccessBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessBadRequest %s", 400, payload)
 }
 
 func (o *VerifyAWSAccountAccessBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessBadRequest %s", 400, payload)
 }
 
 func (o *VerifyAWSAccountAccessBadRequest) GetPayload() *models.ModelsVerifyAccessResponseV1 {
@@ -338,11 +343,13 @@ func (o *VerifyAWSAccountAccessForbidden) Code() int {
 }
 
 func (o *VerifyAWSAccountAccessForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessForbidden %s", 403, payload)
 }
 
 func (o *VerifyAWSAccountAccessForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessForbidden %s", 403, payload)
 }
 
 func (o *VerifyAWSAccountAccessForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *VerifyAWSAccountAccessTooManyRequests) Code() int {
 }
 
 func (o *VerifyAWSAccountAccessTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessTooManyRequests %s", 429, payload)
 }
 
 func (o *VerifyAWSAccountAccessTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessTooManyRequests %s", 429, payload)
 }
 
 func (o *VerifyAWSAccountAccessTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *VerifyAWSAccountAccessInternalServerError) Code() int {
 }
 
 func (o *VerifyAWSAccountAccessInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessInternalServerError %s", 500, payload)
 }
 
 func (o *VerifyAWSAccountAccessInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessInternalServerError %s", 500, payload)
 }
 
 func (o *VerifyAWSAccountAccessInternalServerError) GetPayload() *models.ModelsVerifyAccessResponseV1 {

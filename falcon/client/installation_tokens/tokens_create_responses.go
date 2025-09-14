@@ -6,6 +6,7 @@ package installation_tokens
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *TokensCreateCreated) Code() int {
 }
 
 func (o *TokensCreateCreated) Error() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateCreated %s", 201, payload)
 }
 
 func (o *TokensCreateCreated) String() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateCreated %s", 201, payload)
 }
 
 func (o *TokensCreateCreated) GetPayload() *models.APITokenDetailsResponseV1 {
@@ -234,11 +237,13 @@ func (o *TokensCreateBadRequest) Code() int {
 }
 
 func (o *TokensCreateBadRequest) Error() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest %s", 400, payload)
 }
 
 func (o *TokensCreateBadRequest) String() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest %s", 400, payload)
 }
 
 func (o *TokensCreateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *TokensCreateForbidden) Code() int {
 }
 
 func (o *TokensCreateForbidden) Error() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateForbidden %s", 403, payload)
 }
 
 func (o *TokensCreateForbidden) String() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateForbidden %s", 403, payload)
 }
 
 func (o *TokensCreateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *TokensCreateConflict) Code() int {
 }
 
 func (o *TokensCreateConflict) Error() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateConflict %s", 409, payload)
 }
 
 func (o *TokensCreateConflict) String() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateConflict %s", 409, payload)
 }
 
 func (o *TokensCreateConflict) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *TokensCreateTooManyRequests) Code() int {
 }
 
 func (o *TokensCreateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensCreateTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateTooManyRequests %s", 429, payload)
 }
 
 func (o *TokensCreateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *TokensCreateInternalServerError) Code() int {
 }
 
 func (o *TokensCreateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateInternalServerError %s", 500, payload)
 }
 
 func (o *TokensCreateInternalServerError) String() string {
-	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateInternalServerError %s", 500, payload)
 }
 
 func (o *TokensCreateInternalServerError) GetPayload() *models.MsaspecResponseFields {

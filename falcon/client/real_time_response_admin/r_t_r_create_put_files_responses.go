@@ -6,6 +6,7 @@ package real_time_response_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RTRCreatePutFilesOK) Code() int {
 }
 
 func (o *RTRCreatePutFilesOK) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesOK %s", 200, payload)
 }
 
 func (o *RTRCreatePutFilesOK) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesOK %s", 200, payload)
 }
 
 func (o *RTRCreatePutFilesOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -228,11 +231,13 @@ func (o *RTRCreatePutFilesBadRequest) Code() int {
 }
 
 func (o *RTRCreatePutFilesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesBadRequest %s", 400, payload)
 }
 
 func (o *RTRCreatePutFilesBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesBadRequest %s", 400, payload)
 }
 
 func (o *RTRCreatePutFilesBadRequest) GetPayload() *models.DomainAPIError {
@@ -338,11 +343,13 @@ func (o *RTRCreatePutFilesForbidden) Code() int {
 }
 
 func (o *RTRCreatePutFilesForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesForbidden %s", 403, payload)
 }
 
 func (o *RTRCreatePutFilesForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesForbidden %s", 403, payload)
 }
 
 func (o *RTRCreatePutFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RTRCreatePutFilesTooManyRequests) Code() int {
 }
 
 func (o *RTRCreatePutFilesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRCreatePutFilesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRCreatePutFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RTRCreatePutFilesInternalServerError) Code() int {
 }
 
 func (o *RTRCreatePutFilesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesInternalServerError %s", 500, payload)
 }
 
 func (o *RTRCreatePutFilesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesInternalServerError %s", 500, payload)
 }
 
 func (o *RTRCreatePutFilesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

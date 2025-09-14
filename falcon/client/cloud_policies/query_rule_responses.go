@@ -6,6 +6,7 @@ package cloud_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryRuleOK) Code() int {
 }
 
 func (o *QueryRuleOK) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleOK %s", 200, payload)
 }
 
 func (o *QueryRuleOK) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleOK %s", 200, payload)
 }
 
 func (o *QueryRuleOK) GetPayload() *models.CommonQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryRuleBadRequest) Code() int {
 }
 
 func (o *QueryRuleBadRequest) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleBadRequest %s", 400, payload)
 }
 
 func (o *QueryRuleBadRequest) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleBadRequest %s", 400, payload)
 }
 
 func (o *QueryRuleBadRequest) GetPayload() *models.CommonQueryResponse {
@@ -338,11 +343,13 @@ func (o *QueryRuleForbidden) Code() int {
 }
 
 func (o *QueryRuleForbidden) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleForbidden %s", 403, payload)
 }
 
 func (o *QueryRuleForbidden) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleForbidden %s", 403, payload)
 }
 
 func (o *QueryRuleForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryRuleTooManyRequests) Code() int {
 }
 
 func (o *QueryRuleTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRuleTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryRuleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryRuleInternalServerError) Code() int {
 }
 
 func (o *QueryRuleInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRuleInternalServerError) String() string {
-	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleInternalServerError %s", 500, payload)
 }
 
 func (o *QueryRuleInternalServerError) GetPayload() *models.CommonQueryResponse {

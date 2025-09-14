@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregatesTemplatesPostV1OK) Code() int {
 }
 
 func (o *AggregatesTemplatesPostV1OK) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1OK %s", 200, payload)
 }
 
 func (o *AggregatesTemplatesPostV1OK) String() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1OK %s", 200, payload)
 }
 
 func (o *AggregatesTemplatesPostV1OK) GetPayload() *models.APIMSAAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregatesTemplatesPostV1BadRequest) Code() int {
 }
 
 func (o *AggregatesTemplatesPostV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregatesTemplatesPostV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1BadRequest %s", 400, payload)
 }
 
 func (o *AggregatesTemplatesPostV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregatesTemplatesPostV1Forbidden) Code() int {
 }
 
 func (o *AggregatesTemplatesPostV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregatesTemplatesPostV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1Forbidden %s", 403, payload)
 }
 
 func (o *AggregatesTemplatesPostV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AggregatesTemplatesPostV1TooManyRequests) Code() int {
 }
 
 func (o *AggregatesTemplatesPostV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatesTemplatesPostV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1TooManyRequests %s", 429, payload)
 }
 
 func (o *AggregatesTemplatesPostV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregatesTemplatesPostV1InternalServerError) Code() int {
 }
 
 func (o *AggregatesTemplatesPostV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregatesTemplatesPostV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /casemgmt/aggregates/templates/v1][%d] aggregatesTemplatesPostV1InternalServerError %s", 500, payload)
 }
 
 func (o *AggregatesTemplatesPostV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

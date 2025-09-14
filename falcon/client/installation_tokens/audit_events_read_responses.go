@@ -6,6 +6,7 @@ package installation_tokens
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AuditEventsReadOK) Code() int {
 }
 
 func (o *AuditEventsReadOK) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadOK %s", 200, payload)
 }
 
 func (o *AuditEventsReadOK) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadOK %s", 200, payload)
 }
 
 func (o *AuditEventsReadOK) GetPayload() *models.APIAuditEventDetailsResponseV1 {
@@ -228,11 +231,13 @@ func (o *AuditEventsReadBadRequest) Code() int {
 }
 
 func (o *AuditEventsReadBadRequest) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadBadRequest %s", 400, payload)
 }
 
 func (o *AuditEventsReadBadRequest) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadBadRequest %s", 400, payload)
 }
 
 func (o *AuditEventsReadBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AuditEventsReadForbidden) Code() int {
 }
 
 func (o *AuditEventsReadForbidden) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadForbidden %s", 403, payload)
 }
 
 func (o *AuditEventsReadForbidden) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadForbidden %s", 403, payload)
 }
 
 func (o *AuditEventsReadForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AuditEventsReadTooManyRequests) Code() int {
 }
 
 func (o *AuditEventsReadTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadTooManyRequests %s", 429, payload)
 }
 
 func (o *AuditEventsReadTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadTooManyRequests %s", 429, payload)
 }
 
 func (o *AuditEventsReadTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AuditEventsReadInternalServerError) Code() int {
 }
 
 func (o *AuditEventsReadInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadInternalServerError %s", 500, payload)
 }
 
 func (o *AuditEventsReadInternalServerError) String() string {
-	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadInternalServerError %s", 500, payload)
 }
 
 func (o *AuditEventsReadInternalServerError) GetPayload() *models.MsaspecResponseFields {

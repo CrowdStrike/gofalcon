@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRAggregateSessionsOK) Code() int {
 }
 
 func (o *RTRAggregateSessionsOK) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsOK %s", 200, payload)
 }
 
 func (o *RTRAggregateSessionsOK) String() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsOK %s", 200, payload)
 }
 
 func (o *RTRAggregateSessionsOK) GetPayload() *models.MsaAggregatesResponse {
@@ -234,11 +237,13 @@ func (o *RTRAggregateSessionsBadRequest) Code() int {
 }
 
 func (o *RTRAggregateSessionsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRAggregateSessionsBadRequest) String() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRAggregateSessionsBadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRAggregateSessionsForbidden) Code() int {
 }
 
 func (o *RTRAggregateSessionsForbidden) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRAggregateSessionsForbidden) String() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRAggregateSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRAggregateSessionsNotFound) Code() int {
 }
 
 func (o *RTRAggregateSessionsNotFound) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRAggregateSessionsNotFound) String() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRAggregateSessionsNotFound) GetPayload() *models.DomainAPIError {
@@ -568,11 +577,13 @@ func (o *RTRAggregateSessionsTooManyRequests) Code() int {
 }
 
 func (o *RTRAggregateSessionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRAggregateSessionsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRAggregateSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRAggregateSessionsInternalServerError) Code() int {
 }
 
 func (o *RTRAggregateSessionsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRAggregateSessionsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRAggregateSessionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

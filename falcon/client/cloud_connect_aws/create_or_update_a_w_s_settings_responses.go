@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateOrUpdateAWSSettingsCreated) Code() int {
 }
 
 func (o *CreateOrUpdateAWSSettingsCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsCreated %s", 201, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsCreated %s", 201, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsCreated) GetPayload() *models.ModelsCustomerConfigurationsV1 {
@@ -228,11 +231,13 @@ func (o *CreateOrUpdateAWSSettingsBadRequest) Code() int {
 }
 
 func (o *CreateOrUpdateAWSSettingsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsBadRequest %s", 400, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsBadRequest %s", 400, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsBadRequest) GetPayload() *models.ModelsCustomerConfigurationsV1 {
@@ -338,11 +343,13 @@ func (o *CreateOrUpdateAWSSettingsForbidden) Code() int {
 }
 
 func (o *CreateOrUpdateAWSSettingsForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsForbidden %s", 403, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsForbidden %s", 403, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CreateOrUpdateAWSSettingsTooManyRequests) Code() int {
 }
 
 func (o *CreateOrUpdateAWSSettingsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateOrUpdateAWSSettingsInternalServerError) Code() int {
 }
 
 func (o *CreateOrUpdateAWSSettingsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateOrUpdateAWSSettingsInternalServerError) GetPayload() *models.ModelsCustomerConfigurationsV1 {

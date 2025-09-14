@@ -6,6 +6,7 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UploadSampleV3OK) Code() int {
 }
 
 func (o *UploadSampleV3OK) Error() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3OK %s", 200, payload)
 }
 
 func (o *UploadSampleV3OK) String() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3OK %s", 200, payload)
 }
 
 func (o *UploadSampleV3OK) GetPayload() *models.ClientSampleMetadataResponseV2 {
@@ -228,11 +231,13 @@ func (o *UploadSampleV3BadRequest) Code() int {
 }
 
 func (o *UploadSampleV3BadRequest) Error() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3BadRequest %s", 400, payload)
 }
 
 func (o *UploadSampleV3BadRequest) String() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3BadRequest %s", 400, payload)
 }
 
 func (o *UploadSampleV3BadRequest) GetPayload() *models.ClientSampleMetadataResponseV2 {
@@ -338,11 +343,13 @@ func (o *UploadSampleV3Forbidden) Code() int {
 }
 
 func (o *UploadSampleV3Forbidden) Error() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Forbidden %s", 403, payload)
 }
 
 func (o *UploadSampleV3Forbidden) String() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Forbidden %s", 403, payload)
 }
 
 func (o *UploadSampleV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UploadSampleV3TooManyRequests) Code() int {
 }
 
 func (o *UploadSampleV3TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3TooManyRequests %s", 429, payload)
 }
 
 func (o *UploadSampleV3TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3TooManyRequests %s", 429, payload)
 }
 
 func (o *UploadSampleV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UploadSampleV3InternalServerError) Code() int {
 }
 
 func (o *UploadSampleV3InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3InternalServerError %s", 500, payload)
 }
 
 func (o *UploadSampleV3InternalServerError) String() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3InternalServerError %s", 500, payload)
 }
 
 func (o *UploadSampleV3InternalServerError) GetPayload() *models.ClientSampleMetadataResponseV2 {

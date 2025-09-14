@@ -6,6 +6,7 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CaseAddActivityOK) Code() int {
 }
 
 func (o *CaseAddActivityOK) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK %s", 200, payload)
 }
 
 func (o *CaseAddActivityOK) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK %s", 200, payload)
 }
 
 func (o *CaseAddActivityOK) GetPayload() *models.MsaspecResponseFields {
@@ -228,11 +231,13 @@ func (o *CaseAddActivityBadRequest) Code() int {
 }
 
 func (o *CaseAddActivityBadRequest) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest %s", 400, payload)
 }
 
 func (o *CaseAddActivityBadRequest) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest %s", 400, payload)
 }
 
 func (o *CaseAddActivityBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CaseAddActivityForbidden) Code() int {
 }
 
 func (o *CaseAddActivityForbidden) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityForbidden %s", 403, payload)
 }
 
 func (o *CaseAddActivityForbidden) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityForbidden %s", 403, payload)
 }
 
 func (o *CaseAddActivityForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CaseAddActivityTooManyRequests) Code() int {
 }
 
 func (o *CaseAddActivityTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityTooManyRequests %s", 429, payload)
 }
 
 func (o *CaseAddActivityTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityTooManyRequests %s", 429, payload)
 }
 
 func (o *CaseAddActivityTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CaseAddActivityInternalServerError) Code() int {
 }
 
 func (o *CaseAddActivityInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError %s", 500, payload)
 }
 
 func (o *CaseAddActivityInternalServerError) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError %s", 500, payload)
 }
 
 func (o *CaseAddActivityInternalServerError) GetPayload() *models.MsaspecResponseFields {

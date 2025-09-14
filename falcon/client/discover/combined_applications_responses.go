@@ -6,6 +6,7 @@ package discover
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CombinedApplicationsOK) Code() int {
 }
 
 func (o *CombinedApplicationsOK) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsOK %s", 200, payload)
 }
 
 func (o *CombinedApplicationsOK) String() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsOK %s", 200, payload)
 }
 
 func (o *CombinedApplicationsOK) GetPayload() *models.DomainDiscoverAPICombinedApplicationsResponse {
@@ -228,11 +231,13 @@ func (o *CombinedApplicationsBadRequest) Code() int {
 }
 
 func (o *CombinedApplicationsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedApplicationsBadRequest) String() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsBadRequest %s", 400, payload)
 }
 
 func (o *CombinedApplicationsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CombinedApplicationsForbidden) Code() int {
 }
 
 func (o *CombinedApplicationsForbidden) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsForbidden %s", 403, payload)
 }
 
 func (o *CombinedApplicationsForbidden) String() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsForbidden %s", 403, payload)
 }
 
 func (o *CombinedApplicationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *CombinedApplicationsTooManyRequests) Code() int {
 }
 
 func (o *CombinedApplicationsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedApplicationsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedApplicationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CombinedApplicationsInternalServerError) Code() int {
 }
 
 func (o *CombinedApplicationsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedApplicationsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /discover/combined/applications/v1][%d] combinedApplicationsInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedApplicationsInternalServerError) GetPayload() *models.MsaspecResponseFields {

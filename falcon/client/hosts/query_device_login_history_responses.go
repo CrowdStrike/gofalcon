@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryDeviceLoginHistoryOK) Code() int {
 }
 
 func (o *QueryDeviceLoginHistoryOK) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryOK %s", 200, payload)
 }
 
 func (o *QueryDeviceLoginHistoryOK) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryOK %s", 200, payload)
 }
 
 func (o *QueryDeviceLoginHistoryOK) GetPayload() *models.DeviceapiLoginHistoryResponseV1 {
@@ -222,11 +225,13 @@ func (o *QueryDeviceLoginHistoryForbidden) Code() int {
 }
 
 func (o *QueryDeviceLoginHistoryForbidden) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryForbidden %s", 403, payload)
 }
 
 func (o *QueryDeviceLoginHistoryForbidden) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryForbidden %s", 403, payload)
 }
 
 func (o *QueryDeviceLoginHistoryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryDeviceLoginHistoryTooManyRequests) Code() int {
 }
 
 func (o *QueryDeviceLoginHistoryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDeviceLoginHistoryTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryDeviceLoginHistoryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryDeviceLoginHistoryInternalServerError) Code() int {
 }
 
 func (o *QueryDeviceLoginHistoryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDeviceLoginHistoryInternalServerError) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryInternalServerError %s", 500, payload)
 }
 
 func (o *QueryDeviceLoginHistoryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

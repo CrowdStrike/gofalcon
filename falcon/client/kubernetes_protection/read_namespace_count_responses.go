@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadNamespaceCountOK) Code() int {
 }
 
 func (o *ReadNamespaceCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountOK %s", 200, payload)
 }
 
 func (o *ReadNamespaceCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountOK %s", 200, payload)
 }
 
 func (o *ReadNamespaceCountOK) GetPayload() *models.CommonCountResponse {
@@ -222,11 +225,13 @@ func (o *ReadNamespaceCountForbidden) Code() int {
 }
 
 func (o *ReadNamespaceCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountForbidden %s", 403, payload)
 }
 
 func (o *ReadNamespaceCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountForbidden %s", 403, payload)
 }
 
 func (o *ReadNamespaceCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadNamespaceCountTooManyRequests) Code() int {
 }
 
 func (o *ReadNamespaceCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadNamespaceCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadNamespaceCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadNamespaceCountInternalServerError) Code() int {
 }
 
 func (o *ReadNamespaceCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadNamespaceCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/namespaces/count/v1][%d] readNamespaceCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadNamespaceCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

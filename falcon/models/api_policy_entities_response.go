@@ -15,12 +15,13 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APIIntelligenceQueryEntityResponse api intelligence query entity response
+// APIPolicyEntitiesResponse api policy entities response
 //
-// swagger:model api.IntelligenceQueryEntityResponse
-type APIIntelligenceQueryEntityResponse struct {
+// swagger:model api.PolicyEntitiesResponse
+type APIPolicyEntitiesResponse struct {
 
 	// errors
+	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
@@ -29,11 +30,11 @@ type APIIntelligenceQueryEntityResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*APIIntelligenceQueryEntity `json:"resources"`
+	Resources []*ModelsExternalPolicyResponse `json:"resources"`
 }
 
-// Validate validates this api intelligence query entity response
-func (m *APIIntelligenceQueryEntityResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this api policy entities response
+func (m *APIPolicyEntitiesResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,9 +55,10 @@ func (m *APIIntelligenceQueryEntityResponse) Validate(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntityResponse) validateErrors(formats strfmt.Registry) error {
-	if swag.IsZero(m.Errors) { // not required
-		return nil
+func (m *APIPolicyEntitiesResponse) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("errors", "body", m.Errors); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Errors); i++ {
@@ -80,7 +82,7 @@ func (m *APIIntelligenceQueryEntityResponse) validateErrors(formats strfmt.Regis
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntityResponse) validateMeta(formats strfmt.Registry) error {
+func (m *APIPolicyEntitiesResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,7 +102,7 @@ func (m *APIIntelligenceQueryEntityResponse) validateMeta(formats strfmt.Registr
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntityResponse) validateResources(formats strfmt.Registry) error {
+func (m *APIPolicyEntitiesResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -127,8 +129,8 @@ func (m *APIIntelligenceQueryEntityResponse) validateResources(formats strfmt.Re
 	return nil
 }
 
-// ContextValidate validate this api intelligence query entity response based on the context it is used
-func (m *APIIntelligenceQueryEntityResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this api policy entities response based on the context it is used
+func (m *APIPolicyEntitiesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -149,7 +151,7 @@ func (m *APIIntelligenceQueryEntityResponse) ContextValidate(ctx context.Context
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntityResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIPolicyEntitiesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -174,7 +176,7 @@ func (m *APIIntelligenceQueryEntityResponse) contextValidateErrors(ctx context.C
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntityResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIPolicyEntitiesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -191,7 +193,7 @@ func (m *APIIntelligenceQueryEntityResponse) contextValidateMeta(ctx context.Con
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntityResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIPolicyEntitiesResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -217,7 +219,7 @@ func (m *APIIntelligenceQueryEntityResponse) contextValidateResources(ctx contex
 }
 
 // MarshalBinary interface implementation
-func (m *APIIntelligenceQueryEntityResponse) MarshalBinary() ([]byte, error) {
+func (m *APIPolicyEntitiesResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -225,8 +227,8 @@ func (m *APIIntelligenceQueryEntityResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *APIIntelligenceQueryEntityResponse) UnmarshalBinary(b []byte) error {
-	var res APIIntelligenceQueryEntityResponse
+func (m *APIPolicyEntitiesResponse) UnmarshalBinary(b []byte) error {
+	var res APIPolicyEntitiesResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

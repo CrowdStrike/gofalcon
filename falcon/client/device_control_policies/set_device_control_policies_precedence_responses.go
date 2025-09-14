@@ -6,6 +6,7 @@ package device_control_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *SetDeviceControlPoliciesPrecedenceOK) Code() int {
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceOK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceOK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *SetDeviceControlPoliciesPrecedenceBadRequest) Code() int {
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -338,11 +343,13 @@ func (o *SetDeviceControlPoliciesPrecedenceForbidden) Code() int {
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) Code() int {
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {

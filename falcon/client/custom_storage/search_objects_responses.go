@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *SearchObjectsOK) Code() int {
 }
 
 func (o *SearchObjectsOK) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsOK %s", 200, payload)
 }
 
 func (o *SearchObjectsOK) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsOK %s", 200, payload)
 }
 
 func (o *SearchObjectsOK) GetPayload() *models.CustomStorageResponse {
@@ -222,11 +225,13 @@ func (o *SearchObjectsForbidden) Code() int {
 }
 
 func (o *SearchObjectsForbidden) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsForbidden %s", 403, payload)
 }
 
 func (o *SearchObjectsForbidden) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsForbidden %s", 403, payload)
 }
 
 func (o *SearchObjectsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *SearchObjectsTooManyRequests) Code() int {
 }
 
 func (o *SearchObjectsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchObjectsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsTooManyRequests %s", 429, payload)
 }
 
 func (o *SearchObjectsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *SearchObjectsInternalServerError) Code() int {
 }
 
 func (o *SearchObjectsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchObjectsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsInternalServerError %s", 500, payload)
 }
 
 func (o *SearchObjectsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

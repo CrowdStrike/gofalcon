@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *DeleteLookupFileOK) Code() int {
 }
 
 func (o *DeleteLookupFileOK) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileOK %s", 200, payload)
 }
 
 func (o *DeleteLookupFileOK) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileOK %s", 200, payload)
 }
 
 func (o *DeleteLookupFileOK) GetPayload() *models.APIDeleteLookupFileResponseV1 {
@@ -240,11 +243,13 @@ func (o *DeleteLookupFileBadRequest) Code() int {
 }
 
 func (o *DeleteLookupFileBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileBadRequest %s", 400, payload)
 }
 
 func (o *DeleteLookupFileBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileBadRequest %s", 400, payload)
 }
 
 func (o *DeleteLookupFileBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *DeleteLookupFileUnauthorized) Code() int {
 }
 
 func (o *DeleteLookupFileUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteLookupFileUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteLookupFileUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *DeleteLookupFileForbidden) Code() int {
 }
 
 func (o *DeleteLookupFileForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileForbidden %s", 403, payload)
 }
 
 func (o *DeleteLookupFileForbidden) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileForbidden %s", 403, payload)
 }
 
 func (o *DeleteLookupFileForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *DeleteLookupFileNotFound) Code() int {
 }
 
 func (o *DeleteLookupFileNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileNotFound %s", 404, payload)
 }
 
 func (o *DeleteLookupFileNotFound) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileNotFound %s", 404, payload)
 }
 
 func (o *DeleteLookupFileNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *DeleteLookupFileTooManyRequests) Code() int {
 }
 
 func (o *DeleteLookupFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteLookupFileTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteLookupFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *DeleteLookupFileInternalServerError) Code() int {
 }
 
 func (o *DeleteLookupFileInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteLookupFileInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/lookupfiles/v1][%d] deleteLookupFileInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteLookupFileInternalServerError) GetPayload() *models.MsaspecResponseFields {

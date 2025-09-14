@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateComplianceByClusterTypeOK) Code() int {
 }
 
 func (o *AggregateComplianceByClusterTypeOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeOK %s", 200, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeOK %s", 200, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeOK) GetPayload() *models.DomainAPIAggregateResponseComplianceByClusterTypeV1 {
@@ -228,11 +231,13 @@ func (o *AggregateComplianceByClusterTypeBadRequest) Code() int {
 }
 
 func (o *AggregateComplianceByClusterTypeBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeBadRequest %s", 400, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeBadRequest %s", 400, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeBadRequest) GetPayload() *models.DomainAPIAggregateResponseComplianceByClusterTypeV1 {
@@ -338,11 +343,13 @@ func (o *AggregateComplianceByClusterTypeForbidden) Code() int {
 }
 
 func (o *AggregateComplianceByClusterTypeForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeForbidden %s", 403, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeForbidden %s", 403, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateComplianceByClusterTypeTooManyRequests) Code() int {
 }
 
 func (o *AggregateComplianceByClusterTypeTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateComplianceByClusterTypeInternalServerError) Code() int {
 }
 
 func (o *AggregateComplianceByClusterTypeInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-cluster-type/v2][%d] aggregateComplianceByClusterTypeInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateComplianceByClusterTypeInternalServerError) GetPayload() *models.DomainAPIAggregateResponseComplianceByClusterTypeV1 {

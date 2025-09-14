@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -116,11 +117,11 @@ func (o *GetLookupFromPackageWithNamespaceV1OK) Code() int {
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1OK) Error() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK ", 200)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK", 200)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1OK) String() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK ", 200)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK", 200)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -215,11 +216,13 @@ func (o *GetLookupFromPackageWithNamespaceV1Unauthorized) Code() int {
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Unauthorized %s", 401, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -325,11 +328,13 @@ func (o *GetLookupFromPackageWithNamespaceV1Forbidden) Code() int {
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Forbidden %s", 403, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1Forbidden %s", 403, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -439,11 +444,13 @@ func (o *GetLookupFromPackageWithNamespaceV1TooManyRequests) Code() int {
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1TooManyRequests %s", 429, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -560,11 +567,13 @@ func (o *GetLookupFromPackageWithNamespaceV1InternalServerError) Code() int {
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1InternalServerError %s", 500, payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1InternalServerError) GetPayload() *models.MsaspecResponseFields {

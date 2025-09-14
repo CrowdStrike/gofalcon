@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateCIDGroupsOK) Code() int {
 }
 
 func (o *CreateCIDGroupsOK) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsOK %s", 200, payload)
 }
 
 func (o *CreateCIDGroupsOK) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsOK %s", 200, payload)
 }
 
 func (o *CreateCIDGroupsOK) GetPayload() *models.DomainCIDGroupsResponseV1 {
@@ -234,11 +237,13 @@ func (o *CreateCIDGroupsMultiStatus) Code() int {
 }
 
 func (o *CreateCIDGroupsMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *CreateCIDGroupsMultiStatus) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *CreateCIDGroupsMultiStatus) GetPayload() *models.DomainCIDGroupsResponseV1 {
@@ -344,11 +349,13 @@ func (o *CreateCIDGroupsBadRequest) Code() int {
 }
 
 func (o *CreateCIDGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateCIDGroupsBadRequest) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsBadRequest %s", 400, payload)
 }
 
 func (o *CreateCIDGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *CreateCIDGroupsForbidden) Code() int {
 }
 
 func (o *CreateCIDGroupsForbidden) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateCIDGroupsForbidden) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsForbidden %s", 403, payload)
 }
 
 func (o *CreateCIDGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -568,11 +577,13 @@ func (o *CreateCIDGroupsTooManyRequests) Code() int {
 }
 
 func (o *CreateCIDGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCIDGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCIDGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateCIDGroupsInternalServerError) Code() int {
 }
 
 func (o *CreateCIDGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateCIDGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /mssp/entities/cid-groups/v1][%d] createCIdGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *CreateCIDGroupsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

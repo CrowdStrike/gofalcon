@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateD4CAwsAccountCreated) Code() int {
 }
 
 func (o *CreateD4CAwsAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountCreated %s", 201, payload)
 }
 
 func (o *CreateD4CAwsAccountCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountCreated %s", 201, payload)
 }
 
 func (o *CreateD4CAwsAccountCreated) GetPayload() *models.RegistrationAWSAccountResponseV2 {
@@ -234,11 +237,13 @@ func (o *CreateD4CAwsAccountMultiStatus) Code() int {
 }
 
 func (o *CreateD4CAwsAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateD4CAwsAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CreateD4CAwsAccountMultiStatus) GetPayload() *models.RegistrationAWSAccountResponseV2 {
@@ -344,11 +349,13 @@ func (o *CreateD4CAwsAccountBadRequest) Code() int {
 }
 
 func (o *CreateD4CAwsAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateD4CAwsAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountBadRequest %s", 400, payload)
 }
 
 func (o *CreateD4CAwsAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CreateD4CAwsAccountForbidden) Code() int {
 }
 
 func (o *CreateD4CAwsAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateD4CAwsAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountForbidden %s", 403, payload)
 }
 
 func (o *CreateD4CAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CreateD4CAwsAccountTooManyRequests) Code() int {
 }
 
 func (o *CreateD4CAwsAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateD4CAwsAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateD4CAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateD4CAwsAccountInternalServerError) Code() int {
 }
 
 func (o *CreateD4CAwsAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateD4CAwsAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/account/v2][%d] createD4CAwsAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CreateD4CAwsAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {

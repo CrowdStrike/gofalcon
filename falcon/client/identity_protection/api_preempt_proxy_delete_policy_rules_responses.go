@@ -6,6 +6,7 @@ package identity_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -110,11 +111,11 @@ func (o *APIPreemptProxyDeletePolicyRulesOK) Code() int {
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesOK) Error() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesOK ", 200)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesOK", 200)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesOK) String() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesOK ", 200)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesOK", 200)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -209,11 +210,13 @@ func (o *APIPreemptProxyDeletePolicyRulesForbidden) Code() int {
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesForbidden %s", 403, payload)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -323,11 +326,13 @@ func (o *APIPreemptProxyDeletePolicyRulesTooManyRequests) Code() int {
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesTooManyRequests %s", 429, payload)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -444,11 +449,13 @@ func (o *APIPreemptProxyDeletePolicyRulesInternalServerError) Code() int {
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /identity-protection/entities/policy-rules/v1][%d] apiPreemptProxyDeletePolicyRulesInternalServerError %s", 500, payload)
 }
 
 func (o *APIPreemptProxyDeletePolicyRulesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

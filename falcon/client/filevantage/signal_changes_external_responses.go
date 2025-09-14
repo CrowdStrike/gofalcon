@@ -6,6 +6,7 @@ package filevantage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *SignalChangesExternalOK) Code() int {
 }
 
 func (o *SignalChangesExternalOK) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalOK %s", 200, payload)
 }
 
 func (o *SignalChangesExternalOK) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalOK %s", 200, payload)
 }
 
 func (o *SignalChangesExternalOK) GetPayload() *models.WorkflowResponse {
@@ -240,11 +243,13 @@ func (o *SignalChangesExternalBadRequest) Code() int {
 }
 
 func (o *SignalChangesExternalBadRequest) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalBadRequest %s", 400, payload)
 }
 
 func (o *SignalChangesExternalBadRequest) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalBadRequest %s", 400, payload)
 }
 
 func (o *SignalChangesExternalBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *SignalChangesExternalForbidden) Code() int {
 }
 
 func (o *SignalChangesExternalForbidden) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalForbidden %s", 403, payload)
 }
 
 func (o *SignalChangesExternalForbidden) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalForbidden %s", 403, payload)
 }
 
 func (o *SignalChangesExternalForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -460,11 +467,13 @@ func (o *SignalChangesExternalConflict) Code() int {
 }
 
 func (o *SignalChangesExternalConflict) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalConflict %s", 409, payload)
 }
 
 func (o *SignalChangesExternalConflict) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalConflict %s", 409, payload)
 }
 
 func (o *SignalChangesExternalConflict) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *SignalChangesExternalFailedDependency) Code() int {
 }
 
 func (o *SignalChangesExternalFailedDependency) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalFailedDependency  %+v", 424, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalFailedDependency %s", 424, payload)
 }
 
 func (o *SignalChangesExternalFailedDependency) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalFailedDependency  %+v", 424, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalFailedDependency %s", 424, payload)
 }
 
 func (o *SignalChangesExternalFailedDependency) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *SignalChangesExternalTooManyRequests) Code() int {
 }
 
 func (o *SignalChangesExternalTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalTooManyRequests %s", 429, payload)
 }
 
 func (o *SignalChangesExternalTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalTooManyRequests %s", 429, payload)
 }
 
 func (o *SignalChangesExternalTooManyRequests) GetPayload() *models.MsaspecResponseFields {
@@ -805,11 +818,13 @@ func (o *SignalChangesExternalInternalServerError) Code() int {
 }
 
 func (o *SignalChangesExternalInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalInternalServerError %s", 500, payload)
 }
 
 func (o *SignalChangesExternalInternalServerError) String() string {
-	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /filevantage/entities/workflow/v1][%d] signalChangesExternalInternalServerError %s", 500, payload)
 }
 
 func (o *SignalChangesExternalInternalServerError) GetPayload() *models.MsaspecResponseFields {

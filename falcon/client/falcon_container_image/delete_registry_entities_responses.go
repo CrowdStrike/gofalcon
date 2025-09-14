@@ -6,6 +6,7 @@ package falcon_container_image
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DeleteRegistryEntitiesOK) Code() int {
 }
 
 func (o *DeleteRegistryEntitiesOK) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesOK %s", 200, payload)
 }
 
 func (o *DeleteRegistryEntitiesOK) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesOK %s", 200, payload)
 }
 
 func (o *DeleteRegistryEntitiesOK) GetPayload() *models.DomainExternalRegistryListResponse {
@@ -222,11 +225,13 @@ func (o *DeleteRegistryEntitiesForbidden) Code() int {
 }
 
 func (o *DeleteRegistryEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesForbidden %s", 403, payload)
 }
 
 func (o *DeleteRegistryEntitiesForbidden) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesForbidden %s", 403, payload)
 }
 
 func (o *DeleteRegistryEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DeleteRegistryEntitiesTooManyRequests) Code() int {
 }
 
 func (o *DeleteRegistryEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRegistryEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRegistryEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DeleteRegistryEntitiesInternalServerError) Code() int {
 }
 
 func (o *DeleteRegistryEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRegistryEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /container-security/entities/registries/v1][%d] deleteRegistryEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRegistryEntitiesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateQueryScanHostMetadataOK) Code() int {
 }
 
 func (o *AggregateQueryScanHostMetadataOK) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataOK %s", 200, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataOK) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataOK %s", 200, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateQueryScanHostMetadataForbidden) Code() int {
 }
 
 func (o *AggregateQueryScanHostMetadataForbidden) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataForbidden %s", 403, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataForbidden) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataForbidden %s", 403, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *AggregateQueryScanHostMetadataNotFound) Code() int {
 }
 
 func (o *AggregateQueryScanHostMetadataNotFound) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataNotFound %s", 404, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataNotFound) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataNotFound %s", 404, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AggregateQueryScanHostMetadataTooManyRequests) Code() int {
 }
 
 func (o *AggregateQueryScanHostMetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateQueryScanHostMetadataInternalServerError) Code() int {
 }
 
 func (o *AggregateQueryScanHostMetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataInternalServerError) String() string {
-	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ods/aggregates/scan-hosts/v1][%d] aggregateQueryScanHostMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateQueryScanHostMetadataInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

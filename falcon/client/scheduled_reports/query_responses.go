@@ -6,6 +6,7 @@ package scheduled_reports
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryOK) Code() int {
 }
 
 func (o *QueryOK) Error() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryOK %s", 200, payload)
 }
 
 func (o *QueryOK) String() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryOK %s", 200, payload)
 }
 
 func (o *QueryOK) GetPayload() *models.MsaQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryBadRequest) Code() int {
 }
 
 func (o *QueryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryBadRequest %s", 400, payload)
 }
 
 func (o *QueryBadRequest) String() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryBadRequest %s", 400, payload)
 }
 
 func (o *QueryBadRequest) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *QueryForbidden) Code() int {
 }
 
 func (o *QueryForbidden) Error() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryForbidden %s", 403, payload)
 }
 
 func (o *QueryForbidden) String() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryForbidden %s", 403, payload)
 }
 
 func (o *QueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *QueryTooManyRequests) Code() int {
 }
 
 func (o *QueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryInternalServerError) Code() int {
 }
 
 func (o *QueryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryInternalServerError %s", 500, payload)
 }
 
 func (o *QueryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] queryInternalServerError %s", 500, payload)
 }
 
 func (o *QueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

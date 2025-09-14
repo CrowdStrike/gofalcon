@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ListObjectsByVersionOK) Code() int {
 }
 
 func (o *ListObjectsByVersionOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionOK %s", 200, payload)
 }
 
 func (o *ListObjectsByVersionOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionOK %s", 200, payload)
 }
 
 func (o *ListObjectsByVersionOK) GetPayload() *models.CustomStorageObjectKeys {
@@ -222,11 +225,13 @@ func (o *ListObjectsByVersionForbidden) Code() int {
 }
 
 func (o *ListObjectsByVersionForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionForbidden %s", 403, payload)
 }
 
 func (o *ListObjectsByVersionForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionForbidden %s", 403, payload)
 }
 
 func (o *ListObjectsByVersionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ListObjectsByVersionTooManyRequests) Code() int {
 }
 
 func (o *ListObjectsByVersionTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *ListObjectsByVersionTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionTooManyRequests %s", 429, payload)
 }
 
 func (o *ListObjectsByVersionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ListObjectsByVersionInternalServerError) Code() int {
 }
 
 func (o *ListObjectsByVersionInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionInternalServerError %s", 500, payload)
 }
 
 func (o *ListObjectsByVersionInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects][%d] listObjectsByVersionInternalServerError %s", 500, payload)
 }
 
 func (o *ListObjectsByVersionInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

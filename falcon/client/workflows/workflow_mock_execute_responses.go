@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *WorkflowMockExecuteOK) Code() int {
 }
 
 func (o *WorkflowMockExecuteOK) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteOK %s", 200, payload)
 }
 
 func (o *WorkflowMockExecuteOK) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteOK %s", 200, payload)
 }
 
 func (o *WorkflowMockExecuteOK) GetPayload() *models.APIResourceIDsResponse {
@@ -234,11 +237,13 @@ func (o *WorkflowMockExecuteBadRequest) Code() int {
 }
 
 func (o *WorkflowMockExecuteBadRequest) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowMockExecuteBadRequest) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowMockExecuteBadRequest) GetPayload() *models.APIResourceIDsResponse {
@@ -344,11 +349,13 @@ func (o *WorkflowMockExecuteForbidden) Code() int {
 }
 
 func (o *WorkflowMockExecuteForbidden) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteForbidden %s", 403, payload)
 }
 
 func (o *WorkflowMockExecuteForbidden) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteForbidden %s", 403, payload)
 }
 
 func (o *WorkflowMockExecuteForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *WorkflowMockExecuteNotFound) Code() int {
 }
 
 func (o *WorkflowMockExecuteNotFound) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteNotFound %s", 404, payload)
 }
 
 func (o *WorkflowMockExecuteNotFound) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteNotFound %s", 404, payload)
 }
 
 func (o *WorkflowMockExecuteNotFound) GetPayload() *models.APIResourceIDsResponse {
@@ -568,11 +577,13 @@ func (o *WorkflowMockExecuteTooManyRequests) Code() int {
 }
 
 func (o *WorkflowMockExecuteTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowMockExecuteTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowMockExecuteTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *WorkflowMockExecuteInternalServerError) Code() int {
 }
 
 func (o *WorkflowMockExecuteInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowMockExecuteInternalServerError) String() string {
-	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/entities/mock-executions/v1][%d] workflowMockExecuteInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowMockExecuteInternalServerError) GetPayload() *models.APIResourceIDsResponse {

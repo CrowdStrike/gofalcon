@@ -9,12 +9,38 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new detects API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new detects API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new detects API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,7 +51,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -42,7 +68,9 @@ type ClientService interface {
 }
 
 /*
-GetAggregateDetects gets detect aggregates as specified via json in request body
+GetAggregateDetects deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
+
+Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -80,7 +108,9 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...
 }
 
 /*
-GetDetectSummaries views information about detections
+GetDetectSummaries deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
+
+Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +148,9 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...Cl
 }
 
 /*
-QueryDetects searches for detection i ds that match a given query
+QueryDetects deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
+
+Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -156,7 +188,9 @@ func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) 
 }
 
 /*
-UpdateDetectsByIdsV2 modifies the state assignee and visibility of detections
+UpdateDetectsByIdsV2 deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
+
+Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error) {
 	// TODO: Validate the params before sending

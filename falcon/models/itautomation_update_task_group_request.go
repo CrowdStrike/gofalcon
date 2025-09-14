@@ -21,7 +21,7 @@ import (
 type ItautomationUpdateTaskGroupRequest struct {
 
 	// Access type of the group
-	// Enum: [Public Shared]
+	// Enum: ["Public","Shared"]
 	AccessType string `json:"access_type,omitempty"`
 
 	// User group IDs to add to the group, when access_type is Shared. Use GET /it-automation/queries/it-user-groups/v1 to fetch user group IDs

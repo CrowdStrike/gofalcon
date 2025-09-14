@@ -6,6 +6,7 @@ package real_time_response
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RTRListAllSessionsOK) Code() int {
 }
 
 func (o *RTRListAllSessionsOK) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsOK %s", 200, payload)
 }
 
 func (o *RTRListAllSessionsOK) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsOK %s", 200, payload)
 }
 
 func (o *RTRListAllSessionsOK) GetPayload() *models.DomainListSessionsResponseMsa {
@@ -234,11 +237,13 @@ func (o *RTRListAllSessionsBadRequest) Code() int {
 }
 
 func (o *RTRListAllSessionsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRListAllSessionsBadRequest) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsBadRequest %s", 400, payload)
 }
 
 func (o *RTRListAllSessionsBadRequest) GetPayload() *models.DomainAPIError {
@@ -344,11 +349,13 @@ func (o *RTRListAllSessionsForbidden) Code() int {
 }
 
 func (o *RTRListAllSessionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRListAllSessionsForbidden) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsForbidden %s", 403, payload)
 }
 
 func (o *RTRListAllSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *RTRListAllSessionsNotFound) Code() int {
 }
 
 func (o *RTRListAllSessionsNotFound) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRListAllSessionsNotFound) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsNotFound %s", 404, payload)
 }
 
 func (o *RTRListAllSessionsNotFound) GetPayload() *models.DomainAPIError {
@@ -568,11 +577,13 @@ func (o *RTRListAllSessionsTooManyRequests) Code() int {
 }
 
 func (o *RTRListAllSessionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListAllSessionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsTooManyRequests %s", 429, payload)
 }
 
 func (o *RTRListAllSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RTRListAllSessionsInternalServerError) Code() int {
 }
 
 func (o *RTRListAllSessionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListAllSessionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsInternalServerError %s", 500, payload)
 }
 
 func (o *RTRListAllSessionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

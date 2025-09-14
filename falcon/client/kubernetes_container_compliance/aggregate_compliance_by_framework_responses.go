@@ -6,6 +6,7 @@ package kubernetes_container_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateComplianceByFrameworkOK) Code() int {
 }
 
 func (o *AggregateComplianceByFrameworkOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkOK %s", 200, payload)
 }
 
 func (o *AggregateComplianceByFrameworkOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkOK %s", 200, payload)
 }
 
 func (o *AggregateComplianceByFrameworkOK) GetPayload() *models.DomainAPIAggregateResponseComplianceByFrameworkV1 {
@@ -228,11 +231,13 @@ func (o *AggregateComplianceByFrameworkBadRequest) Code() int {
 }
 
 func (o *AggregateComplianceByFrameworkBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkBadRequest %s", 400, payload)
 }
 
 func (o *AggregateComplianceByFrameworkBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkBadRequest %s", 400, payload)
 }
 
 func (o *AggregateComplianceByFrameworkBadRequest) GetPayload() *models.DomainAPIAggregateResponseComplianceByFrameworkV1 {
@@ -338,11 +343,13 @@ func (o *AggregateComplianceByFrameworkForbidden) Code() int {
 }
 
 func (o *AggregateComplianceByFrameworkForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkForbidden %s", 403, payload)
 }
 
 func (o *AggregateComplianceByFrameworkForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkForbidden %s", 403, payload)
 }
 
 func (o *AggregateComplianceByFrameworkForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *AggregateComplianceByFrameworkTooManyRequests) Code() int {
 }
 
 func (o *AggregateComplianceByFrameworkTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateComplianceByFrameworkTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateComplianceByFrameworkTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateComplianceByFrameworkInternalServerError) Code() int {
 }
 
 func (o *AggregateComplianceByFrameworkInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateComplianceByFrameworkInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-framework/v2][%d] aggregateComplianceByFrameworkInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateComplianceByFrameworkInternalServerError) GetPayload() *models.DomainAPIAggregateResponseComplianceByFrameworkV1 {

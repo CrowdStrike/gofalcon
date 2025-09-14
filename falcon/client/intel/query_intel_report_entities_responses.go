@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryIntelReportEntitiesOK) Code() int {
 }
 
 func (o *QueryIntelReportEntitiesOK) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesOK %s", 200, payload)
 }
 
 func (o *QueryIntelReportEntitiesOK) String() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesOK %s", 200, payload)
 }
 
 func (o *QueryIntelReportEntitiesOK) GetPayload() *models.DomainNewsResponse {
@@ -226,11 +229,11 @@ func (o *QueryIntelReportEntitiesBadRequest) Code() int {
 }
 
 func (o *QueryIntelReportEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesBadRequest ", 400)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesBadRequest", 400)
 }
 
 func (o *QueryIntelReportEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesBadRequest ", 400)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesBadRequest", 400)
 }
 
 func (o *QueryIntelReportEntitiesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -325,11 +328,13 @@ func (o *QueryIntelReportEntitiesForbidden) Code() int {
 }
 
 func (o *QueryIntelReportEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelReportEntitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesForbidden %s", 403, payload)
 }
 
 func (o *QueryIntelReportEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -439,11 +444,13 @@ func (o *QueryIntelReportEntitiesTooManyRequests) Code() int {
 }
 
 func (o *QueryIntelReportEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelReportEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryIntelReportEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -560,11 +567,13 @@ func (o *QueryIntelReportEntitiesInternalServerError) Code() int {
 }
 
 func (o *QueryIntelReportEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelReportEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryIntelReportEntitiesInternalServerError) GetPayload() *models.MsaErrorsOnly {

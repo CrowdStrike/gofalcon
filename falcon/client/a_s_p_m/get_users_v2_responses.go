@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetUsersV2OK) Code() int {
 }
 
 func (o *GetUsersV2OK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2OK %s", 200, payload)
 }
 
 func (o *GetUsersV2OK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2OK %s", 200, payload)
 }
 
 func (o *GetUsersV2OK) GetPayload() *models.TypesUsersResponse {
@@ -234,11 +237,13 @@ func (o *GetUsersV2BadRequest) Code() int {
 }
 
 func (o *GetUsersV2BadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2BadRequest %s", 400, payload)
 }
 
 func (o *GetUsersV2BadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2BadRequest %s", 400, payload)
 }
 
 func (o *GetUsersV2BadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetUsersV2Unauthorized) Code() int {
 }
 
 func (o *GetUsersV2Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Unauthorized %s", 401, payload)
 }
 
 func (o *GetUsersV2Unauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Unauthorized %s", 401, payload)
 }
 
 func (o *GetUsersV2Unauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetUsersV2Forbidden) Code() int {
 }
 
 func (o *GetUsersV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Forbidden %s", 403, payload)
 }
 
 func (o *GetUsersV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2Forbidden %s", 403, payload)
 }
 
 func (o *GetUsersV2Forbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetUsersV2TooManyRequests) Code() int {
 }
 
 func (o *GetUsersV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetUsersV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetUsersV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetUsersV2InternalServerError) Code() int {
 }
 
 func (o *GetUsersV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetUsersV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/users/v2][%d] getUsersV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetUsersV2InternalServerError) GetPayload() *models.TypesErrorMessage {

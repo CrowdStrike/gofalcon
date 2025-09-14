@@ -6,6 +6,7 @@ package sensor_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryCombinedSensorUpdatePoliciesOK) Code() int {
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesOK) GetPayload() *models.SensorUpdateRespV1 {
@@ -228,11 +231,13 @@ func (o *QueryCombinedSensorUpdatePoliciesBadRequest) Code() int {
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesBadRequest %s", 400, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesBadRequest) GetPayload() *models.SensorUpdateRespV1 {
@@ -338,11 +343,13 @@ func (o *QueryCombinedSensorUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -452,11 +459,13 @@ func (o *QueryCombinedSensorUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryCombinedSensorUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/combined/sensor-update/v1][%d] queryCombinedSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryCombinedSensorUpdatePoliciesInternalServerError) GetPayload() *models.SensorUpdateRespV1 {

@@ -23,7 +23,7 @@ type DeviceControlUSBClassExceptionsResponse struct {
 
 	// Policy action. Note: BLOCK_EXECUTE is only valid for MASS_STORAGE devices.
 	// Required: true
-	// Enum: [FULL_ACCESS FULL_BLOCK BLOCK_EXECUTE READ_ONLY]
+	// Enum: ["FULL_ACCESS","FULL_BLOCK","BLOCK_EXECUTE","READ_ONLY"]
 	Action *string `json:"action"`
 
 	// Exceptions to the rules of this policy setting

@@ -6,6 +6,7 @@ package cloud_aws_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CloudRegistrationAwsUpdateAccountOK) Code() int {
 }
 
 func (o *CloudRegistrationAwsUpdateAccountOK) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountOK) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountOK %s", 200, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountOK) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
@@ -234,11 +237,13 @@ func (o *CloudRegistrationAwsUpdateAccountMultiStatus) Code() int {
 }
 
 func (o *CloudRegistrationAwsUpdateAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountMultiStatus) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountMultiStatus %s", 207, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountMultiStatus) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
@@ -344,11 +349,13 @@ func (o *CloudRegistrationAwsUpdateAccountBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationAwsUpdateAccountBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountBadRequest %s", 400, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *CloudRegistrationAwsUpdateAccountForbidden) Code() int {
 }
 
 func (o *CloudRegistrationAwsUpdateAccountForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountForbidden %s", 403, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CloudRegistrationAwsUpdateAccountTooManyRequests) Code() int {
 }
 
 func (o *CloudRegistrationAwsUpdateAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CloudRegistrationAwsUpdateAccountInternalServerError) Code() int {
 }
 
 func (o *CloudRegistrationAwsUpdateAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-security-registration-aws/entities/account/v1][%d] cloudRegistrationAwsUpdateAccountInternalServerError %s", 500, payload)
 }
 
 func (o *CloudRegistrationAwsUpdateAccountInternalServerError) GetPayload() *models.MsaspecResponseFields {

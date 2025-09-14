@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryGetNetworkAddressHistoryV1OK) Code() int {
 }
 
 func (o *QueryGetNetworkAddressHistoryV1OK) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1OK %s", 200, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1OK) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1OK %s", 200, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1OK) GetPayload() *models.DeviceapiNetworkAddressHistoryResponseV1 {
@@ -222,11 +225,13 @@ func (o *QueryGetNetworkAddressHistoryV1Forbidden) Code() int {
 }
 
 func (o *QueryGetNetworkAddressHistoryV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1Forbidden %s", 403, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1Forbidden %s", 403, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryGetNetworkAddressHistoryV1TooManyRequests) Code() int {
 }
 
 func (o *QueryGetNetworkAddressHistoryV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1TooManyRequests %s", 429, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryGetNetworkAddressHistoryV1InternalServerError) Code() int {
 }
 
 func (o *QueryGetNetworkAddressHistoryV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1InternalServerError %s", 500, payload)
 }
 
 func (o *QueryGetNetworkAddressHistoryV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

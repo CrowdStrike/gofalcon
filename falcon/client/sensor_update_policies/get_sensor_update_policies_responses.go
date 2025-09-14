@@ -6,6 +6,7 @@ package sensor_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetSensorUpdatePoliciesOK) Code() int {
 }
 
 func (o *GetSensorUpdatePoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *GetSensorUpdatePoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesOK %s", 200, payload)
 }
 
 func (o *GetSensorUpdatePoliciesOK) GetPayload() *models.SensorUpdateRespV1 {
@@ -228,11 +231,13 @@ func (o *GetSensorUpdatePoliciesForbidden) Code() int {
 }
 
 func (o *GetSensorUpdatePoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetSensorUpdatePoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *GetSensorUpdatePoliciesNotFound) Code() int {
 }
 
 func (o *GetSensorUpdatePoliciesNotFound) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *GetSensorUpdatePoliciesNotFound) String() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesNotFound %s", 404, payload)
 }
 
 func (o *GetSensorUpdatePoliciesNotFound) GetPayload() *models.SensorUpdateRespV1 {
@@ -452,11 +459,13 @@ func (o *GetSensorUpdatePoliciesTooManyRequests) Code() int {
 }
 
 func (o *GetSensorUpdatePoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorUpdatePoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetSensorUpdatePoliciesInternalServerError) Code() int {
 }
 
 func (o *GetSensorUpdatePoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorUpdatePoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetSensorUpdatePoliciesInternalServerError) GetPayload() *models.SensorUpdateRespV1 {

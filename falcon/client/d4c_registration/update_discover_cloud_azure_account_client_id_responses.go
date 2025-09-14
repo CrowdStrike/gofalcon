@@ -6,6 +6,7 @@ package d4c_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *UpdateDiscoverCloudAzureAccountClientIDCreated) Code() int {
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDCreated) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdCreated %s", 201, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDCreated) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdCreated %s", 201, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDCreated) GetPayload() *models.RegistrationAzureTenantConfigurationResponseV1 {
@@ -228,11 +231,13 @@ func (o *UpdateDiscoverCloudAzureAccountClientIDBadRequest) Code() int {
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdBadRequest %s", 400, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdBadRequest %s", 400, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDBadRequest) GetPayload() *models.RegistrationAzureTenantConfigurationResponseV1 {
@@ -338,11 +343,13 @@ func (o *UpdateDiscoverCloudAzureAccountClientIDForbidden) Code() int {
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdForbidden %s", 403, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdForbidden %s", 403, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *UpdateDiscoverCloudAzureAccountClientIDTooManyRequests) Code() int {
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *UpdateDiscoverCloudAzureAccountClientIDInternalServerError) Code() int 
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-azure/entities/client-id/v1][%d] updateDiscoverCloudAzureAccountClientIdInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateDiscoverCloudAzureAccountClientIDInternalServerError) GetPayload() *models.RegistrationAzureTenantConfigurationResponseV1 {

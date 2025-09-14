@@ -22,7 +22,7 @@ type ItautomationTaskGroup struct {
 
 	// Access type of the group
 	// Required: true
-	// Enum: [Public Shared Private]
+	// Enum: ["Public","Shared","Private"]
 	AccessType *string `json:"access_type"`
 
 	// Assigned user group IDs of the group, when access_type is Shared

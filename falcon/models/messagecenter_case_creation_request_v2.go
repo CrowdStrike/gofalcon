@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainCaseCreationRequestV2 domain case creation request v2
+// MessagecenterCaseCreationRequestV2 messagecenter case creation request v2
 //
-// swagger:model domain.CaseCreationRequestV2
-type DomainCaseCreationRequestV2 struct {
+// swagger:model messagecenter.CaseCreationRequestV2
+type MessagecenterCaseCreationRequestV2 struct {
 
 	// body
 	// Required: true
@@ -52,8 +52,8 @@ type DomainCaseCreationRequestV2 struct {
 	UserUUID string `json:"user_uuid,omitempty"`
 }
 
-// Validate validates this domain case creation request v2
-func (m *DomainCaseCreationRequestV2) Validate(formats strfmt.Registry) error {
+// Validate validates this messagecenter case creation request v2
+func (m *MessagecenterCaseCreationRequestV2) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateBody(formats); err != nil {
@@ -90,7 +90,7 @@ func (m *DomainCaseCreationRequestV2) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) validateBody(formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) validateBody(formats strfmt.Registry) error {
 
 	if err := validate.Required("body", "body", m.Body); err != nil {
 		return err
@@ -99,7 +99,7 @@ func (m *DomainCaseCreationRequestV2) validateBody(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) validateDetections(formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) validateDetections(formats strfmt.Registry) error {
 
 	if err := validate.Required("detections", "body", m.Detections); err != nil {
 		return err
@@ -126,7 +126,7 @@ func (m *DomainCaseCreationRequestV2) validateDetections(formats strfmt.Registry
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) validateIncidents(formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) validateIncidents(formats strfmt.Registry) error {
 
 	if err := validate.Required("incidents", "body", m.Incidents); err != nil {
 		return err
@@ -153,7 +153,7 @@ func (m *DomainCaseCreationRequestV2) validateIncidents(formats strfmt.Registry)
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) validateMalwareSubmissionID(formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) validateMalwareSubmissionID(formats strfmt.Registry) error {
 
 	if err := validate.Required("malware_submission_id", "body", m.MalwareSubmissionID); err != nil {
 		return err
@@ -162,7 +162,7 @@ func (m *DomainCaseCreationRequestV2) validateMalwareSubmissionID(formats strfmt
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) validateReconRuleType(formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) validateReconRuleType(formats strfmt.Registry) error {
 
 	if err := validate.Required("recon_rule_type", "body", m.ReconRuleType); err != nil {
 		return err
@@ -171,7 +171,7 @@ func (m *DomainCaseCreationRequestV2) validateReconRuleType(formats strfmt.Regis
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) validateTitle(formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) validateTitle(formats strfmt.Registry) error {
 
 	if err := validate.Required("title", "body", m.Title); err != nil {
 		return err
@@ -180,7 +180,7 @@ func (m *DomainCaseCreationRequestV2) validateTitle(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) validateType(formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) validateType(formats strfmt.Registry) error {
 
 	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
@@ -189,8 +189,8 @@ func (m *DomainCaseCreationRequestV2) validateType(formats strfmt.Registry) erro
 	return nil
 }
 
-// ContextValidate validate this domain case creation request v2 based on the context it is used
-func (m *DomainCaseCreationRequestV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this messagecenter case creation request v2 based on the context it is used
+func (m *MessagecenterCaseCreationRequestV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateDetections(ctx, formats); err != nil {
@@ -207,7 +207,7 @@ func (m *DomainCaseCreationRequestV2) ContextValidate(ctx context.Context, forma
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) contextValidateDetections(ctx context.Context, formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) contextValidateDetections(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Detections); i++ {
 
@@ -232,7 +232,7 @@ func (m *DomainCaseCreationRequestV2) contextValidateDetections(ctx context.Cont
 	return nil
 }
 
-func (m *DomainCaseCreationRequestV2) contextValidateIncidents(ctx context.Context, formats strfmt.Registry) error {
+func (m *MessagecenterCaseCreationRequestV2) contextValidateIncidents(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Incidents); i++ {
 
@@ -258,7 +258,7 @@ func (m *DomainCaseCreationRequestV2) contextValidateIncidents(ctx context.Conte
 }
 
 // MarshalBinary interface implementation
-func (m *DomainCaseCreationRequestV2) MarshalBinary() ([]byte, error) {
+func (m *MessagecenterCaseCreationRequestV2) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -266,8 +266,8 @@ func (m *DomainCaseCreationRequestV2) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainCaseCreationRequestV2) UnmarshalBinary(b []byte) error {
-	var res DomainCaseCreationRequestV2
+func (m *MessagecenterCaseCreationRequestV2) UnmarshalBinary(b []byte) error {
+	var res MessagecenterCaseCreationRequestV2
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

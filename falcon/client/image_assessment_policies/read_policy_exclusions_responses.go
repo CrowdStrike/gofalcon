@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPolicyExclusionsOK) Code() int {
 }
 
 func (o *ReadPolicyExclusionsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsOK %s", 200, payload)
 }
 
 func (o *ReadPolicyExclusionsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsOK %s", 200, payload)
 }
 
 func (o *ReadPolicyExclusionsOK) GetPayload() *models.ModelsPolicyExclusionEntityResponse {
@@ -222,11 +225,13 @@ func (o *ReadPolicyExclusionsForbidden) Code() int {
 }
 
 func (o *ReadPolicyExclusionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsForbidden %s", 403, payload)
 }
 
 func (o *ReadPolicyExclusionsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsForbidden %s", 403, payload)
 }
 
 func (o *ReadPolicyExclusionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPolicyExclusionsTooManyRequests) Code() int {
 }
 
 func (o *ReadPolicyExclusionsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPolicyExclusionsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPolicyExclusionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPolicyExclusionsInternalServerError) Code() int {
 }
 
 func (o *ReadPolicyExclusionsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPolicyExclusionsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policy-exclusions/v1][%d] readPolicyExclusionsInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPolicyExclusionsInternalServerError) GetPayload() *models.CoreEntitiesResponse {

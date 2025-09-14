@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *AggregateAllowListOK) Code() int {
 }
 
 func (o *AggregateAllowListOK) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListOK %s", 200, payload)
 }
 
 func (o *AggregateAllowListOK) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListOK %s", 200, payload)
 }
 
 func (o *AggregateAllowListOK) GetPayload() *models.MsaAggregatesResponse {
@@ -222,11 +225,13 @@ func (o *AggregateAllowListForbidden) Code() int {
 }
 
 func (o *AggregateAllowListForbidden) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListForbidden %s", 403, payload)
 }
 
 func (o *AggregateAllowListForbidden) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListForbidden %s", 403, payload)
 }
 
 func (o *AggregateAllowListForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *AggregateAllowListTooManyRequests) Code() int {
 }
 
 func (o *AggregateAllowListTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateAllowListTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateAllowListTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *AggregateAllowListInternalServerError) Code() int {
 }
 
 func (o *AggregateAllowListInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateAllowListInternalServerError) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateAllowListInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

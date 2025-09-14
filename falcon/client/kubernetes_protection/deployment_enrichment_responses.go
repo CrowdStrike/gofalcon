@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *DeploymentEnrichmentOK) Code() int {
 }
 
 func (o *DeploymentEnrichmentOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentOK %s", 200, payload)
 }
 
 func (o *DeploymentEnrichmentOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentOK %s", 200, payload)
 }
 
 func (o *DeploymentEnrichmentOK) GetPayload() *models.K8sassetsDeploymentEnrichmentResponse {
@@ -222,11 +225,13 @@ func (o *DeploymentEnrichmentForbidden) Code() int {
 }
 
 func (o *DeploymentEnrichmentForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentForbidden %s", 403, payload)
 }
 
 func (o *DeploymentEnrichmentForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentForbidden %s", 403, payload)
 }
 
 func (o *DeploymentEnrichmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *DeploymentEnrichmentTooManyRequests) Code() int {
 }
 
 func (o *DeploymentEnrichmentTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentTooManyRequests %s", 429, payload)
 }
 
 func (o *DeploymentEnrichmentTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentTooManyRequests %s", 429, payload)
 }
 
 func (o *DeploymentEnrichmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *DeploymentEnrichmentInternalServerError) Code() int {
 }
 
 func (o *DeploymentEnrichmentInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentInternalServerError %s", 500, payload)
 }
 
 func (o *DeploymentEnrichmentInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/enrichment/deployments/entities/v1][%d] deploymentEnrichmentInternalServerError %s", 500, payload)
 }
 
 func (o *DeploymentEnrichmentInternalServerError) GetPayload() *models.CoreEntitiesResponse {

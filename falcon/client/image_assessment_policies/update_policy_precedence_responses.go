@@ -6,6 +6,7 @@ package image_assessment_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *UpdatePolicyPrecedenceOK) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceOK) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyPrecedenceOK) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyPrecedenceOK) GetPayload() *models.ModelsPolicyEntityResponse {
@@ -222,11 +225,13 @@ func (o *UpdatePolicyPrecedenceForbidden) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyPrecedenceForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *UpdatePolicyPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdatePolicyPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *UpdatePolicyPrecedenceInternalServerError) Code() int {
 }
 
 func (o *UpdatePolicyPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/image-assessment-policy-precedence/v1][%d] updatePolicyPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *UpdatePolicyPrecedenceInternalServerError) GetPayload() *models.CoreEntitiesResponse {

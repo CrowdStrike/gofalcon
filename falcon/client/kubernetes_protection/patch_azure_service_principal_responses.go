@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PatchAzureServicePrincipalCreated) Code() int {
 }
 
 func (o *PatchAzureServicePrincipalCreated) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalCreated %s", 201, payload)
 }
 
 func (o *PatchAzureServicePrincipalCreated) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalCreated %s", 201, payload)
 }
 
 func (o *PatchAzureServicePrincipalCreated) GetPayload() *models.K8sregGetAzureTenantConfigResp {
@@ -234,11 +237,13 @@ func (o *PatchAzureServicePrincipalMultiStatus) Code() int {
 }
 
 func (o *PatchAzureServicePrincipalMultiStatus) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalMultiStatus %s", 207, payload)
 }
 
 func (o *PatchAzureServicePrincipalMultiStatus) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalMultiStatus %s", 207, payload)
 }
 
 func (o *PatchAzureServicePrincipalMultiStatus) GetPayload() *models.K8sregGetAzureTenantConfigResp {
@@ -344,11 +349,13 @@ func (o *PatchAzureServicePrincipalBadRequest) Code() int {
 }
 
 func (o *PatchAzureServicePrincipalBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalBadRequest %s", 400, payload)
 }
 
 func (o *PatchAzureServicePrincipalBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalBadRequest %s", 400, payload)
 }
 
 func (o *PatchAzureServicePrincipalBadRequest) GetPayload() *models.K8sregGetAzureTenantConfigResp {
@@ -454,11 +461,13 @@ func (o *PatchAzureServicePrincipalForbidden) Code() int {
 }
 
 func (o *PatchAzureServicePrincipalForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalForbidden %s", 403, payload)
 }
 
 func (o *PatchAzureServicePrincipalForbidden) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalForbidden %s", 403, payload)
 }
 
 func (o *PatchAzureServicePrincipalForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *PatchAzureServicePrincipalTooManyRequests) Code() int {
 }
 
 func (o *PatchAzureServicePrincipalTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalTooManyRequests %s", 429, payload)
 }
 
 func (o *PatchAzureServicePrincipalTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalTooManyRequests %s", 429, payload)
 }
 
 func (o *PatchAzureServicePrincipalTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PatchAzureServicePrincipalInternalServerError) Code() int {
 }
 
 func (o *PatchAzureServicePrincipalInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalInternalServerError %s", 500, payload)
 }
 
 func (o *PatchAzureServicePrincipalInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalInternalServerError %s", 500, payload)
 }
 
 func (o *PatchAzureServicePrincipalInternalServerError) GetPayload() *models.K8sregGetAzureTenantConfigResp {

@@ -6,6 +6,7 @@ package container_vulnerabilities
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadVulnerabilitiesPublicationDateOK) Code() int {
 }
 
 func (o *ReadVulnerabilitiesPublicationDateOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateOK %s", 200, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateOK %s", 200, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateOK) GetPayload() *models.VulnerabilitiesAPIVulnByPublication {
@@ -222,11 +225,13 @@ func (o *ReadVulnerabilitiesPublicationDateForbidden) Code() int {
 }
 
 func (o *ReadVulnerabilitiesPublicationDateForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateForbidden %s", 403, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateForbidden %s", 403, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadVulnerabilitiesPublicationDateTooManyRequests) Code() int {
 }
 
 func (o *ReadVulnerabilitiesPublicationDateTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadVulnerabilitiesPublicationDateInternalServerError) Code() int {
 }
 
 func (o *ReadVulnerabilitiesPublicationDateInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateInternalServerError %s", 500, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/vulnerabilities/by-published-date/v1][%d] readVulnerabilitiesPublicationDateInternalServerError %s", 500, payload)
 }
 
 func (o *ReadVulnerabilitiesPublicationDateInternalServerError) GetPayload() *models.CoreEntitiesResponse {

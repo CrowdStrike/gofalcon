@@ -6,6 +6,7 @@ package exposure_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetExternalAssetsOK) Code() int {
 }
 
 func (o *GetExternalAssetsOK) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsOK %s", 200, payload)
 }
 
 func (o *GetExternalAssetsOK) String() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsOK %s", 200, payload)
 }
 
 func (o *GetExternalAssetsOK) GetPayload() *models.DomainExternalAssetsAPITypeV1 {
@@ -228,11 +231,13 @@ func (o *GetExternalAssetsBadRequest) Code() int {
 }
 
 func (o *GetExternalAssetsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *GetExternalAssetsBadRequest) String() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsBadRequest %s", 400, payload)
 }
 
 func (o *GetExternalAssetsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *GetExternalAssetsForbidden) Code() int {
 }
 
 func (o *GetExternalAssetsForbidden) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *GetExternalAssetsForbidden) String() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsForbidden %s", 403, payload)
 }
 
 func (o *GetExternalAssetsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *GetExternalAssetsTooManyRequests) Code() int {
 }
 
 func (o *GetExternalAssetsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExternalAssetsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExternalAssetsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetExternalAssetsInternalServerError) Code() int {
 }
 
 func (o *GetExternalAssetsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *GetExternalAssetsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /fem/entities/external-assets/v1][%d] getExternalAssetsInternalServerError %s", 500, payload)
 }
 
 func (o *GetExternalAssetsInternalServerError) GetPayload() *models.MsaspecResponseFields {

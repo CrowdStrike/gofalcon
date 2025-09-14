@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *DeleteParserOK) Code() int {
 }
 
 func (o *DeleteParserOK) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserOK %s", 200, payload)
 }
 
 func (o *DeleteParserOK) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserOK %s", 200, payload)
 }
 
 func (o *DeleteParserOK) GetPayload() *models.APIDeleteParserResponseV1 {
@@ -240,11 +243,13 @@ func (o *DeleteParserBadRequest) Code() int {
 }
 
 func (o *DeleteParserBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserBadRequest %s", 400, payload)
 }
 
 func (o *DeleteParserBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserBadRequest %s", 400, payload)
 }
 
 func (o *DeleteParserBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *DeleteParserUnauthorized) Code() int {
 }
 
 func (o *DeleteParserUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteParserUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteParserUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *DeleteParserForbidden) Code() int {
 }
 
 func (o *DeleteParserForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserForbidden %s", 403, payload)
 }
 
 func (o *DeleteParserForbidden) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserForbidden %s", 403, payload)
 }
 
 func (o *DeleteParserForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *DeleteParserNotFound) Code() int {
 }
 
 func (o *DeleteParserNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserNotFound %s", 404, payload)
 }
 
 func (o *DeleteParserNotFound) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserNotFound %s", 404, payload)
 }
 
 func (o *DeleteParserNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *DeleteParserTooManyRequests) Code() int {
 }
 
 func (o *DeleteParserTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteParserTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteParserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *DeleteParserInternalServerError) Code() int {
 }
 
 func (o *DeleteParserInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteParserInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ngsiem-content/entities/parsers/v1][%d] deleteParserInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteParserInternalServerError) GetPayload() *models.MsaspecResponseFields {

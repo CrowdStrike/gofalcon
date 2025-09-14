@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ExecuteFunctionsQueryOvertimeOK) Code() int {
 }
 
 func (o *ExecuteFunctionsQueryOvertimeOK) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeOK) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeOK %s", 200, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeOK) GetPayload() *models.TypesOvertimeResponse {
@@ -240,11 +243,13 @@ func (o *ExecuteFunctionsQueryOvertimeBadRequest) Code() int {
 }
 
 func (o *ExecuteFunctionsQueryOvertimeBadRequest) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeBadRequest) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -350,11 +355,13 @@ func (o *ExecuteFunctionsQueryOvertimeUnauthorized) Code() int {
 }
 
 func (o *ExecuteFunctionsQueryOvertimeUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeUnauthorized) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeUnauthorized %s", 401, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -460,11 +467,13 @@ func (o *ExecuteFunctionsQueryOvertimeForbidden) Code() int {
 }
 
 func (o *ExecuteFunctionsQueryOvertimeForbidden) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeForbidden) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeForbidden %s", 403, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeForbidden) GetPayload() *models.TypesErrorMessage {
@@ -574,11 +583,13 @@ func (o *ExecuteFunctionsQueryOvertimeTooManyRequests) Code() int {
 }
 
 func (o *ExecuteFunctionsQueryOvertimeTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -695,11 +706,13 @@ func (o *ExecuteFunctionsQueryOvertimeInternalServerError) Code() int {
 }
 
 func (o *ExecuteFunctionsQueryOvertimeInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeInternalServerError) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ExecuteFunctionsQueryOvertimeServiceUnavailable) Code() int {
 }
 
 func (o *ExecuteFunctionsQueryOvertimeServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeServiceUnavailable) String() string {
-	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeServiceUnavailable  %+v", 503, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /application-security/combined/query-functions-overtime/v1][%d] executeFunctionsQueryOvertimeServiceUnavailable %s", 503, payload)
 }
 
 func (o *ExecuteFunctionsQueryOvertimeServiceUnavailable) GetPayload() *models.TypesErrorMessage {

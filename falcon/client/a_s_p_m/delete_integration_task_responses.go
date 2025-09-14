@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -122,11 +123,11 @@ func (o *DeleteIntegrationTaskOK) Code() int {
 }
 
 func (o *DeleteIntegrationTaskOK) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskOK ", 200)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskOK", 200)
 }
 
 func (o *DeleteIntegrationTaskOK) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskOK ", 200)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskOK", 200)
 }
 
 func (o *DeleteIntegrationTaskOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -221,11 +222,13 @@ func (o *DeleteIntegrationTaskBadRequest) Code() int {
 }
 
 func (o *DeleteIntegrationTaskBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskBadRequest %s", 400, payload)
 }
 
 func (o *DeleteIntegrationTaskBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskBadRequest %s", 400, payload)
 }
 
 func (o *DeleteIntegrationTaskBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -331,11 +334,13 @@ func (o *DeleteIntegrationTaskUnauthorized) Code() int {
 }
 
 func (o *DeleteIntegrationTaskUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteIntegrationTaskUnauthorized) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskUnauthorized %s", 401, payload)
 }
 
 func (o *DeleteIntegrationTaskUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -441,11 +446,13 @@ func (o *DeleteIntegrationTaskForbidden) Code() int {
 }
 
 func (o *DeleteIntegrationTaskForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskForbidden %s", 403, payload)
 }
 
 func (o *DeleteIntegrationTaskForbidden) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskForbidden %s", 403, payload)
 }
 
 func (o *DeleteIntegrationTaskForbidden) GetPayload() *models.TypesErrorMessage {
@@ -555,11 +562,13 @@ func (o *DeleteIntegrationTaskTooManyRequests) Code() int {
 }
 
 func (o *DeleteIntegrationTaskTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteIntegrationTaskTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteIntegrationTaskTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -676,11 +685,13 @@ func (o *DeleteIntegrationTaskInternalServerError) Code() int {
 }
 
 func (o *DeleteIntegrationTaskInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteIntegrationTaskInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /aspm-api-gateway/api/v1/integration_tasks/{ID}][%d] deleteIntegrationTaskInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteIntegrationTaskInternalServerError) GetPayload() *models.TypesErrorMessage {

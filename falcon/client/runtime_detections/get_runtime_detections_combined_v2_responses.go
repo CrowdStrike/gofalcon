@@ -6,6 +6,7 @@ package runtime_detections
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetRuntimeDetectionsCombinedV2OK) Code() int {
 }
 
 func (o *GetRuntimeDetectionsCombinedV2OK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2OK %s", 200, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2OK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2OK %s", 200, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2OK) GetPayload() *models.RuntimedetectionsDetectionsEntityResponse {
@@ -222,11 +225,13 @@ func (o *GetRuntimeDetectionsCombinedV2Forbidden) Code() int {
 }
 
 func (o *GetRuntimeDetectionsCombinedV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2Forbidden %s", 403, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2Forbidden %s", 403, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetRuntimeDetectionsCombinedV2TooManyRequests) Code() int {
 }
 
 func (o *GetRuntimeDetectionsCombinedV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetRuntimeDetectionsCombinedV2InternalServerError) Code() int {
 }
 
 func (o *GetRuntimeDetectionsCombinedV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/runtime-detections/v2][%d] getRuntimeDetectionsCombinedV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetRuntimeDetectionsCombinedV2InternalServerError) GetPayload() *models.CoreEntitiesResponse {

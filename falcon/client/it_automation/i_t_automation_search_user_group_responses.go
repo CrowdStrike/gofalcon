@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *ITAutomationSearchUserGroupOK) Code() int {
 }
 
 func (o *ITAutomationSearchUserGroupOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchUserGroupOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchUserGroupOK) GetPayload() *models.ItautomationSearchUserGroupsResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationSearchUserGroupBadRequest) Code() int {
 }
 
 func (o *ITAutomationSearchUserGroupBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchUserGroupBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchUserGroupBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationSearchUserGroupForbidden) Code() int {
 }
 
 func (o *ITAutomationSearchUserGroupForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchUserGroupForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchUserGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationSearchUserGroupTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationSearchUserGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchUserGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchUserGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationSearchUserGroupInternalServerError) Code() int {
 }
 
 func (o *ITAutomationSearchUserGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchUserGroupInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/it-user-groups/v1][%d] iTAutomationSearchUserGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchUserGroupInternalServerError) GetPayload() *models.MsaspecResponseFields {

@@ -6,6 +6,7 @@ package foundry_logscale
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *PopulateOK) Code() int {
 }
 
 func (o *PopulateOK) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateOK %s", 200, payload)
 }
 
 func (o *PopulateOK) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateOK %s", 200, payload)
 }
 
 func (o *PopulateOK) GetPayload() *models.ClientDataIngestResponseWrapperV1 {
@@ -234,11 +237,13 @@ func (o *PopulateBadRequest) Code() int {
 }
 
 func (o *PopulateBadRequest) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateBadRequest %s", 400, payload)
 }
 
 func (o *PopulateBadRequest) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateBadRequest %s", 400, payload)
 }
 
 func (o *PopulateBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -344,11 +349,13 @@ func (o *PopulateForbidden) Code() int {
 }
 
 func (o *PopulateForbidden) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateForbidden %s", 403, payload)
 }
 
 func (o *PopulateForbidden) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateForbidden %s", 403, payload)
 }
 
 func (o *PopulateForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -454,11 +461,13 @@ func (o *PopulateNotFound) Code() int {
 }
 
 func (o *PopulateNotFound) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateNotFound %s", 404, payload)
 }
 
 func (o *PopulateNotFound) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateNotFound %s", 404, payload)
 }
 
 func (o *PopulateNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *PopulateTooManyRequests) Code() int {
 }
 
 func (o *PopulateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateTooManyRequests %s", 429, payload)
 }
 
 func (o *PopulateTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateTooManyRequests %s", 429, payload)
 }
 
 func (o *PopulateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *PopulateInternalServerError) Code() int {
 }
 
 func (o *PopulateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateInternalServerError %s", 500, payload)
 }
 
 func (o *PopulateInternalServerError) String() string {
-	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateInternalServerError %s", 500, payload)
 }
 
 func (o *PopulateInternalServerError) GetPayload() *models.MsaspecResponseFields {

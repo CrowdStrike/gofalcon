@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ClustersByDateRangeCountOK) Code() int {
 }
 
 func (o *ClustersByDateRangeCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *ClustersByDateRangeCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountOK %s", 200, payload)
 }
 
 func (o *ClustersByDateRangeCountOK) GetPayload() *models.ModelsAggregateValuesByFieldResponse {
@@ -222,11 +225,13 @@ func (o *ClustersByDateRangeCountForbidden) Code() int {
 }
 
 func (o *ClustersByDateRangeCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *ClustersByDateRangeCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountForbidden %s", 403, payload)
 }
 
 func (o *ClustersByDateRangeCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ClustersByDateRangeCountTooManyRequests) Code() int {
 }
 
 func (o *ClustersByDateRangeCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ClustersByDateRangeCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ClustersByDateRangeCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ClustersByDateRangeCountInternalServerError) Code() int {
 }
 
 func (o *ClustersByDateRangeCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *ClustersByDateRangeCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/clusters/count-by-date/v1][%d] clustersByDateRangeCountInternalServerError %s", 500, payload)
 }
 
 func (o *ClustersByDateRangeCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

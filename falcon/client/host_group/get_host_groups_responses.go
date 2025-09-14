@@ -6,6 +6,7 @@ package host_group
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetHostGroupsOK) Code() int {
 }
 
 func (o *GetHostGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK %s", 200, payload)
 }
 
 func (o *GetHostGroupsOK) String() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK %s", 200, payload)
 }
 
 func (o *GetHostGroupsOK) GetPayload() *models.HostGroupsRespV1 {
@@ -234,11 +237,13 @@ func (o *GetHostGroupsBadRequest) Code() int {
 }
 
 func (o *GetHostGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *GetHostGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsBadRequest %s", 400, payload)
 }
 
 func (o *GetHostGroupsBadRequest) GetPayload() *models.HostGroupsRespV1 {
@@ -344,11 +349,13 @@ func (o *GetHostGroupsForbidden) Code() int {
 }
 
 func (o *GetHostGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *GetHostGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsForbidden %s", 403, payload)
 }
 
 func (o *GetHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *GetHostGroupsNotFound) Code() int {
 }
 
 func (o *GetHostGroupsNotFound) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *GetHostGroupsNotFound) String() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsNotFound %s", 404, payload)
 }
 
 func (o *GetHostGroupsNotFound) GetPayload() *models.HostGroupsRespV1 {
@@ -568,11 +577,13 @@ func (o *GetHostGroupsTooManyRequests) Code() int {
 }
 
 func (o *GetHostGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetHostGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetHostGroupsInternalServerError) Code() int {
 }
 
 func (o *GetHostGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *GetHostGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *GetHostGroupsInternalServerError) GetPayload() *models.HostGroupsRespV1 {

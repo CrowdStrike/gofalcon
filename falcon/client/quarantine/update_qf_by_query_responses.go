@@ -6,6 +6,7 @@ package quarantine
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *UpdateQfByQueryOK) Code() int {
 }
 
 func (o *UpdateQfByQueryOK) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryOK %s", 200, payload)
 }
 
 func (o *UpdateQfByQueryOK) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryOK %s", 200, payload)
 }
 
 func (o *UpdateQfByQueryOK) GetPayload() *models.MsaReplyMetaOnly {
@@ -222,11 +225,13 @@ func (o *UpdateQfByQueryForbidden) Code() int {
 }
 
 func (o *UpdateQfByQueryForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryForbidden %s", 403, payload)
 }
 
 func (o *UpdateQfByQueryForbidden) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryForbidden %s", 403, payload)
 }
 
 func (o *UpdateQfByQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *UpdateQfByQueryTooManyRequests) Code() int {
 }
 
 func (o *UpdateQfByQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateQfByQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateQfByQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *UpdateQfByQueryInternalServerError) Code() int {
 }
 
 func (o *UpdateQfByQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateQfByQueryInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateQfByQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

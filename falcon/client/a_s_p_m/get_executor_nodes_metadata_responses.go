@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetExecutorNodesMetadataOK) Code() int {
 }
 
 func (o *GetExecutorNodesMetadataOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataOK %s", 200, payload)
 }
 
 func (o *GetExecutorNodesMetadataOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataOK %s", 200, payload)
 }
 
 func (o *GetExecutorNodesMetadataOK) GetPayload() *models.TypesGetExecutorNodesMetadataResponse {
@@ -234,11 +237,13 @@ func (o *GetExecutorNodesMetadataBadRequest) Code() int {
 }
 
 func (o *GetExecutorNodesMetadataBadRequest) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataBadRequest %s", 400, payload)
 }
 
 func (o *GetExecutorNodesMetadataBadRequest) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataBadRequest %s", 400, payload)
 }
 
 func (o *GetExecutorNodesMetadataBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *GetExecutorNodesMetadataUnauthorized) Code() int {
 }
 
 func (o *GetExecutorNodesMetadataUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataUnauthorized %s", 401, payload)
 }
 
 func (o *GetExecutorNodesMetadataUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataUnauthorized %s", 401, payload)
 }
 
 func (o *GetExecutorNodesMetadataUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *GetExecutorNodesMetadataForbidden) Code() int {
 }
 
 func (o *GetExecutorNodesMetadataForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetExecutorNodesMetadataForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetExecutorNodesMetadataForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *GetExecutorNodesMetadataTooManyRequests) Code() int {
 }
 
 func (o *GetExecutorNodesMetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExecutorNodesMetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetExecutorNodesMetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetExecutorNodesMetadataInternalServerError) Code() int {
 }
 
 func (o *GetExecutorNodesMetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetExecutorNodesMetadataInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/executor_nodes/metadata][%d] getExecutorNodesMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetExecutorNodesMetadataInternalServerError) GetPayload() *models.TypesErrorMessage {

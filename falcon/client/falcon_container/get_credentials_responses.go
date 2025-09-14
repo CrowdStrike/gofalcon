@@ -6,6 +6,7 @@ package falcon_container
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *GetCredentialsOK) Code() int {
 }
 
 func (o *GetCredentialsOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsOK %s", 200, payload)
 }
 
 func (o *GetCredentialsOK) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsOK %s", 200, payload)
 }
 
 func (o *GetCredentialsOK) GetPayload() *models.DomainRegistryCredentialsResponse {
@@ -234,11 +237,13 @@ func (o *GetCredentialsBadRequest) Code() int {
 }
 
 func (o *GetCredentialsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsBadRequest %s", 400, payload)
 }
 
 func (o *GetCredentialsBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsBadRequest %s", 400, payload)
 }
 
 func (o *GetCredentialsBadRequest) GetPayload() *models.MsaAPIError {
@@ -344,11 +349,13 @@ func (o *GetCredentialsUnauthorized) Code() int {
 }
 
 func (o *GetCredentialsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsUnauthorized %s", 401, payload)
 }
 
 func (o *GetCredentialsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsUnauthorized %s", 401, payload)
 }
 
 func (o *GetCredentialsUnauthorized) GetPayload() *models.MsaAPIError {
@@ -454,11 +461,13 @@ func (o *GetCredentialsForbidden) Code() int {
 }
 
 func (o *GetCredentialsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsForbidden %s", 403, payload)
 }
 
 func (o *GetCredentialsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsForbidden %s", 403, payload)
 }
 
 func (o *GetCredentialsForbidden) GetPayload() *models.MsaAPIError {
@@ -568,11 +577,13 @@ func (o *GetCredentialsTooManyRequests) Code() int {
 }
 
 func (o *GetCredentialsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCredentialsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCredentialsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *GetCredentialsInternalServerError) Code() int {
 }
 
 func (o *GetCredentialsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCredentialsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsInternalServerError %s", 500, payload)
 }
 
 func (o *GetCredentialsInternalServerError) GetPayload() *models.DomainRegistryCredentialsResponse {

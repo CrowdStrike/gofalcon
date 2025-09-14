@@ -6,6 +6,7 @@ package alerts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *PostEntitiesAlertsV1OK) Code() int {
 }
 
 func (o *PostEntitiesAlertsV1OK) Error() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1OK %s", 200, payload)
 }
 
 func (o *PostEntitiesAlertsV1OK) String() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1OK %s", 200, payload)
 }
 
 func (o *PostEntitiesAlertsV1OK) GetPayload() *models.DetectsapiPostEntitiesAlertsV1Response {
@@ -228,11 +231,13 @@ func (o *PostEntitiesAlertsV1BadRequest) Code() int {
 }
 
 func (o *PostEntitiesAlertsV1BadRequest) Error() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1BadRequest %s", 400, payload)
 }
 
 func (o *PostEntitiesAlertsV1BadRequest) String() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1BadRequest %s", 400, payload)
 }
 
 func (o *PostEntitiesAlertsV1BadRequest) GetPayload() *models.DetectsapiPostEntitiesAlertsV1Response {
@@ -338,11 +343,13 @@ func (o *PostEntitiesAlertsV1Forbidden) Code() int {
 }
 
 func (o *PostEntitiesAlertsV1Forbidden) Error() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1Forbidden %s", 403, payload)
 }
 
 func (o *PostEntitiesAlertsV1Forbidden) String() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1Forbidden %s", 403, payload)
 }
 
 func (o *PostEntitiesAlertsV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *PostEntitiesAlertsV1TooManyRequests) Code() int {
 }
 
 func (o *PostEntitiesAlertsV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostEntitiesAlertsV1TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1TooManyRequests %s", 429, payload)
 }
 
 func (o *PostEntitiesAlertsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *PostEntitiesAlertsV1InternalServerError) Code() int {
 }
 
 func (o *PostEntitiesAlertsV1InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostEntitiesAlertsV1InternalServerError) String() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1InternalServerError %s", 500, payload)
 }
 
 func (o *PostEntitiesAlertsV1InternalServerError) GetPayload() *models.DetectsapiPostEntitiesAlertsV1Response {

@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -14,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APIIntelligenceQueryEntity api intelligence query entity
+// CaohuntingapiIntelligenceQueryEntity caohuntingapi intelligence query entity
 //
-// swagger:model api.IntelligenceQueryEntity
-type APIIntelligenceQueryEntity struct {
+// swagger:model caohuntingapi.IntelligenceQueryEntity
+type CaohuntingapiIntelligenceQueryEntity struct {
 
 	// adversaries
 	Adversaries []string `json:"adversaries"`
@@ -96,6 +97,12 @@ type APIIntelligenceQueryEntity struct {
 	// subscriptions
 	Subscriptions []string `json:"subscriptions"`
 
+	// Field that returns all the available AI Translations Target Languages for a query
+	TranslatedLanguages []string `json:"translated_languages"`
+
+	// Optional field that would be filled only if specifically requested via the include_translated_content queryParam
+	Translations []*CaohuntingapiTranslation `json:"translations"`
+
 	// type
 	// Required: true
 	Type *string `json:"type"`
@@ -105,8 +112,8 @@ type APIIntelligenceQueryEntity struct {
 	Version *string `json:"version"`
 }
 
-// Validate validates this api intelligence query entity
-func (m *APIIntelligenceQueryEntity) Validate(formats strfmt.Registry) error {
+// Validate validates this caohuntingapi intelligence query entity
+func (m *CaohuntingapiIntelligenceQueryEntity) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCreatedAt(formats); err != nil {
@@ -145,6 +152,10 @@ func (m *APIIntelligenceQueryEntity) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTranslations(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -159,7 +170,7 @@ func (m *APIIntelligenceQueryEntity) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateCreatedAt(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateCreatedAt(formats strfmt.Registry) error {
 
 	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
 		return err
@@ -172,7 +183,7 @@ func (m *APIIntelligenceQueryEntity) validateCreatedAt(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateHasEliteAnalystNotes(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateHasEliteAnalystNotes(formats strfmt.Registry) error {
 
 	if err := validate.Required("has_elite_analyst_notes", "body", m.HasEliteAnalystNotes); err != nil {
 		return err
@@ -181,7 +192,7 @@ func (m *APIIntelligenceQueryEntity) validateHasEliteAnalystNotes(formats strfmt
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateHasEliteQueryExplainer(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateHasEliteQueryExplainer(formats strfmt.Registry) error {
 
 	if err := validate.Required("has_elite_query_explainer", "body", m.HasEliteQueryExplainer); err != nil {
 		return err
@@ -190,7 +201,7 @@ func (m *APIIntelligenceQueryEntity) validateHasEliteQueryExplainer(formats strf
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateID(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
@@ -199,7 +210,7 @@ func (m *APIIntelligenceQueryEntity) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateLanguage(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateLanguage(formats strfmt.Registry) error {
 
 	if err := validate.Required("language", "body", m.Language); err != nil {
 		return err
@@ -208,7 +219,7 @@ func (m *APIIntelligenceQueryEntity) validateLanguage(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateLastUpdatedAt(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateLastUpdatedAt(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_updated_at", "body", m.LastUpdatedAt); err != nil {
 		return err
@@ -221,7 +232,7 @@ func (m *APIIntelligenceQueryEntity) validateLastUpdatedAt(formats strfmt.Regist
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateName(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -230,7 +241,7 @@ func (m *APIIntelligenceQueryEntity) validateName(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateProvider(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateProvider(formats strfmt.Registry) error {
 
 	if err := validate.Required("provider", "body", m.Provider); err != nil {
 		return err
@@ -239,7 +250,7 @@ func (m *APIIntelligenceQueryEntity) validateProvider(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateReportsCount(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateReportsCount(formats strfmt.Registry) error {
 
 	if err := validate.Required("reports_count", "body", m.ReportsCount); err != nil {
 		return err
@@ -248,7 +259,33 @@ func (m *APIIntelligenceQueryEntity) validateReportsCount(formats strfmt.Registr
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateType(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateTranslations(formats strfmt.Registry) error {
+	if swag.IsZero(m.Translations) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Translations); i++ {
+		if swag.IsZero(m.Translations[i]) { // not required
+			continue
+		}
+
+		if m.Translations[i] != nil {
+			if err := m.Translations[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("translations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("translations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CaohuntingapiIntelligenceQueryEntity) validateType(formats strfmt.Registry) error {
 
 	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
@@ -257,7 +294,7 @@ func (m *APIIntelligenceQueryEntity) validateType(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *APIIntelligenceQueryEntity) validateVersion(formats strfmt.Registry) error {
+func (m *CaohuntingapiIntelligenceQueryEntity) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
@@ -266,13 +303,47 @@ func (m *APIIntelligenceQueryEntity) validateVersion(formats strfmt.Registry) er
 	return nil
 }
 
-// ContextValidate validates this api intelligence query entity based on context it is used
-func (m *APIIntelligenceQueryEntity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this caohuntingapi intelligence query entity based on the context it is used
+func (m *CaohuntingapiIntelligenceQueryEntity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTranslations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CaohuntingapiIntelligenceQueryEntity) contextValidateTranslations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Translations); i++ {
+
+		if m.Translations[i] != nil {
+
+			if swag.IsZero(m.Translations[i]) { // not required
+				return nil
+			}
+
+			if err := m.Translations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("translations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("translations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *APIIntelligenceQueryEntity) MarshalBinary() ([]byte, error) {
+func (m *CaohuntingapiIntelligenceQueryEntity) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -280,8 +351,8 @@ func (m *APIIntelligenceQueryEntity) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *APIIntelligenceQueryEntity) UnmarshalBinary(b []byte) error {
-	var res APIIntelligenceQueryEntity
+func (m *CaohuntingapiIntelligenceQueryEntity) UnmarshalBinary(b []byte) error {
+	var res CaohuntingapiIntelligenceQueryEntity
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

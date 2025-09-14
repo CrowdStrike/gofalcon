@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateAzureSubscriptionCreated) Code() int {
 }
 
 func (o *CreateAzureSubscriptionCreated) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionCreated %s", 201, payload)
 }
 
 func (o *CreateAzureSubscriptionCreated) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionCreated %s", 201, payload)
 }
 
 func (o *CreateAzureSubscriptionCreated) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *CreateAzureSubscriptionMultiStatus) Code() int {
 }
 
 func (o *CreateAzureSubscriptionMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionMultiStatus %s", 207, payload)
 }
 
 func (o *CreateAzureSubscriptionMultiStatus) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionMultiStatus %s", 207, payload)
 }
 
 func (o *CreateAzureSubscriptionMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *CreateAzureSubscriptionBadRequest) Code() int {
 }
 
 func (o *CreateAzureSubscriptionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionBadRequest %s", 400, payload)
 }
 
 func (o *CreateAzureSubscriptionBadRequest) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionBadRequest %s", 400, payload)
 }
 
 func (o *CreateAzureSubscriptionBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *CreateAzureSubscriptionForbidden) Code() int {
 }
 
 func (o *CreateAzureSubscriptionForbidden) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionForbidden %s", 403, payload)
 }
 
 func (o *CreateAzureSubscriptionForbidden) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionForbidden %s", 403, payload)
 }
 
 func (o *CreateAzureSubscriptionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *CreateAzureSubscriptionTooManyRequests) Code() int {
 }
 
 func (o *CreateAzureSubscriptionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateAzureSubscriptionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateAzureSubscriptionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateAzureSubscriptionInternalServerError) Code() int {
 }
 
 func (o *CreateAzureSubscriptionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionInternalServerError %s", 500, payload)
 }
 
 func (o *CreateAzureSubscriptionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionInternalServerError %s", 500, payload)
 }
 
 func (o *CreateAzureSubscriptionInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {

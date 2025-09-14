@@ -6,6 +6,7 @@ package custom_storage
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *GetSchemaMetadataOK) Code() int {
 }
 
 func (o *GetSchemaMetadataOK) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataOK %s", 200, payload)
 }
 
 func (o *GetSchemaMetadataOK) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataOK %s", 200, payload)
 }
 
 func (o *GetSchemaMetadataOK) GetPayload() *models.CustomType4161059146 {
@@ -222,11 +225,13 @@ func (o *GetSchemaMetadataForbidden) Code() int {
 }
 
 func (o *GetSchemaMetadataForbidden) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetSchemaMetadataForbidden) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataForbidden %s", 403, payload)
 }
 
 func (o *GetSchemaMetadataForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *GetSchemaMetadataTooManyRequests) Code() int {
 }
 
 func (o *GetSchemaMetadataTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSchemaMetadataTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataTooManyRequests %s", 429, payload)
 }
 
 func (o *GetSchemaMetadataTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *GetSchemaMetadataInternalServerError) Code() int {
 }
 
 func (o *GetSchemaMetadataInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetSchemaMetadataInternalServerError) String() string {
-	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata][%d] getSchemaMetadataInternalServerError %s", 500, payload)
 }
 
 func (o *GetSchemaMetadataInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

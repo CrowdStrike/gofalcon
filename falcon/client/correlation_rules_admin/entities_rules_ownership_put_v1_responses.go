@@ -6,6 +6,7 @@ package correlation_rules_admin
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -136,11 +137,13 @@ func (o *EntitiesRulesOwnershipPutV1OK) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1OK) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1OK) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1OK %s", 200, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1OK) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -246,11 +249,13 @@ func (o *EntitiesRulesOwnershipPutV1BadRequest) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1BadRequest) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1BadRequest) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1BadRequest) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -356,11 +361,13 @@ func (o *EntitiesRulesOwnershipPutV1Unauthorized) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1Unauthorized) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1Unauthorized) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Unauthorized %s", 401, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1Unauthorized) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -466,11 +473,13 @@ func (o *EntitiesRulesOwnershipPutV1Forbidden) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1Forbidden) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1Forbidden) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1Forbidden) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -576,11 +585,13 @@ func (o *EntitiesRulesOwnershipPutV1NotFound) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1NotFound) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1NotFound) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1NotFound %s", 404, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1NotFound) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -686,11 +697,13 @@ func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1UnprocessableEntity  %+v", 422, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1UnprocessableEntity %s", 422, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1UnprocessableEntity  %+v", 422, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1UnprocessableEntity %s", 422, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -800,11 +813,13 @@ func (o *EntitiesRulesOwnershipPutV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1TooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -921,11 +936,13 @@ func (o *EntitiesRulesOwnershipPutV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesRulesOwnershipPutV1InternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1InternalServerError) String() string {
-	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesRulesOwnershipPutV1InternalServerError) GetPayload() *models.APIGetEntitiesRulesResponseV1 {

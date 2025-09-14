@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetIntegrationTypesOK) Code() int {
 }
 
 func (o *GetIntegrationTypesOK) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesOK %s", 200, payload)
 }
 
 func (o *GetIntegrationTypesOK) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesOK %s", 200, payload)
 }
 
 func (o *GetIntegrationTypesOK) GetPayload() *models.TypesListIntegrationTypesResponse {
@@ -228,11 +231,13 @@ func (o *GetIntegrationTypesUnauthorized) Code() int {
 }
 
 func (o *GetIntegrationTypesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesUnauthorized %s", 401, payload)
 }
 
 func (o *GetIntegrationTypesUnauthorized) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesUnauthorized %s", 401, payload)
 }
 
 func (o *GetIntegrationTypesUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -338,11 +343,13 @@ func (o *GetIntegrationTypesForbidden) Code() int {
 }
 
 func (o *GetIntegrationTypesForbidden) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesForbidden %s", 403, payload)
 }
 
 func (o *GetIntegrationTypesForbidden) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesForbidden %s", 403, payload)
 }
 
 func (o *GetIntegrationTypesForbidden) GetPayload() *models.TypesErrorMessage {
@@ -452,11 +459,13 @@ func (o *GetIntegrationTypesTooManyRequests) Code() int {
 }
 
 func (o *GetIntegrationTypesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntegrationTypesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetIntegrationTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetIntegrationTypesInternalServerError) Code() int {
 }
 
 func (o *GetIntegrationTypesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntegrationTypesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /aspm-api-gateway/api/v1/integration_types][%d] getIntegrationTypesInternalServerError %s", 500, payload)
 }
 
 func (o *GetIntegrationTypesInternalServerError) GetPayload() *models.TypesErrorMessage {

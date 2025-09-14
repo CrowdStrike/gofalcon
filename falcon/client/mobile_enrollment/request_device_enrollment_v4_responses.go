@@ -6,6 +6,7 @@ package mobile_enrollment
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *RequestDeviceEnrollmentV4OK) Code() int {
 }
 
 func (o *RequestDeviceEnrollmentV4OK) Error() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4OK %s", 200, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4OK) String() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4OK %s", 200, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4OK) GetPayload() *models.APIPostEnrollmentDetailsResponse {
@@ -228,11 +231,13 @@ func (o *RequestDeviceEnrollmentV4BadRequest) Code() int {
 }
 
 func (o *RequestDeviceEnrollmentV4BadRequest) Error() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4BadRequest %s", 400, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4BadRequest) String() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4BadRequest %s", 400, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *RequestDeviceEnrollmentV4Forbidden) Code() int {
 }
 
 func (o *RequestDeviceEnrollmentV4Forbidden) Error() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4Forbidden %s", 403, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4Forbidden) String() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4Forbidden %s", 403, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *RequestDeviceEnrollmentV4TooManyRequests) Code() int {
 }
 
 func (o *RequestDeviceEnrollmentV4TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4TooManyRequests %s", 429, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4TooManyRequests %s", 429, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *RequestDeviceEnrollmentV4InternalServerError) Code() int {
 }
 
 func (o *RequestDeviceEnrollmentV4InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4InternalServerError %s", 500, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4InternalServerError) String() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /enrollments/entities/details/v4][%d] requestDeviceEnrollmentV4InternalServerError %s", 500, payload)
 }
 
 func (o *RequestDeviceEnrollmentV4InternalServerError) GetPayload() *models.MsaspecResponseFields {

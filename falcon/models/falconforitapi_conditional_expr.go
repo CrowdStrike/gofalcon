@@ -22,12 +22,12 @@ type FalconforitapiConditionalExpr struct {
 
 	// Comparison operator to use
 	// Required: true
-	// Enum: [LessThan GreaterThan LessThanEquals GreaterThanEquals Equals NotEquals Contains NotContains Matches NotMatches]
+	// Enum: ["LessThan","GreaterThan","LessThanEquals","GreaterThanEquals","Equals","NotEquals","Contains","NotContains","Matches","NotMatches"]
 	DataComparator *string `json:"data_comparator"`
 
 	// Data type for comparison
 	// Required: true
-	// Enum: [StringType NumericType SemverType]
+	// Enum: ["StringType","NumericType","SemverType"]
 	DataType *string `json:"data_type"`
 
 	// Result key to evaluate. For osquery: column name. For script: script column name (with output parser config) or script_output/script_error

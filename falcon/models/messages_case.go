@@ -84,6 +84,10 @@ type MessagesCase struct {
 	// Required: true
 	ReconRuleType *string `json:"recon_rule_type"`
 
+	// rfi id
+	// Required: true
+	RfiID *string `json:"rfi_id"`
+
 	// status
 	// Required: true
 	Status *string `json:"status"`
@@ -162,6 +166,10 @@ func (m *MessagesCase) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateReconRuleType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRfiID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -386,6 +394,15 @@ func (m *MessagesCase) validateMalwareSubmissionURL(formats strfmt.Registry) err
 func (m *MessagesCase) validateReconRuleType(formats strfmt.Registry) error {
 
 	if err := validate.Required("recon_rule_type", "body", m.ReconRuleType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagesCase) validateRfiID(formats strfmt.Registry) error {
+
+	if err := validate.Required("rfi_id", "body", m.RfiID); err != nil {
 		return err
 	}
 

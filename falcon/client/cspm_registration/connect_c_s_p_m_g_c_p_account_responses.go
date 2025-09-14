@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *ConnectCSPMGCPAccountCreated) Code() int {
 }
 
 func (o *ConnectCSPMGCPAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountCreated %s", 201, payload)
 }
 
 func (o *ConnectCSPMGCPAccountCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountCreated %s", 201, payload)
 }
 
 func (o *ConnectCSPMGCPAccountCreated) GetPayload() *models.RegistrationGCPAccountResponseExtV2 {
@@ -240,11 +243,13 @@ func (o *ConnectCSPMGCPAccountMultiStatus) Code() int {
 }
 
 func (o *ConnectCSPMGCPAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountMultiStatus %s", 207, payload)
 }
 
 func (o *ConnectCSPMGCPAccountMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountMultiStatus %s", 207, payload)
 }
 
 func (o *ConnectCSPMGCPAccountMultiStatus) GetPayload() *models.RegistrationGCPAccountResponseExtV2 {
@@ -350,11 +355,13 @@ func (o *ConnectCSPMGCPAccountBadRequest) Code() int {
 }
 
 func (o *ConnectCSPMGCPAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountBadRequest %s", 400, payload)
 }
 
 func (o *ConnectCSPMGCPAccountBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountBadRequest %s", 400, payload)
 }
 
 func (o *ConnectCSPMGCPAccountBadRequest) GetPayload() *models.RegistrationGCPAccountResponseExtV2 {
@@ -460,11 +467,13 @@ func (o *ConnectCSPMGCPAccountForbidden) Code() int {
 }
 
 func (o *ConnectCSPMGCPAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountForbidden %s", 403, payload)
 }
 
 func (o *ConnectCSPMGCPAccountForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountForbidden %s", 403, payload)
 }
 
 func (o *ConnectCSPMGCPAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -570,11 +579,13 @@ func (o *ConnectCSPMGCPAccountConflict) Code() int {
 }
 
 func (o *ConnectCSPMGCPAccountConflict) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountConflict %s", 409, payload)
 }
 
 func (o *ConnectCSPMGCPAccountConflict) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountConflict %s", 409, payload)
 }
 
 func (o *ConnectCSPMGCPAccountConflict) GetPayload() *models.RegistrationGCPAccountResponseExtV2 {
@@ -684,11 +695,13 @@ func (o *ConnectCSPMGCPAccountTooManyRequests) Code() int {
 }
 
 func (o *ConnectCSPMGCPAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *ConnectCSPMGCPAccountTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountTooManyRequests %s", 429, payload)
 }
 
 func (o *ConnectCSPMGCPAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *ConnectCSPMGCPAccountInternalServerError) Code() int {
 }
 
 func (o *ConnectCSPMGCPAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountInternalServerError %s", 500, payload)
 }
 
 func (o *ConnectCSPMGCPAccountInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountInternalServerError %s", 500, payload)
 }
 
 func (o *ConnectCSPMGCPAccountInternalServerError) GetPayload() *models.RegistrationGCPAccountResponseExtV2 {

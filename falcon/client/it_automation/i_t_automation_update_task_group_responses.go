@@ -6,6 +6,7 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -68,7 +69,7 @@ func NewITAutomationUpdateTaskGroupOK() *ITAutomationUpdateTaskGroupOK {
 /*
 ITAutomationUpdateTaskGroupOK describes a response with status code 200, with default header values.
 
-OK
+Update successful, returns updated task group
 */
 type ITAutomationUpdateTaskGroupOK struct {
 
@@ -118,11 +119,13 @@ func (o *ITAutomationUpdateTaskGroupOK) Code() int {
 }
 
 func (o *ITAutomationUpdateTaskGroupOK) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupOK) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupOK) GetPayload() *models.ItautomationUpdateTaskGroupResponse {
@@ -228,11 +231,13 @@ func (o *ITAutomationUpdateTaskGroupBadRequest) Code() int {
 }
 
 func (o *ITAutomationUpdateTaskGroupBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *ITAutomationUpdateTaskGroupForbidden) Code() int {
 }
 
 func (o *ITAutomationUpdateTaskGroupForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupForbidden) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -452,11 +459,13 @@ func (o *ITAutomationUpdateTaskGroupTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationUpdateTaskGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *ITAutomationUpdateTaskGroupInternalServerError) Code() int {
 }
 
 func (o *ITAutomationUpdateTaskGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/task-groups/v1][%d] iTAutomationUpdateTaskGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdateTaskGroupInternalServerError) GetPayload() *models.MsaspecResponseFields {

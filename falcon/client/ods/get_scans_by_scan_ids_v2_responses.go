@@ -6,6 +6,7 @@ package ods
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetScansByScanIdsV2OK) Code() int {
 }
 
 func (o *GetScansByScanIdsV2OK) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2OK %s", 200, payload)
 }
 
 func (o *GetScansByScanIdsV2OK) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2OK %s", 200, payload)
 }
 
 func (o *GetScansByScanIdsV2OK) GetPayload() *models.EntitiesODSScanResponseV2 {
@@ -228,11 +231,13 @@ func (o *GetScansByScanIdsV2Forbidden) Code() int {
 }
 
 func (o *GetScansByScanIdsV2Forbidden) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetScansByScanIdsV2Forbidden) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2Forbidden %s", 403, payload)
 }
 
 func (o *GetScansByScanIdsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -338,11 +343,13 @@ func (o *GetScansByScanIdsV2NotFound) Code() int {
 }
 
 func (o *GetScansByScanIdsV2NotFound) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2NotFound %s", 404, payload)
 }
 
 func (o *GetScansByScanIdsV2NotFound) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2NotFound %s", 404, payload)
 }
 
 func (o *GetScansByScanIdsV2NotFound) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *GetScansByScanIdsV2TooManyRequests) Code() int {
 }
 
 func (o *GetScansByScanIdsV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansByScanIdsV2TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2TooManyRequests %s", 429, payload)
 }
 
 func (o *GetScansByScanIdsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetScansByScanIdsV2InternalServerError) Code() int {
 }
 
 func (o *GetScansByScanIdsV2InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetScansByScanIdsV2InternalServerError) String() string {
-	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ods/entities/scans/v2][%d] getScansByScanIdsV2InternalServerError %s", 500, payload)
 }
 
 func (o *GetScansByScanIdsV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

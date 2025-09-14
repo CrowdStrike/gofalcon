@@ -6,6 +6,7 @@ package container_packages
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ReadPackagesByFixableVulnCountOK) Code() int {
 }
 
 func (o *ReadPackagesByFixableVulnCountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountOK %s", 200, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountOK %s", 200, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountOK) GetPayload() *models.PackagesAPIPackagesByVulnCount {
@@ -222,11 +225,13 @@ func (o *ReadPackagesByFixableVulnCountForbidden) Code() int {
 }
 
 func (o *ReadPackagesByFixableVulnCountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountForbidden %s", 403, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ReadPackagesByFixableVulnCountTooManyRequests) Code() int {
 }
 
 func (o *ReadPackagesByFixableVulnCountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountTooManyRequests %s", 429, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ReadPackagesByFixableVulnCountInternalServerError) Code() int {
 }
 
 func (o *ReadPackagesByFixableVulnCountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/packages/app-by-fixable-vulnerability-count/v1][%d] readPackagesByFixableVulnCountInternalServerError %s", 500, payload)
 }
 
 func (o *ReadPackagesByFixableVulnCountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

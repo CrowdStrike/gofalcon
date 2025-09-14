@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ProvisionOK) Code() int {
 }
 
 func (o *ProvisionOK) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionOK %s", 200, payload)
 }
 
 func (o *ProvisionOK) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionOK %s", 200, payload)
 }
 
 func (o *ProvisionOK) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -234,11 +237,13 @@ func (o *ProvisionBadRequest) Code() int {
 }
 
 func (o *ProvisionBadRequest) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionBadRequest %s", 400, payload)
 }
 
 func (o *ProvisionBadRequest) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionBadRequest %s", 400, payload)
 }
 
 func (o *ProvisionBadRequest) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -344,11 +349,13 @@ func (o *ProvisionForbidden) Code() int {
 }
 
 func (o *ProvisionForbidden) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionForbidden %s", 403, payload)
 }
 
 func (o *ProvisionForbidden) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionForbidden %s", 403, payload)
 }
 
 func (o *ProvisionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *ProvisionNotFound) Code() int {
 }
 
 func (o *ProvisionNotFound) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionNotFound %s", 404, payload)
 }
 
 func (o *ProvisionNotFound) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionNotFound %s", 404, payload)
 }
 
 func (o *ProvisionNotFound) GetPayload() *models.ClientSystemDefinitionCreateResponse {
@@ -568,11 +577,13 @@ func (o *ProvisionTooManyRequests) Code() int {
 }
 
 func (o *ProvisionTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionTooManyRequests %s", 429, payload)
 }
 
 func (o *ProvisionTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionTooManyRequests %s", 429, payload)
 }
 
 func (o *ProvisionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ProvisionInternalServerError) Code() int {
 }
 
 func (o *ProvisionInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionInternalServerError %s", 500, payload)
 }
 
 func (o *ProvisionInternalServerError) String() string {
-	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionInternalServerError %s", 500, payload)
 }
 
 func (o *ProvisionInternalServerError) GetPayload() *models.ClientSystemDefinitionCreateResponse {

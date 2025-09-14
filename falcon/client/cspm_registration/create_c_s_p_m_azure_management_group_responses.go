@@ -6,6 +6,7 @@ package cspm_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *CreateCSPMAzureManagementGroupCreated) Code() int {
 }
 
 func (o *CreateCSPMAzureManagementGroupCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupCreated %s", 201, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupCreated) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupCreated %s", 201, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupCreated) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -234,11 +237,13 @@ func (o *CreateCSPMAzureManagementGroupMultiStatus) Code() int {
 }
 
 func (o *CreateCSPMAzureManagementGroupMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupMultiStatus %s", 207, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupMultiStatus) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupMultiStatus %s", 207, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupMultiStatus) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -344,11 +349,13 @@ func (o *CreateCSPMAzureManagementGroupBadRequest) Code() int {
 }
 
 func (o *CreateCSPMAzureManagementGroupBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupBadRequest %s", 400, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupBadRequest %s", 400, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupBadRequest) GetPayload() *models.RegistrationAzureAccountResponseV1 {
@@ -454,11 +461,13 @@ func (o *CreateCSPMAzureManagementGroupForbidden) Code() int {
 }
 
 func (o *CreateCSPMAzureManagementGroupForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupForbidden %s", 403, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupForbidden %s", 403, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -568,11 +577,13 @@ func (o *CreateCSPMAzureManagementGroupTooManyRequests) Code() int {
 }
 
 func (o *CreateCSPMAzureManagementGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *CreateCSPMAzureManagementGroupInternalServerError) Code() int {
 }
 
 func (o *CreateCSPMAzureManagementGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupInternalServerError %s", 500, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/management-group/v1][%d] createCSPMAzureManagementGroupInternalServerError %s", 500, payload)
 }
 
 func (o *CreateCSPMAzureManagementGroupInternalServerError) GetPayload() *models.RegistrationAzureAccountResponseV1 {

@@ -6,6 +6,7 @@ package case_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *EntitiesNotificationGroupsDeleteV1OK) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1OK) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1OK %s", 200, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1OK) GetPayload() *models.APINotificationGroupDeleteV1Response {
@@ -228,11 +231,13 @@ func (o *EntitiesNotificationGroupsDeleteV1BadRequest) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1BadRequest %s", 400, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1BadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *EntitiesNotificationGroupsDeleteV1Forbidden) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1Forbidden %s", 403, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *EntitiesNotificationGroupsDeleteV1TooManyRequests) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1TooManyRequests %s", 429, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *EntitiesNotificationGroupsDeleteV1InternalServerError) Code() int {
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /casemgmt/entities/notification-groups/v1][%d] entitiesNotificationGroupsDeleteV1InternalServerError %s", 500, payload)
 }
 
 func (o *EntitiesNotificationGroupsDeleteV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

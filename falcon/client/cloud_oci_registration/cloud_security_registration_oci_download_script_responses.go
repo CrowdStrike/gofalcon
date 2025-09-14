@@ -6,6 +6,7 @@ package cloud_oci_registration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CloudSecurityRegistrationOciDownloadScriptOK) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptOK %s", 200, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptOK) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptOK %s", 200, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptOK) GetPayload() *models.DomainOCIProvisionGetAccountScriptResponseV1 {
@@ -228,11 +231,13 @@ func (o *CloudSecurityRegistrationOciDownloadScriptBadRequest) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptBadRequest %s", 400, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *CloudSecurityRegistrationOciDownloadScriptForbidden) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptForbidden %s", 403, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *CloudSecurityRegistrationOciDownloadScriptTooManyRequests) Code() int {
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptTooManyRequests %s", 429, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CloudSecurityRegistrationOciDownloadScriptInternalServerError) Code() i
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-oci/entities/scripts/v1][%d] cloudSecurityRegistrationOciDownloadScriptInternalServerError %s", 500, payload)
 }
 
 func (o *CloudSecurityRegistrationOciDownloadScriptInternalServerError) GetPayload() *models.MsaspecResponseFields {

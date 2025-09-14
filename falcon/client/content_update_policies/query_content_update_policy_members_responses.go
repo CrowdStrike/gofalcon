@@ -6,6 +6,7 @@ package content_update_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *QueryContentUpdatePolicyMembersOK) Code() int {
 }
 
 func (o *QueryContentUpdatePolicyMembersOK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersOK %s", 200, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersOK) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersOK %s", 200, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersOK) GetPayload() *models.MsaQueryResponse {
@@ -234,11 +237,13 @@ func (o *QueryContentUpdatePolicyMembersBadRequest) Code() int {
 }
 
 func (o *QueryContentUpdatePolicyMembersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersBadRequest) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersBadRequest %s", 400, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -344,11 +349,13 @@ func (o *QueryContentUpdatePolicyMembersForbidden) Code() int {
 }
 
 func (o *QueryContentUpdatePolicyMembersForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersForbidden %s", 403, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -454,11 +461,13 @@ func (o *QueryContentUpdatePolicyMembersNotFound) Code() int {
 }
 
 func (o *QueryContentUpdatePolicyMembersNotFound) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersNotFound) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersNotFound %s", 404, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersNotFound) GetPayload() *models.MsaQueryResponse {
@@ -568,11 +577,13 @@ func (o *QueryContentUpdatePolicyMembersTooManyRequests) Code() int {
 }
 
 func (o *QueryContentUpdatePolicyMembersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *QueryContentUpdatePolicyMembersInternalServerError) Code() int {
 }
 
 func (o *QueryContentUpdatePolicyMembersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/content-update-members/v1][%d] queryContentUpdatePolicyMembersInternalServerError %s", 500, payload)
 }
 
 func (o *QueryContentUpdatePolicyMembersInternalServerError) GetPayload() *models.MsaQueryResponse {

@@ -6,6 +6,7 @@ package ioc
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *ActionGetV1OK) Code() int {
 }
 
 func (o *ActionGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1OK %s", 200, payload)
 }
 
 func (o *ActionGetV1OK) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1OK %s", 200, payload)
 }
 
 func (o *ActionGetV1OK) GetPayload() *models.APIActionRespV1 {
@@ -222,11 +225,13 @@ func (o *ActionGetV1Forbidden) Code() int {
 }
 
 func (o *ActionGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1Forbidden %s", 403, payload)
 }
 
 func (o *ActionGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1Forbidden %s", 403, payload)
 }
 
 func (o *ActionGetV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *ActionGetV1TooManyRequests) Code() int {
 }
 
 func (o *ActionGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ActionGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *ActionGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *ActionGetV1InternalServerError) Code() int {
 }
 
 func (o *ActionGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *ActionGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *ActionGetV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {

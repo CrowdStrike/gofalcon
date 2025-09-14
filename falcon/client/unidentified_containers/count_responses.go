@@ -6,6 +6,7 @@ package unidentified_containers
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *CountOK) Code() int {
 }
 
 func (o *CountOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countOK %s", 200, payload)
 }
 
 func (o *CountOK) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countOK %s", 200, payload)
 }
 
 func (o *CountOK) GetPayload() *models.UnidentifiedcontainersUnidentifiedContainersCountValue {
@@ -222,11 +225,13 @@ func (o *CountForbidden) Code() int {
 }
 
 func (o *CountForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countForbidden %s", 403, payload)
 }
 
 func (o *CountForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countForbidden %s", 403, payload)
 }
 
 func (o *CountForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *CountTooManyRequests) Code() int {
 }
 
 func (o *CountTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countTooManyRequests %s", 429, payload)
 }
 
 func (o *CountTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countTooManyRequests %s", 429, payload)
 }
 
 func (o *CountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *CountInternalServerError) Code() int {
 }
 
 func (o *CountInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countInternalServerError %s", 500, payload)
 }
 
 func (o *CountInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/aggregates/unidentified-containers/count/v1][%d] countInternalServerError %s", 500, payload)
 }
 
 func (o *CountInternalServerError) GetPayload() *models.CoreEntitiesResponse {

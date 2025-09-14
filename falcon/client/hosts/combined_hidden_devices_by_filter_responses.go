@@ -6,6 +6,7 @@ package hosts
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *CombinedHiddenDevicesByFilterOK) Code() int {
 }
 
 func (o *CombinedHiddenDevicesByFilterOK) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterOK %s", 200, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterOK) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterOK %s", 200, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterOK) GetPayload() *models.DeviceapiDeviceCombinedResponseSwagger {
@@ -222,11 +225,13 @@ func (o *CombinedHiddenDevicesByFilterForbidden) Code() int {
 }
 
 func (o *CombinedHiddenDevicesByFilterForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterForbidden %s", 403, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterForbidden %s", 403, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *CombinedHiddenDevicesByFilterTooManyRequests) Code() int {
 }
 
 func (o *CombinedHiddenDevicesByFilterTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterTooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *CombinedHiddenDevicesByFilterInternalServerError) Code() int {
 }
 
 func (o *CombinedHiddenDevicesByFilterInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterInternalServerError) String() string {
-	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /devices/combined/devices-hidden/v1][%d] combinedHiddenDevicesByFilterInternalServerError %s", 500, payload)
 }
 
 func (o *CombinedHiddenDevicesByFilterInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

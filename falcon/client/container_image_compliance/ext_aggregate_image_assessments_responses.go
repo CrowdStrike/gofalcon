@@ -6,6 +6,7 @@ package container_image_compliance
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExtAggregateImageAssessmentsOK) Code() int {
 }
 
 func (o *ExtAggregateImageAssessmentsOK) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsOK %s", 200, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsOK) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsOK %s", 200, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsOK) GetPayload() *models.DomainAggregateImageAssessmentsResponse {
@@ -234,11 +237,13 @@ func (o *ExtAggregateImageAssessmentsBadRequest) Code() int {
 }
 
 func (o *ExtAggregateImageAssessmentsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsBadRequest) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsBadRequest %s", 400, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsBadRequest) GetPayload() *models.DomainAggregateImageAssessmentsResponse {
@@ -344,11 +349,13 @@ func (o *ExtAggregateImageAssessmentsUnauthorized) Code() int {
 }
 
 func (o *ExtAggregateImageAssessmentsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsUnauthorized) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsUnauthorized %s", 401, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsUnauthorized) GetPayload() *models.DomainAggregateImageAssessmentsResponse {
@@ -454,11 +461,13 @@ func (o *ExtAggregateImageAssessmentsForbidden) Code() int {
 }
 
 func (o *ExtAggregateImageAssessmentsForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsForbidden) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsForbidden %s", 403, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsForbidden) GetPayload() *models.DomainAggregateImageAssessmentsResponse {
@@ -568,11 +577,13 @@ func (o *ExtAggregateImageAssessmentsTooManyRequests) Code() int {
 }
 
 func (o *ExtAggregateImageAssessmentsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsTooManyRequests %s", 429, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *ExtAggregateImageAssessmentsInternalServerError) Code() int {
 }
 
 func (o *ExtAggregateImageAssessmentsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-compliance/aggregates/compliance-by-images/v2][%d] extAggregateImageAssessmentsInternalServerError %s", 500, payload)
 }
 
 func (o *ExtAggregateImageAssessmentsInternalServerError) GetPayload() *models.DomainAggregateImageAssessmentsResponse {

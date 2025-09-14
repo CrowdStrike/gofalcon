@@ -6,6 +6,7 @@ package kubernetes_protection
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteAzureSubscriptionOK) Code() int {
 }
 
 func (o *DeleteAzureSubscriptionOK) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionOK %s", 200, payload)
 }
 
 func (o *DeleteAzureSubscriptionOK) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionOK %s", 200, payload)
 }
 
 func (o *DeleteAzureSubscriptionOK) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -234,11 +237,13 @@ func (o *DeleteAzureSubscriptionMultiStatus) Code() int {
 }
 
 func (o *DeleteAzureSubscriptionMultiStatus) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteAzureSubscriptionMultiStatus) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionMultiStatus %s", 207, payload)
 }
 
 func (o *DeleteAzureSubscriptionMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -344,11 +349,13 @@ func (o *DeleteAzureSubscriptionBadRequest) Code() int {
 }
 
 func (o *DeleteAzureSubscriptionBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionBadRequest %s", 400, payload)
 }
 
 func (o *DeleteAzureSubscriptionBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionBadRequest %s", 400, payload)
 }
 
 func (o *DeleteAzureSubscriptionBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
@@ -454,11 +461,13 @@ func (o *DeleteAzureSubscriptionForbidden) Code() int {
 }
 
 func (o *DeleteAzureSubscriptionForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionForbidden %s", 403, payload)
 }
 
 func (o *DeleteAzureSubscriptionForbidden) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionForbidden %s", 403, payload)
 }
 
 func (o *DeleteAzureSubscriptionForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -568,11 +577,13 @@ func (o *DeleteAzureSubscriptionTooManyRequests) Code() int {
 }
 
 func (o *DeleteAzureSubscriptionTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteAzureSubscriptionTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionTooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteAzureSubscriptionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteAzureSubscriptionInternalServerError) Code() int {
 }
 
 func (o *DeleteAzureSubscriptionInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteAzureSubscriptionInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionInternalServerError %s", 500, payload)
 }
 
 func (o *DeleteAzureSubscriptionInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {

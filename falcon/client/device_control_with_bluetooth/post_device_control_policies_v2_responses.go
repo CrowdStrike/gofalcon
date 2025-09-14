@@ -6,6 +6,7 @@ package device_control_with_bluetooth
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *PostDeviceControlPoliciesV2OK) Code() int {
 }
 
 func (o *PostDeviceControlPoliciesV2OK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2OK %s", 200, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2OK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2OK %s", 200, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2OK) GetPayload() *models.DevicecontrolapiRespPoliciesV2 {
@@ -228,11 +231,13 @@ func (o *PostDeviceControlPoliciesV2Forbidden) Code() int {
 }
 
 func (o *PostDeviceControlPoliciesV2Forbidden) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2Forbidden %s", 403, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2Forbidden) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2Forbidden %s", 403, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2Forbidden) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *PostDeviceControlPoliciesV2NotFound) Code() int {
 }
 
 func (o *PostDeviceControlPoliciesV2NotFound) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2NotFound %s", 404, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2NotFound) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2NotFound %s", 404, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2NotFound) GetPayload() *models.DeviceControlRespV1 {
@@ -452,11 +459,13 @@ func (o *PostDeviceControlPoliciesV2TooManyRequests) Code() int {
 }
 
 func (o *PostDeviceControlPoliciesV2TooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2TooManyRequests) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2TooManyRequests %s", 429, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *PostDeviceControlPoliciesV2InternalServerError) Code() int {
 }
 
 func (o *PostDeviceControlPoliciesV2InternalServerError) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2InternalServerError %s", 500, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2InternalServerError) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /policy/entities/device-control/v2][%d] postDeviceControlPoliciesV2InternalServerError %s", 500, payload)
 }
 
 func (o *PostDeviceControlPoliciesV2InternalServerError) GetPayload() *models.DeviceControlRespV1 {

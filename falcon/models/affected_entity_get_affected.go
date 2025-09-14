@@ -52,8 +52,8 @@ type AffectedEntityGetAffected struct {
 	// Min Length: 1
 	Type *string `json:"type"`
 
-	// Usage
-	Usage map[string]*string `json:"usage,omitempty"`
+	// usage
+	Usage *AffectedEntityGetAffectedUsage `json:"usage,omitempty"`
 }
 
 // Validate validates this affected entity get affected
@@ -85,6 +85,10 @@ func (m *AffectedEntityGetAffected) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUsage(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -171,8 +175,57 @@ func (m *AffectedEntityGetAffected) validateType(formats strfmt.Registry) error 
 	return nil
 }
 
-// ContextValidate validates this affected entity get affected based on context it is used
+func (m *AffectedEntityGetAffected) validateUsage(formats strfmt.Registry) error {
+	if swag.IsZero(m.Usage) { // not required
+		return nil
+	}
+
+	if m.Usage != nil {
+		if err := m.Usage.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this affected entity get affected based on the context it is used
 func (m *AffectedEntityGetAffected) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUsage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AffectedEntityGetAffected) contextValidateUsage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Usage != nil {
+
+		if swag.IsZero(m.Usage) { // not required
+			return nil
+		}
+
+		if err := m.Usage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -187,6 +240,88 @@ func (m *AffectedEntityGetAffected) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (m *AffectedEntityGetAffected) UnmarshalBinary(b []byte) error {
 	var res AffectedEntityGetAffected
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// AffectedEntityGetAffectedUsage Usage
+//
+// swagger:model AffectedEntityGetAffectedUsage
+type AffectedEntityGetAffectedUsage struct {
+
+	// First occurrence timestamp in ISO format
+	// Format: date-time
+	FirstOccurrenceTime strfmt.DateTime `json:"first_occurrence_time,omitempty"`
+
+	// Last occurrence timestamp in ISO format
+	// Format: date-time
+	LastOccurrenceTime strfmt.DateTime `json:"last_occurrence_time,omitempty"`
+
+	// Total count of occurrences
+	TotalCount int64 `json:"total_count,omitempty"`
+}
+
+// Validate validates this affected entity get affected usage
+func (m *AffectedEntityGetAffectedUsage) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateFirstOccurrenceTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastOccurrenceTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AffectedEntityGetAffectedUsage) validateFirstOccurrenceTime(formats strfmt.Registry) error {
+	if swag.IsZero(m.FirstOccurrenceTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("usage"+"."+"first_occurrence_time", "body", "date-time", m.FirstOccurrenceTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AffectedEntityGetAffectedUsage) validateLastOccurrenceTime(formats strfmt.Registry) error {
+	if swag.IsZero(m.LastOccurrenceTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("usage"+"."+"last_occurrence_time", "body", "date-time", m.LastOccurrenceTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validates this affected entity get affected usage based on context it is used
+func (m *AffectedEntityGetAffectedUsage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *AffectedEntityGetAffectedUsage) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *AffectedEntityGetAffectedUsage) UnmarshalBinary(b []byte) error {
+	var res AffectedEntityGetAffectedUsage
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -6,6 +6,7 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *QueryChildrenOK) Code() int {
 }
 
 func (o *QueryChildrenOK) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenOK %s", 200, payload)
 }
 
 func (o *QueryChildrenOK) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenOK %s", 200, payload)
 }
 
 func (o *QueryChildrenOK) GetPayload() *models.MsaspecQueryResponse {
@@ -228,11 +231,13 @@ func (o *QueryChildrenBadRequest) Code() int {
 }
 
 func (o *QueryChildrenBadRequest) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenBadRequest %s", 400, payload)
 }
 
 func (o *QueryChildrenBadRequest) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenBadRequest %s", 400, payload)
 }
 
 func (o *QueryChildrenBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *QueryChildrenForbidden) Code() int {
 }
 
 func (o *QueryChildrenForbidden) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenForbidden %s", 403, payload)
 }
 
 func (o *QueryChildrenForbidden) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenForbidden %s", 403, payload)
 }
 
 func (o *QueryChildrenForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *QueryChildrenTooManyRequests) Code() int {
 }
 
 func (o *QueryChildrenTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryChildrenTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryChildrenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *QueryChildrenInternalServerError) Code() int {
 }
 
 func (o *QueryChildrenInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenInternalServerError %s", 500, payload)
 }
 
 func (o *QueryChildrenInternalServerError) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenInternalServerError %s", 500, payload)
 }
 
 func (o *QueryChildrenInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

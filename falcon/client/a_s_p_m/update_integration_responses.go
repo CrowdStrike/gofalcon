@@ -6,6 +6,7 @@ package a_s_p_m
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateIntegrationOK) Code() int {
 }
 
 func (o *UpdateIntegrationOK) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationOK %s", 200, payload)
 }
 
 func (o *UpdateIntegrationOK) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationOK %s", 200, payload)
 }
 
 func (o *UpdateIntegrationOK) GetPayload() *models.TypesIntegrationResponse {
@@ -234,11 +237,13 @@ func (o *UpdateIntegrationBadRequest) Code() int {
 }
 
 func (o *UpdateIntegrationBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationBadRequest %s", 400, payload)
 }
 
 func (o *UpdateIntegrationBadRequest) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationBadRequest %s", 400, payload)
 }
 
 func (o *UpdateIntegrationBadRequest) GetPayload() *models.TypesErrorMessage {
@@ -344,11 +349,13 @@ func (o *UpdateIntegrationUnauthorized) Code() int {
 }
 
 func (o *UpdateIntegrationUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateIntegrationUnauthorized) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateIntegrationUnauthorized) GetPayload() *models.TypesErrorMessage {
@@ -454,11 +461,13 @@ func (o *UpdateIntegrationForbidden) Code() int {
 }
 
 func (o *UpdateIntegrationForbidden) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationForbidden %s", 403, payload)
 }
 
 func (o *UpdateIntegrationForbidden) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationForbidden %s", 403, payload)
 }
 
 func (o *UpdateIntegrationForbidden) GetPayload() *models.TypesErrorMessage {
@@ -568,11 +577,13 @@ func (o *UpdateIntegrationTooManyRequests) Code() int {
 }
 
 func (o *UpdateIntegrationTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateIntegrationTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateIntegrationTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateIntegrationInternalServerError) Code() int {
 }
 
 func (o *UpdateIntegrationInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateIntegrationInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /aspm-api-gateway/api/v1/integrations/{ID}][%d] updateIntegrationInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateIntegrationInternalServerError) GetPayload() *models.TypesErrorMessage {

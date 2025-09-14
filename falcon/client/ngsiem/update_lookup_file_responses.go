@@ -6,6 +6,7 @@ package ngsiem
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *UpdateLookupFileOK) Code() int {
 }
 
 func (o *UpdateLookupFileOK) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileOK %s", 200, payload)
 }
 
 func (o *UpdateLookupFileOK) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileOK %s", 200, payload)
 }
 
 func (o *UpdateLookupFileOK) GetPayload() *models.APIUpdateLookupFileResponseV1 {
@@ -240,11 +243,13 @@ func (o *UpdateLookupFileBadRequest) Code() int {
 }
 
 func (o *UpdateLookupFileBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileBadRequest %s", 400, payload)
 }
 
 func (o *UpdateLookupFileBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileBadRequest %s", 400, payload)
 }
 
 func (o *UpdateLookupFileBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -350,11 +355,13 @@ func (o *UpdateLookupFileUnauthorized) Code() int {
 }
 
 func (o *UpdateLookupFileUnauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateLookupFileUnauthorized) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileUnauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileUnauthorized %s", 401, payload)
 }
 
 func (o *UpdateLookupFileUnauthorized) GetPayload() *models.MsaspecResponseFields {
@@ -460,11 +467,13 @@ func (o *UpdateLookupFileForbidden) Code() int {
 }
 
 func (o *UpdateLookupFileForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileForbidden %s", 403, payload)
 }
 
 func (o *UpdateLookupFileForbidden) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileForbidden %s", 403, payload)
 }
 
 func (o *UpdateLookupFileForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -570,11 +579,13 @@ func (o *UpdateLookupFileNotFound) Code() int {
 }
 
 func (o *UpdateLookupFileNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileNotFound %s", 404, payload)
 }
 
 func (o *UpdateLookupFileNotFound) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileNotFound %s", 404, payload)
 }
 
 func (o *UpdateLookupFileNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -684,11 +695,13 @@ func (o *UpdateLookupFileTooManyRequests) Code() int {
 }
 
 func (o *UpdateLookupFileTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateLookupFileTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateLookupFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *UpdateLookupFileInternalServerError) Code() int {
 }
 
 func (o *UpdateLookupFileInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateLookupFileInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /ngsiem-content/entities/lookupfiles/v1][%d] updateLookupFileInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateLookupFileInternalServerError) GetPayload() *models.MsaspecResponseFields {

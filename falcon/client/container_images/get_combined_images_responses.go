@@ -6,6 +6,7 @@ package container_images
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetCombinedImagesOK) Code() int {
 }
 
 func (o *GetCombinedImagesOK) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesOK %s", 200, payload)
 }
 
 func (o *GetCombinedImagesOK) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesOK %s", 200, payload)
 }
 
 func (o *GetCombinedImagesOK) GetPayload() *models.ImagesExtCombinedImagesResponse {
@@ -228,11 +231,13 @@ func (o *GetCombinedImagesForbidden) Code() int {
 }
 
 func (o *GetCombinedImagesForbidden) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedImagesForbidden) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesForbidden %s", 403, payload)
 }
 
 func (o *GetCombinedImagesForbidden) GetPayload() *models.ImagesExtCombinedImagesResponse {
@@ -338,11 +343,13 @@ func (o *GetCombinedImagesNotFound) Code() int {
 }
 
 func (o *GetCombinedImagesNotFound) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesNotFound %s", 404, payload)
 }
 
 func (o *GetCombinedImagesNotFound) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesNotFound %s", 404, payload)
 }
 
 func (o *GetCombinedImagesNotFound) GetPayload() *models.ImagesExtCombinedImagesResponse {
@@ -452,11 +459,13 @@ func (o *GetCombinedImagesTooManyRequests) Code() int {
 }
 
 func (o *GetCombinedImagesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedImagesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetCombinedImagesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetCombinedImagesInternalServerError) Code() int {
 }
 
 func (o *GetCombinedImagesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedImagesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /container-security/combined/image-assessment/images/v1][%d] getCombinedImagesInternalServerError %s", 500, payload)
 }
 
 func (o *GetCombinedImagesInternalServerError) GetPayload() *models.ImagesExtCombinedImagesResponse {

@@ -6,6 +6,7 @@ package container_images
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *CreateBaseImagesEntitiesOK) Code() int {
 }
 
 func (o *CreateBaseImagesEntitiesOK) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesOK %s", 200, payload)
 }
 
 func (o *CreateBaseImagesEntitiesOK) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesOK %s", 200, payload)
 }
 
 func (o *CreateBaseImagesEntitiesOK) GetPayload() *models.CoreEntitiesResponse {
@@ -228,11 +231,13 @@ func (o *CreateBaseImagesEntitiesBadRequest) Code() int {
 }
 
 func (o *CreateBaseImagesEntitiesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *CreateBaseImagesEntitiesBadRequest) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesBadRequest %s", 400, payload)
 }
 
 func (o *CreateBaseImagesEntitiesBadRequest) GetPayload() *models.CoreEntitiesResponse {
@@ -338,11 +343,13 @@ func (o *CreateBaseImagesEntitiesForbidden) Code() int {
 }
 
 func (o *CreateBaseImagesEntitiesForbidden) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesForbidden %s", 403, payload)
 }
 
 func (o *CreateBaseImagesEntitiesForbidden) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesForbidden %s", 403, payload)
 }
 
 func (o *CreateBaseImagesEntitiesForbidden) GetPayload() *models.MsaAPIError {
@@ -452,11 +459,13 @@ func (o *CreateBaseImagesEntitiesTooManyRequests) Code() int {
 }
 
 func (o *CreateBaseImagesEntitiesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateBaseImagesEntitiesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesTooManyRequests %s", 429, payload)
 }
 
 func (o *CreateBaseImagesEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *CreateBaseImagesEntitiesInternalServerError) Code() int {
 }
 
 func (o *CreateBaseImagesEntitiesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateBaseImagesEntitiesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /container-security/entities/base-images/v1][%d] createBaseImagesEntitiesInternalServerError %s", 500, payload)
 }
 
 func (o *CreateBaseImagesEntitiesInternalServerError) GetPayload() *models.CoreEntitiesResponse {

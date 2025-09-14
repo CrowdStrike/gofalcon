@@ -22,7 +22,7 @@ import (
 type ItautomationUpdateTaskRequest struct {
 
 	// Access type of the task
-	// Enum: [Public Shared]
+	// Enum: ["Public","Shared"]
 	AccessType string `json:"access_type,omitempty"`
 
 	// User group IDs to add to the assigned user group IDs of the task, when access_type is Shared. Use GET /it-automation/queries/it-user-groups/v1 to fetch user group IDs
@@ -68,7 +68,7 @@ type ItautomationUpdateTaskRequest struct {
 	TaskParameters []*ItautomationTaskParameter `json:"task_parameters"`
 
 	// Type of task
-	// Enum: [query remediation]
+	// Enum: ["query","remediation"]
 	TaskType string `json:"task_type,omitempty"`
 
 	// Conditions that trigger remediation scripts execution

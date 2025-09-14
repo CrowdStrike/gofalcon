@@ -6,6 +6,7 @@ package recon
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *DeleteRulesV1OK) Code() int {
 }
 
 func (o *DeleteRulesV1OK) Error() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1OK %s", 200, payload)
 }
 
 func (o *DeleteRulesV1OK) String() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1OK %s", 200, payload)
 }
 
 func (o *DeleteRulesV1OK) GetPayload() *models.DomainRuleQueryResponseV1 {
@@ -234,11 +237,13 @@ func (o *DeleteRulesV1BadRequest) Code() int {
 }
 
 func (o *DeleteRulesV1BadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteRulesV1BadRequest) String() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1BadRequest %s", 400, payload)
 }
 
 func (o *DeleteRulesV1BadRequest) GetPayload() *models.DomainErrorsOnly {
@@ -344,11 +349,13 @@ func (o *DeleteRulesV1Unauthorized) Code() int {
 }
 
 func (o *DeleteRulesV1Unauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Unauthorized %s", 401, payload)
 }
 
 func (o *DeleteRulesV1Unauthorized) String() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Unauthorized %s", 401, payload)
 }
 
 func (o *DeleteRulesV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
@@ -454,11 +461,13 @@ func (o *DeleteRulesV1Forbidden) Code() int {
 }
 
 func (o *DeleteRulesV1Forbidden) Error() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteRulesV1Forbidden) String() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Forbidden %s", 403, payload)
 }
 
 func (o *DeleteRulesV1Forbidden) GetPayload() *models.DomainErrorsOnly {
@@ -568,11 +577,13 @@ func (o *DeleteRulesV1TooManyRequests) Code() int {
 }
 
 func (o *DeleteRulesV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRulesV1TooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1TooManyRequests %s", 429, payload)
 }
 
 func (o *DeleteRulesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *DeleteRulesV1InternalServerError) Code() int {
 }
 
 func (o *DeleteRulesV1InternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRulesV1InternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1InternalServerError %s", 500, payload)
 }
 
 func (o *DeleteRulesV1InternalServerError) GetPayload() *models.DomainErrorsOnly {

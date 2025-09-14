@@ -6,6 +6,7 @@ package correlation_rules
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -130,11 +131,13 @@ func (o *CombinedRulesGetV1OK) Code() int {
 }
 
 func (o *CombinedRulesGetV1OK) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1OK %s", 200, payload)
 }
 
 func (o *CombinedRulesGetV1OK) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1OK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1OK %s", 200, payload)
 }
 
 func (o *CombinedRulesGetV1OK) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -240,11 +243,13 @@ func (o *CombinedRulesGetV1BadRequest) Code() int {
 }
 
 func (o *CombinedRulesGetV1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *CombinedRulesGetV1BadRequest) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1BadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1BadRequest %s", 400, payload)
 }
 
 func (o *CombinedRulesGetV1BadRequest) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -350,11 +355,13 @@ func (o *CombinedRulesGetV1Unauthorized) Code() int {
 }
 
 func (o *CombinedRulesGetV1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Unauthorized %s", 401, payload)
 }
 
 func (o *CombinedRulesGetV1Unauthorized) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Unauthorized  %+v", 401, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Unauthorized %s", 401, payload)
 }
 
 func (o *CombinedRulesGetV1Unauthorized) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -460,11 +467,13 @@ func (o *CombinedRulesGetV1Forbidden) Code() int {
 }
 
 func (o *CombinedRulesGetV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *CombinedRulesGetV1Forbidden) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Forbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Forbidden %s", 403, payload)
 }
 
 func (o *CombinedRulesGetV1Forbidden) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -570,11 +579,13 @@ func (o *CombinedRulesGetV1NotFound) Code() int {
 }
 
 func (o *CombinedRulesGetV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1NotFound %s", 404, payload)
 }
 
 func (o *CombinedRulesGetV1NotFound) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1NotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1NotFound %s", 404, payload)
 }
 
 func (o *CombinedRulesGetV1NotFound) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
@@ -684,11 +695,13 @@ func (o *CombinedRulesGetV1TooManyRequests) Code() int {
 }
 
 func (o *CombinedRulesGetV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedRulesGetV1TooManyRequests) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1TooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1TooManyRequests %s", 429, payload)
 }
 
 func (o *CombinedRulesGetV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -805,11 +818,13 @@ func (o *CombinedRulesGetV1InternalServerError) Code() int {
 }
 
 func (o *CombinedRulesGetV1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *CombinedRulesGetV1InternalServerError) String() string {
-	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1InternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1InternalServerError %s", 500, payload)
 }
 
 func (o *CombinedRulesGetV1InternalServerError) GetPayload() *models.APIGetEntitiesRulesResponseV1 {

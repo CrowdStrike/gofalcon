@@ -6,6 +6,7 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *AggregateSupportIssuesOK) Code() int {
 }
 
 func (o *AggregateSupportIssuesOK) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesOK %s", 200, payload)
 }
 
 func (o *AggregateSupportIssuesOK) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesOK %s", 200, payload)
 }
 
 func (o *AggregateSupportIssuesOK) GetPayload() *models.MsaAggregatesResponse {
@@ -228,11 +231,13 @@ func (o *AggregateSupportIssuesBadRequest) Code() int {
 }
 
 func (o *AggregateSupportIssuesBadRequest) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesBadRequest %s", 400, payload)
 }
 
 func (o *AggregateSupportIssuesBadRequest) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesBadRequest %s", 400, payload)
 }
 
 func (o *AggregateSupportIssuesBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +343,13 @@ func (o *AggregateSupportIssuesForbidden) Code() int {
 }
 
 func (o *AggregateSupportIssuesForbidden) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesForbidden %s", 403, payload)
 }
 
 func (o *AggregateSupportIssuesForbidden) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesForbidden %s", 403, payload)
 }
 
 func (o *AggregateSupportIssuesForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *AggregateSupportIssuesTooManyRequests) Code() int {
 }
 
 func (o *AggregateSupportIssuesTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateSupportIssuesTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesTooManyRequests %s", 429, payload)
 }
 
 func (o *AggregateSupportIssuesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *AggregateSupportIssuesInternalServerError) Code() int {
 }
 
 func (o *AggregateSupportIssuesInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateSupportIssuesInternalServerError) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/support-issues/v1][%d] aggregateSupportIssuesInternalServerError %s", 500, payload)
 }
 
 func (o *AggregateSupportIssuesInternalServerError) GetPayload() *models.MsaspecResponseFields {

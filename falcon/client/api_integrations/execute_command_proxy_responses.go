@@ -6,6 +6,7 @@ package api_integrations
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *ExecuteCommandProxyOK) Code() int {
 }
 
 func (o *ExecuteCommandProxyOK) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyOK %s", 200, payload)
 }
 
 func (o *ExecuteCommandProxyOK) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyOK %s", 200, payload)
 }
 
 func (o *ExecuteCommandProxyOK) GetPayload() models.CustomType3352885422 {
@@ -232,11 +235,13 @@ func (o *ExecuteCommandProxyBadRequest) Code() int {
 }
 
 func (o *ExecuteCommandProxyBadRequest) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteCommandProxyBadRequest) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyBadRequest %s", 400, payload)
 }
 
 func (o *ExecuteCommandProxyBadRequest) GetPayload() *models.DomainExecuteCommandResultsV1 {
@@ -342,11 +347,13 @@ func (o *ExecuteCommandProxyForbidden) Code() int {
 }
 
 func (o *ExecuteCommandProxyForbidden) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyForbidden %s", 403, payload)
 }
 
 func (o *ExecuteCommandProxyForbidden) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyForbidden %s", 403, payload)
 }
 
 func (o *ExecuteCommandProxyForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +459,13 @@ func (o *ExecuteCommandProxyNotFound) Code() int {
 }
 
 func (o *ExecuteCommandProxyNotFound) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyNotFound %s", 404, payload)
 }
 
 func (o *ExecuteCommandProxyNotFound) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyNotFound %s", 404, payload)
 }
 
 func (o *ExecuteCommandProxyNotFound) GetPayload() *models.DomainExecuteCommandResultsV1 {
@@ -566,11 +575,13 @@ func (o *ExecuteCommandProxyTooManyRequests) Code() int {
 }
 
 func (o *ExecuteCommandProxyTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteCommandProxyTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyTooManyRequests %s", 429, payload)
 }
 
 func (o *ExecuteCommandProxyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -687,11 +698,13 @@ func (o *ExecuteCommandProxyInternalServerError) Code() int {
 }
 
 func (o *ExecuteCommandProxyInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteCommandProxyInternalServerError) String() string {
-	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /plugins/entities/execute-proxy/v1][%d] executeCommandProxyInternalServerError %s", 500, payload)
 }
 
 func (o *ExecuteCommandProxyInternalServerError) GetPayload() *models.DomainExecuteCommandResultsV1 {

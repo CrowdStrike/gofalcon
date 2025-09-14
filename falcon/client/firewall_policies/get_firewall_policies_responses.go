@@ -6,6 +6,7 @@ package firewall_policies
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -118,11 +119,13 @@ func (o *GetFirewallPoliciesOK) Code() int {
 }
 
 func (o *GetFirewallPoliciesOK) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK %s", 200, payload)
 }
 
 func (o *GetFirewallPoliciesOK) String() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK %s", 200, payload)
 }
 
 func (o *GetFirewallPoliciesOK) GetPayload() *models.FirewallRespV1 {
@@ -228,11 +231,13 @@ func (o *GetFirewallPoliciesForbidden) Code() int {
 }
 
 func (o *GetFirewallPoliciesForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetFirewallPoliciesForbidden) String() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesForbidden %s", 403, payload)
 }
 
 func (o *GetFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
@@ -338,11 +343,13 @@ func (o *GetFirewallPoliciesNotFound) Code() int {
 }
 
 func (o *GetFirewallPoliciesNotFound) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesNotFound %s", 404, payload)
 }
 
 func (o *GetFirewallPoliciesNotFound) String() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesNotFound %s", 404, payload)
 }
 
 func (o *GetFirewallPoliciesNotFound) GetPayload() *models.FirewallRespV1 {
@@ -452,11 +459,13 @@ func (o *GetFirewallPoliciesTooManyRequests) Code() int {
 }
 
 func (o *GetFirewallPoliciesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetFirewallPoliciesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesTooManyRequests %s", 429, payload)
 }
 
 func (o *GetFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +582,13 @@ func (o *GetFirewallPoliciesInternalServerError) Code() int {
 }
 
 func (o *GetFirewallPoliciesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetFirewallPoliciesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesInternalServerError %s", 500, payload)
 }
 
 func (o *GetFirewallPoliciesInternalServerError) GetPayload() *models.FirewallRespV1 {

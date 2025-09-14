@@ -6,6 +6,7 @@ package user_management
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *RetrieveUserUUIDOK) Code() int {
 }
 
 func (o *RetrieveUserUUIDOK) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidOK %s", 200, payload)
 }
 
 func (o *RetrieveUserUUIDOK) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidOK %s", 200, payload)
 }
 
 func (o *RetrieveUserUUIDOK) GetPayload() *models.MsaQueryResponse {
@@ -234,11 +237,13 @@ func (o *RetrieveUserUUIDBadRequest) Code() int {
 }
 
 func (o *RetrieveUserUUIDBadRequest) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveUserUUIDBadRequest) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidBadRequest %s", 400, payload)
 }
 
 func (o *RetrieveUserUUIDBadRequest) GetPayload() *models.MsaQueryResponse {
@@ -344,11 +349,13 @@ func (o *RetrieveUserUUIDForbidden) Code() int {
 }
 
 func (o *RetrieveUserUUIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidForbidden %s", 403, payload)
 }
 
 func (o *RetrieveUserUUIDForbidden) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidForbidden %s", 403, payload)
 }
 
 func (o *RetrieveUserUUIDForbidden) GetPayload() *models.MsaQueryResponse {
@@ -454,11 +461,13 @@ func (o *RetrieveUserUUIDNotFound) Code() int {
 }
 
 func (o *RetrieveUserUUIDNotFound) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidNotFound %s", 404, payload)
 }
 
 func (o *RetrieveUserUUIDNotFound) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidNotFound %s", 404, payload)
 }
 
 func (o *RetrieveUserUUIDNotFound) GetPayload() *models.MsaQueryResponse {
@@ -568,11 +577,13 @@ func (o *RetrieveUserUUIDTooManyRequests) Code() int {
 }
 
 func (o *RetrieveUserUUIDTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveUserUUIDTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidTooManyRequests %s", 429, payload)
 }
 
 func (o *RetrieveUserUUIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *RetrieveUserUUIDInternalServerError) Code() int {
 }
 
 func (o *RetrieveUserUUIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveUserUUIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidInternalServerError %s", 500, payload)
 }
 
 func (o *RetrieveUserUUIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

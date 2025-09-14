@@ -6,6 +6,7 @@ package quarantine
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -112,11 +113,13 @@ func (o *QueryQuarantineFilesOK) Code() int {
 }
 
 func (o *QueryQuarantineFilesOK) Error() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK %s", 200, payload)
 }
 
 func (o *QueryQuarantineFilesOK) String() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK %s", 200, payload)
 }
 
 func (o *QueryQuarantineFilesOK) GetPayload() *models.MsaspecQueryResponse {
@@ -222,11 +225,13 @@ func (o *QueryQuarantineFilesForbidden) Code() int {
 }
 
 func (o *QueryQuarantineFilesForbidden) Error() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesForbidden %s", 403, payload)
 }
 
 func (o *QueryQuarantineFilesForbidden) String() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesForbidden %s", 403, payload)
 }
 
 func (o *QueryQuarantineFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -336,11 +341,13 @@ func (o *QueryQuarantineFilesTooManyRequests) Code() int {
 }
 
 func (o *QueryQuarantineFilesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryQuarantineFilesTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesTooManyRequests %s", 429, payload)
 }
 
 func (o *QueryQuarantineFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -457,11 +464,13 @@ func (o *QueryQuarantineFilesInternalServerError) Code() int {
 }
 
 func (o *QueryQuarantineFilesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryQuarantineFilesInternalServerError) String() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesInternalServerError %s", 500, payload)
 }
 
 func (o *QueryQuarantineFilesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {

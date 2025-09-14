@@ -6,6 +6,7 @@ package cloud_connect_aws
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -124,11 +125,13 @@ func (o *UpdateAWSAccountsOK) Code() int {
 }
 
 func (o *UpdateAWSAccountsOK) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsOK %s", 200, payload)
 }
 
 func (o *UpdateAWSAccountsOK) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsOK %s", 200, payload)
 }
 
 func (o *UpdateAWSAccountsOK) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -234,11 +237,13 @@ func (o *UpdateAWSAccountsBadRequest) Code() int {
 }
 
 func (o *UpdateAWSAccountsBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateAWSAccountsBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsBadRequest %s", 400, payload)
 }
 
 func (o *UpdateAWSAccountsBadRequest) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -344,11 +349,13 @@ func (o *UpdateAWSAccountsForbidden) Code() int {
 }
 
 func (o *UpdateAWSAccountsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *UpdateAWSAccountsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsForbidden %s", 403, payload)
 }
 
 func (o *UpdateAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -454,11 +461,13 @@ func (o *UpdateAWSAccountsNotFound) Code() int {
 }
 
 func (o *UpdateAWSAccountsNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsNotFound %s", 404, payload)
 }
 
 func (o *UpdateAWSAccountsNotFound) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsNotFound %s", 404, payload)
 }
 
 func (o *UpdateAWSAccountsNotFound) GetPayload() *models.ModelsAWSAccountsV1 {
@@ -568,11 +577,13 @@ func (o *UpdateAWSAccountsTooManyRequests) Code() int {
 }
 
 func (o *UpdateAWSAccountsTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateAWSAccountsTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsTooManyRequests %s", 429, payload)
 }
 
 func (o *UpdateAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -689,11 +700,13 @@ func (o *UpdateAWSAccountsInternalServerError) Code() int {
 }
 
 func (o *UpdateAWSAccountsInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateAWSAccountsInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsInternalServerError %s", 500, payload)
 }
 
 func (o *UpdateAWSAccountsInternalServerError) GetPayload() *models.ModelsAWSAccountsV1 {

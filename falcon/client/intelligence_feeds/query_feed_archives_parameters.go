@@ -68,6 +68,9 @@ type QueryFeedArchivesParams struct {
 	- daily: Daily aggregated updates
 	- hourly: Hourly incremental updates
 	- minutely: Minute-by-minute updates
+	- any: Automatically combines the appropriate intervals to provide complete, up-to-date data with minimal overlap
+
+	Defaults to 'any' if not specified.
 	*/
 	FeedInterval *string
 

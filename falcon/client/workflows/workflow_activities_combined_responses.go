@@ -6,6 +6,7 @@ package workflows
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -90,7 +91,7 @@ type WorkflowActivitiesCombinedOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ActivitiesLegacyActivityExternalResponse
+	Payload *models.ActivitiesActivityExternalResponse
 }
 
 // IsSuccess returns true when this workflow activities combined o k response has a 2xx status code
@@ -124,14 +125,16 @@ func (o *WorkflowActivitiesCombinedOK) Code() int {
 }
 
 func (o *WorkflowActivitiesCombinedOK) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedOK %s", 200, payload)
 }
 
 func (o *WorkflowActivitiesCombinedOK) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedOK %s", 200, payload)
 }
 
-func (o *WorkflowActivitiesCombinedOK) GetPayload() *models.ActivitiesLegacyActivityExternalResponse {
+func (o *WorkflowActivitiesCombinedOK) GetPayload() *models.ActivitiesActivityExternalResponse {
 	return o.Payload
 }
 
@@ -166,7 +169,7 @@ func (o *WorkflowActivitiesCombinedOK) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ActivitiesLegacyActivityExternalResponse)
+	o.Payload = new(models.ActivitiesActivityExternalResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +203,7 @@ type WorkflowActivitiesCombinedBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ActivitiesLegacyActivityExternalResponse
+	Payload *models.ActivitiesActivityExternalResponse
 }
 
 // IsSuccess returns true when this workflow activities combined bad request response has a 2xx status code
@@ -234,14 +237,16 @@ func (o *WorkflowActivitiesCombinedBadRequest) Code() int {
 }
 
 func (o *WorkflowActivitiesCombinedBadRequest) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedBadRequest %s", 400, payload)
 }
 
 func (o *WorkflowActivitiesCombinedBadRequest) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedBadRequest %s", 400, payload)
 }
 
-func (o *WorkflowActivitiesCombinedBadRequest) GetPayload() *models.ActivitiesLegacyActivityExternalResponse {
+func (o *WorkflowActivitiesCombinedBadRequest) GetPayload() *models.ActivitiesActivityExternalResponse {
 	return o.Payload
 }
 
@@ -276,7 +281,7 @@ func (o *WorkflowActivitiesCombinedBadRequest) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ActivitiesLegacyActivityExternalResponse)
+	o.Payload = new(models.ActivitiesActivityExternalResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -344,11 +349,13 @@ func (o *WorkflowActivitiesCombinedForbidden) Code() int {
 }
 
 func (o *WorkflowActivitiesCombinedForbidden) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedForbidden %s", 403, payload)
 }
 
 func (o *WorkflowActivitiesCombinedForbidden) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedForbidden %s", 403, payload)
 }
 
 func (o *WorkflowActivitiesCombinedForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -420,7 +427,7 @@ type WorkflowActivitiesCombinedNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ActivitiesLegacyActivityExternalResponse
+	Payload *models.ActivitiesActivityExternalResponse
 }
 
 // IsSuccess returns true when this workflow activities combined not found response has a 2xx status code
@@ -454,14 +461,16 @@ func (o *WorkflowActivitiesCombinedNotFound) Code() int {
 }
 
 func (o *WorkflowActivitiesCombinedNotFound) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedNotFound %s", 404, payload)
 }
 
 func (o *WorkflowActivitiesCombinedNotFound) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedNotFound %s", 404, payload)
 }
 
-func (o *WorkflowActivitiesCombinedNotFound) GetPayload() *models.ActivitiesLegacyActivityExternalResponse {
+func (o *WorkflowActivitiesCombinedNotFound) GetPayload() *models.ActivitiesActivityExternalResponse {
 	return o.Payload
 }
 
@@ -496,7 +505,7 @@ func (o *WorkflowActivitiesCombinedNotFound) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ActivitiesLegacyActivityExternalResponse)
+	o.Payload = new(models.ActivitiesActivityExternalResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -568,11 +577,13 @@ func (o *WorkflowActivitiesCombinedTooManyRequests) Code() int {
 }
 
 func (o *WorkflowActivitiesCombinedTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowActivitiesCombinedTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedTooManyRequests %s", 429, payload)
 }
 
 func (o *WorkflowActivitiesCombinedTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -655,7 +666,7 @@ type WorkflowActivitiesCombinedInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ActivitiesLegacyActivityExternalResponse
+	Payload *models.ActivitiesActivityExternalResponse
 }
 
 // IsSuccess returns true when this workflow activities combined internal server error response has a 2xx status code
@@ -689,14 +700,16 @@ func (o *WorkflowActivitiesCombinedInternalServerError) Code() int {
 }
 
 func (o *WorkflowActivitiesCombinedInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedInternalServerError %s", 500, payload)
 }
 
 func (o *WorkflowActivitiesCombinedInternalServerError) String() string {
-	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /workflows/combined/activities/v1][%d] workflowActivitiesCombinedInternalServerError %s", 500, payload)
 }
 
-func (o *WorkflowActivitiesCombinedInternalServerError) GetPayload() *models.ActivitiesLegacyActivityExternalResponse {
+func (o *WorkflowActivitiesCombinedInternalServerError) GetPayload() *models.ActivitiesActivityExternalResponse {
 	return o.Payload
 }
 
@@ -731,7 +744,7 @@ func (o *WorkflowActivitiesCombinedInternalServerError) readResponse(response ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ActivitiesLegacyActivityExternalResponse)
+	o.Payload = new(models.ActivitiesActivityExternalResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
