@@ -82,9 +82,20 @@ type QueryComplianceFrameworksParams struct {
 
 	/* Filter.
 
-	   FQL filter, allowed properties: *compliance_framework_name* *compliance_framework_version* *compliance_framework_authority*
+	     FQL filter, allowed properties:
+
+	*compliance_framework_name*
+	*compliance_framework_version*
+	*compliance_framework_authority*
+
 	*/
 	Filter *string
+
+	/* IncludeInactiveFrameworks.
+
+	   determines if frameworks that are not active should be returned
+	*/
+	IncludeInactiveFrameworks *bool
 
 	/* Limit.
 
@@ -102,7 +113,14 @@ type QueryComplianceFrameworksParams struct {
 
 	/* Sort.
 
-	   Field to sort on. Sortable fields: *compliance_framework_name* *compliance_framework_version* *compliance_framework_authority* Use the `|asc` or `|desc` suffix to specify sort direction.
+	     Field to sort on. Sortable fields:
+
+	*compliance_framework_name*
+	*compliance_framework_version*
+	*compliance_framework_authority*
+
+
+	Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 
@@ -124,14 +142,17 @@ func (o *QueryComplianceFrameworksParams) WithDefaults() *QueryComplianceFramewo
 // All values with no default are reset to their zero value.
 func (o *QueryComplianceFrameworksParams) SetDefaults() {
 	var (
+		includeInactiveFrameworksDefault = bool(false)
+
 		limitDefault = int64(100)
 
 		offsetDefault = int64(0)
 	)
 
 	val := QueryComplianceFrameworksParams{
-		Limit:  &limitDefault,
-		Offset: &offsetDefault,
+		IncludeInactiveFrameworks: &includeInactiveFrameworksDefault,
+		Limit:                     &limitDefault,
+		Offset:                    &offsetDefault,
 	}
 
 	val.timeout = o.timeout
@@ -217,6 +238,17 @@ func (o *QueryComplianceFrameworksParams) SetFilter(filter *string) {
 	o.Filter = filter
 }
 
+// WithIncludeInactiveFrameworks adds the includeInactiveFrameworks to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) WithIncludeInactiveFrameworks(includeInactiveFrameworks *bool) *QueryComplianceFrameworksParams {
+	o.SetIncludeInactiveFrameworks(includeInactiveFrameworks)
+	return o
+}
+
+// SetIncludeInactiveFrameworks adds the includeInactiveFrameworks to the query compliance frameworks params
+func (o *QueryComplianceFrameworksParams) SetIncludeInactiveFrameworks(includeInactiveFrameworks *bool) {
+	o.IncludeInactiveFrameworks = includeInactiveFrameworks
+}
+
 // WithLimit adds the limit to the query compliance frameworks params
 func (o *QueryComplianceFrameworksParams) WithLimit(limit *int64) *QueryComplianceFrameworksParams {
 	o.SetLimit(limit)
@@ -285,6 +317,23 @@ func (o *QueryComplianceFrameworksParams) WriteToRequest(r runtime.ClientRequest
 		if qFilter != "" {
 
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IncludeInactiveFrameworks != nil {
+
+		// query param include_inactive_frameworks
+		var qrIncludeInactiveFrameworks bool
+
+		if o.IncludeInactiveFrameworks != nil {
+			qrIncludeInactiveFrameworks = *o.IncludeInactiveFrameworks
+		}
+		qIncludeInactiveFrameworks := swag.FormatBool(qrIncludeInactiveFrameworks)
+		if qIncludeInactiveFrameworks != "" {
+
+			if err := r.SetQueryParam("include_inactive_frameworks", qIncludeInactiveFrameworks); err != nil {
 				return err
 			}
 		}

@@ -21,19 +21,12 @@ import (
 type CommonCreateRuleRequest struct {
 
 	// alert info
-	// Required: true
-	AlertInfo *string `json:"alert_info"`
+	AlertInfo string `json:"alert_info,omitempty"`
 
 	// attack types
-	// Required: true
-	AttackTypes *string `json:"attack_types"`
-
-	// auto remediable
-	// Required: true
-	AutoRemediable *bool `json:"auto_remediable"`
+	AttackTypes string `json:"attack_types,omitempty"`
 
 	// controls
-	// Required: true
 	Controls []*DbmodelsControlReference `json:"controls"`
 
 	// description
@@ -47,30 +40,6 @@ type CommonCreateRuleRequest struct {
 	// logic
 	// Required: true
 	Logic *string `json:"logic"`
-
-	// mitre tactics id
-	// Required: true
-	MitreTacticsID *string `json:"mitre_tactics_id"`
-
-	// mitre tactics name
-	// Required: true
-	MitreTacticsName *string `json:"mitre_tactics_name"`
-
-	// mitre tactics url
-	// Required: true
-	MitreTacticsURL *string `json:"mitre_tactics_url"`
-
-	// mitre techniques id
-	// Required: true
-	MitreTechniquesID *string `json:"mitre_techniques_id"`
-
-	// mitre techniques name
-	// Required: true
-	MitreTechniquesName *string `json:"mitre_techniques_name"`
-
-	// mitre techniques url
-	// Required: true
-	MitreTechniquesURL *string `json:"mitre_techniques_url"`
 
 	// name
 	// Required: true
@@ -89,24 +58,17 @@ type CommonCreateRuleRequest struct {
 	Provider *string `json:"provider"`
 
 	// remediation info
-	// Required: true
-	RemediationInfo *string `json:"remediation_info"`
+	RemediationInfo string `json:"remediation_info,omitempty"`
 
 	// remediation url
-	// Required: true
-	RemediationURL *string `json:"remediation_url"`
+	RemediationURL string `json:"remediation_url,omitempty"`
 
 	// resource type
 	// Required: true
 	ResourceType *string `json:"resource_type"`
 
-	// service
-	// Required: true
-	Service *string `json:"service"`
-
 	// severity
-	// Required: true
-	Severity *int32 `json:"severity"`
+	Severity int64 `json:"severity,omitempty"`
 
 	// subdomain
 	// Required: true
@@ -116,18 +78,6 @@ type CommonCreateRuleRequest struct {
 // Validate validates this common create rule request
 func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateAlertInfo(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateAttackTypes(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateAutoRemediable(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateControls(formats); err != nil {
 		res = append(res, err)
@@ -142,30 +92,6 @@ func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLogic(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMitreTacticsID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMitreTacticsName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMitreTacticsURL(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMitreTechniquesID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMitreTechniquesName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMitreTechniquesURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -185,23 +111,7 @@ func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateRemediationInfo(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRemediationURL(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateResourceType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateService(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSeverity(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -215,37 +125,9 @@ func (m *CommonCreateRuleRequest) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonCreateRuleRequest) validateAlertInfo(formats strfmt.Registry) error {
-
-	if err := validate.Required("alert_info", "body", m.AlertInfo); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateAttackTypes(formats strfmt.Registry) error {
-
-	if err := validate.Required("attack_types", "body", m.AttackTypes); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateAutoRemediable(formats strfmt.Registry) error {
-
-	if err := validate.Required("auto_remediable", "body", m.AutoRemediable); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *CommonCreateRuleRequest) validateControls(formats strfmt.Registry) error {
-
-	if err := validate.Required("controls", "body", m.Controls); err != nil {
-		return err
+	if swag.IsZero(m.Controls) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Controls); i++ {
@@ -296,60 +178,6 @@ func (m *CommonCreateRuleRequest) validateLogic(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CommonCreateRuleRequest) validateMitreTacticsID(formats strfmt.Registry) error {
-
-	if err := validate.Required("mitre_tactics_id", "body", m.MitreTacticsID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateMitreTacticsName(formats strfmt.Registry) error {
-
-	if err := validate.Required("mitre_tactics_name", "body", m.MitreTacticsName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateMitreTacticsURL(formats strfmt.Registry) error {
-
-	if err := validate.Required("mitre_tactics_url", "body", m.MitreTacticsURL); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateMitreTechniquesID(formats strfmt.Registry) error {
-
-	if err := validate.Required("mitre_techniques_id", "body", m.MitreTechniquesID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateMitreTechniquesName(formats strfmt.Registry) error {
-
-	if err := validate.Required("mitre_techniques_name", "body", m.MitreTechniquesName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateMitreTechniquesURL(formats strfmt.Registry) error {
-
-	if err := validate.Required("mitre_techniques_url", "body", m.MitreTechniquesURL); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *CommonCreateRuleRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -386,45 +214,9 @@ func (m *CommonCreateRuleRequest) validateProvider(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *CommonCreateRuleRequest) validateRemediationInfo(formats strfmt.Registry) error {
-
-	if err := validate.Required("remediation_info", "body", m.RemediationInfo); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateRemediationURL(formats strfmt.Registry) error {
-
-	if err := validate.Required("remediation_url", "body", m.RemediationURL); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *CommonCreateRuleRequest) validateResourceType(formats strfmt.Registry) error {
 
 	if err := validate.Required("resource_type", "body", m.ResourceType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateService(formats strfmt.Registry) error {
-
-	if err := validate.Required("service", "body", m.Service); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CommonCreateRuleRequest) validateSeverity(formats strfmt.Registry) error {
-
-	if err := validate.Required("severity", "body", m.Severity); err != nil {
 		return err
 	}
 

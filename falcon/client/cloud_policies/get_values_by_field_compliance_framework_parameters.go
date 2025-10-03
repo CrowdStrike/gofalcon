@@ -81,13 +81,23 @@ type GetValuesByFieldComplianceFrameworkParams struct {
 
 	/* Field.
 
-	   The field for which to retrieve distinct values: *compliance_framework_name* *compliance_framework_version* *compliance_framework_authority*
+	     The field for which to retrieve distinct values:
+
+	*compliance_framework_name*
+	*compliance_framework_version*
+	*compliance_framework_authority*
+
 	*/
 	Field string
 
 	/* Filter.
 
-	   FQL filter, allowed props: *compliance_framework_name* *compliance_framework_version* *compliance_framework_authority*
+	     FQL filter, allowed props:
+
+	*compliance_framework_name*
+	*compliance_framework_version*
+	*compliance_framework_authority*
+
 	*/
 	Filter *string
 

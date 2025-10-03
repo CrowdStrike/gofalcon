@@ -81,13 +81,31 @@ type GetValuesByFieldComplianceControlParams struct {
 
 	/* Field.
 
-	   The field for which to retrieve distinct values: *compliance_control_name* *compliance_control_authority* *compliance_control_type* *compliance_control_section* *compliance_control_requirement* *compliance_control_benchmark_name* *compliance_control_benchmark_version*
+	     The field for which to retrieve distinct values:
+
+	*compliance_control_name*
+	*compliance_control_authority*
+	*compliance_control_type*
+	*compliance_control_section*
+	*compliance_control_requirement*
+	*compliance_control_benchmark_name*
+	*compliance_control_benchmark_version*
+
 	*/
 	Field string
 
 	/* Filter.
 
-	   FQL filter, allowed props: *compliance_control_name* *compliance_control_authority* *compliance_control_type* *compliance_control_section* *compliance_control_requirement* *compliance_control_benchmark_name* *compliance_control_benchmark_version*
+	     FQL filter, allowed props:
+
+	*compliance_control_name*
+	*compliance_control_authority*
+	*compliance_control_type*
+	*compliance_control_section*
+	*compliance_control_requirement*
+	*compliance_control_benchmark_name*
+	*compliance_control_benchmark_version*
+
 	*/
 	Filter *string
 

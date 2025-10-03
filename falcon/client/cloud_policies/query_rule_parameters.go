@@ -82,7 +82,31 @@ type QueryRuleParams struct {
 
 	/* Filter.
 
-	   FQL filter, allowed properties: *rule_origin* *rule_parent_uuid* *rule_name* *rule_description* *rule_domain* *rule_status* *rule_severity* *rule_short_code* *rule_service* *rule_resource_type* *rule_provider* *rule_subdomain* *rule_auto_remediable* *rule_control_requirement* *rule_control_section* *rule_compliance_benchmark* *rule_compliance_framework* *rule_mitre_tactic* *rule_mitre_technique* *rule_created_at* *rule_updated_at* *rule_updated_by*
+	     FQL filter, allowed properties:
+
+	*rule_origin*
+	*rule_parent_uuid*
+	*rule_name*
+	*rule_description*
+	*rule_domain*
+	*rule_status*
+	*rule_severity*
+	*rule_short_code*
+	*rule_service*
+	*rule_resource_type*
+	*rule_provider*
+	*rule_subdomain*
+	*rule_auto_remediable*
+	*rule_control_requirement*
+	*rule_control_section*
+	*rule_compliance_benchmark*
+	*rule_compliance_framework*
+	*rule_mitre_tactic*
+	*rule_mitre_technique*
+	*rule_created_at*
+	*rule_updated_at*
+	*rule_updated_by*
+
 	*/
 	Filter *string
 
@@ -108,7 +132,33 @@ type QueryRuleParams struct {
 
 	/* Sort.
 
-	   Field to sort on. Sortable fields: *rule_origin* *rule_parent_uuid* *rule_name* *rule_description* *rule_domain* *rule_status* *rule_severity* *rule_short_code* *rule_service* *rule_resource_type* *rule_provider* *rule_subdomain* *rule_auto_remediable* *rule_control_requirement* *rule_control_section* *rule_compliance_benchmark* *rule_compliance_framework* *rule_mitre_tactic* *rule_mitre_technique* *rule_created_at* *rule_updated_at* *rule_updated_by* Use the `|asc` or `|desc` suffix to specify sort direction.
+	     Field to sort on. Sortable fields:
+
+	*rule_origin*
+	*rule_parent_uuid*
+	*rule_name*
+	*rule_description*
+	*rule_domain*
+	*rule_status*
+	*rule_severity*
+	*rule_short_code*
+	*rule_service*
+	*rule_resource_type*
+	*rule_provider*
+	*rule_subdomain*
+	*rule_auto_remediable*
+	*rule_control_requirement*
+	*rule_control_section*
+	*rule_compliance_benchmark*
+	*rule_compliance_framework*
+	*rule_mitre_tactic*
+	*rule_mitre_technique*
+	*rule_created_at*
+	*rule_updated_at*
+	*rule_updated_by*
+
+
+	Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 

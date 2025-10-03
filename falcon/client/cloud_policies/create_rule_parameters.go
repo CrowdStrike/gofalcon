@@ -81,7 +81,11 @@ type CreateRuleParams struct {
 	*/
 	XCSUSERUUID string
 
-	// Body.
+	/* Body.
+
+	     For Custom Rule, logic is mandatory and parent_rule_id should not be specified.
+	For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
+	*/
 	Body *models.CommonCreateRuleRequest
 
 	timeout    time.Duration

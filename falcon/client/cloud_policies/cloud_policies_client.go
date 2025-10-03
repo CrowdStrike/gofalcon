@@ -30,13 +30,25 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateComplianceControl(params *CreateComplianceControlParams, opts ...ClientOption) (*CreateComplianceControlOK, error)
+
+	CreateComplianceFramework(params *CreateComplianceFrameworkParams, opts ...ClientOption) (*CreateComplianceFrameworkOK, error)
+
 	CreateRule(params *CreateRuleParams, opts ...ClientOption) (*CreateRuleOK, error)
 
 	CreateRuleOverride(params *CreateRuleOverrideParams, opts ...ClientOption) (*CreateRuleOverrideOK, error)
 
+	CreateSuppressionRule(params *CreateSuppressionRuleParams, opts ...ClientOption) (*CreateSuppressionRuleOK, error)
+
+	DeleteComplianceControl(params *DeleteComplianceControlParams, opts ...ClientOption) (*DeleteComplianceControlOK, error)
+
+	DeleteComplianceFramework(params *DeleteComplianceFrameworkParams, opts ...ClientOption) (*DeleteComplianceFrameworkOK, error)
+
 	DeleteRule(params *DeleteRuleParams, opts ...ClientOption) (*DeleteRuleOK, error)
 
 	DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...ClientOption) (*DeleteRuleOverrideOK, *DeleteRuleOverrideNoContent, error)
+
+	DeleteSuppressionRules(params *DeleteSuppressionRulesParams, opts ...ClientOption) (*DeleteSuppressionRulesOK, error)
 
 	GetCombinedRulesExport(params *GetCombinedRulesExportParams, opts ...ClientOption) (*GetCombinedRulesExportOK, error)
 
@@ -50,11 +62,15 @@ type ClientService interface {
 
 	GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOption) (*GetRuleOverrideOK, error)
 
+	GetSuppressionRules(params *GetSuppressionRulesParams, opts ...ClientOption) (*GetSuppressionRulesOK, error)
+
 	GetValuesByFieldComplianceControl(params *GetValuesByFieldComplianceControlParams, opts ...ClientOption) (*GetValuesByFieldComplianceControlOK, error)
 
 	GetValuesByFieldComplianceFramework(params *GetValuesByFieldComplianceFrameworkParams, opts ...ClientOption) (*GetValuesByFieldComplianceFrameworkOK, error)
 
 	GetValuesByFieldRule(params *GetValuesByFieldRuleParams, opts ...ClientOption) (*GetValuesByFieldRuleOK, error)
+
+	GetValuesByFieldSuppressionRule(params *GetValuesByFieldSuppressionRuleParams, opts ...ClientOption) (*GetValuesByFieldSuppressionRuleOK, error)
 
 	QueryComplianceControls(params *QueryComplianceControlsParams, opts ...ClientOption) (*QueryComplianceControlsOK, error)
 
@@ -64,11 +80,99 @@ type ClientService interface {
 
 	QueryRuleOverride(params *QueryRuleOverrideParams, opts ...ClientOption) (*QueryRuleOverrideOK, error)
 
+	QuerySuppressionRules(params *QuerySuppressionRulesParams, opts ...ClientOption) (*QuerySuppressionRulesOK, error)
+
+	RenameSectionComplianceFramework(params *RenameSectionComplianceFrameworkParams, opts ...ClientOption) (*RenameSectionComplianceFrameworkOK, error)
+
+	ReplaceControlRules(params *ReplaceControlRulesParams, opts ...ClientOption) (*ReplaceControlRulesOK, error)
+
+	UpdateComplianceControl(params *UpdateComplianceControlParams, opts ...ClientOption) (*UpdateComplianceControlOK, error)
+
+	UpdateComplianceFramework(params *UpdateComplianceFrameworkParams, opts ...ClientOption) (*UpdateComplianceFrameworkOK, error)
+
 	UpdateRule(params *UpdateRuleParams, opts ...ClientOption) (*UpdateRuleOK, error)
 
 	UpdateRuleOverride(params *UpdateRuleOverrideParams, opts ...ClientOption) (*UpdateRuleOverrideOK, error)
 
+	UpdateSuppressionRule(params *UpdateSuppressionRuleParams, opts ...ClientOption) (*UpdateSuppressionRuleOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CreateComplianceControl creates a new custom compliance control
+*/
+func (a *Client) CreateComplianceControl(params *CreateComplianceControlParams, opts ...ClientOption) (*CreateComplianceControlOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateComplianceControlParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateComplianceControl",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &CreateComplianceControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateComplianceControlOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateComplianceControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateComplianceFramework creates a new custom compliance framework
+*/
+func (a *Client) CreateComplianceFramework(params *CreateComplianceFrameworkParams, opts ...ClientOption) (*CreateComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateComplianceFramework",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &CreateComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -85,7 +189,7 @@ func (a *Client) CreateRule(params *CreateRuleParams, opts ...ClientOption) (*Cr
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &CreateRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -123,7 +227,7 @@ func (a *Client) CreateRuleOverride(params *CreateRuleOverrideParams, opts ...Cl
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &CreateRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -148,6 +252,120 @@ func (a *Client) CreateRuleOverride(params *CreateRuleOverrideParams, opts ...Cl
 }
 
 /*
+CreateSuppressionRule creates a new suppression rule
+*/
+func (a *Client) CreateSuppressionRule(params *CreateSuppressionRuleParams, opts ...ClientOption) (*CreateSuppressionRuleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateSuppressionRuleParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateSuppressionRule",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &CreateSuppressionRuleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateSuppressionRuleOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateSuppressionRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteComplianceControl deletes custom compliance controls
+*/
+func (a *Client) DeleteComplianceControl(params *DeleteComplianceControlParams, opts ...ClientOption) (*DeleteComplianceControlOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteComplianceControlParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteComplianceControl",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &DeleteComplianceControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteComplianceControlOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteComplianceControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteComplianceFramework deletes a custom compliance framework and all associated controls and rule assignments
+*/
+func (a *Client) DeleteComplianceFramework(params *DeleteComplianceFrameworkParams, opts ...ClientOption) (*DeleteComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteComplianceFramework",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &DeleteComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 DeleteRule deletes a rule
 */
 func (a *Client) DeleteRule(params *DeleteRuleParams, opts ...ClientOption) (*DeleteRuleOK, error) {
@@ -161,7 +379,7 @@ func (a *Client) DeleteRule(params *DeleteRuleParams, opts ...ClientOption) (*De
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &DeleteRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -199,7 +417,7 @@ func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...Cl
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &DeleteRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -225,6 +443,44 @@ func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...Cl
 }
 
 /*
+DeleteSuppressionRules deletes suppression rules by ID
+*/
+func (a *Client) DeleteSuppressionRules(params *DeleteSuppressionRulesParams, opts ...ClientOption) (*DeleteSuppressionRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteSuppressionRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteSuppressionRules",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &DeleteSuppressionRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteSuppressionRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteSuppressionRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetCombinedRulesExport exports rule details
 */
 func (a *Client) GetCombinedRulesExport(params *GetCombinedRulesExportParams, opts ...ClientOption) (*GetCombinedRulesExportOK, error) {
@@ -238,7 +494,7 @@ func (a *Client) GetCombinedRulesExport(params *GetCombinedRulesExportParams, op
 		PathPattern:        "/cloud-policies/combined/rules/export/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetCombinedRulesExportReader{formats: a.formats},
 		Context:            params.Context,
@@ -276,7 +532,7 @@ func (a *Client) GetComplianceControls(params *GetComplianceControlsParams, opts
 		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetComplianceControlsReader{formats: a.formats},
 		Context:            params.Context,
@@ -314,7 +570,7 @@ func (a *Client) GetComplianceFrameworks(params *GetComplianceFrameworksParams, 
 		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetComplianceFrameworksReader{formats: a.formats},
 		Context:            params.Context,
@@ -352,7 +608,7 @@ func (a *Client) GetEvaluationResult(params *GetEvaluationResultParams, opts ...
 		PathPattern:        "/cloud-policies/entities/evaluation/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetEvaluationResultReader{formats: a.formats},
 		Context:            params.Context,
@@ -390,7 +646,7 @@ func (a *Client) GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleO
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -428,7 +684,7 @@ func (a *Client) GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOp
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -453,6 +709,44 @@ func (a *Client) GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOp
 }
 
 /*
+GetSuppressionRules gets suppression rules by ID
+*/
+func (a *Client) GetSuppressionRules(params *GetSuppressionRulesParams, opts ...ClientOption) (*GetSuppressionRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSuppressionRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSuppressionRules",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetSuppressionRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSuppressionRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSuppressionRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetValuesByFieldComplianceControl gets distinct values for a field in compliance controls
 */
 func (a *Client) GetValuesByFieldComplianceControl(params *GetValuesByFieldComplianceControlParams, opts ...ClientOption) (*GetValuesByFieldComplianceControlOK, error) {
@@ -466,7 +760,7 @@ func (a *Client) GetValuesByFieldComplianceControl(params *GetValuesByFieldCompl
 		PathPattern:        "/cloud-policies/aggregates/compliance/controls/values-by-field/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetValuesByFieldComplianceControlReader{formats: a.formats},
 		Context:            params.Context,
@@ -504,7 +798,7 @@ func (a *Client) GetValuesByFieldComplianceFramework(params *GetValuesByFieldCom
 		PathPattern:        "/cloud-policies/aggregates/compliance/frameworks/values-by-field/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetValuesByFieldComplianceFrameworkReader{formats: a.formats},
 		Context:            params.Context,
@@ -542,7 +836,7 @@ func (a *Client) GetValuesByFieldRule(params *GetValuesByFieldRuleParams, opts .
 		PathPattern:        "/cloud-policies/aggregates/rules/values-by-field/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetValuesByFieldRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -567,6 +861,44 @@ func (a *Client) GetValuesByFieldRule(params *GetValuesByFieldRuleParams, opts .
 }
 
 /*
+GetValuesByFieldSuppressionRule gets distinct values for a suppression rule field with filtering
+*/
+func (a *Client) GetValuesByFieldSuppressionRule(params *GetValuesByFieldSuppressionRuleParams, opts ...ClientOption) (*GetValuesByFieldSuppressionRuleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetValuesByFieldSuppressionRuleParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetValuesByFieldSuppressionRule",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/aggregates/suppression-rules/values-by-field/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetValuesByFieldSuppressionRuleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetValuesByFieldSuppressionRuleOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetValuesByFieldSuppressionRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueryComplianceControls queries for compliance controls by various parameters
 */
 func (a *Client) QueryComplianceControls(params *QueryComplianceControlsParams, opts ...ClientOption) (*QueryComplianceControlsOK, error) {
@@ -580,7 +912,7 @@ func (a *Client) QueryComplianceControls(params *QueryComplianceControlsParams, 
 		PathPattern:        "/cloud-policies/queries/compliance/controls/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &QueryComplianceControlsReader{formats: a.formats},
 		Context:            params.Context,
@@ -618,7 +950,7 @@ func (a *Client) QueryComplianceFrameworks(params *QueryComplianceFrameworksPara
 		PathPattern:        "/cloud-policies/queries/compliance/frameworks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &QueryComplianceFrameworksReader{formats: a.formats},
 		Context:            params.Context,
@@ -656,7 +988,7 @@ func (a *Client) QueryRule(params *QueryRuleParams, opts ...ClientOption) (*Quer
 		PathPattern:        "/cloud-policies/queries/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &QueryRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -694,7 +1026,7 @@ func (a *Client) QueryRuleOverride(params *QueryRuleOverrideParams, opts ...Clie
 		PathPattern:        "/cloud-policies/queries/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &QueryRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -719,6 +1051,196 @@ func (a *Client) QueryRuleOverride(params *QueryRuleOverrideParams, opts ...Clie
 }
 
 /*
+QuerySuppressionRules queries suppression rules with filtering sorting and pagination
+*/
+func (a *Client) QuerySuppressionRules(params *QuerySuppressionRulesParams, opts ...ClientOption) (*QuerySuppressionRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQuerySuppressionRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QuerySuppressionRules",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/queries/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &QuerySuppressionRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QuerySuppressionRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QuerySuppressionRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RenameSectionComplianceFramework renames a section in a custom compliance framework
+*/
+func (a *Client) RenameSectionComplianceFramework(params *RenameSectionComplianceFrameworkParams, opts ...ClientOption) (*RenameSectionComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRenameSectionComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RenameSectionComplianceFramework",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/section/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &RenameSectionComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RenameSectionComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RenameSectionComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ReplaceControlRules assigns rules to a compliance control full replace
+*/
+func (a *Client) ReplaceControlRules(params *ReplaceControlRulesParams, opts ...ClientOption) (*ReplaceControlRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReplaceControlRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ReplaceControlRules",
+		Method:             "PUT",
+		PathPattern:        "/cloud-policies/entities/compliance/control-rule-assignments/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &ReplaceControlRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ReplaceControlRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ReplaceControlRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateComplianceControl updates a custom compliance control
+*/
+func (a *Client) UpdateComplianceControl(params *UpdateComplianceControlParams, opts ...ClientOption) (*UpdateComplianceControlOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateComplianceControlParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateComplianceControl",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &UpdateComplianceControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateComplianceControlOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateComplianceControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateComplianceFramework updates a custom compliance framework
+*/
+func (a *Client) UpdateComplianceFramework(params *UpdateComplianceFrameworkParams, opts ...ClientOption) (*UpdateComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateComplianceFramework",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &UpdateComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 UpdateRule updates a rule
 */
 func (a *Client) UpdateRule(params *UpdateRuleParams, opts ...ClientOption) (*UpdateRuleOK, error) {
@@ -732,7 +1254,7 @@ func (a *Client) UpdateRule(params *UpdateRuleParams, opts ...ClientOption) (*Up
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &UpdateRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -770,7 +1292,7 @@ func (a *Client) UpdateRuleOverride(params *UpdateRuleOverrideParams, opts ...Cl
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &UpdateRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -791,6 +1313,44 @@ func (a *Client) UpdateRuleOverride(params *UpdateRuleOverrideParams, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateRuleOverride: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateSuppressionRule updates a suppression rule
+*/
+func (a *Client) UpdateSuppressionRule(params *UpdateSuppressionRuleParams, opts ...ClientOption) (*UpdateSuppressionRuleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateSuppressionRuleParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateSuppressionRule",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &UpdateSuppressionRuleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateSuppressionRuleOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateSuppressionRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

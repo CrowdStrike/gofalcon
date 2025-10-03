@@ -83,13 +83,25 @@ type GetEvaluationResultParams struct {
 	XCSUSERUUID string
 
 	// Body.
-	Body *models.CommonRuleLogicPayload
+	Body *models.RuleevaluatorRuleLogicPayload
+
+	/* CloudProvider.
+
+	   Cloud Service Provider of the provided IDs
+	*/
+	CloudProvider *string
 
 	/* Ids.
 
-	   List of assets to evaluate (maximum 500 IDs allowed).
+	   List of assets to evaluate (maximum 100 IDs allowed).
 	*/
 	Ids []string
+
+	/* ResourceType.
+
+	   Resource Type of the provided IDs
+	*/
+	ResourceType *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -178,14 +190,25 @@ func (o *GetEvaluationResultParams) SetXCSUSERUUID(xCSUSERUUID string) {
 }
 
 // WithBody adds the body to the get evaluation result params
-func (o *GetEvaluationResultParams) WithBody(body *models.CommonRuleLogicPayload) *GetEvaluationResultParams {
+func (o *GetEvaluationResultParams) WithBody(body *models.RuleevaluatorRuleLogicPayload) *GetEvaluationResultParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the get evaluation result params
-func (o *GetEvaluationResultParams) SetBody(body *models.CommonRuleLogicPayload) {
+func (o *GetEvaluationResultParams) SetBody(body *models.RuleevaluatorRuleLogicPayload) {
 	o.Body = body
+}
+
+// WithCloudProvider adds the cloudProvider to the get evaluation result params
+func (o *GetEvaluationResultParams) WithCloudProvider(cloudProvider *string) *GetEvaluationResultParams {
+	o.SetCloudProvider(cloudProvider)
+	return o
+}
+
+// SetCloudProvider adds the cloudProvider to the get evaluation result params
+func (o *GetEvaluationResultParams) SetCloudProvider(cloudProvider *string) {
+	o.CloudProvider = cloudProvider
 }
 
 // WithIds adds the ids to the get evaluation result params
@@ -197,6 +220,17 @@ func (o *GetEvaluationResultParams) WithIds(ids []string) *GetEvaluationResultPa
 // SetIds adds the ids to the get evaluation result params
 func (o *GetEvaluationResultParams) SetIds(ids []string) {
 	o.Ids = ids
+}
+
+// WithResourceType adds the resourceType to the get evaluation result params
+func (o *GetEvaluationResultParams) WithResourceType(resourceType *string) *GetEvaluationResultParams {
+	o.SetResourceType(resourceType)
+	return o
+}
+
+// SetResourceType adds the resourceType to the get evaluation result params
+func (o *GetEvaluationResultParams) SetResourceType(resourceType *string) {
+	o.ResourceType = resourceType
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -227,6 +261,23 @@ func (o *GetEvaluationResultParams) WriteToRequest(r runtime.ClientRequest, reg 
 		}
 	}
 
+	if o.CloudProvider != nil {
+
+		// query param cloud_provider
+		var qrCloudProvider string
+
+		if o.CloudProvider != nil {
+			qrCloudProvider = *o.CloudProvider
+		}
+		qCloudProvider := qrCloudProvider
+		if qCloudProvider != "" {
+
+			if err := r.SetQueryParam("cloud_provider", qCloudProvider); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.Ids != nil {
 
 		// binding items for ids
@@ -235,6 +286,23 @@ func (o *GetEvaluationResultParams) WriteToRequest(r runtime.ClientRequest, reg 
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
+		}
+	}
+
+	if o.ResourceType != nil {
+
+		// query param resource_type
+		var qrResourceType string
+
+		if o.ResourceType != nil {
+			qrResourceType = *o.ResourceType
+		}
+		qResourceType := qrResourceType
+		if qResourceType != "" {
+
+			if err := r.SetQueryParam("resource_type", qResourceType); err != nil {
+				return err
+			}
 		}
 	}
 

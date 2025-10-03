@@ -81,7 +81,13 @@ type QueryRuleOverrideParams struct {
 
 	/* Filter.
 
-	   FQL filter, allowed properties: *rule_override_rule_uuid* *rule_override_policy_uuid* *target_id* *crn*
+	     FQL filter, allowed properties:
+
+	*rule_override_rule_uuid*
+	*rule_override_policy_uuid*
+	*target_id*
+	*crn*
+
 	*/
 	Filter *string
 

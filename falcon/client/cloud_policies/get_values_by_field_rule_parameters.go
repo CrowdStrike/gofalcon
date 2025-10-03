@@ -81,13 +81,56 @@ type GetValuesByFieldRuleParams struct {
 
 	/* Field.
 
-	   The field for which to retrieve distinct values: *rule_origin* *rule_name* *rule_uuid* *rule_severity* *rule_short_code* *rule_provider* *rule_mitre_tactic* *rule_mitre_technique* *rule_control_requirement* *rule_control_section* *rule_compliance_benchmark* *rule_compliance_framework* *rulegroup_name* *rulegroup_uuid* *rule_service* *policy_name* *policy_uuid*
+	     The field for which to retrieve distinct values:
+
+	*rule_origin*
+	*rule_name*
+	*rule_uuid*
+	*rule_severity*
+	*rule_short_code*
+	*rule_provider*
+	*rule_mitre_tactic*
+	*rule_mitre_technique*
+	*rule_control_requirement*
+	*rule_control_section*
+	*rule_compliance_benchmark*
+	*rule_compliance_framework*
+	*rulegroup_name*
+	*rulegroup_uuid*
+	*rule_service*
+	*policy_name*
+	*policy_uuid*
+
 	*/
 	Field string
 
 	/* Filter.
 
-	   FQL filter, allowed props: *rule_origin* *rule_parent_uuid* *rule_name* *rule_description* *rule_domain* *rule_status* *rule_severity* *rule_short_code* *rule_service* *rule_resource_type* *rule_provider* *rule_subdomain* *rule_auto_remediable* *rule_control_requirement* *rule_control_section* *rule_compliance_benchmark* *rule_compliance_framework* *rule_mitre_tactic* *rule_mitre_technique* *rule_created_at* *rule_updated_at* *rule_updated_by*
+	     FQL filter, allowed props:
+
+	*rule_origin*
+	*rule_parent_uuid*
+	*rule_name*
+	*rule_description*
+	*rule_domain*
+	*rule_status*
+	*rule_severity*
+	*rule_short_code*
+	*rule_service*
+	*rule_resource_type*
+	*rule_provider*
+	*rule_subdomain*
+	*rule_auto_remediable*
+	*rule_control_requirement*
+	*rule_control_section*
+	*rule_compliance_benchmark*
+	*rule_compliance_framework*
+	*rule_mitre_tactic*
+	*rule_mitre_technique*
+	*rule_created_at*
+	*rule_updated_at*
+	*rule_updated_by*
+
 	*/
 	Filter *string
 

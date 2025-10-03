@@ -82,7 +82,16 @@ type QueryComplianceControlsParams struct {
 
 	/* Filter.
 
-	   FQL filter, allowed props: *compliance_control_name* *compliance_control_authority* *compliance_control_type* *compliance_control_section* *compliance_control_requirement* *compliance_control_benchmark_name* *compliance_control_benchmark_version*
+	     FQL filter, allowed props:
+
+	*compliance_control_name*
+	*compliance_control_authority*
+	*compliance_control_type*
+	*compliance_control_section*
+	*compliance_control_requirement*
+	*compliance_control_benchmark_name*
+	*compliance_control_benchmark_version*
+
 	*/
 	Filter *string
 
@@ -102,7 +111,18 @@ type QueryComplianceControlsParams struct {
 
 	/* Sort.
 
-	   Field to sort on. Sortable fields: *compliance_control_name* *compliance_control_authority* *compliance_control_type* *compliance_control_section* *compliance_control_requirement* *compliance_control_benchmark_name* *compliance_control_benchmark_version* Use the `|asc` or `|desc` suffix to specify sort direction.
+	     Field to sort on. Sortable fields:
+
+	*compliance_control_name*
+	*compliance_control_authority*
+	*compliance_control_type*
+	*compliance_control_section*
+	*compliance_control_requirement*
+	*compliance_control_benchmark_name*
+	*compliance_control_benchmark_version*
+
+
+	Use the `|asc` or `|desc` suffix to specify sort direction.
 	*/
 	Sort *string
 
