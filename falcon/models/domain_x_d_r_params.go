@@ -50,6 +50,14 @@ type DomainXDRParams struct {
 	// Required: true
 	Origin *string `json:"origin"`
 
+	// rule id
+	// Required: true
+	RuleID *string `json:"rule_id"`
+
+	// rule version id
+	// Required: true
+	RuleVersionID *string `json:"rule_version_id"`
+
 	// severity
 	// Required: true
 	Severity *int64 `json:"severity"`
@@ -116,6 +124,14 @@ func (m *DomainXDRParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOrigin(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRuleID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRuleVersionID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -257,6 +273,24 @@ func (m *DomainXDRParams) validateMitreAttack(formats strfmt.Registry) error {
 func (m *DomainXDRParams) validateOrigin(formats strfmt.Registry) error {
 
 	if err := validate.Required("origin", "body", m.Origin); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainXDRParams) validateRuleID(formats strfmt.Registry) error {
+
+	if err := validate.Required("rule_id", "body", m.RuleID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainXDRParams) validateRuleVersionID(formats strfmt.Registry) error {
+
+	if err := validate.Required("rule_version_id", "body", m.RuleVersionID); err != nil {
 		return err
 	}
 

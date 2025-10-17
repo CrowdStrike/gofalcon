@@ -14,6 +14,8 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
 // NewWorkflowDefinitionsActionParams creates a new WorkflowDefinitionsActionParams object,
@@ -70,6 +72,9 @@ type WorkflowDefinitionsActionParams struct {
 	- `cancel`: cancel all in-flight executions for the workflow specified in ids
 	*/
 	ActionName string
+
+	// Body.
+	Body *models.ClientActionRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -135,6 +140,17 @@ func (o *WorkflowDefinitionsActionParams) SetActionName(actionName string) {
 	o.ActionName = actionName
 }
 
+// WithBody adds the body to the workflow definitions action params
+func (o *WorkflowDefinitionsActionParams) WithBody(body *models.ClientActionRequest) *WorkflowDefinitionsActionParams {
+	o.SetBody(body)
+	return o
+}
+
+// SetBody adds the body to the workflow definitions action params
+func (o *WorkflowDefinitionsActionParams) SetBody(body *models.ClientActionRequest) {
+	o.Body = body
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *WorkflowDefinitionsActionParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -149,6 +165,11 @@ func (o *WorkflowDefinitionsActionParams) WriteToRequest(r runtime.ClientRequest
 	if qActionName != "" {
 
 		if err := r.SetQueryParam("action_name", qActionName); err != nil {
+			return err
+		}
+	}
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
 	}

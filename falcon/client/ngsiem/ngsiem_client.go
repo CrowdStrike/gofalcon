@@ -483,7 +483,7 @@ func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption
 		ID:                 "GetLookupFile",
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,

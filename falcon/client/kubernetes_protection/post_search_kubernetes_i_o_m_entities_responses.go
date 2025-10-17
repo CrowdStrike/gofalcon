@@ -84,7 +84,7 @@ type PostSearchKubernetesIOMEntitiesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.K8siomsSearchResult
+	Payload *models.K8siomsSearchResponse
 }
 
 // IsSuccess returns true when this post search kubernetes i o m entities o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *PostSearchKubernetesIOMEntitiesOK) String() string {
 	return fmt.Sprintf("[POST /container-security/combined/kubernetes-ioms/search/v1][%d] postSearchKubernetesIOMEntitiesOK  %+v", 200, o.Payload)
 }
 
-func (o *PostSearchKubernetesIOMEntitiesOK) GetPayload() *models.K8siomsSearchResult {
+func (o *PostSearchKubernetesIOMEntitiesOK) GetPayload() *models.K8siomsSearchResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *PostSearchKubernetesIOMEntitiesOK) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.K8siomsSearchResult)
+	o.Payload = new(models.K8siomsSearchResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

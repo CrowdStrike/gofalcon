@@ -100,7 +100,7 @@ type ClientService interface {
 
 	ITAutomationStartTaskExecution(params *ITAutomationStartTaskExecutionParams, opts ...ClientOption) (*ITAutomationStartTaskExecutionCreated, error)
 
-	ITAutomationUpdatePolicies(params *ITAutomationUpdatePoliciesParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesCreated, error)
+	ITAutomationUpdatePolicies(params *ITAutomationUpdatePoliciesParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesOK, error)
 
 	ITAutomationUpdatePoliciesPrecedence(params *ITAutomationUpdatePoliciesPrecedenceParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesPrecedenceOK, error)
 
@@ -1467,7 +1467,7 @@ ITAutomationUpdatePolicies updates a new policy of the specified type
 
 Updates multiple fields for a policy.
 */
-func (a *Client) ITAutomationUpdatePolicies(params *ITAutomationUpdatePoliciesParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesCreated, error) {
+func (a *Client) ITAutomationUpdatePolicies(params *ITAutomationUpdatePoliciesParams, opts ...ClientOption) (*ITAutomationUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewITAutomationUpdatePoliciesParams()
@@ -1492,7 +1492,7 @@ func (a *Client) ITAutomationUpdatePolicies(params *ITAutomationUpdatePoliciesPa
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ITAutomationUpdatePoliciesCreated)
+	success, ok := result.(*ITAutomationUpdatePoliciesOK)
 	if ok {
 		return success, nil
 	}

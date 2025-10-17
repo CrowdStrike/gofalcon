@@ -97,6 +97,9 @@ type DomainAWSAccountV2 struct {
 	// dspm enabled
 	DspmEnabled bool `json:"dspm_enabled,omitempty"`
 
+	// dspm host account id
+	DspmHostAccountID string `json:"dspm_host_account_id,omitempty"`
+
 	// dspm role arn
 	DspmRoleArn string `json:"dspm_role_arn,omitempty"`
 

@@ -19,6 +19,10 @@ import (
 // swagger:model api.TemplateSnapshotV1
 type APITemplateSnapshotV1 struct {
 
+	// cid
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// created by
 	// Required: true
 	CreatedBy *APIActorV1 `json:"created_by"`
@@ -66,6 +70,10 @@ type APITemplateSnapshotV1 struct {
 func (m *APITemplateSnapshotV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -109,6 +117,15 @@ func (m *APITemplateSnapshotV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APITemplateSnapshotV1) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 

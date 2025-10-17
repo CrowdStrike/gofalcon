@@ -46,6 +46,9 @@ type ItautomationRunLiveQueryRequest struct {
 	// Script queries to run per platform
 	Queries *ItautomationScripts `json:"queries,omitempty"`
 
+	// Configuration for parsing script output into multiple rows
+	RowsParserConfig *ItautomationRowsParserConfig `json:"rows_parser_config,omitempty"`
+
 	// Target filter in FQL format. Example: platform_name: 'Windows'
 	// Required: true
 	Target *string `json:"target"`
@@ -68,6 +71,10 @@ func (m *ItautomationRunLiveQueryRequest) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateQueries(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRowsParserConfig(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -157,6 +164,25 @@ func (m *ItautomationRunLiveQueryRequest) validateQueries(formats strfmt.Registr
 	return nil
 }
 
+func (m *ItautomationRunLiveQueryRequest) validateRowsParserConfig(formats strfmt.Registry) error {
+	if swag.IsZero(m.RowsParserConfig) { // not required
+		return nil
+	}
+
+	if m.RowsParserConfig != nil {
+		if err := m.RowsParserConfig.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("rows_parser_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rows_parser_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ItautomationRunLiveQueryRequest) validateTarget(formats strfmt.Registry) error {
 
 	if err := validate.Required("target", "body", m.Target); err != nil {
@@ -183,6 +209,10 @@ func (m *ItautomationRunLiveQueryRequest) ContextValidate(ctx context.Context, f
 	}
 
 	if err := m.contextValidateQueries(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRowsParserConfig(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -268,6 +298,27 @@ func (m *ItautomationRunLiveQueryRequest) contextValidateQueries(ctx context.Con
 				return ve.ValidateName("queries")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("queries")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ItautomationRunLiveQueryRequest) contextValidateRowsParserConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RowsParserConfig != nil {
+
+		if swag.IsZero(m.RowsParserConfig) { // not required
+			return nil
+		}
+
+		if err := m.RowsParserConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("rows_parser_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rows_parser_config")
 			}
 			return err
 		}

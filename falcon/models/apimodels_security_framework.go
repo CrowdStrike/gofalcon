@@ -23,13 +23,15 @@ type ApimodelsSecurityFramework struct {
 	// Required: true
 	Authority *string `json:"authority"`
 
+	// description
+	Description string `json:"description,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`
 
 	// uuid
-	// Required: true
-	UUID *string `json:"uuid"`
+	UUID string `json:"uuid,omitempty"`
 
 	// version
 	// Required: true
@@ -45,10 +47,6 @@ func (m *ApimodelsSecurityFramework) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUUID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -74,15 +72,6 @@ func (m *ApimodelsSecurityFramework) validateAuthority(formats strfmt.Registry) 
 func (m *ApimodelsSecurityFramework) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsSecurityFramework) validateUUID(formats strfmt.Registry) error {
-
-	if err := validate.Required("uuid", "body", m.UUID); err != nil {
 		return err
 	}
 

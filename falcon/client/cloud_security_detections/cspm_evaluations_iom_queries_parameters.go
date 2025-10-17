@@ -62,6 +62,12 @@ CspmEvaluationsIomQueriesParams contains all the parameters to send to the API e
 */
 type CspmEvaluationsIomQueriesParams struct {
 
+	/* After.
+
+	   token-based pagination. Use for paginating through an entire result set. Use only one of 'offset' and 'after' parameters for paginating
+	*/
+	After *string
+
 	/* Filter.
 
 	     FQL string to filter results in Falcon Query Language (FQL). Supported fields:
@@ -250,6 +256,17 @@ func (o *CspmEvaluationsIomQueriesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAfter adds the after to the cspm evaluations iom queries params
+func (o *CspmEvaluationsIomQueriesParams) WithAfter(after *string) *CspmEvaluationsIomQueriesParams {
+	o.SetAfter(after)
+	return o
+}
+
+// SetAfter adds the after to the cspm evaluations iom queries params
+func (o *CspmEvaluationsIomQueriesParams) SetAfter(after *string) {
+	o.After = after
+}
+
 // WithFilter adds the filter to the cspm evaluations iom queries params
 func (o *CspmEvaluationsIomQueriesParams) WithFilter(filter *string) *CspmEvaluationsIomQueriesParams {
 	o.SetFilter(filter)
@@ -301,6 +318,23 @@ func (o *CspmEvaluationsIomQueriesParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
+
+	if o.After != nil {
+
+		// query param after
+		var qrAfter string
+
+		if o.After != nil {
+			qrAfter = *o.After
+		}
+		qAfter := qrAfter
+		if qAfter != "" {
+
+			if err := r.SetQueryParam("after", qAfter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Filter != nil {
 

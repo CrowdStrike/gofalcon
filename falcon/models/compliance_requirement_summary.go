@@ -19,6 +19,10 @@ import (
 // swagger:model compliance.RequirementSummary
 type ComplianceRequirementSummary struct {
 
+	// id
+	// Required: true
+	ID *string `json:"id"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`
@@ -36,6 +40,10 @@ type ComplianceRequirementSummary struct {
 func (m *ComplianceRequirementSummary) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -51,6 +59,15 @@ func (m *ComplianceRequirementSummary) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ComplianceRequirementSummary) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
 	return nil
 }
 

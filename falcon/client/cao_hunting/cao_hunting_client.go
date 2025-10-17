@@ -118,7 +118,7 @@ func (a *Client) GetArchiveExport(params *GetArchiveExportParams, opts ...Client
 }
 
 /*
-GetIntelligenceQueries retrieves a list of intelligence queries
+GetIntelligenceQueries retrieves the details of a list of intelligence queries i ds
 */
 func (a *Client) GetIntelligenceQueries(params *GetIntelligenceQueriesParams, opts ...ClientOption) (*GetIntelligenceQueriesOK, error) {
 	// TODO: Validate the params before sending
@@ -156,7 +156,7 @@ func (a *Client) GetIntelligenceQueries(params *GetIntelligenceQueriesParams, op
 }
 
 /*
-SearchIntelligenceQueries searches intelligence queries that match the provided conditions
+SearchIntelligenceQueries searches for a list of intelligence queries i ds that match the provided conditions
 */
 func (a *Client) SearchIntelligenceQueries(params *SearchIntelligenceQueriesParams, opts ...ClientOption) (*SearchIntelligenceQueriesOK, error) {
 	// TODO: Validate the params before sending

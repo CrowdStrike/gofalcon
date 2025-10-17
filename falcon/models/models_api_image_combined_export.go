@@ -45,9 +45,18 @@ type ModelsAPIImageCombinedExport struct {
 	// cloud groups v2
 	CloudGroupsV2 []*RbacCloudGroup `json:"cloud_groups_v2"`
 
+	// cve exploited status
+	CveExploitedStatus int32 `json:"cve_exploited_status,omitempty"`
+
+	// cve first seen
+	CveFirstSeen string `json:"cve_first_seen,omitempty"`
+
 	// cve id
 	// Required: true
 	CveID *string `json:"cve_id"`
+
+	// cve publication date
+	CvePublicationDate string `json:"cve_publication_date,omitempty"`
 
 	// cvss score
 	// Required: true
@@ -75,6 +84,9 @@ type ModelsAPIImageCombinedExport struct {
 	// groups
 	Groups []string `json:"groups"`
 
+	// image build date
+	ImageBuildDate string `json:"image_build_date,omitempty"`
+
 	// image digest
 	// Required: true
 	ImageDigest *string `json:"image_digest"`
@@ -90,6 +102,9 @@ type ModelsAPIImageCombinedExport struct {
 	// last seen
 	// Required: true
 	LastSeen *string `json:"last_seen"`
+
+	// package name version
+	PackageNameVersion string `json:"package_name_version,omitempty"`
 
 	// packages impacted
 	// Required: true

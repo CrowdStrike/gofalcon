@@ -42,6 +42,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 	// device control
 	DeviceControl *DeviceDevicePolicy `json:"device_control,omitempty"`
 
+	// exposure management
+	ExposureManagement *DeviceDevicePolicy `json:"exposure-management,omitempty"`
+
 	// fim
 	Fim *DeviceDevicePolicy `json:"fim,omitempty"`
 
@@ -65,6 +68,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 
 	// kubernetes admission control
 	KubernetesAdmissionControl *DeviceDevicePolicy `json:"kubernetes-admission-control,omitempty"`
+
+	// logscale collector
+	LogscaleCollector *DeviceDevicePolicy `json:"logscale-collector,omitempty"`
 
 	// mobile
 	Mobile *DeviceDevicePolicy `json:"mobile,omitempty"`
@@ -133,6 +139,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 		res = append(res, err)
 	}
 
+	if err := m.validateExposureManagement(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFim(formats); err != nil {
 		res = append(res, err)
 	}
@@ -162,6 +172,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateKubernetesAdmissionControl(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLogscaleCollector(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -363,6 +377,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateDeviceControl(formats str
 	return nil
 }
 
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateExposureManagement(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExposureManagement) { // not required
+		return nil
+	}
+
+	if m.ExposureManagement != nil {
+		if err := m.ExposureManagement.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("exposure-management")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exposure-management")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceapiMappedDevicePoliciesSwagger) validateFim(formats strfmt.Registry) error {
 	if swag.IsZero(m.Fim) { // not required
 		return nil
@@ -507,6 +540,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateKubernetesAdmissionContro
 				return ve.ValidateName("kubernetes-admission-control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kubernetes-admission-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateLogscaleCollector(formats strfmt.Registry) error {
+	if swag.IsZero(m.LogscaleCollector) { // not required
+		return nil
+	}
+
+	if m.LogscaleCollector != nil {
+		if err := m.LogscaleCollector.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("logscale-collector")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logscale-collector")
 			}
 			return err
 		}
@@ -741,6 +793,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateExposureManagement(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFim(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -770,6 +826,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 	}
 
 	if err := m.contextValidateKubernetesAdmissionControl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLogscaleCollector(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -987,6 +1047,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateDeviceControl(ctx 
 	return nil
 }
 
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateExposureManagement(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExposureManagement != nil {
+
+		if swag.IsZero(m.ExposureManagement) { // not required
+			return nil
+		}
+
+		if err := m.ExposureManagement.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("exposure-management")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exposure-management")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateFim(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Fim != nil {
@@ -1147,6 +1228,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateKubernetesAdmissio
 				return ve.ValidateName("kubernetes-admission-control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kubernetes-admission-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateLogscaleCollector(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LogscaleCollector != nil {
+
+		if swag.IsZero(m.LogscaleCollector) { // not required
+			return nil
+		}
+
+		if err := m.LogscaleCollector.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("logscale-collector")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logscale-collector")
 			}
 			return err
 		}

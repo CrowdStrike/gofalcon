@@ -90,7 +90,7 @@ type CombinedReleasesV1Mixin0OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ReleasesReleaseWrapper
+	Payload *models.ReleasesReleaseResponseWrapperV1
 }
 
 // IsSuccess returns true when this combined releases v1 mixin0 o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *CombinedReleasesV1Mixin0OK) String() string {
 	return fmt.Sprintf("[GET /deployment-coordinator/combined/releases/v1][%d] combinedReleasesV1Mixin0OK  %+v", 200, o.Payload)
 }
 
-func (o *CombinedReleasesV1Mixin0OK) GetPayload() *models.ReleasesReleaseWrapper {
+func (o *CombinedReleasesV1Mixin0OK) GetPayload() *models.ReleasesReleaseResponseWrapperV1 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *CombinedReleasesV1Mixin0OK) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ReleasesReleaseWrapper)
+	o.Payload = new(models.ReleasesReleaseResponseWrapperV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

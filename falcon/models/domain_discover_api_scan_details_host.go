@@ -22,6 +22,9 @@ type DomainDiscoverAPIScanDetailsHost struct {
 
 	// The unique identifier of the scan.
 	ScanID string `json:"scan_id,omitempty"`
+
+	// The id of the scan schedule configuration associated with the scan.
+	ScheduleID string `json:"schedule_id,omitempty"`
 }
 
 // Validate validates this domain discover API scan details host

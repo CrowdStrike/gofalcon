@@ -54,6 +54,9 @@ type ItautomationCreateTaskRequest struct {
 	// Remediation scripts to run per platform
 	Remediations *ItautomationScripts `json:"remediations,omitempty"`
 
+	// Configuration for parsing script output into multiple rows
+	RowsParserConfig *ItautomationRowsParserConfig `json:"rows_parser_config,omitempty"`
+
 	// Target filter in FQL format. Example: platform_name: 'Windows'
 	// Required: true
 	Target *string `json:"target"`
@@ -101,6 +104,10 @@ func (m *ItautomationCreateTaskRequest) Validate(formats strfmt.Registry) error 
 	}
 
 	if err := m.validateRemediations(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRowsParserConfig(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -250,6 +257,25 @@ func (m *ItautomationCreateTaskRequest) validateRemediations(formats strfmt.Regi
 				return ve.ValidateName("remediations")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("remediations")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ItautomationCreateTaskRequest) validateRowsParserConfig(formats strfmt.Registry) error {
+	if swag.IsZero(m.RowsParserConfig) { // not required
+		return nil
+	}
+
+	if m.RowsParserConfig != nil {
+		if err := m.RowsParserConfig.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("rows_parser_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rows_parser_config")
 			}
 			return err
 		}
@@ -408,6 +434,10 @@ func (m *ItautomationCreateTaskRequest) ContextValidate(ctx context.Context, for
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateRowsParserConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateTaskParameters(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -502,6 +532,27 @@ func (m *ItautomationCreateTaskRequest) contextValidateRemediations(ctx context.
 				return ve.ValidateName("remediations")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("remediations")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ItautomationCreateTaskRequest) contextValidateRowsParserConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RowsParserConfig != nil {
+
+		if swag.IsZero(m.RowsParserConfig) { // not required
+			return nil
+		}
+
+		if err := m.RowsParserConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("rows_parser_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rows_parser_config")
 			}
 			return err
 		}

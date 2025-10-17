@@ -49,6 +49,9 @@ type AzureAzureRegistrationCreateInput struct {
 	// deployment stack host id
 	DeploymentStackHostID string `json:"deployment_stack_host_id,omitempty"`
 
+	// deployment stack host region
+	DeploymentStackHostRegion string `json:"deployment_stack_host_region,omitempty"`
+
 	// deployment stack name
 	DeploymentStackName string `json:"deployment_stack_name,omitempty"`
 

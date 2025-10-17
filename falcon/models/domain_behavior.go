@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -24,6 +25,9 @@ type DomainBehavior struct {
 
 	// alert ids
 	AlertIds []string `json:"alert_ids"`
+
+	// alerts details
+	AlertsDetails []*DomainAlertDetails `json:"alerts_details"`
 
 	// behavior id
 	BehaviorID string `json:"behavior_id,omitempty"`
@@ -51,9 +55,6 @@ type DomainBehavior struct {
 
 	// filepath
 	Filepath string `json:"filepath,omitempty"`
-
-	// grouping ids
-	GroupingIds []string `json:"grouping_ids"`
 
 	// incident id
 	IncidentID string `json:"incident_id,omitempty"`
@@ -118,6 +119,10 @@ type DomainBehavior struct {
 func (m *DomainBehavior) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAlertsDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePatternDispositionDetails(formats); err != nil {
 		res = append(res, err)
 	}
@@ -137,6 +142,32 @@ func (m *DomainBehavior) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainBehavior) validateAlertsDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.AlertsDetails) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AlertsDetails); i++ {
+		if swag.IsZero(m.AlertsDetails[i]) { // not required
+			continue
+		}
+
+		if m.AlertsDetails[i] != nil {
+			if err := m.AlertsDetails[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("alerts_details" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alerts_details" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -194,6 +225,10 @@ func (m *DomainBehavior) validateTimestamp(formats strfmt.Registry) error {
 func (m *DomainBehavior) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAlertsDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidatePatternDispositionDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -201,6 +236,31 @@ func (m *DomainBehavior) ContextValidate(ctx context.Context, formats strfmt.Reg
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainBehavior) contextValidateAlertsDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AlertsDetails); i++ {
+
+		if m.AlertsDetails[i] != nil {
+
+			if swag.IsZero(m.AlertsDetails[i]) { // not required
+				return nil
+			}
+
+			if err := m.AlertsDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("alerts_details" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alerts_details" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

@@ -97,6 +97,12 @@ type WorkflowMockExecuteParams struct {
 	*/
 	Name *string
 
+	/* SkipValidation.
+
+	   When enabled, skips validating mocks from the request body against the mocked entity's output schema. Mocks provided in the definition by reference are not validated in any case.
+	*/
+	SkipValidation *bool
+
 	/* SourceEventURL.
 
 	   Used to record a URL to the source that led to triggering this workflow
@@ -105,7 +111,7 @@ type WorkflowMockExecuteParams struct {
 
 	/* ValidateOnly.
 
-	   When enabled, prevents execution after validating mocks against definition
+	   When enabled, prevents execution after validating mocks from the request body against the mocked entity's output schema. Mocks provided in the definition by reference are not validated in any case.
 	*/
 	ValidateOnly *bool
 
@@ -127,11 +133,14 @@ func (o *WorkflowMockExecuteParams) WithDefaults() *WorkflowMockExecuteParams {
 // All values with no default are reset to their zero value.
 func (o *WorkflowMockExecuteParams) SetDefaults() {
 	var (
+		skipValidationDefault = bool(false)
+
 		validateOnlyDefault = bool(false)
 	)
 
 	val := WorkflowMockExecuteParams{
-		ValidateOnly: &validateOnlyDefault,
+		SkipValidation: &skipValidationDefault,
+		ValidateOnly:   &validateOnlyDefault,
 	}
 
 	val.timeout = o.timeout
@@ -237,6 +246,17 @@ func (o *WorkflowMockExecuteParams) WithName(name *string) *WorkflowMockExecuteP
 // SetName adds the name to the workflow mock execute params
 func (o *WorkflowMockExecuteParams) SetName(name *string) {
 	o.Name = name
+}
+
+// WithSkipValidation adds the skipValidation to the workflow mock execute params
+func (o *WorkflowMockExecuteParams) WithSkipValidation(skipValidation *bool) *WorkflowMockExecuteParams {
+	o.SetSkipValidation(skipValidation)
+	return o
+}
+
+// SetSkipValidation adds the skipValidation to the workflow mock execute params
+func (o *WorkflowMockExecuteParams) SetSkipValidation(skipValidation *bool) {
+	o.SkipValidation = skipValidation
 }
 
 // WithSourceEventURL adds the sourceEventURL to the workflow mock execute params
@@ -348,6 +368,23 @@ func (o *WorkflowMockExecuteParams) WriteToRequest(r runtime.ClientRequest, reg 
 		if qName != "" {
 
 			if err := r.SetQueryParam("name", qName); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.SkipValidation != nil {
+
+		// query param skip_validation
+		var qrSkipValidation bool
+
+		if o.SkipValidation != nil {
+			qrSkipValidation = *o.SkipValidation
+		}
+		qSkipValidation := swag.FormatBool(qrSkipValidation)
+		if qSkipValidation != "" {
+
+			if err := r.SetQueryParam("skip_validation", qSkipValidation); err != nil {
 				return err
 			}
 		}

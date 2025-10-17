@@ -70,6 +70,7 @@ type ReadDetectionsCountParams struct {
 	- `image_registry`
 	- `image_repository`
 	- `image_tag`
+	- `severity`
 	*/
 	Filter *string
 

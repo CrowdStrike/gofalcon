@@ -64,7 +64,7 @@ type CloudSecurityRegistrationOciGetAccountParams struct {
 
 	/* Filter.
 
-	   FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age, overall_status}
+	   FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
 	*/
 	Filter *string
 

@@ -22,7 +22,7 @@ type ModelsMockExecutionCreateRequestV1 struct {
 	// definition to be executed with provided mock results and on-demand trigger data
 	Definition *ModelsDefinitionCreateRequestV2 `json:"definition,omitempty"`
 
-	// Mock activity data and trigger data for non-on-demand executions, keyed by node ID, may include trigger and/or activity nodes
+	// Mock activity data and trigger data for non-on-demand executions, keyed by node ID, may include trigger and/or activity nodes; mocks can also be defined by reference in the workflow definition itself; in case of a conflict, the mocks provided in the request body (this field) take precedence
 	// Required: true
 	Mocks *string `json:"mocks"`
 

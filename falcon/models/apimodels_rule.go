@@ -32,8 +32,7 @@ type ApimodelsRule struct {
 	AutoRemediable *bool `json:"auto_remediable"`
 
 	// category
-	// Required: true
-	Category *string `json:"category"`
+	Category string `json:"category,omitempty"`
 
 	// cid
 	// Required: true
@@ -197,10 +196,6 @@ func (m *ApimodelsRule) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateCategory(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
@@ -319,15 +314,6 @@ func (m *ApimodelsRule) validateAlertInfo(formats strfmt.Registry) error {
 func (m *ApimodelsRule) validateAutoRemediable(formats strfmt.Registry) error {
 
 	if err := validate.Required("auto_remediable", "body", m.AutoRemediable); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsRule) validateCategory(formats strfmt.Registry) error {
-
-	if err := validate.Required("category", "body", m.Category); err != nil {
 		return err
 	}
 

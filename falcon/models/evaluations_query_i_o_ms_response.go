@@ -24,8 +24,7 @@ type EvaluationsQueryIOMsResponse struct {
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
-	// Required: true
-	Meta *MsaMetaInfo `json:"meta"`
+	Meta *RestCursorAndLimitMetaInfo `json:"meta,omitempty"`
 
 	// resources
 	// Required: true
@@ -81,9 +80,8 @@ func (m *EvaluationsQueryIOMsResponse) validateErrors(formats strfmt.Registry) e
 }
 
 func (m *EvaluationsQueryIOMsResponse) validateMeta(formats strfmt.Registry) error {
-
-	if err := validate.Required("meta", "body", m.Meta); err != nil {
-		return err
+	if swag.IsZero(m.Meta) { // not required
+		return nil
 	}
 
 	if m.Meta != nil {
@@ -155,6 +153,10 @@ func (m *EvaluationsQueryIOMsResponse) contextValidateErrors(ctx context.Context
 func (m *EvaluationsQueryIOMsResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
+
+		if swag.IsZero(m.Meta) { // not required
+			return nil
+		}
 
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {

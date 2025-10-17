@@ -30,51 +30,9 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	LookupIndicators(params *LookupIndicatorsParams, opts ...ClientOption) (*LookupIndicatorsOK, error)
-
 	SearchIndicators(params *SearchIndicatorsParams, opts ...ClientOption) (*SearchIndicatorsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-LookupIndicators gets indicators based on their value
-
-Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
-*/
-func (a *Client) LookupIndicators(params *LookupIndicatorsParams, opts ...ClientOption) (*LookupIndicatorsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewLookupIndicatorsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "LookupIndicators",
-		Method:             "POST",
-		PathPattern:        "/intelligence/combined/lookup-indicators/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &LookupIndicatorsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*LookupIndicatorsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for LookupIndicators: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
 }
 
 /*

@@ -80,6 +80,12 @@ type QueriesNotificationGroupsGetV1Params struct {
 	*/
 	Offset *int64
 
+	/* Sort.
+
+	   Sort expression
+	*/
+	Sort *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -166,6 +172,17 @@ func (o *QueriesNotificationGroupsGetV1Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithSort adds the sort to the queries notification groups get v1 params
+func (o *QueriesNotificationGroupsGetV1Params) WithSort(sort *string) *QueriesNotificationGroupsGetV1Params {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the queries notification groups get v1 params
+func (o *QueriesNotificationGroupsGetV1Params) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *QueriesNotificationGroupsGetV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -220,6 +237,23 @@ func (o *QueriesNotificationGroupsGetV1Params) WriteToRequest(r runtime.ClientRe
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}

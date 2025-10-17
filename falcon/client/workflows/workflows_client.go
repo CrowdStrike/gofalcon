@@ -416,7 +416,7 @@ func (a *Client) WorkflowDefinitionsAction(params *WorkflowDefinitionsActionPara
 }
 
 /*
-WorkflowDefinitionsCombined searches workflow definitions based on the provided filter
+WorkflowDefinitionsCombined searches workflow definitions based on the provided filter n o t e this API has a large response payload click on wait if the page is unresponsive during loading
 */
 func (a *Client) WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombinedParams, opts ...ClientOption) (*WorkflowDefinitionsCombinedOK, error) {
 	// TODO: Validate the params before sending

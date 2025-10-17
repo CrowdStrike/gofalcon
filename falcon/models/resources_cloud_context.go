@@ -66,8 +66,8 @@ type ResourcesCloudContext struct {
 	// managed by
 	ManagedBy string `json:"managed_by,omitempty"`
 
-	// open risks
-	OpenRisks int64 `json:"open_risks,omitempty"`
+	// open cloud risks
+	OpenCloudRisks int64 `json:"open_cloud_risks,omitempty"`
 
 	// publicly exposed
 	PubliclyExposed bool `json:"publicly_exposed,omitempty"`

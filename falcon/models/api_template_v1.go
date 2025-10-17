@@ -20,6 +20,10 @@ import (
 // swagger:model api.TemplateV1
 type APITemplateV1 struct {
 
+	// cid
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// created by
 	// Required: true
 	CreatedBy *APIActorV1 `json:"created_by"`
@@ -48,7 +52,8 @@ type APITemplateV1 struct {
 	Name *string `json:"name"`
 
 	// sla id
-	SLAID string `json:"sla_id,omitempty"`
+	// Required: true
+	SLAID *string `json:"sla_id"`
 
 	// updated by
 	// Required: true
@@ -67,6 +72,10 @@ type APITemplateV1 struct {
 // Validate validates this api template v1
 func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
@@ -92,6 +101,10 @@ func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSLAID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateUpdatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -107,6 +120,15 @@ func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APITemplateV1) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -190,6 +212,15 @@ func (m *APITemplateV1) validateID(formats strfmt.Registry) error {
 func (m *APITemplateV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APITemplateV1) validateSLAID(formats strfmt.Registry) error {
+
+	if err := validate.Required("sla_id", "body", m.SLAID); err != nil {
 		return err
 	}
 

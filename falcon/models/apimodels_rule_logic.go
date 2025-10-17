@@ -27,12 +27,10 @@ type ApimodelsRuleLogic struct {
 	Platform *string `json:"platform"`
 
 	// remediation info
-	// Required: true
-	RemediationInfo *string `json:"remediation_info"`
+	RemediationInfo string `json:"remediation_info,omitempty"`
 
 	// remediation url
-	// Required: true
-	RemediationURL *string `json:"remediation_url"`
+	RemediationURL string `json:"remediation_url,omitempty"`
 }
 
 // Validate validates this apimodels rule logic
@@ -40,14 +38,6 @@ func (m *ApimodelsRuleLogic) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validatePlatform(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRemediationInfo(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRemediationURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,24 +50,6 @@ func (m *ApimodelsRuleLogic) Validate(formats strfmt.Registry) error {
 func (m *ApimodelsRuleLogic) validatePlatform(formats strfmt.Registry) error {
 
 	if err := validate.Required("platform", "body", m.Platform); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsRuleLogic) validateRemediationInfo(formats strfmt.Registry) error {
-
-	if err := validate.Required("remediation_info", "body", m.RemediationInfo); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsRuleLogic) validateRemediationURL(formats strfmt.Registry) error {
-
-	if err := validate.Required("remediation_url", "body", m.RemediationURL); err != nil {
 		return err
 	}
 

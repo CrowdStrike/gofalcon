@@ -38,6 +38,8 @@ type ClientService interface {
 
 	CloudRegistrationAzureGetRegistration(params *CloudRegistrationAzureGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureGetRegistrationOK, error)
 
+	CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrationAzureTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationAzureTriggerHealthCheckOK, error)
+
 	CloudRegistrationAzureUpdateRegistration(params *CloudRegistrationAzureUpdateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateRegistrationOK, error)
 
 	DownloadAzureScript(params *DownloadAzureScriptParams, opts ...ClientOption) (*DownloadAzureScriptOK, error)
@@ -194,6 +196,44 @@ func (a *Client) CloudRegistrationAzureGetRegistration(params *CloudRegistration
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureTriggerHealthCheck triggers health check scan for azure registrations
+*/
+func (a *Client) CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrationAzureTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationAzureTriggerHealthCheckOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureTriggerHealthCheckParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-trigger-health-check",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-azure/entities/registrations/healthcheck/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureTriggerHealthCheckReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureTriggerHealthCheckOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-trigger-health-check: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

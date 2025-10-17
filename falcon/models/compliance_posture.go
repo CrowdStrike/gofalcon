@@ -28,6 +28,9 @@ type CompliancePosture struct {
 	// score
 	// Required: true
 	Score *int32 `json:"score"`
+
+	// suppressed
+	Suppressed int32 `json:"suppressed,omitempty"`
 }
 
 // Validate validates this compliance posture

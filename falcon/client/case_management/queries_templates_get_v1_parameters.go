@@ -80,6 +80,12 @@ type QueriesTemplatesGetV1Params struct {
 	*/
 	Offset *int64
 
+	/* Sort.
+
+	   Sort expression
+	*/
+	Sort *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -166,6 +172,17 @@ func (o *QueriesTemplatesGetV1Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithSort adds the sort to the queries templates get v1 params
+func (o *QueriesTemplatesGetV1Params) WithSort(sort *string) *QueriesTemplatesGetV1Params {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the queries templates get v1 params
+func (o *QueriesTemplatesGetV1Params) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *QueriesTemplatesGetV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -220,6 +237,23 @@ func (o *QueriesTemplatesGetV1Params) WriteToRequest(r runtime.ClientRequest, re
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}

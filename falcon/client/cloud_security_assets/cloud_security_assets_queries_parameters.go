@@ -92,6 +92,12 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `compliant.rule`
 	- `compliant.section`
 	- `configuration.id`
+	- `control.benchmark.name`
+	- `control.benchmark.version`
+	- `control.framework`
+	- `control.requirement`
+	- `control.type`
+	- `control.version`
 	- `creation_time`
 	- `cve_ids`
 	- `data_classifications.found`

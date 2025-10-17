@@ -87,7 +87,7 @@ type QueryActivityByCaseIDParams struct {
 
 	   Starting index of overall result set from which to return ids.
 	*/
-	Offset *string
+	Offset *int64
 
 	/* Sort.
 
@@ -182,13 +182,13 @@ func (o *QueryActivityByCaseIDParams) SetLimit(limit *int64) {
 }
 
 // WithOffset adds the offset to the query activity by case ID params
-func (o *QueryActivityByCaseIDParams) WithOffset(offset *string) *QueryActivityByCaseIDParams {
+func (o *QueryActivityByCaseIDParams) WithOffset(offset *int64) *QueryActivityByCaseIDParams {
 	o.SetOffset(offset)
 	return o
 }
 
 // SetOffset adds the offset to the query activity by case ID params
-func (o *QueryActivityByCaseIDParams) SetOffset(offset *string) {
+func (o *QueryActivityByCaseIDParams) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
@@ -258,12 +258,12 @@ func (o *QueryActivityByCaseIDParams) WriteToRequest(r runtime.ClientRequest, re
 	if o.Offset != nil {
 
 		// query param offset
-		var qrOffset string
+		var qrOffset int64
 
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
-		qOffset := qrOffset
+		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {

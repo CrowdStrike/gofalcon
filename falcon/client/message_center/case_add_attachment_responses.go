@@ -84,7 +84,7 @@ type CaseAddAttachmentOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIMessageCenterAttachmentUploadResponse
+	Payload *models.MessagecenterAttachmentUploadResponse
 }
 
 // IsSuccess returns true when this case add attachment o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CaseAddAttachmentOK) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentOK  %+v", 200, o.Payload)
 }
 
-func (o *CaseAddAttachmentOK) GetPayload() *models.APIMessageCenterAttachmentUploadResponse {
+func (o *CaseAddAttachmentOK) GetPayload() *models.MessagecenterAttachmentUploadResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CaseAddAttachmentOK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIMessageCenterAttachmentUploadResponse)
+	o.Payload = new(models.MessagecenterAttachmentUploadResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

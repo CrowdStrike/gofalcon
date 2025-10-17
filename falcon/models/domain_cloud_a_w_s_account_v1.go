@@ -122,6 +122,9 @@ type DomainCloudAWSAccountV1 struct {
 	// s3 url
 	S3URL string `json:"s3_url,omitempty"`
 
+	// settings
+	Settings interface{} `json:"settings,omitempty"`
+
 	// Account registration status for each product and feature
 	Status []*DomainProductFeaturesStatus `json:"status"`
 

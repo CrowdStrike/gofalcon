@@ -82,8 +82,10 @@ type ClustersByStatusCountParams struct {
 	- `kubernetes_version`
 	- `last_seen`
 	- `management_status`
+	- `namespace`
 	- `node_count`
 	- `pod_count`
+	- `pod_name`
 	- `tags`
 	*/
 	Filter *string

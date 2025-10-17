@@ -28,6 +28,9 @@ type WebhooktriggerAPIRequest struct {
 	// Description for the trigger.
 	Description string `json:"description,omitempty"`
 
+	// ip mask for limiting exposure of webhook endpoint to specific IP addresses
+	IPMask *WebhooktriggerIPMask `json:"ip_mask,omitempty"`
+
 	// User friendly display name for the webhook trigger, this the fully qualified name that provides the context hierarchy.
 	// Required: true
 	Name *string `json:"name"`
@@ -44,6 +47,10 @@ func (m *WebhooktriggerAPIRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAuthConfig(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIPMask(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,6 +79,25 @@ func (m *WebhooktriggerAPIRequest) validateAuthConfig(formats strfmt.Registry) e
 				return ve.ValidateName("auth_config")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("auth_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebhooktriggerAPIRequest) validateIPMask(formats strfmt.Registry) error {
+	if swag.IsZero(m.IPMask) { // not required
+		return nil
+	}
+
+	if m.IPMask != nil {
+		if err := m.IPMask.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ip_mask")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip_mask")
 			}
 			return err
 		}
@@ -116,6 +142,10 @@ func (m *WebhooktriggerAPIRequest) ContextValidate(ctx context.Context, formats 
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIPMask(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateResponseConfig(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -139,6 +169,27 @@ func (m *WebhooktriggerAPIRequest) contextValidateAuthConfig(ctx context.Context
 				return ve.ValidateName("auth_config")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("auth_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebhooktriggerAPIRequest) contextValidateIPMask(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IPMask != nil {
+
+		if swag.IsZero(m.IPMask) { // not required
+			return nil
+		}
+
+		if err := m.IPMask.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ip_mask")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip_mask")
 			}
 			return err
 		}

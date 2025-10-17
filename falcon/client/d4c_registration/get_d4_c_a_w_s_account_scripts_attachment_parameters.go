@@ -86,6 +86,15 @@ type GetD4CAWSAccountScriptsAttachmentParams struct {
 	// DspmEnabled.
 	DspmEnabled *string
 
+	// DspmHostAccountID.
+	DspmHostAccountID *string
+
+	// DspmHostIntegrationRoleName.
+	DspmHostIntegrationRoleName *string
+
+	// DspmHostScannerRoleName.
+	DspmHostScannerRoleName *string
+
 	// DspmRegions.
 	DspmRegions []string
 
@@ -265,6 +274,39 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDspmEnabled(dspmEnabled *s
 // SetDspmEnabled adds the dspmEnabled to the get d4 c a w s account scripts attachment params
 func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDspmEnabled(dspmEnabled *string) {
 	o.DspmEnabled = dspmEnabled
+}
+
+// WithDspmHostAccountID adds the dspmHostAccountID to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDspmHostAccountID(dspmHostAccountID *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetDspmHostAccountID(dspmHostAccountID)
+	return o
+}
+
+// SetDspmHostAccountID adds the dspmHostAccountId to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDspmHostAccountID(dspmHostAccountID *string) {
+	o.DspmHostAccountID = dspmHostAccountID
+}
+
+// WithDspmHostIntegrationRoleName adds the dspmHostIntegrationRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDspmHostIntegrationRoleName(dspmHostIntegrationRoleName *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetDspmHostIntegrationRoleName(dspmHostIntegrationRoleName)
+	return o
+}
+
+// SetDspmHostIntegrationRoleName adds the dspmHostIntegrationRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDspmHostIntegrationRoleName(dspmHostIntegrationRoleName *string) {
+	o.DspmHostIntegrationRoleName = dspmHostIntegrationRoleName
+}
+
+// WithDspmHostScannerRoleName adds the dspmHostScannerRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithDspmHostScannerRoleName(dspmHostScannerRoleName *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetDspmHostScannerRoleName(dspmHostScannerRoleName)
+	return o
+}
+
+// SetDspmHostScannerRoleName adds the dspmHostScannerRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetDspmHostScannerRoleName(dspmHostScannerRoleName *string) {
+	o.DspmHostScannerRoleName = dspmHostScannerRoleName
 }
 
 // WithDspmRegions adds the dspmRegions to the get d4 c a w s account scripts attachment params
@@ -481,6 +523,57 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		if qDspmEnabled != "" {
 
 			if err := r.SetQueryParam("dspm_enabled", qDspmEnabled); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DspmHostAccountID != nil {
+
+		// query param dspm_host_account_id
+		var qrDspmHostAccountID string
+
+		if o.DspmHostAccountID != nil {
+			qrDspmHostAccountID = *o.DspmHostAccountID
+		}
+		qDspmHostAccountID := qrDspmHostAccountID
+		if qDspmHostAccountID != "" {
+
+			if err := r.SetQueryParam("dspm_host_account_id", qDspmHostAccountID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DspmHostIntegrationRoleName != nil {
+
+		// query param dspm_host_integration_role_name
+		var qrDspmHostIntegrationRoleName string
+
+		if o.DspmHostIntegrationRoleName != nil {
+			qrDspmHostIntegrationRoleName = *o.DspmHostIntegrationRoleName
+		}
+		qDspmHostIntegrationRoleName := qrDspmHostIntegrationRoleName
+		if qDspmHostIntegrationRoleName != "" {
+
+			if err := r.SetQueryParam("dspm_host_integration_role_name", qDspmHostIntegrationRoleName); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DspmHostScannerRoleName != nil {
+
+		// query param dspm_host_scanner_role_name
+		var qrDspmHostScannerRoleName string
+
+		if o.DspmHostScannerRoleName != nil {
+			qrDspmHostScannerRoleName = *o.DspmHostScannerRoleName
+		}
+		qDspmHostScannerRoleName := qrDspmHostScannerRoleName
+		if qDspmHostScannerRoleName != "" {
+
+			if err := r.SetQueryParam("dspm_host_scanner_role_name", qDspmHostScannerRoleName); err != nil {
 				return err
 			}
 		}
