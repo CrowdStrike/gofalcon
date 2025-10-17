@@ -22,6 +22,9 @@ type GraphConfiguredTrigger struct {
 	// Unique identifier for the selected trigger as provided by the triggers API
 	ID string `json:"id,omitempty"`
 
+	// A reference to a trigger's mock output, which may or may not be enabled'
+	MockOutput *NodemocksReference `json:"mock_output,omitempty"`
+
 	// Display name of the trigger
 	// Required: true
 	Name *string `json:"name"`
@@ -54,6 +57,10 @@ type GraphConfiguredTrigger struct {
 func (m *GraphConfiguredTrigger) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateMockOutput(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -81,6 +88,25 @@ func (m *GraphConfiguredTrigger) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *GraphConfiguredTrigger) validateMockOutput(formats strfmt.Registry) error {
+	if swag.IsZero(m.MockOutput) { // not required
+		return nil
+	}
+
+	if m.MockOutput != nil {
+		if err := m.MockOutput.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mock_output")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mock_output")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -172,6 +198,10 @@ func (m *GraphConfiguredTrigger) validateWebhookConfig(formats strfmt.Registry) 
 func (m *GraphConfiguredTrigger) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateMockOutput(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateParameters(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -187,6 +217,27 @@ func (m *GraphConfiguredTrigger) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *GraphConfiguredTrigger) contextValidateMockOutput(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MockOutput != nil {
+
+		if swag.IsZero(m.MockOutput) { // not required
+			return nil
+		}
+
+		if err := m.MockOutput.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mock_output")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mock_output")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

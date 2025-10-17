@@ -34,6 +34,10 @@ type DevicecontrolapiReqUpdateUSBBaseV1 struct {
 	// enhanced file metadata
 	EnhancedFileMetadata bool `json:"enhanced_file_metadata,omitempty"`
 
+	// Enforcement for PCIe/SD devices (omit to keep current). Note: OFF only supported for Mac platform
+	// Enum: [MONITOR_ONLY MONITOR_ENFORCE]
+	PcieEnforcementMode string `json:"pcie_enforcement_mode,omitempty"`
+
 	// Determines if the policy will include whitelist exceptions
 	// Enum: [ENABLE_ALWAYS DISABLE_VIRTUAL]
 	WhitelistMode string `json:"whitelist_mode,omitempty"`
@@ -52,6 +56,10 @@ func (m *DevicecontrolapiReqUpdateUSBBaseV1) Validate(formats strfmt.Registry) e
 	}
 
 	if err := m.validateEnforcementMode(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePcieEnforcementMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -165,6 +173,48 @@ func (m *DevicecontrolapiReqUpdateUSBBaseV1) validateEnforcementMode(formats str
 
 	// value enum
 	if err := m.validateEnforcementModeEnum("enforcement_mode", "body", m.EnforcementMode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var devicecontrolapiReqUpdateUSBBaseV1TypePcieEnforcementModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		devicecontrolapiReqUpdateUSBBaseV1TypePcieEnforcementModePropEnum = append(devicecontrolapiReqUpdateUSBBaseV1TypePcieEnforcementModePropEnum, v)
+	}
+}
+
+const (
+
+	// DevicecontrolapiReqUpdateUSBBaseV1PcieEnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
+	DevicecontrolapiReqUpdateUSBBaseV1PcieEnforcementModeMONITORONLY string = "MONITOR_ONLY"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1PcieEnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
+	DevicecontrolapiReqUpdateUSBBaseV1PcieEnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
+)
+
+// prop value enum
+func (m *DevicecontrolapiReqUpdateUSBBaseV1) validatePcieEnforcementModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, devicecontrolapiReqUpdateUSBBaseV1TypePcieEnforcementModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DevicecontrolapiReqUpdateUSBBaseV1) validatePcieEnforcementMode(formats strfmt.Registry) error {
+	if swag.IsZero(m.PcieEnforcementMode) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validatePcieEnforcementModeEnum("pcie_enforcement_mode", "body", m.PcieEnforcementMode); err != nil {
 		return err
 	}
 

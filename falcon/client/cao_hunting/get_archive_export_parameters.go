@@ -63,7 +63,9 @@ type GetArchiveExportParams struct {
 
 	/* ArchiveType.
 
-	   The Archive Type can be one of 'zip' and 'gzip'. Defaults to 'zip'.
+	   The Archive Type can be one of 'zip' and 'gzip'
+
+	   Default: "zip"
 	*/
 	ArchiveType *string
 
@@ -77,7 +79,7 @@ type GetArchiveExportParams struct {
 
 	     The Query Language. Accepted Values:
 
-	<li>cql</li><li>snort</li><li>suricata</li><li>yara</li>
+	<li>cql</li><li>snort</li><li>suricata</li><li>yara</li><li>SPL <i>AI translated (Beta)</i></li><li>__all__ <i>returns a single archive with queries in all the languages</i></li>
 	*/
 	Language string
 
@@ -98,7 +100,18 @@ func (o *GetArchiveExportParams) WithDefaults() *GetArchiveExportParams {
 //
 // All values with no default are reset to their zero value.
 func (o *GetArchiveExportParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		archiveTypeDefault = string("zip")
+	)
+
+	val := GetArchiveExportParams{
+		ArchiveType: &archiveTypeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get archive export params

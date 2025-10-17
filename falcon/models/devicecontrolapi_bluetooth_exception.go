@@ -70,6 +70,9 @@ type DevicecontrolapiBluetoothException struct {
 
 	// vendor name
 	VendorName string `json:"vendor_name,omitempty"`
+
+	// warning trigger ids
+	WarningTriggerIds []string `json:"warning_trigger_ids"`
 }
 
 // Validate validates this devicecontrolapi bluetooth exception

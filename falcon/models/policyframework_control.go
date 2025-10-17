@@ -37,6 +37,9 @@ type PolicyframeworkControl struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// origin
+	Origin string `json:"origin,omitempty"`
+
 	// requirement
 	Requirement string `json:"requirement,omitempty"`
 

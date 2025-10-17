@@ -25,8 +25,8 @@ type ITAutomationUpdatePoliciesReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *ITAutomationUpdatePoliciesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 201:
-		result := NewITAutomationUpdatePoliciesCreated()
+	case 200:
+		result := NewITAutomationUpdatePoliciesOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -60,17 +60,17 @@ func (o *ITAutomationUpdatePoliciesReader) ReadResponse(response runtime.ClientR
 	}
 }
 
-// NewITAutomationUpdatePoliciesCreated creates a ITAutomationUpdatePoliciesCreated with default headers values
-func NewITAutomationUpdatePoliciesCreated() *ITAutomationUpdatePoliciesCreated {
-	return &ITAutomationUpdatePoliciesCreated{}
+// NewITAutomationUpdatePoliciesOK creates a ITAutomationUpdatePoliciesOK with default headers values
+func NewITAutomationUpdatePoliciesOK() *ITAutomationUpdatePoliciesOK {
+	return &ITAutomationUpdatePoliciesOK{}
 }
 
 /*
-ITAutomationUpdatePoliciesCreated describes a response with status code 201, with default header values.
+ITAutomationUpdatePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
-type ITAutomationUpdatePoliciesCreated struct {
+type ITAutomationUpdatePoliciesOK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -87,49 +87,49 @@ type ITAutomationUpdatePoliciesCreated struct {
 	Payload *models.ItautomationUpdatePolicyResponse
 }
 
-// IsSuccess returns true when this i t automation update policies created response has a 2xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsSuccess() bool {
+// IsSuccess returns true when this i t automation update policies o k response has a 2xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this i t automation update policies created response has a 3xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsRedirect() bool {
+// IsRedirect returns true when this i t automation update policies o k response has a 3xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this i t automation update policies created response has a 4xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsClientError() bool {
+// IsClientError returns true when this i t automation update policies o k response has a 4xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this i t automation update policies created response has a 5xx status code
-func (o *ITAutomationUpdatePoliciesCreated) IsServerError() bool {
+// IsServerError returns true when this i t automation update policies o k response has a 5xx status code
+func (o *ITAutomationUpdatePoliciesOK) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this i t automation update policies created response a status code equal to that given
-func (o *ITAutomationUpdatePoliciesCreated) IsCode(code int) bool {
-	return code == 201
+// IsCode returns true when this i t automation update policies o k response a status code equal to that given
+func (o *ITAutomationUpdatePoliciesOK) IsCode(code int) bool {
+	return code == 200
 }
 
-// Code gets the status code for the i t automation update policies created response
-func (o *ITAutomationUpdatePoliciesCreated) Code() int {
-	return 201
+// Code gets the status code for the i t automation update policies o k response
+func (o *ITAutomationUpdatePoliciesOK) Code() int {
+	return 200
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesCreated  %+v", 201, o.Payload)
+func (o *ITAutomationUpdatePoliciesOK) Error() string {
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesCreated  %+v", 201, o.Payload)
+func (o *ITAutomationUpdatePoliciesOK) String() string {
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies/v1][%d] iTAutomationUpdatePoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) GetPayload() *models.ItautomationUpdatePolicyResponse {
+func (o *ITAutomationUpdatePoliciesOK) GetPayload() *models.ItautomationUpdatePolicyResponse {
 	return o.Payload
 }
 
-func (o *ITAutomationUpdatePoliciesCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *ITAutomationUpdatePoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

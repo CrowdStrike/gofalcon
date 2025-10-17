@@ -44,6 +44,10 @@ type ApimodelsControl struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// origin
+	// Required: true
+	Origin *string `json:"origin"`
+
 	// requirement
 	Requirement string `json:"requirement,omitempty"`
 
@@ -51,7 +55,6 @@ type ApimodelsControl struct {
 	SectionName string `json:"section_name,omitempty"`
 
 	// security framework
-	// Required: true
 	SecurityFramework []*ApimodelsSecurityFramework `json:"security_framework"`
 
 	// uuid
@@ -72,6 +75,10 @@ func (m *ApimodelsControl) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOrigin(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -116,10 +123,18 @@ func (m *ApimodelsControl) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ApimodelsControl) validateSecurityFramework(formats strfmt.Registry) error {
+func (m *ApimodelsControl) validateOrigin(formats strfmt.Registry) error {
 
-	if err := validate.Required("security_framework", "body", m.SecurityFramework); err != nil {
+	if err := validate.Required("origin", "body", m.Origin); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ApimodelsControl) validateSecurityFramework(formats strfmt.Registry) error {
+	if swag.IsZero(m.SecurityFramework) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.SecurityFramework); i++ {

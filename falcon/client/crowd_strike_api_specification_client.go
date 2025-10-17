@@ -23,6 +23,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_oci_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_assets"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_detections"
@@ -43,6 +44,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_ioa"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_storage"
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
+	"github.com/crowdstrike/gofalcon/falcon/client/data_protection_configuration"
 	"github.com/crowdstrike/gofalcon/falcon/client/delivery_settings"
 	"github.com/crowdstrike/gofalcon/falcon/client/deployments"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
@@ -94,7 +96,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ngsiem"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
-	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
@@ -118,6 +119,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerability_metadata"
 	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
@@ -181,6 +183,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
 	cli.CloudOciRegistration = cloud_oci_registration.New(transport, formats)
 	cli.CloudPolicies = cloud_policies.New(transport, formats)
+	cli.CloudSecurity = cloud_security.New(transport, formats)
 	cli.CloudSecurityAssets = cloud_security_assets.New(transport, formats)
 	cli.CloudSecurityCompliance = cloud_security_compliance.New(transport, formats)
 	cli.CloudSecurityDetections = cloud_security_detections.New(transport, formats)
@@ -201,6 +204,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CustomIoa = custom_ioa.New(transport, formats)
 	cli.CustomStorage = custom_storage.New(transport, formats)
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
+	cli.DataProtectionConfiguration = data_protection_configuration.New(transport, formats)
 	cli.DeliverySettings = delivery_settings.New(transport, formats)
 	cli.Deployments = deployments.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
@@ -252,7 +256,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Ngsiem = ngsiem.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
-	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
@@ -276,6 +279,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ServerlessVulnerabilities = serverless_vulnerabilities.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
+	cli.SpotlightVulnerabilityMetadata = spotlight_vulnerability_metadata.New(transport, formats)
 	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
@@ -352,6 +356,8 @@ type CrowdStrikeAPISpecification struct {
 
 	CloudPolicies cloud_policies.ClientService
 
+	CloudSecurity cloud_security.ClientService
+
 	CloudSecurityAssets cloud_security_assets.ClientService
 
 	CloudSecurityCompliance cloud_security_compliance.ClientService
@@ -391,6 +397,8 @@ type CrowdStrikeAPISpecification struct {
 	CustomStorage custom_storage.ClientService
 
 	D4cRegistration d4c_registration.ClientService
+
+	DataProtectionConfiguration data_protection_configuration.ClientService
 
 	DeliverySettings delivery_settings.ClientService
 
@@ -494,8 +502,6 @@ type CrowdStrikeAPISpecification struct {
 
 	Ods ods.ClientService
 
-	OverwatchDashboard overwatch_dashboard.ClientService
-
 	PreventionPolicies prevention_policies.ClientService
 
 	Quarantine quarantine.ClientService
@@ -542,6 +548,8 @@ type CrowdStrikeAPISpecification struct {
 
 	SpotlightVulnerabilities spotlight_vulnerabilities.ClientService
 
+	SpotlightVulnerabilityMetadata spotlight_vulnerability_metadata.ClientService
+
 	TailoredIntelligence tailored_intelligence.ClientService
 
 	Threatgraph threatgraph.ClientService
@@ -573,6 +581,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CloudConnectAws.SetTransport(transport)
 	c.CloudOciRegistration.SetTransport(transport)
 	c.CloudPolicies.SetTransport(transport)
+	c.CloudSecurity.SetTransport(transport)
 	c.CloudSecurityAssets.SetTransport(transport)
 	c.CloudSecurityCompliance.SetTransport(transport)
 	c.CloudSecurityDetections.SetTransport(transport)
@@ -593,6 +602,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CustomIoa.SetTransport(transport)
 	c.CustomStorage.SetTransport(transport)
 	c.D4cRegistration.SetTransport(transport)
+	c.DataProtectionConfiguration.SetTransport(transport)
 	c.DeliverySettings.SetTransport(transport)
 	c.Deployments.SetTransport(transport)
 	c.Detects.SetTransport(transport)
@@ -644,7 +654,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ngsiem.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
-	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)
@@ -668,6 +677,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ServerlessVulnerabilities.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
+	c.SpotlightVulnerabilityMetadata.SetTransport(transport)
 	c.TailoredIntelligence.SetTransport(transport)
 	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)

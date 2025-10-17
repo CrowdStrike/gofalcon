@@ -75,6 +75,9 @@ type DevicecontrolapiRespUSBExceptionV2 struct {
 	// Name of the vendor
 	// Required: true
 	VendorName *string `json:"vendor_name"`
+
+	// warning trigger ids
+	WarningTriggerIds []string `json:"warning_trigger_ids"`
 }
 
 // Validate validates this devicecontrolapi resp u s b exception v2

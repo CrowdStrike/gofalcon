@@ -83,6 +83,7 @@ type CloudSecurityAssetsCombinedComplianceByAccountParams struct {
 	- `compliant`
 	- `control.benchmark.name`
 	- `control.benchmark.version`
+	- `control.extension.status`
 	- `control.framework`
 	- `control.name`
 	- `control.type`

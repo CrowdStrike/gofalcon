@@ -96,7 +96,7 @@ type AggregateIntelligenceQueriesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIIntelligenceQueryAggregatesResponse
+	Payload *models.CaohuntingapiIntelligenceQueryAggregatesResponse
 }
 
 // IsSuccess returns true when this aggregate intelligence queries o k response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *AggregateIntelligenceQueriesOK) String() string {
 	return fmt.Sprintf("[POST /hunting/aggregates/intelligence-queries/v1][%d] aggregateIntelligenceQueriesOK  %+v", 200, o.Payload)
 }
 
-func (o *AggregateIntelligenceQueriesOK) GetPayload() *models.APIIntelligenceQueryAggregatesResponse {
+func (o *AggregateIntelligenceQueriesOK) GetPayload() *models.CaohuntingapiIntelligenceQueryAggregatesResponse {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *AggregateIntelligenceQueriesOK) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIIntelligenceQueryAggregatesResponse)
+	o.Payload = new(models.CaohuntingapiIntelligenceQueryAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

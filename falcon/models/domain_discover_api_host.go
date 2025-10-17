@@ -495,6 +495,15 @@ type DomainDiscoverAPIHost struct {
 
 	// The external ID of the IoT Device in 3rd Party System(Claroty Xdome)
 	XdomeID string `json:"xdome_id,omitempty"`
+
+	// The hostnames of the sources that discovered the asset.
+	XiotDiscovererHostnames []string `json:"xiot_discoverer_hostnames"`
+
+	// The tags of the sources that discovered the asset.
+	XiotDiscovererTags []string `json:"xiot_discoverer_tags"`
+
+	// The hostname of the last source that discovered the asset.
+	XiotLastDiscovererHostname string `json:"xiot_last_discoverer_hostname,omitempty"`
 }
 
 // Validate validates this domain discover API host

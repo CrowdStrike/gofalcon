@@ -19,6 +19,12 @@ import (
 // swagger:model apimodels.RuleOverride
 type ApimodelsRuleOverride struct {
 
+	// asset filter
+	AssetFilter *ApimodelsAssetFilter `json:"asset_filter,omitempty"`
+
+	// asset scope type
+	AssetScopeType string `json:"asset_scope_type,omitempty"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
@@ -94,6 +100,10 @@ type ApimodelsRuleOverride struct {
 func (m *ApimodelsRuleOverride) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAssetFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
@@ -153,6 +163,25 @@ func (m *ApimodelsRuleOverride) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ApimodelsRuleOverride) validateAssetFilter(formats strfmt.Registry) error {
+	if swag.IsZero(m.AssetFilter) { // not required
+		return nil
+	}
+
+	if m.AssetFilter != nil {
+		if err := m.AssetFilter.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("asset_filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("asset_filter")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -296,8 +325,38 @@ func (m *ApimodelsRuleOverride) validateUUID(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this apimodels rule override based on context it is used
+// ContextValidate validate this apimodels rule override based on the context it is used
 func (m *ApimodelsRuleOverride) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssetFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ApimodelsRuleOverride) contextValidateAssetFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AssetFilter != nil {
+
+		if swag.IsZero(m.AssetFilter) { // not required
+			return nil
+		}
+
+		if err := m.AssetFilter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("asset_filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("asset_filter")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

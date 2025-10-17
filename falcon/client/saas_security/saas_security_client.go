@@ -38,6 +38,12 @@ type ClientService interface {
 
 	GetAlertsV3(params *GetAlertsV3Params, opts ...ClientOption) (*GetAlertsV3OK, error)
 
+	GetAppInventory(params *GetAppInventoryParams, opts ...ClientOption) (*GetAppInventoryOK, error)
+
+	GetAppInventoryUsers(params *GetAppInventoryUsersParams, opts ...ClientOption) (*GetAppInventoryUsersOK, error)
+
+	GetAssetInventoryV3(params *GetAssetInventoryV3Params, opts ...ClientOption) (*GetAssetInventoryV3OK, error)
+
 	GetDeviceInventoryV3(params *GetDeviceInventoryV3Params, opts ...ClientOption) (*GetDeviceInventoryV3OK, error)
 
 	GetIntegrationsV3(params *GetIntegrationsV3Params, opts ...ClientOption) (*GetIntegrationsV3OK, error)
@@ -226,6 +232,126 @@ func (a *Client) GetAlertsV3(params *GetAlertsV3Params, opts ...ClientOption) (*
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetAlertsV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetAppInventory gs e t applications inventory
+
+Get a list of all apps in the Applications inventory
+*/
+func (a *Client) GetAppInventory(params *GetAppInventoryParams, opts ...ClientOption) (*GetAppInventoryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAppInventoryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAppInventory",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/apps/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAppInventoryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetAppInventoryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetAppInventory: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetAppInventoryUsers gs e t application users
+
+Get users associated with an app from the Applications Inventory
+*/
+func (a *Client) GetAppInventoryUsers(params *GetAppInventoryUsersParams, opts ...ClientOption) (*GetAppInventoryUsersOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAppInventoryUsersParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAppInventoryUsers",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/app-users/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAppInventoryUsersReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetAppInventoryUsersOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetAppInventoryUsers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetAssetInventoryV3 gs e t data inventory
+
+Get a list of all assets in the Data Inventory
+*/
+func (a *Client) GetAssetInventoryV3(params *GetAssetInventoryV3Params, opts ...ClientOption) (*GetAssetInventoryV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAssetInventoryV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAssetInventoryV3",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/data/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAssetInventoryV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetAssetInventoryV3OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetAssetInventoryV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

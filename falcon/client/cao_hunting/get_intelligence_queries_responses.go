@@ -90,7 +90,7 @@ type GetIntelligenceQueriesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIIntelligenceQueryEntityResponse
+	Payload *models.CaohuntingapiIntelligenceQueryEntityResponse
 }
 
 // IsSuccess returns true when this get intelligence queries o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetIntelligenceQueriesOK) String() string {
 	return fmt.Sprintf("[GET /hunting/entities/intelligence-queries/v1][%d] getIntelligenceQueriesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetIntelligenceQueriesOK) GetPayload() *models.APIIntelligenceQueryEntityResponse {
+func (o *GetIntelligenceQueriesOK) GetPayload() *models.CaohuntingapiIntelligenceQueryEntityResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetIntelligenceQueriesOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIIntelligenceQueryEntityResponse)
+	o.Payload = new(models.CaohuntingapiIntelligenceQueryEntityResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -36,6 +36,9 @@ type GraphConfiguredActivity struct {
 	// Maximum seconds to wait for an async process to finish. Overrides default async_max_seconds on Activity seed.
 	MaxSeconds string `json:"max_seconds,omitempty"`
 
+	// A reference to an activity's mock output, which may or may not be enabled
+	MockOutput *NodemocksReference `json:"mock_output,omitempty"`
+
 	// Optional user provided name for the activity, if not specified a default of the name for that Activity will be used.
 	// Required: true
 	Name *string `json:"name"`
@@ -65,6 +68,10 @@ func (m *GraphConfiguredActivity) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateInlineConfiguration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMockOutput(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -134,6 +141,25 @@ func (m *GraphConfiguredActivity) validateInlineConfiguration(formats strfmt.Reg
 	return nil
 }
 
+func (m *GraphConfiguredActivity) validateMockOutput(formats strfmt.Registry) error {
+	if swag.IsZero(m.MockOutput) { // not required
+		return nil
+	}
+
+	if m.MockOutput != nil {
+		if err := m.MockOutput.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mock_output")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mock_output")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GraphConfiguredActivity) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -173,6 +199,10 @@ func (m *GraphConfiguredActivity) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateMockOutput(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -209,6 +239,27 @@ func (m *GraphConfiguredActivity) contextValidateInlineConfiguration(ctx context
 				return ve.ValidateName("inline_configuration")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("inline_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphConfiguredActivity) contextValidateMockOutput(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MockOutput != nil {
+
+		if swag.IsZero(m.MockOutput) { // not required
+			return nil
+		}
+
+		if err := m.MockOutput.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mock_output")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mock_output")
 			}
 			return err
 		}

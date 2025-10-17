@@ -21,11 +21,9 @@ import (
 type APITemplateV1CreateRequest struct {
 
 	// description
-	// Required: true
-	Description *string `json:"description"`
+	Description string `json:"description,omitempty"`
 
 	// fields
-	// Required: true
 	Fields []*APITemplateV1CreateRequestFields `json:"fields"`
 
 	// name
@@ -33,17 +31,12 @@ type APITemplateV1CreateRequest struct {
 	Name *string `json:"name"`
 
 	// sla id
-	// Required: true
-	SLAID *string `json:"sla_id"`
+	SLAID string `json:"sla_id,omitempty"`
 }
 
 // Validate validates this api template v1 create request
 func (m *APITemplateV1CreateRequest) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateFields(formats); err != nil {
 		res = append(res, err)
@@ -53,29 +46,15 @@ func (m *APITemplateV1CreateRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateSLAID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *APITemplateV1CreateRequest) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *APITemplateV1CreateRequest) validateFields(formats strfmt.Registry) error {
-
-	if err := validate.Required("fields", "body", m.Fields); err != nil {
-		return err
+	if swag.IsZero(m.Fields) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Fields); i++ {
@@ -102,15 +81,6 @@ func (m *APITemplateV1CreateRequest) validateFields(formats strfmt.Registry) err
 func (m *APITemplateV1CreateRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APITemplateV1CreateRequest) validateSLAID(formats strfmt.Registry) error {
-
-	if err := validate.Required("sla_id", "body", m.SLAID); err != nil {
 		return err
 	}
 

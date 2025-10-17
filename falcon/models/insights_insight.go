@@ -20,30 +20,60 @@ import (
 // swagger:model insights.Insight
 type InsightsInsight struct {
 
+	// details
+	// Required: true
+	Details map[string]InsightsDetails `json:"details"`
+
 	// external
 	// Required: true
-	External []*InsightsInsightDetails `json:"external"`
+	External []*InsightsExternal `json:"external"`
 
 	// internal
-	// Required: true
-	Internal interface{} `json:"internal"`
+	Internal interface{} `json:"internal,omitempty"`
 }
 
 // Validate validates this insights insight
 func (m *InsightsInsight) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateExternal(formats); err != nil {
+	if err := m.validateDetails(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateInternal(formats); err != nil {
+	if err := m.validateExternal(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *InsightsInsight) validateDetails(formats strfmt.Registry) error {
+
+	if err := validate.Required("details", "body", m.Details); err != nil {
+		return err
+	}
+
+	for k := range m.Details {
+
+		if err := validate.Required("details"+"."+k, "body", m.Details[k]); err != nil {
+			return err
+		}
+		if val, ok := m.Details[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("details" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("details" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -74,18 +104,13 @@ func (m *InsightsInsight) validateExternal(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *InsightsInsight) validateInternal(formats strfmt.Registry) error {
-
-	if m.Internal == nil {
-		return errors.Required("internal", "body", nil)
-	}
-
-	return nil
-}
-
 // ContextValidate validate this insights insight based on the context it is used
 func (m *InsightsInsight) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.contextValidateDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.contextValidateExternal(ctx, formats); err != nil {
 		res = append(res, err)
@@ -94,6 +119,25 @@ func (m *InsightsInsight) ContextValidate(ctx context.Context, formats strfmt.Re
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *InsightsInsight) contextValidateDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.Required("details", "body", m.Details); err != nil {
+		return err
+	}
+
+	for k := range m.Details {
+
+		if val, ok := m.Details[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

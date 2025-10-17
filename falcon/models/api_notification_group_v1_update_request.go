@@ -22,7 +22,7 @@ type APINotificationGroupV1UpdateRequest struct {
 
 	// channels
 	// Required: true
-	Channels []*APINotificationGroupV1CreateRequestChannels `json:"channels"`
+	Channels []*APINotificationChannelV1 `json:"channels"`
 
 	// description
 	// Required: true

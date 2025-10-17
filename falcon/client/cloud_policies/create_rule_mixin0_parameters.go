@@ -63,7 +63,11 @@ CreateRuleMixin0Params contains all the parameters to send to the API endpoint
 */
 type CreateRuleMixin0Params struct {
 
-	// Body.
+	/* Body.
+
+	     For Custom Rule, logic is mandatory and parent_rule_id should not be specified.
+	For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
+	*/
 	Body *models.CommonCreateRuleRequest
 
 	timeout    time.Duration

@@ -39,6 +39,9 @@ type RegistrationAWSAccountExtV2 struct {
 	// dspm enabled
 	DspmEnabled bool `json:"dspm_enabled,omitempty"`
 
+	// dspm host account id
+	DspmHostAccountID string `json:"dspm_host_account_id,omitempty"`
+
 	// dspm role
 	DspmRole string `json:"dspm_role,omitempty"`
 

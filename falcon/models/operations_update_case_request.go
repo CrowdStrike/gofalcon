@@ -19,6 +19,12 @@ import (
 // swagger:model operations.UpdateCaseRequest
 type OperationsUpdateCaseRequest struct {
 
+	// expected consistency version
+	ExpectedConsistencyVersion int64 `json:"expected_consistency_version,omitempty"`
+
+	// expected version
+	ExpectedVersion int64 `json:"expected_version,omitempty"`
+
 	// fields
 	// Required: true
 	Fields *OperationsCaseFieldChanges `json:"fields"`

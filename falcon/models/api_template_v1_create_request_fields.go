@@ -24,25 +24,25 @@ type APITemplateV1CreateRequestFields struct {
 	// Required: true
 	DataType *string `json:"data_type"`
 
+	// default value
+	DefaultValue string `json:"default_value,omitempty"`
+
 	// input type
 	// Required: true
 	InputType *string `json:"input_type"`
 
 	// multivalued
-	// Required: true
-	Multivalued *bool `json:"multivalued"`
+	Multivalued bool `json:"multivalued,omitempty"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
 
 	// options
-	// Required: true
 	Options []*APITemplateV1CreateRequestFieldsOptions `json:"options"`
 
 	// required
-	// Required: true
-	Required *bool `json:"required"`
+	Required bool `json:"required,omitempty"`
 }
 
 // Validate validates this api template v1 create request fields
@@ -57,19 +57,11 @@ func (m *APITemplateV1CreateRequestFields) Validate(formats strfmt.Registry) err
 		res = append(res, err)
 	}
 
-	if err := m.validateMultivalued(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateOptions(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRequired(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -97,15 +89,6 @@ func (m *APITemplateV1CreateRequestFields) validateInputType(formats strfmt.Regi
 	return nil
 }
 
-func (m *APITemplateV1CreateRequestFields) validateMultivalued(formats strfmt.Registry) error {
-
-	if err := validate.Required("multivalued", "body", m.Multivalued); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *APITemplateV1CreateRequestFields) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -116,9 +99,8 @@ func (m *APITemplateV1CreateRequestFields) validateName(formats strfmt.Registry)
 }
 
 func (m *APITemplateV1CreateRequestFields) validateOptions(formats strfmt.Registry) error {
-
-	if err := validate.Required("options", "body", m.Options); err != nil {
-		return err
+	if swag.IsZero(m.Options) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Options); i++ {
@@ -137,15 +119,6 @@ func (m *APITemplateV1CreateRequestFields) validateOptions(formats strfmt.Regist
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *APITemplateV1CreateRequestFields) validateRequired(formats strfmt.Registry) error {
-
-	if err := validate.Required("required", "body", m.Required); err != nil {
-		return err
 	}
 
 	return nil

@@ -36,9 +36,15 @@ type ClientService interface {
 
 	DownloadExportFile(params *DownloadExportFileParams, opts ...ClientOption) (*DownloadExportFileOK, error)
 
+	GetReportByReference(params *GetReportByReferenceParams, opts ...ClientOption) (*GetReportByReferenceOK, error)
+
+	GetReportByScanID(params *GetReportByScanIDParams, opts ...ClientOption) (*GetReportByScanIDOK, error)
+
 	HeadImageScanInventory(params *HeadImageScanInventoryParams, opts ...ClientOption) (*HeadImageScanInventoryOK, error)
 
 	LaunchExportJob(params *LaunchExportJobParams, opts ...ClientOption) (*LaunchExportJobOK, error)
+
+	PolicyChecks(params *PolicyChecksParams, opts ...ClientOption) (*PolicyChecksOK, error)
 
 	PostImageScanInventory(params *PostImageScanInventoryParams, opts ...ClientOption) (*PostImageScanInventoryOK, error)
 
@@ -170,6 +176,82 @@ func (a *Client) DownloadExportFile(params *DownloadExportFileParams, opts ...Cl
 }
 
 /*
+GetReportByReference gets image assessment scan report by image reference v2
+*/
+func (a *Client) GetReportByReference(params *GetReportByReferenceParams, opts ...ClientOption) (*GetReportByReferenceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetReportByReferenceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetReportByReference",
+		Method:             "GET",
+		PathPattern:        "/image-assessment/entities/reports/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetReportByReferenceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetReportByReferenceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetReportByReference: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetReportByScanID gets image assessment scan report by scan UUID v2
+*/
+func (a *Client) GetReportByScanID(params *GetReportByScanIDParams, opts ...ClientOption) (*GetReportByScanIDOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetReportByScanIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetReportByScanID",
+		Method:             "GET",
+		PathPattern:        "/image-assessment/entities/reports/v2/{uuid}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetReportByScanIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetReportByScanIDOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetReportByScanID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 HeadImageScanInventory gets headers for p o s t request for image scan inventory
 */
 func (a *Client) HeadImageScanInventory(params *HeadImageScanInventoryParams, opts ...ClientOption) (*HeadImageScanInventoryOK, error) {
@@ -242,6 +324,44 @@ func (a *Client) LaunchExportJob(params *LaunchExportJobParams, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for LaunchExportJob: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PolicyChecks checks image prevention policies
+*/
+func (a *Client) PolicyChecks(params *PolicyChecksParams, opts ...ClientOption) (*PolicyChecksOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPolicyChecksParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PolicyChecks",
+		Method:             "GET",
+		PathPattern:        "/image-assessment/entities/policy-checks/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PolicyChecksReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PolicyChecksOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PolicyChecks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

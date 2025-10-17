@@ -38,6 +38,9 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// deployment method
 	DeploymentMethod string `json:"deployment_method,omitempty"`
 
+	// dspm host account id
+	DspmHostAccountID string `json:"dspm_host_account_id,omitempty"`
+
 	// dspm role
 	DspmRole string `json:"dspm_role,omitempty"`
 

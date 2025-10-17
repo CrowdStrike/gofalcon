@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -66,6 +67,30 @@ type QueryDeviceLoginHistoryV2Params struct {
 	// Body.
 	Body *models.MsaIdsRequest
 
+	/* From.
+
+	   The inclusive beginning of the time window to search.
+
+	   Default: "now-7d"
+	*/
+	From *string
+
+	/* Limit.
+
+	   The maximum number of results to return [1-100].
+
+	   Default: 10
+	*/
+	Limit *int64
+
+	/* To.
+
+	   The inclusive end of the time window to search.
+
+	   Default: "now"
+	*/
+	To *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -83,7 +108,24 @@ func (o *QueryDeviceLoginHistoryV2Params) WithDefaults() *QueryDeviceLoginHistor
 //
 // All values with no default are reset to their zero value.
 func (o *QueryDeviceLoginHistoryV2Params) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		fromDefault = string("now-7d")
+
+		limitDefault = int64(10)
+
+		toDefault = string("now")
+	)
+
+	val := QueryDeviceLoginHistoryV2Params{
+		From:  &fromDefault,
+		Limit: &limitDefault,
+		To:    &toDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query device login history v2 params
@@ -130,6 +172,39 @@ func (o *QueryDeviceLoginHistoryV2Params) SetBody(body *models.MsaIdsRequest) {
 	o.Body = body
 }
 
+// WithFrom adds the from to the query device login history v2 params
+func (o *QueryDeviceLoginHistoryV2Params) WithFrom(from *string) *QueryDeviceLoginHistoryV2Params {
+	o.SetFrom(from)
+	return o
+}
+
+// SetFrom adds the from to the query device login history v2 params
+func (o *QueryDeviceLoginHistoryV2Params) SetFrom(from *string) {
+	o.From = from
+}
+
+// WithLimit adds the limit to the query device login history v2 params
+func (o *QueryDeviceLoginHistoryV2Params) WithLimit(limit *int64) *QueryDeviceLoginHistoryV2Params {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the query device login history v2 params
+func (o *QueryDeviceLoginHistoryV2Params) SetLimit(limit *int64) {
+	o.Limit = limit
+}
+
+// WithTo adds the to to the query device login history v2 params
+func (o *QueryDeviceLoginHistoryV2Params) WithTo(to *string) *QueryDeviceLoginHistoryV2Params {
+	o.SetTo(to)
+	return o
+}
+
+// SetTo adds the to to the query device login history v2 params
+func (o *QueryDeviceLoginHistoryV2Params) SetTo(to *string) {
+	o.To = to
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *QueryDeviceLoginHistoryV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -140,6 +215,57 @@ func (o *QueryDeviceLoginHistoryV2Params) WriteToRequest(r runtime.ClientRequest
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.From != nil {
+
+		// query param from
+		var qrFrom string
+
+		if o.From != nil {
+			qrFrom = *o.From
+		}
+		qFrom := qrFrom
+		if qFrom != "" {
+
+			if err := r.SetQueryParam("from", qFrom); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Limit != nil {
+
+		// query param limit
+		var qrLimit int64
+
+		if o.Limit != nil {
+			qrLimit = *o.Limit
+		}
+		qLimit := swag.FormatInt64(qrLimit)
+		if qLimit != "" {
+
+			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.To != nil {
+
+		// query param to
+		var qrTo string
+
+		if o.To != nil {
+			qrTo = *o.To
+		}
+		qTo := qrTo
+		if qTo != "" {
+
+			if err := r.SetQueryParam("to", qTo); err != nil {
+				return err
+			}
 		}
 	}
 

@@ -24,7 +24,8 @@ type APINotificationChannelV1 struct {
 	ConfigID string `json:"config_id,omitempty"`
 
 	// config name
-	ConfigName string `json:"config_name,omitempty"`
+	// Required: true
+	ConfigName *string `json:"config_name"`
 
 	// recipients
 	Recipients []string `json:"recipients"`
@@ -34,13 +35,17 @@ type APINotificationChannelV1 struct {
 
 	// type
 	// Required: true
-	// Enum: [email slack ms_teams pagerduty]
+	// Enum: [email slack pagerduty webhook]
 	Type *string `json:"type"`
 }
 
 // Validate validates this api notification channel v1
 func (m *APINotificationChannelV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateConfigName(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
@@ -52,11 +57,20 @@ func (m *APINotificationChannelV1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *APINotificationChannelV1) validateConfigName(formats strfmt.Registry) error {
+
+	if err := validate.Required("config_name", "body", m.ConfigName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var apiNotificationChannelV1TypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["email","slack","ms_teams","pagerduty"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["email","slack","pagerduty","webhook"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -72,11 +86,11 @@ const (
 	// APINotificationChannelV1TypeSlack captures enum value "slack"
 	APINotificationChannelV1TypeSlack string = "slack"
 
-	// APINotificationChannelV1TypeMsTeams captures enum value "ms_teams"
-	APINotificationChannelV1TypeMsTeams string = "ms_teams"
-
 	// APINotificationChannelV1TypePagerduty captures enum value "pagerduty"
 	APINotificationChannelV1TypePagerduty string = "pagerduty"
+
+	// APINotificationChannelV1TypeWebhook captures enum value "webhook"
+	APINotificationChannelV1TypeWebhook string = "webhook"
 )
 
 // prop value enum

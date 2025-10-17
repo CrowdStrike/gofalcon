@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	AggregatesNotificationGroupsPostV1(params *AggregatesNotificationGroupsPostV1Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV1OK, error)
 
+	AggregatesNotificationGroupsPostV2(params *AggregatesNotificationGroupsPostV2Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV2OK, error)
+
 	AggregatesSlasPostV1(params *AggregatesSlasPostV1Params, opts ...ClientOption) (*AggregatesSlasPostV1OK, error)
 
 	AggregatesTemplatesPostV1(params *AggregatesTemplatesPostV1Params, opts ...ClientOption) (*AggregatesTemplatesPostV1OK, error)
@@ -40,11 +42,19 @@ type ClientService interface {
 
 	EntitiesNotificationGroupsDeleteV1(params *EntitiesNotificationGroupsDeleteV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsDeleteV1OK, error)
 
+	EntitiesNotificationGroupsDeleteV2(params *EntitiesNotificationGroupsDeleteV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsDeleteV2OK, error)
+
 	EntitiesNotificationGroupsGetV1(params *EntitiesNotificationGroupsGetV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsGetV1OK, error)
+
+	EntitiesNotificationGroupsGetV2(params *EntitiesNotificationGroupsGetV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsGetV2OK, error)
 
 	EntitiesNotificationGroupsPatchV1(params *EntitiesNotificationGroupsPatchV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsPatchV1OK, error)
 
+	EntitiesNotificationGroupsPatchV2(params *EntitiesNotificationGroupsPatchV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsPatchV2OK, error)
+
 	EntitiesNotificationGroupsPostV1(params *EntitiesNotificationGroupsPostV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsPostV1OK, error)
+
+	EntitiesNotificationGroupsPostV2(params *EntitiesNotificationGroupsPostV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsPostV2OK, error)
 
 	EntitiesSlasDeleteV1(params *EntitiesSlasDeleteV1Params, opts ...ClientOption) (*EntitiesSlasDeleteV1OK, error)
 
@@ -67,6 +77,8 @@ type ClientService interface {
 	QueriesFieldsGetV1(params *QueriesFieldsGetV1Params, opts ...ClientOption) (*QueriesFieldsGetV1OK, error)
 
 	QueriesNotificationGroupsGetV1(params *QueriesNotificationGroupsGetV1Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV1OK, error)
+
+	QueriesNotificationGroupsGetV2(params *QueriesNotificationGroupsGetV2Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV2OK, error)
 
 	QueriesSlasGetV1(params *QueriesSlasGetV1Params, opts ...ClientOption) (*QueriesSlasGetV1OK, error)
 
@@ -112,6 +124,44 @@ func (a *Client) AggregatesNotificationGroupsPostV1(params *AggregatesNotificati
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for aggregates.notification-groups.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+AggregatesNotificationGroupsPostV2 gets notification groups aggregations
+*/
+func (a *Client) AggregatesNotificationGroupsPostV2(params *AggregatesNotificationGroupsPostV2Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAggregatesNotificationGroupsPostV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "aggregates.notification-groups.post.v2",
+		Method:             "POST",
+		PathPattern:        "/casemgmt/aggregates/notification-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AggregatesNotificationGroupsPostV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AggregatesNotificationGroupsPostV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for aggregates.notification-groups.post.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -268,6 +318,44 @@ func (a *Client) EntitiesNotificationGroupsDeleteV1(params *EntitiesNotification
 }
 
 /*
+EntitiesNotificationGroupsDeleteV2 deletes notification groups by ID
+*/
+func (a *Client) EntitiesNotificationGroupsDeleteV2(params *EntitiesNotificationGroupsDeleteV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsDeleteV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesNotificationGroupsDeleteV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.notification-groups.delete.v2",
+		Method:             "DELETE",
+		PathPattern:        "/casemgmt/entities/notification-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesNotificationGroupsDeleteV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesNotificationGroupsDeleteV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.notification-groups.delete.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesNotificationGroupsGetV1 gets notification groups by ID
 */
 func (a *Client) EntitiesNotificationGroupsGetV1(params *EntitiesNotificationGroupsGetV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsGetV1OK, error) {
@@ -302,6 +390,44 @@ func (a *Client) EntitiesNotificationGroupsGetV1(params *EntitiesNotificationGro
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities.notification-groups.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesNotificationGroupsGetV2 gets notification groups by ID
+*/
+func (a *Client) EntitiesNotificationGroupsGetV2(params *EntitiesNotificationGroupsGetV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsGetV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesNotificationGroupsGetV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.notification-groups.get.v2",
+		Method:             "GET",
+		PathPattern:        "/casemgmt/entities/notification-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesNotificationGroupsGetV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesNotificationGroupsGetV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.notification-groups.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -344,6 +470,44 @@ func (a *Client) EntitiesNotificationGroupsPatchV1(params *EntitiesNotificationG
 }
 
 /*
+EntitiesNotificationGroupsPatchV2 updates notification group
+*/
+func (a *Client) EntitiesNotificationGroupsPatchV2(params *EntitiesNotificationGroupsPatchV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsPatchV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesNotificationGroupsPatchV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.notification-groups.patch.v2",
+		Method:             "PATCH",
+		PathPattern:        "/casemgmt/entities/notification-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesNotificationGroupsPatchV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesNotificationGroupsPatchV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.notification-groups.patch.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesNotificationGroupsPostV1 creates notification group
 */
 func (a *Client) EntitiesNotificationGroupsPostV1(params *EntitiesNotificationGroupsPostV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsPostV1OK, error) {
@@ -378,6 +542,44 @@ func (a *Client) EntitiesNotificationGroupsPostV1(params *EntitiesNotificationGr
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities.notification-groups.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesNotificationGroupsPostV2 creates notification group
+*/
+func (a *Client) EntitiesNotificationGroupsPostV2(params *EntitiesNotificationGroupsPostV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsPostV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesNotificationGroupsPostV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.notification-groups.post.v2",
+		Method:             "POST",
+		PathPattern:        "/casemgmt/entities/notification-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesNotificationGroupsPostV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesNotificationGroupsPostV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.notification-groups.post.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -796,6 +998,44 @@ func (a *Client) QueriesNotificationGroupsGetV1(params *QueriesNotificationGroup
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for queries.notification-groups.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueriesNotificationGroupsGetV2 queries notification groups
+*/
+func (a *Client) QueriesNotificationGroupsGetV2(params *QueriesNotificationGroupsGetV2Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesNotificationGroupsGetV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queries.notification-groups.get.v2",
+		Method:             "GET",
+		PathPattern:        "/casemgmt/queries/notification-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueriesNotificationGroupsGetV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesNotificationGroupsGetV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queries.notification-groups.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -12,7 +12,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // ItautomationStartTaskExecutionRequest itautomation start task execution request
@@ -38,12 +37,14 @@ type ItautomationStartTaskExecutionRequest struct {
 	// Execution guardrails and limits
 	Guardrails *FalconforitapiGuardrails `json:"guardrails,omitempty"`
 
+	// Unique identifier of existing scheduled task. Scheduled task fields override all other request fields. Example: f64b95555ef54ea682619ce880d267cc
+	ScheduledTaskID string `json:"scheduled_task_id,omitempty"`
+
 	// Target filter in FQL format. Example: platform_name: 'Windows'
 	Target string `json:"target,omitempty"`
 
 	// Unique identifier of existing saved task. Example: f64b95555ef54ea682619ce880d267cc
-	// Required: true
-	TaskID *string `json:"task_id"`
+	TaskID string `json:"task_id,omitempty"`
 
 	// Conditions that trigger remediation scripts execution
 	TriggerCondition []*FalconforitapiConditionGroup `json:"trigger_condition"`
@@ -54,10 +55,6 @@ func (m *ItautomationStartTaskExecutionRequest) Validate(formats strfmt.Registry
 	var res []error
 
 	if err := m.validateGuardrails(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTaskID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -85,15 +82,6 @@ func (m *ItautomationStartTaskExecutionRequest) validateGuardrails(formats strfm
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *ItautomationStartTaskExecutionRequest) validateTaskID(formats strfmt.Registry) error {
-
-	if err := validate.Required("task_id", "body", m.TaskID); err != nil {
-		return err
 	}
 
 	return nil

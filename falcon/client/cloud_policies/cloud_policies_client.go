@@ -42,6 +42,8 @@ type ClientService interface {
 
 	GetComplianceFrameworks(params *GetComplianceFrameworksParams, opts ...ClientOption) (*GetComplianceFrameworksOK, error)
 
+	GetEvaluationResult(params *GetEvaluationResultParams, opts ...ClientOption) (*GetEvaluationResultOK, error)
+
 	GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleOK, error)
 
 	GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOption) (*GetRuleOverrideOK, error)
@@ -285,6 +287,44 @@ func (a *Client) GetComplianceFrameworks(params *GetComplianceFrameworksParams, 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetComplianceFrameworks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetEvaluationResult gets evaluation results based on the provided rule
+*/
+func (a *Client) GetEvaluationResult(params *GetEvaluationResultParams, opts ...ClientOption) (*GetEvaluationResultOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetEvaluationResultParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetEvaluationResult",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/evaluation/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetEvaluationResultReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetEvaluationResultOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetEvaluationResult: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
