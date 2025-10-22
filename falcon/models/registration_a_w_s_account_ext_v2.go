@@ -70,6 +70,15 @@ type RegistrationAWSAccountExtV2 struct {
 
 	// use existing cloudtrail
 	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
+
+	// vulnerability scanning enabled
+	VulnerabilityScanningEnabled bool `json:"vulnerability_scanning_enabled,omitempty"`
+
+	// vulnerability scanning host account id
+	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
+
+	// vulnerability scanning role
+	VulnerabilityScanningRole string `json:"vulnerability_scanning_role,omitempty"`
 }
 
 // Validate validates this registration a w s account ext v2

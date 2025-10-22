@@ -196,6 +196,12 @@ type DomainAWSAccountV2 struct {
 
 	// valid
 	Valid bool `json:"valid,omitempty"`
+
+	// vulnerability scanning enabled
+	VulnerabilityScanningEnabled bool `json:"vulnerability_scanning_enabled,omitempty"`
+
+	// vulnerability scanning host account id
+	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
 }
 
 // Validate validates this domain a w s account v2
