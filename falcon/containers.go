@@ -51,7 +51,7 @@ func FalconContainerSensorImageURI(falconCloud CloudType, sensorType SensorType)
 	case KacSensor:
 		return fmt.Sprintf("%s/falcon-kac/%s/release/falcon-kac", registryFQDN(falconCloud), registryCloud(falconCloud))
 	case NodeSensor:
-		return fmt.Sprintf("%s/falcon-sensor/%s/release/falcon-sensor", registryFQDN(falconCloud), registryCloud(falconCloud))
+		return fmt.Sprintf("%s/falcon-sensor/release/falcon-sensor", registryFQDN(falconCloud))
 	case Snapshot:
 		return fmt.Sprintf("%s/falcon-snapshot/%s/release/cs-snapshotscanner", registryFQDN(falconCloud), registryCloud(falconCloud))
 	case FCSCli:
@@ -61,7 +61,7 @@ func FalconContainerSensorImageURI(falconCloud CloudType, sensorType SensorType)
 	case SHRAExecutor:
 		return fmt.Sprintf("%s/falcon-selfhostedregistryassessment/release/falcon-registryassessmentexecutor", registryFQDN(falconCloud))
 	default:
-		return fmt.Sprintf("%s/falcon-sensor/%s/release/falcon-sensor", registryFQDN(falconCloud), registryCloud(falconCloud))
+		return fmt.Sprintf("%s/falcon-sensor/release/falcon-sensor", registryFQDN(falconCloud))
 	}
 }
 
