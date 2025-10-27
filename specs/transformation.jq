@@ -651,6 +651,17 @@
 # Fix SvExclusionsUpdateReqV1.IsDescendantProcess field to not have omitempty tag
 | .definitions."sv_exclusions.UpdateReqV1".properties.is_descendant_process += {"x-omitempty": false}
 
+# Make fields nullable for cloud security groups (allows empty string to be sent when set)
+| .definitions."assetgroupmanager.v1.CreateCloudGroupRequest".properties.description += {"x-nullable": true}
+| .definitions."assetgroupmanager.v1.CreateCloudGroupRequest".properties.business_impact += {"x-nullable": true}
+| .definitions."assetgroupmanager.v1.CreateCloudGroupRequest".properties.business_unit += {"x-nullable": true}
+| .definitions."assetgroupmanager.v1.CreateCloudGroupRequest".properties.environment += {"x-nullable": true}
+
+| .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.description += {"x-nullable": true}
+| .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.business_impact += {"x-nullable": true}
+| .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.business_unit += {"x-nullable": true}
+| .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.environment += {"x-nullable": true}
+
 # 201 is a valid response for POST /policy/entities/sv-exclusions/v1 200 is not.
 | .paths."/policy/entities/sv-exclusions/v1".post.responses."201" = .paths."/policy/entities/sv-exclusions/v1".post.responses."200"
 | del(.paths."/policy/entities/sv-exclusions/v1".post.responses."200")

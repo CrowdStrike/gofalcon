@@ -22,19 +22,19 @@ type AssetgroupmanagerV1CreateCloudGroupRequest struct {
 
 	// Business Impact is one of the "business context" field of the group.
 	// Enum: [high moderate low]
-	BusinessImpact string `json:"business_impact,omitempty"`
+	BusinessImpact *string `json:"business_impact,omitempty"`
 
 	// Business Unit is one of the "business context" field of the group.
 	// Max Length: 100
-	BusinessUnit string `json:"business_unit,omitempty"`
+	BusinessUnit *string `json:"business_unit,omitempty"`
 
 	// description
 	// Max Length: 1000
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// Environment is one of the "business context" field of the group.
 	// Enum: [dev test stage prod]
-	Environment string `json:"environment,omitempty"`
+	Environment *string `json:"environment,omitempty"`
 
 	// Group name is unique and case insensitive.
 	// Required: true
@@ -120,7 +120,7 @@ func (m *AssetgroupmanagerV1CreateCloudGroupRequest) validateBusinessImpact(form
 	}
 
 	// value enum
-	if err := m.validateBusinessImpactEnum("business_impact", "body", m.BusinessImpact); err != nil {
+	if err := m.validateBusinessImpactEnum("business_impact", "body", *m.BusinessImpact); err != nil {
 		return err
 	}
 
@@ -132,7 +132,7 @@ func (m *AssetgroupmanagerV1CreateCloudGroupRequest) validateBusinessUnit(format
 		return nil
 	}
 
-	if err := validate.MaxLength("business_unit", "body", m.BusinessUnit, 100); err != nil {
+	if err := validate.MaxLength("business_unit", "body", *m.BusinessUnit, 100); err != nil {
 		return err
 	}
 
@@ -144,7 +144,7 @@ func (m *AssetgroupmanagerV1CreateCloudGroupRequest) validateDescription(formats
 		return nil
 	}
 
-	if err := validate.MaxLength("description", "body", m.Description, 1000); err != nil {
+	if err := validate.MaxLength("description", "body", *m.Description, 1000); err != nil {
 		return err
 	}
 
@@ -192,7 +192,7 @@ func (m *AssetgroupmanagerV1CreateCloudGroupRequest) validateEnvironment(formats
 	}
 
 	// value enum
-	if err := m.validateEnvironmentEnum("environment", "body", m.Environment); err != nil {
+	if err := m.validateEnvironmentEnum("environment", "body", *m.Environment); err != nil {
 		return err
 	}
 
