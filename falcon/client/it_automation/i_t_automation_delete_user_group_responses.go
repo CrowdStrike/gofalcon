@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationDeleteUserGroupReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationDeleteUserGroupReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationDeleteUserGroupReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationDeleteUserGroupOK()
@@ -118,11 +120,13 @@ func (o *ITAutomationDeleteUserGroupOK) Code() int {
 }
 
 func (o *ITAutomationDeleteUserGroupOK) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupOK) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupOK) GetPayload() *models.ItautomationDeleteUserGroupsResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationDeleteUserGroupOK) readResponse(response runtime.ClientResp
 	o.Payload = new(models.ItautomationDeleteUserGroupsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationDeleteUserGroupBadRequest) Code() int {
 }
 
 func (o *ITAutomationDeleteUserGroupBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationDeleteUserGroupBadRequest) readResponse(response runtime.Cl
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationDeleteUserGroupForbidden) Code() int {
 }
 
 func (o *ITAutomationDeleteUserGroupForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupForbidden) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationDeleteUserGroupForbidden) readResponse(response runtime.Cli
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationDeleteUserGroupTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationDeleteUserGroupTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationDeleteUserGroupTooManyRequests) readResponse(response runti
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationDeleteUserGroupInternalServerError) Code() int {
 }
 
 func (o *ITAutomationDeleteUserGroupInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/it-user-groups/v1][%d] iTAutomationDeleteUserGroupInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeleteUserGroupInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -618,7 +630,7 @@ func (o *ITAutomationDeleteUserGroupInternalServerError) readResponse(response r
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

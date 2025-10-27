@@ -22,7 +22,7 @@ type ItautomationRerunTaskExecutionRequest struct {
 
 	// Type of rerun. When set to hosts, re-run on same hosts again. When set to failed, re-run only on failed hosts. When set to offline, re-run only on offline hosts. When set to target, re-run on all the hosts resolved to set criteria.
 	// Required: true
-	// Enum: [hosts failed offline target]
+	// Enum: ["hosts","failed","offline","target"]
 	RunType *string `json:"run_type"`
 
 	// ID of the task execution to rerun. Example: f64b95555ef54ea682619ce880d267cc
@@ -48,7 +48,7 @@ func (m *ItautomationRerunTaskExecutionRequest) Validate(formats strfmt.Registry
 	return nil
 }
 
-var itautomationRerunTaskExecutionRequestTypeRunTypePropEnum []interface{}
+var itautomationRerunTaskExecutionRequestTypeRunTypePropEnum []any
 
 func init() {
 	var res []string

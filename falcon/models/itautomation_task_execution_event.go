@@ -8,4 +8,4 @@ package models
 // ItautomationTaskExecutionEvent itautomation task execution event
 //
 // swagger:model itautomation.TaskExecutionEvent
-type ItautomationTaskExecutionEvent interface{}
+type ItautomationTaskExecutionEvent any

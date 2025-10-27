@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -35,7 +36,7 @@ type ItautomationTaskParameter struct {
 
 	// Type of input field
 	// Required: true
-	// Enum: [text option]
+	// Enum: ["text","option"]
 	InputType *string `json:"input_type"`
 
 	// Unique identifier for the parameter, corresponds to placeholder used in task content. Example: api_key
@@ -52,7 +53,7 @@ type ItautomationTaskParameter struct {
 
 	// Type of validation to apply when input_type is text
 	// Required: true
-	// Enum: [text alphanumeric integer float ip filepath filepathwin filepathunix datetime semver macaddress uuid port winhost dnshost]
+	// Enum: ["text","alphanumeric","integer","float","ip","filepath","filepathwin","filepathunix","datetime","semver","macaddress","uuid","port","winhost","dnshost"]
 	ValidationType *string `json:"validation_type"`
 }
 
@@ -125,7 +126,7 @@ func (m *ItautomationTaskParameter) validateDefaultValue(formats strfmt.Registry
 	return nil
 }
 
-var itautomationTaskParameterTypeInputTypePropEnum []interface{}
+var itautomationTaskParameterTypeInputTypePropEnum []any
 
 func init() {
 	var res []string
@@ -199,11 +200,15 @@ func (m *ItautomationTaskParameter) validateOptions(formats strfmt.Registry) err
 
 		if m.Options[i] != nil {
 			if err := m.Options[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("options" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("options" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -213,7 +218,7 @@ func (m *ItautomationTaskParameter) validateOptions(formats strfmt.Registry) err
 	return nil
 }
 
-var itautomationTaskParameterTypeValidationTypePropEnum []interface{}
+var itautomationTaskParameterTypeValidationTypePropEnum []any
 
 func init() {
 	var res []string
@@ -320,11 +325,15 @@ func (m *ItautomationTaskParameter) contextValidateOptions(ctx context.Context, 
 			}
 
 			if err := m.Options[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("options" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("options" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

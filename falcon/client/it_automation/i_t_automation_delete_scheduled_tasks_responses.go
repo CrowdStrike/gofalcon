@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationDeleteScheduledTasksReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationDeleteScheduledTasksReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationDeleteScheduledTasksReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationDeleteScheduledTasksOK()
@@ -124,11 +126,13 @@ func (o *ITAutomationDeleteScheduledTasksOK) Code() int {
 }
 
 func (o *ITAutomationDeleteScheduledTasksOK) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksOK) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksOK) GetPayload() *models.ItautomationDeleteScheduledTasksResponse {
@@ -169,7 +173,7 @@ func (o *ITAutomationDeleteScheduledTasksOK) readResponse(response runtime.Clien
 	o.Payload = new(models.ItautomationDeleteScheduledTasksResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -234,11 +238,13 @@ func (o *ITAutomationDeleteScheduledTasksBadRequest) Code() int {
 }
 
 func (o *ITAutomationDeleteScheduledTasksBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -279,7 +285,7 @@ func (o *ITAutomationDeleteScheduledTasksBadRequest) readResponse(response runti
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -344,11 +350,13 @@ func (o *ITAutomationDeleteScheduledTasksForbidden) Code() int {
 }
 
 func (o *ITAutomationDeleteScheduledTasksForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksForbidden) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -389,7 +397,7 @@ func (o *ITAutomationDeleteScheduledTasksForbidden) readResponse(response runtim
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -454,11 +462,13 @@ func (o *ITAutomationDeleteScheduledTasksNotFound) Code() int {
 }
 
 func (o *ITAutomationDeleteScheduledTasksNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksNotFound) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -499,7 +509,7 @@ func (o *ITAutomationDeleteScheduledTasksNotFound) readResponse(response runtime
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -568,11 +578,13 @@ func (o *ITAutomationDeleteScheduledTasksTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationDeleteScheduledTasksTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -624,7 +636,7 @@ func (o *ITAutomationDeleteScheduledTasksTooManyRequests) readResponse(response 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -689,11 +701,13 @@ func (o *ITAutomationDeleteScheduledTasksInternalServerError) Code() int {
 }
 
 func (o *ITAutomationDeleteScheduledTasksInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationDeleteScheduledTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeleteScheduledTasksInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -734,7 +748,7 @@ func (o *ITAutomationDeleteScheduledTasksInternalServerError) readResponse(respo
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

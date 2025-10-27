@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationGetExecutionResultsSearchStatusReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationGetExecutionResultsSearchStatusReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationGetExecutionResultsSearchStatusReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationGetExecutionResultsSearchStatusOK()
@@ -118,11 +120,13 @@ func (o *ITAutomationGetExecutionResultsSearchStatusOK) Code() int {
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusOK) GetPayload() *models.ItautomationSearchStatusResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationGetExecutionResultsSearchStatusOK) readResponse(response ru
 	o.Payload = new(models.ItautomationSearchStatusResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationGetExecutionResultsSearchStatusBadRequest) Code() int {
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationGetExecutionResultsSearchStatusBadRequest) readResponse(res
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationGetExecutionResultsSearchStatusForbidden) Code() int {
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationGetExecutionResultsSearchStatusForbidden) readResponse(resp
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationGetExecutionResultsSearchStatusTooManyRequests) Code() int 
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationGetExecutionResultsSearchStatusTooManyRequests) readRespons
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationGetExecutionResultsSearchStatusInternalServerError) Code() 
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationGetExecutionResultsSearchStatusInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetExecutionResultsSearchStatusInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -618,7 +630,7 @@ func (o *ITAutomationGetExecutionResultsSearchStatusInternalServerError) readRes
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

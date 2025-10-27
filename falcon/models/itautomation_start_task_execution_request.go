@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -75,11 +76,15 @@ func (m *ItautomationStartTaskExecutionRequest) validateGuardrails(formats strfm
 
 	if m.Guardrails != nil {
 		if err := m.Guardrails.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -99,11 +104,15 @@ func (m *ItautomationStartTaskExecutionRequest) validateTriggerCondition(formats
 
 		if m.TriggerCondition[i] != nil {
 			if err := m.TriggerCondition[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -140,11 +149,15 @@ func (m *ItautomationStartTaskExecutionRequest) contextValidateGuardrails(ctx co
 		}
 
 		if err := m.Guardrails.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -163,11 +176,15 @@ func (m *ItautomationStartTaskExecutionRequest) contextValidateTriggerCondition(
 			}
 
 			if err := m.TriggerCondition[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

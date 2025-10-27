@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -84,7 +85,7 @@ type ItautomationTaskExecution struct {
 
 	// Type of task execution.
 	// Required: true
-	// Enum: [query remediation]
+	// Enum: ["query","remediation"]
 	TaskType *string `json:"task_type"`
 
 	// Conditions that trigger remediation scripts
@@ -163,11 +164,15 @@ func (m *ItautomationTaskExecution) validateCompositeQuery(formats strfmt.Regist
 
 	if m.CompositeQuery != nil {
 		if err := m.CompositeQuery.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("composite_query")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("composite_query")
 			}
+
 			return err
 		}
 	}
@@ -182,11 +187,15 @@ func (m *ItautomationTaskExecution) validateGuardrails(formats strfmt.Registry) 
 
 	if m.Guardrails != nil {
 		if err := m.Guardrails.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -210,11 +219,15 @@ func (m *ItautomationTaskExecution) validateQueries(formats strfmt.Registry) err
 
 	if m.Queries != nil {
 		if err := m.Queries.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("queries")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("queries")
 			}
+
 			return err
 		}
 	}
@@ -229,11 +242,15 @@ func (m *ItautomationTaskExecution) validateRemediations(formats strfmt.Registry
 
 	if m.Remediations != nil {
 		if err := m.Remediations.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("remediations")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("remediations")
 			}
+
 			return err
 		}
 	}
@@ -266,11 +283,15 @@ func (m *ItautomationTaskExecution) validateStatusByStage(formats strfmt.Registr
 
 	if m.StatusByStage != nil {
 		if err := m.StatusByStage.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status_by_stage")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status_by_stage")
 			}
+
 			return err
 		}
 	}
@@ -299,11 +320,15 @@ func (m *ItautomationTaskExecution) validateTaskParameters(formats strfmt.Regist
 
 		if m.TaskParameters[i] != nil {
 			if err := m.TaskParameters[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("task_parameters" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("task_parameters" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -313,7 +338,7 @@ func (m *ItautomationTaskExecution) validateTaskParameters(formats strfmt.Regist
 	return nil
 }
 
-var itautomationTaskExecutionTypeTaskTypePropEnum []interface{}
+var itautomationTaskExecutionTypeTaskTypePropEnum []any
 
 func init() {
 	var res []string
@@ -368,11 +393,15 @@ func (m *ItautomationTaskExecution) validateTriggerCondition(formats strfmt.Regi
 
 		if m.TriggerCondition[i] != nil {
 			if err := m.TriggerCondition[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -394,11 +423,15 @@ func (m *ItautomationTaskExecution) validateVerificationCondition(formats strfmt
 
 		if m.VerificationCondition[i] != nil {
 			if err := m.VerificationCondition[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("verification_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("verification_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -459,11 +492,15 @@ func (m *ItautomationTaskExecution) contextValidateCompositeQuery(ctx context.Co
 		}
 
 		if err := m.CompositeQuery.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("composite_query")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("composite_query")
 			}
+
 			return err
 		}
 	}
@@ -480,11 +517,15 @@ func (m *ItautomationTaskExecution) contextValidateGuardrails(ctx context.Contex
 		}
 
 		if err := m.Guardrails.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -501,11 +542,15 @@ func (m *ItautomationTaskExecution) contextValidateQueries(ctx context.Context, 
 		}
 
 		if err := m.Queries.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("queries")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("queries")
 			}
+
 			return err
 		}
 	}
@@ -522,11 +567,15 @@ func (m *ItautomationTaskExecution) contextValidateRemediations(ctx context.Cont
 		}
 
 		if err := m.Remediations.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("remediations")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("remediations")
 			}
+
 			return err
 		}
 	}
@@ -543,11 +592,15 @@ func (m *ItautomationTaskExecution) contextValidateStatusByStage(ctx context.Con
 		}
 
 		if err := m.StatusByStage.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status_by_stage")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status_by_stage")
 			}
+
 			return err
 		}
 	}
@@ -566,11 +619,15 @@ func (m *ItautomationTaskExecution) contextValidateTaskParameters(ctx context.Co
 			}
 
 			if err := m.TaskParameters[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("task_parameters" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("task_parameters" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -591,11 +648,15 @@ func (m *ItautomationTaskExecution) contextValidateTriggerCondition(ctx context.
 			}
 
 			if err := m.TriggerCondition[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -616,11 +677,15 @@ func (m *ItautomationTaskExecution) contextValidateVerificationCondition(ctx con
 			}
 
 			if err := m.VerificationCondition[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("verification_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("verification_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

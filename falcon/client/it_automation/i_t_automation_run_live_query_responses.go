@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationRunLiveQueryReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationRunLiveQueryReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationRunLiveQueryReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 201:
 		result := NewITAutomationRunLiveQueryCreated()
@@ -118,11 +120,13 @@ func (o *ITAutomationRunLiveQueryCreated) Code() int {
 }
 
 func (o *ITAutomationRunLiveQueryCreated) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryCreated %s", 201, payload)
 }
 
 func (o *ITAutomationRunLiveQueryCreated) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryCreated %s", 201, payload)
 }
 
 func (o *ITAutomationRunLiveQueryCreated) GetPayload() *models.ItautomationStartTaskExecutionResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationRunLiveQueryCreated) readResponse(response runtime.ClientRe
 	o.Payload = new(models.ItautomationStartTaskExecutionResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationRunLiveQueryBadRequest) Code() int {
 }
 
 func (o *ITAutomationRunLiveQueryBadRequest) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationRunLiveQueryBadRequest) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationRunLiveQueryBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationRunLiveQueryBadRequest) readResponse(response runtime.Clien
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationRunLiveQueryForbidden) Code() int {
 }
 
 func (o *ITAutomationRunLiveQueryForbidden) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationRunLiveQueryForbidden) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationRunLiveQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationRunLiveQueryForbidden) readResponse(response runtime.Client
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationRunLiveQueryTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationRunLiveQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationRunLiveQueryTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationRunLiveQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationRunLiveQueryTooManyRequests) readResponse(response runtime.
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationRunLiveQueryInternalServerError) Code() int {
 }
 
 func (o *ITAutomationRunLiveQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationRunLiveQueryInternalServerError) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/live-query-execution/v1][%d] iTAutomationRunLiveQueryInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationRunLiveQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -618,7 +630,7 @@ func (o *ITAutomationRunLiveQueryInternalServerError) readResponse(response runt
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

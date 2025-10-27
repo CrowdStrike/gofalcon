@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationUpdatePoliciesPrecedenceReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationUpdatePoliciesPrecedenceReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationUpdatePoliciesPrecedenceReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationUpdatePoliciesPrecedenceOK()
@@ -130,11 +132,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceOK) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceOK) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceOK) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceOK %s", 200, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceOK) GetPayload() *models.ItautomationUpdatePoliciesPrecedenceResponse {
@@ -175,7 +179,7 @@ func (o *ITAutomationUpdatePoliciesPrecedenceOK) readResponse(response runtime.C
 	o.Payload = new(models.ItautomationUpdatePoliciesPrecedenceResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -240,11 +244,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -285,7 +291,7 @@ func (o *ITAutomationUpdatePoliciesPrecedenceBadRequest) readResponse(response r
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -350,11 +356,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -395,7 +403,7 @@ func (o *ITAutomationUpdatePoliciesPrecedenceForbidden) readResponse(response ru
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -460,11 +468,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceNotFound %s", 404, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) GetPayload() *models.MsaspecResponseFields {
@@ -505,7 +515,7 @@ func (o *ITAutomationUpdatePoliciesPrecedenceNotFound) readResponse(response run
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -570,11 +580,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceConflict) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceConflict) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict %s", 409, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceConflict) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict  %+v", 409, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceConflict %s", 409, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceConflict) GetPayload() *models.MsaspecResponseFields {
@@ -615,7 +627,7 @@ func (o *ITAutomationUpdatePoliciesPrecedenceConflict) readResponse(response run
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -684,11 +696,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -740,7 +754,7 @@ func (o *ITAutomationUpdatePoliciesPrecedenceTooManyRequests) readResponse(respo
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -805,11 +819,13 @@ func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) Code() int {
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) String() string {
-	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /it-automation/entities/policies-precedence/v1][%d] iTAutomationUpdatePoliciesPrecedenceInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -850,7 +866,7 @@ func (o *ITAutomationUpdatePoliciesPrecedenceInternalServerError) readResponse(r
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

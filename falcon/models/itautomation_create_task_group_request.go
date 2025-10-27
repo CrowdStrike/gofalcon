@@ -22,7 +22,7 @@ type ItautomationCreateTaskGroupRequest struct {
 
 	// Access type of the group
 	// Required: true
-	// Enum: [Public Shared]
+	// Enum: ["Public","Shared"]
 	AccessType *string `json:"access_type"`
 
 	// Assigned user group IDs of the group, when access_type is Shared. Use GET /it-automation/queries/it-user-groups/v1 to fetch user group IDs
@@ -60,7 +60,7 @@ func (m *ItautomationCreateTaskGroupRequest) Validate(formats strfmt.Registry) e
 	return nil
 }
 
-var itautomationCreateTaskGroupRequestTypeAccessTypePropEnum []interface{}
+var itautomationCreateTaskGroupRequestTypeAccessTypePropEnum []any
 
 func init() {
 	var res []string

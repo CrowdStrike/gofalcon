@@ -21,7 +21,7 @@ import (
 type ItautomationScript struct {
 
 	// The type of action to perform
-	// Enum: [script command script_file]
+	// Enum: ["script","command","script_file"]
 	ActionType string `json:"action_type,omitempty"`
 
 	// The script content to execute. Example: echo 'Hello, World!'
@@ -31,7 +31,7 @@ type ItautomationScript struct {
 	FileIds []string `json:"file_ids"`
 
 	// The scripting language to use
-	// Enum: [bash zsh powershell python]
+	// Enum: ["bash","zsh","powershell","python"]
 	Language string `json:"language,omitempty"`
 
 	// The arguments to execute the script file with.
@@ -59,7 +59,7 @@ func (m *ItautomationScript) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-var itautomationScriptTypeActionTypePropEnum []interface{}
+var itautomationScriptTypeActionTypePropEnum []any
 
 func init() {
 	var res []string
@@ -104,7 +104,7 @@ func (m *ItautomationScript) validateActionType(formats strfmt.Registry) error {
 	return nil
 }
 
-var itautomationScriptTypeLanguagePropEnum []interface{}
+var itautomationScriptTypeLanguagePropEnum []any
 
 func init() {
 	var res []string

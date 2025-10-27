@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -57,11 +58,15 @@ func (m *ItautomationPolicyConfig) validateConcurrency(formats strfmt.Registry) 
 
 	if m.Concurrency != nil {
 		if err := m.Concurrency.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("concurrency")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("concurrency")
 			}
+
 			return err
 		}
 	}
@@ -76,11 +81,15 @@ func (m *ItautomationPolicyConfig) validateExecution(formats strfmt.Registry) er
 
 	if m.Execution != nil {
 		if err := m.Execution.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("execution")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("execution")
 			}
+
 			return err
 		}
 	}
@@ -95,11 +104,15 @@ func (m *ItautomationPolicyConfig) validateResources(formats strfmt.Registry) er
 
 	if m.Resources != nil {
 		if err := m.Resources.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resources")
 			}
+
 			return err
 		}
 	}
@@ -138,11 +151,15 @@ func (m *ItautomationPolicyConfig) contextValidateConcurrency(ctx context.Contex
 		}
 
 		if err := m.Concurrency.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("concurrency")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("concurrency")
 			}
+
 			return err
 		}
 	}
@@ -159,11 +176,15 @@ func (m *ItautomationPolicyConfig) contextValidateExecution(ctx context.Context,
 		}
 
 		if err := m.Execution.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("execution")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("execution")
 			}
+
 			return err
 		}
 	}
@@ -180,11 +201,15 @@ func (m *ItautomationPolicyConfig) contextValidateResources(ctx context.Context,
 		}
 
 		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resources")
 			}
+
 			return err
 		}
 	}

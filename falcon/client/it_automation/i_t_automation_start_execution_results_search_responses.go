@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationStartExecutionResultsSearchReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationStartExecutionResultsSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationStartExecutionResultsSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 201:
 		result := NewITAutomationStartExecutionResultsSearchCreated()
@@ -118,11 +120,13 @@ func (o *ITAutomationStartExecutionResultsSearchCreated) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchCreated) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated %s", 201, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchCreated) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchCreated %s", 201, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchCreated) GetPayload() *models.ItautomationSearchStatusResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationStartExecutionResultsSearchCreated) readResponse(response r
 	o.Payload = new(models.ItautomationSearchStatusResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationStartExecutionResultsSearchBadRequest) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchBadRequest) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchBadRequest) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationStartExecutionResultsSearchBadRequest) readResponse(respons
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationStartExecutionResultsSearchForbidden) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchForbidden) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchForbidden) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationStartExecutionResultsSearchForbidden) readResponse(response
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationStartExecutionResultsSearchTooManyRequests) readResponse(re
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationStartExecutionResultsSearchInternalServerError) Code() int 
 }
 
 func (o *ITAutomationStartExecutionResultsSearchInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchInternalServerError) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-results-search/v1][%d] iTAutomationStartExecutionResultsSearchInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationStartExecutionResultsSearchInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
@@ -618,7 +630,7 @@ func (o *ITAutomationStartExecutionResultsSearchInternalServerError) readRespons
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

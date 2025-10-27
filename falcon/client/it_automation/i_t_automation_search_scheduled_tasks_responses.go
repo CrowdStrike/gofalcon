@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationSearchScheduledTasksReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationSearchScheduledTasksReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationSearchScheduledTasksReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationSearchScheduledTasksOK()
@@ -118,11 +120,13 @@ func (o *ITAutomationSearchScheduledTasksOK) Code() int {
 }
 
 func (o *ITAutomationSearchScheduledTasksOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksOK) GetPayload() *models.ItautomationSearchScheduledTaskResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationSearchScheduledTasksOK) readResponse(response runtime.Clien
 	o.Payload = new(models.ItautomationSearchScheduledTaskResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationSearchScheduledTasksBadRequest) Code() int {
 }
 
 func (o *ITAutomationSearchScheduledTasksBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationSearchScheduledTasksBadRequest) readResponse(response runti
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationSearchScheduledTasksForbidden) Code() int {
 }
 
 func (o *ITAutomationSearchScheduledTasksForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationSearchScheduledTasksForbidden) readResponse(response runtim
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationSearchScheduledTasksTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationSearchScheduledTasksTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationSearchScheduledTasksTooManyRequests) readResponse(response 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationSearchScheduledTasksInternalServerError) Code() int {
 }
 
 func (o *ITAutomationSearchScheduledTasksInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/scheduled-tasks/v1][%d] iTAutomationSearchScheduledTasksInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchScheduledTasksInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -618,7 +630,7 @@ func (o *ITAutomationSearchScheduledTasksInternalServerError) readResponse(respo
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

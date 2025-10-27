@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationGetTaskGroupsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationGetTaskGroupsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationGetTaskGroupsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationGetTaskGroupsOK()
@@ -124,11 +126,13 @@ func (o *ITAutomationGetTaskGroupsOK) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsOK %s", 200, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsOK) GetPayload() *models.ItautomationGetTaskGroupsResponse {
@@ -169,7 +173,7 @@ func (o *ITAutomationGetTaskGroupsOK) readResponse(response runtime.ClientRespon
 	o.Payload = new(models.ItautomationGetTaskGroupsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -234,11 +238,13 @@ func (o *ITAutomationGetTaskGroupsMultiStatus) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsMultiStatus) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsMultiStatus) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsMultiStatus  %+v", 207, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsMultiStatus %s", 207, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsMultiStatus) GetPayload() *models.ItautomationGetTaskGroupsResponse {
@@ -279,7 +285,7 @@ func (o *ITAutomationGetTaskGroupsMultiStatus) readResponse(response runtime.Cli
 	o.Payload = new(models.ItautomationGetTaskGroupsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -344,11 +350,13 @@ func (o *ITAutomationGetTaskGroupsBadRequest) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -389,7 +397,7 @@ func (o *ITAutomationGetTaskGroupsBadRequest) readResponse(response runtime.Clie
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -454,11 +462,13 @@ func (o *ITAutomationGetTaskGroupsForbidden) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -499,7 +509,7 @@ func (o *ITAutomationGetTaskGroupsForbidden) readResponse(response runtime.Clien
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -568,11 +578,13 @@ func (o *ITAutomationGetTaskGroupsTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -624,7 +636,7 @@ func (o *ITAutomationGetTaskGroupsTooManyRequests) readResponse(response runtime
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -689,11 +701,13 @@ func (o *ITAutomationGetTaskGroupsInternalServerError) Code() int {
 }
 
 func (o *ITAutomationGetTaskGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/entities/task-groups/v1][%d] iTAutomationGetTaskGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationGetTaskGroupsInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -734,7 +748,7 @@ func (o *ITAutomationGetTaskGroupsInternalServerError) readResponse(response run
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -133,11 +134,15 @@ func (m *ItautomationTaskStageExecutionStatus) validateQueryStageStats(formats s
 
 	if m.QueryStageStats != nil {
 		if err := m.QueryStageStats.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("query_stage_stats")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("query_stage_stats")
 			}
+
 			return err
 		}
 	}
@@ -152,11 +157,15 @@ func (m *ItautomationTaskStageExecutionStatus) validateRemediationStageStats(for
 
 	if m.RemediationStageStats != nil {
 		if err := m.RemediationStageStats.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("remediation_stage_stats")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("remediation_stage_stats")
 			}
+
 			return err
 		}
 	}
@@ -202,11 +211,15 @@ func (m *ItautomationTaskStageExecutionStatus) validateVerificationStageStats(fo
 
 	if m.VerificationStageStats != nil {
 		if err := m.VerificationStageStats.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("verification_stage_stats")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("verification_stage_stats")
 			}
+
 			return err
 		}
 	}
@@ -222,11 +235,15 @@ func (m *ItautomationTaskStageExecutionStatus) validateVerificationSummary(forma
 
 	if m.VerificationSummary != nil {
 		if err := m.VerificationSummary.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("verification_summary")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("verification_summary")
 			}
+
 			return err
 		}
 	}
@@ -269,11 +286,15 @@ func (m *ItautomationTaskStageExecutionStatus) contextValidateQueryStageStats(ct
 		}
 
 		if err := m.QueryStageStats.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("query_stage_stats")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("query_stage_stats")
 			}
+
 			return err
 		}
 	}
@@ -290,11 +311,15 @@ func (m *ItautomationTaskStageExecutionStatus) contextValidateRemediationStageSt
 		}
 
 		if err := m.RemediationStageStats.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("remediation_stage_stats")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("remediation_stage_stats")
 			}
+
 			return err
 		}
 	}
@@ -311,11 +336,15 @@ func (m *ItautomationTaskStageExecutionStatus) contextValidateVerificationStageS
 		}
 
 		if err := m.VerificationStageStats.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("verification_stage_stats")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("verification_stage_stats")
 			}
+
 			return err
 		}
 	}
@@ -328,11 +357,15 @@ func (m *ItautomationTaskStageExecutionStatus) contextValidateVerificationSummar
 	if m.VerificationSummary != nil {
 
 		if err := m.VerificationSummary.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("verification_summary")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("verification_summary")
 			}
+
 			return err
 		}
 	}

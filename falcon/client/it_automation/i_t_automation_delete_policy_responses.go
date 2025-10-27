@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationDeletePolicyReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationDeletePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationDeletePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationDeletePolicyOK()
@@ -118,11 +120,13 @@ func (o *ITAutomationDeletePolicyOK) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyOK) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeletePolicyOK) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyOK %s", 200, payload)
 }
 
 func (o *ITAutomationDeletePolicyOK) GetPayload() *models.ItautomationDeletePolicyResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationDeletePolicyOK) readResponse(response runtime.ClientRespons
 	o.Payload = new(models.ItautomationDeletePolicyResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationDeletePolicyBadRequest) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeletePolicyBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationDeletePolicyBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationDeletePolicyBadRequest) readResponse(response runtime.Clien
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationDeletePolicyForbidden) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeletePolicyForbidden) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationDeletePolicyForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationDeletePolicyForbidden) readResponse(response runtime.Client
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationDeletePolicyTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeletePolicyTooManyRequests) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationDeletePolicyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationDeletePolicyTooManyRequests) readResponse(response runtime.
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationDeletePolicyInternalServerError) Code() int {
 }
 
 func (o *ITAutomationDeletePolicyInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeletePolicyInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /it-automation/entities/policies/v1][%d] iTAutomationDeletePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationDeletePolicyInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -618,7 +630,7 @@ func (o *ITAutomationDeletePolicyInternalServerError) readResponse(response runt
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

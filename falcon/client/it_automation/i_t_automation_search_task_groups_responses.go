@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationSearchTaskGroupsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationSearchTaskGroupsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationSearchTaskGroupsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewITAutomationSearchTaskGroupsOK()
@@ -118,11 +120,13 @@ func (o *ITAutomationSearchTaskGroupsOK) Code() int {
 }
 
 func (o *ITAutomationSearchTaskGroupsOK) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsOK) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsOK %s", 200, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsOK) GetPayload() *models.ItautomationSearchTaskGroupsResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationSearchTaskGroupsOK) readResponse(response runtime.ClientRes
 	o.Payload = new(models.ItautomationSearchTaskGroupsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationSearchTaskGroupsBadRequest) Code() int {
 }
 
 func (o *ITAutomationSearchTaskGroupsBadRequest) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsBadRequest) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationSearchTaskGroupsBadRequest) readResponse(response runtime.C
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationSearchTaskGroupsForbidden) Code() int {
 }
 
 func (o *ITAutomationSearchTaskGroupsForbidden) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsForbidden) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationSearchTaskGroupsForbidden) readResponse(response runtime.Cl
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationSearchTaskGroupsTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationSearchTaskGroupsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationSearchTaskGroupsTooManyRequests) readResponse(response runt
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationSearchTaskGroupsInternalServerError) Code() int {
 }
 
 func (o *ITAutomationSearchTaskGroupsInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsInternalServerError) String() string {
-	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /it-automation/queries/task-groups/v1][%d] iTAutomationSearchTaskGroupsInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationSearchTaskGroupsInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -618,7 +630,7 @@ func (o *ITAutomationSearchTaskGroupsInternalServerError) readResponse(response 
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

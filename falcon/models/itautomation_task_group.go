@@ -22,7 +22,7 @@ type ItautomationTaskGroup struct {
 
 	// Access type of the group
 	// Required: true
-	// Enum: [Public Shared Private]
+	// Enum: ["Public","Shared","Private"]
 	AccessType *string `json:"access_type"`
 
 	// Assigned user group IDs of the group, when access_type is Shared
@@ -128,7 +128,7 @@ func (m *ItautomationTaskGroup) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-var itautomationTaskGroupTypeAccessTypePropEnum []interface{}
+var itautomationTaskGroupTypeAccessTypePropEnum []any
 
 func init() {
 	var res []string

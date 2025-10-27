@@ -21,19 +21,19 @@ import (
 type ItautomationExecutionConfig struct {
 
 	// Whether OSQuery functionality is enabled
-	EnableOsQuery bool `json:"enable_os_query,omitempty"`
+	EnableOsQuery *bool `json:"enable_os_query,omitempty"`
 
 	// Whether Python script execution is enabled
-	EnablePythonExecution bool `json:"enable_python_execution,omitempty"`
+	EnablePythonExecution *bool `json:"enable_python_execution,omitempty"`
 
 	// Whether script execution is enabled
-	EnableScriptExecution bool `json:"enable_script_execution,omitempty"`
+	EnableScriptExecution *bool `json:"enable_script_execution,omitempty"`
 
 	// Maximum time a script can run before timing out. Example: 100
 	ExecutionTimeout int32 `json:"execution_timeout,omitempty"`
 
 	// Unit of time for execution timeout
-	// Enum: [Minutes Hours]
+	// Enum: ["Minutes","Hours"]
 	ExecutionTimeoutUnit string `json:"execution_timeout_unit,omitempty"`
 }
 
@@ -51,7 +51,7 @@ func (m *ItautomationExecutionConfig) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-var itautomationExecutionConfigTypeExecutionTimeoutUnitPropEnum []interface{}
+var itautomationExecutionConfigTypeExecutionTimeoutUnitPropEnum []any
 
 func init() {
 	var res []string

@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -57,11 +58,15 @@ func (m *ItautomationScripts) validateLinux(formats strfmt.Registry) error {
 
 	if m.Linux != nil {
 		if err := m.Linux.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("linux")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("linux")
 			}
+
 			return err
 		}
 	}
@@ -76,11 +81,15 @@ func (m *ItautomationScripts) validateMac(formats strfmt.Registry) error {
 
 	if m.Mac != nil {
 		if err := m.Mac.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("mac")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("mac")
 			}
+
 			return err
 		}
 	}
@@ -95,11 +104,15 @@ func (m *ItautomationScripts) validateWindows(formats strfmt.Registry) error {
 
 	if m.Windows != nil {
 		if err := m.Windows.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("windows")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("windows")
 			}
+
 			return err
 		}
 	}
@@ -138,11 +151,15 @@ func (m *ItautomationScripts) contextValidateLinux(ctx context.Context, formats 
 		}
 
 		if err := m.Linux.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("linux")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("linux")
 			}
+
 			return err
 		}
 	}
@@ -159,11 +176,15 @@ func (m *ItautomationScripts) contextValidateMac(ctx context.Context, formats st
 		}
 
 		if err := m.Mac.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("mac")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("mac")
 			}
+
 			return err
 		}
 	}
@@ -180,11 +201,15 @@ func (m *ItautomationScripts) contextValidateWindows(ctx context.Context, format
 		}
 
 		if err := m.Windows.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("windows")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("windows")
 			}
+
 			return err
 		}
 	}

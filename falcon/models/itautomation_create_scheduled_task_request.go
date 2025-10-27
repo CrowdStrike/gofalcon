@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -102,11 +103,15 @@ func (m *ItautomationCreateScheduledTaskRequest) validateGuardrails(formats strf
 
 	if m.Guardrails != nil {
 		if err := m.Guardrails.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -131,11 +136,15 @@ func (m *ItautomationCreateScheduledTaskRequest) validateSchedule(formats strfmt
 
 	if m.Schedule != nil {
 		if err := m.Schedule.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedule")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedule")
 			}
+
 			return err
 		}
 	}
@@ -173,11 +182,15 @@ func (m *ItautomationCreateScheduledTaskRequest) validateTriggerCondition(format
 
 		if m.TriggerCondition[i] != nil {
 			if err := m.TriggerCondition[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -218,11 +231,15 @@ func (m *ItautomationCreateScheduledTaskRequest) contextValidateGuardrails(ctx c
 		}
 
 		if err := m.Guardrails.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -235,11 +252,15 @@ func (m *ItautomationCreateScheduledTaskRequest) contextValidateSchedule(ctx con
 	if m.Schedule != nil {
 
 		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedule")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedule")
 			}
+
 			return err
 		}
 	}
@@ -258,11 +279,15 @@ func (m *ItautomationCreateScheduledTaskRequest) contextValidateTriggerCondition
 			}
 
 			if err := m.TriggerCondition[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("trigger_condition" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

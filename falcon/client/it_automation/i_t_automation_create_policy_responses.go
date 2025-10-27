@@ -6,6 +6,8 @@ package it_automation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -23,7 +25,7 @@ type ITAutomationCreatePolicyReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ITAutomationCreatePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ITAutomationCreatePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 201:
 		result := NewITAutomationCreatePolicyCreated()
@@ -118,11 +120,13 @@ func (o *ITAutomationCreatePolicyCreated) Code() int {
 }
 
 func (o *ITAutomationCreatePolicyCreated) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreatePolicyCreated) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyCreated  %+v", 201, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyCreated %s", 201, payload)
 }
 
 func (o *ITAutomationCreatePolicyCreated) GetPayload() *models.ItautomationCreatePolicyResponse {
@@ -163,7 +167,7 @@ func (o *ITAutomationCreatePolicyCreated) readResponse(response runtime.ClientRe
 	o.Payload = new(models.ItautomationCreatePolicyResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -228,11 +232,13 @@ func (o *ITAutomationCreatePolicyBadRequest) Code() int {
 }
 
 func (o *ITAutomationCreatePolicyBadRequest) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreatePolicyBadRequest) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyBadRequest  %+v", 400, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyBadRequest %s", 400, payload)
 }
 
 func (o *ITAutomationCreatePolicyBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -273,7 +279,7 @@ func (o *ITAutomationCreatePolicyBadRequest) readResponse(response runtime.Clien
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -338,11 +344,13 @@ func (o *ITAutomationCreatePolicyForbidden) Code() int {
 }
 
 func (o *ITAutomationCreatePolicyForbidden) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreatePolicyForbidden) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyForbidden %s", 403, payload)
 }
 
 func (o *ITAutomationCreatePolicyForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -383,7 +391,7 @@ func (o *ITAutomationCreatePolicyForbidden) readResponse(response runtime.Client
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -452,11 +460,13 @@ func (o *ITAutomationCreatePolicyTooManyRequests) Code() int {
 }
 
 func (o *ITAutomationCreatePolicyTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreatePolicyTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyTooManyRequests  %+v", 429, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyTooManyRequests %s", 429, payload)
 }
 
 func (o *ITAutomationCreatePolicyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -508,7 +518,7 @@ func (o *ITAutomationCreatePolicyTooManyRequests) readResponse(response runtime.
 	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -573,11 +583,13 @@ func (o *ITAutomationCreatePolicyInternalServerError) Code() int {
 }
 
 func (o *ITAutomationCreatePolicyInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreatePolicyInternalServerError) String() string {
-	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyInternalServerError  %+v", 500, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /it-automation/entities/policies/v1][%d] iTAutomationCreatePolicyInternalServerError %s", 500, payload)
 }
 
 func (o *ITAutomationCreatePolicyInternalServerError) GetPayload() *models.MsaspecResponseFields {
@@ -618,7 +630,7 @@ func (o *ITAutomationCreatePolicyInternalServerError) readResponse(response runt
 	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

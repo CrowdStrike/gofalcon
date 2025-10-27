@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -22,13 +23,13 @@ type ItautomationUpdatePolicyRequest struct {
 	Config *ItautomationPolicyConfig `json:"config,omitempty"`
 
 	// Description of the policy.Example: windows policy check
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// ID of the policy. Example: f64b95555ef54ea682619ce880d267cc
 	ID string `json:"id,omitempty"`
 
 	// Whether the policy is enabled or disabled
-	IsEnabled bool `json:"is_enabled,omitempty"`
+	IsEnabled *bool `json:"is_enabled,omitempty"`
 
 	// Name of the policy. Example: platform_policy
 	Name string `json:"name,omitempty"`
@@ -55,11 +56,15 @@ func (m *ItautomationUpdatePolicyRequest) validateConfig(formats strfmt.Registry
 
 	if m.Config != nil {
 		if err := m.Config.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("config")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("config")
 			}
+
 			return err
 		}
 	}
@@ -90,11 +95,15 @@ func (m *ItautomationUpdatePolicyRequest) contextValidateConfig(ctx context.Cont
 		}
 
 		if err := m.Config.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("config")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("config")
 			}
+
 			return err
 		}
 	}

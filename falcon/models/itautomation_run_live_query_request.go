@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -95,11 +96,15 @@ func (m *ItautomationRunLiveQueryRequest) validateCompositeQuery(formats strfmt.
 
 	if m.CompositeQuery != nil {
 		if err := m.CompositeQuery.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("composite_query")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("composite_query")
 			}
+
 			return err
 		}
 	}
@@ -114,11 +119,15 @@ func (m *ItautomationRunLiveQueryRequest) validateGuardrails(formats strfmt.Regi
 
 	if m.Guardrails != nil {
 		if err := m.Guardrails.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -133,11 +142,15 @@ func (m *ItautomationRunLiveQueryRequest) validateOutputParserConfig(formats str
 
 	if m.OutputParserConfig != nil {
 		if err := m.OutputParserConfig.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("output_parser_config")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("output_parser_config")
 			}
+
 			return err
 		}
 	}
@@ -152,11 +165,15 @@ func (m *ItautomationRunLiveQueryRequest) validateQueries(formats strfmt.Registr
 
 	if m.Queries != nil {
 		if err := m.Queries.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("queries")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("queries")
 			}
+
 			return err
 		}
 	}
@@ -171,11 +188,15 @@ func (m *ItautomationRunLiveQueryRequest) validateRowsParserConfig(formats strfm
 
 	if m.RowsParserConfig != nil {
 		if err := m.RowsParserConfig.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("rows_parser_config")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("rows_parser_config")
 			}
+
 			return err
 		}
 	}
@@ -231,11 +252,15 @@ func (m *ItautomationRunLiveQueryRequest) contextValidateCompositeQuery(ctx cont
 		}
 
 		if err := m.CompositeQuery.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("composite_query")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("composite_query")
 			}
+
 			return err
 		}
 	}
@@ -252,11 +277,15 @@ func (m *ItautomationRunLiveQueryRequest) contextValidateGuardrails(ctx context.
 		}
 
 		if err := m.Guardrails.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("guardrails")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("guardrails")
 			}
+
 			return err
 		}
 	}
@@ -273,11 +302,15 @@ func (m *ItautomationRunLiveQueryRequest) contextValidateOutputParserConfig(ctx 
 		}
 
 		if err := m.OutputParserConfig.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("output_parser_config")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("output_parser_config")
 			}
+
 			return err
 		}
 	}
@@ -294,11 +327,15 @@ func (m *ItautomationRunLiveQueryRequest) contextValidateQueries(ctx context.Con
 		}
 
 		if err := m.Queries.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("queries")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("queries")
 			}
+
 			return err
 		}
 	}
@@ -315,11 +352,15 @@ func (m *ItautomationRunLiveQueryRequest) contextValidateRowsParserConfig(ctx co
 		}
 
 		if err := m.RowsParserConfig.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("rows_parser_config")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("rows_parser_config")
 			}
+
 			return err
 		}
 	}
