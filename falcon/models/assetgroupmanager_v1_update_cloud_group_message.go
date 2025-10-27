@@ -23,21 +23,21 @@ type AssetgroupmanagerV1UpdateCloudGroupMessage struct {
 	// The new Business Impact for the group.
 	// It will be deleted if the value is sent empty.
 	// Enum: [ high moderate low]
-	BusinessImpact string `json:"business_impact,omitempty"`
+	BusinessImpact *string `json:"business_impact,omitempty"`
 
 	// Business Impact is one of the "business context" field of the group.
 	// It will be deleted if the value is sent empty.
 	// Max Length: 100
-	BusinessUnit string `json:"business_unit,omitempty"`
+	BusinessUnit *string `json:"business_unit,omitempty"`
 
 	// The new Description for the group.
 	// Max Length: 1000
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// Environment is one of the "business context" field of the group.
 	// It will be deleted if the value is sent empty.
 	// Enum: [ dev test stage prod]
-	Environment string `json:"environment,omitempty"`
+	Environment *string `json:"environment,omitempty"`
 
 	// The UUID of the group to be updated.
 	ID string `json:"id,omitempty"`
@@ -130,7 +130,7 @@ func (m *AssetgroupmanagerV1UpdateCloudGroupMessage) validateBusinessImpact(form
 	}
 
 	// value enum
-	if err := m.validateBusinessImpactEnum("business_impact", "body", m.BusinessImpact); err != nil {
+	if err := m.validateBusinessImpactEnum("business_impact", "body", *m.BusinessImpact); err != nil {
 		return err
 	}
 
@@ -142,7 +142,7 @@ func (m *AssetgroupmanagerV1UpdateCloudGroupMessage) validateBusinessUnit(format
 		return nil
 	}
 
-	if err := validate.MaxLength("business_unit", "body", m.BusinessUnit, 100); err != nil {
+	if err := validate.MaxLength("business_unit", "body", *m.BusinessUnit, 100); err != nil {
 		return err
 	}
 
@@ -154,7 +154,7 @@ func (m *AssetgroupmanagerV1UpdateCloudGroupMessage) validateDescription(formats
 		return nil
 	}
 
-	if err := validate.MaxLength("description", "body", m.Description, 1000); err != nil {
+	if err := validate.MaxLength("description", "body", *m.Description, 1000); err != nil {
 		return err
 	}
 
@@ -205,7 +205,7 @@ func (m *AssetgroupmanagerV1UpdateCloudGroupMessage) validateEnvironment(formats
 	}
 
 	// value enum
-	if err := m.validateEnvironmentEnum("environment", "body", m.Environment); err != nil {
+	if err := m.validateEnvironmentEnum("environment", "body", *m.Environment); err != nil {
 		return err
 	}
 
