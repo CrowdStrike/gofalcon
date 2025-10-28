@@ -22,13 +22,13 @@ type ItautomationUpdatePolicyRequest struct {
 	Config *ItautomationPolicyConfig `json:"config,omitempty"`
 
 	// Description of the policy.Example: windows policy check
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// ID of the policy. Example: f64b95555ef54ea682619ce880d267cc
 	ID string `json:"id,omitempty"`
 
 	// Whether the policy is enabled or disabled
-	IsEnabled bool `json:"is_enabled,omitempty"`
+	IsEnabled *bool `json:"is_enabled,omitempty"`
 
 	// Name of the policy. Example: platform_policy
 	Name string `json:"name,omitempty"`
