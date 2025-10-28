@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APITemplateV1UpdateRequestFields api template v1 update request fields
+// APIFieldV1UpdateRequest api field v1 update request
 //
-// swagger:model api.TemplateV1UpdateRequest.fields
-type APITemplateV1UpdateRequestFields struct {
+// swagger:model api.FieldV1UpdateRequest
+type APIFieldV1UpdateRequest struct {
 
 	// data type
 	// Required: true
@@ -43,14 +43,15 @@ type APITemplateV1UpdateRequestFields struct {
 	Name *string `json:"name"`
 
 	// options
-	Options []*APITemplateV1UpdateRequestFieldsOptions `json:"options"`
+	Options []*APIFieldV1UpdateRequestOptions `json:"options"`
 
 	// required
-	Required bool `json:"required,omitempty"`
+	// Required: true
+	Required *bool `json:"required"`
 }
 
-// Validate validates this api template v1 update request fields
-func (m *APITemplateV1UpdateRequestFields) Validate(formats strfmt.Registry) error {
+// Validate validates this api field v1 update request
+func (m *APIFieldV1UpdateRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDataType(formats); err != nil {
@@ -73,13 +74,17 @@ func (m *APITemplateV1UpdateRequestFields) Validate(formats strfmt.Registry) err
 		res = append(res, err)
 	}
 
+	if err := m.validateRequired(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFields) validateDataType(formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequest) validateDataType(formats strfmt.Registry) error {
 
 	if err := validate.Required("data_type", "body", m.DataType); err != nil {
 		return err
@@ -88,7 +93,7 @@ func (m *APITemplateV1UpdateRequestFields) validateDataType(formats strfmt.Regis
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFields) validateID(formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequest) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
@@ -97,7 +102,7 @@ func (m *APITemplateV1UpdateRequestFields) validateID(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFields) validateInputType(formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequest) validateInputType(formats strfmt.Registry) error {
 
 	if err := validate.Required("input_type", "body", m.InputType); err != nil {
 		return err
@@ -106,7 +111,7 @@ func (m *APITemplateV1UpdateRequestFields) validateInputType(formats strfmt.Regi
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFields) validateName(formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -115,7 +120,7 @@ func (m *APITemplateV1UpdateRequestFields) validateName(formats strfmt.Registry)
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFields) validateOptions(formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequest) validateOptions(formats strfmt.Registry) error {
 	if swag.IsZero(m.Options) { // not required
 		return nil
 	}
@@ -141,8 +146,17 @@ func (m *APITemplateV1UpdateRequestFields) validateOptions(formats strfmt.Regist
 	return nil
 }
 
-// ContextValidate validate this api template v1 update request fields based on the context it is used
-func (m *APITemplateV1UpdateRequestFields) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequest) validateRequired(formats strfmt.Registry) error {
+
+	if err := validate.Required("required", "body", m.Required); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this api field v1 update request based on the context it is used
+func (m *APIFieldV1UpdateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateOptions(ctx, formats); err != nil {
@@ -155,7 +169,7 @@ func (m *APITemplateV1UpdateRequestFields) ContextValidate(ctx context.Context, 
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFields) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequest) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Options); i++ {
 
@@ -181,7 +195,7 @@ func (m *APITemplateV1UpdateRequestFields) contextValidateOptions(ctx context.Co
 }
 
 // MarshalBinary interface implementation
-func (m *APITemplateV1UpdateRequestFields) MarshalBinary() ([]byte, error) {
+func (m *APIFieldV1UpdateRequest) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -189,8 +203,8 @@ func (m *APITemplateV1UpdateRequestFields) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *APITemplateV1UpdateRequestFields) UnmarshalBinary(b []byte) error {
-	var res APITemplateV1UpdateRequestFields
+func (m *APIFieldV1UpdateRequest) UnmarshalBinary(b []byte) error {
+	var res APIFieldV1UpdateRequest
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

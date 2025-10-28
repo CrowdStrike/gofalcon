@@ -24,7 +24,7 @@ type APITemplateV1UpdateRequest struct {
 	Description string `json:"description,omitempty"`
 
 	// fields
-	Fields []*APITemplateV1UpdateRequestFields `json:"fields"`
+	Fields []*APIFieldV1UpdateRequest `json:"fields"`
 
 	// id
 	// Required: true

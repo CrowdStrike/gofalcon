@@ -69,29 +69,11 @@ type EntitiesWebLocationPatchV2Params struct {
 	*/
 	Body *models.APIWebLocationV2
 
-	/* Filter.
-
-	   The filter to use when finding web locations. The only allowed filters are 'name', 'type', 'enterpriseAccountID', 'providerLocationID', 'applicationID' and 'deleted'
-	*/
-	Filter *string
-
 	/* ID.
 
 	   The web-location entity id to update.
 	*/
 	ID string
-
-	/* Sort.
-
-	   The sort instructions to order by on. Allowed values are 'name' and 'deleted'
-	*/
-	Sort *string
-
-	/* Type.
-
-	   The web-location type.
-	*/
-	Type *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -157,17 +139,6 @@ func (o *EntitiesWebLocationPatchV2Params) SetBody(body *models.APIWebLocationV2
 	o.Body = body
 }
 
-// WithFilter adds the filter to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) WithFilter(filter *string) *EntitiesWebLocationPatchV2Params {
-	o.SetFilter(filter)
-	return o
-}
-
-// SetFilter adds the filter to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) SetFilter(filter *string) {
-	o.Filter = filter
-}
-
 // WithID adds the id to the entities web location patch v2 params
 func (o *EntitiesWebLocationPatchV2Params) WithID(id string) *EntitiesWebLocationPatchV2Params {
 	o.SetID(id)
@@ -177,28 +148,6 @@ func (o *EntitiesWebLocationPatchV2Params) WithID(id string) *EntitiesWebLocatio
 // SetID adds the id to the entities web location patch v2 params
 func (o *EntitiesWebLocationPatchV2Params) SetID(id string) {
 	o.ID = id
-}
-
-// WithSort adds the sort to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) WithSort(sort *string) *EntitiesWebLocationPatchV2Params {
-	o.SetSort(sort)
-	return o
-}
-
-// SetSort adds the sort to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) SetSort(sort *string) {
-	o.Sort = sort
-}
-
-// WithType adds the typeVar to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) WithType(typeVar *string) *EntitiesWebLocationPatchV2Params {
-	o.SetType(typeVar)
-	return o
-}
-
-// SetType adds the type to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) SetType(typeVar *string) {
-	o.Type = typeVar
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -214,23 +163,6 @@ func (o *EntitiesWebLocationPatchV2Params) WriteToRequest(r runtime.ClientReques
 		}
 	}
 
-	if o.Filter != nil {
-
-		// query param filter
-		var qrFilter string
-
-		if o.Filter != nil {
-			qrFilter = *o.Filter
-		}
-		qFilter := qrFilter
-		if qFilter != "" {
-
-			if err := r.SetQueryParam("filter", qFilter); err != nil {
-				return err
-			}
-		}
-	}
-
 	// query param id
 	qrID := o.ID
 	qID := qrID
@@ -238,40 +170,6 @@ func (o *EntitiesWebLocationPatchV2Params) WriteToRequest(r runtime.ClientReques
 
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
-		}
-	}
-
-	if o.Sort != nil {
-
-		// query param sort
-		var qrSort string
-
-		if o.Sort != nil {
-			qrSort = *o.Sort
-		}
-		qSort := qrSort
-		if qSort != "" {
-
-			if err := r.SetQueryParam("sort", qSort); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.Type != nil {
-
-		// query param type
-		var qrType string
-
-		if o.Type != nil {
-			qrType = *o.Type
-		}
-		qType := qrType
-		if qType != "" {
-
-			if err := r.SetQueryParam("type", qType); err != nil {
-				return err
-			}
 		}
 	}
 

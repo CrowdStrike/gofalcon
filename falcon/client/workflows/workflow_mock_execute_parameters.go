@@ -85,6 +85,12 @@ type WorkflowMockExecuteParams struct {
 	*/
 	ExecutionCid []string
 
+	/* IgnoreActivityMockReferences.
+
+	   When enabled, treats all activity mocks in the definition as disabled for this mock execution. Mocks provided in the request body are treated normally.
+	*/
+	IgnoreActivityMockReferences *bool
+
 	/* Key.
 
 	   Key used to help deduplicate executions, if unset a new UUID is used
@@ -133,14 +139,17 @@ func (o *WorkflowMockExecuteParams) WithDefaults() *WorkflowMockExecuteParams {
 // All values with no default are reset to their zero value.
 func (o *WorkflowMockExecuteParams) SetDefaults() {
 	var (
+		ignoreActivityMockReferencesDefault = bool(false)
+
 		skipValidationDefault = bool(false)
 
 		validateOnlyDefault = bool(false)
 	)
 
 	val := WorkflowMockExecuteParams{
-		SkipValidation: &skipValidationDefault,
-		ValidateOnly:   &validateOnlyDefault,
+		IgnoreActivityMockReferences: &ignoreActivityMockReferencesDefault,
+		SkipValidation:               &skipValidationDefault,
+		ValidateOnly:                 &validateOnlyDefault,
 	}
 
 	val.timeout = o.timeout
@@ -224,6 +233,17 @@ func (o *WorkflowMockExecuteParams) WithExecutionCid(executionCid []string) *Wor
 // SetExecutionCid adds the executionCid to the workflow mock execute params
 func (o *WorkflowMockExecuteParams) SetExecutionCid(executionCid []string) {
 	o.ExecutionCid = executionCid
+}
+
+// WithIgnoreActivityMockReferences adds the ignoreActivityMockReferences to the workflow mock execute params
+func (o *WorkflowMockExecuteParams) WithIgnoreActivityMockReferences(ignoreActivityMockReferences *bool) *WorkflowMockExecuteParams {
+	o.SetIgnoreActivityMockReferences(ignoreActivityMockReferences)
+	return o
+}
+
+// SetIgnoreActivityMockReferences adds the ignoreActivityMockReferences to the workflow mock execute params
+func (o *WorkflowMockExecuteParams) SetIgnoreActivityMockReferences(ignoreActivityMockReferences *bool) {
+	o.IgnoreActivityMockReferences = ignoreActivityMockReferences
 }
 
 // WithKey adds the key to the workflow mock execute params
@@ -336,6 +356,23 @@ func (o *WorkflowMockExecuteParams) WriteToRequest(r runtime.ClientRequest, reg 
 		// query array param execution_cid
 		if err := r.SetQueryParam("execution_cid", joinedExecutionCid...); err != nil {
 			return err
+		}
+	}
+
+	if o.IgnoreActivityMockReferences != nil {
+
+		// query param ignore_activity_mock_references
+		var qrIgnoreActivityMockReferences bool
+
+		if o.IgnoreActivityMockReferences != nil {
+			qrIgnoreActivityMockReferences = *o.IgnoreActivityMockReferences
+		}
+		qIgnoreActivityMockReferences := swag.FormatBool(qrIgnoreActivityMockReferences)
+		if qIgnoreActivityMockReferences != "" {
+
+			if err := r.SetQueryParam("ignore_activity_mock_references", qIgnoreActivityMockReferences); err != nil {
+				return err
+			}
 		}
 	}
 

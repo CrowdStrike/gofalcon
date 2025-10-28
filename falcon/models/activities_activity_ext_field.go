@@ -33,6 +33,9 @@ type ActivitiesActivityExtField struct {
 	// Nested fields of this object, only set when field type is complex
 	Fields []*ActivitiesActivityExtField `json:"fields"`
 
+	// Indicates this field is a list
+	Multiple bool `json:"multiple,omitempty"`
+
 	// Name of the field as it should be passed back to the API through conditions or data mapping.
 	// Required: true
 	Name *string `json:"name"`

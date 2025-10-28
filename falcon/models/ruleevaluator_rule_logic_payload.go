@@ -19,6 +19,9 @@ import (
 // swagger:model ruleevaluator.RuleLogicPayload
 type RuleevaluatorRuleLogicPayload struct {
 
+	// input
+	Input interface{} `json:"input,omitempty"`
+
 	// logic
 	// Required: true
 	Logic *string `json:"logic"`

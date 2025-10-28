@@ -7,7 +7,9 @@ package models
 
 import (
 	"context"
+	"strconv"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -19,6 +21,9 @@ type ApimodelsAssetFilter struct {
 
 	// account ids
 	AccountIds []string `json:"account_ids"`
+
+	// cloud groups
+	CloudGroups []*ApimodelsCloudGroup `json:"cloud_groups"`
 
 	// cloud providers
 	CloudProviders []string `json:"cloud_providers"`
@@ -35,11 +40,80 @@ type ApimodelsAssetFilter struct {
 
 // Validate validates this apimodels asset filter
 func (m *ApimodelsAssetFilter) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateCloudGroups(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this apimodels asset filter based on context it is used
+func (m *ApimodelsAssetFilter) validateCloudGroups(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudGroups) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CloudGroups); i++ {
+		if swag.IsZero(m.CloudGroups[i]) { // not required
+			continue
+		}
+
+		if m.CloudGroups[i] != nil {
+			if err := m.CloudGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this apimodels asset filter based on the context it is used
 func (m *ApimodelsAssetFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCloudGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ApimodelsAssetFilter) contextValidateCloudGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CloudGroups); i++ {
+
+		if m.CloudGroups[i] != nil {
+
+			if swag.IsZero(m.CloudGroups[i]) { // not required
+				return nil
+			}
+
+			if err := m.CloudGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

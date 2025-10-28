@@ -20,15 +20,14 @@ import (
 // swagger:model domain.QueryResponse
 type DomainQueryResponse struct {
 
-	// Array of API Errors
-	// Required: true
+	// errors
 	Errors []*MsaAPIError `json:"errors"`
 
-	// Meta information of a request, including traceID of the request and pagination information
+	// meta
 	// Required: true
-	Meta *MsaMetaInfo `json:"meta"`
+	Meta *DomainMsaMetaInfo `json:"meta"`
 
-	// Array of string IDs that matches the query request
+	// resources
 	// Required: true
 	Resources []string `json:"resources"`
 }
@@ -56,9 +55,8 @@ func (m *DomainQueryResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainQueryResponse) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {

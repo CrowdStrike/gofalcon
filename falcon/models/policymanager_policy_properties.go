@@ -20,7 +20,7 @@ import (
 // swagger:model policymanager.PolicyProperties
 type PolicymanagerPolicyProperties struct {
 
-	// Allow notifications accepts values: 'default', 'custom'
+	// Windows only. Allow notifications accepts values: 'default', 'custom'
 	// Enum: [default custom]
 	AllowNotifications string `json:"allow_notifications,omitempty"`
 
@@ -74,7 +74,7 @@ type PolicymanagerPolicyProperties struct {
 	// block all data access
 	BlockAllDataAccess bool `json:"block_all_data_access,omitempty"`
 
-	// Block notifications accepts values: 'default', 'custom'
+	// Windows only. Block notifications accepts values: 'default', 'custom'
 	// Enum: [default custom]
 	BlockNotifications string `json:"block_notifications,omitempty"`
 
@@ -84,7 +84,7 @@ type PolicymanagerPolicyProperties struct {
 
 	// classifications
 	// Required: true
-	Classifications *PolicymanagerObjectList `json:"classifications"`
+	Classifications []string `json:"classifications"`
 
 	// Windows only. Length must be at least 2 and at max 256, must follow pattern '^([^
 	// ]*
@@ -602,17 +602,6 @@ func (m *PolicymanagerPolicyProperties) validateClassifications(formats strfmt.R
 		return err
 	}
 
-	if m.Classifications != nil {
-		if err := m.Classifications.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("classifications")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("classifications")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -955,10 +944,6 @@ func (m *PolicymanagerPolicyProperties) validateUnsupportedBrowsersAction(format
 func (m *PolicymanagerPolicyProperties) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateClassifications(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateEujDropdownOptions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -970,23 +955,6 @@ func (m *PolicymanagerPolicyProperties) ContextValidate(ctx context.Context, for
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *PolicymanagerPolicyProperties) contextValidateClassifications(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Classifications != nil {
-
-		if err := m.Classifications.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("classifications")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("classifications")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
