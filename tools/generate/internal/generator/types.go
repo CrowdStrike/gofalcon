@@ -160,8 +160,12 @@ func (g *Generator) generateModels() error {
 		fmt.Println("Generating models...")
 	}
 
-	modelNames := strings.Join(g.config.ModelNames, ",")
-	args := []string{"generate", "model", "-f", g.config.SpecFile, "-t", g.config.OutputDir, "-n", modelNames}
+	args := []string{"generate", "model", "-f", g.config.SpecFile, "-t", g.config.OutputDir}
+
+	// Add each model name with its own -n flag
+	for _, modelName := range g.config.ModelNames {
+		args = append(args, "-n", modelName)
+	}
 
 	if g.config.SkipValidation {
 		args = append(args, "--skip-validation")
