@@ -38,7 +38,7 @@ type PolicymanagerExternalPolicy struct {
 
 	// host groups
 	// Required: true
-	HostGroups *PolicymanagerHostGroups `json:"host_groups"`
+	HostGroups []string `json:"host_groups"`
 
 	// id
 	// Required: true
@@ -194,17 +194,6 @@ func (m *PolicymanagerExternalPolicy) validateHostGroups(formats strfmt.Registry
 		return err
 	}
 
-	if m.HostGroups != nil {
-		if err := m.HostGroups.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("host_groups")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("host_groups")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -347,10 +336,6 @@ func (m *PolicymanagerExternalPolicy) validatePrecedence(formats strfmt.Registry
 func (m *PolicymanagerExternalPolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateHostGroups(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidatePolicyProperties(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -358,23 +343,6 @@ func (m *PolicymanagerExternalPolicy) ContextValidate(ctx context.Context, forma
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *PolicymanagerExternalPolicy) contextValidateHostGroups(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.HostGroups != nil {
-
-		if err := m.HostGroups.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("host_groups")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("host_groups")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

@@ -52,8 +52,7 @@ type APITemplateV1 struct {
 	Name *string `json:"name"`
 
 	// sla id
-	// Required: true
-	SLAID *string `json:"sla_id"`
+	SLAID string `json:"sla_id,omitempty"`
 
 	// updated by
 	// Required: true
@@ -98,10 +97,6 @@ func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSLAID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -212,15 +207,6 @@ func (m *APITemplateV1) validateID(formats strfmt.Registry) error {
 func (m *APITemplateV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APITemplateV1) validateSLAID(formats strfmt.Registry) error {
-
-	if err := validate.Required("sla_id", "body", m.SLAID); err != nil {
 		return err
 	}
 

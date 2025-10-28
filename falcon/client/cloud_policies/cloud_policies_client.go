@@ -30,9 +30,17 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateComplianceControl(params *CreateComplianceControlParams, opts ...ClientOption) (*CreateComplianceControlOK, error)
+
+	CreateComplianceFramework(params *CreateComplianceFrameworkParams, opts ...ClientOption) (*CreateComplianceFrameworkOK, error)
+
 	CreateRuleMixin0(params *CreateRuleMixin0Params, opts ...ClientOption) (*CreateRuleMixin0OK, error)
 
 	CreateRuleOverride(params *CreateRuleOverrideParams, opts ...ClientOption) (*CreateRuleOverrideOK, error)
+
+	DeleteComplianceControl(params *DeleteComplianceControlParams, opts ...ClientOption) (*DeleteComplianceControlOK, error)
+
+	DeleteComplianceFramework(params *DeleteComplianceFrameworkParams, opts ...ClientOption) (*DeleteComplianceFrameworkOK, error)
 
 	DeleteRuleMixin0(params *DeleteRuleMixin0Params, opts ...ClientOption) (*DeleteRuleMixin0OK, error)
 
@@ -54,11 +62,95 @@ type ClientService interface {
 
 	QueryRule(params *QueryRuleParams, opts ...ClientOption) (*QueryRuleOK, error)
 
+	RenameSectionComplianceFramework(params *RenameSectionComplianceFrameworkParams, opts ...ClientOption) (*RenameSectionComplianceFrameworkOK, error)
+
+	ReplaceControlRules(params *ReplaceControlRulesParams, opts ...ClientOption) (*ReplaceControlRulesOK, error)
+
+	UpdateComplianceControl(params *UpdateComplianceControlParams, opts ...ClientOption) (*UpdateComplianceControlOK, error)
+
+	UpdateComplianceFramework(params *UpdateComplianceFrameworkParams, opts ...ClientOption) (*UpdateComplianceFrameworkOK, error)
+
 	UpdateRule(params *UpdateRuleParams, opts ...ClientOption) (*UpdateRuleOK, error)
 
 	UpdateRuleOverride(params *UpdateRuleOverrideParams, opts ...ClientOption) (*UpdateRuleOverrideOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CreateComplianceControl creates a new custom compliance control
+*/
+func (a *Client) CreateComplianceControl(params *CreateComplianceControlParams, opts ...ClientOption) (*CreateComplianceControlOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateComplianceControlParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateComplianceControl",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateComplianceControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateComplianceControlOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateComplianceControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateComplianceFramework creates a new custom compliance framework
+*/
+func (a *Client) CreateComplianceFramework(params *CreateComplianceFrameworkParams, opts ...ClientOption) (*CreateComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateComplianceFramework",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -134,6 +226,82 @@ func (a *Client) CreateRuleOverride(params *CreateRuleOverrideParams, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for CreateRuleOverride: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteComplianceControl deletes custom compliance controls
+*/
+func (a *Client) DeleteComplianceControl(params *DeleteComplianceControlParams, opts ...ClientOption) (*DeleteComplianceControlOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteComplianceControlParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteComplianceControl",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteComplianceControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteComplianceControlOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteComplianceControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteComplianceFramework deletes a custom compliance framework and all associated controls and rule assignments
+*/
+func (a *Client) DeleteComplianceFramework(params *DeleteComplianceFrameworkParams, opts ...ClientOption) (*DeleteComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteComplianceFramework",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -515,6 +683,158 @@ func (a *Client) QueryRule(params *QueryRuleParams, opts ...ClientOption) (*Quer
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RenameSectionComplianceFramework renames a section in a custom compliance framework
+*/
+func (a *Client) RenameSectionComplianceFramework(params *RenameSectionComplianceFrameworkParams, opts ...ClientOption) (*RenameSectionComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRenameSectionComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RenameSectionComplianceFramework",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/section/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RenameSectionComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RenameSectionComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RenameSectionComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ReplaceControlRules assigns rules to a compliance control full replace
+*/
+func (a *Client) ReplaceControlRules(params *ReplaceControlRulesParams, opts ...ClientOption) (*ReplaceControlRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReplaceControlRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ReplaceControlRules",
+		Method:             "PUT",
+		PathPattern:        "/cloud-policies/entities/compliance/control-rule-assignments/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ReplaceControlRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ReplaceControlRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ReplaceControlRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateComplianceControl updates a custom compliance control
+*/
+func (a *Client) UpdateComplianceControl(params *UpdateComplianceControlParams, opts ...ClientOption) (*UpdateComplianceControlOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateComplianceControlParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateComplianceControl",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateComplianceControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateComplianceControlOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateComplianceControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateComplianceFramework updates a custom compliance framework
+*/
+func (a *Client) UpdateComplianceFramework(params *UpdateComplianceFrameworkParams, opts ...ClientOption) (*UpdateComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateComplianceFramework",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

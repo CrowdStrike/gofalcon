@@ -19,6 +19,9 @@ import (
 // swagger:model apimodels.SecurityFramework
 type ApimodelsSecurityFramework struct {
 
+	// active
+	Active bool `json:"active,omitempty"`
+
 	// authority
 	// Required: true
 	Authority *string `json:"authority"`

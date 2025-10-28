@@ -27,7 +27,7 @@ type DomainLaunchExportJobRequestV1 struct {
 	// Required: true
 	ExportType *string `json:"export_type"`
 
-	// FQL query to filter entities by. Possible filter properties depend on the entity type.
+	// FQL query to filter entities by. Possible filter properties depend on the entity type. Examples: For 'notification-exposed-data-record': notification_id:'MjAyMy0wNS0yNVQyMDoyOToyNFpfMzAwMTI3YTgtZTJjMi0yYjA0LTBhNDctOTVkODA5ZDFhYTkw'+credential_status:['previously_reported'] or _all:*'*'. For 'historical-search-exposed-data-record': event_id:'AHsiZSI6Ik5Ub3dOR1V4TlROaU5tTmxNamxoTkRBek9USXpNekV3WkRVMFpqVTBNamRtTXpSa1pUVmtOalUzTWpJd1ptVTBOemRrTlRaaE1EQXdNakF4WldObU5tTTQiLCJmIjoiKGRvbWFpbjonY3Jvd2RzdHJpa2UuY29tJykifQ'. For 'bulk-historical-search-exposed-data-record': (domain:'crowdstrike.com')+(date_from:'2024-01-15')+(date_to:'2024-12-31')
 	// Required: true
 	Filter *string `json:"filter"`
 

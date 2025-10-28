@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -21,39 +22,31 @@ import (
 type PolicymanagerExternalClassificationProperties struct {
 
 	// content patterns
-	ContentPatterns *PolicymanagerObjectList `json:"content_patterns,omitempty"`
+	ContentPatterns []string `json:"content_patterns"`
 
 	// evidence duplication enabled
 	EvidenceDuplicationEnabled bool `json:"evidence_duplication_enabled,omitempty"`
 
 	// file types
-	FileTypes *PolicymanagerObjectList `json:"file_types,omitempty"`
+	FileTypes []string `json:"file_types"`
 
 	// Protection mode accepts values: 'monitor', 'simulate', 'enforce'
 	// Enum: [monitor simulate enforce]
 	ProtectionMode string `json:"protection_mode,omitempty"`
 
 	// rules
-	Rules *PolicymanagerExternalRuleObjectList `json:"rules,omitempty"`
+	Rules []*PolicymanagerExternalRule `json:"rules"`
 
 	// sensitivity labels
-	SensitivityLabels *PolicymanagerObjectList `json:"sensitivity_labels,omitempty"`
+	SensitivityLabels []string `json:"sensitivity_labels"`
 
 	// web sources
-	WebSources *PolicymanagerObjectList `json:"web_sources,omitempty"`
+	WebSources []string `json:"web_sources"`
 }
 
 // Validate validates this policymanager external classification properties
 func (m *PolicymanagerExternalClassificationProperties) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateContentPatterns(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFileTypes(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateProtectionMode(formats); err != nil {
 		res = append(res, err)
@@ -63,55 +56,9 @@ func (m *PolicymanagerExternalClassificationProperties) Validate(formats strfmt.
 		res = append(res, err)
 	}
 
-	if err := m.validateSensitivityLabels(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateWebSources(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *PolicymanagerExternalClassificationProperties) validateContentPatterns(formats strfmt.Registry) error {
-	if swag.IsZero(m.ContentPatterns) { // not required
-		return nil
-	}
-
-	if m.ContentPatterns != nil {
-		if err := m.ContentPatterns.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("content_patterns")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("content_patterns")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *PolicymanagerExternalClassificationProperties) validateFileTypes(formats strfmt.Registry) error {
-	if swag.IsZero(m.FileTypes) { // not required
-		return nil
-	}
-
-	if m.FileTypes != nil {
-		if err := m.FileTypes.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("file_types")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("file_types")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -165,53 +112,22 @@ func (m *PolicymanagerExternalClassificationProperties) validateRules(formats st
 		return nil
 	}
 
-	if m.Rules != nil {
-		if err := m.Rules.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("rules")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("rules")
-			}
-			return err
+	for i := 0; i < len(m.Rules); i++ {
+		if swag.IsZero(m.Rules[i]) { // not required
+			continue
 		}
-	}
 
-	return nil
-}
-
-func (m *PolicymanagerExternalClassificationProperties) validateSensitivityLabels(formats strfmt.Registry) error {
-	if swag.IsZero(m.SensitivityLabels) { // not required
-		return nil
-	}
-
-	if m.SensitivityLabels != nil {
-		if err := m.SensitivityLabels.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("sensitivity_labels")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("sensitivity_labels")
+		if m.Rules[i] != nil {
+			if err := m.Rules[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rules" + "." + strconv.Itoa(i))
+				}
+				return err
 			}
-			return err
 		}
-	}
 
-	return nil
-}
-
-func (m *PolicymanagerExternalClassificationProperties) validateWebSources(formats strfmt.Registry) error {
-	if swag.IsZero(m.WebSources) { // not required
-		return nil
-	}
-
-	if m.WebSources != nil {
-		if err := m.WebSources.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("web_sources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("web_sources")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -221,23 +137,7 @@ func (m *PolicymanagerExternalClassificationProperties) validateWebSources(forma
 func (m *PolicymanagerExternalClassificationProperties) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateContentPatterns(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateFileTypes(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateRules(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateSensitivityLabels(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateWebSources(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -247,106 +147,26 @@ func (m *PolicymanagerExternalClassificationProperties) ContextValidate(ctx cont
 	return nil
 }
 
-func (m *PolicymanagerExternalClassificationProperties) contextValidateContentPatterns(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.ContentPatterns != nil {
-
-		if swag.IsZero(m.ContentPatterns) { // not required
-			return nil
-		}
-
-		if err := m.ContentPatterns.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("content_patterns")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("content_patterns")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *PolicymanagerExternalClassificationProperties) contextValidateFileTypes(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.FileTypes != nil {
-
-		if swag.IsZero(m.FileTypes) { // not required
-			return nil
-		}
-
-		if err := m.FileTypes.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("file_types")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("file_types")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *PolicymanagerExternalClassificationProperties) contextValidateRules(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Rules != nil {
+	for i := 0; i < len(m.Rules); i++ {
 
-		if swag.IsZero(m.Rules) { // not required
-			return nil
-		}
+		if m.Rules[i] != nil {
 
-		if err := m.Rules.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("rules")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("rules")
+			if swag.IsZero(m.Rules[i]) { // not required
+				return nil
 			}
-			return err
-		}
-	}
 
-	return nil
-}
-
-func (m *PolicymanagerExternalClassificationProperties) contextValidateSensitivityLabels(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.SensitivityLabels != nil {
-
-		if swag.IsZero(m.SensitivityLabels) { // not required
-			return nil
-		}
-
-		if err := m.SensitivityLabels.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("sensitivity_labels")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("sensitivity_labels")
+			if err := m.Rules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rules" + "." + strconv.Itoa(i))
+				}
+				return err
 			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *PolicymanagerExternalClassificationProperties) contextValidateWebSources(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.WebSources != nil {
-
-		if swag.IsZero(m.WebSources) { // not required
-			return nil
 		}
 
-		if err := m.WebSources.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("web_sources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("web_sources")
-			}
-			return err
-		}
 	}
 
 	return nil

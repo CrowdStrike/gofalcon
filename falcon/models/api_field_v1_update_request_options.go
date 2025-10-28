@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APITemplateV1UpdateRequestFieldsOptions api template v1 update request fields options
+// APIFieldV1UpdateRequestOptions api field v1 update request options
 //
-// swagger:model api.TemplateV1UpdateRequest.fields.options
-type APITemplateV1UpdateRequestFieldsOptions struct {
+// swagger:model api.FieldV1UpdateRequest.options
+type APIFieldV1UpdateRequestOptions struct {
 
 	// id
 	// Required: true
@@ -28,8 +28,8 @@ type APITemplateV1UpdateRequestFieldsOptions struct {
 	Value *string `json:"value"`
 }
 
-// Validate validates this api template v1 update request fields options
-func (m *APITemplateV1UpdateRequestFieldsOptions) Validate(formats strfmt.Registry) error {
+// Validate validates this api field v1 update request options
+func (m *APIFieldV1UpdateRequestOptions) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateID(formats); err != nil {
@@ -46,7 +46,7 @@ func (m *APITemplateV1UpdateRequestFieldsOptions) Validate(formats strfmt.Regist
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFieldsOptions) validateID(formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequestOptions) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
@@ -55,7 +55,7 @@ func (m *APITemplateV1UpdateRequestFieldsOptions) validateID(formats strfmt.Regi
 	return nil
 }
 
-func (m *APITemplateV1UpdateRequestFieldsOptions) validateValue(formats strfmt.Registry) error {
+func (m *APIFieldV1UpdateRequestOptions) validateValue(formats strfmt.Registry) error {
 
 	if err := validate.Required("value", "body", m.Value); err != nil {
 		return err
@@ -64,13 +64,13 @@ func (m *APITemplateV1UpdateRequestFieldsOptions) validateValue(formats strfmt.R
 	return nil
 }
 
-// ContextValidate validates this api template v1 update request fields options based on context it is used
-func (m *APITemplateV1UpdateRequestFieldsOptions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this api field v1 update request options based on context it is used
+func (m *APIFieldV1UpdateRequestOptions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *APITemplateV1UpdateRequestFieldsOptions) MarshalBinary() ([]byte, error) {
+func (m *APIFieldV1UpdateRequestOptions) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -78,8 +78,8 @@ func (m *APITemplateV1UpdateRequestFieldsOptions) MarshalBinary() ([]byte, error
 }
 
 // UnmarshalBinary interface implementation
-func (m *APITemplateV1UpdateRequestFieldsOptions) UnmarshalBinary(b []byte) error {
-	var res APITemplateV1UpdateRequestFieldsOptions
+func (m *APIFieldV1UpdateRequestOptions) UnmarshalBinary(b []byte) error {
+	var res APIFieldV1UpdateRequestOptions
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

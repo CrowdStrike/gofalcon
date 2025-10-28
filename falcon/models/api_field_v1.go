@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -47,12 +46,10 @@ type APIFieldV1 struct {
 
 	// input type
 	// Required: true
-	// Enum: [text textarea dropdown checkbox radio readonly]
 	InputType *string `json:"input_type"`
 
 	// multivalued
-	// Required: true
-	Multivalued *bool `json:"multivalued"`
+	Multivalued bool `json:"multivalued,omitempty"`
 
 	// name
 	// Required: true
@@ -62,7 +59,8 @@ type APIFieldV1 struct {
 	Options []*APIFieldOptionV1 `json:"options"`
 
 	// required
-	Required bool `json:"required,omitempty"`
+	// Required: true
+	Required *bool `json:"required"`
 
 	// updated by
 	// Required: true
@@ -106,15 +104,15 @@ func (m *APIFieldV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateMultivalued(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateOptions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRequired(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -196,64 +194,9 @@ func (m *APIFieldV1) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-var apiFieldV1TypeInputTypePropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["text","textarea","dropdown","checkbox","radio","readonly"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		apiFieldV1TypeInputTypePropEnum = append(apiFieldV1TypeInputTypePropEnum, v)
-	}
-}
-
-const (
-
-	// APIFieldV1InputTypeText captures enum value "text"
-	APIFieldV1InputTypeText string = "text"
-
-	// APIFieldV1InputTypeTextarea captures enum value "textarea"
-	APIFieldV1InputTypeTextarea string = "textarea"
-
-	// APIFieldV1InputTypeDropdown captures enum value "dropdown"
-	APIFieldV1InputTypeDropdown string = "dropdown"
-
-	// APIFieldV1InputTypeCheckbox captures enum value "checkbox"
-	APIFieldV1InputTypeCheckbox string = "checkbox"
-
-	// APIFieldV1InputTypeRadio captures enum value "radio"
-	APIFieldV1InputTypeRadio string = "radio"
-
-	// APIFieldV1InputTypeReadonly captures enum value "readonly"
-	APIFieldV1InputTypeReadonly string = "readonly"
-)
-
-// prop value enum
-func (m *APIFieldV1) validateInputTypeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, apiFieldV1TypeInputTypePropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
 func (m *APIFieldV1) validateInputType(formats strfmt.Registry) error {
 
 	if err := validate.Required("input_type", "body", m.InputType); err != nil {
-		return err
-	}
-
-	// value enum
-	if err := m.validateInputTypeEnum("input_type", "body", *m.InputType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIFieldV1) validateMultivalued(formats strfmt.Registry) error {
-
-	if err := validate.Required("multivalued", "body", m.Multivalued); err != nil {
 		return err
 	}
 
@@ -290,6 +233,15 @@ func (m *APIFieldV1) validateOptions(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *APIFieldV1) validateRequired(formats strfmt.Registry) error {
+
+	if err := validate.Required("required", "body", m.Required); err != nil {
+		return err
 	}
 
 	return nil

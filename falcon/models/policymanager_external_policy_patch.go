@@ -23,7 +23,7 @@ type PolicymanagerExternalPolicyPatch struct {
 	Description string `json:"description,omitempty"`
 
 	// host groups
-	HostGroups *PolicymanagerHostGroups `json:"host_groups,omitempty"`
+	HostGroups []string `json:"host_groups"`
 
 	// id
 	// Required: true
@@ -49,10 +49,6 @@ type PolicymanagerExternalPolicyPatch struct {
 func (m *PolicymanagerExternalPolicyPatch) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateHostGroups(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -72,25 +68,6 @@ func (m *PolicymanagerExternalPolicyPatch) Validate(formats strfmt.Registry) err
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *PolicymanagerExternalPolicyPatch) validateHostGroups(formats strfmt.Registry) error {
-	if swag.IsZero(m.HostGroups) { // not required
-		return nil
-	}
-
-	if m.HostGroups != nil {
-		if err := m.HostGroups.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("host_groups")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("host_groups")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -145,10 +122,6 @@ func (m *PolicymanagerExternalPolicyPatch) validatePrecedence(formats strfmt.Reg
 func (m *PolicymanagerExternalPolicyPatch) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateHostGroups(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidatePolicyProperties(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -156,27 +129,6 @@ func (m *PolicymanagerExternalPolicyPatch) ContextValidate(ctx context.Context, 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *PolicymanagerExternalPolicyPatch) contextValidateHostGroups(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.HostGroups != nil {
-
-		if swag.IsZero(m.HostGroups) { // not required
-			return nil
-		}
-
-		if err := m.HostGroups.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("host_groups")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("host_groups")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

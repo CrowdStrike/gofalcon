@@ -68,14 +68,14 @@ type CloudComplianceRulePostureSummariesParams struct {
 	  - `account_id`
 	- `account_name`
 	- `business_impact`
-	- `cloud_group`
 	- `cloud_label`
 	- `cloud_label_id`
 	- `cloud_provider`
-	- `cloud_scope`
 	- `environment`
+	- `groups`
 	- `region`
 	- `resource_type`
+	- `resource_type_name`
 	- `tag_key`
 	- `tag_value`
 	*/
@@ -83,7 +83,7 @@ type CloudComplianceRulePostureSummariesParams struct {
 
 	/* Ids.
 
-	   The uuids of compliance rules to retrieve (maximum 300 IDs allowed).
+	   The uuids of compliance rules to retrieve (maximum 350 IDs allowed).
 	*/
 	Ids []string
 

@@ -19,6 +19,10 @@ import (
 // swagger:model domain.KestrelParams
 type DomainKestrelParams struct {
 
+	// is cryptographically signed
+	// Required: true
+	IsCryptographicallySigned *bool `json:"is_cryptographically_signed"`
+
 	// is published
 	// Required: true
 	IsPublished *bool `json:"is_published"`
@@ -32,6 +36,10 @@ type DomainKestrelParams struct {
 func (m *DomainKestrelParams) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateIsCryptographicallySigned(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIsPublished(formats); err != nil {
 		res = append(res, err)
 	}
@@ -43,6 +51,15 @@ func (m *DomainKestrelParams) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainKestrelParams) validateIsCryptographicallySigned(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_cryptographically_signed", "body", m.IsCryptographicallySigned); err != nil {
+		return err
+	}
+
 	return nil
 }
 

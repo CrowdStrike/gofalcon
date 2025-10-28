@@ -14,18 +14,18 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APITemplateV1CreateRequestFieldsOptions api template v1 create request fields options
+// APIFieldOptionV1CreateRequest api field option v1 create request
 //
-// swagger:model api.TemplateV1CreateRequest.fields.options
-type APITemplateV1CreateRequestFieldsOptions struct {
+// swagger:model api.FieldOptionV1CreateRequest
+type APIFieldOptionV1CreateRequest struct {
 
 	// value
 	// Required: true
 	Value *string `json:"value"`
 }
 
-// Validate validates this api template v1 create request fields options
-func (m *APITemplateV1CreateRequestFieldsOptions) Validate(formats strfmt.Registry) error {
+// Validate validates this api field option v1 create request
+func (m *APIFieldOptionV1CreateRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateValue(formats); err != nil {
@@ -38,7 +38,7 @@ func (m *APITemplateV1CreateRequestFieldsOptions) Validate(formats strfmt.Regist
 	return nil
 }
 
-func (m *APITemplateV1CreateRequestFieldsOptions) validateValue(formats strfmt.Registry) error {
+func (m *APIFieldOptionV1CreateRequest) validateValue(formats strfmt.Registry) error {
 
 	if err := validate.Required("value", "body", m.Value); err != nil {
 		return err
@@ -47,13 +47,13 @@ func (m *APITemplateV1CreateRequestFieldsOptions) validateValue(formats strfmt.R
 	return nil
 }
 
-// ContextValidate validates this api template v1 create request fields options based on context it is used
-func (m *APITemplateV1CreateRequestFieldsOptions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this api field option v1 create request based on context it is used
+func (m *APIFieldOptionV1CreateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *APITemplateV1CreateRequestFieldsOptions) MarshalBinary() ([]byte, error) {
+func (m *APIFieldOptionV1CreateRequest) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -61,8 +61,8 @@ func (m *APITemplateV1CreateRequestFieldsOptions) MarshalBinary() ([]byte, error
 }
 
 // UnmarshalBinary interface implementation
-func (m *APITemplateV1CreateRequestFieldsOptions) UnmarshalBinary(b []byte) error {
-	var res APITemplateV1CreateRequestFieldsOptions
+func (m *APIFieldOptionV1CreateRequest) UnmarshalBinary(b []byte) error {
+	var res APIFieldOptionV1CreateRequest
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -24,7 +24,7 @@ type APITemplateV1CreateRequest struct {
 	Description string `json:"description,omitempty"`
 
 	// fields
-	Fields []*APITemplateV1CreateRequestFields `json:"fields"`
+	Fields []*APIFieldV1CreateRequest `json:"fields"`
 
 	// name
 	// Required: true

@@ -14,7 +14,7 @@ build:
 clean-generate: remove-generated generate
 
 generate: specs/swagger-stripped-oauth.json
-	swagger generate client --skip-validation -f $^ -t falcon
+	swagger generate client --skip-validation -f $^ -t falcon --default-scheme=https
 
 .PHONY: build generate remove-generated
 

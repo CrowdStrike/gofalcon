@@ -96,6 +96,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ngsiem"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
+	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
@@ -256,6 +257,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Ngsiem = ngsiem.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
+	cli.Operations = operations.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
@@ -502,6 +504,8 @@ type CrowdStrikeAPISpecification struct {
 
 	Ods ods.ClientService
 
+	Operations operations.ClientService
+
 	PreventionPolicies prevention_policies.ClientService
 
 	Quarantine quarantine.ClientService
@@ -654,6 +658,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ngsiem.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
+	c.Operations.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)

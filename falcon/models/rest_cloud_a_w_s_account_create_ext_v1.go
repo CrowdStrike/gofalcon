@@ -53,6 +53,9 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
 
+	// log ingestion method
+	LogIngestionMethod string `json:"log_ingestion_method,omitempty"`
+
 	// organization id
 	OrganizationID string `json:"organization_id,omitempty"`
 
@@ -67,6 +70,18 @@ type RestCloudAWSAccountCreateExtV1 struct {
 
 	// root stack id
 	RootStackID string `json:"root_stack_id,omitempty"`
+
+	// s3 log ingestion bucket name
+	S3LogIngestionBucketName string `json:"s3_log_ingestion_bucket_name,omitempty"`
+
+	// s3 log ingestion bucket prefix
+	S3LogIngestionBucketPrefix string `json:"s3_log_ingestion_bucket_prefix,omitempty"`
+
+	// s3 log ingestion kms key arn
+	S3LogIngestionKmsKeyArn string `json:"s3_log_ingestion_kms_key_arn,omitempty"`
+
+	// s3 log ingestion sns topic arn
+	S3LogIngestionSnsTopicArn string `json:"s3_log_ingestion_sns_topic_arn,omitempty"`
 
 	// target ous
 	TargetOus []string `json:"target_ous"`

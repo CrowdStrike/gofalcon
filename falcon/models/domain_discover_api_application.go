@@ -84,7 +84,7 @@ type DomainDiscoverAPIApplication struct {
 	// The combined field on which we will be able to group by app + version.
 	NameVendorVersion string `json:"name_vendor_version,omitempty"`
 
-	// The type of software of the application.
+	// The type of software of the application. Types are application, browser_extension, dev_package, ide_extension
 	SoftwareType string `json:"software_type,omitempty"`
 
 	// The name the application's vendor.
