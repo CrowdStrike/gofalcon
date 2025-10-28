@@ -665,3 +665,11 @@
 # 201 is a valid response for POST /policy/entities/sv-exclusions/v1 200 is not.
 | .paths."/policy/entities/sv-exclusions/v1".post.responses."201" = .paths."/policy/entities/sv-exclusions/v1".post.responses."200"
 | del(.paths."/policy/entities/sv-exclusions/v1".post.responses."200")
+
+# IT Automation - Allow fields to be nullable
+| .definitions."itautomation.ExecutionConfig".properties.enable_os_query += {"x-nullable": true}
+| .definitions."itautomation.ExecutionConfig".properties.enable_python_execution += {"x-nullable": true}
+| .definitions."itautomation.ExecutionConfig".properties.enable_script_execution += {"x-nullable": true}
+| .definitions."itautomation.CreatePolicyRequest".properties.description += {"x-nullable": true}
+| .definitions."itautomation.UpdatePolicyRequest".properties.is_enabled += {"x-nullable": true}
+| .definitions."itautomation.UpdatePolicyRequest".properties.description += {"x-nullable": true}
