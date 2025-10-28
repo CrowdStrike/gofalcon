@@ -72,7 +72,7 @@ type CombinedApplicationsParams struct {
 
 	     Select various details blocks to be returned for each application entity. Supported values:
 
-	<ul><li>browser_extension</li><li>host_info</li><li>install_usage</li></ul>
+	<ul><li>browser_extension</li><li>host_info</li><li>install_usage</li><li>package</li><li>ide_extension</li></ul>
 	*/
 	Facet []string
 

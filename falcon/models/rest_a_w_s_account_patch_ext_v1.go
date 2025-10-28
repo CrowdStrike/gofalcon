@@ -30,14 +30,35 @@ type RestAWSAccountPatchExtV1 struct {
 	// disable products
 	DisableProducts []*RestAccountProductRequestExtV1 `json:"disable_products"`
 
+	// log ingestion method
+	LogIngestionMethod string `json:"log_ingestion_method,omitempty"`
+
+	// organization id
+	OrganizationID string `json:"organization_id,omitempty"`
+
 	// products
 	Products []*RestAccountProductRequestExtV1 `json:"products"`
+
+	// reader role arn
+	ReaderRoleArn string `json:"reader_role_arn,omitempty"`
 
 	// resource name prefix
 	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
 
 	// resource name suffix
 	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
+
+	// s3 log ingestion bucket name
+	S3LogIngestionBucketName string `json:"s3_log_ingestion_bucket_name,omitempty"`
+
+	// s3 log ingestion bucket prefix
+	S3LogIngestionBucketPrefix string `json:"s3_log_ingestion_bucket_prefix,omitempty"`
+
+	// s3 log ingestion kms key arn
+	S3LogIngestionKmsKeyArn string `json:"s3_log_ingestion_kms_key_arn,omitempty"`
+
+	// s3 log ingestion sns topic arn
+	S3LogIngestionSnsTopicArn string `json:"s3_log_ingestion_sns_topic_arn,omitempty"`
 }
 
 // Validate validates this rest a w s account patch ext v1

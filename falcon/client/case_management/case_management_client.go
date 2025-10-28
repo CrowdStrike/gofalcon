@@ -74,6 +74,10 @@ type ClientService interface {
 
 	EntitiesTemplatesPostV1(params *EntitiesTemplatesPostV1Params, opts ...ClientOption) (*EntitiesTemplatesPostV1OK, error)
 
+	EntitiesTemplatesExportGetV1(params *EntitiesTemplatesExportGetV1Params, opts ...ClientOption) (*EntitiesTemplatesExportGetV1OK, error)
+
+	EntitiesTemplatesImportPostV1(params *EntitiesTemplatesImportPostV1Params, opts ...ClientOption) (*EntitiesTemplatesImportPostV1OK, error)
+
 	QueriesFieldsGetV1(params *QueriesFieldsGetV1Params, opts ...ClientOption) (*QueriesFieldsGetV1OK, error)
 
 	QueriesNotificationGroupsGetV1(params *QueriesNotificationGroupsGetV1Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV1OK, error)
@@ -922,6 +926,82 @@ func (a *Client) EntitiesTemplatesPostV1(params *EntitiesTemplatesPostV1Params, 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities.templates.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesTemplatesExportGetV1 exports templates to files in a zip archive
+*/
+func (a *Client) EntitiesTemplatesExportGetV1(params *EntitiesTemplatesExportGetV1Params, opts ...ClientOption) (*EntitiesTemplatesExportGetV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesTemplatesExportGetV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.templates_export.get.v1",
+		Method:             "GET",
+		PathPattern:        "/casemgmt/entities/templates/export/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesTemplatesExportGetV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesTemplatesExportGetV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.templates_export.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesTemplatesImportPostV1 imports a template from a file
+*/
+func (a *Client) EntitiesTemplatesImportPostV1(params *EntitiesTemplatesImportPostV1Params, opts ...ClientOption) (*EntitiesTemplatesImportPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesTemplatesImportPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.templates_import.post.v1",
+		Method:             "POST",
+		PathPattern:        "/casemgmt/entities/templates/import/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesTemplatesImportPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesTemplatesImportPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.templates_import.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

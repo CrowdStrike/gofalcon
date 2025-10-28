@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APITemplateV1CreateRequestFields api template v1 create request fields
+// APIFieldV1CreateRequest api field v1 create request
 //
-// swagger:model api.TemplateV1CreateRequest.fields
-type APITemplateV1CreateRequestFields struct {
+// swagger:model api.FieldV1CreateRequest
+type APIFieldV1CreateRequest struct {
 
 	// data type
 	// Required: true
@@ -39,14 +39,15 @@ type APITemplateV1CreateRequestFields struct {
 	Name *string `json:"name"`
 
 	// options
-	Options []*APITemplateV1CreateRequestFieldsOptions `json:"options"`
+	Options []*APIFieldOptionV1CreateRequest `json:"options"`
 
 	// required
-	Required bool `json:"required,omitempty"`
+	// Required: true
+	Required *bool `json:"required"`
 }
 
-// Validate validates this api template v1 create request fields
-func (m *APITemplateV1CreateRequestFields) Validate(formats strfmt.Registry) error {
+// Validate validates this api field v1 create request
+func (m *APIFieldV1CreateRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDataType(formats); err != nil {
@@ -65,13 +66,17 @@ func (m *APITemplateV1CreateRequestFields) Validate(formats strfmt.Registry) err
 		res = append(res, err)
 	}
 
+	if err := m.validateRequired(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *APITemplateV1CreateRequestFields) validateDataType(formats strfmt.Registry) error {
+func (m *APIFieldV1CreateRequest) validateDataType(formats strfmt.Registry) error {
 
 	if err := validate.Required("data_type", "body", m.DataType); err != nil {
 		return err
@@ -80,7 +85,7 @@ func (m *APITemplateV1CreateRequestFields) validateDataType(formats strfmt.Regis
 	return nil
 }
 
-func (m *APITemplateV1CreateRequestFields) validateInputType(formats strfmt.Registry) error {
+func (m *APIFieldV1CreateRequest) validateInputType(formats strfmt.Registry) error {
 
 	if err := validate.Required("input_type", "body", m.InputType); err != nil {
 		return err
@@ -89,7 +94,7 @@ func (m *APITemplateV1CreateRequestFields) validateInputType(formats strfmt.Regi
 	return nil
 }
 
-func (m *APITemplateV1CreateRequestFields) validateName(formats strfmt.Registry) error {
+func (m *APIFieldV1CreateRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -98,7 +103,7 @@ func (m *APITemplateV1CreateRequestFields) validateName(formats strfmt.Registry)
 	return nil
 }
 
-func (m *APITemplateV1CreateRequestFields) validateOptions(formats strfmt.Registry) error {
+func (m *APIFieldV1CreateRequest) validateOptions(formats strfmt.Registry) error {
 	if swag.IsZero(m.Options) { // not required
 		return nil
 	}
@@ -124,8 +129,17 @@ func (m *APITemplateV1CreateRequestFields) validateOptions(formats strfmt.Regist
 	return nil
 }
 
-// ContextValidate validate this api template v1 create request fields based on the context it is used
-func (m *APITemplateV1CreateRequestFields) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIFieldV1CreateRequest) validateRequired(formats strfmt.Registry) error {
+
+	if err := validate.Required("required", "body", m.Required); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this api field v1 create request based on the context it is used
+func (m *APIFieldV1CreateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateOptions(ctx, formats); err != nil {
@@ -138,7 +152,7 @@ func (m *APITemplateV1CreateRequestFields) ContextValidate(ctx context.Context, 
 	return nil
 }
 
-func (m *APITemplateV1CreateRequestFields) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIFieldV1CreateRequest) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Options); i++ {
 
@@ -164,7 +178,7 @@ func (m *APITemplateV1CreateRequestFields) contextValidateOptions(ctx context.Co
 }
 
 // MarshalBinary interface implementation
-func (m *APITemplateV1CreateRequestFields) MarshalBinary() ([]byte, error) {
+func (m *APIFieldV1CreateRequest) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -172,8 +186,8 @@ func (m *APITemplateV1CreateRequestFields) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *APITemplateV1CreateRequestFields) UnmarshalBinary(b []byte) error {
-	var res APITemplateV1CreateRequestFields
+func (m *APIFieldV1CreateRequest) UnmarshalBinary(b []byte) error {
+	var res APIFieldV1CreateRequest
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
