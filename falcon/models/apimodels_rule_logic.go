@@ -27,7 +27,7 @@ type ApimodelsRuleLogic struct {
 	Platform *string `json:"platform"`
 
 	// remediation info
-	RemediationInfo string `json:"remediation_info,omitempty"`
+	RemediationInfo string `json:"remediation_info"`
 
 	// remediation url
 	RemediationURL string `json:"remediation_url,omitempty"`
