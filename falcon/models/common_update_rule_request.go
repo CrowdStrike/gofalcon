@@ -21,7 +21,7 @@ import (
 type CommonUpdateRuleRequest struct {
 
 	// alert info
-	AlertInfo string `json:"alert_info,omitempty"`
+	AlertInfo *string `json:"alert_info,omitempty"`
 
 	// attack types
 	AttackTypes []string `json:"attack_types"`
