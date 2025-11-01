@@ -673,3 +673,7 @@
 | .definitions."itautomation.CreatePolicyRequest".properties.description += {"x-nullable": true}
 | .definitions."itautomation.UpdatePolicyRequest".properties.is_enabled += {"x-nullable": true}
 | .definitions."itautomation.UpdatePolicyRequest".properties.description += {"x-nullable": true}
+
+# Make common.UpdateRuleRequest.alert_info and apimodels.RuleLogic.remediation_info fields nullable and omitempty to support terraform resource crowdstrike_cloud_security_rule
+| .definitions."common.UpdateRuleRequest".properties.alert_info += {"x-omitempty": true, "x-nullable": true}
+| .definitions."apimodels.RuleLogic".properties.remediation_info += {"x-omitempty": true, "x-nullable": true}
