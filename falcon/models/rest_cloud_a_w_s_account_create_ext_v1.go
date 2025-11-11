@@ -89,6 +89,12 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// use existing cloudtrail
 	// Required: true
 	UseExistingCloudtrail *bool `json:"use_existing_cloudtrail"`
+
+	// vulnerability scanning host account id
+	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
+
+	// vulnerability scanning role
+	VulnerabilityScanningRole string `json:"vulnerability_scanning_role,omitempty"`
 }
 
 // Validate validates this rest cloud a w s account create ext v1
