@@ -49,7 +49,7 @@ func (a *Client) GetRuntimeDetectionsCombinedV2(params *GetRuntimeDetectionsComb
 		PathPattern:        "/container-security/combined/runtime-detections/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetRuntimeDetectionsCombinedV2Reader{formats: a.formats},
 		Context:            params.Context,

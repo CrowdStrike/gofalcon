@@ -27,6 +27,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_assets"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_detections"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_risks"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
@@ -142,7 +143,7 @@ const (
 )
 
 // DefaultSchemes are the default schemes found in Meta (info) section of spec file
-var DefaultSchemes = []string{"https"}
+var DefaultSchemes = []string{"http", "https"}
 
 // NewHTTPClient creates a new crowd strike API specification HTTP client.
 func NewHTTPClient(formats strfmt.Registry) *CrowdStrikeAPISpecification {
@@ -188,6 +189,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CloudSecurityAssets = cloud_security_assets.New(transport, formats)
 	cli.CloudSecurityCompliance = cloud_security_compliance.New(transport, formats)
 	cli.CloudSecurityDetections = cloud_security_detections.New(transport, formats)
+	cli.CloudSecurityRisks = cloud_security_risks.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
@@ -365,6 +367,8 @@ type CrowdStrikeAPISpecification struct {
 	CloudSecurityCompliance cloud_security_compliance.ClientService
 
 	CloudSecurityDetections cloud_security_detections.ClientService
+
+	CloudSecurityRisks cloud_security_risks.ClientService
 
 	CloudSnapshots cloud_snapshots.ClientService
 
@@ -589,6 +593,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CloudSecurityAssets.SetTransport(transport)
 	c.CloudSecurityCompliance.SetTransport(transport)
 	c.CloudSecurityDetections.SetTransport(transport)
+	c.CloudSecurityRisks.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)

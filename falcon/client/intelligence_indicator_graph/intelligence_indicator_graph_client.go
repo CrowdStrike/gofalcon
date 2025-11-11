@@ -65,7 +65,7 @@ func (a *Client) SearchIndicators(params *SearchIndicatorsParams, opts ...Client
 		PathPattern:        "/intelligence/combined/indicators/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &SearchIndicatorsReader{formats: a.formats},
 		Context:            params.Context,

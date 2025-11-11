@@ -49,7 +49,7 @@ func (a *Client) ReadImageVulnerabilities(params *ReadImageVulnerabilitiesParams
 		PathPattern:        "/image-assessment/combined/vulnerability-lookups/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ReadImageVulnerabilitiesReader{formats: a.formats},
 		Context:            params.Context,

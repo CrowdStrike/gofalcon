@@ -30,6 +30,9 @@ type DeviceMappedDevicePolicies struct {
 	// browser extension
 	BrowserExtension *DeviceDevicePolicy `json:"browser-extension,omitempty"`
 
+	// cloud ml
+	CloudMl *DeviceDevicePolicy `json:"cloud-ml,omitempty"`
+
 	// consumer subscription
 	ConsumerSubscription *DeviceDevicePolicy `json:"consumer-subscription,omitempty"`
 
@@ -123,6 +126,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudMl(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -300,6 +307,25 @@ func (m *DeviceMappedDevicePolicies) validateBrowserExtension(formats strfmt.Reg
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateCloudMl(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudMl) { // not required
+		return nil
+	}
+
+	if m.CloudMl != nil {
+		if err := m.CloudMl.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}
@@ -803,6 +829,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCloudMl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateConsumerSubscription(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -985,6 +1015,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateBrowserExtension(ctx context
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateCloudMl(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudMl != nil {
+
+		if swag.IsZero(m.CloudMl) { // not required
+			return nil
+		}
+
+		if err := m.CloudMl.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}
