@@ -22,6 +22,9 @@ type EvaluationsRule struct {
 	// alert logic
 	AlertLogic string `json:"alert_logic,omitempty"`
 
+	// ciem categories
+	CiemCategories []string `json:"ciem_categories"`
+
 	// controls
 	Controls []*PolicyframeworkControl `json:"controls"`
 

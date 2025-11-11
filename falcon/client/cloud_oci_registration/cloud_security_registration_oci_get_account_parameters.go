@@ -64,7 +64,7 @@ type CloudSecurityRegistrationOciGetAccountParams struct {
 
 	/* Filter.
 
-	   FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{tenancy_name, home_region, key_age, overall_status, created_at, updated_at, tenancy_ocid}
+	   FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{home_region, key_age, overall_status, created_at, updated_at, tenancy_ocid, tenancy_name}
 	*/
 	Filter *string
 
@@ -90,7 +90,7 @@ type CloudSecurityRegistrationOciGetAccountParams struct {
 
 	/* Sort.
 
-	   Field and direction for sorting results - allowed sort fields are Set{updated_at, tenancy_ocid, tenancy_name, home_region, key_age, overall_status, created_at}
+	   Field and direction for sorting results - allowed sort fields are Set{tenancy_ocid, tenancy_name, home_region, key_age, overall_status, created_at, updated_at}
 	*/
 	Sort *string
 

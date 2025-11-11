@@ -49,7 +49,7 @@ func (a *Client) GetCredentials(params *GetCredentialsParams, opts ...ClientOpti
 		PathPattern:        "/container-security/entities/image-registry-credentials/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetCredentialsReader{formats: a.formats},
 		Context:            params.Context,

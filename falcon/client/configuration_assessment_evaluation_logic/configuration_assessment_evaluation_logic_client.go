@@ -49,7 +49,7 @@ func (a *Client) GetEvaluationLogicMixin0(params *GetEvaluationLogicMixin0Params
 		PathPattern:        "/configuration-assessment/entities/evaluation-logic/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetEvaluationLogicMixin0Reader{formats: a.formats},
 		Context:            params.Context,

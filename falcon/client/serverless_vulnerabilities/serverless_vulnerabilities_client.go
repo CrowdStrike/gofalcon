@@ -49,7 +49,7 @@ func (a *Client) GetCombinedVulnerabilitiesSARIF(params *GetCombinedVulnerabilit
 		PathPattern:        "/lambdas/combined/vulnerabilities/sarif/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetCombinedVulnerabilitiesSARIFReader{formats: a.formats},
 		Context:            params.Context,

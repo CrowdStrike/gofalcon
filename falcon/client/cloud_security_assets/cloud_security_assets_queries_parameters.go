@@ -74,6 +74,10 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
+	- `aspm.deployment_cloud_resource_id`
+	- `aspm.deployment_provider`
+	- `aspm.deployment_type`
+	- `aspm.technologies`
 	- `azure.vm_id`
 	- `business_impact`
 	- `cloud_group`
@@ -185,6 +189,10 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
+	- `aspm.deployment_cloud_resource_id`
+	- `aspm.deployment_provider`
+	- `aspm.deployment_type`
+	- `aspm.technologies`
 	- `cloud_provider`
 	- `cluster_id`
 	- `cluster_name`
