@@ -71,6 +71,9 @@ type ResourcesCloudResource struct {
 	// configuration
 	Configuration ResourcesCloudResourceConfiguration `json:"configuration,omitempty"`
 
+	// configuration metadata
+	ConfigurationMetadata ResourcesCloudResourceConfigurationMetadata `json:"configuration_metadata,omitempty"`
+
 	// creation time
 	// Format: date-time
 	CreationTime strfmt.DateTime `json:"creation_time,omitempty"`

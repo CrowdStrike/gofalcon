@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CloudSecurityAssetsCombinedApplicationFindings(params *CloudSecurityAssetsCombinedApplicationFindingsParams, opts ...ClientOption) (*CloudSecurityAssetsCombinedApplicationFindingsOK, error)
+
 	CloudSecurityAssetsCombinedComplianceByAccount(params *CloudSecurityAssetsCombinedComplianceByAccountParams, opts ...ClientOption) (*CloudSecurityAssetsCombinedComplianceByAccountOK, error)
 
 	CloudSecurityAssetsEntitiesGet(params *CloudSecurityAssetsEntitiesGetParams, opts ...ClientOption) (*CloudSecurityAssetsEntitiesGetOK, error)
@@ -37,6 +39,44 @@ type ClientService interface {
 	CloudSecurityAssetsQueries(params *CloudSecurityAssetsQueriesParams, opts ...ClientOption) (*CloudSecurityAssetsQueriesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CloudSecurityAssetsCombinedApplicationFindings gets findings for an application resource with pagination
+*/
+func (a *Client) CloudSecurityAssetsCombinedApplicationFindings(params *CloudSecurityAssetsCombinedApplicationFindingsParams, opts ...ClientOption) (*CloudSecurityAssetsCombinedApplicationFindingsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudSecurityAssetsCombinedApplicationFindingsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-security-assets-combined-application-findings",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-assets/combined/application-findings/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudSecurityAssetsCombinedApplicationFindingsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudSecurityAssetsCombinedApplicationFindingsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-security-assets-combined-application-findings: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

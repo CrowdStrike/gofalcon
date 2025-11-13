@@ -66,6 +66,13 @@ type RegistrationAWSAccountPatch struct {
 
 	// target ous
 	TargetOus []string `json:"target_ous"`
+
+	// vulnerability scanning enabled
+	// Required: true
+	VulnerabilityScanningEnabled *bool `json:"vulnerability_scanning_enabled"`
+
+	// vulnerability scanning role
+	VulnerabilityScanningRole string `json:"vulnerability_scanning_role,omitempty"`
 }
 
 // Validate validates this registration a w s account patch
@@ -93,6 +100,10 @@ func (m *RegistrationAWSAccountPatch) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSensorManagementEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -153,6 +164,15 @@ func (m *RegistrationAWSAccountPatch) validateRemediationTouAccepted(formats str
 func (m *RegistrationAWSAccountPatch) validateSensorManagementEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("sensor_management_enabled", "body", m.SensorManagementEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountPatch) validateVulnerabilityScanningEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("vulnerability_scanning_enabled", "body", m.VulnerabilityScanningEnabled); err != nil {
 		return err
 	}
 

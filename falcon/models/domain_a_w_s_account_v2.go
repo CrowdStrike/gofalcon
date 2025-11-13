@@ -144,6 +144,9 @@ type DomainAWSAccountV2 struct {
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
 
+	// ngsiem enabled
+	NgsiemEnabled bool `json:"ngsiem_enabled,omitempty"`
+
 	// Up to 34 character AWS provided unique identifier for the organization.
 	OrganizationID string `json:"organization_id,omitempty"`
 
@@ -196,6 +199,15 @@ type DomainAWSAccountV2 struct {
 
 	// valid
 	Valid bool `json:"valid,omitempty"`
+
+	// vulnerability scanning enabled
+	VulnerabilityScanningEnabled bool `json:"vulnerability_scanning_enabled,omitempty"`
+
+	// vulnerability scanning host account id
+	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
+
+	// vulnerability scanning role arn
+	VulnerabilityScanningRoleArn string `json:"vulnerability_scanning_role_arn,omitempty"`
 }
 
 // Validate validates this domain a w s account v2

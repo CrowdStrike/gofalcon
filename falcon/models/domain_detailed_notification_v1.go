@@ -19,17 +19,20 @@ import (
 // swagger:model domain.DetailedNotificationV1
 type DomainDetailedNotificationV1 struct {
 
-	// breach details
+	// Notification breach information. See BreachDetailsV1 for more details
 	BreachDetails *DomainBreachDetailsV1 `json:"breach_details,omitempty"`
 
-	// details
+	// Notification details information. See ItemDetailsV1 for more details
 	Details *DomainItemDetailsV1 `json:"details,omitempty"`
 
-	// id
+	// The ID of the notification
 	// Required: true
 	ID *string `json:"id"`
 
-	// notification
+	// Reason for missing details information. This field is populated when the details field is empty. Possible values: RESOURCE_NOT_FOUND, RESOURCE_DELETED_FOR_COMPLIANCE_REASON
+	MissingDetailsReason string `json:"missing_details_reason,omitempty"`
+
+	// Notification information. See NotificationV1 for more details
 	// Required: true
 	Notification *DomainNotificationV1 `json:"notification"`
 }

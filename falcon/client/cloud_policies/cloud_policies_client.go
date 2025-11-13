@@ -54,6 +54,8 @@ type ClientService interface {
 
 	GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleOK, error)
 
+	GetRuleInputSchema(params *GetRuleInputSchemaParams, opts ...ClientOption) (*GetRuleInputSchemaOK, error)
+
 	GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOption) (*GetRuleOverrideOK, error)
 
 	QueryComplianceControls(params *QueryComplianceControlsParams, opts ...ClientOption) (*QueryComplianceControlsOK, error)
@@ -531,6 +533,44 @@ func (a *Client) GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleO
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetRuleInputSchema gets rule input schema for given resource type
+*/
+func (a *Client) GetRuleInputSchema(params *GetRuleInputSchemaParams, opts ...ClientOption) (*GetRuleInputSchemaOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRuleInputSchemaParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetRuleInputSchema",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/combined/rules/input-schema/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRuleInputSchemaReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetRuleInputSchemaOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetRuleInputSchema: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
