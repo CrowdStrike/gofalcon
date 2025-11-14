@@ -30,6 +30,12 @@ type RestAWSAccountPatchExtV1 struct {
 	// disable products
 	DisableProducts []*RestAccountProductRequestExtV1 `json:"disable_products"`
 
+	// dspm regions
+	DspmRegions []string `json:"dspm_regions"`
+
+	// ioa regions
+	IoaRegions []string `json:"ioa_regions"`
+
 	// log ingestion method
 	LogIngestionMethod string `json:"log_ingestion_method,omitempty"`
 
@@ -59,6 +65,9 @@ type RestAWSAccountPatchExtV1 struct {
 
 	// s3 log ingestion sns topic arn
 	S3LogIngestionSnsTopicArn string `json:"s3_log_ingestion_sns_topic_arn,omitempty"`
+
+	// vulnerability scanning regions
+	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
 }
 
 // Validate validates this rest a w s account patch ext v1
