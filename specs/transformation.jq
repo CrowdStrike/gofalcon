@@ -680,3 +680,4 @@
 
 # Add 400 error response to GET /policy/entities/prevention/v1
 | .paths."/policy/entities/prevention/v1".get.responses."400" = .paths."/policy/entities/prevention/v1".get.responses."404"
+| .paths."/policy/entities/prevention/v1".get.responses."400".description = "Bad Request" 
