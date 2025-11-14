@@ -54,6 +54,12 @@ type APITemplateV1 struct {
 	// sla id
 	SLAID string `json:"sla_id,omitempty"`
 
+	// sla method
+	SLAMethod string `json:"sla_method,omitempty"`
+
+	// sla rules
+	SLARules []*APITemplateSLARuleV1 `json:"sla_rules"`
+
 	// updated by
 	// Required: true
 	UpdatedBy *APIActorV1 `json:"updated_by"`
@@ -97,6 +103,10 @@ func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSLARules(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -213,6 +223,32 @@ func (m *APITemplateV1) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *APITemplateV1) validateSLARules(formats strfmt.Registry) error {
+	if swag.IsZero(m.SLARules) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SLARules); i++ {
+		if swag.IsZero(m.SLARules[i]) { // not required
+			continue
+		}
+
+		if m.SLARules[i] != nil {
+			if err := m.SLARules[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sla_rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sla_rules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *APITemplateV1) validateUpdatedBy(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated_by", "body", m.UpdatedBy); err != nil {
@@ -267,6 +303,10 @@ func (m *APITemplateV1) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSLARules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateUpdatedBy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -309,6 +349,31 @@ func (m *APITemplateV1) contextValidateFields(ctx context.Context, formats strfm
 					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("fields" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APITemplateV1) contextValidateSLARules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SLARules); i++ {
+
+		if m.SLARules[i] != nil {
+
+			if swag.IsZero(m.SLARules[i]) { // not required
+				return nil
+			}
+
+			if err := m.SLARules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sla_rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sla_rules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

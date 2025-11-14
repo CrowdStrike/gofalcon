@@ -182,6 +182,9 @@ type JsonschemaSubSchema struct {
 	// x cs pivot
 	XCsPivot *JsonschemaPivot `json:"x-cs-pivot,omitempty"`
 
+	// x cs queryable
+	XCsQueryable *JsonschemaQueryConfig `json:"x-cs-queryable,omitempty"`
+
 	// x cs signals
 	XCsSignals *JsonschemaSignalsExtensions `json:"x-cs-signals,omitempty"`
 
@@ -269,6 +272,10 @@ func (m *JsonschemaSubSchema) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateXCsPivot(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXCsQueryable(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -643,6 +650,25 @@ func (m *JsonschemaSubSchema) validateXCsPivot(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *JsonschemaSubSchema) validateXCsQueryable(formats strfmt.Registry) error {
+	if swag.IsZero(m.XCsQueryable) { // not required
+		return nil
+	}
+
+	if m.XCsQueryable != nil {
+		if err := m.XCsQueryable.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-queryable")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-queryable")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *JsonschemaSubSchema) validateXCsSignals(formats strfmt.Registry) error {
 	if swag.IsZero(m.XCsSignals) { // not required
 		return nil
@@ -765,6 +791,10 @@ func (m *JsonschemaSubSchema) ContextValidate(ctx context.Context, formats strfm
 	}
 
 	if err := m.contextValidateXCsPivot(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateXCsQueryable(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1112,6 +1142,27 @@ func (m *JsonschemaSubSchema) contextValidateXCsPivot(ctx context.Context, forma
 				return ve.ValidateName("x-cs-pivot")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("x-cs-pivot")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaSubSchema) contextValidateXCsQueryable(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.XCsQueryable != nil {
+
+		if swag.IsZero(m.XCsQueryable) { // not required
+			return nil
+		}
+
+		if err := m.XCsQueryable.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-queryable")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-queryable")
 			}
 			return err
 		}

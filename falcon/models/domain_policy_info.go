@@ -91,6 +91,9 @@ type DomainPolicyInfo struct {
 	// cloud service id
 	CloudServiceID int32 `json:"cloud_service_id,omitempty"`
 
+	// cloud service name
+	CloudServiceName string `json:"cloud_service_name,omitempty"`
+
 	// cloud service subtype
 	CloudServiceSubtype string `json:"cloud_service_subtype,omitempty"`
 
@@ -133,6 +136,9 @@ type DomainPolicyInfo struct {
 	// is enabled
 	// Required: true
 	IsEnabled *bool `json:"is_enabled"`
+
+	// is global
+	IsGlobal bool `json:"is_global,omitempty"`
 
 	// is remediable
 	// Required: true

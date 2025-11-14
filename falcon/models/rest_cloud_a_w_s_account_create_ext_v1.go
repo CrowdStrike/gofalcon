@@ -41,6 +41,9 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// dspm host account id
 	DspmHostAccountID string `json:"dspm_host_account_id,omitempty"`
 
+	// dspm regions
+	DspmRegions []string `json:"dspm_regions"`
+
 	// dspm role
 	DspmRole string `json:"dspm_role,omitempty"`
 
@@ -49,6 +52,9 @@ type RestCloudAWSAccountCreateExtV1 struct {
 
 	// iam role arn
 	IamRoleArn string `json:"iam_role_arn,omitempty"`
+
+	// ioa regions
+	IoaRegions []string `json:"ioa_regions"`
 
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
@@ -92,6 +98,9 @@ type RestCloudAWSAccountCreateExtV1 struct {
 
 	// vulnerability scanning host account id
 	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
+
+	// vulnerability scanning regions
+	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
 
 	// vulnerability scanning role
 	VulnerabilityScanningRole string `json:"vulnerability_scanning_role,omitempty"`

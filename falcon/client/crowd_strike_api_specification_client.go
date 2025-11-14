@@ -88,7 +88,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
-	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/message_center"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/mobile_enrollment"
@@ -121,7 +120,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerability_metadata"
-	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
@@ -135,14 +133,14 @@ var Default = NewHTTPClient(nil)
 const (
 	// DefaultHost is the default Host
 	// found in Meta (info) section of spec file
-	DefaultHost string = "api.crowdstrike.com"
+	DefaultHost string = "api.eu-1.crowdstrike.com"
 	// DefaultBasePath is the default BasePath
 	// found in Meta (info) section of spec file
 	DefaultBasePath string = "/"
 )
 
 // DefaultSchemes are the default schemes found in Meta (info) section of spec file
-var DefaultSchemes = []string{"https"}
+var DefaultSchemes = []string{"http", "https"}
 
 // NewHTTPClient creates a new crowd strike API specification HTTP client.
 func NewHTTPClient(formats strfmt.Registry) *CrowdStrikeAPISpecification {
@@ -249,7 +247,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.KubernetesContainerCompliance = kubernetes_container_compliance.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
 	cli.LookupFiles = lookup_files.New(transport, formats)
-	cli.Malquery = malquery.New(transport, formats)
 	cli.MessageCenter = message_center.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
 	cli.MobileEnrollment = mobile_enrollment.New(transport, formats)
@@ -282,7 +279,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
 	cli.SpotlightVulnerabilityMetadata = spotlight_vulnerability_metadata.New(transport, formats)
-	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
@@ -488,8 +484,6 @@ type CrowdStrikeAPISpecification struct {
 
 	LookupFiles lookup_files.ClientService
 
-	Malquery malquery.ClientService
-
 	MessageCenter message_center.ClientService
 
 	MlExclusions ml_exclusions.ClientService
@@ -553,8 +547,6 @@ type CrowdStrikeAPISpecification struct {
 	SpotlightVulnerabilities spotlight_vulnerabilities.ClientService
 
 	SpotlightVulnerabilityMetadata spotlight_vulnerability_metadata.ClientService
-
-	TailoredIntelligence tailored_intelligence.ClientService
 
 	Threatgraph threatgraph.ClientService
 
@@ -650,7 +642,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LookupFiles.SetTransport(transport)
-	c.Malquery.SetTransport(transport)
 	c.MessageCenter.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
 	c.MobileEnrollment.SetTransport(transport)
@@ -683,7 +674,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
 	c.SpotlightVulnerabilityMetadata.SetTransport(transport)
-	c.TailoredIntelligence.SetTransport(transport)
 	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)

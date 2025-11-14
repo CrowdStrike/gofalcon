@@ -65,6 +65,10 @@ type MsaAggregateQueryRequest struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// percents
+	// Required: true
+	Percents []float64 `json:"percents"`
+
 	// q
 	// Required: true
 	Q *string `json:"q"`
@@ -135,6 +139,10 @@ func (m *MsaAggregateQueryRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePercents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -284,6 +292,15 @@ func (m *MsaAggregateQueryRequest) validateMissing(formats strfmt.Registry) erro
 func (m *MsaAggregateQueryRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MsaAggregateQueryRequest) validatePercents(formats strfmt.Registry) error {
+
+	if err := validate.Required("percents", "body", m.Percents); err != nil {
 		return err
 	}
 

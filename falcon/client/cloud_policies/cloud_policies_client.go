@@ -54,6 +54,8 @@ type ClientService interface {
 
 	GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleOK, error)
 
+	GetRuleInputSchema(params *GetRuleInputSchemaParams, opts ...ClientOption) (*GetRuleInputSchemaOK, error)
+
 	GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOption) (*GetRuleOverrideOK, error)
 
 	QueryComplianceControls(params *QueryComplianceControlsParams, opts ...ClientOption) (*QueryComplianceControlsOK, error)
@@ -91,7 +93,7 @@ func (a *Client) CreateComplianceControl(params *CreateComplianceControlParams, 
 		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateComplianceControlReader{formats: a.formats},
 		Context:            params.Context,
@@ -129,7 +131,7 @@ func (a *Client) CreateComplianceFramework(params *CreateComplianceFrameworkPara
 		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateComplianceFrameworkReader{formats: a.formats},
 		Context:            params.Context,
@@ -167,7 +169,7 @@ func (a *Client) CreateRuleMixin0(params *CreateRuleMixin0Params, opts ...Client
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateRuleMixin0Reader{formats: a.formats},
 		Context:            params.Context,
@@ -205,7 +207,7 @@ func (a *Client) CreateRuleOverride(params *CreateRuleOverrideParams, opts ...Cl
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -243,7 +245,7 @@ func (a *Client) DeleteComplianceControl(params *DeleteComplianceControlParams, 
 		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteComplianceControlReader{formats: a.formats},
 		Context:            params.Context,
@@ -281,7 +283,7 @@ func (a *Client) DeleteComplianceFramework(params *DeleteComplianceFrameworkPara
 		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteComplianceFrameworkReader{formats: a.formats},
 		Context:            params.Context,
@@ -319,7 +321,7 @@ func (a *Client) DeleteRuleMixin0(params *DeleteRuleMixin0Params, opts ...Client
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteRuleMixin0Reader{formats: a.formats},
 		Context:            params.Context,
@@ -357,7 +359,7 @@ func (a *Client) DeleteRuleOverride(params *DeleteRuleOverrideParams, opts ...Cl
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -396,7 +398,7 @@ func (a *Client) GetComplianceControls(params *GetComplianceControlsParams, opts
 		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetComplianceControlsReader{formats: a.formats},
 		Context:            params.Context,
@@ -434,7 +436,7 @@ func (a *Client) GetComplianceFrameworks(params *GetComplianceFrameworksParams, 
 		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetComplianceFrameworksReader{formats: a.formats},
 		Context:            params.Context,
@@ -472,7 +474,7 @@ func (a *Client) GetEvaluationResult(params *GetEvaluationResultParams, opts ...
 		PathPattern:        "/cloud-policies/entities/evaluation/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetEvaluationResultReader{formats: a.formats},
 		Context:            params.Context,
@@ -510,7 +512,7 @@ func (a *Client) GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleO
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -535,6 +537,44 @@ func (a *Client) GetRule(params *GetRuleParams, opts ...ClientOption) (*GetRuleO
 }
 
 /*
+GetRuleInputSchema gets rule input schema for given resource type
+*/
+func (a *Client) GetRuleInputSchema(params *GetRuleInputSchemaParams, opts ...ClientOption) (*GetRuleInputSchemaOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRuleInputSchemaParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetRuleInputSchema",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/combined/rules/input-schema/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRuleInputSchemaReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetRuleInputSchemaOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetRuleInputSchema: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetRuleOverride gets a rule override
 */
 func (a *Client) GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOption) (*GetRuleOverrideOK, error) {
@@ -548,7 +588,7 @@ func (a *Client) GetRuleOverride(params *GetRuleOverrideParams, opts ...ClientOp
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,
@@ -586,7 +626,7 @@ func (a *Client) QueryComplianceControls(params *QueryComplianceControlsParams, 
 		PathPattern:        "/cloud-policies/queries/compliance/controls/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueryComplianceControlsReader{formats: a.formats},
 		Context:            params.Context,
@@ -624,7 +664,7 @@ func (a *Client) QueryComplianceFrameworks(params *QueryComplianceFrameworksPara
 		PathPattern:        "/cloud-policies/queries/compliance/frameworks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueryComplianceFrameworksReader{formats: a.formats},
 		Context:            params.Context,
@@ -662,7 +702,7 @@ func (a *Client) QueryRule(params *QueryRuleParams, opts ...ClientOption) (*Quer
 		PathPattern:        "/cloud-policies/queries/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueryRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -700,7 +740,7 @@ func (a *Client) RenameSectionComplianceFramework(params *RenameSectionComplianc
 		PathPattern:        "/cloud-policies/entities/compliance/frameworks/section/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &RenameSectionComplianceFrameworkReader{formats: a.formats},
 		Context:            params.Context,
@@ -738,7 +778,7 @@ func (a *Client) ReplaceControlRules(params *ReplaceControlRulesParams, opts ...
 		PathPattern:        "/cloud-policies/entities/compliance/control-rule-assignments/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ReplaceControlRulesReader{formats: a.formats},
 		Context:            params.Context,
@@ -776,7 +816,7 @@ func (a *Client) UpdateComplianceControl(params *UpdateComplianceControlParams, 
 		PathPattern:        "/cloud-policies/entities/compliance/controls/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateComplianceControlReader{formats: a.formats},
 		Context:            params.Context,
@@ -814,7 +854,7 @@ func (a *Client) UpdateComplianceFramework(params *UpdateComplianceFrameworkPara
 		PathPattern:        "/cloud-policies/entities/compliance/frameworks/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateComplianceFrameworkReader{formats: a.formats},
 		Context:            params.Context,
@@ -852,7 +892,7 @@ func (a *Client) UpdateRule(params *UpdateRuleParams, opts ...ClientOption) (*Up
 		PathPattern:        "/cloud-policies/entities/rules/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateRuleReader{formats: a.formats},
 		Context:            params.Context,
@@ -890,7 +930,7 @@ func (a *Client) UpdateRuleOverride(params *UpdateRuleOverrideParams, opts ...Cl
 		PathPattern:        "/cloud-policies/entities/rule-overrides/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateRuleOverrideReader{formats: a.formats},
 		Context:            params.Context,

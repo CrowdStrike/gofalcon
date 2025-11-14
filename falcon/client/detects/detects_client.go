@@ -44,7 +44,7 @@ type ClientService interface {
 /*
 GetAggregateDetects deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
-Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+Please use this guide to migrate to [Alerts API](https://falcon.eu-1.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -57,7 +57,7 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...
 		PathPattern:        "/detects/aggregates/detects/GET/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetAggregateDetectsReader{formats: a.formats},
 		Context:            params.Context,
@@ -84,7 +84,7 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...
 /*
 GetDetectSummaries deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
-Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+Please use this guide to migrate to [Alerts API](https://falcon.eu-1.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error) {
 	// TODO: Validate the params before sending
@@ -97,7 +97,7 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...Cl
 		PathPattern:        "/detects/entities/summaries/GET/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetDetectSummariesReader{formats: a.formats},
 		Context:            params.Context,
@@ -124,7 +124,7 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...Cl
 /*
 QueryDetects deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
-Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+Please use this guide to migrate to [Alerts API](https://falcon.eu-1.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -137,7 +137,7 @@ func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) 
 		PathPattern:        "/detects/queries/detects/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueryDetectsReader{formats: a.formats},
 		Context:            params.Context,
@@ -164,7 +164,7 @@ func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) 
 /*
 UpdateDetectsByIdsV2 deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
-Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+Please use this guide to migrate to [Alerts API](https://falcon.eu-1.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
 */
 func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -177,7 +177,7 @@ func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts .
 		PathPattern:        "/detects/entities/detects/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateDetectsByIdsV2Reader{formats: a.formats},
 		Context:            params.Context,

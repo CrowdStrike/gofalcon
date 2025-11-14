@@ -49,7 +49,7 @@ func (a *Client) CombinedReleasesV1Mixin0(params *CombinedReleasesV1Mixin0Params
 		PathPattern:        "/deployment-coordinator/combined/releases/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CombinedReleasesV1Mixin0Reader{formats: a.formats},
 		Context:            params.Context,
