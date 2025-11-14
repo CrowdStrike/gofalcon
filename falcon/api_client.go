@@ -16,7 +16,7 @@ import (
 )
 
 // NewClient return newly configured API Client based on configuration supplied by user.
-// NewClient function is preferred entry-point to gofalcon SDK.
+// NewClient function is preferred entry-point to gofalcon SDK.d
 func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	if ok, err := credentialsOk(ac); !ok {
 		return nil, err
