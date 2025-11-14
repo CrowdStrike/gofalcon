@@ -184,7 +184,7 @@ func NewGetPreventionPoliciesBadRequest() *GetPreventionPoliciesBadRequest {
 /*
 GetPreventionPoliciesBadRequest describes a response with status code 400, with default header values.
 
-Not Found
+Bad Request
 */
 type GetPreventionPoliciesBadRequest struct {
 
