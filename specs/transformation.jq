@@ -677,3 +677,6 @@
 # Make common.UpdateRuleRequest.alert_info and apimodels.RuleLogic.remediation_info fields nullable and omitempty to support terraform resource crowdstrike_cloud_security_rule
 | .definitions."common.UpdateRuleRequest".properties.alert_info += {"x-omitempty": true, "x-nullable": true}
 | .definitions."apimodels.RuleLogic".properties.remediation_info += {"x-omitempty": true, "x-nullable": true}
+
+# Add 400 error response to GET /policy/entities/prevention/v1
+| .paths."/policy/entities/prevention/v1".get.responses."400" = .paths."/policy/entities/prevention/v1".get.responses."404"
