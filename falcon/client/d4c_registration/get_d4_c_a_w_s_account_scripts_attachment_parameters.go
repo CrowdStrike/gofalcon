@@ -157,6 +157,24 @@ type GetD4CAWSAccountScriptsAttachmentParams struct {
 	// UseExistingCloudtrail.
 	UseExistingCloudtrail *string
 
+	// VulnerabilityScanningEnabled.
+	VulnerabilityScanningEnabled *string
+
+	// VulnerabilityScanningHostAccountID.
+	VulnerabilityScanningHostAccountID *string
+
+	// VulnerabilityScanningHostIntegrationRoleName.
+	VulnerabilityScanningHostIntegrationRoleName *string
+
+	// VulnerabilityScanningHostScannerRoleName.
+	VulnerabilityScanningHostScannerRoleName *string
+
+	// VulnerabilityScanningRegions.
+	VulnerabilityScanningRegions []string
+
+	// VulnerabilityScanningRole.
+	VulnerabilityScanningRole *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -439,6 +457,72 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WithUseExistingCloudtrail(useE
 // SetUseExistingCloudtrail adds the useExistingCloudtrail to the get d4 c a w s account scripts attachment params
 func (o *GetD4CAWSAccountScriptsAttachmentParams) SetUseExistingCloudtrail(useExistingCloudtrail *string) {
 	o.UseExistingCloudtrail = useExistingCloudtrail
+}
+
+// WithVulnerabilityScanningEnabled adds the vulnerabilityScanningEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithVulnerabilityScanningEnabled(vulnerabilityScanningEnabled *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetVulnerabilityScanningEnabled(vulnerabilityScanningEnabled)
+	return o
+}
+
+// SetVulnerabilityScanningEnabled adds the vulnerabilityScanningEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetVulnerabilityScanningEnabled(vulnerabilityScanningEnabled *string) {
+	o.VulnerabilityScanningEnabled = vulnerabilityScanningEnabled
+}
+
+// WithVulnerabilityScanningHostAccountID adds the vulnerabilityScanningHostAccountID to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithVulnerabilityScanningHostAccountID(vulnerabilityScanningHostAccountID *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetVulnerabilityScanningHostAccountID(vulnerabilityScanningHostAccountID)
+	return o
+}
+
+// SetVulnerabilityScanningHostAccountID adds the vulnerabilityScanningHostAccountId to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetVulnerabilityScanningHostAccountID(vulnerabilityScanningHostAccountID *string) {
+	o.VulnerabilityScanningHostAccountID = vulnerabilityScanningHostAccountID
+}
+
+// WithVulnerabilityScanningHostIntegrationRoleName adds the vulnerabilityScanningHostIntegrationRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithVulnerabilityScanningHostIntegrationRoleName(vulnerabilityScanningHostIntegrationRoleName *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetVulnerabilityScanningHostIntegrationRoleName(vulnerabilityScanningHostIntegrationRoleName)
+	return o
+}
+
+// SetVulnerabilityScanningHostIntegrationRoleName adds the vulnerabilityScanningHostIntegrationRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetVulnerabilityScanningHostIntegrationRoleName(vulnerabilityScanningHostIntegrationRoleName *string) {
+	o.VulnerabilityScanningHostIntegrationRoleName = vulnerabilityScanningHostIntegrationRoleName
+}
+
+// WithVulnerabilityScanningHostScannerRoleName adds the vulnerabilityScanningHostScannerRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithVulnerabilityScanningHostScannerRoleName(vulnerabilityScanningHostScannerRoleName *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetVulnerabilityScanningHostScannerRoleName(vulnerabilityScanningHostScannerRoleName)
+	return o
+}
+
+// SetVulnerabilityScanningHostScannerRoleName adds the vulnerabilityScanningHostScannerRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetVulnerabilityScanningHostScannerRoleName(vulnerabilityScanningHostScannerRoleName *string) {
+	o.VulnerabilityScanningHostScannerRoleName = vulnerabilityScanningHostScannerRoleName
+}
+
+// WithVulnerabilityScanningRegions adds the vulnerabilityScanningRegions to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithVulnerabilityScanningRegions(vulnerabilityScanningRegions []string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetVulnerabilityScanningRegions(vulnerabilityScanningRegions)
+	return o
+}
+
+// SetVulnerabilityScanningRegions adds the vulnerabilityScanningRegions to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetVulnerabilityScanningRegions(vulnerabilityScanningRegions []string) {
+	o.VulnerabilityScanningRegions = vulnerabilityScanningRegions
+}
+
+// WithVulnerabilityScanningRole adds the vulnerabilityScanningRole to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithVulnerabilityScanningRole(vulnerabilityScanningRole *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetVulnerabilityScanningRole(vulnerabilityScanningRole)
+	return o
+}
+
+// SetVulnerabilityScanningRole adds the vulnerabilityScanningRole to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetVulnerabilityScanningRole(vulnerabilityScanningRole *string) {
+	o.VulnerabilityScanningRole = vulnerabilityScanningRole
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -765,6 +849,102 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		}
 	}
 
+	if o.VulnerabilityScanningEnabled != nil {
+
+		// query param vulnerability_scanning_enabled
+		var qrVulnerabilityScanningEnabled string
+
+		if o.VulnerabilityScanningEnabled != nil {
+			qrVulnerabilityScanningEnabled = *o.VulnerabilityScanningEnabled
+		}
+		qVulnerabilityScanningEnabled := qrVulnerabilityScanningEnabled
+		if qVulnerabilityScanningEnabled != "" {
+
+			if err := r.SetQueryParam("vulnerability_scanning_enabled", qVulnerabilityScanningEnabled); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.VulnerabilityScanningHostAccountID != nil {
+
+		// query param vulnerability_scanning_host_account_id
+		var qrVulnerabilityScanningHostAccountID string
+
+		if o.VulnerabilityScanningHostAccountID != nil {
+			qrVulnerabilityScanningHostAccountID = *o.VulnerabilityScanningHostAccountID
+		}
+		qVulnerabilityScanningHostAccountID := qrVulnerabilityScanningHostAccountID
+		if qVulnerabilityScanningHostAccountID != "" {
+
+			if err := r.SetQueryParam("vulnerability_scanning_host_account_id", qVulnerabilityScanningHostAccountID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.VulnerabilityScanningHostIntegrationRoleName != nil {
+
+		// query param vulnerability_scanning_host_integration_role_name
+		var qrVulnerabilityScanningHostIntegrationRoleName string
+
+		if o.VulnerabilityScanningHostIntegrationRoleName != nil {
+			qrVulnerabilityScanningHostIntegrationRoleName = *o.VulnerabilityScanningHostIntegrationRoleName
+		}
+		qVulnerabilityScanningHostIntegrationRoleName := qrVulnerabilityScanningHostIntegrationRoleName
+		if qVulnerabilityScanningHostIntegrationRoleName != "" {
+
+			if err := r.SetQueryParam("vulnerability_scanning_host_integration_role_name", qVulnerabilityScanningHostIntegrationRoleName); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.VulnerabilityScanningHostScannerRoleName != nil {
+
+		// query param vulnerability_scanning_host_scanner_role_name
+		var qrVulnerabilityScanningHostScannerRoleName string
+
+		if o.VulnerabilityScanningHostScannerRoleName != nil {
+			qrVulnerabilityScanningHostScannerRoleName = *o.VulnerabilityScanningHostScannerRoleName
+		}
+		qVulnerabilityScanningHostScannerRoleName := qrVulnerabilityScanningHostScannerRoleName
+		if qVulnerabilityScanningHostScannerRoleName != "" {
+
+			if err := r.SetQueryParam("vulnerability_scanning_host_scanner_role_name", qVulnerabilityScanningHostScannerRoleName); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.VulnerabilityScanningRegions != nil {
+
+		// binding items for vulnerability_scanning_regions
+		joinedVulnerabilityScanningRegions := o.bindParamVulnerabilityScanningRegions(reg)
+
+		// query array param vulnerability_scanning_regions
+		if err := r.SetQueryParam("vulnerability_scanning_regions", joinedVulnerabilityScanningRegions...); err != nil {
+			return err
+		}
+	}
+
+	if o.VulnerabilityScanningRole != nil {
+
+		// query param vulnerability_scanning_role
+		var qrVulnerabilityScanningRole string
+
+		if o.VulnerabilityScanningRole != nil {
+			qrVulnerabilityScanningRole = *o.VulnerabilityScanningRole
+		}
+		qVulnerabilityScanningRole := qrVulnerabilityScanningRole
+		if qVulnerabilityScanningRole != "" {
+
+			if err := r.SetQueryParam("vulnerability_scanning_role", qVulnerabilityScanningRole); err != nil {
+				return err
+			}
+		}
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -837,4 +1017,21 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) bindParamOrganizationalUnitIds
 	organizationalUnitIdsIS := swag.JoinByFormat(organizationalUnitIdsIC, "csv")
 
 	return organizationalUnitIdsIS
+}
+
+// bindParamGetD4CAWSAccountScriptsAttachment binds the parameter vulnerability_scanning_regions
+func (o *GetD4CAWSAccountScriptsAttachmentParams) bindParamVulnerabilityScanningRegions(formats strfmt.Registry) []string {
+	vulnerabilityScanningRegionsIR := o.VulnerabilityScanningRegions
+
+	var vulnerabilityScanningRegionsIC []string
+	for _, vulnerabilityScanningRegionsIIR := range vulnerabilityScanningRegionsIR { // explode []string
+
+		vulnerabilityScanningRegionsIIV := vulnerabilityScanningRegionsIIR // string as string
+		vulnerabilityScanningRegionsIC = append(vulnerabilityScanningRegionsIC, vulnerabilityScanningRegionsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	vulnerabilityScanningRegionsIS := swag.JoinByFormat(vulnerabilityScanningRegionsIC, "csv")
+
+	return vulnerabilityScanningRegionsIS
 }

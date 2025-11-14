@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainActorDocument JSON definition of an Actor, also known as Adversary
+// ActorActorDocument JSON definition of an Actor, also known as Adversary
 //
-// swagger:model domain.ActorDocument
-type DomainActorDocument struct {
+// swagger:model actor.ActorDocument
+type ActorActorDocument struct {
 
 	// Boolean field marking if actor is active
 	// Required: true
@@ -54,7 +54,7 @@ type DomainActorDocument struct {
 	DevelopsThreatsCount int64 `json:"develops_threats_count,omitempty"`
 
 	// Multi-field property describing eCrime actor's kill chain
-	EcrimeKillChain *DomainECrimeKillChain `json:"ecrime_kill_chain,omitempty"`
+	EcrimeKillChain *ActorECrimeKillChain `json:"ecrime_kill_chain,omitempty"`
 
 	// Field used to filter user's access to actor documents
 	Entitlements []*DomainEntity `json:"entitlements"`
@@ -83,10 +83,10 @@ type DomainActorDocument struct {
 	ID *int64 `json:"id"`
 
 	// Image used in UI
-	Image *DomainImage `json:"image,omitempty"`
+	Image *ActorImage `json:"image,omitempty"`
 
 	// in reports
-	InReports []*DomainActorNewsDocument `json:"in_reports"`
+	InReports []*ActorActorNewsDocument `json:"in_reports"`
 
 	// in reports count
 	InReportsCount int64 `json:"in_reports_count,omitempty"`
@@ -110,7 +110,7 @@ type DomainActorDocument struct {
 	IsSupportedByActorsCount int64 `json:"is_supported_by_actors_count,omitempty"`
 
 	// Multi-field property describing actor's kill chain
-	KillChain *DomainKillChain `json:"kill_chain,omitempty"`
+	KillChain *ActorKillChain `json:"kill_chain,omitempty"`
 
 	// Alternative names and community identifiers of an actor
 	// Required: true
@@ -188,7 +188,7 @@ type DomainActorDocument struct {
 	TargetRegions []*DomainEntity `json:"target_regions"`
 
 	// Thumbnail image used in UI
-	Thumbnail *DomainImage `json:"thumbnail,omitempty"`
+	Thumbnail *ActorImage `json:"thumbnail,omitempty"`
 
 	// URL at which actor profile can be accessed
 	URL string `json:"url,omitempty"`
@@ -221,8 +221,8 @@ type DomainActorDocument struct {
 	VulnerabilitiesCount int64 `json:"vulnerabilities_count,omitempty"`
 }
 
-// Validate validates this domain actor document
-func (m *DomainActorDocument) Validate(formats strfmt.Registry) error {
+// Validate validates this actor actor document
+func (m *ActorActorDocument) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateActive(formats); err != nil {
@@ -371,7 +371,7 @@ func (m *DomainActorDocument) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateActive(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateActive(formats strfmt.Registry) error {
 
 	if err := validate.Required("active", "body", m.Active); err != nil {
 		return err
@@ -380,7 +380,7 @@ func (m *DomainActorDocument) validateActive(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateCapabilities(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateCapabilities(formats strfmt.Registry) error {
 
 	if err := validate.Required("capabilities", "body", m.Capabilities); err != nil {
 		return err
@@ -407,7 +407,7 @@ func (m *DomainActorDocument) validateCapabilities(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainActorDocument) validateCapability(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateCapability(formats strfmt.Registry) error {
 	if swag.IsZero(m.Capability) { // not required
 		return nil
 	}
@@ -426,7 +426,7 @@ func (m *DomainActorDocument) validateCapability(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *DomainActorDocument) validateCreatedDate(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateCreatedDate(formats strfmt.Registry) error {
 
 	if err := validate.Required("created_date", "body", m.CreatedDate); err != nil {
 		return err
@@ -435,7 +435,7 @@ func (m *DomainActorDocument) validateCreatedDate(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *DomainActorDocument) validateDevelopsThreats(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateDevelopsThreats(formats strfmt.Registry) error {
 	if swag.IsZero(m.DevelopsThreats) { // not required
 		return nil
 	}
@@ -461,7 +461,7 @@ func (m *DomainActorDocument) validateDevelopsThreats(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *DomainActorDocument) validateEcrimeKillChain(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateEcrimeKillChain(formats strfmt.Registry) error {
 	if swag.IsZero(m.EcrimeKillChain) { // not required
 		return nil
 	}
@@ -480,7 +480,7 @@ func (m *DomainActorDocument) validateEcrimeKillChain(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *DomainActorDocument) validateEntitlements(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateEntitlements(formats strfmt.Registry) error {
 	if swag.IsZero(m.Entitlements) { // not required
 		return nil
 	}
@@ -506,7 +506,7 @@ func (m *DomainActorDocument) validateEntitlements(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainActorDocument) validateFirstActivityDate(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateFirstActivityDate(formats strfmt.Registry) error {
 
 	if err := validate.Required("first_activity_date", "body", m.FirstActivityDate); err != nil {
 		return err
@@ -515,7 +515,7 @@ func (m *DomainActorDocument) validateFirstActivityDate(formats strfmt.Registry)
 	return nil
 }
 
-func (m *DomainActorDocument) validateGroup(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateGroup(formats strfmt.Registry) error {
 	if swag.IsZero(m.Group) { // not required
 		return nil
 	}
@@ -534,7 +534,7 @@ func (m *DomainActorDocument) validateGroup(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateHasSubgroup(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateHasSubgroup(formats strfmt.Registry) error {
 	if swag.IsZero(m.HasSubgroup) { // not required
 		return nil
 	}
@@ -560,7 +560,7 @@ func (m *DomainActorDocument) validateHasSubgroup(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *DomainActorDocument) validateHasSuccessor(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateHasSuccessor(formats strfmt.Registry) error {
 	if swag.IsZero(m.HasSuccessor) { // not required
 		return nil
 	}
@@ -586,7 +586,7 @@ func (m *DomainActorDocument) validateHasSuccessor(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainActorDocument) validateID(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
@@ -595,7 +595,7 @@ func (m *DomainActorDocument) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateImage(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateImage(formats strfmt.Registry) error {
 	if swag.IsZero(m.Image) { // not required
 		return nil
 	}
@@ -614,7 +614,7 @@ func (m *DomainActorDocument) validateImage(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateInReports(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateInReports(formats strfmt.Registry) error {
 	if swag.IsZero(m.InReports) { // not required
 		return nil
 	}
@@ -640,7 +640,7 @@ func (m *DomainActorDocument) validateInReports(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateIsSubgroupOf(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateIsSubgroupOf(formats strfmt.Registry) error {
 	if swag.IsZero(m.IsSubgroupOf) { // not required
 		return nil
 	}
@@ -666,7 +666,7 @@ func (m *DomainActorDocument) validateIsSubgroupOf(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainActorDocument) validateIsSuccessorOf(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateIsSuccessorOf(formats strfmt.Registry) error {
 	if swag.IsZero(m.IsSuccessorOf) { // not required
 		return nil
 	}
@@ -692,7 +692,7 @@ func (m *DomainActorDocument) validateIsSuccessorOf(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *DomainActorDocument) validateIsSupportedBy(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateIsSupportedBy(formats strfmt.Registry) error {
 	if swag.IsZero(m.IsSupportedBy) { // not required
 		return nil
 	}
@@ -718,7 +718,7 @@ func (m *DomainActorDocument) validateIsSupportedBy(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *DomainActorDocument) validateKillChain(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateKillChain(formats strfmt.Registry) error {
 	if swag.IsZero(m.KillChain) { // not required
 		return nil
 	}
@@ -737,7 +737,7 @@ func (m *DomainActorDocument) validateKillChain(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateKnownAs(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateKnownAs(formats strfmt.Registry) error {
 
 	if err := validate.Required("known_as", "body", m.KnownAs); err != nil {
 		return err
@@ -746,7 +746,7 @@ func (m *DomainActorDocument) validateKnownAs(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateLastActivityDate(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateLastActivityDate(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_activity_date", "body", m.LastActivityDate); err != nil {
 		return err
@@ -755,7 +755,7 @@ func (m *DomainActorDocument) validateLastActivityDate(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *DomainActorDocument) validateLastModifiedDate(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateLastModifiedDate(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_modified_date", "body", m.LastModifiedDate); err != nil {
 		return err
@@ -764,7 +764,7 @@ func (m *DomainActorDocument) validateLastModifiedDate(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *DomainActorDocument) validateMotivations(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateMotivations(formats strfmt.Registry) error {
 
 	if err := validate.Required("motivations", "body", m.Motivations); err != nil {
 		return err
@@ -791,7 +791,7 @@ func (m *DomainActorDocument) validateMotivations(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *DomainActorDocument) validateNotifyUsers(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateNotifyUsers(formats strfmt.Registry) error {
 
 	if err := validate.Required("notify_users", "body", m.NotifyUsers); err != nil {
 		return err
@@ -800,7 +800,7 @@ func (m *DomainActorDocument) validateNotifyUsers(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *DomainActorDocument) validateObjectives(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateObjectives(formats strfmt.Registry) error {
 
 	if err := validate.Required("objectives", "body", m.Objectives); err != nil {
 		return err
@@ -827,7 +827,7 @@ func (m *DomainActorDocument) validateObjectives(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *DomainActorDocument) validateOrigins(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateOrigins(formats strfmt.Registry) error {
 
 	if err := validate.Required("origins", "body", m.Origins); err != nil {
 		return err
@@ -854,7 +854,7 @@ func (m *DomainActorDocument) validateOrigins(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateRegion(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateRegion(formats strfmt.Registry) error {
 	if swag.IsZero(m.Region) { // not required
 		return nil
 	}
@@ -873,7 +873,7 @@ func (m *DomainActorDocument) validateRegion(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateSellsThreats(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateSellsThreats(formats strfmt.Registry) error {
 	if swag.IsZero(m.SellsThreats) { // not required
 		return nil
 	}
@@ -899,7 +899,7 @@ func (m *DomainActorDocument) validateSellsThreats(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainActorDocument) validateShortDescription(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateShortDescription(formats strfmt.Registry) error {
 
 	if err := validate.Required("short_description", "body", m.ShortDescription); err != nil {
 		return err
@@ -908,7 +908,7 @@ func (m *DomainActorDocument) validateShortDescription(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *DomainActorDocument) validateStatus(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
 		return err
@@ -917,7 +917,7 @@ func (m *DomainActorDocument) validateStatus(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateSupports(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateSupports(formats strfmt.Registry) error {
 	if swag.IsZero(m.Supports) { // not required
 		return nil
 	}
@@ -943,7 +943,7 @@ func (m *DomainActorDocument) validateSupports(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateTargetCountries(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateTargetCountries(formats strfmt.Registry) error {
 
 	if err := validate.Required("target_countries", "body", m.TargetCountries); err != nil {
 		return err
@@ -970,7 +970,7 @@ func (m *DomainActorDocument) validateTargetCountries(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *DomainActorDocument) validateTargetIndustries(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateTargetIndustries(formats strfmt.Registry) error {
 
 	if err := validate.Required("target_industries", "body", m.TargetIndustries); err != nil {
 		return err
@@ -997,7 +997,7 @@ func (m *DomainActorDocument) validateTargetIndustries(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *DomainActorDocument) validateTargetRegions(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateTargetRegions(formats strfmt.Registry) error {
 
 	if err := validate.Required("target_regions", "body", m.TargetRegions); err != nil {
 		return err
@@ -1024,7 +1024,7 @@ func (m *DomainActorDocument) validateTargetRegions(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *DomainActorDocument) validateThumbnail(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateThumbnail(formats strfmt.Registry) error {
 	if swag.IsZero(m.Thumbnail) { // not required
 		return nil
 	}
@@ -1043,7 +1043,7 @@ func (m *DomainActorDocument) validateThumbnail(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorDocument) validateUsesThreats(formats strfmt.Registry) error {
+func (m *ActorActorDocument) validateUsesThreats(formats strfmt.Registry) error {
 	if swag.IsZero(m.UsesThreats) { // not required
 		return nil
 	}
@@ -1069,8 +1069,8 @@ func (m *DomainActorDocument) validateUsesThreats(formats strfmt.Registry) error
 	return nil
 }
 
-// ContextValidate validate this domain actor document based on the context it is used
-func (m *DomainActorDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this actor actor document based on the context it is used
+func (m *ActorActorDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateCapabilities(ctx, formats); err != nil {
@@ -1179,7 +1179,7 @@ func (m *DomainActorDocument) ContextValidate(ctx context.Context, formats strfm
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateCapabilities(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateCapabilities(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Capabilities); i++ {
 
@@ -1204,7 +1204,7 @@ func (m *DomainActorDocument) contextValidateCapabilities(ctx context.Context, f
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateCapability(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateCapability(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Capability != nil {
 
@@ -1225,7 +1225,7 @@ func (m *DomainActorDocument) contextValidateCapability(ctx context.Context, for
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateDevelopsThreats(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateDevelopsThreats(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.DevelopsThreats); i++ {
 
@@ -1250,7 +1250,7 @@ func (m *DomainActorDocument) contextValidateDevelopsThreats(ctx context.Context
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateEcrimeKillChain(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateEcrimeKillChain(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EcrimeKillChain != nil {
 
@@ -1271,7 +1271,7 @@ func (m *DomainActorDocument) contextValidateEcrimeKillChain(ctx context.Context
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateEntitlements(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateEntitlements(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Entitlements); i++ {
 
@@ -1296,7 +1296,7 @@ func (m *DomainActorDocument) contextValidateEntitlements(ctx context.Context, f
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Group != nil {
 
@@ -1317,7 +1317,7 @@ func (m *DomainActorDocument) contextValidateGroup(ctx context.Context, formats 
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateHasSubgroup(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateHasSubgroup(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.HasSubgroup); i++ {
 
@@ -1342,7 +1342,7 @@ func (m *DomainActorDocument) contextValidateHasSubgroup(ctx context.Context, fo
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateHasSuccessor(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateHasSuccessor(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.HasSuccessor); i++ {
 
@@ -1367,7 +1367,7 @@ func (m *DomainActorDocument) contextValidateHasSuccessor(ctx context.Context, f
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Image != nil {
 
@@ -1388,7 +1388,7 @@ func (m *DomainActorDocument) contextValidateImage(ctx context.Context, formats 
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateInReports(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateInReports(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.InReports); i++ {
 
@@ -1413,7 +1413,7 @@ func (m *DomainActorDocument) contextValidateInReports(ctx context.Context, form
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateIsSubgroupOf(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateIsSubgroupOf(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.IsSubgroupOf); i++ {
 
@@ -1438,7 +1438,7 @@ func (m *DomainActorDocument) contextValidateIsSubgroupOf(ctx context.Context, f
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateIsSuccessorOf(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateIsSuccessorOf(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.IsSuccessorOf); i++ {
 
@@ -1463,7 +1463,7 @@ func (m *DomainActorDocument) contextValidateIsSuccessorOf(ctx context.Context, 
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateIsSupportedBy(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateIsSupportedBy(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.IsSupportedBy); i++ {
 
@@ -1488,7 +1488,7 @@ func (m *DomainActorDocument) contextValidateIsSupportedBy(ctx context.Context, 
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateKillChain(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateKillChain(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.KillChain != nil {
 
@@ -1509,7 +1509,7 @@ func (m *DomainActorDocument) contextValidateKillChain(ctx context.Context, form
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateMotivations(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateMotivations(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Motivations); i++ {
 
@@ -1534,7 +1534,7 @@ func (m *DomainActorDocument) contextValidateMotivations(ctx context.Context, fo
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateObjectives(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateObjectives(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Objectives); i++ {
 
@@ -1559,7 +1559,7 @@ func (m *DomainActorDocument) contextValidateObjectives(ctx context.Context, for
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateOrigins(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateOrigins(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Origins); i++ {
 
@@ -1584,7 +1584,7 @@ func (m *DomainActorDocument) contextValidateOrigins(ctx context.Context, format
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateRegion(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateRegion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Region != nil {
 
@@ -1605,7 +1605,7 @@ func (m *DomainActorDocument) contextValidateRegion(ctx context.Context, formats
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateSellsThreats(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateSellsThreats(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.SellsThreats); i++ {
 
@@ -1630,7 +1630,7 @@ func (m *DomainActorDocument) contextValidateSellsThreats(ctx context.Context, f
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateSupports(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateSupports(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Supports); i++ {
 
@@ -1655,7 +1655,7 @@ func (m *DomainActorDocument) contextValidateSupports(ctx context.Context, forma
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateTargetCountries(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateTargetCountries(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.TargetCountries); i++ {
 
@@ -1680,7 +1680,7 @@ func (m *DomainActorDocument) contextValidateTargetCountries(ctx context.Context
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateTargetIndustries(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateTargetIndustries(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.TargetIndustries); i++ {
 
@@ -1705,7 +1705,7 @@ func (m *DomainActorDocument) contextValidateTargetIndustries(ctx context.Contex
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateTargetRegions(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateTargetRegions(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.TargetRegions); i++ {
 
@@ -1730,7 +1730,7 @@ func (m *DomainActorDocument) contextValidateTargetRegions(ctx context.Context, 
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateThumbnail(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateThumbnail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Thumbnail != nil {
 
@@ -1751,7 +1751,7 @@ func (m *DomainActorDocument) contextValidateThumbnail(ctx context.Context, form
 	return nil
 }
 
-func (m *DomainActorDocument) contextValidateUsesThreats(ctx context.Context, formats strfmt.Registry) error {
+func (m *ActorActorDocument) contextValidateUsesThreats(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.UsesThreats); i++ {
 
@@ -1777,7 +1777,7 @@ func (m *DomainActorDocument) contextValidateUsesThreats(ctx context.Context, fo
 }
 
 // MarshalBinary interface implementation
-func (m *DomainActorDocument) MarshalBinary() ([]byte, error) {
+func (m *ActorActorDocument) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -1785,8 +1785,8 @@ func (m *DomainActorDocument) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainActorDocument) UnmarshalBinary(b []byte) error {
-	var res DomainActorDocument
+func (m *ActorActorDocument) UnmarshalBinary(b []byte) error {
+	var res ActorActorDocument
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

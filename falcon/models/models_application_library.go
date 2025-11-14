@@ -8,8 +8,10 @@ package models
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ModelsApplicationLibrary models application library
@@ -24,7 +26,8 @@ type ModelsApplicationLibrary struct {
 	LayerHash string `json:"LayerHash,omitempty"`
 
 	// layer index
-	LayerIndex int32 `json:"LayerIndex,omitempty"`
+	// Required: true
+	LayerIndex *int32 `json:"LayerIndex"`
 
 	// license
 	License string `json:"License,omitempty"`
@@ -44,6 +47,24 @@ type ModelsApplicationLibrary struct {
 
 // Validate validates this models application library
 func (m *ModelsApplicationLibrary) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateLayerIndex(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ModelsApplicationLibrary) validateLayerIndex(formats strfmt.Registry) error {
+
+	if err := validate.Required("LayerIndex", "body", m.LayerIndex); err != nil {
+		return err
+	}
+
 	return nil
 }
 

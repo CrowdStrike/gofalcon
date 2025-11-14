@@ -19,6 +19,10 @@ import (
 // swagger:model domain.ResultMetadata
 type DomainResultMetadata struct {
 
+	// encrypted report file reference
+	// Required: true
+	EncryptedReportFileReference *string `json:"encrypted_report_file_reference"`
+
 	// execution delay
 	// Required: true
 	ExecutionDelay *int64 `json:"execution_delay"`
@@ -82,6 +86,10 @@ type DomainResultMetadata struct {
 func (m *DomainResultMetadata) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateEncryptedReportFileReference(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateExecutionDelay(formats); err != nil {
 		res = append(res, err)
 	}
@@ -137,6 +145,15 @@ func (m *DomainResultMetadata) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainResultMetadata) validateEncryptedReportFileReference(formats strfmt.Registry) error {
+
+	if err := validate.Required("encrypted_report_file_reference", "body", m.EncryptedReportFileReference); err != nil {
+		return err
+	}
+
 	return nil
 }
 

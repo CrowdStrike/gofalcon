@@ -49,7 +49,7 @@ func (a *Client) ReadRequestBody(params *ReadRequestBodyParams, opts ...ClientOp
 		PathPattern:        "/faas-gateway/entities/execution-request-body/v2",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream", "text/csv", "text/plain"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ReadRequestBodyReader{formats: a.formats},
 		Context:            params.Context,

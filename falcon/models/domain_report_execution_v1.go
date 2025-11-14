@@ -65,6 +65,9 @@ type DomainReportExecutionV1 struct {
 	// Required: true
 	ScheduledReportID *string `json:"scheduled_report_id"`
 
+	// secret references
+	SecretReferences *DomainSecretReferencesV1 `json:"secret_references,omitempty"`
+
 	// shared with
 	// Required: true
 	SharedWith []string `json:"shared_with"`
@@ -137,6 +140,10 @@ func (m *DomainReportExecutionV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateScheduledReportID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSecretReferences(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -298,6 +305,25 @@ func (m *DomainReportExecutionV1) validateScheduledReportID(formats strfmt.Regis
 	return nil
 }
 
+func (m *DomainReportExecutionV1) validateSecretReferences(formats strfmt.Registry) error {
+	if swag.IsZero(m.SecretReferences) { // not required
+		return nil
+	}
+
+	if m.SecretReferences != nil {
+		if err := m.SecretReferences.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secret_references")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secret_references")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainReportExecutionV1) validateSharedWith(formats strfmt.Registry) error {
 
 	if err := validate.Required("shared_with", "body", m.SharedWith); err != nil {
@@ -377,6 +403,10 @@ func (m *DomainReportExecutionV1) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSecretReferences(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -434,6 +464,27 @@ func (m *DomainReportExecutionV1) contextValidateResultMetadata(ctx context.Cont
 				return ve.ValidateName("result_metadata")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("result_metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainReportExecutionV1) contextValidateSecretReferences(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SecretReferences != nil {
+
+		if swag.IsZero(m.SecretReferences) { // not required
+			return nil
+		}
+
+		if err := m.SecretReferences.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secret_references")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secret_references")
 			}
 			return err
 		}

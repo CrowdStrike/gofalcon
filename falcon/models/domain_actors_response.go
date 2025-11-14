@@ -30,7 +30,7 @@ type DomainActorsResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*DomainActorDocument `json:"resources"`
+	Resources []*ActorActorDocument `json:"resources"`
 }
 
 // Validate validates this domain actors response

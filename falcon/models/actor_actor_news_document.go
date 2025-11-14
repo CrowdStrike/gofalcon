@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainActorNewsDocument domain actor news document
+// ActorActorNewsDocument actor actor news document
 //
-// swagger:model domain.ActorNewsDocument
-type DomainActorNewsDocument struct {
+// swagger:model actor.ActorNewsDocument
+type ActorActorNewsDocument struct {
 
 	// Date of the news document creation, unix timestamp
 	// Required: true
@@ -36,8 +36,8 @@ type DomainActorNewsDocument struct {
 	Slug *string `json:"slug"`
 }
 
-// Validate validates this domain actor news document
-func (m *DomainActorNewsDocument) Validate(formats strfmt.Registry) error {
+// Validate validates this actor actor news document
+func (m *ActorActorNewsDocument) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCreatedDate(formats); err != nil {
@@ -62,7 +62,7 @@ func (m *DomainActorNewsDocument) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorNewsDocument) validateCreatedDate(formats strfmt.Registry) error {
+func (m *ActorActorNewsDocument) validateCreatedDate(formats strfmt.Registry) error {
 
 	if err := validate.Required("created_date", "body", m.CreatedDate); err != nil {
 		return err
@@ -71,7 +71,7 @@ func (m *DomainActorNewsDocument) validateCreatedDate(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *DomainActorNewsDocument) validateID(formats strfmt.Registry) error {
+func (m *ActorActorNewsDocument) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
@@ -80,7 +80,7 @@ func (m *DomainActorNewsDocument) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorNewsDocument) validateName(formats strfmt.Registry) error {
+func (m *ActorActorNewsDocument) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -89,7 +89,7 @@ func (m *DomainActorNewsDocument) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainActorNewsDocument) validateSlug(formats strfmt.Registry) error {
+func (m *ActorActorNewsDocument) validateSlug(formats strfmt.Registry) error {
 
 	if err := validate.Required("slug", "body", m.Slug); err != nil {
 		return err
@@ -98,13 +98,13 @@ func (m *DomainActorNewsDocument) validateSlug(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain actor news document based on context it is used
-func (m *DomainActorNewsDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this actor actor news document based on context it is used
+func (m *ActorActorNewsDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *DomainActorNewsDocument) MarshalBinary() ([]byte, error) {
+func (m *ActorActorNewsDocument) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -112,8 +112,8 @@ func (m *DomainActorNewsDocument) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainActorNewsDocument) UnmarshalBinary(b []byte) error {
-	var res DomainActorNewsDocument
+func (m *ActorActorNewsDocument) UnmarshalBinary(b []byte) error {
+	var res ActorActorNewsDocument
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

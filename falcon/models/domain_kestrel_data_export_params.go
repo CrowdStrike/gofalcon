@@ -20,10 +20,6 @@ import (
 // swagger:model domain.KestrelDataExportParams
 type DomainKestrelDataExportParams struct {
 
-	// export mapping
-	// Required: true
-	ExportMapping []*DomainKestrelDataExportHeaderMapping `json:"export_mapping"`
-
 	// export mapping v2
 	// Required: true
 	ExportMappingV2 []*DomainKestrelDataExportHeaderMappingV2 `json:"export_mapping_v2"`
@@ -44,10 +40,6 @@ type DomainKestrelDataExportParams struct {
 func (m *DomainKestrelDataExportParams) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateExportMapping(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateExportMappingV2(formats); err != nil {
 		res = append(res, err)
 	}
@@ -63,33 +55,6 @@ func (m *DomainKestrelDataExportParams) Validate(formats strfmt.Registry) error 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainKestrelDataExportParams) validateExportMapping(formats strfmt.Registry) error {
-
-	if err := validate.Required("export_mapping", "body", m.ExportMapping); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.ExportMapping); i++ {
-		if swag.IsZero(m.ExportMapping[i]) { // not required
-			continue
-		}
-
-		if m.ExportMapping[i] != nil {
-			if err := m.ExportMapping[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("export_mapping" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("export_mapping" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -142,10 +107,6 @@ func (m *DomainKestrelDataExportParams) validateViewID(formats strfmt.Registry) 
 func (m *DomainKestrelDataExportParams) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateExportMapping(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateExportMappingV2(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -153,31 +114,6 @@ func (m *DomainKestrelDataExportParams) ContextValidate(ctx context.Context, for
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainKestrelDataExportParams) contextValidateExportMapping(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.ExportMapping); i++ {
-
-		if m.ExportMapping[i] != nil {
-
-			if swag.IsZero(m.ExportMapping[i]) { // not required
-				return nil
-			}
-
-			if err := m.ExportMapping[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("export_mapping" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("export_mapping" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 

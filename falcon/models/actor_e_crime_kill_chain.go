@@ -12,10 +12,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// DomainECrimeKillChain domain e crime kill chain
+// ActorECrimeKillChain actor e crime kill chain
 //
-// swagger:model domain.ECrimeKillChain
-type DomainECrimeKillChain struct {
+// swagger:model actor.ECrimeKillChain
+type ActorECrimeKillChain struct {
 
 	// Free form text describing attribution of the ecrime actor
 	Attribution string `json:"attribution,omitempty"`
@@ -78,18 +78,18 @@ type DomainECrimeKillChain struct {
 	Victims string `json:"victims,omitempty"`
 }
 
-// Validate validates this domain e crime kill chain
-func (m *DomainECrimeKillChain) Validate(formats strfmt.Registry) error {
+// Validate validates this actor e crime kill chain
+func (m *ActorECrimeKillChain) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain e crime kill chain based on context it is used
-func (m *DomainECrimeKillChain) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this actor e crime kill chain based on context it is used
+func (m *ActorECrimeKillChain) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *DomainECrimeKillChain) MarshalBinary() ([]byte, error) {
+func (m *ActorECrimeKillChain) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -97,8 +97,8 @@ func (m *DomainECrimeKillChain) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainECrimeKillChain) UnmarshalBinary(b []byte) error {
-	var res DomainECrimeKillChain
+func (m *ActorECrimeKillChain) UnmarshalBinary(b []byte) error {
+	var res ActorECrimeKillChain
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

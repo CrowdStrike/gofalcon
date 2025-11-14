@@ -49,7 +49,7 @@ func (a *Client) RTRAuditSessions(params *RTRAuditSessionsParams, opts ...Client
 		PathPattern:        "/real-time-response-audit/combined/sessions/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &RTRAuditSessionsReader{formats: a.formats},
 		Context:            params.Context,

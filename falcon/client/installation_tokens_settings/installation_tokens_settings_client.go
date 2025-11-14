@@ -49,7 +49,7 @@ func (a *Client) CustomerSettingsUpdate(params *CustomerSettingsUpdateParams, op
 		PathPattern:        "/installation-tokens/entities/customer-settings/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CustomerSettingsUpdateReader{formats: a.formats},
 		Context:            params.Context,

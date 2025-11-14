@@ -88,13 +88,13 @@ type QueryRulesV1Params struct {
 
 	/* SecondarySort.
 
-	   Possible order by fields: created_timestamp, last_updated_timestamp. Ex: `last_updated_timestamp|desc`.
+	   Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: `last_updated_timestamp|desc`.
 	*/
 	SecondarySort *string
 
 	/* Sort.
 
-	   Possible order by fields: created_timestamp, last_updated_timestamp. Ex: `last_updated_timestamp|desc`.
+	   Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: `last_updated_timestamp|desc`.
 	*/
 	Sort *string
 

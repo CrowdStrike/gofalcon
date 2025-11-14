@@ -30,6 +30,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 	// browser extension
 	BrowserExtension *DeviceDevicePolicy `json:"browser-extension,omitempty"`
 
+	// cloud ml
+	CloudMl *DeviceDevicePolicy `json:"cloud-ml,omitempty"`
+
 	// content update
 	ContentUpdate *DeviceDevicePolicy `json:"content-update,omitempty"`
 
@@ -120,6 +123,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudMl(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -293,6 +300,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateBrowserExtension(formats 
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateCloudMl(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudMl) { // not required
+		return nil
+	}
+
+	if m.CloudMl != nil {
+		if err := m.CloudMl.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}
@@ -777,6 +803,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCloudMl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateContentUpdate(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -955,6 +985,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateBrowserExtension(c
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateCloudMl(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudMl != nil {
+
+		if swag.IsZero(m.CloudMl) { // not required
+			return nil
+		}
+
+		if err := m.CloudMl.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}

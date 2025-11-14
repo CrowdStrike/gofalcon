@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	CloudRegistrationAzureCreateRegistration(params *CloudRegistrationAzureCreateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureCreateRegistrationCreated, error)
 
+	CloudRegistrationAzureDeleteLegacySubscription(params *CloudRegistrationAzureDeleteLegacySubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteLegacySubscriptionOK, error)
+
 	CloudRegistrationAzureDeleteRegistration(params *CloudRegistrationAzureDeleteRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteRegistrationOK, error)
 
 	CloudRegistrationAzureDownloadScript(params *CloudRegistrationAzureDownloadScriptParams, opts ...ClientOption) (*CloudRegistrationAzureDownloadScriptOK, error)
@@ -61,7 +63,7 @@ func (a *Client) CloudRegistrationAzureCreateRegistration(params *CloudRegistrat
 		PathPattern:        "/cloud-security-registration-azure/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAzureCreateRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -86,6 +88,44 @@ func (a *Client) CloudRegistrationAzureCreateRegistration(params *CloudRegistrat
 }
 
 /*
+CloudRegistrationAzureDeleteLegacySubscription deletes existing legacy azure subscriptions
+*/
+func (a *Client) CloudRegistrationAzureDeleteLegacySubscription(params *CloudRegistrationAzureDeleteLegacySubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteLegacySubscriptionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureDeleteLegacySubscriptionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-delete-legacy-subscription",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-security-registration-azure/entities/accounts/legacy/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureDeleteLegacySubscriptionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureDeleteLegacySubscriptionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-delete-legacy-subscription: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CloudRegistrationAzureDeleteRegistration deletes existing azure registrations
 */
 func (a *Client) CloudRegistrationAzureDeleteRegistration(params *CloudRegistrationAzureDeleteRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteRegistrationOK, error) {
@@ -99,7 +139,7 @@ func (a *Client) CloudRegistrationAzureDeleteRegistration(params *CloudRegistrat
 		PathPattern:        "/cloud-security-registration-azure/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAzureDeleteRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -137,7 +177,7 @@ func (a *Client) CloudRegistrationAzureDownloadScript(params *CloudRegistrationA
 		PathPattern:        "/cloud-security-registration-azure/entities/scripts/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAzureDownloadScriptReader{formats: a.formats},
 		Context:            params.Context,
@@ -175,7 +215,7 @@ func (a *Client) CloudRegistrationAzureGetRegistration(params *CloudRegistration
 		PathPattern:        "/cloud-security-registration-azure/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAzureGetRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -213,7 +253,7 @@ func (a *Client) CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrat
 		PathPattern:        "/cloud-security-registration-azure/entities/registrations/healthcheck/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAzureTriggerHealthCheckReader{formats: a.formats},
 		Context:            params.Context,
@@ -251,7 +291,7 @@ func (a *Client) CloudRegistrationAzureUpdateRegistration(params *CloudRegistrat
 		PathPattern:        "/cloud-security-registration-azure/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAzureUpdateRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -289,7 +329,7 @@ func (a *Client) DownloadAzureScript(params *DownloadAzureScriptParams, opts ...
 		PathPattern:        "/cloud-security-registration-azure/entities/scripts/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DownloadAzureScriptReader{formats: a.formats},
 		Context:            params.Context,
