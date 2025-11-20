@@ -1,5 +1,8 @@
-  # Fix the file downloads: invalid swagger for file downloads
-    .definitions."domain.DownloadItem"."type"="string"
+# Rename OpenAPI spec title to "CrowdStrike API Specification"
+  .info.title = "CrowdStrike API Specification"
+
+# Fix the file downloads: invalid swagger for file downloads
+  |  .definitions."domain.DownloadItem"."type"="string"
   | .definitions."domain.DownloadItem"."format"="binary"
   | .paths."/intel/entities/report-files/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/intel/entities/rules-latest-files/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
@@ -8,23 +11,34 @@
   # Fix overflow on json number (more than 63 bits are needed hold this field)
   | .definitions."domain.APIEvaluationLogicItemV1".properties.id."x-go-type"={type: "Number", import: {package: "encoding/json"}, hints: {noValidation: true}}
   | .definitions."domain.APISimplifiedEvaluationLogicItemV1".properties.id."x-go-type"={type: "Number", import: {package: "encoding/json"}, hints: {noValidation: true}}
-  # Rename msaspec.Error back to msa.APIError. These are two names for the same type.
+
+  # Rename msaspec.* types to msa.* types
+  # Conditionally create msa.* definitions only if msaspec.* exists and msa.* does not exist
+  | if .definitions | (has("msaspec.Error") and (has("msa.APIError") | not)) then
+      .definitions."msa.APIError" = .definitions."msaspec.Error"
+    else . end
+  | if .definitions | (has("msaspec.Paging") and (has("msa.Paging") | not)) then
+      .definitions."msa.Paging" = .definitions."msaspec.Paging"
+    else . end
+  | if .definitions | (has("msaspec.MetaInfo") and (has("msa.MetaInfo") | not)) then
+      .definitions."msa.MetaInfo" = .definitions."msaspec.MetaInfo"
+    else . end
+  # Rename msaspec types to msa types. These are two names for the same type.
   | walk(
-    if type == "object" and has("$ref") and ."$ref" == "#/definitions/msaspec.Error" then ."$ref" = "#/definitions/msa.APIError" else . end
-    | if type == "object" and has("$ref") and ."$ref" == "#/definitions/msaspec.MetaInfo" then ."$ref" = "#/definitions/msa.MetaInfo" else . end
+    if type == "object" and has("$ref") then
+      if ."$ref" == "#/definitions/msaspec.Error" then ."$ref" = "#/definitions/msa.APIError"
+      elif ."$ref" == "#/definitions/msaspec.MetaInfo" then ."$ref" = "#/definitions/msa.MetaInfo"
+      elif ."$ref" == "#/definitions/msaspec.Paging" then ."$ref" = "#/definitions/msa.Paging"
+      else . end
+    else . end
     )
   | del(.definitions."msaspec.Error")
-  # Rename msaspec.Paging to msa.Paging. These are two names for the same type.
-  | walk(
-    if type == "object" and has("$ref") and ."$ref" == "#/definitions/msaspec.Paging" then ."$ref" = "#/definitions/msa.Paging" else . end
-    )
   | del(.definitions."msaspec.Paging")
+  | del(.definitions."msaspec.MetaInfo")
   | .definitions."domain.RuleMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
   | .definitions."domain.MsaMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
-  # Rename msaspec.MetaInfo to msa.MetaInfo. These are two names for the same type.
-  | del(.definitions."msaspec.MetaInfo")
 
-  # Misc fixes
+# Misc fixes
   | .paths."/intel/entities/rules-latest-files/v1".get.parameters |= . + [{type: "string", description: "Download Only if changed since", name: "If-Modified-Since", "in": "header"}]
   | .paths."/intel/entities/rules-latest-files/v1".get.responses."304" = {description: "Not Modified"}
   | .paths."/oauth2/token".post.responses."201".headers["X-CS-Region"] = {type: "string"}
