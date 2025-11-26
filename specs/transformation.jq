@@ -694,4 +694,9 @@
 
 # Add 400 error response to GET /policy/entities/prevention/v1
 | .paths."/policy/entities/prevention/v1".get.responses."400" = .paths."/policy/entities/prevention/v1".get.responses."404"
-| .paths."/policy/entities/prevention/v1".get.responses."400".description = "Bad Request" 
+| .paths."/policy/entities/prevention/v1".get.responses."400".description = "Bad Request"
+
+# Make GCP log ingestion fields nullable for dto.UpdateGCPRegistrationRequest
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_sink_name += {"x-nullable": true}
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_subscription_name += {"x-nullable": true}
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_topic_id += {"x-nullable": true} 

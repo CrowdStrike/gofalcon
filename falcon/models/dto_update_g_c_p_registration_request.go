@@ -49,13 +49,13 @@ type DtoUpdateGCPRegistrationRequest struct {
 	Labels GcpLabels `json:"labels,omitempty"`
 
 	// log ingestion sink name
-	LogIngestionSinkName string `json:"log_ingestion_sink_name,omitempty"`
+	LogIngestionSinkName *string `json:"log_ingestion_sink_name,omitempty"`
 
 	// log ingestion subscription name
-	LogIngestionSubscriptionName string `json:"log_ingestion_subscription_name,omitempty"`
+	LogIngestionSubscriptionName *string `json:"log_ingestion_subscription_name,omitempty"`
 
 	// log ingestion topic id
-	LogIngestionTopicID string `json:"log_ingestion_topic_id,omitempty"`
+	LogIngestionTopicID *string `json:"log_ingestion_topic_id,omitempty"`
 
 	// products
 	Products []*DomainProductFeatures `json:"products"`
