@@ -21,6 +21,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_aws_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_azure_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_google_cloud_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_oci_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security"
@@ -288,6 +289,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.Workflows = workflows.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
+	cli.CloudGoogleCloudRegistration = cloud_google_cloud_registration.New(transport, formats)
 	return cli
 }
 
@@ -566,6 +568,8 @@ type CrowdStrikeAPISpecification struct {
 
 	ZeroTrustAssessment zero_trust_assessment.ClientService
 
+	CloudGoogleCloudRegistration cloud_google_cloud_registration.ClientService
+
 	Transport runtime.ClientTransport
 }
 
@@ -689,4 +693,5 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.UserManagement.SetTransport(transport)
 	c.Workflows.SetTransport(transport)
 	c.ZeroTrustAssessment.SetTransport(transport)
+	c.CloudGoogleCloudRegistration.SetTransport(transport)
 }
