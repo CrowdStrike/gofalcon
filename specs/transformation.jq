@@ -696,10 +696,12 @@
 | .paths."/policy/entities/prevention/v1".get.responses."400" = .paths."/policy/entities/prevention/v1".get.responses."404"
 | .paths."/policy/entities/prevention/v1".get.responses."400".description = "Bad Request"
 
-# Make GCP log ingestion fields nullable for dto.UpdateGCPRegistrationRequest
+# Make GCP registration fields nullable for dto.CreateGCPRegistrationRequest and dto.UpdateGCPRegistrationRequest
+| .definitions."dto.CreateGCPRegistrationRequest".properties.resource_name_prefix += {"x-nullable": true}
+| .definitions."dto.CreateGCPRegistrationRequest".properties.resource_name_suffix += {"x-nullable": true}
+
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_sink_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_subscription_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_topic_id += {"x-nullable": true}
-
-# Fix dto.GCPRegistration additional_properties type from string to object
-| .definitions."dto.GCPRegistration".properties.additional_properties.type = "object" 
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.resource_name_prefix += {"x-nullable": true}
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.resource_name_suffix += {"x-nullable": true}
