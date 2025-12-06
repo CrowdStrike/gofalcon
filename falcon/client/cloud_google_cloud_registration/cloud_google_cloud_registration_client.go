@@ -210,7 +210,7 @@ func (a *Client) CloudRegistrationGcpTriggerHealthCheck(params *CloudRegistratio
 	op := &runtime.ClientOperation{
 		ID:                 "cloud-registration-gcp-trigger-health-check",
 		Method:             "POST",
-		PathPattern:        "/cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1",
+		PathPattern:        "/cloud-security-registration-google-cloud/entities/registration-scans/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

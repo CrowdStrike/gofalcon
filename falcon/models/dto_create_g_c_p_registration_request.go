@@ -21,7 +21,7 @@ import (
 type DtoCreateGCPRegistrationRequest struct {
 
 	// additional properties
-	AdditionalProperties string `json:"additional_properties,omitempty"`
+	AdditionalProperties DtoGCPRegistrationBaseAdditionalProperties `json:"additional_properties,omitempty"`
 
 	// deployment method
 	// Required: true
@@ -62,10 +62,10 @@ type DtoCreateGCPRegistrationRequest struct {
 	RegistrationScope *string `json:"registration_scope"`
 
 	// resource name prefix
-	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
+	ResourceNamePrefix *string `json:"resource_name_prefix,omitempty"`
 
 	// resource name suffix
-	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
+	ResourceNameSuffix *string `json:"resource_name_suffix,omitempty"`
 
 	// tags
 	Tags GcpTags `json:"tags,omitempty"`
