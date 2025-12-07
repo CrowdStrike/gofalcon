@@ -21,7 +21,7 @@ import (
 type DtoGCPRegistration struct {
 
 	// additional properties
-	AdditionalProperties interface{} `json:"additional_properties,omitempty"`
+	AdditionalProperties DtoGCPRegistrationBaseAdditionalProperties `json:"additional_properties,omitempty"`
 
 	// created
 	// Format: date-time

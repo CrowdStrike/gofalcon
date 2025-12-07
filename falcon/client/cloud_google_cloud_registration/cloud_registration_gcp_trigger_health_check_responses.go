@@ -56,7 +56,7 @@ func (o *CloudRegistrationGcpTriggerHealthCheckReader) ReadResponse(response run
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1] cloud-registration-gcp-trigger-health-check", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1] cloud-registration-gcp-trigger-health-check", response, response.Code())
 	}
 }
 
@@ -118,11 +118,11 @@ func (o *CloudRegistrationGcpTriggerHealthCheckOK) Code() int {
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckOK) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckOK  %+v", 200, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckOK) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckOK  %+v", 200, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckOK) GetPayload() *models.DtoHealthCheckTriggerResponseExtV1 {
@@ -228,11 +228,11 @@ func (o *CloudRegistrationGcpTriggerHealthCheckBadRequest) Code() int {
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckBadRequest) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckBadRequest) GetPayload() *models.MsaspecResponseFields {
@@ -338,11 +338,11 @@ func (o *CloudRegistrationGcpTriggerHealthCheckForbidden) Code() int {
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckForbidden  %+v", 403, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckForbidden) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckForbidden  %+v", 403, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckForbidden) GetPayload() *models.MsaspecResponseFields {
@@ -452,11 +452,11 @@ func (o *CloudRegistrationGcpTriggerHealthCheckTooManyRequests) Code() int {
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -573,11 +573,11 @@ func (o *CloudRegistrationGcpTriggerHealthCheckInternalServerError) Code() int {
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckInternalServerError) String() string {
-	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registrations/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /cloud-security-registration-google-cloud/entities/registration-scans/v1][%d] cloudRegistrationGcpTriggerHealthCheckInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *CloudRegistrationGcpTriggerHealthCheckInternalServerError) GetPayload() *models.MsaspecResponseFields {
