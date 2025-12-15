@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	CloudRegistrationAzureCreateRegistration(params *CloudRegistrationAzureCreateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureCreateRegistrationCreated, error)
 
+	CloudRegistrationAzureDeleteLegacySubscription(params *CloudRegistrationAzureDeleteLegacySubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteLegacySubscriptionOK, error)
+
 	CloudRegistrationAzureDeleteRegistration(params *CloudRegistrationAzureDeleteRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteRegistrationOK, error)
 
 	CloudRegistrationAzureDownloadScript(params *CloudRegistrationAzureDownloadScriptParams, opts ...ClientOption) (*CloudRegistrationAzureDownloadScriptOK, error)
@@ -41,6 +43,8 @@ type ClientService interface {
 	CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrationAzureTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationAzureTriggerHealthCheckOK, error)
 
 	CloudRegistrationAzureUpdateRegistration(params *CloudRegistrationAzureUpdateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateRegistrationOK, error)
+
+	CloudRegistrationAzureValidateRegistration(params *CloudRegistrationAzureValidateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureValidateRegistrationOK, error)
 
 	DownloadAzureScript(params *DownloadAzureScriptParams, opts ...ClientOption) (*DownloadAzureScriptOK, error)
 
@@ -82,6 +86,44 @@ func (a *Client) CloudRegistrationAzureCreateRegistration(params *CloudRegistrat
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-create-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureDeleteLegacySubscription deletes existing legacy azure subscriptions
+*/
+func (a *Client) CloudRegistrationAzureDeleteLegacySubscription(params *CloudRegistrationAzureDeleteLegacySubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteLegacySubscriptionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureDeleteLegacySubscriptionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-delete-legacy-subscription",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-security-registration-azure/entities/accounts/legacy/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureDeleteLegacySubscriptionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureDeleteLegacySubscriptionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-delete-legacy-subscription: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -272,6 +314,44 @@ func (a *Client) CloudRegistrationAzureUpdateRegistration(params *CloudRegistrat
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-update-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureValidateRegistration validates an azure registration by checking service principal role assignments and deployment stack if the deployment method is bicep
+*/
+func (a *Client) CloudRegistrationAzureValidateRegistration(params *CloudRegistrationAzureValidateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureValidateRegistrationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureValidateRegistrationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-validate-registration",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-azure/entities/registrations/validate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureValidateRegistrationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureValidateRegistrationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-validate-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
