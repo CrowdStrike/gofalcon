@@ -76,7 +76,7 @@ type DtoUpdateGCPRegistrationRequest struct {
 	Tags GcpTags `json:"tags,omitempty"`
 
 	// wif pool name
-	WifPoolName string `json:"wif_pool_name,omitempty"`
+	WifPoolName *string `json:"wif_pool_name,omitempty"`
 
 	// wif project id
 	WifProjectID string `json:"wif_project_id,omitempty"`
@@ -85,7 +85,7 @@ type DtoUpdateGCPRegistrationRequest struct {
 	WifProjectNumber string `json:"wif_project_number,omitempty"`
 
 	// wif provider name
-	WifProviderName string `json:"wif_provider_name,omitempty"`
+	WifProviderName *string `json:"wif_provider_name,omitempty"`
 }
 
 // Validate validates this dto update g c p registration request
