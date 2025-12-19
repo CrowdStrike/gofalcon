@@ -705,3 +705,5 @@
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_topic_id += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.resource_name_prefix += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.resource_name_suffix += {"x-nullable": true}
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_pool_name += {"x-nullable": true}
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_provider_name += {"x-nullable": true}
