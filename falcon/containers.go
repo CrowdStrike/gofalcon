@@ -9,6 +9,7 @@ type SensorType string
 const (
 	SidecarSensor         SensorType = "falcon-container"
 	ImageSensor           SensorType = "falcon-imageanalyzer"
+	RegionedImageSensor   SensorType = "falcon-imageanalyzer-regioned"
 	KacSensor             SensorType = "falcon-kac"
 	NodeSensor            SensorType = "falcon-sensor"
 	RegionedNodeSensor    SensorType = "falcon-sensor-regioned"
@@ -50,6 +51,8 @@ func FalconContainerSensorImageURI(falconCloud CloudType, sensorType SensorType)
 	case SidecarSensor:
 		return fmt.Sprintf("%s/falcon-container/release/falcon-container", registryFQDN(falconCloud))
 	case ImageSensor:
+		return fmt.Sprintf("%s/falcon-imageanalyzer/release/falcon-imageanalyzer", registryFQDN(falconCloud))
+	case RegionedImageSensor:
 		return fmt.Sprintf("%s/falcon-imageanalyzer/%s/release/falcon-imageanalyzer", registryFQDN(falconCloud), registryCloud(falconCloud))
 	case KacSensor:
 		return fmt.Sprintf("%s/falcon-kac/release/falcon-kac", registryFQDN(falconCloud))
