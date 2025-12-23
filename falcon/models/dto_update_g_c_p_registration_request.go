@@ -46,7 +46,7 @@ type DtoUpdateGCPRegistrationRequest struct {
 	InfraProjectID string `json:"infra_project_id,omitempty"`
 
 	// labels
-	Labels GcpLabels `json:"labels,omitempty"`
+	Labels GcpLabels `json:"labels"`
 
 	// log ingestion sink name
 	LogIngestionSinkName *string `json:"log_ingestion_sink_name,omitempty"`
@@ -73,7 +73,7 @@ type DtoUpdateGCPRegistrationRequest struct {
 	ResourceNameSuffix *string `json:"resource_name_suffix,omitempty"`
 
 	// tags
-	Tags GcpTags `json:"tags,omitempty"`
+	Tags GcpTags `json:"tags"`
 
 	// wif pool name
 	WifPoolName *string `json:"wif_pool_name,omitempty"`

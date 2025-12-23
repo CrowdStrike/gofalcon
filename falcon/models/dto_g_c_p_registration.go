@@ -49,7 +49,7 @@ type DtoGCPRegistration struct {
 	InfraProjectID string `json:"infra_project_id,omitempty"`
 
 	// labels
-	Labels GcpLabels `json:"labels,omitempty"`
+	Labels GcpLabels `json:"labels"`
 
 	// log ingestion properties
 	LogIngestionProperties *DtoLogIngestionProperties `json:"log_ingestion_properties,omitempty"`
@@ -82,7 +82,7 @@ type DtoGCPRegistration struct {
 	Status string `json:"status,omitempty"`
 
 	// tags
-	Tags GcpTags `json:"tags,omitempty"`
+	Tags GcpTags `json:"tags"`
 
 	// updated
 	// Format: date-time

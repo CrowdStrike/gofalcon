@@ -48,7 +48,7 @@ type DtoCreateGCPRegistrationRequest struct {
 	InfraProjectID *string `json:"infra_project_id"`
 
 	// labels
-	Labels GcpLabels `json:"labels,omitempty"`
+	Labels GcpLabels `json:"labels"`
 
 	// products
 	Products []*DomainProductFeatures `json:"products"`
@@ -68,7 +68,7 @@ type DtoCreateGCPRegistrationRequest struct {
 	ResourceNameSuffix *string `json:"resource_name_suffix,omitempty"`
 
 	// tags
-	Tags GcpTags `json:"tags,omitempty"`
+	Tags GcpTags `json:"tags"`
 
 	// wif project id
 	// Required: true

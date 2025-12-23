@@ -699,6 +699,8 @@
 # Make GCP registration fields nullable for dto.CreateGCPRegistrationRequest and dto.UpdateGCPRegistrationRequest
 | .definitions."dto.CreateGCPRegistrationRequest".properties.resource_name_prefix += {"x-nullable": true}
 | .definitions."dto.CreateGCPRegistrationRequest".properties.resource_name_suffix += {"x-nullable": true}
+| .definitions."dto.CreateGCPRegistrationRequest".properties.labels += {"x-omitempty": false}
+| .definitions."dto.CreateGCPRegistrationRequest".properties.tags += {"x-omitempty": false}
 
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_sink_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.log_ingestion_subscription_name += {"x-nullable": true}
@@ -707,3 +709,8 @@
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.resource_name_suffix += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_pool_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_provider_name += {"x-nullable": true}
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.labels += {"x-omitempty": false}
+| .definitions."dto.UpdateGCPRegistrationRequest".properties.tags += {"x-omitempty": false}
+
+| .definitions."gcp.Labels" += {"x-omitempty": false}
+| .definitions."gcp.Tags" += {"x-omitempty": false}
