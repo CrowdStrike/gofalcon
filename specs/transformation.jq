@@ -711,6 +711,7 @@
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_provider_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.labels += {"x-omitempty": false}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.tags += {"x-omitempty": false}
+| .definitions."dto.UpdateGCPRegistrationRequest".required = []
 
 | .definitions."gcp.Labels" += {"x-omitempty": false}
 | .definitions."gcp.Tags" += {"x-omitempty": false}

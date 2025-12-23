@@ -12,7 +12,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // DtoUpdateGCPRegistrationRequest dto update g c p registration request
@@ -24,8 +23,7 @@ type DtoUpdateGCPRegistrationRequest struct {
 	AdditionalProperties DtoGCPRegistrationBaseAdditionalProperties `json:"additional_properties,omitempty"`
 
 	// deployment method
-	// Required: true
-	DeploymentMethod *string `json:"deployment_method"`
+	DeploymentMethod string `json:"deployment_method,omitempty"`
 
 	// entity id
 	EntityID []string `json:"entity_id"`
@@ -92,10 +90,6 @@ type DtoUpdateGCPRegistrationRequest struct {
 func (m *DtoUpdateGCPRegistrationRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDeploymentMethod(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateLabels(formats); err != nil {
 		res = append(res, err)
 	}
@@ -111,15 +105,6 @@ func (m *DtoUpdateGCPRegistrationRequest) Validate(formats strfmt.Registry) erro
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DtoUpdateGCPRegistrationRequest) validateDeploymentMethod(formats strfmt.Registry) error {
-
-	if err := validate.Required("deployment_method", "body", m.DeploymentMethod); err != nil {
-		return err
-	}
-
 	return nil
 }
 
