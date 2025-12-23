@@ -48,7 +48,7 @@ type DtoCreateGCPRegistrationRequest struct {
 	InfraProjectID *string `json:"infra_project_id"`
 
 	// labels
-	Labels GcpLabels `json:"labels"`
+	Labels map[string]string `json:"labels"`
 
 	// products
 	Products []*DomainProductFeatures `json:"products"`
@@ -68,7 +68,7 @@ type DtoCreateGCPRegistrationRequest struct {
 	ResourceNameSuffix *string `json:"resource_name_suffix,omitempty"`
 
 	// tags
-	Tags GcpTags `json:"tags"`
+	Tags map[string]string `json:"tags"`
 
 	// wif project id
 	// Required: true
@@ -91,10 +91,6 @@ func (m *DtoCreateGCPRegistrationRequest) Validate(formats strfmt.Registry) erro
 		res = append(res, err)
 	}
 
-	if err := m.validateLabels(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateProducts(formats); err != nil {
 		res = append(res, err)
 	}
@@ -104,10 +100,6 @@ func (m *DtoCreateGCPRegistrationRequest) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateRegistrationScope(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTags(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -143,25 +135,6 @@ func (m *DtoCreateGCPRegistrationRequest) validateInfraProjectID(formats strfmt.
 
 	if err := validate.Required("infra_project_id", "body", m.InfraProjectID); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *DtoCreateGCPRegistrationRequest) validateLabels(formats strfmt.Registry) error {
-	if swag.IsZero(m.Labels) { // not required
-		return nil
-	}
-
-	if m.Labels != nil {
-		if err := m.Labels.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("labels")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("labels")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -211,25 +184,6 @@ func (m *DtoCreateGCPRegistrationRequest) validateRegistrationScope(formats strf
 	return nil
 }
 
-func (m *DtoCreateGCPRegistrationRequest) validateTags(formats strfmt.Registry) error {
-	if swag.IsZero(m.Tags) { // not required
-		return nil
-	}
-
-	if m.Tags != nil {
-		if err := m.Tags.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("tags")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tags")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *DtoCreateGCPRegistrationRequest) validateWifProjectID(formats strfmt.Registry) error {
 
 	if err := validate.Required("wif_project_id", "body", m.WifProjectID); err != nil {
@@ -243,39 +197,13 @@ func (m *DtoCreateGCPRegistrationRequest) validateWifProjectID(formats strfmt.Re
 func (m *DtoCreateGCPRegistrationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateLabels(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTags(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DtoCreateGCPRegistrationRequest) contextValidateLabels(ctx context.Context, formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Labels) { // not required
-		return nil
-	}
-
-	if err := m.Labels.ContextValidate(ctx, formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("labels")
-		} else if ce, ok := err.(*errors.CompositeError); ok {
-			return ce.ValidateName("labels")
-		}
-		return err
-	}
-
 	return nil
 }
 
@@ -299,24 +227,6 @@ func (m *DtoCreateGCPRegistrationRequest) contextValidateProducts(ctx context.Co
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *DtoCreateGCPRegistrationRequest) contextValidateTags(ctx context.Context, formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Tags) { // not required
-		return nil
-	}
-
-	if err := m.Tags.ContextValidate(ctx, formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("tags")
-		} else if ce, ok := err.(*errors.CompositeError); ok {
-			return ce.ValidateName("tags")
-		}
-		return err
 	}
 
 	return nil

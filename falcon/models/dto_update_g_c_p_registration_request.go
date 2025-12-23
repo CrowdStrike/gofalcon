@@ -44,7 +44,7 @@ type DtoUpdateGCPRegistrationRequest struct {
 	InfraProjectID string `json:"infra_project_id,omitempty"`
 
 	// labels
-	Labels GcpLabels `json:"labels"`
+	Labels map[string]string `json:"labels"`
 
 	// log ingestion sink name
 	LogIngestionSinkName *string `json:"log_ingestion_sink_name,omitempty"`
@@ -71,7 +71,7 @@ type DtoUpdateGCPRegistrationRequest struct {
 	ResourceNameSuffix *string `json:"resource_name_suffix,omitempty"`
 
 	// tags
-	Tags GcpTags `json:"tags"`
+	Tags map[string]string `json:"tags"`
 
 	// wif pool name
 	WifPoolName *string `json:"wif_pool_name,omitempty"`
@@ -90,40 +90,13 @@ type DtoUpdateGCPRegistrationRequest struct {
 func (m *DtoUpdateGCPRegistrationRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateLabels(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateProducts(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTags(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DtoUpdateGCPRegistrationRequest) validateLabels(formats strfmt.Registry) error {
-	if swag.IsZero(m.Labels) { // not required
-		return nil
-	}
-
-	if m.Labels != nil {
-		if err := m.Labels.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("labels")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("labels")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -153,62 +126,17 @@ func (m *DtoUpdateGCPRegistrationRequest) validateProducts(formats strfmt.Regist
 	return nil
 }
 
-func (m *DtoUpdateGCPRegistrationRequest) validateTags(formats strfmt.Registry) error {
-	if swag.IsZero(m.Tags) { // not required
-		return nil
-	}
-
-	if m.Tags != nil {
-		if err := m.Tags.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("tags")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tags")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 // ContextValidate validate this dto update g c p registration request based on the context it is used
 func (m *DtoUpdateGCPRegistrationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateLabels(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTags(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DtoUpdateGCPRegistrationRequest) contextValidateLabels(ctx context.Context, formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Labels) { // not required
-		return nil
-	}
-
-	if err := m.Labels.ContextValidate(ctx, formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("labels")
-		} else if ce, ok := err.(*errors.CompositeError); ok {
-			return ce.ValidateName("labels")
-		}
-		return err
-	}
-
 	return nil
 }
 
@@ -232,24 +160,6 @@ func (m *DtoUpdateGCPRegistrationRequest) contextValidateProducts(ctx context.Co
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *DtoUpdateGCPRegistrationRequest) contextValidateTags(ctx context.Context, formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Tags) { // not required
-		return nil
-	}
-
-	if err := m.Tags.ContextValidate(ctx, formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("tags")
-		} else if ce, ok := err.(*errors.CompositeError); ok {
-			return ce.ValidateName("tags")
-		}
-		return err
 	}
 
 	return nil

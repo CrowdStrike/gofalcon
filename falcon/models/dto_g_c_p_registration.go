@@ -49,7 +49,7 @@ type DtoGCPRegistration struct {
 	InfraProjectID string `json:"infra_project_id,omitempty"`
 
 	// labels
-	Labels GcpLabels `json:"labels"`
+	Labels map[string]string `json:"labels"`
 
 	// log ingestion properties
 	LogIngestionProperties *DtoLogIngestionProperties `json:"log_ingestion_properties,omitempty"`
@@ -82,7 +82,7 @@ type DtoGCPRegistration struct {
 	Status string `json:"status,omitempty"`
 
 	// tags
-	Tags GcpTags `json:"tags"`
+	Tags map[string]string `json:"tags"`
 
 	// updated
 	// Format: date-time
@@ -108,10 +108,6 @@ func (m *DtoGCPRegistration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateLabels(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateLogIngestionProperties(formats); err != nil {
 		res = append(res, err)
 	}
@@ -125,10 +121,6 @@ func (m *DtoGCPRegistration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProjects(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTags(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -195,25 +187,6 @@ func (m *DtoGCPRegistration) validateInfraManagerProperties(formats strfmt.Regis
 				return ve.ValidateName("infra_manager_properties")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("infra_manager_properties")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DtoGCPRegistration) validateLabels(formats strfmt.Registry) error {
-	if swag.IsZero(m.Labels) { // not required
-		return nil
-	}
-
-	if m.Labels != nil {
-		if err := m.Labels.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("labels")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("labels")
 			}
 			return err
 		}
@@ -312,25 +285,6 @@ func (m *DtoGCPRegistration) validateProjects(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DtoGCPRegistration) validateTags(formats strfmt.Registry) error {
-	if swag.IsZero(m.Tags) { // not required
-		return nil
-	}
-
-	if m.Tags != nil {
-		if err := m.Tags.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("tags")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tags")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *DtoGCPRegistration) validateUpdated(formats strfmt.Registry) error {
 	if swag.IsZero(m.Updated) { // not required
 		return nil
@@ -374,10 +328,6 @@ func (m *DtoGCPRegistration) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateLabels(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateLogIngestionProperties(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -391,10 +341,6 @@ func (m *DtoGCPRegistration) ContextValidate(ctx context.Context, formats strfmt
 	}
 
 	if err := m.contextValidateProjects(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTags(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -449,24 +395,6 @@ func (m *DtoGCPRegistration) contextValidateInfraManagerProperties(ctx context.C
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *DtoGCPRegistration) contextValidateLabels(ctx context.Context, formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Labels) { // not required
-		return nil
-	}
-
-	if err := m.Labels.ContextValidate(ctx, formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("labels")
-		} else if ce, ok := err.(*errors.CompositeError); ok {
-			return ce.ValidateName("labels")
-		}
-		return err
 	}
 
 	return nil
@@ -559,24 +487,6 @@ func (m *DtoGCPRegistration) contextValidateProjects(ctx context.Context, format
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *DtoGCPRegistration) contextValidateTags(ctx context.Context, formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Tags) { // not required
-		return nil
-	}
-
-	if err := m.Tags.ContextValidate(ctx, formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("tags")
-		} else if ce, ok := err.(*errors.CompositeError); ok {
-			return ce.ValidateName("tags")
-		}
-		return err
 	}
 
 	return nil
