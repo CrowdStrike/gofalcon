@@ -33,6 +33,9 @@ type RestAWSAccountPatchExtV1 struct {
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
 
+	// falcon client id
+	FalconClientID string `json:"falcon_client_id,omitempty"`
+
 	// ioa regions
 	IoaRegions []string `json:"ioa_regions"`
 
@@ -47,6 +50,13 @@ type RestAWSAccountPatchExtV1 struct {
 
 	// reader role arn
 	ReaderRoleArn string `json:"reader_role_arn,omitempty"`
+
+	// remediation region
+	RemediationRegion string `json:"remediation_region,omitempty"`
+
+	// remediation tou accepted
+	// Format: date-time
+	RemediationTouAccepted strfmt.DateTime `json:"remediation_tou_accepted,omitempty"`
 
 	// resource name prefix
 	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
@@ -66,6 +76,9 @@ type RestAWSAccountPatchExtV1 struct {
 	// s3 log ingestion sns topic arn
 	S3LogIngestionSnsTopicArn string `json:"s3_log_ingestion_sns_topic_arn,omitempty"`
 
+	// use existing cloudtrail
+	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
+
 	// vulnerability scanning regions
 	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
 }
@@ -83,6 +96,10 @@ func (m *RestAWSAccountPatchExtV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProducts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRemediationTouAccepted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -148,6 +165,18 @@ func (m *RestAWSAccountPatchExtV1) validateProducts(formats strfmt.Registry) err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RestAWSAccountPatchExtV1) validateRemediationTouAccepted(formats strfmt.Registry) error {
+	if swag.IsZero(m.RemediationTouAccepted) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("remediation_tou_accepted", "body", "date-time", m.RemediationTouAccepted.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

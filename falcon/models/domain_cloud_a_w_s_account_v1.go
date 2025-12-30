@@ -103,6 +103,9 @@ type DomainCloudAWSAccountV1 struct {
 	// registration status
 	RegistrationStatus string `json:"registration_status,omitempty"`
 
+	// remediation cloudformation url
+	RemediationCloudformationURL string `json:"remediation_cloudformation_url,omitempty"`
+
 	// resource metadata
 	// Required: true
 	ResourceMetadata *DomainAWSAccountResourceMetadata `json:"resource_metadata"`
