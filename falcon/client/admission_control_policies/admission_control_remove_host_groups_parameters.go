@@ -240,7 +240,7 @@ func (o *AdmissionControlRemoveHostGroupsParams) bindParamHostGroupIds(formats s
 	}
 
 	// items.CollectionFormat: "csv"
-	hostGroupIdsIS := swag.JoinByFormat(hostGroupIdsIC, "csv")
+	hostGroupIdsIS := swag.JoinByFormat(hostGroupIdsIC, "multi")
 
 	return hostGroupIdsIS
 }

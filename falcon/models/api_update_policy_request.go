@@ -21,7 +21,7 @@ type APIUpdatePolicyRequest struct {
 	Description string `json:"description,omitempty"`
 
 	// is enabled
-	IsEnabled bool `json:"is_enabled,omitempty"`
+	IsEnabled bool `json:"is_enabled"`
 
 	// name
 	Name string `json:"name,omitempty"`
