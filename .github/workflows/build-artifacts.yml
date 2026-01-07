@@ -1,0 +1,125 @@
+name: Build Release Artifacts
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to build based on the tag that will be created (e.g., 1.8.0, v1.2.0, etc.)'
+        required: true
+        type: string
+
+# Build jobs need permissions to read repository contents and create pull requests
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Validate version input
+        env:
+          VERSION_INPUT: ${{ github.event.inputs.version }}
+        run: |
+          # Strip 'v' prefix from version if present
+          VERSION="${VERSION_INPUT#v}"
+
+          # Validate semantic version format (X.Y.Z where X, Y, Z are numbers)
+          if ! echo "$VERSION" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' > /dev/null; then
+            echo "Error: Version must follow semantic versioning format (X.Y.Z)"
+            echo "Provided: $VERSION_INPUT"
+            echo "Expected format examples: 1.8.0, v1.8.0, 2.0.1"
+            exit 1
+          fi
+
+          # Validate that version components are reasonable (not too large)
+          MAJOR=$(echo "$VERSION" | cut -d. -f1)
+          MINOR=$(echo "$VERSION" | cut -d. -f2)
+          PATCH=$(echo "$VERSION" | cut -d. -f3)
+
+          if [ "$MAJOR" -gt 999 ] || [ "$MINOR" -gt 999 ] || [ "$PATCH" -gt 999 ]; then
+            echo "Error: Version components must be <= 999"
+            echo "Provided: $VERSION (Major: $MAJOR, Minor: $MINOR, Patch: $PATCH)"
+            exit 1
+          fi
+
+          # Set environment variable for later steps
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+
+          echo "Version validation passed: $VERSION"
+
+      - name: Update version in version.go
+        run: |
+          echo "Updating version.go with version: $VERSION"
+
+          # Get the current version from version.go
+          CURRENT_VERSION=$(grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+' falcon/version.go)
+          echo "Current version in version.go: $CURRENT_VERSION"
+
+          # Replace the current version with the new version
+          sed -i "s/$CURRENT_VERSION/$VERSION/g" falcon/version.go
+
+          # Verify the change was made
+          echo "Updated version.go contents:"
+          cat falcon/version.go
+
+      - name: Check if version already exists
+        run: |
+          if git tag -l | grep -q "^${VERSION}$\|^v${VERSION}$"; then
+            echo "Version ${VERSION} (or v${VERSION}) already exists, skipping build"
+            echo "SKIP_BUILD=true" >> $GITHUB_ENV
+          else
+            echo "SKIP_BUILD=false" >> $GITHUB_ENV
+          fi
+
+      - name: Create branch and commit changes
+        if: env.SKIP_BUILD == 'false'
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+          BRANCH_NAME="update-release-${VERSION}"
+          git checkout -b "${BRANCH_NAME}"
+
+          # Add the modified version.go file
+          git add falcon/version.go
+          git commit -m "bump gofalcon version to ${VERSION}"
+          git push origin "${BRANCH_NAME}"
+
+          echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_ENV
+
+      - name: Create Pull Request
+        if: env.SKIP_BUILD == 'false'
+        run: |
+          gh pr create \
+            --title "bump gofalcon version to ${VERSION}" \
+            --body "This PR updates the gofalcon version to ${VERSION}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Output summary
+        run: |
+          if [ "$SKIP_BUILD" = "true" ]; then
+            echo "## Build Skipped" >> $GITHUB_STEP_SUMMARY
+            echo "Version ${VERSION} already exists, no build was performed." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## Version Updated Successfully" >> $GITHUB_STEP_SUMMARY
+            echo "- Version: ${VERSION}" >> $GITHUB_STEP_SUMMARY
+            echo "- Branch: ${BRANCH_NAME}" >> $GITHUB_STEP_SUMMARY
+            echo "- Updated file: falcon/version.go" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "A pull request has been created. After merging, create a release with tag ${VERSION}." >> $GITHUB_STEP_SUMMARY
+          fi
