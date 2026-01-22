@@ -69,6 +69,9 @@ type DomainCloudAWSAccountV1 struct {
 	// csp live events are enabled
 	CspEvents bool `json:"csp_events,omitempty"`
 
+	// cspm enabled
+	CspmEnabled bool `json:"cspm_enabled,omitempty"`
+
 	// environment
 	Environment string `json:"environment,omitempty"`
 
@@ -83,6 +86,9 @@ type DomainCloudAWSAccountV1 struct {
 	// Required: true
 	InventoryFilter []*DomainAWSInventoryFilterSetting `json:"inventory_filter"`
 
+	// Is CSPM Lite enabled.
+	IsCspmLite bool `json:"is_cspm_lite,omitempty"`
+
 	// is custom rolename
 	// Required: true
 	IsCustomRolename *bool `json:"is_custom_rolename"`
@@ -92,6 +98,9 @@ type DomainCloudAWSAccountV1 struct {
 
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
+
+	// ngsiem enabled
+	NgsiemEnabled bool `json:"ngsiem_enabled,omitempty"`
 
 	// Up to 34 character AWS provided unique identifier for the organization.
 	OrganizationID string `json:"organization_id,omitempty"`
