@@ -708,3 +708,6 @@
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_pool_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_provider_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".required = []
+
+# admission-control-policies fixes
+| .definitions."models.UpdatePolicyRequest".properties.is_enabled += {"x-nullable": true}
