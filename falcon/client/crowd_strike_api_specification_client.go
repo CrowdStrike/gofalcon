@@ -11,7 +11,6 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/crowdstrike/gofalcon/falcon/client/a_s_p_m"
-	"github.com/crowdstrike/gofalcon/falcon/client/admission_control_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
 	"github.com/crowdstrike/gofalcon/falcon/client/cao_hunting"
@@ -173,7 +172,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 
 	cli := new(CrowdStrikeAPISpecification)
 	cli.Transport = transport
-	cli.AdmissionControlPolicies = admission_control_policies.New(transport, formats)
 	cli.Aspm = a_s_p_m.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
@@ -336,8 +334,6 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // CrowdStrikeAPISpecification is a client for crowd strike API specification
 type CrowdStrikeAPISpecification struct {
-	AdmissionControlPolicies admission_control_policies.ClientService
-
 	Aspm a_s_p_m.ClientService
 
 	Alerts alerts.ClientService
@@ -580,7 +576,6 @@ type CrowdStrikeAPISpecification struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-	c.AdmissionControlPolicies.SetTransport(transport)
 	c.Aspm.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
