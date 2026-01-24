@@ -24,6 +24,9 @@ type RestAWSAccountPatchExtV1 struct {
 	// Required: true
 	AccountID *string `json:"account_id"`
 
+	// cloudtrail region
+	CloudtrailRegion string `json:"cloudtrail_region,omitempty"`
+
 	// csp events
 	CspEvents bool `json:"csp_events,omitempty"`
 
@@ -32,6 +35,9 @@ type RestAWSAccountPatchExtV1 struct {
 
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
+
+	// dspm role
+	DspmRole string `json:"dspm_role,omitempty"`
 
 	// falcon client id
 	FalconClientID string `json:"falcon_client_id,omitempty"`
@@ -81,6 +87,9 @@ type RestAWSAccountPatchExtV1 struct {
 
 	// vulnerability scanning regions
 	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
+
+	// vulnerability scanning role
+	VulnerabilityScanningRole string `json:"vulnerability_scanning_role,omitempty"`
 }
 
 // Validate validates this rest a w s account patch ext v1

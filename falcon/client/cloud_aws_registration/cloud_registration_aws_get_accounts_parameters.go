@@ -61,12 +61,17 @@ CloudRegistrationAwsGetAccountsParams contains all the parameters to send to the
 	Typically these are written to a http.Request.
 */
 type CloudRegistrationAwsGetAccountsParams struct {
-
 	/* Ids.
 
 	   AWS account IDs to filter
 	*/
 	Ids []string
+
+	/* OrganizationIds.
+
+	   AWS organization IDs to filter
+	*/
+	OrganizationIds []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -132,9 +137,19 @@ func (o *CloudRegistrationAwsGetAccountsParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithOrganizationIds adds the organizationIds to the cloud registration aws get accounts params
+func (o *CloudRegistrationAwsGetAccountsParams) WithOrganizationIds(organizationIds []string) *CloudRegistrationAwsGetAccountsParams {
+	o.SetOrganizationIds(organizationIds)
+	return o
+}
+
+// SetOrganizationIds adds the organizationIds to the cloud registration aws get accounts params
+func (o *CloudRegistrationAwsGetAccountsParams) SetOrganizationIds(organizationIds []string) {
+	o.OrganizationIds = organizationIds
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *CloudRegistrationAwsGetAccountsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
-
 	if err := r.SetTimeout(o.timeout); err != nil {
 		return err
 	}
@@ -147,6 +162,17 @@ func (o *CloudRegistrationAwsGetAccountsParams) WriteToRequest(r runtime.ClientR
 
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
+	}
+
+	if o.OrganizationIds != nil {
+
+		// binding items for organization-ids
+		joinedOrganizationIds := o.bindParamOrganizationIds(reg)
+
+		// query array param organization-ids
+		if err := r.SetQueryParam("organization-ids", joinedOrganizationIds...); err != nil {
 			return err
 		}
 	}
@@ -172,4 +198,21 @@ func (o *CloudRegistrationAwsGetAccountsParams) bindParamIds(formats strfmt.Regi
 	idsIS := swag.JoinByFormat(idsIC, "multi")
 
 	return idsIS
+}
+
+// bindParamCloudRegistrationAwsGetAccounts binds the parameter organization-ids
+func (o *CloudRegistrationAwsGetAccountsParams) bindParamOrganizationIds(formats strfmt.Registry) []string {
+	organizationIdsIR := o.OrganizationIds
+
+	var organizationIdsIC []string
+	for _, organizationIdsIIR := range organizationIdsIR { // explode []string
+
+		organizationIdsIIV := organizationIdsIIR // string as string
+		organizationIdsIC = append(organizationIdsIC, organizationIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	organizationIdsIS := swag.JoinByFormat(organizationIdsIC, "multi")
+
+	return organizationIdsIS
 }
