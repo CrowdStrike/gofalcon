@@ -34,8 +34,17 @@ type ApimodelsAssetFilter struct {
 	// resource ids
 	ResourceIds []string `json:"resource_ids"`
 
+	// resource names
+	ResourceNames []string `json:"resource_names"`
+
 	// resource types
 	ResourceTypes []string `json:"resource_types"`
+
+	// service categories
+	ServiceCategories []string `json:"service_categories"`
+
+	// tags
+	Tags []string `json:"tags"`
 }
 
 // Validate validates this apimodels asset filter
