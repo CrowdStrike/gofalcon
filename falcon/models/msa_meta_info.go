@@ -34,7 +34,7 @@ type MsaMetaInfo struct {
 	TraceID *string `json:"trace_id"`
 
 	// writes
-	Writes *MsaspecWrites `json:"writes,omitempty"`
+	Writes *MsaResources `json:"writes,omitempty"`
 }
 
 // Validate validates this msa meta info

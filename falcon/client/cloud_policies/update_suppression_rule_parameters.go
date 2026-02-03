@@ -63,24 +63,6 @@ UpdateSuppressionRuleParams contains all the parameters to send to the API endpo
 */
 type UpdateSuppressionRuleParams struct {
 
-	/* Authorization.
-
-	   Bearer Token
-	*/
-	Authorization string
-
-	/* XCSCUSTID.
-
-	   Customer ID
-	*/
-	XCSCUSTID string
-
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID string
-
 	// Body.
 	Body *models.SuppressionrulesUpdateSuppressionRuleRequest
 
@@ -137,39 +119,6 @@ func (o *UpdateSuppressionRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithAuthorization adds the authorization to the update suppression rule params
-func (o *UpdateSuppressionRuleParams) WithAuthorization(authorization string) *UpdateSuppressionRuleParams {
-	o.SetAuthorization(authorization)
-	return o
-}
-
-// SetAuthorization adds the authorization to the update suppression rule params
-func (o *UpdateSuppressionRuleParams) SetAuthorization(authorization string) {
-	o.Authorization = authorization
-}
-
-// WithXCSCUSTID adds the xCSCUSTID to the update suppression rule params
-func (o *UpdateSuppressionRuleParams) WithXCSCUSTID(xCSCUSTID string) *UpdateSuppressionRuleParams {
-	o.SetXCSCUSTID(xCSCUSTID)
-	return o
-}
-
-// SetXCSCUSTID adds the xCSCUSTId to the update suppression rule params
-func (o *UpdateSuppressionRuleParams) SetXCSCUSTID(xCSCUSTID string) {
-	o.XCSCUSTID = xCSCUSTID
-}
-
-// WithXCSUSERUUID adds the xCSUSERUUID to the update suppression rule params
-func (o *UpdateSuppressionRuleParams) WithXCSUSERUUID(xCSUSERUUID string) *UpdateSuppressionRuleParams {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the update suppression rule params
-func (o *UpdateSuppressionRuleParams) SetXCSUSERUUID(xCSUSERUUID string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithBody adds the body to the update suppression rule params
 func (o *UpdateSuppressionRuleParams) WithBody(body *models.SuppressionrulesUpdateSuppressionRuleRequest) *UpdateSuppressionRuleParams {
 	o.SetBody(body)
@@ -188,21 +137,6 @@ func (o *UpdateSuppressionRuleParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param Authorization
-	if err := r.SetHeaderParam("Authorization", o.Authorization); err != nil {
-		return err
-	}
-
-	// header param X-CS-CUSTID
-	if err := r.SetHeaderParam("X-CS-CUSTID", o.XCSCUSTID); err != nil {
-		return err
-	}
-
-	// header param X-CS-USERUUID
-	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

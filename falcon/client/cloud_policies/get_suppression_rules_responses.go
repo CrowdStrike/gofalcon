@@ -9,8 +9,10 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -31,6 +33,18 @@ func (o *GetSuppressionRulesReader) ReadResponse(response runtime.ClientResponse
 		return result, nil
 	case 400:
 		result := NewGetSuppressionRulesBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 403:
+		result := NewGetSuppressionRulesForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 429:
+		result := NewGetSuppressionRulesTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -57,6 +71,19 @@ GetSuppressionRulesOK describes a response with status code 200, with default he
 OK
 */
 type GetSuppressionRulesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
 	Payload *models.SuppressionrulesGetSuppressionRulesResponse
 }
 
@@ -104,6 +131,35 @@ func (o *GetSuppressionRulesOK) GetPayload() *models.SuppressionrulesGetSuppress
 
 func (o *GetSuppressionRulesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
 	o.Payload = new(models.SuppressionrulesGetSuppressionRulesResponse)
 
 	// response payload
@@ -125,6 +181,19 @@ GetSuppressionRulesBadRequest describes a response with status code 400, with de
 Bad Request
 */
 type GetSuppressionRulesBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
 	Payload *models.SuppressionrulesGetSuppressionRulesResponse
 }
 
@@ -172,7 +241,271 @@ func (o *GetSuppressionRulesBadRequest) GetPayload() *models.SuppressionrulesGet
 
 func (o *GetSuppressionRulesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
 	o.Payload = new(models.SuppressionrulesGetSuppressionRulesResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSuppressionRulesForbidden creates a GetSuppressionRulesForbidden with default headers values
+func NewGetSuppressionRulesForbidden() *GetSuppressionRulesForbidden {
+	return &GetSuppressionRulesForbidden{}
+}
+
+/*
+GetSuppressionRulesForbidden describes a response with status code 403, with default header values.
+
+Forbidden
+*/
+type GetSuppressionRulesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get suppression rules forbidden response has a 2xx status code
+func (o *GetSuppressionRulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get suppression rules forbidden response has a 3xx status code
+func (o *GetSuppressionRulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get suppression rules forbidden response has a 4xx status code
+func (o *GetSuppressionRulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get suppression rules forbidden response has a 5xx status code
+func (o *GetSuppressionRulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get suppression rules forbidden response a status code equal to that given
+func (o *GetSuppressionRulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the get suppression rules forbidden response
+func (o *GetSuppressionRulesForbidden) Code() int {
+	return 403
+}
+
+func (o *GetSuppressionRulesForbidden) Error() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/suppression-rules/v1][%d] getSuppressionRulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSuppressionRulesForbidden) String() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/suppression-rules/v1][%d] getSuppressionRulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSuppressionRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetSuppressionRulesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSuppressionRulesTooManyRequests creates a GetSuppressionRulesTooManyRequests with default headers values
+func NewGetSuppressionRulesTooManyRequests() *GetSuppressionRulesTooManyRequests {
+	return &GetSuppressionRulesTooManyRequests{}
+}
+
+/*
+GetSuppressionRulesTooManyRequests describes a response with status code 429, with default header values.
+
+Too Many Requests
+*/
+type GetSuppressionRulesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	/* Too many requests, retry after this time (as milliseconds since epoch)
+	 */
+	XRateLimitRetryAfter int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get suppression rules too many requests response has a 2xx status code
+func (o *GetSuppressionRulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get suppression rules too many requests response has a 3xx status code
+func (o *GetSuppressionRulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get suppression rules too many requests response has a 4xx status code
+func (o *GetSuppressionRulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get suppression rules too many requests response has a 5xx status code
+func (o *GetSuppressionRulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get suppression rules too many requests response a status code equal to that given
+func (o *GetSuppressionRulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
+// Code gets the status code for the get suppression rules too many requests response
+func (o *GetSuppressionRulesTooManyRequests) Code() int {
+	return 429
+}
+
+func (o *GetSuppressionRulesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/suppression-rules/v1][%d] getSuppressionRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSuppressionRulesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/suppression-rules/v1][%d] getSuppressionRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSuppressionRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetSuppressionRulesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// hydrates response header X-RateLimit-RetryAfter
+	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
+
+	if hdrXRateLimitRetryAfter != "" {
+		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
+		}
+		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -193,6 +526,19 @@ GetSuppressionRulesInternalServerError describes a response with status code 500
 Internal Server Error
 */
 type GetSuppressionRulesInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
 	Payload *models.SuppressionrulesGetSuppressionRulesResponse
 }
 
@@ -239,6 +585,35 @@ func (o *GetSuppressionRulesInternalServerError) GetPayload() *models.Suppressio
 }
 
 func (o *GetSuppressionRulesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.SuppressionrulesGetSuppressionRulesResponse)
 
