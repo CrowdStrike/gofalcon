@@ -74,6 +74,14 @@ type ClientService interface {
 
 	UpdateRuleOverride(params *UpdateRuleOverrideParams, opts ...ClientOption) (*UpdateRuleOverrideOK, error)
 
+	CreateSuppressionRule(params *CreateSuppressionRuleParams, opts ...ClientOption) (*CreateSuppressionRuleOK, error)
+
+	DeleteSuppressionRules(params *DeleteSuppressionRulesParams, opts ...ClientOption) (*DeleteSuppressionRulesOK, error)
+
+	GetSuppressionRules(params *GetSuppressionRulesParams, opts ...ClientOption) (*GetSuppressionRulesOK, error)
+
+	UpdateSuppressionRule(params *UpdateSuppressionRuleParams, opts ...ClientOption) (*UpdateSuppressionRuleOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -911,6 +919,158 @@ func (a *Client) UpdateRuleOverride(params *UpdateRuleOverrideParams, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateRuleOverride: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateSuppressionRule creates a new suppression rule
+*/
+func (a *Client) CreateSuppressionRule(params *CreateSuppressionRuleParams, opts ...ClientOption) (*CreateSuppressionRuleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateSuppressionRuleParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateSuppressionRule",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateSuppressionRuleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateSuppressionRuleOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateSuppressionRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteSuppressionRules deletes suppression rules by ID
+*/
+func (a *Client) DeleteSuppressionRules(params *DeleteSuppressionRulesParams, opts ...ClientOption) (*DeleteSuppressionRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteSuppressionRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteSuppressionRules",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteSuppressionRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteSuppressionRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteSuppressionRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSuppressionRules gets suppression rules by ID
+*/
+func (a *Client) GetSuppressionRules(params *GetSuppressionRulesParams, opts ...ClientOption) (*GetSuppressionRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSuppressionRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSuppressionRules",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSuppressionRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSuppressionRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSuppressionRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateSuppressionRule updates a suppression rule
+*/
+func (a *Client) UpdateSuppressionRule(params *UpdateSuppressionRuleParams, opts ...ClientOption) (*UpdateSuppressionRuleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateSuppressionRuleParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateSuppressionRule",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-policies/entities/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateSuppressionRuleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateSuppressionRuleOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateSuppressionRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
