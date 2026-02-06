@@ -715,6 +715,7 @@
 
 # admission-control-policies fixes
 | .definitions."models.UpdatePolicyRequest".properties.is_enabled += {"x-nullable": true}
+| .definitions."models.CreatePolicyRequest".properties.description += {"x-omitempty": true}
 
 # Make fields nullable and prevent omitempty for suppressionrules.UpdateSuppressionRuleRequest (allows empty string to be sent when set)
 | .definitions."suppressionrules.UpdateSuppressionRuleRequest".properties.suppression_comment += {"x-nullable": true, "x-omitempty": false}
@@ -722,3 +723,6 @@
 
 # Make description nullable for remote_response.UpdatePolicyReqV1
 | .definitions."remote_response.UpdatePolicyReqV1".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.UpdateComplianceFrameworkRequest
+| .definitions."common.UpdateComplianceFrameworkRequest".properties.description += {"x-nullable": true}
