@@ -67,7 +67,7 @@ type EntitiesWebLocationCreateV2Params struct {
 
 	   Definition of web-locations to create
 	*/
-	Body *models.APIWebLocationRequestV2
+	Body *models.APICreateWebLocationsRequestV2
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *EntitiesWebLocationCreateV2Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the entities web location create v2 params
-func (o *EntitiesWebLocationCreateV2Params) WithBody(body *models.APIWebLocationRequestV2) *EntitiesWebLocationCreateV2Params {
+func (o *EntitiesWebLocationCreateV2Params) WithBody(body *models.APICreateWebLocationsRequestV2) *EntitiesWebLocationCreateV2Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities web location create v2 params
-func (o *EntitiesWebLocationCreateV2Params) SetBody(body *models.APIWebLocationRequestV2) {
+func (o *EntitiesWebLocationCreateV2Params) SetBody(body *models.APICreateWebLocationsRequestV2) {
 	o.Body = body
 }
 

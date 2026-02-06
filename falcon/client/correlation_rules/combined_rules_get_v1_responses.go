@@ -96,7 +96,7 @@ type CombinedRulesGetV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this combined rules get v1 o k response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *CombinedRulesGetV1OK) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1OK  %+v", 200, o.Payload)
 }
 
-func (o *CombinedRulesGetV1OK) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *CombinedRulesGetV1OK) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *CombinedRulesGetV1OK) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +206,7 @@ type CombinedRulesGetV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this combined rules get v1 bad request response has a 2xx status code
@@ -247,7 +247,7 @@ func (o *CombinedRulesGetV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CombinedRulesGetV1BadRequest) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *CombinedRulesGetV1BadRequest) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -282,7 +282,7 @@ func (o *CombinedRulesGetV1BadRequest) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +316,7 @@ type CombinedRulesGetV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this combined rules get v1 unauthorized response has a 2xx status code
@@ -357,7 +357,7 @@ func (o *CombinedRulesGetV1Unauthorized) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *CombinedRulesGetV1Unauthorized) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *CombinedRulesGetV1Unauthorized) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -392,7 +392,7 @@ func (o *CombinedRulesGetV1Unauthorized) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +426,7 @@ type CombinedRulesGetV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this combined rules get v1 forbidden response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *CombinedRulesGetV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *CombinedRulesGetV1Forbidden) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *CombinedRulesGetV1Forbidden) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *CombinedRulesGetV1Forbidden) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -536,7 +536,7 @@ type CombinedRulesGetV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this combined rules get v1 not found response has a 2xx status code
@@ -577,7 +577,7 @@ func (o *CombinedRulesGetV1NotFound) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *CombinedRulesGetV1NotFound) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *CombinedRulesGetV1NotFound) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -612,7 +612,7 @@ func (o *CombinedRulesGetV1NotFound) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +771,7 @@ type CombinedRulesGetV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this combined rules get v1 internal server error response has a 2xx status code
@@ -812,7 +812,7 @@ func (o *CombinedRulesGetV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/combined/rules/v1][%d] combinedRulesGetV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CombinedRulesGetV1InternalServerError) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *CombinedRulesGetV1InternalServerError) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -847,7 +847,7 @@ func (o *CombinedRulesGetV1InternalServerError) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

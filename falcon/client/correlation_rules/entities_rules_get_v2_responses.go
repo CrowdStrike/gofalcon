@@ -96,7 +96,7 @@ type EntitiesRulesGetV2OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules get v2 o k response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *EntitiesRulesGetV2OK) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/rules/v2][%d] entitiesRulesGetV2OK  %+v", 200, o.Payload)
 }
 
-func (o *EntitiesRulesGetV2OK) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesGetV2OK) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *EntitiesRulesGetV2OK) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +206,7 @@ type EntitiesRulesGetV2BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules get v2 bad request response has a 2xx status code
@@ -247,7 +247,7 @@ func (o *EntitiesRulesGetV2BadRequest) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/rules/v2][%d] entitiesRulesGetV2BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *EntitiesRulesGetV2BadRequest) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesGetV2BadRequest) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -282,7 +282,7 @@ func (o *EntitiesRulesGetV2BadRequest) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +316,7 @@ type EntitiesRulesGetV2Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules get v2 unauthorized response has a 2xx status code
@@ -357,7 +357,7 @@ func (o *EntitiesRulesGetV2Unauthorized) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/rules/v2][%d] entitiesRulesGetV2Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *EntitiesRulesGetV2Unauthorized) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesGetV2Unauthorized) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -392,7 +392,7 @@ func (o *EntitiesRulesGetV2Unauthorized) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +426,7 @@ type EntitiesRulesGetV2Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules get v2 forbidden response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *EntitiesRulesGetV2Forbidden) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/rules/v2][%d] entitiesRulesGetV2Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *EntitiesRulesGetV2Forbidden) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesGetV2Forbidden) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *EntitiesRulesGetV2Forbidden) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -536,7 +536,7 @@ type EntitiesRulesGetV2NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules get v2 not found response has a 2xx status code
@@ -577,7 +577,7 @@ func (o *EntitiesRulesGetV2NotFound) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/rules/v2][%d] entitiesRulesGetV2NotFound  %+v", 404, o.Payload)
 }
 
-func (o *EntitiesRulesGetV2NotFound) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesGetV2NotFound) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -612,7 +612,7 @@ func (o *EntitiesRulesGetV2NotFound) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +771,7 @@ type EntitiesRulesGetV2InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules get v2 internal server error response has a 2xx status code
@@ -812,7 +812,7 @@ func (o *EntitiesRulesGetV2InternalServerError) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/rules/v2][%d] entitiesRulesGetV2InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *EntitiesRulesGetV2InternalServerError) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesGetV2InternalServerError) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -847,7 +847,7 @@ func (o *EntitiesRulesGetV2InternalServerError) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

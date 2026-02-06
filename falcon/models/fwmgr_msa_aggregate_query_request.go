@@ -39,6 +39,10 @@ type FwmgrMsaAggregateQueryRequest struct {
 	// Required: true
 	Filter *string `json:"filter"`
 
+	// filters spec
+	// Required: true
+	FiltersSpec *FwmgrMsaAPIFiltersSpec `json:"filters_spec"`
+
 	// from
 	// Required: true
 	From *int32 `json:"from"`
@@ -64,6 +68,10 @@ type FwmgrMsaAggregateQueryRequest struct {
 	// name
 	// Required: true
 	Name *string `json:"name"`
+
+	// percents
+	// Required: true
+	Percents []float64 `json:"percents"`
 
 	// q
 	// Required: true
@@ -118,6 +126,10 @@ func (m *FwmgrMsaAggregateQueryRequest) Validate(formats strfmt.Registry) error 
 		res = append(res, err)
 	}
 
+	if err := m.validateFiltersSpec(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFrom(formats); err != nil {
 		res = append(res, err)
 	}
@@ -135,6 +147,10 @@ func (m *FwmgrMsaAggregateQueryRequest) Validate(formats strfmt.Registry) error 
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePercents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -245,6 +261,26 @@ func (m *FwmgrMsaAggregateQueryRequest) validateFilter(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *FwmgrMsaAggregateQueryRequest) validateFiltersSpec(formats strfmt.Registry) error {
+
+	if err := validate.Required("filters_spec", "body", m.FiltersSpec); err != nil {
+		return err
+	}
+
+	if m.FiltersSpec != nil {
+		if err := m.FiltersSpec.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filters_spec")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filters_spec")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *FwmgrMsaAggregateQueryRequest) validateFrom(formats strfmt.Registry) error {
 
 	if err := validate.Required("from", "body", m.From); err != nil {
@@ -284,6 +320,15 @@ func (m *FwmgrMsaAggregateQueryRequest) validateMissing(formats strfmt.Registry)
 func (m *FwmgrMsaAggregateQueryRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrMsaAggregateQueryRequest) validatePercents(formats strfmt.Registry) error {
+
+	if err := validate.Required("percents", "body", m.Percents); err != nil {
 		return err
 	}
 
@@ -401,6 +446,10 @@ func (m *FwmgrMsaAggregateQueryRequest) ContextValidate(ctx context.Context, for
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateFiltersSpec(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateRanges(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -453,6 +502,23 @@ func (m *FwmgrMsaAggregateQueryRequest) contextValidateExtendedBounds(ctx contex
 				return ve.ValidateName("extended_bounds")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("extended_bounds")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FwmgrMsaAggregateQueryRequest) contextValidateFiltersSpec(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FiltersSpec != nil {
+
+		if err := m.FiltersSpec.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filters_spec")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filters_spec")
 			}
 			return err
 		}

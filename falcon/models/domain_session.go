@@ -56,6 +56,9 @@ type DomainSession struct {
 	// Required: true
 	Duration *float64 `json:"duration"`
 
+	// execution id
+	ExecutionID string `json:"execution_id,omitempty"`
+
 	// hostname
 	// Required: true
 	Hostname *string `json:"hostname"`

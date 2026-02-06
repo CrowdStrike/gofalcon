@@ -22,7 +22,7 @@ type DevicecontrolapiReqUpdatePolicyClassesV1 struct {
 	// bluetooth classes
 	BluetoothClasses *DevicecontrolapiReqUpdateBluetoothClassesV1 `json:"bluetooth_classes,omitempty"`
 
-	// ID of the policy to update
+	// id
 	// Required: true
 	ID *string `json:"id"`
 

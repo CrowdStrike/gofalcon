@@ -28,6 +28,10 @@ type QuickscanproScanResult struct {
 	// Required: true
 	FileArtifacts []*QuickscanproFileResult `json:"file_artifacts"`
 
+	// malicious confidence
+	// Required: true
+	MaliciousConfidence *int32 `json:"malicious_confidence"`
+
 	// mitre attacks
 	MitreAttacks []*DomainMITREAttack `json:"mitre_attacks"`
 
@@ -52,6 +56,10 @@ func (m *QuickscanproScanResult) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateFileArtifacts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMaliciousConfidence(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -99,6 +107,15 @@ func (m *QuickscanproScanResult) validateFileArtifacts(formats strfmt.Registry) 
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *QuickscanproScanResult) validateMaliciousConfidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("malicious_confidence", "body", m.MaliciousConfidence); err != nil {
+		return err
 	}
 
 	return nil

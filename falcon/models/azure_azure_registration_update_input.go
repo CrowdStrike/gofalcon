@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,6 +54,16 @@ type AzureAzureRegistrationUpdateInput struct {
 
 	// deployment stack name
 	DeploymentStackName string `json:"deployment_stack_name,omitempty"`
+
+	// Map of region names (e.g., 'eastus', 'westeurope') to custom VNET configuration
+	DspmCustomVnetConfiguration AzureDSPMSettingsDspmCustomVnetConfiguration `json:"dspm_custom_vnet_configuration,omitempty"`
+
+	// dspm host subscription id
+	DspmHostSubscriptionID string `json:"dspm_host_subscription_id,omitempty"`
+
+	// Network configuration type for DSPM
+	// Enum: [managed managed_no_nat custom]
+	DspmNetworkConfigurationType string `json:"dspm_network_configuration_type,omitempty"`
 
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
@@ -112,6 +123,14 @@ func (m *AzureAzureRegistrationUpdateInput) Validate(formats strfmt.Registry) er
 	var res []error
 
 	if err := m.validateAdditionalFeatures(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmCustomVnetConfiguration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmNetworkConfigurationType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -175,6 +194,70 @@ func (m *AzureAzureRegistrationUpdateInput) validateAdditionalFeatures(formats s
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationUpdateInput) validateDspmCustomVnetConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmCustomVnetConfiguration) { // not required
+		return nil
+	}
+
+	if m.DspmCustomVnetConfiguration != nil {
+		if err := m.DspmCustomVnetConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_custom_vnet_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_custom_vnet_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var azureAzureRegistrationUpdateInputTypeDspmNetworkConfigurationTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["managed","managed_no_nat","custom"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		azureAzureRegistrationUpdateInputTypeDspmNetworkConfigurationTypePropEnum = append(azureAzureRegistrationUpdateInputTypeDspmNetworkConfigurationTypePropEnum, v)
+	}
+}
+
+const (
+
+	// AzureAzureRegistrationUpdateInputDspmNetworkConfigurationTypeManaged captures enum value "managed"
+	AzureAzureRegistrationUpdateInputDspmNetworkConfigurationTypeManaged string = "managed"
+
+	// AzureAzureRegistrationUpdateInputDspmNetworkConfigurationTypeManagedNoNat captures enum value "managed_no_nat"
+	AzureAzureRegistrationUpdateInputDspmNetworkConfigurationTypeManagedNoNat string = "managed_no_nat"
+
+	// AzureAzureRegistrationUpdateInputDspmNetworkConfigurationTypeCustom captures enum value "custom"
+	AzureAzureRegistrationUpdateInputDspmNetworkConfigurationTypeCustom string = "custom"
+)
+
+// prop value enum
+func (m *AzureAzureRegistrationUpdateInput) validateDspmNetworkConfigurationTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, azureAzureRegistrationUpdateInputTypeDspmNetworkConfigurationTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AzureAzureRegistrationUpdateInput) validateDspmNetworkConfigurationType(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmNetworkConfigurationType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDspmNetworkConfigurationTypeEnum("dspm_network_configuration_type", "body", m.DspmNetworkConfigurationType); err != nil {
+		return err
 	}
 
 	return nil
@@ -295,6 +378,10 @@ func (m *AzureAzureRegistrationUpdateInput) ContextValidate(ctx context.Context,
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDspmCustomVnetConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateEventHubSettings(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -329,6 +416,24 @@ func (m *AzureAzureRegistrationUpdateInput) contextValidateAdditionalFeatures(ct
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationUpdateInput) contextValidateDspmCustomVnetConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DspmCustomVnetConfiguration) { // not required
+		return nil
+	}
+
+	if err := m.DspmCustomVnetConfiguration.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("dspm_custom_vnet_configuration")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("dspm_custom_vnet_configuration")
+		}
+		return err
 	}
 
 	return nil

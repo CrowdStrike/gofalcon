@@ -62,6 +62,9 @@ type DomainConfigData struct {
 	// tags
 	Tags []string `json:"tags"`
 
+	// tags map
+	TagsMap map[string]string `json:"tags_map,omitempty"`
+
 	// token parameters
 	TokenParameters map[string][]string `json:"token_parameters,omitempty"`
 

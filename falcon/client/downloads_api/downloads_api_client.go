@@ -36,6 +36,8 @@ type ClientService interface {
 
 	FetchFilesDownloadInfo(params *FetchFilesDownloadInfoParams, opts ...ClientOption) (*FetchFilesDownloadInfoOK, error)
 
+	FetchFilesDownloadInfoV2(params *FetchFilesDownloadInfoV2Params, opts ...ClientOption) (*FetchFilesDownloadInfoV2OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -150,6 +152,44 @@ func (a *Client) FetchFilesDownloadInfo(params *FetchFilesDownloadInfoParams, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for FetchFilesDownloadInfo: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+FetchFilesDownloadInfoV2 gets cloud security tools info and pre signed download u r ls
+*/
+func (a *Client) FetchFilesDownloadInfoV2(params *FetchFilesDownloadInfoV2Params, opts ...ClientOption) (*FetchFilesDownloadInfoV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewFetchFilesDownloadInfoV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "FetchFilesDownloadInfoV2",
+		Method:             "GET",
+		PathPattern:        "/csdownloads/combined/files-download/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &FetchFilesDownloadInfoV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*FetchFilesDownloadInfoV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for FetchFilesDownloadInfoV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

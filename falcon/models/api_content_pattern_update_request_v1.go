@@ -19,10 +19,6 @@ import (
 // swagger:model api.ContentPatternUpdateRequestV1
 type APIContentPatternUpdateRequestV1 struct {
 
-	// category
-	// Required: true
-	Category *string `json:"category"`
-
 	// description
 	// Required: true
 	Description *string `json:"description"`
@@ -40,24 +36,17 @@ type APIContentPatternUpdateRequestV1 struct {
 	MinMatchThreshold *int32 `json:"min_match_threshold"`
 
 	// name
-	Name string `json:"name,omitempty"`
+	// Required: true
+	Name *string `json:"name"`
 
 	// regexes
 	// Required: true
 	Regexes []string `json:"regexes"`
-
-	// region
-	// Required: true
-	Region *string `json:"region"`
 }
 
 // Validate validates this api content pattern update request v1
 func (m *APIContentPatternUpdateRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateCategory(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
@@ -75,26 +64,17 @@ func (m *APIContentPatternUpdateRequestV1) Validate(formats strfmt.Registry) err
 		res = append(res, err)
 	}
 
-	if err := m.validateRegexes(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRegion(formats); err != nil {
+	if err := m.validateRegexes(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *APIContentPatternUpdateRequestV1) validateCategory(formats strfmt.Registry) error {
-
-	if err := validate.Required("category", "body", m.Category); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -134,18 +114,18 @@ func (m *APIContentPatternUpdateRequestV1) validateMinMatchThreshold(formats str
 	return nil
 }
 
-func (m *APIContentPatternUpdateRequestV1) validateRegexes(formats strfmt.Registry) error {
+func (m *APIContentPatternUpdateRequestV1) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("regexes", "body", m.Regexes); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIContentPatternUpdateRequestV1) validateRegion(formats strfmt.Registry) error {
+func (m *APIContentPatternUpdateRequestV1) validateRegexes(formats strfmt.Registry) error {
 
-	if err := validate.Required("region", "body", m.Region); err != nil {
+	if err := validate.Required("regexes", "body", m.Regexes); err != nil {
 		return err
 	}
 

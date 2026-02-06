@@ -84,7 +84,7 @@ type QueriesFileDetailsGetV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIMSAResponseString
+	Payload *models.CasefilesapiMSAResponseString
 }
 
 // IsSuccess returns true when this queries file details get v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *QueriesFileDetailsGetV1OK) String() string {
 	return fmt.Sprintf("[GET /case-files/queries/file-details/v1][%d] queriesFileDetailsGetV1OK  %+v", 200, o.Payload)
 }
 
-func (o *QueriesFileDetailsGetV1OK) GetPayload() *models.APIMSAResponseString {
+func (o *QueriesFileDetailsGetV1OK) GetPayload() *models.CasefilesapiMSAResponseString {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *QueriesFileDetailsGetV1OK) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIMSAResponseString)
+	o.Payload = new(models.CasefilesapiMSAResponseString)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

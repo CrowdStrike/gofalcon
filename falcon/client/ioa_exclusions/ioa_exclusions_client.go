@@ -38,6 +38,24 @@ type ClientService interface {
 
 	QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, opts ...ClientOption) (*QueryIOAExclusionsV1OK, error)
 
+	SsIoaExclusionsAggregatesV2(params *SsIoaExclusionsAggregatesV2Params, opts ...ClientOption) (*SsIoaExclusionsAggregatesV2OK, error)
+
+	SsIoaExclusionsCreateV2(params *SsIoaExclusionsCreateV2Params, opts ...ClientOption) (*SsIoaExclusionsCreateV2OK, error)
+
+	SsIoaExclusionsDeleteV2(params *SsIoaExclusionsDeleteV2Params, opts ...ClientOption) (*SsIoaExclusionsDeleteV2OK, error)
+
+	SsIoaExclusionsGetReportsV2(params *SsIoaExclusionsGetReportsV2Params, opts ...ClientOption) (*SsIoaExclusionsGetReportsV2OK, error)
+
+	SsIoaExclusionsGetV2(params *SsIoaExclusionsGetV2Params, opts ...ClientOption) (*SsIoaExclusionsGetV2OK, error)
+
+	SsIoaExclusionsMatchedRuleV2(params *SsIoaExclusionsMatchedRuleV2Params, opts ...ClientOption) (*SsIoaExclusionsMatchedRuleV2OK, error)
+
+	SsIoaExclusionsNewRulesV2(params *SsIoaExclusionsNewRulesV2Params, opts ...ClientOption) (*SsIoaExclusionsNewRulesV2OK, error)
+
+	SsIoaExclusionsSearchV2(params *SsIoaExclusionsSearchV2Params, opts ...ClientOption) (*SsIoaExclusionsSearchV2OK, error)
+
+	SsIoaExclusionsUpdateV2(params *SsIoaExclusionsUpdateV2Params, opts ...ClientOption) (*SsIoaExclusionsUpdateV2OK, error)
+
 	UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, opts ...ClientOption) (*UpdateIOAExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -192,6 +210,348 @@ func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for queryIOAExclusionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsAggregatesV2 gets self service i o a exclusion aggregates as specified via json in the request body
+*/
+func (a *Client) SsIoaExclusionsAggregatesV2(params *SsIoaExclusionsAggregatesV2Params, opts ...ClientOption) (*SsIoaExclusionsAggregatesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsAggregatesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.aggregates.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/aggregates/ss-ioa-exclusions/GET/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsAggregatesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsAggregatesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.aggregates.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsCreateV2 creates new self service i o a exclusions
+*/
+func (a *Client) SsIoaExclusionsCreateV2(params *SsIoaExclusionsCreateV2Params, opts ...ClientOption) (*SsIoaExclusionsCreateV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsCreateV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.create.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/entities/ss-ioa-exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsCreateV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsCreateV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.create.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsDeleteV2 deletes the self service i o a exclusions rule by id
+*/
+func (a *Client) SsIoaExclusionsDeleteV2(params *SsIoaExclusionsDeleteV2Params, opts ...ClientOption) (*SsIoaExclusionsDeleteV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsDeleteV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.delete.v2",
+		Method:             "DELETE",
+		PathPattern:        "/exclusions/entities/ss-ioa-exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsDeleteV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsDeleteV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.delete.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsGetReportsV2 creates a report of self service i o a exclusions scoped by the given filters
+*/
+func (a *Client) SsIoaExclusionsGetReportsV2(params *SsIoaExclusionsGetReportsV2Params, opts ...ClientOption) (*SsIoaExclusionsGetReportsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsGetReportsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.get-reports.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/entities/ss-ioa-exclusions/reports/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsGetReportsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsGetReportsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.get-reports.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsGetV2 gets the self service i o a exclusions rules by id
+*/
+func (a *Client) SsIoaExclusionsGetV2(params *SsIoaExclusionsGetV2Params, opts ...ClientOption) (*SsIoaExclusionsGetV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsGetV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.get.v2",
+		Method:             "GET",
+		PathPattern:        "/exclusions/entities/ss-ioa-exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsGetV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsGetV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsMatchedRuleV2 gets self service i o a exclusions rules for matched i f n c l i for child parent and grandparent
+*/
+func (a *Client) SsIoaExclusionsMatchedRuleV2(params *SsIoaExclusionsMatchedRuleV2Params, opts ...ClientOption) (*SsIoaExclusionsMatchedRuleV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsMatchedRuleV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.matched-rule.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/entities/ss-ioa-matched-rules/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsMatchedRuleV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsMatchedRuleV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.matched-rule.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsNewRulesV2 gets defaults for self service i o a exclusions based on provided i f n c l i for child parent and grandparent
+*/
+func (a *Client) SsIoaExclusionsNewRulesV2(params *SsIoaExclusionsNewRulesV2Params, opts ...ClientOption) (*SsIoaExclusionsNewRulesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsNewRulesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.new-rules.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/entities/ss-ioa-new-rules/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsNewRulesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsNewRulesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.new-rules.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsSearchV2 searches for self service i o a exclusions
+*/
+func (a *Client) SsIoaExclusionsSearchV2(params *SsIoaExclusionsSearchV2Params, opts ...ClientOption) (*SsIoaExclusionsSearchV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsSearchV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.search.v2",
+		Method:             "GET",
+		PathPattern:        "/exclusions/queries/ss-ioa-exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsSearchV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsSearchV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.search.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SsIoaExclusionsUpdateV2 updates the self service i o a exclusions rule by id
+*/
+func (a *Client) SsIoaExclusionsUpdateV2(params *SsIoaExclusionsUpdateV2Params, opts ...ClientOption) (*SsIoaExclusionsUpdateV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSsIoaExclusionsUpdateV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ss-ioa-exclusions.update.v2",
+		Method:             "PATCH",
+		PathPattern:        "/exclusions/entities/ss-ioa-exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SsIoaExclusionsUpdateV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SsIoaExclusionsUpdateV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ss-ioa-exclusions.update.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

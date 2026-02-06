@@ -96,7 +96,7 @@ type EntitiesRuleVersionsExportPostV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIJobLinkResponseV1
+	Payload *models.CorrelationrulesapiJobLinkResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions export post v1 o k response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *EntitiesRuleVersionsExportPostV1OK) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1OK  %+v", 200, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsExportPostV1OK) GetPayload() *models.APIJobLinkResponseV1 {
+func (o *EntitiesRuleVersionsExportPostV1OK) GetPayload() *models.CorrelationrulesapiJobLinkResponseV1 {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *EntitiesRuleVersionsExportPostV1OK) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIJobLinkResponseV1)
+	o.Payload = new(models.CorrelationrulesapiJobLinkResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +206,7 @@ type EntitiesRuleVersionsExportPostV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIJobLinkResponseV1
+	Payload *models.CorrelationrulesapiJobLinkResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions export post v1 bad request response has a 2xx status code
@@ -247,7 +247,7 @@ func (o *EntitiesRuleVersionsExportPostV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsExportPostV1BadRequest) GetPayload() *models.APIJobLinkResponseV1 {
+func (o *EntitiesRuleVersionsExportPostV1BadRequest) GetPayload() *models.CorrelationrulesapiJobLinkResponseV1 {
 	return o.Payload
 }
 
@@ -282,7 +282,7 @@ func (o *EntitiesRuleVersionsExportPostV1BadRequest) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIJobLinkResponseV1)
+	o.Payload = new(models.CorrelationrulesapiJobLinkResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +316,7 @@ type EntitiesRuleVersionsExportPostV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIJobLinkResponseV1
+	Payload *models.CorrelationrulesapiJobLinkResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions export post v1 unauthorized response has a 2xx status code
@@ -357,7 +357,7 @@ func (o *EntitiesRuleVersionsExportPostV1Unauthorized) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsExportPostV1Unauthorized) GetPayload() *models.APIJobLinkResponseV1 {
+func (o *EntitiesRuleVersionsExportPostV1Unauthorized) GetPayload() *models.CorrelationrulesapiJobLinkResponseV1 {
 	return o.Payload
 }
 
@@ -392,7 +392,7 @@ func (o *EntitiesRuleVersionsExportPostV1Unauthorized) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIJobLinkResponseV1)
+	o.Payload = new(models.CorrelationrulesapiJobLinkResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +426,7 @@ type EntitiesRuleVersionsExportPostV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIJobLinkResponseV1
+	Payload *models.CorrelationrulesapiJobLinkResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions export post v1 forbidden response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *EntitiesRuleVersionsExportPostV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsExportPostV1Forbidden) GetPayload() *models.APIJobLinkResponseV1 {
+func (o *EntitiesRuleVersionsExportPostV1Forbidden) GetPayload() *models.CorrelationrulesapiJobLinkResponseV1 {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *EntitiesRuleVersionsExportPostV1Forbidden) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIJobLinkResponseV1)
+	o.Payload = new(models.CorrelationrulesapiJobLinkResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -536,7 +536,7 @@ type EntitiesRuleVersionsExportPostV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIJobLinkResponseV1
+	Payload *models.CorrelationrulesapiJobLinkResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions export post v1 not found response has a 2xx status code
@@ -577,7 +577,7 @@ func (o *EntitiesRuleVersionsExportPostV1NotFound) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsExportPostV1NotFound) GetPayload() *models.APIJobLinkResponseV1 {
+func (o *EntitiesRuleVersionsExportPostV1NotFound) GetPayload() *models.CorrelationrulesapiJobLinkResponseV1 {
 	return o.Payload
 }
 
@@ -612,7 +612,7 @@ func (o *EntitiesRuleVersionsExportPostV1NotFound) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIJobLinkResponseV1)
+	o.Payload = new(models.CorrelationrulesapiJobLinkResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +771,7 @@ type EntitiesRuleVersionsExportPostV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIJobLinkResponseV1
+	Payload *models.CorrelationrulesapiJobLinkResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions export post v1 internal server error response has a 2xx status code
@@ -812,7 +812,7 @@ func (o *EntitiesRuleVersionsExportPostV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/export/v1][%d] entitiesRuleVersionsExportPostV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsExportPostV1InternalServerError) GetPayload() *models.APIJobLinkResponseV1 {
+func (o *EntitiesRuleVersionsExportPostV1InternalServerError) GetPayload() *models.CorrelationrulesapiJobLinkResponseV1 {
 	return o.Payload
 }
 
@@ -847,7 +847,7 @@ func (o *EntitiesRuleVersionsExportPostV1InternalServerError) readResponse(respo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIJobLinkResponseV1)
+	o.Payload = new(models.CorrelationrulesapiJobLinkResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

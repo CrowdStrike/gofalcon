@@ -44,6 +44,10 @@ type ItautomationScheduledTask struct {
 	//  Duration for which the task stays active. Once expired, new and offline hosts won't be targeted. Example: 1m
 	ExpirationInterval string `json:"expiration_interval,omitempty"`
 
+	// Group memberships of the task
+	// Required: true
+	Groups []*FalconforitapiGroupMembership `json:"groups"`
+
 	// Safety limits for task execution
 	Guardrails *FalconforitapiGuardrails `json:"guardrails,omitempty"`
 
@@ -79,7 +83,7 @@ type ItautomationScheduledTask struct {
 	Schedule *FalconforitapiSchedule `json:"schedule"`
 
 	// Custom name for the scheduled task. Example: Weekly Security Scan
-	ScheduledName string `json:"scheduled_name,omitempty"`
+	ScheduleName string `json:"schedule_name,omitempty"`
 
 	// Filter expression to select target hosts. Example: hostname:*prod*
 	// Required: true
@@ -110,6 +114,10 @@ func (m *ItautomationScheduledTask) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCreatedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGroups(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -188,6 +196,33 @@ func (m *ItautomationScheduledTask) validateCreatedTime(formats strfmt.Registry)
 
 	if err := validate.FormatOf("created_time", "body", "date-time", m.CreatedTime.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ItautomationScheduledTask) validateGroups(formats strfmt.Registry) error {
+
+	if err := validate.Required("groups", "body", m.Groups); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Groups); i++ {
+		if swag.IsZero(m.Groups[i]) { // not required
+			continue
+		}
+
+		if m.Groups[i] != nil {
+			if err := m.Groups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -361,6 +396,10 @@ func (m *ItautomationScheduledTask) validateTriggerCondition(formats strfmt.Regi
 func (m *ItautomationScheduledTask) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateGuardrails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -376,6 +415,31 @@ func (m *ItautomationScheduledTask) ContextValidate(ctx context.Context, formats
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ItautomationScheduledTask) contextValidateGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Groups); i++ {
+
+		if m.Groups[i] != nil {
+
+			if swag.IsZero(m.Groups[i]) { // not required
+				return nil
+			}
+
+			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

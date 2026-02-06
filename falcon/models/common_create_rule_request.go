@@ -26,6 +26,9 @@ type CommonCreateRuleRequest struct {
 	// attack types
 	AttackTypes string `json:"attack_types,omitempty"`
 
+	// category
+	Category string `json:"category,omitempty"`
+
 	// controls
 	Controls []*DbmodelsControlReference `json:"controls"`
 
@@ -36,6 +39,9 @@ type CommonCreateRuleRequest struct {
 	// domain
 	// Required: true
 	Domain *string `json:"domain"`
+
+	// labels
+	Labels []string `json:"labels"`
 
 	// logic
 	// Required: true

@@ -69,7 +69,7 @@ type DeleteDashboardParams struct {
 
 	/* SearchDomain.
 
-	   name of search domain (view or repo), options; all, falcon, third-party
+	   name of search domain (view or repo)
 	*/
 	SearchDomain *string
 

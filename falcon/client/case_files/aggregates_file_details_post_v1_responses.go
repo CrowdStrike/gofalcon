@@ -84,7 +84,7 @@ type AggregatesFileDetailsPostV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponseV1
+	Payload *models.CasefilesapiAggregatesResponseV1
 }
 
 // IsSuccess returns true when this aggregates file details post v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *AggregatesFileDetailsPostV1OK) String() string {
 	return fmt.Sprintf("[POST /case-files/aggregates/file-details/v1][%d] aggregatesFileDetailsPostV1OK  %+v", 200, o.Payload)
 }
 
-func (o *AggregatesFileDetailsPostV1OK) GetPayload() *models.APIAggregatesResponseV1 {
+func (o *AggregatesFileDetailsPostV1OK) GetPayload() *models.CasefilesapiAggregatesResponseV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *AggregatesFileDetailsPostV1OK) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponseV1)
+	o.Payload = new(models.CasefilesapiAggregatesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

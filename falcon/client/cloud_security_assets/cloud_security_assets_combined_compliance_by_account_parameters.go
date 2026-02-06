@@ -99,6 +99,7 @@ type CloudSecurityAssetsCombinedComplianceByAccountParams struct {
 	- `severities`
 	- `tag_key`
 	- `tag_value`
+	- `tags_string`
 	*/
 	Filter *string
 

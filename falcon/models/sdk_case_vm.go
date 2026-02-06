@@ -20,6 +20,9 @@ import (
 // swagger:model sdk.CaseVM
 type SdkCaseVM struct {
 
+	// access tags
+	AccessTags []*SdkCaseAccessTag `json:"access_tags"`
+
 	// analysis results
 	// Required: true
 	AnalysisResults *SdkAnalysisResultsVM `json:"analysis_results"`
@@ -73,9 +76,17 @@ type SdkCaseVM struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// readable case id
+	// Required: true
+	ReadableCaseID *string `json:"readable_case_id"`
+
 	// severity
 	// Required: true
 	Severity *int64 `json:"severity"`
+
+	// severity info
+	// Required: true
+	SeverityInfo *SdkCaseSeverityInfoVM `json:"severity_info"`
 
 	// sla
 	SLA *SdkSLAVM `json:"sla,omitempty"`
@@ -103,11 +114,18 @@ type SdkCaseVM struct {
 	// version
 	// Required: true
 	Version *int64 `json:"version"`
+
+	// workflows
+	Workflows []*SdkWorkflowVM `json:"workflows"`
 }
 
 // Validate validates this sdk case VM
 func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAccessTags(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateAnalysisResults(formats); err != nil {
 		res = append(res, err)
@@ -161,7 +179,15 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateReadableCaseID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSeverity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSeverityInfo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -189,9 +215,39 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateWorkflows(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SdkCaseVM) validateAccessTags(formats strfmt.Registry) error {
+	if swag.IsZero(m.AccessTags) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AccessTags); i++ {
+		if swag.IsZero(m.AccessTags[i]) { // not required
+			continue
+		}
+
+		if m.AccessTags[i] != nil {
+			if err := m.AccessTags[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -403,10 +459,39 @@ func (m *SdkCaseVM) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkCaseVM) validateReadableCaseID(formats strfmt.Registry) error {
+
+	if err := validate.Required("readable_case_id", "body", m.ReadableCaseID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) validateSeverity(formats strfmt.Registry) error {
 
 	if err := validate.Required("severity", "body", m.Severity); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *SdkCaseVM) validateSeverityInfo(formats strfmt.Registry) error {
+
+	if err := validate.Required("severity_info", "body", m.SeverityInfo); err != nil {
+		return err
+	}
+
+	if m.SeverityInfo != nil {
+		if err := m.SeverityInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("severity_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("severity_info")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -494,9 +579,39 @@ func (m *SdkCaseVM) validateVersion(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkCaseVM) validateWorkflows(formats strfmt.Registry) error {
+	if swag.IsZero(m.Workflows) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Workflows); i++ {
+		if swag.IsZero(m.Workflows[i]) { // not required
+			continue
+		}
+
+		if m.Workflows[i] != nil {
+			if err := m.Workflows[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workflows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workflows" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this sdk case VM based on the context it is used
 func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.contextValidateAccessTags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.contextValidateAnalysisResults(ctx, formats); err != nil {
 		res = append(res, err)
@@ -526,6 +641,10 @@ func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSeverityInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSLA(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -534,9 +653,38 @@ func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateWorkflows(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SdkCaseVM) contextValidateAccessTags(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AccessTags); i++ {
+
+		if m.AccessTags[i] != nil {
+
+			if swag.IsZero(m.AccessTags[i]) { // not required
+				return nil
+			}
+
+			if err := m.AccessTags[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -667,6 +815,23 @@ func (m *SdkCaseVM) contextValidateLastUpdatedBy(ctx context.Context, formats st
 	return nil
 }
 
+func (m *SdkCaseVM) contextValidateSeverityInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SeverityInfo != nil {
+
+		if err := m.SeverityInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("severity_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("severity_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) contextValidateSLA(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SLA != nil {
@@ -704,6 +869,31 @@ func (m *SdkCaseVM) contextValidateTemplate(ctx context.Context, formats strfmt.
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *SdkCaseVM) contextValidateWorkflows(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Workflows); i++ {
+
+		if m.Workflows[i] != nil {
+
+			if swag.IsZero(m.Workflows[i]) { // not required
+				return nil
+			}
+
+			if err := m.Workflows[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workflows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workflows" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

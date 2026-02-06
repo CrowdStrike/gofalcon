@@ -316,7 +316,7 @@ type PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this post mal query entities samples multidownload v1 unauthorized response has a 2xx status code
@@ -357,7 +357,7 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) String() string
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -392,7 +392,7 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) readResponse(re
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +426,7 @@ type PostMalQueryEntitiesSamplesMultidownloadV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this post mal query entities samples multidownload v1 forbidden response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) readResponse(respo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

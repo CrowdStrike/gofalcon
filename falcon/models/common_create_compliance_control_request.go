@@ -20,8 +20,7 @@ import (
 type CommonCreateComplianceControlRequest struct {
 
 	// description
-	// Required: true
-	Description *string `json:"description"`
+	Description *string `json:"description,omitempty"`
 
 	// framework id
 	// Required: true
@@ -40,10 +39,6 @@ type CommonCreateComplianceControlRequest struct {
 func (m *CommonCreateComplianceControlRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateFrameworkID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -59,15 +54,6 @@ func (m *CommonCreateComplianceControlRequest) Validate(formats strfmt.Registry)
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *CommonCreateComplianceControlRequest) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
 	return nil
 }
 

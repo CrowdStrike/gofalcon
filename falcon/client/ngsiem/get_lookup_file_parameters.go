@@ -69,7 +69,7 @@ type GetLookupFileParams struct {
 
 	/* SearchDomain.
 
-	   name of search domain (view or repo), options; all, falcon, third-party, dashboards, parsers-repository
+	   name of search domain (view or repo)
 	*/
 	SearchDomain *string
 

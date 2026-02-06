@@ -69,6 +69,7 @@ type QueryRuleParams struct {
 	*rule_origin*
 	*rule_parent_uuid*
 	*rule_name*
+	*rule_cloneable*
 	*rule_description*
 	*rule_domain*
 	*rule_status*
@@ -76,18 +77,21 @@ type QueryRuleParams struct {
 	*rule_short_code*
 	*rule_service*
 	*rule_resource_type*
+	*rule_resource_type_name*
 	*rule_provider*
 	*rule_subdomain*
 	*rule_auto_remediable*
 	*rule_control_requirement*
 	*rule_control_section*
 	*rule_compliance_benchmark*
+	*rule_compliance_benchmark_uuid*
 	*rule_compliance_framework*
 	*rule_mitre_tactic*
 	*rule_mitre_technique*
 	*rule_created_at*
 	*rule_updated_at*
 	*rule_updated_by*
+	*rule_risk_factor*
 
 	*/
 	Filter *string
@@ -113,6 +117,7 @@ type QueryRuleParams struct {
 	*rule_origin*
 	*rule_parent_uuid*
 	*rule_name*
+	*rule_cloneable*
 	*rule_description*
 	*rule_domain*
 	*rule_status*
@@ -120,18 +125,21 @@ type QueryRuleParams struct {
 	*rule_short_code*
 	*rule_service*
 	*rule_resource_type*
+	*rule_resource_type_name*
 	*rule_provider*
 	*rule_subdomain*
 	*rule_auto_remediable*
 	*rule_control_requirement*
 	*rule_control_section*
 	*rule_compliance_benchmark*
+	*rule_compliance_benchmark_uuid*
 	*rule_compliance_framework*
 	*rule_mitre_tactic*
 	*rule_mitre_technique*
 	*rule_created_at*
 	*rule_updated_at*
 	*rule_updated_by*
+	*rule_risk_factor*
 
 
 	Use the `|asc` or `|desc` suffix to specify sort direction.

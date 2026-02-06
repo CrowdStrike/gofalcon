@@ -22,6 +22,9 @@ type EvaluationsRule struct {
 	// alert logic
 	AlertLogic string `json:"alert_logic,omitempty"`
 
+	// ciem categories
+	CiemCategories []string `json:"ciem_categories"`
+
 	// controls
 	Controls []*PolicyframeworkControl `json:"controls"`
 
@@ -38,7 +41,7 @@ type EvaluationsRule struct {
 	Origin string `json:"origin,omitempty"`
 
 	// override
-	Override *PolicyframeworkRuleOverride `json:"override,omitempty"`
+	Override *EvaluationsRuleOverride `json:"override,omitempty"`
 
 	// policy
 	Policy *PolicyframeworkPolicyMetadata `json:"policy,omitempty"`

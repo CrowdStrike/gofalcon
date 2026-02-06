@@ -12,6 +12,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DismissSecurityCheck dismiss security check
@@ -26,7 +27,7 @@ type DismissSecurityCheck struct {
 	Meta *MetaDismissSecurityCheck `json:"meta,omitempty"`
 
 	// resources
-	Resources []*ReasonResultDismissSecurityCheck `json:"resources"`
+	Resources []string `json:"resources"`
 }
 
 // Validate validates this dismiss security check
@@ -102,19 +103,9 @@ func (m *DismissSecurityCheck) validateResources(formats strfmt.Registry) error 
 	}
 
 	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
 
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
+		if err := validate.MinLength("resources"+"."+strconv.Itoa(i), "body", m.Resources[i], 1); err != nil {
+			return err
 		}
 
 	}
@@ -131,10 +122,6 @@ func (m *DismissSecurityCheck) ContextValidate(ctx context.Context, formats strf
 	}
 
 	if err := m.contextValidateMeta(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateResources(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -185,31 +172,6 @@ func (m *DismissSecurityCheck) contextValidateMeta(ctx context.Context, formats 
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *DismissSecurityCheck) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Resources); i++ {
-
-		if m.Resources[i] != nil {
-
-			if swag.IsZero(m.Resources[i]) { // not required
-				return nil
-			}
-
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil

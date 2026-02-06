@@ -84,7 +84,7 @@ type EntitiesFileDetailsPatchV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIFileDetailsResponseV1
+	Payload *models.CasefilesapiFileDetailsResponseV1
 }
 
 // IsSuccess returns true when this entities file details patch v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *EntitiesFileDetailsPatchV1OK) String() string {
 	return fmt.Sprintf("[PATCH /case-files/entities/file-details/v1][%d] entitiesFileDetailsPatchV1OK  %+v", 200, o.Payload)
 }
 
-func (o *EntitiesFileDetailsPatchV1OK) GetPayload() *models.APIFileDetailsResponseV1 {
+func (o *EntitiesFileDetailsPatchV1OK) GetPayload() *models.CasefilesapiFileDetailsResponseV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *EntitiesFileDetailsPatchV1OK) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIFileDetailsResponseV1)
+	o.Payload = new(models.CasefilesapiFileDetailsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

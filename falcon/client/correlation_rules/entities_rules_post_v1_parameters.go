@@ -64,7 +64,7 @@ EntitiesRulesPostV1Params contains all the parameters to send to the API endpoin
 type EntitiesRulesPostV1Params struct {
 
 	// Body.
-	Body *models.APIRuleCreateRequestV1
+	Body *models.CorrelationrulesapiRuleCreateRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *EntitiesRulesPostV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the entities rules post v1 params
-func (o *EntitiesRulesPostV1Params) WithBody(body *models.APIRuleCreateRequestV1) *EntitiesRulesPostV1Params {
+func (o *EntitiesRulesPostV1Params) WithBody(body *models.CorrelationrulesapiRuleCreateRequestV1) *EntitiesRulesPostV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities rules post v1 params
-func (o *EntitiesRulesPostV1Params) SetBody(body *models.APIRuleCreateRequestV1) {
+func (o *EntitiesRulesPostV1Params) SetBody(body *models.CorrelationrulesapiRuleCreateRequestV1) {
 	o.Body = body
 }
 

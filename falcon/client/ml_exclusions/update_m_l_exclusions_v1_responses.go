@@ -304,7 +304,7 @@ type UpdateMLExclusionsV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this update m l exclusions v1 forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *UpdateMLExclusionsV1Forbidden) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *UpdateMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *UpdateMLExclusionsV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *UpdateMLExclusionsV1Forbidden) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

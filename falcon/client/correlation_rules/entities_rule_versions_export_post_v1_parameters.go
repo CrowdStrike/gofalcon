@@ -64,7 +64,7 @@ EntitiesRuleVersionsExportPostV1Params contains all the parameters to send to th
 type EntitiesRuleVersionsExportPostV1Params struct {
 
 	// Body.
-	Body *models.APIRuleVersionReportRequest
+	Body *models.CorrelationrulesapiRuleVersionReportRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *EntitiesRuleVersionsExportPostV1Params) SetHTTPClient(client *http.Clie
 }
 
 // WithBody adds the body to the entities rule versions export post v1 params
-func (o *EntitiesRuleVersionsExportPostV1Params) WithBody(body *models.APIRuleVersionReportRequest) *EntitiesRuleVersionsExportPostV1Params {
+func (o *EntitiesRuleVersionsExportPostV1Params) WithBody(body *models.CorrelationrulesapiRuleVersionReportRequest) *EntitiesRuleVersionsExportPostV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities rule versions export post v1 params
-func (o *EntitiesRuleVersionsExportPostV1Params) SetBody(body *models.APIRuleVersionReportRequest) {
+func (o *EntitiesRuleVersionsExportPostV1Params) SetBody(body *models.CorrelationrulesapiRuleVersionReportRequest) {
 	o.Body = body
 }
 

@@ -22,6 +22,12 @@ type V2Activity struct {
 	// class
 	Class string `json:"class,omitempty"`
 
+	// If set to true, an error on the action will not send an error token to children
+	ContinueOnError bool `json:"continue_on_error,omitempty"`
+
+	// The name of the activity type which is not user editable.
+	DefaultName string `json:"default_name,omitempty"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`

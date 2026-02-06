@@ -21,11 +21,11 @@ type DomainPlatform struct {
 
 	// id
 	// Required: true
-	ID *string `json:"id"`
+	ID *int64 `json:"id"`
 
-	// label
+	// name
 	// Required: true
-	Label *string `json:"label"`
+	Name *string `json:"name"`
 }
 
 // Validate validates this domain platform
@@ -36,7 +36,7 @@ func (m *DomainPlatform) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateLabel(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -55,9 +55,9 @@ func (m *DomainPlatform) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainPlatform) validateLabel(formats strfmt.Registry) error {
+func (m *DomainPlatform) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("label", "body", m.Label); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 

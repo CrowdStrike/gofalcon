@@ -69,7 +69,7 @@ type GetSavedQueryTemplateParams struct {
 
 	/* SearchDomain.
 
-	   name of search domain (view or repo), options; all, falcon, third-party, dashboards
+	   name of search domain (view or repo)
 	*/
 	SearchDomain *string
 

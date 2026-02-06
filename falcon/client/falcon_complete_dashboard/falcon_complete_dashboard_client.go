@@ -36,8 +36,6 @@ type ClientService interface {
 
 	AggregateBlockList(params *AggregateBlockListParams, opts ...ClientOption) (*AggregateBlockListOK, error)
 
-	AggregateDetections(params *AggregateDetectionsParams, opts ...ClientOption) (*AggregateDetectionsOK, error)
-
 	AggregateDeviceCountCollection(params *AggregateDeviceCountCollectionParams, opts ...ClientOption) (*AggregateDeviceCountCollectionOK, error)
 
 	AggregateEscalations(params *AggregateEscalationsParams, opts ...ClientOption) (*AggregateEscalationsOK, error)
@@ -63,8 +61,6 @@ type ClientService interface {
 	QueryAllowListFilter(params *QueryAllowListFilterParams, opts ...ClientOption) (*QueryAllowListFilterOK, error)
 
 	QueryBlockListFilter(params *QueryBlockListFilterParams, opts ...ClientOption) (*QueryBlockListFilterOK, error)
-
-	QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams, opts ...ClientOption) (*QueryDetectionIdsByFilterOK, error)
 
 	QueryEscalationsFilter(params *QueryEscalationsFilterParams, opts ...ClientOption) (*QueryEscalationsFilterOK, error)
 
@@ -186,98 +182,6 @@ func (a *Client) AggregateBlockList(params *AggregateBlockListParams, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for AggregateBlockList: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-	AggregateDetections retrieves aggregate detection values based on the matched filter
-
-	Fields allowed to aggregate on:
-
-- indexed_time
-
-- created_time
-
-- detect_time
-
-- ldt
-
-- cid
-
-- aid
-
-- platform_name
-
-- os_version
-
-- device_tags
-
-- host_name
-
-- status
-
-- severity
-
-- adversary_ids
-
-- behavior_ids
-
-- behavior_names
-
-- num_blocked_processes
-
-- num_quarantined_files
-
-- pattern_ids
-
-- first_behavior_time
-
-- last_behavior_time
-
-- show_in_ui
-
-- seconds_to_triaged
-
-- seconds_to_resolved
-
-- assigned_to_uid
-
-- public_tags
-
-- vertical_tags
-*/
-func (a *Client) AggregateDetections(params *AggregateDetectionsParams, opts ...ClientOption) (*AggregateDetectionsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAggregateDetectionsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "AggregateDetections",
-		Method:             "POST",
-		PathPattern:        "/falcon-complete-dashboards/aggregates/detects/GET/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AggregateDetectionsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*AggregateDetectionsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AggregateDetections: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -772,44 +676,6 @@ func (a *Client) QueryBlockListFilter(params *QueryBlockListFilterParams, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryBlockListFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-QueryDetectionIdsByFilter retrieves detections ids that match the provided f q l filter criteria with scrolling enabled
-*/
-func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams, opts ...ClientOption) (*QueryDetectionIdsByFilterOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewQueryDetectionIdsByFilterParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "QueryDetectionIdsByFilter",
-		Method:             "GET",
-		PathPattern:        "/falcon-complete-dashboards/queries/detects/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &QueryDetectionIdsByFilterReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*QueryDetectionIdsByFilterOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryDetectionIdsByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

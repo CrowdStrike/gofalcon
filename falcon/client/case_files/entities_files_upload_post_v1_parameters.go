@@ -60,6 +60,25 @@ EntitiesFilesUploadPostV1Params contains all the parameters to send to the API e
 	Typically these are written to a http.Request.
 */
 type EntitiesFilesUploadPostV1Params struct {
+
+	/* CaseID.
+
+	   Case ID for the file
+	*/
+	CaseID string
+
+	/* Description.
+
+	   Description of the file
+	*/
+	Description *string
+
+	/* File.
+
+	   Local file to Upload
+	*/
+	File runtime.NamedReadCloser
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -113,6 +132,39 @@ func (o *EntitiesFilesUploadPostV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithCaseID adds the caseID to the entities files upload post v1 params
+func (o *EntitiesFilesUploadPostV1Params) WithCaseID(caseID string) *EntitiesFilesUploadPostV1Params {
+	o.SetCaseID(caseID)
+	return o
+}
+
+// SetCaseID adds the caseId to the entities files upload post v1 params
+func (o *EntitiesFilesUploadPostV1Params) SetCaseID(caseID string) {
+	o.CaseID = caseID
+}
+
+// WithDescription adds the description to the entities files upload post v1 params
+func (o *EntitiesFilesUploadPostV1Params) WithDescription(description *string) *EntitiesFilesUploadPostV1Params {
+	o.SetDescription(description)
+	return o
+}
+
+// SetDescription adds the description to the entities files upload post v1 params
+func (o *EntitiesFilesUploadPostV1Params) SetDescription(description *string) {
+	o.Description = description
+}
+
+// WithFile adds the file to the entities files upload post v1 params
+func (o *EntitiesFilesUploadPostV1Params) WithFile(file runtime.NamedReadCloser) *EntitiesFilesUploadPostV1Params {
+	o.SetFile(file)
+	return o
+}
+
+// SetFile adds the file to the entities files upload post v1 params
+func (o *EntitiesFilesUploadPostV1Params) SetFile(file runtime.NamedReadCloser) {
+	o.File = file
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *EntitiesFilesUploadPostV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -120,6 +172,34 @@ func (o *EntitiesFilesUploadPostV1Params) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
+
+	// form param case_id
+	frCaseID := o.CaseID
+	fCaseID := frCaseID
+	if fCaseID != "" {
+		if err := r.SetFormParam("case_id", fCaseID); err != nil {
+			return err
+		}
+	}
+
+	if o.Description != nil {
+
+		// form param description
+		var frDescription string
+		if o.Description != nil {
+			frDescription = *o.Description
+		}
+		fDescription := frDescription
+		if fDescription != "" {
+			if err := r.SetFormParam("description", fDescription); err != nil {
+				return err
+			}
+		}
+	}
+	// form file param file
+	if err := r.SetFileParam("file", o.File); err != nil {
+		return err
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

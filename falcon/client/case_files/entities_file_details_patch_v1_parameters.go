@@ -64,7 +64,7 @@ EntitiesFileDetailsPatchV1Params contains all the parameters to send to the API 
 type EntitiesFileDetailsPatchV1Params struct {
 
 	// Body.
-	Body *models.APIUpdateRequestV1
+	Body *models.CasefilesapiUpdateRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *EntitiesFileDetailsPatchV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the entities file details patch v1 params
-func (o *EntitiesFileDetailsPatchV1Params) WithBody(body *models.APIUpdateRequestV1) *EntitiesFileDetailsPatchV1Params {
+func (o *EntitiesFileDetailsPatchV1Params) WithBody(body *models.CasefilesapiUpdateRequestV1) *EntitiesFileDetailsPatchV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities file details patch v1 params
-func (o *EntitiesFileDetailsPatchV1Params) SetBody(body *models.APIUpdateRequestV1) {
+func (o *EntitiesFileDetailsPatchV1Params) SetBody(body *models.CasefilesapiUpdateRequestV1) {
 	o.Body = body
 }
 

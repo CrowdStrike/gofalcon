@@ -31,10 +31,10 @@ type DevicecontrolapiUSBExceptionBase struct {
 	// Composite ID of the vendor ID, product ID, and serial number. Format: <vendor ID>_<product ID>_<serial number>
 	CombinedID string `json:"combined_id,omitempty"`
 
-	// Description for the exception. Maximum length: 512 characters
+	// Description for the exception
 	Description string `json:"description,omitempty"`
 
-	// yyyy-mm-ddThh:mm:ssZ (UTC) format of the time to remove the exception if temporary. Must be in the future. Only provide this value for temporary exceptions
+	// yyyy-mm-ddThh:mm:ssZ (UTC) format of the time to remove the exception if temporary. Only provide this value for temporary exceptions
 	// Format: date-time
 	ExpirationTime strfmt.DateTime `json:"expiration_time,omitempty"`
 

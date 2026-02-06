@@ -90,6 +90,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
+	"github.com/crowdstrike/gofalcon/falcon/client/maintenance_token"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/message_center"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
@@ -121,9 +122,9 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
+	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_supported_evaluation"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerability_metadata"
-	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
@@ -137,14 +138,14 @@ var Default = NewHTTPClient(nil)
 const (
 	// DefaultHost is the default Host
 	// found in Meta (info) section of spec file
-	DefaultHost string = "api.crowdstrike.com"
+	DefaultHost string = "api.us-2.crowdstrike.com"
 	// DefaultBasePath is the default BasePath
 	// found in Meta (info) section of spec file
 	DefaultBasePath string = "/"
 )
 
 // DefaultSchemes are the default schemes found in Meta (info) section of spec file
-var DefaultSchemes = []string{"https"}
+var DefaultSchemes = []string{"http", "https"}
 
 // NewHTTPClient creates a new crowd strike API specification HTTP client.
 func NewHTTPClient(formats strfmt.Registry) *CrowdStrikeAPISpecification {
@@ -173,8 +174,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 
 	cli := new(CrowdStrikeAPISpecification)
 	cli.Transport = transport
-	cli.AdmissionControlPolicies = admission_control_policies.New(transport, formats)
 	cli.Aspm = a_s_p_m.New(transport, formats)
+	cli.AdmissionControlPolicies = admission_control_policies.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
 	cli.CaoHunting = cao_hunting.New(transport, formats)
@@ -185,6 +186,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
 	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
+	cli.CloudGoogleCloudRegistration = cloud_google_cloud_registration.New(transport, formats)
 	cli.CloudOciRegistration = cloud_oci_registration.New(transport, formats)
 	cli.CloudPolicies = cloud_policies.New(transport, formats)
 	cli.CloudSecurity = cloud_security.New(transport, formats)
@@ -252,6 +254,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.KubernetesContainerCompliance = kubernetes_container_compliance.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
 	cli.LookupFiles = lookup_files.New(transport, formats)
+	cli.MaintenanceToken = maintenance_token.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MessageCenter = message_center.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
@@ -283,15 +286,14 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
 	cli.ServerlessVulnerabilities = serverless_vulnerabilities.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
+	cli.SpotlightSupportedEvaluation = spotlight_supported_evaluation.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
 	cli.SpotlightVulnerabilityMetadata = spotlight_vulnerability_metadata.New(transport, formats)
-	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.Workflows = workflows.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
-	cli.CloudGoogleCloudRegistration = cloud_google_cloud_registration.New(transport, formats)
 	return cli
 }
 
@@ -336,9 +338,9 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // CrowdStrikeAPISpecification is a client for crowd strike API specification
 type CrowdStrikeAPISpecification struct {
-	AdmissionControlPolicies admission_control_policies.ClientService
-
 	Aspm a_s_p_m.ClientService
+
+	AdmissionControlPolicies admission_control_policies.ClientService
 
 	Alerts alerts.ClientService
 
@@ -359,6 +361,8 @@ type CrowdStrikeAPISpecification struct {
 	CloudAzureRegistration cloud_azure_registration.ClientService
 
 	CloudConnectAws cloud_connect_aws.ClientService
+
+	CloudGoogleCloudRegistration cloud_google_cloud_registration.ClientService
 
 	CloudOciRegistration cloud_oci_registration.ClientService
 
@@ -494,6 +498,8 @@ type CrowdStrikeAPISpecification struct {
 
 	LookupFiles lookup_files.ClientService
 
+	MaintenanceToken maintenance_token.ClientService
+
 	Malquery malquery.ClientService
 
 	MessageCenter message_center.ClientService
@@ -556,11 +562,11 @@ type CrowdStrikeAPISpecification struct {
 
 	SpotlightEvaluationLogic spotlight_evaluation_logic.ClientService
 
+	SpotlightSupportedEvaluation spotlight_supported_evaluation.ClientService
+
 	SpotlightVulnerabilities spotlight_vulnerabilities.ClientService
 
 	SpotlightVulnerabilityMetadata spotlight_vulnerability_metadata.ClientService
-
-	TailoredIntelligence tailored_intelligence.ClientService
 
 	Threatgraph threatgraph.ClientService
 
@@ -572,16 +578,14 @@ type CrowdStrikeAPISpecification struct {
 
 	ZeroTrustAssessment zero_trust_assessment.ClientService
 
-	CloudGoogleCloudRegistration cloud_google_cloud_registration.ClientService
-
 	Transport runtime.ClientTransport
 }
 
 // SetTransport changes the transport on the client and all its subresources
 func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-	c.AdmissionControlPolicies.SetTransport(transport)
 	c.Aspm.SetTransport(transport)
+	c.AdmissionControlPolicies.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
 	c.CaoHunting.SetTransport(transport)
@@ -592,6 +596,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CloudAwsRegistration.SetTransport(transport)
 	c.CloudAzureRegistration.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
+	c.CloudGoogleCloudRegistration.SetTransport(transport)
 	c.CloudOciRegistration.SetTransport(transport)
 	c.CloudPolicies.SetTransport(transport)
 	c.CloudSecurity.SetTransport(transport)
@@ -659,6 +664,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LookupFiles.SetTransport(transport)
+	c.MaintenanceToken.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
 	c.MessageCenter.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
@@ -690,13 +696,12 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorVisibilityExclusions.SetTransport(transport)
 	c.ServerlessVulnerabilities.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
+	c.SpotlightSupportedEvaluation.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
 	c.SpotlightVulnerabilityMetadata.SetTransport(transport)
-	c.TailoredIntelligence.SetTransport(transport)
 	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
 	c.Workflows.SetTransport(transport)
 	c.ZeroTrustAssessment.SetTransport(transport)
-	c.CloudGoogleCloudRegistration.SetTransport(transport)
 }

@@ -63,13 +63,13 @@ type UpdateSavedQueryFromTemplateParams struct {
 
 	/* Ids.
 
-	   id of the dashboard
+	   id of the saved query
 	*/
 	Ids *string
 
 	/* SearchDomain.
 
-	   name of search domain (view or repo), options; all, falcon, third-party
+	   name of search domain (view or repo)
 	*/
 	SearchDomain *string
 
@@ -77,7 +77,7 @@ type UpdateSavedQueryFromTemplateParams struct {
 
 	   LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
 	*/
-	YamlTemplate *string
+	YamlTemplate runtime.NamedReadCloser
 
 	timeout    time.Duration
 	Context    context.Context
@@ -155,13 +155,13 @@ func (o *UpdateSavedQueryFromTemplateParams) SetSearchDomain(searchDomain *strin
 }
 
 // WithYamlTemplate adds the yamlTemplate to the update saved query from template params
-func (o *UpdateSavedQueryFromTemplateParams) WithYamlTemplate(yamlTemplate *string) *UpdateSavedQueryFromTemplateParams {
+func (o *UpdateSavedQueryFromTemplateParams) WithYamlTemplate(yamlTemplate runtime.NamedReadCloser) *UpdateSavedQueryFromTemplateParams {
 	o.SetYamlTemplate(yamlTemplate)
 	return o
 }
 
 // SetYamlTemplate adds the yamlTemplate to the update saved query from template params
-func (o *UpdateSavedQueryFromTemplateParams) SetYamlTemplate(yamlTemplate *string) {
+func (o *UpdateSavedQueryFromTemplateParams) SetYamlTemplate(yamlTemplate runtime.NamedReadCloser) {
 	o.YamlTemplate = yamlTemplate
 }
 
@@ -205,14 +205,9 @@ func (o *UpdateSavedQueryFromTemplateParams) WriteToRequest(r runtime.ClientRequ
 
 	if o.YamlTemplate != nil {
 
-		// form param yaml_template
-		var frYamlTemplate string
 		if o.YamlTemplate != nil {
-			frYamlTemplate = *o.YamlTemplate
-		}
-		fYamlTemplate := frYamlTemplate
-		if fYamlTemplate != "" {
-			if err := r.SetFormParam("yaml_template", fYamlTemplate); err != nil {
+			// form file param yaml_template
+			if err := r.SetFileParam("yaml_template", o.YamlTemplate); err != nil {
 				return err
 			}
 		}

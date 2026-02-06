@@ -65,7 +65,9 @@ type CreateRuleMixin0Params struct {
 
 	/* Body.
 
-	     For Custom Rule, logic is mandatory and parent_rule_id should not be specified.
+	     Rule severity integer to provide maps to the following: 0=Critical, 1=High, 2=Medium and 3=Low.
+	For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified.
+	For Runtime IOM Custom Rules (KAC), logic is mandatory, and resource_type + parent_rule_id should not be specified.
 	For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
 	*/
 	Body *models.CommonCreateRuleRequest

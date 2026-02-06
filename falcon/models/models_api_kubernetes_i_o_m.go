@@ -58,6 +58,9 @@ type ModelsAPIKubernetesIOM struct {
 	// Required: true
 	ContainersImpactedIds []string `json:"containers_impacted_ids"`
 
+	// custom rego uuid
+	CustomRegoUUID string `json:"custom_rego_uuid,omitempty"`
+
 	// description
 	// Required: true
 	Description *string `json:"description"`

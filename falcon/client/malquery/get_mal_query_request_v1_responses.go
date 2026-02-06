@@ -310,7 +310,7 @@ type GetMalQueryRequestV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query request v1 unauthorized response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *GetMalQueryRequestV1Unauthorized) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetMalQueryRequestV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
+func (o *GetMalQueryRequestV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *GetMalQueryRequestV1Unauthorized) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type GetMalQueryRequestV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query request v1 forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *GetMalQueryRequestV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] getMalQueryRequestV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetMalQueryRequestV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *GetMalQueryRequestV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *GetMalQueryRequestV1Forbidden) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

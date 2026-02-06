@@ -193,7 +193,7 @@ type GetMalQueryDownloadV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query download v1 bad request response has a 2xx status code
@@ -234,7 +234,7 @@ func (o *GetMalQueryDownloadV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetMalQueryDownloadV1BadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetMalQueryDownloadV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -269,7 +269,7 @@ func (o *GetMalQueryDownloadV1BadRequest) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -303,7 +303,7 @@ type GetMalQueryDownloadV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query download v1 unauthorized response has a 2xx status code
@@ -344,7 +344,7 @@ func (o *GetMalQueryDownloadV1Unauthorized) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetMalQueryDownloadV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
+func (o *GetMalQueryDownloadV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -379,7 +379,7 @@ func (o *GetMalQueryDownloadV1Unauthorized) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -413,7 +413,7 @@ type GetMalQueryDownloadV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query download v1 forbidden response has a 2xx status code
@@ -454,7 +454,7 @@ func (o *GetMalQueryDownloadV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetMalQueryDownloadV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *GetMalQueryDownloadV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -489,7 +489,7 @@ func (o *GetMalQueryDownloadV1Forbidden) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -523,7 +523,7 @@ type GetMalQueryDownloadV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query download v1 not found response has a 2xx status code
@@ -564,7 +564,7 @@ func (o *GetMalQueryDownloadV1NotFound) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetMalQueryDownloadV1NotFound) GetPayload() *models.MsaErrorsOnly {
+func (o *GetMalQueryDownloadV1NotFound) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -599,7 +599,7 @@ func (o *GetMalQueryDownloadV1NotFound) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -637,7 +637,7 @@ type GetMalQueryDownloadV1TooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query download v1 too many requests response has a 2xx status code
@@ -678,7 +678,7 @@ func (o *GetMalQueryDownloadV1TooManyRequests) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1TooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetMalQueryDownloadV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetMalQueryDownloadV1TooManyRequests) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -724,7 +724,7 @@ func (o *GetMalQueryDownloadV1TooManyRequests) readResponse(response runtime.Cli
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -758,7 +758,7 @@ type GetMalQueryDownloadV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query download v1 internal server error response has a 2xx status code
@@ -799,7 +799,7 @@ func (o *GetMalQueryDownloadV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] getMalQueryDownloadV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetMalQueryDownloadV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetMalQueryDownloadV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -834,7 +834,7 @@ func (o *GetMalQueryDownloadV1InternalServerError) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

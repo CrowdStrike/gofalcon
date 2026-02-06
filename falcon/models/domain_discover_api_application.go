@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -32,11 +33,20 @@ type DomainDiscoverAPIApplication struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// Details about the package. Populated for applications of a package type
+	DevPackage *DomainDiscoverAPIApplicationPackage `json:"dev_package,omitempty"`
+
+	// The unique identifier for the extension.
+	ExtensionID string `json:"extension_id,omitempty"`
+
 	// Timestamp when this application was first seen by the cloud.
 	FirstSeenTimestamp string `json:"first_seen_timestamp,omitempty"`
 
 	// The user defined groups this application is part of.
 	Groups []string `json:"groups"`
+
+	// The homepage URL of the application.
+	Homepage string `json:"homepage,omitempty"`
 
 	// The host on which an application is installed and/or used.
 	Host *DomainDiscoverAPIApplicationHost `json:"host,omitempty"`
@@ -44,6 +54,9 @@ type DomainDiscoverAPIApplication struct {
 	// The unique ID for the application.
 	// Required: true
 	ID *string `json:"id"`
+
+	// Details about the extension. Populated for applications of an ide_extension type
+	IdeExtension *DomainDiscoverAPIApplicationIDEExtension `json:"ide_extension,omitempty"`
 
 	// The file paths where the application is installed on the host. Or the locations of the executables.
 	InstallationPaths []string `json:"installation_paths"`
@@ -54,8 +67,11 @@ type DomainDiscoverAPIApplication struct {
 	// Whether or not the application is normalized
 	IsNormalized bool `json:"is_normalized,omitempty"`
 
-	// Whether or not the application is suspicious
+	// Whether or not the application is suspicious (detection-based for malware)
 	IsSuspicious bool `json:"is_suspicious,omitempty"`
+
+	// Timestamp when this application was last published.
+	LastPublished string `json:"last_published,omitempty"`
 
 	// Timestamp when this application was last updated (something changed in the application or in the host data).
 	LastUpdatedTimestamp string `json:"last_updated_timestamp,omitempty"`
@@ -87,6 +103,15 @@ type DomainDiscoverAPIApplication struct {
 	// The type of software of the application. Types are application, browser_extension, dev_package, ide_extension
 	SoftwareType string `json:"software_type,omitempty"`
 
+	// The store listing information for the application.
+	StoreListing string `json:"store_listing,omitempty"`
+
+	// The status of the application in the store listing.
+	StoreListingStatus string `json:"store_listing_status,omitempty"`
+
+	// List of security risk indicators for this application
+	SuspiciousIndicators []*DomainDiscoverAPISuspiciousIndicator `json:"suspicious_indicators"`
+
 	// The name the application's vendor.
 	Vendor string `json:"vendor,omitempty"`
 
@@ -109,11 +134,23 @@ func (m *DomainDiscoverAPIApplication) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDevPackage(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateHost(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIdeExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSuspiciousIndicators(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,6 +188,25 @@ func (m *DomainDiscoverAPIApplication) validateCid(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *DomainDiscoverAPIApplication) validateDevPackage(formats strfmt.Registry) error {
+	if swag.IsZero(m.DevPackage) { // not required
+		return nil
+	}
+
+	if m.DevPackage != nil {
+		if err := m.DevPackage.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dev_package")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dev_package")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIApplication) validateHost(formats strfmt.Registry) error {
 	if swag.IsZero(m.Host) { // not required
 		return nil
@@ -179,6 +235,51 @@ func (m *DomainDiscoverAPIApplication) validateID(formats strfmt.Registry) error
 	return nil
 }
 
+func (m *DomainDiscoverAPIApplication) validateIdeExtension(formats strfmt.Registry) error {
+	if swag.IsZero(m.IdeExtension) { // not required
+		return nil
+	}
+
+	if m.IdeExtension != nil {
+		if err := m.IdeExtension.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ide_extension")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ide_extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIApplication) validateSuspiciousIndicators(formats strfmt.Registry) error {
+	if swag.IsZero(m.SuspiciousIndicators) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SuspiciousIndicators); i++ {
+		if swag.IsZero(m.SuspiciousIndicators[i]) { // not required
+			continue
+		}
+
+		if m.SuspiciousIndicators[i] != nil {
+			if err := m.SuspiciousIndicators[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("suspicious_indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("suspicious_indicators" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this domain discover API application based on the context it is used
 func (m *DomainDiscoverAPIApplication) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -187,7 +288,19 @@ func (m *DomainDiscoverAPIApplication) ContextValidate(ctx context.Context, form
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDevPackage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateHost(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIdeExtension(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSuspiciousIndicators(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -218,6 +331,27 @@ func (m *DomainDiscoverAPIApplication) contextValidateBrowserExtension(ctx conte
 	return nil
 }
 
+func (m *DomainDiscoverAPIApplication) contextValidateDevPackage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DevPackage != nil {
+
+		if swag.IsZero(m.DevPackage) { // not required
+			return nil
+		}
+
+		if err := m.DevPackage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dev_package")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dev_package")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIApplication) contextValidateHost(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Host != nil {
@@ -234,6 +368,52 @@ func (m *DomainDiscoverAPIApplication) contextValidateHost(ctx context.Context, 
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIApplication) contextValidateIdeExtension(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IdeExtension != nil {
+
+		if swag.IsZero(m.IdeExtension) { // not required
+			return nil
+		}
+
+		if err := m.IdeExtension.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ide_extension")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ide_extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIApplication) contextValidateSuspiciousIndicators(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SuspiciousIndicators); i++ {
+
+		if m.SuspiciousIndicators[i] != nil {
+
+			if swag.IsZero(m.SuspiciousIndicators[i]) { // not required
+				return nil
+			}
+
+			if err := m.SuspiciousIndicators[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("suspicious_indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("suspicious_indicators" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

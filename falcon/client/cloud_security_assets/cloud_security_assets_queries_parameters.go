@@ -74,12 +74,19 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
+	- `aspm.deployment_cloud_resource_id`
+	- `aspm.deployment_provider`
+	- `aspm.deployment_type`
+	- `aspm.technologies`
 	- `azure.vm_id`
 	- `business_impact`
 	- `cloud_group`
 	- `cloud_label`
 	- `cloud_label_id`
 	- `cloud_provider`
+	- `cloud_risks.rule`
+	- `cloud_risks.severity`
+	- `cloud_risks.status`
 	- `cloud_scope`
 	- `cluster_id`
 	- `cluster_name`
@@ -140,6 +147,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `region`
 	- `resource_id`
 	- `resource_name`
+	- `resource_parent`
 	- `resource_type`
 	- `resource_type_name`
 	- `sensor_priority`
@@ -152,6 +160,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `tag_key`
 	- `tag_value`
 	- `tags`
+	- `tags_string`
 	- `tenant_id`
 	- `updated_at`
 	- `vmware.guest_os_id`
@@ -185,7 +194,12 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
+	- `aspm.deployment_cloud_resource_id`
+	- `aspm.deployment_provider`
+	- `aspm.deployment_type`
+	- `aspm.technologies`
 	- `cloud_provider`
+	- `cloud_risks.open_risk_count`
 	- `cluster_id`
 	- `cluster_name`
 	- `compartment_name`
@@ -208,6 +222,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `region`
 	- `resource_id`
 	- `resource_name`
+	- `resource_parent`
 	- `resource_type`
 	- `resource_type_name`
 	- `service`
@@ -227,6 +242,9 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `vmware.vm_host_name`
 	- `vmware.vm_tools_status`
 	- `zone`
+	- `publiclyExposedToTheInternet`
+	- `publiclyExposedAccessRange`
+	- `publiclyExposedExposureMethod`
 
 	Use `|asc` or `|desc` suffix to specify sort direction.
 	*/

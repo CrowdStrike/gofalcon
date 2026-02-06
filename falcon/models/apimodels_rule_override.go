@@ -73,6 +73,9 @@ type ApimodelsRuleOverride struct {
 	// rule id
 	RuleID string `json:"rule_id,omitempty"`
 
+	// suppression rule id
+	SuppressionRuleID string `json:"suppression_rule_id,omitempty"`
+
 	// target region
 	// Required: true
 	TargetRegion *string `json:"target_region"`

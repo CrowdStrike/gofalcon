@@ -32,6 +32,12 @@ type APITemplateV1CreateRequest struct {
 
 	// sla id
 	SLAID string `json:"sla_id,omitempty"`
+
+	// sla rules
+	SLARules []*APITemplateSLARuleV1CreateRequest `json:"sla_rules"`
+
+	// workflows
+	Workflows []*APIWorkflowV1 `json:"workflows"`
 }
 
 // Validate validates this api template v1 create request
@@ -43,6 +49,14 @@ func (m *APITemplateV1CreateRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSLARules(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWorkflows(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -87,11 +101,71 @@ func (m *APITemplateV1CreateRequest) validateName(formats strfmt.Registry) error
 	return nil
 }
 
+func (m *APITemplateV1CreateRequest) validateSLARules(formats strfmt.Registry) error {
+	if swag.IsZero(m.SLARules) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SLARules); i++ {
+		if swag.IsZero(m.SLARules[i]) { // not required
+			continue
+		}
+
+		if m.SLARules[i] != nil {
+			if err := m.SLARules[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sla_rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sla_rules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APITemplateV1CreateRequest) validateWorkflows(formats strfmt.Registry) error {
+	if swag.IsZero(m.Workflows) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Workflows); i++ {
+		if swag.IsZero(m.Workflows[i]) { // not required
+			continue
+		}
+
+		if m.Workflows[i] != nil {
+			if err := m.Workflows[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workflows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workflows" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this api template v1 create request based on the context it is used
 func (m *APITemplateV1CreateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSLARules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkflows(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -116,6 +190,56 @@ func (m *APITemplateV1CreateRequest) contextValidateFields(ctx context.Context, 
 					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("fields" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APITemplateV1CreateRequest) contextValidateSLARules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SLARules); i++ {
+
+		if m.SLARules[i] != nil {
+
+			if swag.IsZero(m.SLARules[i]) { // not required
+				return nil
+			}
+
+			if err := m.SLARules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sla_rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sla_rules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APITemplateV1CreateRequest) contextValidateWorkflows(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Workflows); i++ {
+
+		if m.Workflows[i] != nil {
+
+			if swag.IsZero(m.Workflows[i]) { // not required
+				return nil
+			}
+
+			if err := m.Workflows[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workflows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workflows" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

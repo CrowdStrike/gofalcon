@@ -82,6 +82,9 @@ type EmpowerapiRemoteCommandPutFileV2 struct {
 	// Required: true
 	Size *int64 `json:"size"`
 
+	// workflow activity id
+	WorkflowActivityID string `json:"workflow_activity_id,omitempty"`
+
 	// workflow input schema
 	WorkflowInputSchema string `json:"workflow_input_schema,omitempty"`
 

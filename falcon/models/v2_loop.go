@@ -30,6 +30,9 @@ type V2Loop struct {
 	// Required: true
 	For *V2ForLoop `json:"for"`
 
+	// Optional user provided name for the loop
+	Name string `json:"name,omitempty"`
+
 	// next
 	Next []string `json:"next"`
 }

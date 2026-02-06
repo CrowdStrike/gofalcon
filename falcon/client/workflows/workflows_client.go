@@ -58,6 +58,8 @@ type ClientService interface {
 
 	WorkflowExecuteInternal(params *WorkflowExecuteInternalParams, opts ...ClientOption) (*WorkflowExecuteInternalOK, error)
 
+	WorkflowExecuteSingleNodeV1(params *WorkflowExecuteSingleNodeV1Params, opts ...ClientOption) (*WorkflowExecuteSingleNodeV1OK, error)
+
 	WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error)
 
 	WorkflowGetHumanInputV1(params *WorkflowGetHumanInputV1Params, opts ...ClientOption) (*WorkflowGetHumanInputV1OK, error)
@@ -67,6 +69,8 @@ type ClientService interface {
 	WorkflowTriggersCombined(params *WorkflowTriggersCombinedParams, opts ...ClientOption) (*WorkflowTriggersCombinedOK, error)
 
 	WorkflowUpdateHumanInputV1(params *WorkflowUpdateHumanInputV1Params, opts ...ClientOption) (*WorkflowUpdateHumanInputV1OK, error)
+
+	V1ChildExecutionsQuery(params *V1ChildExecutionsQueryParams, opts ...ClientOption) (*V1ChildExecutionsQueryOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -607,6 +611,44 @@ func (a *Client) WorkflowExecuteInternal(params *WorkflowExecuteInternalParams, 
 }
 
 /*
+WorkflowExecuteSingleNodeV1 executes a single activity node resulting in an execution where test mode true and single node execution true associated with a definition ID if provided
+*/
+func (a *Client) WorkflowExecuteSingleNodeV1(params *WorkflowExecuteSingleNodeV1Params, opts ...ClientOption) (*WorkflowExecuteSingleNodeV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowExecuteSingleNodeV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowExecuteSingleNodeV1",
+		Method:             "POST",
+		PathPattern:        "/workflows/entities/single-node-executions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowExecuteSingleNodeV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowExecuteSingleNodeV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowExecuteSingleNodeV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 WorkflowExecutionsCombined searches workflow executions based on the provided filter
 */
 func (a *Client) WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error) {
@@ -793,6 +835,44 @@ func (a *Client) WorkflowUpdateHumanInputV1(params *WorkflowUpdateHumanInputV1Pa
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for WorkflowUpdateHumanInputV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+V1ChildExecutionsQuery searches for child executions by providing a f q l filter and paging details returns the set of child workflow execution i ds which match the filter criteria
+*/
+func (a *Client) V1ChildExecutionsQuery(params *V1ChildExecutionsQueryParams, opts ...ClientOption) (*V1ChildExecutionsQueryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewV1ChildExecutionsQueryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "v1.child-executions.query",
+		Method:             "GET",
+		PathPattern:        "/workflows/queries/child-executions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &V1ChildExecutionsQueryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*V1ChildExecutionsQueryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for v1.child-executions.query: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -85,7 +85,6 @@ type LaunchExportJobParams struct {
 	- `investigate.kubernetes-ioms`
 	- `investigate.runtime-detections`
 	- `investigate.unidentified-containers`
-	- `network.events`
 	- `policies.exclusions`
 	*/
 	Body *models.ExportsLaunchExportRequest

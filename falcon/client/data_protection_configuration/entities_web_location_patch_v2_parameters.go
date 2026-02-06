@@ -67,7 +67,7 @@ type EntitiesWebLocationPatchV2Params struct {
 
 	   Definition of updated web-location
 	*/
-	Body *models.APIWebLocationV2
+	Body *models.APIUpdateWebLocationRequestV2
 
 	/* ID.
 
@@ -129,13 +129,13 @@ func (o *EntitiesWebLocationPatchV2Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) WithBody(body *models.APIWebLocationV2) *EntitiesWebLocationPatchV2Params {
+func (o *EntitiesWebLocationPatchV2Params) WithBody(body *models.APIUpdateWebLocationRequestV2) *EntitiesWebLocationPatchV2Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities web location patch v2 params
-func (o *EntitiesWebLocationPatchV2Params) SetBody(body *models.APIWebLocationV2) {
+func (o *EntitiesWebLocationPatchV2Params) SetBody(body *models.APIUpdateWebLocationRequestV2) {
 	o.Body = body
 }
 

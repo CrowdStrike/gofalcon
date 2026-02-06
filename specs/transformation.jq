@@ -680,6 +680,10 @@
 | .paths."/policy/entities/sv-exclusions/v1".post.responses."201" = .paths."/policy/entities/sv-exclusions/v1".post.responses."200"
 | del(.paths."/policy/entities/sv-exclusions/v1".post.responses."200")
 
+# 201 is a valid response for POST /policy/entities/ml-exclusions/v1 200 is not.
+| .paths."/policy/entities/ml-exclusions/v1".post.responses."201" = .paths."/policy/entities/ml-exclusions/v1".post.responses."200"
+| del(.paths."/policy/entities/ml-exclusions/v1".post.responses."200")
+
 # IT Automation - Allow fields to be nullable
 | .definitions."itautomation.ExecutionConfig".properties.enable_os_query += {"x-nullable": true}
 | .definitions."itautomation.ExecutionConfig".properties.enable_python_execution += {"x-nullable": true}
@@ -711,7 +715,23 @@
 
 # admission-control-policies fixes
 | .definitions."models.UpdatePolicyRequest".properties.is_enabled += {"x-nullable": true}
+| .definitions."models.CreatePolicyRequest".required = ["name"]
 
 # Make fields nullable and prevent omitempty for suppressionrules.UpdateSuppressionRuleRequest (allows empty string to be sent when set)
 | .definitions."suppressionrules.UpdateSuppressionRuleRequest".properties.suppression_comment += {"x-nullable": true, "x-omitempty": false}
 | .definitions."suppressionrules.UpdateSuppressionRuleRequest".properties.description += {"x-nullable": true, "x-omitempty": false}
+
+# Make description nullable for remote_response.UpdatePolicyReqV1
+| .definitions."remote_response.UpdatePolicyReqV1".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.UpdateComplianceFrameworkRequest
+| .definitions."common.UpdateComplianceFrameworkRequest".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.CreateComplianceFrameworkRequest
+| .definitions."common.CreateComplianceFrameworkRequest".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.UpdateComplianceControlRequest
+| .definitions."common.UpdateComplianceControlRequest".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.CreateComplianceControlRequest
+| .definitions."common.CreateComplianceControlRequest".properties.description += {"x-nullable": true}

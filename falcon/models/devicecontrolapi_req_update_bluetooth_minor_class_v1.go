@@ -22,7 +22,7 @@ type DevicecontrolapiReqUpdateBluetoothMinorClassV1 struct {
 
 	// Action to be taken for devices in this class
 	// Required: true
-	// Enum: [FULL_ACCESS BLOCK_ALL]
+	// Enum: [FULL_ACCESS,BLOCK_ALL]
 	Action *string `json:"action"`
 
 	// Bluetooth Minor Device class name
@@ -52,7 +52,7 @@ var devicecontrolapiReqUpdateBluetoothMinorClassV1TypeActionPropEnum []interface
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["FULL_ACCESS","BLOCK_ALL"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["FULL_ACCESS,BLOCK_ALL"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -62,11 +62,8 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateBluetoothMinorClassV1ActionFULLACCESS captures enum value "FULL_ACCESS"
-	DevicecontrolapiReqUpdateBluetoothMinorClassV1ActionFULLACCESS string = "FULL_ACCESS"
-
-	// DevicecontrolapiReqUpdateBluetoothMinorClassV1ActionBLOCKALL captures enum value "BLOCK_ALL"
-	DevicecontrolapiReqUpdateBluetoothMinorClassV1ActionBLOCKALL string = "BLOCK_ALL"
+	// DevicecontrolapiReqUpdateBluetoothMinorClassV1ActionFULLACCESSBLOCKALL captures enum value "FULL_ACCESS,BLOCK_ALL"
+	DevicecontrolapiReqUpdateBluetoothMinorClassV1ActionFULLACCESSBLOCKALL string = "FULL_ACCESS,BLOCK_ALL"
 )
 
 // prop value enum

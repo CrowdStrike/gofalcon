@@ -66,10 +66,6 @@ type ClientService interface {
 
 	ExecuteQuery(params *ExecuteQueryParams, opts ...ClientOption) (*ExecuteQueryOK, error)
 
-	GetCSPMInventoryBAServices(params *GetCSPMInventoryBAServicesParams, opts ...ClientOption) (*GetCSPMInventoryBAServicesOK, error)
-
-	GetCSPMInventoryServiceDetails(params *GetCSPMInventoryServiceDetailsParams, opts ...ClientOption) (*GetCSPMInventoryServiceDetailsOK, error)
-
 	GetCloudSecurityIntegrationState(params *GetCloudSecurityIntegrationStateParams, opts ...ClientOption) (*GetCloudSecurityIntegrationStateOK, error)
 
 	GetExecutorNodes(params *GetExecutorNodesParams, opts ...ClientOption) (*GetExecutorNodesOK, error)
@@ -823,82 +819,6 @@ func (a *Client) ExecuteQuery(params *ExecuteQueryParams, opts ...ClientOption) 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ExecuteQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetCSPMInventoryBAServices gets services ordered by risk score for given b a
-*/
-func (a *Client) GetCSPMInventoryBAServices(params *GetCSPMInventoryBAServicesParams, opts ...ClientOption) (*GetCSPMInventoryBAServicesOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetCSPMInventoryBAServicesParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetCSPMInventoryBAServices",
-		Method:             "GET",
-		PathPattern:        "/application-security/combined/cspm-inventory-ba-services/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetCSPMInventoryBAServicesReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetCSPMInventoryBAServicesOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCSPMInventoryBAServices: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetCSPMInventoryServiceDetails gets all service details for c s p m inventory
-*/
-func (a *Client) GetCSPMInventoryServiceDetails(params *GetCSPMInventoryServiceDetailsParams, opts ...ClientOption) (*GetCSPMInventoryServiceDetailsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetCSPMInventoryServiceDetailsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetCSPMInventoryServiceDetails",
-		Method:             "GET",
-		PathPattern:        "/application-security/combined/cspm-inventory-service-data/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetCSPMInventoryServiceDetailsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetCSPMInventoryServiceDetailsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCSPMInventoryServiceDetails: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -64,7 +64,7 @@ EntitiesFilesDownloadPostV1Params contains all the parameters to send to the API
 type EntitiesFilesDownloadPostV1Params struct {
 
 	// Body.
-	Body *models.APIDownloadRequestV1
+	Body *models.CasefilesapiDownloadRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *EntitiesFilesDownloadPostV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the entities files download post v1 params
-func (o *EntitiesFilesDownloadPostV1Params) WithBody(body *models.APIDownloadRequestV1) *EntitiesFilesDownloadPostV1Params {
+func (o *EntitiesFilesDownloadPostV1Params) WithBody(body *models.CasefilesapiDownloadRequestV1) *EntitiesFilesDownloadPostV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities files download post v1 params
-func (o *EntitiesFilesDownloadPostV1Params) SetBody(body *models.APIDownloadRequestV1) {
+func (o *EntitiesFilesDownloadPostV1Params) SetBody(body *models.CasefilesapiDownloadRequestV1) {
 	o.Body = body
 }
 

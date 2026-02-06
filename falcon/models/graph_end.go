@@ -30,6 +30,9 @@ type GraphEnd struct {
 	// Keys of the fields that are the output for this model
 	OutputFields []string `json:"output_fields"`
 
+	// The position of the activity as rendered in the UI.
+	Position *GraphNodePosition `json:"position,omitempty"`
+
 	// Summary of the workflow is free form text with possibly embedded variables
 	Summary string `json:"summary,omitempty"`
 }
@@ -43,6 +46,10 @@ func (m *GraphEnd) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNodeID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePosition(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -70,8 +77,57 @@ func (m *GraphEnd) validateNodeID(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this graph end based on context it is used
+func (m *GraphEnd) validatePosition(formats strfmt.Registry) error {
+	if swag.IsZero(m.Position) { // not required
+		return nil
+	}
+
+	if m.Position != nil {
+		if err := m.Position.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this graph end based on the context it is used
 func (m *GraphEnd) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *GraphEnd) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+
+		if swag.IsZero(m.Position) { // not required
+			return nil
+		}
+
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

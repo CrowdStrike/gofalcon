@@ -64,7 +64,7 @@ EntitiesRulesOwnershipPutV1Params contains all the parameters to send to the API
 type EntitiesRulesOwnershipPutV1Params struct {
 
 	// Body.
-	Body *models.APIRuleOwnerPutRequestV1
+	Body *models.CorrelationrulesapiRuleOwnerPutRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *EntitiesRulesOwnershipPutV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the entities rules ownership put v1 params
-func (o *EntitiesRulesOwnershipPutV1Params) WithBody(body *models.APIRuleOwnerPutRequestV1) *EntitiesRulesOwnershipPutV1Params {
+func (o *EntitiesRulesOwnershipPutV1Params) WithBody(body *models.CorrelationrulesapiRuleOwnerPutRequestV1) *EntitiesRulesOwnershipPutV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities rules ownership put v1 params
-func (o *EntitiesRulesOwnershipPutV1Params) SetBody(body *models.APIRuleOwnerPutRequestV1) {
+func (o *EntitiesRulesOwnershipPutV1Params) SetBody(body *models.CorrelationrulesapiRuleOwnerPutRequestV1) {
 	o.Body = body
 }
 

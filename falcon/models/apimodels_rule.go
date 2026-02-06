@@ -38,6 +38,10 @@ type ApimodelsRule struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// cloneable
+	// Required: true
+	Cloneable *bool `json:"cloneable"`
+
 	// controls
 	// Required: true
 	Controls []*ApimodelsControl `json:"controls"`
@@ -200,6 +204,10 @@ func (m *ApimodelsRule) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCloneable(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateControls(formats); err != nil {
 		res = append(res, err)
 	}
@@ -323,6 +331,15 @@ func (m *ApimodelsRule) validateAutoRemediable(formats strfmt.Registry) error {
 func (m *ApimodelsRule) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ApimodelsRule) validateCloneable(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloneable", "body", m.Cloneable); err != nil {
 		return err
 	}
 

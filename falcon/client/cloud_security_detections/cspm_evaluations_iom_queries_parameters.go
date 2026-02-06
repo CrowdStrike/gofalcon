@@ -98,6 +98,7 @@ type CspmEvaluationsIomQueriesParams struct {
 	- `requirement_name`
 	- `resource_gcrn`
 	- `resource_id`
+	- `resource_parent`
 	- `resource_status`
 	- `resource_type`
 	- `resource_type_name`
@@ -118,6 +119,7 @@ type CspmEvaluationsIomQueriesParams struct {
 	- `tag_key`
 	- `tag_value`
 	- `tags`
+	- `tags_string`
 	- `technique_id`
 	- `technique_name`
 	*/
@@ -167,6 +169,7 @@ type CspmEvaluationsIomQueriesParams struct {
 	- `requirement_name`
 	- `resource_gcrn`
 	- `resource_id`
+	- `resource_parent`
 	- `resource_status`
 	- `resource_type`
 	- `resource_type_name`
@@ -187,6 +190,7 @@ type CspmEvaluationsIomQueriesParams struct {
 	- `tag_key`
 	- `tag_value`
 	- `tags`
+	- `tags_string`
 	- `technique_id`
 	- `technique_name`
 	*/

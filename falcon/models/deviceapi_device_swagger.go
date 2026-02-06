@@ -262,6 +262,9 @@ type DeviceapiDeviceSwagger struct {
 	// rtr state
 	RtrState string `json:"rtr_state,omitempty"`
 
+	// safe mode
+	SafeMode string `json:"safe_mode,omitempty"`
+
 	// serial number
 	SerialNumber string `json:"serial_number,omitempty"`
 

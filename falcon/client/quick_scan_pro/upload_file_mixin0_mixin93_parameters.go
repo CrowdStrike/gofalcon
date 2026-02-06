@@ -62,6 +62,12 @@ UploadFileMixin0Mixin93Params contains all the parameters to send to the API end
 */
 type UploadFileMixin0Mixin93Params struct {
 
+	/* XFilePassword.
+
+	   OCTET-STREAM ONLY - Password for encrypted archives (use for octet-stream uploads). If 'scan' is true, the value is used for the scan just starting.
+	*/
+	XFilePassword *string
+
 	/* File.
 
 	   Binary file to be uploaded. Max file size: 256 MB. Use `--data-binary @$FILE_PATH` for octet-stream/cURL uploads
@@ -73,6 +79,12 @@ type UploadFileMixin0Mixin93Params struct {
 	   OCTET-STREAM ONLY - Name of the file (required for octet-stream uploads).
 	*/
 	FileName *string
+
+	/* Password.
+
+	   MULTIPART ONLY - Password for encrypted archives (use for multipart/form-data uploads). If 'scan' is true, the value is used for the scan just starting.
+	*/
+	Password *string
 
 	/* Scan.
 
@@ -144,6 +156,17 @@ func (o *UploadFileMixin0Mixin93Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXFilePassword adds the xFilePassword to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) WithXFilePassword(xFilePassword *string) *UploadFileMixin0Mixin93Params {
+	o.SetXFilePassword(xFilePassword)
+	return o
+}
+
+// SetXFilePassword adds the xFilePassword to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) SetXFilePassword(xFilePassword *string) {
+	o.XFilePassword = xFilePassword
+}
+
 // WithFile adds the file to the upload file mixin0 mixin93 params
 func (o *UploadFileMixin0Mixin93Params) WithFile(file runtime.NamedReadCloser) *UploadFileMixin0Mixin93Params {
 	o.SetFile(file)
@@ -166,6 +189,17 @@ func (o *UploadFileMixin0Mixin93Params) SetFileName(fileName *string) {
 	o.FileName = fileName
 }
 
+// WithPassword adds the password to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) WithPassword(password *string) *UploadFileMixin0Mixin93Params {
+	o.SetPassword(password)
+	return o
+}
+
+// SetPassword adds the password to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) SetPassword(password *string) {
+	o.Password = password
+}
+
 // WithScan adds the scan to the upload file mixin0 mixin93 params
 func (o *UploadFileMixin0Mixin93Params) WithScan(scan *bool) *UploadFileMixin0Mixin93Params {
 	o.SetScan(scan)
@@ -184,6 +218,14 @@ func (o *UploadFileMixin0Mixin93Params) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+
+	if o.XFilePassword != nil {
+
+		// header param X-File-Password
+		if err := r.SetHeaderParam("X-File-Password", *o.XFilePassword); err != nil {
+			return err
+		}
+	}
 	// form file param file
 	if err := r.SetFileParam("file", o.File); err != nil {
 		return err
@@ -201,6 +243,21 @@ func (o *UploadFileMixin0Mixin93Params) WriteToRequest(r runtime.ClientRequest, 
 		if qFileName != "" {
 
 			if err := r.SetQueryParam("file_name", qFileName); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Password != nil {
+
+		// form param password
+		var frPassword string
+		if o.Password != nil {
+			frPassword = *o.Password
+		}
+		fPassword := frPassword
+		if fPassword != "" {
+			if err := r.SetFormParam("password", fPassword); err != nil {
 				return err
 			}
 		}

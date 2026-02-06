@@ -63,6 +63,46 @@ type EntitiesODSScanRequest struct {
 	// Required: true
 	InitiatedFrom *string `json:"initiated_from"`
 
+	// mac cloud ml level detection
+	// Required: true
+	MacCloudMlLevelDetection *int32 `json:"mac_cloud_ml_level_detection"`
+
+	// mac cloud ml level prevention
+	// Required: true
+	MacCloudMlLevelPrevention *int32 `json:"mac_cloud_ml_level_prevention"`
+
+	// mac cloud pup adware level detection
+	// Required: true
+	MacCloudPupAdwareLevelDetection *int32 `json:"mac_cloud_pup_adware_level_detection"`
+
+	// mac cloud pup adware level prevention
+	// Required: true
+	MacCloudPupAdwareLevelPrevention *int32 `json:"mac_cloud_pup_adware_level_prevention"`
+
+	// mac scan exclusions
+	// Required: true
+	MacScanExclusions []string `json:"mac_scan_exclusions"`
+
+	// mac scan inclusions
+	// Required: true
+	MacScanInclusions []string `json:"mac_scan_inclusions"`
+
+	// mac sensor ml level detection
+	// Required: true
+	MacSensorMlLevelDetection *int32 `json:"mac_sensor_ml_level_detection"`
+
+	// mac sensor ml level prevention
+	// Required: true
+	MacSensorMlLevelPrevention *int32 `json:"mac_sensor_ml_level_prevention"`
+
+	// mac sensor pup adware level detection
+	// Required: true
+	MacSensorPupAdwareLevelDetection *int32 `json:"mac_sensor_pup_adware_level_detection"`
+
+	// mac sensor pup adware level prevention
+	// Required: true
+	MacSensorPupAdwareLevelPrevention *int32 `json:"mac_sensor_pup_adware_level_prevention"`
+
 	// max duration
 	// Required: true
 	MaxDuration *int32 `json:"max_duration"`
@@ -137,6 +177,46 @@ func (m *EntitiesODSScanRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateInitiatedFrom(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacCloudMlLevelDetection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacCloudMlLevelPrevention(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacCloudPupAdwareLevelDetection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacCloudPupAdwareLevelPrevention(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacScanExclusions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacScanInclusions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacSensorMlLevelDetection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacSensorMlLevelPrevention(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacSensorPupAdwareLevelDetection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacSensorPupAdwareLevelPrevention(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -267,6 +347,96 @@ func (m *EntitiesODSScanRequest) validateHosts(formats strfmt.Registry) error {
 func (m *EntitiesODSScanRequest) validateInitiatedFrom(formats strfmt.Registry) error {
 
 	if err := validate.Required("initiated_from", "body", m.InitiatedFrom); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacCloudMlLevelDetection(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_cloud_ml_level_detection", "body", m.MacCloudMlLevelDetection); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacCloudMlLevelPrevention(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_cloud_ml_level_prevention", "body", m.MacCloudMlLevelPrevention); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacCloudPupAdwareLevelDetection(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_cloud_pup_adware_level_detection", "body", m.MacCloudPupAdwareLevelDetection); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacCloudPupAdwareLevelPrevention(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_cloud_pup_adware_level_prevention", "body", m.MacCloudPupAdwareLevelPrevention); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacScanExclusions(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_scan_exclusions", "body", m.MacScanExclusions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacScanInclusions(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_scan_inclusions", "body", m.MacScanInclusions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacSensorMlLevelDetection(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_sensor_ml_level_detection", "body", m.MacSensorMlLevelDetection); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacSensorMlLevelPrevention(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_sensor_ml_level_prevention", "body", m.MacSensorMlLevelPrevention); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacSensorPupAdwareLevelDetection(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_sensor_pup_adware_level_detection", "body", m.MacSensorPupAdwareLevelDetection); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateMacSensorPupAdwareLevelPrevention(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_sensor_pup_adware_level_prevention", "body", m.MacSensorPupAdwareLevelPrevention); err != nil {
 		return err
 	}
 

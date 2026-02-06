@@ -90,7 +90,7 @@ type DownloadFileOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this download file o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *DownloadFileOK) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileOK  %+v", 200, o.Payload)
 }
 
-func (o *DownloadFileOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *DownloadFileOK) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *DownloadFileOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type DownloadFileBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this download file bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *DownloadFileBadRequest) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DownloadFileBadRequest) GetPayload() *models.CommonEntitiesResponse {
+func (o *DownloadFileBadRequest) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *DownloadFileBadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type DownloadFileUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this download file unauthorized response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *DownloadFileUnauthorized) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *DownloadFileUnauthorized) GetPayload() *models.CommonEntitiesResponse {
+func (o *DownloadFileUnauthorized) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *DownloadFileUnauthorized) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type DownloadFileForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this download file forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *DownloadFileForbidden) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileForbidden  %+v", 403, o.Payload)
 }
 
-func (o *DownloadFileForbidden) GetPayload() *models.CommonEntitiesResponse {
+func (o *DownloadFileForbidden) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *DownloadFileForbidden) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type DownloadFileInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this download file internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *DownloadFileInternalServerError) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/download/v1][%d] downloadFileInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DownloadFileInternalServerError) GetPayload() *models.CommonEntitiesResponse {
+func (o *DownloadFileInternalServerError) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *DownloadFileInternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -19,9 +19,15 @@ import (
 // swagger:model models.HEStringInfoType
 type ModelsHEStringInfoType struct {
 
+	// hash
+	Hash string `json:"Hash,omitempty"`
+
 	// line
 	// Required: true
 	Line *int32 `json:"Line"`
+
+	// name
+	Name string `json:"Name,omitempty"`
 
 	// regex name
 	// Required: true

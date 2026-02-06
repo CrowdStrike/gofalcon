@@ -19,6 +19,9 @@ type FigapiAdversary struct {
 
 	// Name of the adversary
 	Name string `json:"Name,omitempty"`
+
+	// Slug name of the adversary
+	Slug string `json:"Slug,omitempty"`
 }
 
 // Validate validates this figapi adversary

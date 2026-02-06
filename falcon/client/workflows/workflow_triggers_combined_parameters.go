@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewWorkflowTriggersCombinedParams creates a new WorkflowTriggersCombinedParams object,
@@ -66,6 +67,18 @@ type WorkflowTriggersCombinedParams struct {
 	   FQL query specifying filter parameters.
 	*/
 	Filter string
+
+	/* Limit.
+
+	   Maximum number of records to return.
+	*/
+	Limit *int64
+
+	/* Offset.
+
+	   Starting pagination offset of records to return.
+	*/
+	Offset *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -131,6 +144,28 @@ func (o *WorkflowTriggersCombinedParams) SetFilter(filter string) {
 	o.Filter = filter
 }
 
+// WithLimit adds the limit to the workflow triggers combined params
+func (o *WorkflowTriggersCombinedParams) WithLimit(limit *int64) *WorkflowTriggersCombinedParams {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the workflow triggers combined params
+func (o *WorkflowTriggersCombinedParams) SetLimit(limit *int64) {
+	o.Limit = limit
+}
+
+// WithOffset adds the offset to the workflow triggers combined params
+func (o *WorkflowTriggersCombinedParams) WithOffset(offset *string) *WorkflowTriggersCombinedParams {
+	o.SetOffset(offset)
+	return o
+}
+
+// SetOffset adds the offset to the workflow triggers combined params
+func (o *WorkflowTriggersCombinedParams) SetOffset(offset *string) {
+	o.Offset = offset
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *WorkflowTriggersCombinedParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -145,6 +180,40 @@ func (o *WorkflowTriggersCombinedParams) WriteToRequest(r runtime.ClientRequest,
 
 	if err := r.SetQueryParam("filter", qFilter); err != nil {
 		return err
+	}
+
+	if o.Limit != nil {
+
+		// query param limit
+		var qrLimit int64
+
+		if o.Limit != nil {
+			qrLimit = *o.Limit
+		}
+		qLimit := swag.FormatInt64(qrLimit)
+		if qLimit != "" {
+
+			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Offset != nil {
+
+		// query param offset
+		var qrOffset string
+
+		if o.Offset != nil {
+			qrOffset = *o.Offset
+		}
+		qOffset := qrOffset
+		if qOffset != "" {
+
+			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
 	}
 
 	if len(res) > 0 {

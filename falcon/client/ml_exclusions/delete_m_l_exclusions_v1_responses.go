@@ -84,7 +84,7 @@ type DeleteMLExclusionsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ExclusionsRespV1
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this delete m l exclusions v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *DeleteMLExclusionsV1OK) String() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteMLExclusionsV1OK) GetPayload() *models.ExclusionsRespV1 {
+func (o *DeleteMLExclusionsV1OK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *DeleteMLExclusionsV1OK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ExclusionsRespV1)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type DeleteMLExclusionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ExclusionsRespV1
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this delete m l exclusions v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *DeleteMLExclusionsV1BadRequest) String() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteMLExclusionsV1BadRequest) GetPayload() *models.ExclusionsRespV1 {
+func (o *DeleteMLExclusionsV1BadRequest) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *DeleteMLExclusionsV1BadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ExclusionsRespV1)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type DeleteMLExclusionsV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete m l exclusions v1 forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *DeleteMLExclusionsV1Forbidden) String() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *DeleteMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *DeleteMLExclusionsV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *DeleteMLExclusionsV1Forbidden) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type DeleteMLExclusionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ExclusionsRespV1
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this delete m l exclusions v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *DeleteMLExclusionsV1InternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DeleteMLExclusionsV1InternalServerError) GetPayload() *models.ExclusionsRespV1 {
+func (o *DeleteMLExclusionsV1InternalServerError) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *DeleteMLExclusionsV1InternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ExclusionsRespV1)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

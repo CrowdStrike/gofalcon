@@ -27,6 +27,9 @@ type GraphGateway struct {
 	// Required: true
 	NodeID *string `json:"nodeID"`
 
+	// The position of the activity as rendered in the UI.
+	Position *GraphNodePosition `json:"position,omitempty"`
+
 	// The type of gateway being specified, allowed values are; exclusive, inclusive and parallel.
 	// Required: true
 	Type *string `json:"type"`
@@ -41,6 +44,10 @@ func (m *GraphGateway) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNodeID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePosition(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -83,6 +90,25 @@ func (m *GraphGateway) validateNodeID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *GraphGateway) validatePosition(formats strfmt.Registry) error {
+	if swag.IsZero(m.Position) { // not required
+		return nil
+	}
+
+	if m.Position != nil {
+		if err := m.Position.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GraphGateway) validateType(formats strfmt.Registry) error {
 
 	if err := validate.Required("type", "body", m.Type); err != nil {
@@ -97,6 +123,10 @@ func (m *GraphGateway) ContextValidate(ctx context.Context, formats strfmt.Regis
 	var res []error
 
 	if err := m.contextValidateFlows(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -115,6 +145,27 @@ func (m *GraphGateway) contextValidateFlows(ctx context.Context, formats strfmt.
 				return ve.ValidateName("flows")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("flows")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphGateway) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+
+		if swag.IsZero(m.Position) { // not required
+			return nil
+		}
+
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
 			}
 			return err
 		}

@@ -90,7 +90,7 @@ type EnumerateFileOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this enumerate file o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *EnumerateFileOK) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileOK  %+v", 200, o.Payload)
 }
 
-func (o *EnumerateFileOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *EnumerateFileOK) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *EnumerateFileOK) readResponse(response runtime.ClientResponse, consumer
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type EnumerateFileBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this enumerate file bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *EnumerateFileBadRequest) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *EnumerateFileBadRequest) GetPayload() *models.CommonEntitiesResponse {
+func (o *EnumerateFileBadRequest) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *EnumerateFileBadRequest) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type EnumerateFileUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this enumerate file unauthorized response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *EnumerateFileUnauthorized) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *EnumerateFileUnauthorized) GetPayload() *models.CommonEntitiesResponse {
+func (o *EnumerateFileUnauthorized) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *EnumerateFileUnauthorized) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type EnumerateFileForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this enumerate file forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *EnumerateFileForbidden) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileForbidden  %+v", 403, o.Payload)
 }
 
-func (o *EnumerateFileForbidden) GetPayload() *models.CommonEntitiesResponse {
+func (o *EnumerateFileForbidden) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *EnumerateFileForbidden) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type EnumerateFileInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this enumerate file internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *EnumerateFileInternalServerError) String() string {
 	return fmt.Sprintf("[GET /csdownloads/entities/files/enumerate/v1][%d] enumerateFileInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *EnumerateFileInternalServerError) GetPayload() *models.CommonEntitiesResponse {
+func (o *EnumerateFileInternalServerError) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *EnumerateFileInternalServerError) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
