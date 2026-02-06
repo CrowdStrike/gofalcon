@@ -23,7 +23,7 @@ type CommonUpdateComplianceFrameworkRequest struct {
 	Active bool `json:"active,omitempty"`
 
 	// description
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// name
 	// Required: true
