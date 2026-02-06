@@ -20,7 +20,7 @@ import (
 type CommonUpdateComplianceControlRequest struct {
 
 	// description
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// name
 	// Required: true

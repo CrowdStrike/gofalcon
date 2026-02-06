@@ -20,7 +20,7 @@ import (
 type CommonCreateComplianceControlRequest struct {
 
 	// description
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// framework id
 	// Required: true

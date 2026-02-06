@@ -726,3 +726,12 @@
 
 # Make description nullable for common.UpdateComplianceFrameworkRequest
 | .definitions."common.UpdateComplianceFrameworkRequest".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.CreateComplianceFrameworkRequest
+| .definitions."common.CreateComplianceFrameworkRequest".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.UpdateComplianceControlRequest
+| .definitions."common.UpdateComplianceControlRequest".properties.description += {"x-nullable": true}
+
+# Make description nullable for common.CreateComplianceControlRequest
+| .definitions."common.CreateComplianceControlRequest".properties.description += {"x-nullable": true}
