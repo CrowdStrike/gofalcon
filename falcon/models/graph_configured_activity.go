@@ -22,6 +22,12 @@ type GraphConfiguredActivity struct {
 	// The class of activity. If undefined it is an ActivityClassDefault
 	Class string `json:"class,omitempty"`
 
+	// If set to true, an error on the action will not send an error token to children
+	ContinueOnError bool `json:"continue_on_error,omitempty"`
+
+	// The name of the activity type which is not user editable.
+	DefaultName string `json:"default_name,omitempty"`
+
 	// References to the incoming and outgoing sequence flows attached to the activity.
 	// Required: true
 	Flows *Flows `json:"flows"`
@@ -46,6 +52,9 @@ type GraphConfiguredActivity struct {
 	// node ID
 	// Required: true
 	NodeID *string `json:"nodeID"`
+
+	// The position of the activity as rendered in the UI.
+	Position *GraphNodePosition `json:"position,omitempty"`
 
 	// Dynamic payload providing values needed to configure the activity for execution. The structure of this data is dictated by the JSON Schema defined for the selected Activity.
 	// Required: true
@@ -80,6 +89,10 @@ func (m *GraphConfiguredActivity) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNodeID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePosition(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -178,6 +191,25 @@ func (m *GraphConfiguredActivity) validateNodeID(formats strfmt.Registry) error 
 	return nil
 }
 
+func (m *GraphConfiguredActivity) validatePosition(formats strfmt.Registry) error {
+	if swag.IsZero(m.Position) { // not required
+		return nil
+	}
+
+	if m.Position != nil {
+		if err := m.Position.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GraphConfiguredActivity) validateProperties(formats strfmt.Registry) error {
 
 	if m.Properties == nil {
@@ -200,6 +232,10 @@ func (m *GraphConfiguredActivity) ContextValidate(ctx context.Context, formats s
 	}
 
 	if err := m.contextValidateMockOutput(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -260,6 +296,27 @@ func (m *GraphConfiguredActivity) contextValidateMockOutput(ctx context.Context,
 				return ve.ValidateName("mock_output")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("mock_output")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphConfiguredActivity) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+
+		if swag.IsZero(m.Position) { // not required
+			return nil
+		}
+
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
 			}
 			return err
 		}

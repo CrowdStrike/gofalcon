@@ -40,14 +40,29 @@ type JsonschemaUIExtensions struct {
 	// generate a hidden card during mobiledoc generation
 	Hide bool `json:"hide,omitempty"`
 
+	// meta
+	Meta *JsonschemaMeta `json:"meta,omitempty"`
+
+	// placeholder default text for form field
+	Placeholder string `json:"placeholder,omitempty"`
+
+	// makes a form field read only
+	ReadOnly bool `json:"readOnly,omitempty"`
+
 	// local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response
 	SchemaReference string `json:"schema_reference,omitempty"`
 
 	// skip generating a card during mobiledoc generation
 	Skip bool `json:"skip,omitempty"`
 
+	// statement
+	Statement *JsonschemaStatement `json:"statement,omitempty"`
+
 	// decimal step to increment float values
 	Step float64 `json:"step,omitempty"`
+
+	// tooltip to display when hovering over a form field
+	Tooltip string `json:"tooltip,omitempty"`
 }
 
 // Validate validates this jsonschema UI extensions
@@ -55,6 +70,14 @@ func (m *JsonschemaUIExtensions) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDurationOptions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatement(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -90,11 +113,57 @@ func (m *JsonschemaUIExtensions) validateDurationOptions(formats strfmt.Registry
 	return nil
 }
 
+func (m *JsonschemaUIExtensions) validateMeta(formats strfmt.Registry) error {
+	if swag.IsZero(m.Meta) { // not required
+		return nil
+	}
+
+	if m.Meta != nil {
+		if err := m.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) validateStatement(formats strfmt.Registry) error {
+	if swag.IsZero(m.Statement) { // not required
+		return nil
+	}
+
+	if m.Statement != nil {
+		if err := m.Statement.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("statement")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("statement")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this jsonschema UI extensions based on the context it is used
 func (m *JsonschemaUIExtensions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateDurationOptions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatement(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -124,6 +193,48 @@ func (m *JsonschemaUIExtensions) contextValidateDurationOptions(ctx context.Cont
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Meta != nil {
+
+		if swag.IsZero(m.Meta) { // not required
+			return nil
+		}
+
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) contextValidateStatement(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Statement != nil {
+
+		if swag.IsZero(m.Statement) { // not required
+			return nil
+		}
+
+		if err := m.Statement.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("statement")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("statement")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -56,9 +56,15 @@ type ClientService interface {
 
 	EntitiesRulesPostV1(params *EntitiesRulesPostV1Params, opts ...ClientOption) (*EntitiesRulesPostV1OK, error)
 
+	EntitiesTemplatesGetV1Mixin0(params *EntitiesTemplatesGetV1Mixin0Params, opts ...ClientOption) (*EntitiesTemplatesGetV1Mixin0OK, error)
+
+	EntitiesTemplatesRulesPostV1(params *EntitiesTemplatesRulesPostV1Params, opts ...ClientOption) (*EntitiesTemplatesRulesPostV1OK, error)
+
 	QueriesRulesGetV1(params *QueriesRulesGetV1Params, opts ...ClientOption) (*QueriesRulesGetV1OK, error)
 
 	QueriesRulesGetV2(params *QueriesRulesGetV2Params, opts ...ClientOption) (*QueriesRulesGetV2OK, error)
+
+	QueriesTemplatesGetV1Mixin0(params *QueriesTemplatesGetV1Mixin0Params, opts ...ClientOption) (*QueriesTemplatesGetV1Mixin0OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -558,6 +564,82 @@ func (a *Client) EntitiesRulesPostV1(params *EntitiesRulesPostV1Params, opts ...
 }
 
 /*
+EntitiesTemplatesGetV1Mixin0 retrieves rule templates by i ds
+*/
+func (a *Client) EntitiesTemplatesGetV1Mixin0(params *EntitiesTemplatesGetV1Mixin0Params, opts ...ClientOption) (*EntitiesTemplatesGetV1Mixin0OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesTemplatesGetV1Mixin0Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.templates.get.v1Mixin0",
+		Method:             "GET",
+		PathPattern:        "/correlation-rules/entities/templates/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesTemplatesGetV1Mixin0Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesTemplatesGetV1Mixin0OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.templates.get.v1Mixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesTemplatesRulesPostV1 creates rule from template
+*/
+func (a *Client) EntitiesTemplatesRulesPostV1(params *EntitiesTemplatesRulesPostV1Params, opts ...ClientOption) (*EntitiesTemplatesRulesPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesTemplatesRulesPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.templates_rules.post.v1",
+		Method:             "POST",
+		PathPattern:        "/correlation-rules/entities/templates/rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesTemplatesRulesPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesTemplatesRulesPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.templates_rules.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueriesRulesGetV1 finds all rule i ds matching the query and filter supported filters customer id user id user uuid status name created on last updated on supported range filters created on last updated on
 */
 func (a *Client) QueriesRulesGetV1(params *QueriesRulesGetV1Params, opts ...ClientOption) (*QueriesRulesGetV1OK, error) {
@@ -630,6 +712,44 @@ func (a *Client) QueriesRulesGetV2(params *QueriesRulesGetV2Params, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for queries.rules.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueriesTemplatesGetV1Mixin0 searches rule template i ds matching the filter supported filters name description vendor outcome mitre attack tactic id mitre attack technique id type supported range filters created on last updated on
+*/
+func (a *Client) QueriesTemplatesGetV1Mixin0(params *QueriesTemplatesGetV1Mixin0Params, opts ...ClientOption) (*QueriesTemplatesGetV1Mixin0OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesTemplatesGetV1Mixin0Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queries.templates.get.v1Mixin0",
+		Method:             "GET",
+		PathPattern:        "/correlation-rules/queries/templates/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueriesTemplatesGetV1Mixin0Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesTemplatesGetV1Mixin0OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queries.templates.get.v1Mixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

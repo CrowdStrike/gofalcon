@@ -33,6 +33,9 @@ type RestAWSAccountPatchExtV1 struct {
 	// disable products
 	DisableProducts []*RestAccountProductRequestExtV1 `json:"disable_products"`
 
+	// dspm host account id
+	DspmHostAccountID string `json:"dspm_host_account_id,omitempty"`
+
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
 
@@ -84,6 +87,9 @@ type RestAWSAccountPatchExtV1 struct {
 
 	// use existing cloudtrail
 	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
+
+	// vulnerability scanning host account id
+	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
 
 	// vulnerability scanning regions
 	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`

@@ -64,7 +64,7 @@ EntitiesRulesPatchV1Params contains all the parameters to send to the API endpoi
 type EntitiesRulesPatchV1Params struct {
 
 	// Body.
-	Body []*models.APIRulePatchRequestV1
+	Body []*models.CorrelationrulesapiRulePatchRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *EntitiesRulesPatchV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the entities rules patch v1 params
-func (o *EntitiesRulesPatchV1Params) WithBody(body []*models.APIRulePatchRequestV1) *EntitiesRulesPatchV1Params {
+func (o *EntitiesRulesPatchV1Params) WithBody(body []*models.CorrelationrulesapiRulePatchRequestV1) *EntitiesRulesPatchV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities rules patch v1 params
-func (o *EntitiesRulesPatchV1Params) SetBody(body []*models.APIRulePatchRequestV1) {
+func (o *EntitiesRulesPatchV1Params) SetBody(body []*models.CorrelationrulesapiRulePatchRequestV1) {
 	o.Body = body
 }
 

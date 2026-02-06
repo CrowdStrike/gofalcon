@@ -19,6 +19,9 @@ import (
 // swagger:model quickscanpro.LaunchScanRequestResource
 type QuickscanproLaunchScanRequestResource struct {
 
+	// password
+	Password string `json:"password,omitempty"`
+
 	// sha256
 	// Required: true
 	Sha256 *string `json:"sha256"`

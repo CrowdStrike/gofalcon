@@ -30,6 +30,56 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	Empty(params *EmptyParams, opts ...ClientOption) (*OK, error)
+
+	DeleteCollectionsV1(params *DeleteCollectionsV1Params, opts ...ClientOption) (*DeleteCollectionsV1OK, error)
+
+	DeleteConfigsV1(params *DeleteConfigsV1Params, opts ...ClientOption) (*DeleteConfigsV1OK, error)
+
+	GetCollectionCountsByV1(params *GetCollectionCountsByV1Params, opts ...ClientOption) (*GetCollectionCountsByV1OK, error)
+
+	GetCollectionsV1(params *GetCollectionsV1Params, opts ...ClientOption) (*GetCollectionsV1OK, error)
+
+	GetCollectorsV1(params *GetCollectorsV1Params, opts ...ClientOption) (*GetCollectorsV1OK, error)
+
+	GetCombinedCollectionsV1(params *GetCombinedCollectionsV1Params, opts ...ClientOption) (*GetCombinedCollectionsV1OK, error)
+
+	GetCombinedCollectorsV1(params *GetCombinedCollectorsV1Params, opts ...ClientOption) (*GetCombinedCollectorsV1OK, error)
+
+	GetCombinedConfigsV1(params *GetCombinedConfigsV1Params, opts ...ClientOption) (*GetCombinedConfigsV1OK, error)
+
+	GetCombinedTemplatesV1(params *GetCombinedTemplatesV1Params, opts ...ClientOption) (*GetCombinedTemplatesV1OK, error)
+
+	GetConfigDownloadV1(params *GetConfigDownloadV1Params, opts ...ClientOption) (*GetConfigDownloadV1OK, error)
+
+	GetConfigsV1(params *GetConfigsV1Params, opts ...ClientOption) (*GetConfigsV1OK, error)
+
+	GetTemplatesV1(params *GetTemplatesV1Params, opts ...ClientOption) (*GetTemplatesV1OK, error)
+
+	PostCollectionsV1(params *PostCollectionsV1Params, opts ...ClientOption) (*PostCollectionsV1OK, error)
+
+	PostCollectorsV1(params *PostCollectorsV1Params, opts ...ClientOption) (*PostCollectorsV1OK, error)
+
+	PostConfigsV1(params *PostConfigsV1Params, opts ...ClientOption) (*PostConfigsV1OK, error)
+
+	PostDeployV1(params *PostDeployV1Params, opts ...ClientOption) (*PostDeployV1OK, error)
+
+	PutCollectionsV1(params *PutCollectionsV1Params, opts ...ClientOption) (*PutCollectionsV1OK, error)
+
+	PutConfigsV1(params *PutConfigsV1Params, opts ...ClientOption) (*PutConfigsV1OK, error)
+
+	SearchCollectionsV1(params *SearchCollectionsV1Params, opts ...ClientOption) (*SearchCollectionsV1OK, error)
+
+	SearchCollectorsV1(params *SearchCollectorsV1Params, opts ...ClientOption) (*SearchCollectorsV1OK, error)
+
+	SearchConfigsV1(params *SearchConfigsV1Params, opts ...ClientOption) (*SearchConfigsV1OK, error)
+
+	SearchTemplatesV1(params *SearchTemplatesV1Params, opts ...ClientOption) (*SearchTemplatesV1OK, error)
+
+	ValidateCollectionV1(params *ValidateCollectionV1Params, opts ...ClientOption) (*ValidateCollectionV1OK, error)
+
+	ValidateConfigV1(params *ValidateConfigV1Params, opts ...ClientOption) (*ValidateConfigV1OK, error)
+
 	CombinedQueryInstalledPatches(params *CombinedQueryInstalledPatchesParams, opts ...ClientOption) (*CombinedQueryInstalledPatchesOK, error)
 
 	PostGraphqlQueryMixin0(params *PostGraphqlQueryMixin0Params, opts ...ClientOption) (*PostGraphqlQueryMixin0OK, error)
@@ -39,6 +89,956 @@ type ClientService interface {
 	V1StatusGet(params *V1StatusGetParams, opts ...ClientOption) (*V1StatusGetOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+Empty  API
+*/
+func (a *Client) Empty(params *EmptyParams, opts ...ClientOption) (*OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEmptyParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "",
+		Method:             "GET",
+		PathPattern:        "/falcon-complete-dashboards/queries/detects/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EmptyReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for : API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteCollectionsV1 cancels collections
+*/
+func (a *Client) DeleteCollectionsV1(params *DeleteCollectionsV1Params, opts ...ClientOption) (*DeleteCollectionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteCollectionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteCollectionsV1",
+		Method:             "DELETE",
+		PathPattern:        "/forensics/entities/collections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteCollectionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteCollectionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteCollectionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteConfigsV1 retires a custom configuration
+*/
+func (a *Client) DeleteConfigsV1(params *DeleteConfigsV1Params, opts ...ClientOption) (*DeleteConfigsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteConfigsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteConfigsV1",
+		Method:             "DELETE",
+		PathPattern:        "/forensics/entities/configurations/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteConfigsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteConfigsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteConfigsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCollectionCountsByV1 gets collection counts by field names collection tag and state
+*/
+func (a *Client) GetCollectionCountsByV1(params *GetCollectionCountsByV1Params, opts ...ClientOption) (*GetCollectionCountsByV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCollectionCountsByV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCollectionCountsByV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/aggregate/collection-counts-by/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCollectionCountsByV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCollectionCountsByV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCollectionCountsByV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCollectionsV1 gets collections with given i ds platform agent collector i ds states
+*/
+func (a *Client) GetCollectionsV1(params *GetCollectionsV1Params, opts ...ClientOption) (*GetCollectionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCollectionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCollectionsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/entities/collections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCollectionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCollectionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCollectionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCollectorsV1 gets collectors
+*/
+func (a *Client) GetCollectorsV1(params *GetCollectorsV1Params, opts ...ClientOption) (*GetCollectorsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCollectorsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCollectorsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/entities/collectors/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCollectorsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCollectorsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCollectorsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCombinedCollectionsV1 gets collections with given i ds platform agent collector i ds states
+*/
+func (a *Client) GetCombinedCollectionsV1(params *GetCombinedCollectionsV1Params, opts ...ClientOption) (*GetCombinedCollectionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCombinedCollectionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCombinedCollectionsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/combined/collections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCombinedCollectionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCombinedCollectionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCombinedCollectionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCombinedCollectorsV1 gets collectors for the given customer ID
+*/
+func (a *Client) GetCombinedCollectorsV1(params *GetCombinedCollectorsV1Params, opts ...ClientOption) (*GetCombinedCollectorsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCombinedCollectorsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCombinedCollectorsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/combined/collectors/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCombinedCollectorsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCombinedCollectorsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCombinedCollectorsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCombinedConfigsV1 gets configurations for the given customer ID
+*/
+func (a *Client) GetCombinedConfigsV1(params *GetCombinedConfigsV1Params, opts ...ClientOption) (*GetCombinedConfigsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCombinedConfigsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCombinedConfigsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/combined/configurations/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCombinedConfigsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCombinedConfigsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCombinedConfigsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCombinedTemplatesV1 gets templates with the given i ds
+*/
+func (a *Client) GetCombinedTemplatesV1(params *GetCombinedTemplatesV1Params, opts ...ClientOption) (*GetCombinedTemplatesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCombinedTemplatesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCombinedTemplatesV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/combined/templates/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCombinedTemplatesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCombinedTemplatesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCombinedTemplatesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetConfigDownloadV1 downloads offline configuration file using ID
+*/
+func (a *Client) GetConfigDownloadV1(params *GetConfigDownloadV1Params, opts ...ClientOption) (*GetConfigDownloadV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetConfigDownloadV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetConfigDownloadV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/entities/configuration-download/v1",
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConfigDownloadV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetConfigDownloadV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetConfigDownloadV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetConfigsV1 gets configurations with the given i ds
+*/
+func (a *Client) GetConfigsV1(params *GetConfigsV1Params, opts ...ClientOption) (*GetConfigsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetConfigsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetConfigsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/entities/configurations/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConfigsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetConfigsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetConfigsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetTemplatesV1 gets templates with the given i ds
+*/
+func (a *Client) GetTemplatesV1(params *GetTemplatesV1Params, opts ...ClientOption) (*GetTemplatesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetTemplatesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetTemplatesV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/entities/templates/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetTemplatesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetTemplatesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetTemplatesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostCollectionsV1 creates collections
+*/
+func (a *Client) PostCollectionsV1(params *PostCollectionsV1Params, opts ...ClientOption) (*PostCollectionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostCollectionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostCollectionsV1",
+		Method:             "POST",
+		PathPattern:        "/forensics/entities/collections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostCollectionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostCollectionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostCollectionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostCollectorsV1 shutdowns collectors with self destruct option
+*/
+func (a *Client) PostCollectorsV1(params *PostCollectorsV1Params, opts ...ClientOption) (*PostCollectorsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostCollectorsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostCollectorsV1",
+		Method:             "POST",
+		PathPattern:        "/forensics/entities/collectors-shutdown/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostCollectorsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostCollectorsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostCollectorsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostConfigsV1 creates a new custom configuration
+*/
+func (a *Client) PostConfigsV1(params *PostConfigsV1Params, opts ...ClientOption) (*PostConfigsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostConfigsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostConfigsV1",
+		Method:             "POST",
+		PathPattern:        "/forensics/entities/configurations/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json", "application/yaml"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConfigsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostConfigsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostConfigsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostDeployV1 deploys collector to managed endpoints
+*/
+func (a *Client) PostDeployV1(params *PostDeployV1Params, opts ...ClientOption) (*PostDeployV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostDeployV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostDeployV1",
+		Method:             "POST",
+		PathPattern:        "/forensics/entities/collectors-deploy/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostDeployV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostDeployV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostDeployV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutCollectionsV1 updates collections
+*/
+func (a *Client) PutCollectionsV1(params *PutCollectionsV1Params, opts ...ClientOption) (*PutCollectionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutCollectionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutCollectionsV1",
+		Method:             "PUT",
+		PathPattern:        "/forensics/entities/collections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutCollectionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutCollectionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutCollectionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutConfigsV1 creates or replaces an existing custom configuration
+*/
+func (a *Client) PutConfigsV1(params *PutConfigsV1Params, opts ...ClientOption) (*PutConfigsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutConfigsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutConfigsV1",
+		Method:             "PUT",
+		PathPattern:        "/forensics/entities/configurations/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json", "application/yaml"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConfigsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutConfigsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutConfigsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SearchCollectionsV1 searches collections for the given customer ID and or platform in states
+*/
+func (a *Client) SearchCollectionsV1(params *SearchCollectionsV1Params, opts ...ClientOption) (*SearchCollectionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSearchCollectionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SearchCollectionsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/queries/collections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SearchCollectionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SearchCollectionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SearchCollectionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SearchCollectorsV1 searches collectors for the given customer ID and platform
+*/
+func (a *Client) SearchCollectorsV1(params *SearchCollectorsV1Params, opts ...ClientOption) (*SearchCollectorsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSearchCollectorsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SearchCollectorsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/queries/collectors/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SearchCollectorsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SearchCollectorsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SearchCollectorsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SearchConfigsV1 searches configurations for the given customer ID
+*/
+func (a *Client) SearchConfigsV1(params *SearchConfigsV1Params, opts ...ClientOption) (*SearchConfigsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSearchConfigsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SearchConfigsV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/queries/configurations/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SearchConfigsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SearchConfigsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SearchConfigsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SearchTemplatesV1 searches templates
+*/
+func (a *Client) SearchTemplatesV1(params *SearchTemplatesV1Params, opts ...ClientOption) (*SearchTemplatesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSearchTemplatesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SearchTemplatesV1",
+		Method:             "GET",
+		PathPattern:        "/forensics/queries/templates/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SearchTemplatesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SearchTemplatesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SearchTemplatesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ValidateCollectionV1 validates a configuration collection
+*/
+func (a *Client) ValidateCollectionV1(params *ValidateCollectionV1Params, opts ...ClientOption) (*ValidateCollectionV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewValidateCollectionV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ValidateCollectionV1",
+		Method:             "POST",
+		PathPattern:        "/forensics/entities/collections-validate/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json", "application/yaml"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ValidateCollectionV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ValidateCollectionV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ValidateCollectionV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ValidateConfigV1 validates a custom configuration
+*/
+func (a *Client) ValidateConfigV1(params *ValidateConfigV1Params, opts ...ClientOption) (*ValidateConfigV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewValidateConfigV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ValidateConfigV1",
+		Method:             "POST",
+		PathPattern:        "/forensics/entities/configurations-validate/v1",
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
+		ConsumesMediaTypes: []string{"application/json", "application/yaml"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ValidateConfigV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ValidateConfigV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ValidateConfigV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

@@ -85,6 +85,42 @@ type DomainScanV2 struct {
 	// Format: date-time
 	LastUpdated strfmt.DateTime `json:"last_updated,omitempty"`
 
+	// mac cloud ml level detection
+	MacCloudMlLevelDetection int32 `json:"mac_cloud_ml_level_detection,omitempty"`
+
+	// mac cloud ml level prevention
+	MacCloudMlLevelPrevention int32 `json:"mac_cloud_ml_level_prevention,omitempty"`
+
+	// mac cloud pup adware level detection
+	MacCloudPupAdwareLevelDetection int32 `json:"mac_cloud_pup_adware_level_detection,omitempty"`
+
+	// mac cloud pup adware level prevention
+	MacCloudPupAdwareLevelPrevention int32 `json:"mac_cloud_pup_adware_level_prevention,omitempty"`
+
+	// mac file paths
+	MacFilePaths []string `json:"mac_file_paths"`
+
+	// mac policy setting
+	MacPolicySetting []int64 `json:"mac_policy_setting"`
+
+	// mac scan exclusions
+	MacScanExclusions []string `json:"mac_scan_exclusions"`
+
+	// mac scan inclusions
+	MacScanInclusions []string `json:"mac_scan_inclusions"`
+
+	// mac sensor ml level detection
+	MacSensorMlLevelDetection int32 `json:"mac_sensor_ml_level_detection,omitempty"`
+
+	// mac sensor ml level prevention
+	MacSensorMlLevelPrevention int32 `json:"mac_sensor_ml_level_prevention,omitempty"`
+
+	// mac sensor pup adware level detection
+	MacSensorPupAdwareLevelDetection int32 `json:"mac_sensor_pup_adware_level_detection,omitempty"`
+
+	// mac sensor pup adware level prevention
+	MacSensorPupAdwareLevelPrevention int32 `json:"mac_sensor_pup_adware_level_prevention,omitempty"`
+
 	// max duration
 	MaxDuration int32 `json:"max_duration,omitempty"`
 
@@ -147,6 +183,9 @@ type DomainScanV2 struct {
 	// targeted host count
 	// Required: true
 	TargetedHostCount *int32 `json:"targeted_host_count"`
+
+	// targeted platforms
+	TargetedPlatforms []string `json:"targeted_platforms"`
 }
 
 // Validate validates this domain scan v2

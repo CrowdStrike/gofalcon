@@ -48,6 +48,8 @@ type ClientService interface {
 
 	EntitiesFilesUploadPostV1(params *EntitiesFilesUploadPostV1Params, opts ...ClientOption) (*EntitiesFilesUploadPostV1OK, error)
 
+	EntitiesRetrieveRtrFilePostV1(params *EntitiesRetrieveRtrFilePostV1Params, opts ...ClientOption) (*EntitiesRetrieveRtrFilePostV1OK, error)
+
 	QueriesFileDetailsGetV1(params *QueriesFileDetailsGetV1Params, opts ...ClientOption) (*QueriesFileDetailsGetV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -392,6 +394,44 @@ func (a *Client) EntitiesFilesUploadPostV1(params *EntitiesFilesUploadPostV1Para
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities.files_upload.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRetrieveRtrFilePostV1 retrieves a file from host using r t r and adds it to a case
+*/
+func (a *Client) EntitiesRetrieveRtrFilePostV1(params *EntitiesRetrieveRtrFilePostV1Params, opts ...ClientOption) (*EntitiesRetrieveRtrFilePostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRetrieveRtrFilePostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.retrieve-rtr-file.post.v1",
+		Method:             "POST",
+		PathPattern:        "/case-files/entities/retrieve-rtr-file/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRetrieveRtrFilePostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRetrieveRtrFilePostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.retrieve-rtr-file.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

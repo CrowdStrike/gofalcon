@@ -20,6 +20,9 @@ import (
 // swagger:model operations.CaseFieldChanges
 type OperationsCaseFieldChanges struct {
 
+	// access tags
+	AccessTags []*SdkCaseAccessTag `json:"access_tags"`
+
 	// assigned to user uuid
 	// Required: true
 	AssignedToUserUUID *string `json:"assigned_to_user_uuid"`
@@ -44,6 +47,10 @@ type OperationsCaseFieldChanges struct {
 	// Required: true
 	Severity *int64 `json:"severity"`
 
+	// severity info
+	// Required: true
+	SeverityInfo *SdkCaseSeverityInfoUpdate `json:"severity_info"`
+
 	// slas active
 	// Required: true
 	SlasActive *bool `json:"slas_active"`
@@ -54,11 +61,18 @@ type OperationsCaseFieldChanges struct {
 
 	// template
 	Template *SdkTemplateSelector `json:"template,omitempty"`
+
+	// workflows
+	Workflows []*SdkWorkflow `json:"workflows"`
 }
 
 // Validate validates this operations case field changes
 func (m *OperationsCaseFieldChanges) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAccessTags(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateAssignedToUserUUID(formats); err != nil {
 		res = append(res, err)
@@ -84,6 +98,10 @@ func (m *OperationsCaseFieldChanges) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSeverityInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSlasActive(formats); err != nil {
 		res = append(res, err)
 	}
@@ -96,9 +114,39 @@ func (m *OperationsCaseFieldChanges) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateWorkflows(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *OperationsCaseFieldChanges) validateAccessTags(formats strfmt.Registry) error {
+	if swag.IsZero(m.AccessTags) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AccessTags); i++ {
+		if swag.IsZero(m.AccessTags[i]) { // not required
+			continue
+		}
+
+		if m.AccessTags[i] != nil {
+			if err := m.AccessTags[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -174,6 +222,26 @@ func (m *OperationsCaseFieldChanges) validateSeverity(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *OperationsCaseFieldChanges) validateSeverityInfo(formats strfmt.Registry) error {
+
+	if err := validate.Required("severity_info", "body", m.SeverityInfo); err != nil {
+		return err
+	}
+
+	if m.SeverityInfo != nil {
+		if err := m.SeverityInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("severity_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("severity_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *OperationsCaseFieldChanges) validateSlasActive(formats strfmt.Registry) error {
 
 	if err := validate.Required("slas_active", "body", m.SlasActive); err != nil {
@@ -211,11 +279,45 @@ func (m *OperationsCaseFieldChanges) validateTemplate(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *OperationsCaseFieldChanges) validateWorkflows(formats strfmt.Registry) error {
+	if swag.IsZero(m.Workflows) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Workflows); i++ {
+		if swag.IsZero(m.Workflows[i]) { // not required
+			continue
+		}
+
+		if m.Workflows[i] != nil {
+			if err := m.Workflows[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workflows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workflows" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this operations case field changes based on the context it is used
 func (m *OperationsCaseFieldChanges) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAccessTags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCustomFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSeverityInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -223,9 +325,38 @@ func (m *OperationsCaseFieldChanges) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateWorkflows(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *OperationsCaseFieldChanges) contextValidateAccessTags(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AccessTags); i++ {
+
+		if m.AccessTags[i] != nil {
+
+			if swag.IsZero(m.AccessTags[i]) { // not required
+				return nil
+			}
+
+			if err := m.AccessTags[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -254,6 +385,23 @@ func (m *OperationsCaseFieldChanges) contextValidateCustomFields(ctx context.Con
 	return nil
 }
 
+func (m *OperationsCaseFieldChanges) contextValidateSeverityInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SeverityInfo != nil {
+
+		if err := m.SeverityInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("severity_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("severity_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *OperationsCaseFieldChanges) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Template != nil {
@@ -270,6 +418,31 @@ func (m *OperationsCaseFieldChanges) contextValidateTemplate(ctx context.Context
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *OperationsCaseFieldChanges) contextValidateWorkflows(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Workflows); i++ {
+
+		if m.Workflows[i] != nil {
+
+			if swag.IsZero(m.Workflows[i]) { // not required
+				return nil
+			}
+
+			if err := m.Workflows[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workflows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workflows" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

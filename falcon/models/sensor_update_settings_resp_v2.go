@@ -25,6 +25,10 @@ type SensorUpdateSettingsRespV2 struct {
 	// Required: true
 	Build *string `json:"build"`
 
+	// Indicates whether or not the build configured on the policy is categorized as a LTS build (Long Term Support)
+	// Required: true
+	IsLtsBuild *bool `json:"is_lts_build"`
+
 	// The schedule that disables sensor updates
 	// Required: true
 	Scheduler *PolicySensorUpdateScheduler `json:"scheduler"`
@@ -57,6 +61,10 @@ func (m *SensorUpdateSettingsRespV2) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateBuild(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsLtsBuild(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -93,6 +101,15 @@ func (m *SensorUpdateSettingsRespV2) Validate(formats strfmt.Registry) error {
 func (m *SensorUpdateSettingsRespV2) validateBuild(formats strfmt.Registry) error {
 
 	if err := validate.Required("build", "body", m.Build); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SensorUpdateSettingsRespV2) validateIsLtsBuild(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_lts_build", "body", m.IsLtsBuild); err != nil {
 		return err
 	}
 

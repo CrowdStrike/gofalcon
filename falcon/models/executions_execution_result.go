@@ -28,6 +28,10 @@ type ExecutionsExecutionResult struct {
 	// Required: true
 	AncestorExecutions []*ExecutionsAncestorExecution `json:"ancestor_executions"`
 
+	// A boolean value indicating whether the workflow execution contains mocked result data for trigger or activities
+	// Required: true
+	ContainsMocks *bool `json:"contains_mocks"`
+
 	// Unique id of the workflow the execution is associated with.
 	// Required: true
 	DefinitionID *string `json:"definition_id"`
@@ -74,6 +78,9 @@ type ExecutionsExecutionResult struct {
 	// Execution summary if defined in the workflow definition
 	Summary string `json:"summary,omitempty"`
 
+	// indicates the entity (definition or activity) being tested, if any
+	TestedEntity string `json:"tested_entity,omitempty"`
+
 	// Details for the result of the trigger node
 	// Required: true
 	Trigger *ExecutionsTriggerResult `json:"trigger"`
@@ -88,6 +95,10 @@ func (m *ExecutionsExecutionResult) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAncestorExecutions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContainsMocks(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -190,6 +201,15 @@ func (m *ExecutionsExecutionResult) validateAncestorExecutions(formats strfmt.Re
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *ExecutionsExecutionResult) validateContainsMocks(formats strfmt.Registry) error {
+
+	if err := validate.Required("contains_mocks", "body", m.ContainsMocks); err != nil {
+		return err
 	}
 
 	return nil

@@ -96,7 +96,7 @@ type EntitiesLatestRulesGetV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities latest rules get v1 o k response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *EntitiesLatestRulesGetV1OK) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/latest-rules/v1][%d] entitiesLatestRulesGetV1OK  %+v", 200, o.Payload)
 }
 
-func (o *EntitiesLatestRulesGetV1OK) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesLatestRulesGetV1OK) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *EntitiesLatestRulesGetV1OK) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +206,7 @@ type EntitiesLatestRulesGetV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities latest rules get v1 bad request response has a 2xx status code
@@ -247,7 +247,7 @@ func (o *EntitiesLatestRulesGetV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/latest-rules/v1][%d] entitiesLatestRulesGetV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *EntitiesLatestRulesGetV1BadRequest) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesLatestRulesGetV1BadRequest) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -282,7 +282,7 @@ func (o *EntitiesLatestRulesGetV1BadRequest) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +316,7 @@ type EntitiesLatestRulesGetV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities latest rules get v1 unauthorized response has a 2xx status code
@@ -357,7 +357,7 @@ func (o *EntitiesLatestRulesGetV1Unauthorized) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/latest-rules/v1][%d] entitiesLatestRulesGetV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *EntitiesLatestRulesGetV1Unauthorized) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesLatestRulesGetV1Unauthorized) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -392,7 +392,7 @@ func (o *EntitiesLatestRulesGetV1Unauthorized) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +426,7 @@ type EntitiesLatestRulesGetV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities latest rules get v1 forbidden response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *EntitiesLatestRulesGetV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/latest-rules/v1][%d] entitiesLatestRulesGetV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *EntitiesLatestRulesGetV1Forbidden) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesLatestRulesGetV1Forbidden) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *EntitiesLatestRulesGetV1Forbidden) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -536,7 +536,7 @@ type EntitiesLatestRulesGetV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities latest rules get v1 not found response has a 2xx status code
@@ -577,7 +577,7 @@ func (o *EntitiesLatestRulesGetV1NotFound) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/latest-rules/v1][%d] entitiesLatestRulesGetV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *EntitiesLatestRulesGetV1NotFound) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesLatestRulesGetV1NotFound) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -612,7 +612,7 @@ func (o *EntitiesLatestRulesGetV1NotFound) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +771,7 @@ type EntitiesLatestRulesGetV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities latest rules get v1 internal server error response has a 2xx status code
@@ -812,7 +812,7 @@ func (o *EntitiesLatestRulesGetV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /correlation-rules/entities/latest-rules/v1][%d] entitiesLatestRulesGetV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *EntitiesLatestRulesGetV1InternalServerError) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesLatestRulesGetV1InternalServerError) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -847,7 +847,7 @@ func (o *EntitiesLatestRulesGetV1InternalServerError) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

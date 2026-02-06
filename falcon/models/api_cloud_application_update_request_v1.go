@@ -21,10 +21,12 @@ import (
 type APICloudApplicationUpdateRequestV1 struct {
 
 	// description
-	Description string `json:"description,omitempty"`
+	// Required: true
+	Description *string `json:"description"`
 
 	// name
-	Name string `json:"name,omitempty"`
+	// Required: true
+	Name *string `json:"name"`
 
 	// urls
 	// Required: true
@@ -35,6 +37,14 @@ type APICloudApplicationUpdateRequestV1 struct {
 func (m *APICloudApplicationUpdateRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateUrls(formats); err != nil {
 		res = append(res, err)
 	}
@@ -42,6 +52,24 @@ func (m *APICloudApplicationUpdateRequestV1) Validate(formats strfmt.Registry) e
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APICloudApplicationUpdateRequestV1) validateDescription(formats strfmt.Registry) error {
+
+	if err := validate.Required("description", "body", m.Description); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APICloudApplicationUpdateRequestV1) validateName(formats strfmt.Registry) error {
+
+	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
 	return nil
 }
 

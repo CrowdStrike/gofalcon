@@ -17,6 +17,9 @@ import (
 // swagger:model malquery.ExternalHuntOptions
 type MalqueryExternalHuntOptions struct {
 
+	// app
+	App string `json:"app,omitempty"`
+
 	// Limit results to files of certain types such as EMAIL, PCAP, PDF, PE32. Full list can be found in the documentation
 	FilterFiletypes []string `json:"filter_filetypes"`
 
@@ -37,6 +40,9 @@ type MalqueryExternalHuntOptions struct {
 
 	// Minimum file size. The value can be specified either in bytes or in multiples of KB/MB/GB. Examples: 128000, 1.3 KB, 8mb
 	MinSize string `json:"min_size,omitempty"`
+
+	// Limit results to files submitted by customer
+	SubmittedByCustomer bool `json:"submitted_by_customer,omitempty"`
 }
 
 // Validate validates this malquery external hunt options

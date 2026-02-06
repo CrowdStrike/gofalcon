@@ -69,7 +69,12 @@ type SearchIndicatorsParams struct {
 
 	/* Filter.
 
-	   FQL query specifying the filter parameters.
+
+	FQL query specifying the filter parameters.
+
+	**Filter parameters include:** Type, LastUpdated, KillChain, MaliciousConfidence, MaliciousConfidenceValidatedTime, FirstSeen, LastSeen,
+	Adversaries.Name, Adversaries.Slug, Reports.Title, Reports.Slug, Threats.FamilyName, Vulnerabilities.CVE, Sectors.Name, FileDetails.SHA256,
+	FileDetails.SHA1, FileDetails.MD5, DomainDetails.Detail, IPv4Details.IPv4, IPv6Details.IPv6, URLDetails.URL and others
 	*/
 	Filter *string
 

@@ -40,17 +40,20 @@ type GraphConfiguredTrigger struct {
 	// JSON Schema defining parameters required for an on-demand trigger.
 	Parameters *JsonschemaSchema `json:"parameters,omitempty"`
 
+	// The position of the activity as rendered in the UI.
+	Position *GraphNodePosition `json:"position,omitempty"`
+
 	// Details of a repeating schedule, applicable for a schedule type trigger
 	TimerEventDefinition *GraphTimerEventDefinition `json:"timer_event_definition,omitempty"`
 
-	// Denotes the type of trigger, signal based, scheduled, on demand, etc
+	// The type of trigger, signal, scheduled, on demand, etc
 	TriggerType string `json:"trigger_type,omitempty"`
 
 	// Semantic version constraint of the trigger, it can be an explicit version or a version constraint. If unspecified the evaluator will use the latest version <= 1.0.0
 	VersionConstraint string `json:"version_constraint,omitempty"`
 
 	// Details of a webhook trigger configuration which is used by workflow/playbook import only
-	WebhookConfig *WebhooktriggerAPIRequest `json:"webhook_config,omitempty"`
+	WebhookConfig *GraphWebhookTriggerDefinition `json:"webhook_config,omitempty"`
 }
 
 // Validate validates this graph configured trigger
@@ -74,6 +77,10 @@ func (m *GraphConfiguredTrigger) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateParameters(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePosition(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -156,6 +163,25 @@ func (m *GraphConfiguredTrigger) validateParameters(formats strfmt.Registry) err
 	return nil
 }
 
+func (m *GraphConfiguredTrigger) validatePosition(formats strfmt.Registry) error {
+	if swag.IsZero(m.Position) { // not required
+		return nil
+	}
+
+	if m.Position != nil {
+		if err := m.Position.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GraphConfiguredTrigger) validateTimerEventDefinition(formats strfmt.Registry) error {
 	if swag.IsZero(m.TimerEventDefinition) { // not required
 		return nil
@@ -203,6 +229,10 @@ func (m *GraphConfiguredTrigger) ContextValidate(ctx context.Context, formats st
 	}
 
 	if err := m.contextValidateParameters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -254,6 +284,27 @@ func (m *GraphConfiguredTrigger) contextValidateParameters(ctx context.Context, 
 				return ve.ValidateName("parameters")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphConfiguredTrigger) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+
+		if swag.IsZero(m.Position) { // not required
+			return nil
+		}
+
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
 			}
 			return err
 		}

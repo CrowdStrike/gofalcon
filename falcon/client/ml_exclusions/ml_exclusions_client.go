@@ -30,9 +30,27 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts ...ClientOption) (*CreateMLExclusionsV1OK, error)
+	CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts ...ClientOption) (*CreateMLExclusionsV1Created, error)
 
 	DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, opts ...ClientOption) (*DeleteMLExclusionsV1OK, error)
+
+	ExclusionsAggregatesV2(params *ExclusionsAggregatesV2Params, opts ...ClientOption) (*ExclusionsAggregatesV2OK, error)
+
+	ExclusionsCreateV2(params *ExclusionsCreateV2Params, opts ...ClientOption) (*ExclusionsCreateV2OK, error)
+
+	ExclusionsDeleteV2(params *ExclusionsDeleteV2Params, opts ...ClientOption) (*ExclusionsDeleteV2OK, error)
+
+	ExclusionsGetAllV2(params *ExclusionsGetAllV2Params, opts ...ClientOption) (*ExclusionsGetAllV2OK, error)
+
+	ExclusionsGetReportsV2(params *ExclusionsGetReportsV2Params, opts ...ClientOption) (*ExclusionsGetReportsV2OK, error)
+
+	ExclusionsGetV2(params *ExclusionsGetV2Params, opts ...ClientOption) (*ExclusionsGetV2OK, error)
+
+	ExclusionsPerformActionV2(params *ExclusionsPerformActionV2Params, opts ...ClientOption) (*ExclusionsPerformActionV2OK, error)
+
+	ExclusionsSearchV2(params *ExclusionsSearchV2Params, opts ...ClientOption) (*ExclusionsSearchV2OK, error)
+
+	ExclusionsUpdateV2(params *ExclusionsUpdateV2Params, opts ...ClientOption) (*ExclusionsUpdateV2OK, error)
 
 	GetMLExclusionsV1(params *GetMLExclusionsV1Params, opts ...ClientOption) (*GetMLExclusionsV1OK, error)
 
@@ -46,7 +64,7 @@ type ClientService interface {
 /*
 CreateMLExclusionsV1 creates the m l exclusions
 */
-func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts ...ClientOption) (*CreateMLExclusionsV1OK, error) {
+func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts ...ClientOption) (*CreateMLExclusionsV1Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMLExclusionsV1Params()
@@ -71,7 +89,7 @@ func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts .
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateMLExclusionsV1OK)
+	success, ok := result.(*CreateMLExclusionsV1Created)
 	if ok {
 		return success, nil
 	}
@@ -116,6 +134,348 @@ func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for deleteMLExclusionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsAggregatesV2 gets exclusion aggregates as specified via json in request body
+*/
+func (a *Client) ExclusionsAggregatesV2(params *ExclusionsAggregatesV2Params, opts ...ClientOption) (*ExclusionsAggregatesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsAggregatesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.aggregates.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/aggregates/exclusions/GET/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsAggregatesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsAggregatesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.aggregates.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsCreateV2 creates the exclusions with ancestor fields
+*/
+func (a *Client) ExclusionsCreateV2(params *ExclusionsCreateV2Params, opts ...ClientOption) (*ExclusionsCreateV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsCreateV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.create.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/entities/exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsCreateV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsCreateV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.create.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsDeleteV2 deletes the exclusions by id with ancestor fields
+*/
+func (a *Client) ExclusionsDeleteV2(params *ExclusionsDeleteV2Params, opts ...ClientOption) (*ExclusionsDeleteV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsDeleteV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.delete.v2",
+		Method:             "DELETE",
+		PathPattern:        "/exclusions/entities/exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsDeleteV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsDeleteV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.delete.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsGetAllV2 gets all exclusions
+*/
+func (a *Client) ExclusionsGetAllV2(params *ExclusionsGetAllV2Params, opts ...ClientOption) (*ExclusionsGetAllV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsGetAllV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.get-all.v2",
+		Method:             "GET",
+		PathPattern:        "/exclusions/entities/all-exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsGetAllV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsGetAllV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.get-all.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsGetReportsV2 creates a report of m l exclusions scoped by the given filters
+*/
+func (a *Client) ExclusionsGetReportsV2(params *ExclusionsGetReportsV2Params, opts ...ClientOption) (*ExclusionsGetReportsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsGetReportsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.get-reports.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/entities/exclusions/reports/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsGetReportsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsGetReportsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.get-reports.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsGetV2 gets the exclusions by id with ancestor fields
+*/
+func (a *Client) ExclusionsGetV2(params *ExclusionsGetV2Params, opts ...ClientOption) (*ExclusionsGetV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsGetV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.get.v2",
+		Method:             "GET",
+		PathPattern:        "/exclusions/entities/exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsGetV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsGetV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.get.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsPerformActionV2 actions used to manipulate the content of exclusions with ancestor fields
+*/
+func (a *Client) ExclusionsPerformActionV2(params *ExclusionsPerformActionV2Params, opts ...ClientOption) (*ExclusionsPerformActionV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsPerformActionV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.perform-action.v2",
+		Method:             "POST",
+		PathPattern:        "/exclusions/entities/exclusion-actions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsPerformActionV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsPerformActionV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.perform-action.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsSearchV2 searches for exclusions with ancestor fields
+*/
+func (a *Client) ExclusionsSearchV2(params *ExclusionsSearchV2Params, opts ...ClientOption) (*ExclusionsSearchV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsSearchV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.search.v2",
+		Method:             "GET",
+		PathPattern:        "/exclusions/queries/exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsSearchV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsSearchV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.search.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsUpdateV2 updates the exclusions by id with ancestor fields
+*/
+func (a *Client) ExclusionsUpdateV2(params *ExclusionsUpdateV2Params, opts ...ClientOption) (*ExclusionsUpdateV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsUpdateV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.update.v2",
+		Method:             "PATCH",
+		PathPattern:        "/exclusions/entities/exclusions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExclusionsUpdateV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsUpdateV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.update.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -90,7 +90,7 @@ type FetchFilesDownloadInfoOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this fetch files download info o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *FetchFilesDownloadInfoOK) String() string {
 	return fmt.Sprintf("[GET /csdownloads/combined/files-download/v1][%d] fetchFilesDownloadInfoOK  %+v", 200, o.Payload)
 }
 
-func (o *FetchFilesDownloadInfoOK) GetPayload() *models.CommonEntitiesResponse {
+func (o *FetchFilesDownloadInfoOK) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *FetchFilesDownloadInfoOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type FetchFilesDownloadInfoBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this fetch files download info bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *FetchFilesDownloadInfoBadRequest) String() string {
 	return fmt.Sprintf("[GET /csdownloads/combined/files-download/v1][%d] fetchFilesDownloadInfoBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *FetchFilesDownloadInfoBadRequest) GetPayload() *models.CommonEntitiesResponse {
+func (o *FetchFilesDownloadInfoBadRequest) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *FetchFilesDownloadInfoBadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type FetchFilesDownloadInfoUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this fetch files download info unauthorized response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *FetchFilesDownloadInfoUnauthorized) String() string {
 	return fmt.Sprintf("[GET /csdownloads/combined/files-download/v1][%d] fetchFilesDownloadInfoUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *FetchFilesDownloadInfoUnauthorized) GetPayload() *models.CommonEntitiesResponse {
+func (o *FetchFilesDownloadInfoUnauthorized) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *FetchFilesDownloadInfoUnauthorized) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type FetchFilesDownloadInfoForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this fetch files download info forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *FetchFilesDownloadInfoForbidden) String() string {
 	return fmt.Sprintf("[GET /csdownloads/combined/files-download/v1][%d] fetchFilesDownloadInfoForbidden  %+v", 403, o.Payload)
 }
 
-func (o *FetchFilesDownloadInfoForbidden) GetPayload() *models.CommonEntitiesResponse {
+func (o *FetchFilesDownloadInfoForbidden) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *FetchFilesDownloadInfoForbidden) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type FetchFilesDownloadInfoInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CommonEntitiesResponse
+	Payload *models.ModelsEntitiesResponse
 }
 
 // IsSuccess returns true when this fetch files download info internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *FetchFilesDownloadInfoInternalServerError) String() string {
 	return fmt.Sprintf("[GET /csdownloads/combined/files-download/v1][%d] fetchFilesDownloadInfoInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *FetchFilesDownloadInfoInternalServerError) GetPayload() *models.CommonEntitiesResponse {
+func (o *FetchFilesDownloadInfoInternalServerError) GetPayload() *models.ModelsEntitiesResponse {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *FetchFilesDownloadInfoInternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CommonEntitiesResponse)
+	o.Payload = new(models.ModelsEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -20,6 +20,9 @@ import (
 // swagger:model azure.DeletedRegistration
 type AzureDeletedRegistration struct {
 
+	// activity log diagnostic settings name
+	ActivityLogDiagnosticSettingsName string `json:"activity_log_diagnostic_settings_name,omitempty"`
+
 	// cs infra subscription id
 	// Required: true
 	CsInfraSubscriptionID *string `json:"cs_infra_subscription_id"`
@@ -43,6 +46,9 @@ type AzureDeletedRegistration struct {
 	// deployment stack scope
 	// Required: true
 	DeploymentStackScope *string `json:"deployment_stack_scope"`
+
+	// deprovision scripts
+	DeprovisionScripts *AzureDeprovisionScripts `json:"deprovision_scripts,omitempty"`
 
 	// enterprise app url
 	// Required: true
@@ -94,6 +100,10 @@ func (m *AzureDeletedRegistration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDeploymentStackScope(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeprovisionScripts(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -176,6 +186,25 @@ func (m *AzureDeletedRegistration) validateDeploymentStackScope(formats strfmt.R
 
 	if err := validate.Required("deployment_stack_scope", "body", m.DeploymentStackScope); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *AzureDeletedRegistration) validateDeprovisionScripts(formats strfmt.Registry) error {
+	if swag.IsZero(m.DeprovisionScripts) { // not required
+		return nil
+	}
+
+	if m.DeprovisionScripts != nil {
+		if err := m.DeprovisionScripts.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deprovision_scripts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deprovision_scripts")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -275,6 +304,10 @@ func (m *AzureDeletedRegistration) validateTenantName(formats strfmt.Registry) e
 func (m *AzureDeletedRegistration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateDeprovisionScripts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -286,6 +319,27 @@ func (m *AzureDeletedRegistration) ContextValidate(ctx context.Context, formats 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *AzureDeletedRegistration) contextValidateDeprovisionScripts(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DeprovisionScripts != nil {
+
+		if swag.IsZero(m.DeprovisionScripts) { // not required
+			return nil
+		}
+
+		if err := m.DeprovisionScripts.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deprovision_scripts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deprovision_scripts")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

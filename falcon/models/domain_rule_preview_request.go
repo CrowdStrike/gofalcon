@@ -23,6 +23,9 @@ type DomainRulePreviewRequest struct {
 	// Required: true
 	Filter *string `json:"filter"`
 
+	// lookback days
+	LookbackDays []int64 `json:"lookback_days"`
+
 	// topic
 	// Required: true
 	Topic *string `json:"topic"`

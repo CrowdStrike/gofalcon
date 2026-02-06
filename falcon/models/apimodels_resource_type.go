@@ -29,6 +29,9 @@ type ApimodelsResourceType struct {
 	// Required: true
 	ResourceType *string `json:"resource_type"`
 
+	// resource type name
+	ResourceTypeName string `json:"resource_type_name,omitempty"`
+
 	// resource version
 	ResourceVersion string `json:"resource_version,omitempty"`
 

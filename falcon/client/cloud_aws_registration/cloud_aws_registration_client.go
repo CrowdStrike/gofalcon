@@ -126,7 +126,7 @@ func (a *Client) CloudRegistrationAwsDeleteAccount(params *CloudRegistrationAwsD
 }
 
 /*
-CloudRegistrationAwsGetAccounts retrieves existing a w s accounts by account i ds
+CloudRegistrationAwsGetAccounts retrieves existing a w s accounts by account i ds or organization i ds
 */
 func (a *Client) CloudRegistrationAwsGetAccounts(params *CloudRegistrationAwsGetAccountsParams, opts ...ClientOption) (*CloudRegistrationAwsGetAccountsOK, *CloudRegistrationAwsGetAccountsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -217,7 +217,7 @@ func (a *Client) CloudRegistrationAwsTriggerHealthCheck(params *CloudRegistratio
 		PathPattern:        "/cloud-security-registration-aws/entities/account-scans/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAwsTriggerHealthCheckReader{formats: a.formats},
 		Context:            params.Context,
@@ -294,7 +294,7 @@ func (a *Client) CloudRegistrationAwsValidateAccounts(params *CloudRegistrationA
 		PathPattern:        "/cloud-security-registration-aws/entities/account/validate/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CloudRegistrationAwsValidateAccountsReader{formats: a.formats},
 		Context:            params.Context,

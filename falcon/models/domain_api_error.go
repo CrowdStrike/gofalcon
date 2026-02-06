@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -20,27 +19,31 @@ import (
 // swagger:model domain.APIError
 type DomainAPIError struct {
 
-	// errors
+	// code
 	// Required: true
-	Errors []*MsaAPIError `json:"errors"`
+	Code *int32 `json:"code"`
 
-	// meta
+	// message
 	// Required: true
-	Meta *MsaMetaInfo `json:"meta"`
+	Message *string `json:"message"`
 
-	// resources
-	Resources DomainAPIErrorResources `json:"resources,omitempty"`
+	// submission
+	Submission *DomainCreateSubmissionV1ErrorResponse `json:"submission,omitempty"`
 }
 
 // Validate validates this domain API error
 func (m *DomainAPIError) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateErrors(formats); err != nil {
+	if err := m.validateCode(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateMeta(formats); err != nil {
+	if err := m.validateMessage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubmission(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -50,45 +53,35 @@ func (m *DomainAPIError) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainAPIError) validateErrors(formats strfmt.Registry) error {
+func (m *DomainAPIError) validateCode(formats strfmt.Registry) error {
 
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
+	if err := validate.Required("code", "body", m.Code); err != nil {
 		return err
-	}
-
-	for i := 0; i < len(m.Errors); i++ {
-		if swag.IsZero(m.Errors[i]) { // not required
-			continue
-		}
-
-		if m.Errors[i] != nil {
-			if err := m.Errors[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil
 }
 
-func (m *DomainAPIError) validateMeta(formats strfmt.Registry) error {
+func (m *DomainAPIError) validateMessage(formats strfmt.Registry) error {
 
-	if err := validate.Required("meta", "body", m.Meta); err != nil {
+	if err := validate.Required("message", "body", m.Message); err != nil {
 		return err
 	}
 
-	if m.Meta != nil {
-		if err := m.Meta.Validate(formats); err != nil {
+	return nil
+}
+
+func (m *DomainAPIError) validateSubmission(formats strfmt.Registry) error {
+	if swag.IsZero(m.Submission) { // not required
+		return nil
+	}
+
+	if m.Submission != nil {
+		if err := m.Submission.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("meta")
+				return ve.ValidateName("submission")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("meta")
+				return ce.ValidateName("submission")
 			}
 			return err
 		}
@@ -101,11 +94,7 @@ func (m *DomainAPIError) validateMeta(formats strfmt.Registry) error {
 func (m *DomainAPIError) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateErrors(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateMeta(ctx, formats); err != nil {
+	if err := m.contextValidateSubmission(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -115,40 +104,19 @@ func (m *DomainAPIError) ContextValidate(ctx context.Context, formats strfmt.Reg
 	return nil
 }
 
-func (m *DomainAPIError) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainAPIError) contextValidateSubmission(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.Errors); i++ {
+	if m.Submission != nil {
 
-		if m.Errors[i] != nil {
-
-			if swag.IsZero(m.Errors[i]) { // not required
-				return nil
-			}
-
-			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
+		if swag.IsZero(m.Submission) { // not required
+			return nil
 		}
 
-	}
-
-	return nil
-}
-
-func (m *DomainAPIError) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Meta != nil {
-
-		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
+		if err := m.Submission.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("meta")
+				return ve.ValidateName("submission")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("meta")
+				return ce.ValidateName("submission")
 			}
 			return err
 		}

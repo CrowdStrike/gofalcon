@@ -20,7 +20,7 @@ import (
 // swagger:model devicecontrolapi.ReqUpdatePoliciesClassesV1
 type DevicecontrolapiReqUpdatePoliciesClassesV1 struct {
 
-	// List of policy classes to update. Maximum batch size: 1000
+	// policies
 	// Required: true
 	Policies []*DevicecontrolapiReqUpdatePolicyClassesV1 `json:"policies"`
 }

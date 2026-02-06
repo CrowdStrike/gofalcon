@@ -32,12 +32,18 @@ type ItautomationTaskExecutionHostStatus struct {
 	// Required: true
 	Hostname *string `json:"hostname"`
 
+	// Status of IT Automation policy for this host
+	ItAutomationPolicy *ItautomationPolicyStatus `json:"it_automation_policy,omitempty"`
+
 	// Operating system platform of the host. Example: Windows
 	// Required: true
 	Platform *string `json:"platform"`
 
 	// Reason for the current status. Example: In progress
 	Reason string `json:"reason,omitempty"`
+
+	// Status of Remote Response policy for this host
+	RemoteResponsePolicy *ItautomationPolicyStatus `json:"remote_response_policy,omitempty"`
 
 	// Current execution stage for this host. Example: query
 	// Required: true
@@ -76,7 +82,15 @@ func (m *ItautomationTaskExecutionHostStatus) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
+	if err := m.validateItAutomationPolicy(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePlatform(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRemoteResponsePolicy(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -133,10 +147,48 @@ func (m *ItautomationTaskExecutionHostStatus) validateHostname(formats strfmt.Re
 	return nil
 }
 
+func (m *ItautomationTaskExecutionHostStatus) validateItAutomationPolicy(formats strfmt.Registry) error {
+	if swag.IsZero(m.ItAutomationPolicy) { // not required
+		return nil
+	}
+
+	if m.ItAutomationPolicy != nil {
+		if err := m.ItAutomationPolicy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("it_automation_policy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("it_automation_policy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ItautomationTaskExecutionHostStatus) validatePlatform(formats strfmt.Registry) error {
 
 	if err := validate.Required("platform", "body", m.Platform); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ItautomationTaskExecutionHostStatus) validateRemoteResponsePolicy(formats strfmt.Registry) error {
+	if swag.IsZero(m.RemoteResponsePolicy) { // not required
+		return nil
+	}
+
+	if m.RemoteResponsePolicy != nil {
+		if err := m.RemoteResponsePolicy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("remote_response_policy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("remote_response_policy")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -182,8 +234,63 @@ func (m *ItautomationTaskExecutionHostStatus) validateTaskExecutionID(formats st
 	return nil
 }
 
-// ContextValidate validates this itautomation task execution host status based on context it is used
+// ContextValidate validate this itautomation task execution host status based on the context it is used
 func (m *ItautomationTaskExecutionHostStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateItAutomationPolicy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRemoteResponsePolicy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ItautomationTaskExecutionHostStatus) contextValidateItAutomationPolicy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ItAutomationPolicy != nil {
+
+		if swag.IsZero(m.ItAutomationPolicy) { // not required
+			return nil
+		}
+
+		if err := m.ItAutomationPolicy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("it_automation_policy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("it_automation_policy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ItautomationTaskExecutionHostStatus) contextValidateRemoteResponsePolicy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RemoteResponsePolicy != nil {
+
+		if swag.IsZero(m.RemoteResponsePolicy) { // not required
+			return nil
+		}
+
+		if err := m.RemoteResponsePolicy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("remote_response_policy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("remote_response_policy")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

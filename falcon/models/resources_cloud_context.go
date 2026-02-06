@@ -27,6 +27,9 @@ type ResourcesCloudContext struct {
 	// asset graph
 	AssetGraph *ResourcesAssetGraph `json:"asset_graph,omitempty"`
 
+	// cloud risks
+	CloudRisks *ResourcesCloudRisks `json:"cloud_risks,omitempty"`
+
 	// cspm license
 	CspmLicense string `json:"cspm_license,omitempty"`
 
@@ -84,6 +87,10 @@ func (m *ResourcesCloudContext) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCloudRisks(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDataClassifications(formats); err != nil {
 		res = append(res, err)
 	}
@@ -117,6 +124,25 @@ func (m *ResourcesCloudContext) validateAssetGraph(formats strfmt.Registry) erro
 				return ve.ValidateName("asset_graph")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("asset_graph")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesCloudContext) validateCloudRisks(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudRisks) { // not required
+		return nil
+	}
+
+	if m.CloudRisks != nil {
+		if err := m.CloudRisks.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud_risks")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud_risks")
 			}
 			return err
 		}
@@ -209,6 +235,10 @@ func (m *ResourcesCloudContext) ContextValidate(ctx context.Context, formats str
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCloudRisks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDataClassifications(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -244,6 +274,27 @@ func (m *ResourcesCloudContext) contextValidateAssetGraph(ctx context.Context, f
 				return ve.ValidateName("asset_graph")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("asset_graph")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesCloudContext) contextValidateCloudRisks(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudRisks != nil {
+
+		if swag.IsZero(m.CloudRisks) { // not required
+			return nil
+		}
+
+		if err := m.CloudRisks.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud_risks")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud_risks")
 			}
 			return err
 		}

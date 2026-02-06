@@ -22,6 +22,9 @@ type GraphFlow struct {
 	// Defines a conditional statement associated with the flow. The workflow only proceeds down this flow of the condition is met.
 	Condition *GraphCondition `json:"condition,omitempty"`
 
+	// The position of the activity as rendered in the UI.
+	Position *GraphNodePosition `json:"position,omitempty"`
+
 	// Reference to the ID of the node that is the source of the flow.
 	// Required: true
 	Source *string `json:"source"`
@@ -36,6 +39,10 @@ func (m *GraphFlow) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCondition(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePosition(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,6 +79,25 @@ func (m *GraphFlow) validateCondition(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *GraphFlow) validatePosition(formats strfmt.Registry) error {
+	if swag.IsZero(m.Position) { // not required
+		return nil
+	}
+
+	if m.Position != nil {
+		if err := m.Position.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GraphFlow) validateSource(formats strfmt.Registry) error {
 
 	if err := validate.Required("source", "body", m.Source); err != nil {
@@ -98,6 +124,10 @@ func (m *GraphFlow) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -117,6 +147,27 @@ func (m *GraphFlow) contextValidateCondition(ctx context.Context, formats strfmt
 				return ve.ValidateName("condition")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("condition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphFlow) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+
+		if swag.IsZero(m.Position) { // not required
+			return nil
+		}
+
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
 			}
 			return err
 		}

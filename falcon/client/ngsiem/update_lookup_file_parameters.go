@@ -65,7 +65,7 @@ type UpdateLookupFileParams struct {
 
 	   file content to upload
 	*/
-	File *string
+	File runtime.NamedReadCloser
 
 	/* Filename.
 
@@ -75,7 +75,7 @@ type UpdateLookupFileParams struct {
 
 	/* SearchDomain.
 
-	   name of search domain (view or repo), options; all, falcon, third-party, parsers-repository
+	   name of search domain (view or repo)
 	*/
 	SearchDomain *string
 
@@ -133,13 +133,13 @@ func (o *UpdateLookupFileParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithFile adds the file to the update lookup file params
-func (o *UpdateLookupFileParams) WithFile(file *string) *UpdateLookupFileParams {
+func (o *UpdateLookupFileParams) WithFile(file runtime.NamedReadCloser) *UpdateLookupFileParams {
 	o.SetFile(file)
 	return o
 }
 
 // SetFile adds the file to the update lookup file params
-func (o *UpdateLookupFileParams) SetFile(file *string) {
+func (o *UpdateLookupFileParams) SetFile(file runtime.NamedReadCloser) {
 	o.File = file
 }
 
@@ -175,14 +175,9 @@ func (o *UpdateLookupFileParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 	if o.File != nil {
 
-		// form param file
-		var frFile string
 		if o.File != nil {
-			frFile = *o.File
-		}
-		fFile := frFile
-		if fFile != "" {
-			if err := r.SetFormParam("file", fFile); err != nil {
+			// form file param file
+			if err := r.SetFileParam("file", o.File); err != nil {
 				return err
 			}
 		}

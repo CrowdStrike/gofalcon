@@ -64,7 +64,7 @@ EntitiesRuleVersionsPublishPatchV1Params contains all the parameters to send to 
 type EntitiesRuleVersionsPublishPatchV1Params struct {
 
 	// Body.
-	Body *models.APIRuleVersionPublishRequestV1
+	Body *models.CorrelationrulesapiRuleVersionPublishRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *EntitiesRuleVersionsPublishPatchV1Params) SetHTTPClient(client *http.Cl
 }
 
 // WithBody adds the body to the entities rule versions publish patch v1 params
-func (o *EntitiesRuleVersionsPublishPatchV1Params) WithBody(body *models.APIRuleVersionPublishRequestV1) *EntitiesRuleVersionsPublishPatchV1Params {
+func (o *EntitiesRuleVersionsPublishPatchV1Params) WithBody(body *models.CorrelationrulesapiRuleVersionPublishRequestV1) *EntitiesRuleVersionsPublishPatchV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the entities rule versions publish patch v1 params
-func (o *EntitiesRuleVersionsPublishPatchV1Params) SetBody(body *models.APIRuleVersionPublishRequestV1) {
+func (o *EntitiesRuleVersionsPublishPatchV1Params) SetBody(body *models.CorrelationrulesapiRuleVersionPublishRequestV1) {
 	o.Body = body
 }
 

@@ -96,7 +96,7 @@ type AggregatesRuleVersionsPostV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponseV1
+	Payload *models.CorrelationrulesapiAggregatesResponseV1
 }
 
 // IsSuccess returns true when this aggregates rule versions post v1 o k response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *AggregatesRuleVersionsPostV1OK) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1OK  %+v", 200, o.Payload)
 }
 
-func (o *AggregatesRuleVersionsPostV1OK) GetPayload() *models.APIAggregatesResponseV1 {
+func (o *AggregatesRuleVersionsPostV1OK) GetPayload() *models.CorrelationrulesapiAggregatesResponseV1 {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *AggregatesRuleVersionsPostV1OK) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiAggregatesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +206,7 @@ type AggregatesRuleVersionsPostV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponseV1
+	Payload *models.CorrelationrulesapiAggregatesResponseV1
 }
 
 // IsSuccess returns true when this aggregates rule versions post v1 bad request response has a 2xx status code
@@ -247,7 +247,7 @@ func (o *AggregatesRuleVersionsPostV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *AggregatesRuleVersionsPostV1BadRequest) GetPayload() *models.APIAggregatesResponseV1 {
+func (o *AggregatesRuleVersionsPostV1BadRequest) GetPayload() *models.CorrelationrulesapiAggregatesResponseV1 {
 	return o.Payload
 }
 
@@ -282,7 +282,7 @@ func (o *AggregatesRuleVersionsPostV1BadRequest) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiAggregatesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +316,7 @@ type AggregatesRuleVersionsPostV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponseV1
+	Payload *models.CorrelationrulesapiAggregatesResponseV1
 }
 
 // IsSuccess returns true when this aggregates rule versions post v1 unauthorized response has a 2xx status code
@@ -357,7 +357,7 @@ func (o *AggregatesRuleVersionsPostV1Unauthorized) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *AggregatesRuleVersionsPostV1Unauthorized) GetPayload() *models.APIAggregatesResponseV1 {
+func (o *AggregatesRuleVersionsPostV1Unauthorized) GetPayload() *models.CorrelationrulesapiAggregatesResponseV1 {
 	return o.Payload
 }
 
@@ -392,7 +392,7 @@ func (o *AggregatesRuleVersionsPostV1Unauthorized) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiAggregatesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +426,7 @@ type AggregatesRuleVersionsPostV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponseV1
+	Payload *models.CorrelationrulesapiAggregatesResponseV1
 }
 
 // IsSuccess returns true when this aggregates rule versions post v1 forbidden response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *AggregatesRuleVersionsPostV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *AggregatesRuleVersionsPostV1Forbidden) GetPayload() *models.APIAggregatesResponseV1 {
+func (o *AggregatesRuleVersionsPostV1Forbidden) GetPayload() *models.CorrelationrulesapiAggregatesResponseV1 {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *AggregatesRuleVersionsPostV1Forbidden) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiAggregatesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -536,7 +536,7 @@ type AggregatesRuleVersionsPostV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponseV1
+	Payload *models.CorrelationrulesapiAggregatesResponseV1
 }
 
 // IsSuccess returns true when this aggregates rule versions post v1 not found response has a 2xx status code
@@ -577,7 +577,7 @@ func (o *AggregatesRuleVersionsPostV1NotFound) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *AggregatesRuleVersionsPostV1NotFound) GetPayload() *models.APIAggregatesResponseV1 {
+func (o *AggregatesRuleVersionsPostV1NotFound) GetPayload() *models.CorrelationrulesapiAggregatesResponseV1 {
 	return o.Payload
 }
 
@@ -612,7 +612,7 @@ func (o *AggregatesRuleVersionsPostV1NotFound) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiAggregatesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +771,7 @@ type AggregatesRuleVersionsPostV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponseV1
+	Payload *models.CorrelationrulesapiAggregatesResponseV1
 }
 
 // IsSuccess returns true when this aggregates rule versions post v1 internal server error response has a 2xx status code
@@ -812,7 +812,7 @@ func (o *AggregatesRuleVersionsPostV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/aggregates/rule-versions/v1][%d] aggregatesRuleVersionsPostV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *AggregatesRuleVersionsPostV1InternalServerError) GetPayload() *models.APIAggregatesResponseV1 {
+func (o *AggregatesRuleVersionsPostV1InternalServerError) GetPayload() *models.CorrelationrulesapiAggregatesResponseV1 {
 	return o.Payload
 }
 
@@ -847,7 +847,7 @@ func (o *AggregatesRuleVersionsPostV1InternalServerError) readResponse(response 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiAggregatesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

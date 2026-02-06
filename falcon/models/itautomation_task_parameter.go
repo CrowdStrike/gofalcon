@@ -33,10 +33,16 @@ type ItautomationTaskParameter struct {
 	// Required: true
 	DefaultValue *string `json:"default_value"`
 
+	// Format hint to help users enter valid input. Maximum 150 characters. Example: 32-character alphanumeric string
+	FormatHint string `json:"format_hint,omitempty"`
+
 	// Type of input field
 	// Required: true
 	// Enum: [text option]
 	InputType *string `json:"input_type"`
+
+	// Whether the parameter is optional. Example: true
+	IsOptional bool `json:"is_optional,omitempty"`
 
 	// Unique identifier for the parameter, corresponds to placeholder used in task content. Example: api_key
 	// Required: true
@@ -49,6 +55,9 @@ type ItautomationTaskParameter struct {
 	// Available options for option inputs. Used only if input_type is option.
 	// Required: true
 	Options []*ItautomationParameterOption `json:"options"`
+
+	// Purpose or usage description for UI display. Maximum 200 characters. Example: Enter your API key for authentication
+	Purpose string `json:"purpose,omitempty"`
 
 	// Type of validation to apply when input_type is text
 	// Required: true

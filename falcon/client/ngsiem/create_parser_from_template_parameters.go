@@ -61,15 +61,9 @@ CreateParserFromTemplateParams contains all the parameters to send to the API en
 */
 type CreateParserFromTemplateParams struct {
 
-	/* Name.
-
-	   name of the parser
-	*/
-	Name *string
-
 	/* Repository.
 
-	   name of repository, options; parsers-repository
+	   name of repository
 	*/
 	Repository *string
 
@@ -77,7 +71,7 @@ type CreateParserFromTemplateParams struct {
 
 	   LogScale Parser YAML template content, see schema at https://schemas.humio.com/
 	*/
-	YamlTemplate *string
+	YamlTemplate runtime.NamedReadCloser
 
 	timeout    time.Duration
 	Context    context.Context
@@ -132,17 +126,6 @@ func (o *CreateParserFromTemplateParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithName adds the name to the create parser from template params
-func (o *CreateParserFromTemplateParams) WithName(name *string) *CreateParserFromTemplateParams {
-	o.SetName(name)
-	return o
-}
-
-// SetName adds the name to the create parser from template params
-func (o *CreateParserFromTemplateParams) SetName(name *string) {
-	o.Name = name
-}
-
 // WithRepository adds the repository to the create parser from template params
 func (o *CreateParserFromTemplateParams) WithRepository(repository *string) *CreateParserFromTemplateParams {
 	o.SetRepository(repository)
@@ -155,13 +138,13 @@ func (o *CreateParserFromTemplateParams) SetRepository(repository *string) {
 }
 
 // WithYamlTemplate adds the yamlTemplate to the create parser from template params
-func (o *CreateParserFromTemplateParams) WithYamlTemplate(yamlTemplate *string) *CreateParserFromTemplateParams {
+func (o *CreateParserFromTemplateParams) WithYamlTemplate(yamlTemplate runtime.NamedReadCloser) *CreateParserFromTemplateParams {
 	o.SetYamlTemplate(yamlTemplate)
 	return o
 }
 
 // SetYamlTemplate adds the yamlTemplate to the create parser from template params
-func (o *CreateParserFromTemplateParams) SetYamlTemplate(yamlTemplate *string) {
+func (o *CreateParserFromTemplateParams) SetYamlTemplate(yamlTemplate runtime.NamedReadCloser) {
 	o.YamlTemplate = yamlTemplate
 }
 
@@ -172,21 +155,6 @@ func (o *CreateParserFromTemplateParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
-	if o.Name != nil {
-
-		// form param name
-		var frName string
-		if o.Name != nil {
-			frName = *o.Name
-		}
-		fName := frName
-		if fName != "" {
-			if err := r.SetFormParam("name", fName); err != nil {
-				return err
-			}
-		}
-	}
 
 	if o.Repository != nil {
 
@@ -205,14 +173,9 @@ func (o *CreateParserFromTemplateParams) WriteToRequest(r runtime.ClientRequest,
 
 	if o.YamlTemplate != nil {
 
-		// form param yaml_template
-		var frYamlTemplate string
 		if o.YamlTemplate != nil {
-			frYamlTemplate = *o.YamlTemplate
-		}
-		fYamlTemplate := frYamlTemplate
-		if fYamlTemplate != "" {
-			if err := r.SetFormParam("yaml_template", fYamlTemplate); err != nil {
+			// form file param yaml_template
+			if err := r.SetFileParam("yaml_template", o.YamlTemplate); err != nil {
 				return err
 			}
 		}

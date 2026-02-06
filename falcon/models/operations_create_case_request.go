@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -18,6 +19,9 @@ import (
 //
 // swagger:model operations.CreateCaseRequest
 type OperationsCreateCaseRequest struct {
+
+	// access tags
+	AccessTags []*SdkCaseAccessTag `json:"access_tags"`
 
 	// assigned to user uuid
 	// Required: true
@@ -39,6 +43,10 @@ type OperationsCreateCaseRequest struct {
 	// Required: true
 	Severity *int64 `json:"severity"`
 
+	// severity info
+	// Required: true
+	SeverityInfo *SdkCaseSeverityInfoAssignment `json:"severity_info"`
+
 	// status
 	// Required: true
 	Status *string `json:"status"`
@@ -53,6 +61,10 @@ type OperationsCreateCaseRequest struct {
 // Validate validates this operations create case request
 func (m *OperationsCreateCaseRequest) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAccessTags(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateAssignedToUserUUID(formats); err != nil {
 		res = append(res, err)
@@ -74,6 +86,10 @@ func (m *OperationsCreateCaseRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSeverityInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
@@ -85,6 +101,32 @@ func (m *OperationsCreateCaseRequest) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *OperationsCreateCaseRequest) validateAccessTags(formats strfmt.Registry) error {
+	if swag.IsZero(m.AccessTags) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AccessTags); i++ {
+		if swag.IsZero(m.AccessTags[i]) { // not required
+			continue
+		}
+
+		if m.AccessTags[i] != nil {
+			if err := m.AccessTags[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -144,6 +186,26 @@ func (m *OperationsCreateCaseRequest) validateSeverity(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *OperationsCreateCaseRequest) validateSeverityInfo(formats strfmt.Registry) error {
+
+	if err := validate.Required("severity_info", "body", m.SeverityInfo); err != nil {
+		return err
+	}
+
+	if m.SeverityInfo != nil {
+		if err := m.SeverityInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("severity_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("severity_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *OperationsCreateCaseRequest) validateStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
@@ -176,7 +238,15 @@ func (m *OperationsCreateCaseRequest) validateTemplate(formats strfmt.Registry) 
 func (m *OperationsCreateCaseRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAccessTags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateEvidence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSeverityInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -190,6 +260,31 @@ func (m *OperationsCreateCaseRequest) ContextValidate(ctx context.Context, forma
 	return nil
 }
 
+func (m *OperationsCreateCaseRequest) contextValidateAccessTags(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AccessTags); i++ {
+
+		if m.AccessTags[i] != nil {
+
+			if swag.IsZero(m.AccessTags[i]) { // not required
+				return nil
+			}
+
+			if err := m.AccessTags[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *OperationsCreateCaseRequest) contextValidateEvidence(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Evidence != nil {
@@ -199,6 +294,23 @@ func (m *OperationsCreateCaseRequest) contextValidateEvidence(ctx context.Contex
 				return ve.ValidateName("evidence")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("evidence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OperationsCreateCaseRequest) contextValidateSeverityInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SeverityInfo != nil {
+
+		if err := m.SeverityInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("severity_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("severity_info")
 			}
 			return err
 		}

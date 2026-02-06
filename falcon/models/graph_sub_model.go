@@ -37,6 +37,9 @@ type GraphSubModel struct {
 	// node ID
 	// Required: true
 	NodeID *string `json:"nodeID"`
+
+	// The position of the activity as rendered in the UI.
+	Position *GraphNodePosition `json:"position,omitempty"`
 }
 
 // Validate validates this graph sub model
@@ -56,6 +59,10 @@ func (m *GraphSubModel) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNodeID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePosition(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -134,6 +141,25 @@ func (m *GraphSubModel) validateNodeID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *GraphSubModel) validatePosition(formats strfmt.Registry) error {
+	if swag.IsZero(m.Position) { // not required
+		return nil
+	}
+
+	if m.Position != nil {
+		if err := m.Position.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this graph sub model based on the context it is used
 func (m *GraphSubModel) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -147,6 +173,10 @@ func (m *GraphSubModel) ContextValidate(ctx context.Context, formats strfmt.Regi
 	}
 
 	if err := m.contextValidateMulti(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -199,6 +229,27 @@ func (m *GraphSubModel) contextValidateMulti(ctx context.Context, formats strfmt
 				return ve.ValidateName("multi")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("multi")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GraphSubModel) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+
+		if swag.IsZero(m.Position) { // not required
+			return nil
+		}
+
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
 			}
 			return err
 		}

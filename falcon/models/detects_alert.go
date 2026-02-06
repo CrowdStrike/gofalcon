@@ -151,6 +151,10 @@ type DetectsAlert struct {
 	// is synthetic quarantine disposition
 	IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
+	// Linked Behavioral Detections are behavioral detections that are associated with this alert
+	// Required: true
+	LinkedBehavioralDetections []string `json:"linked_behavioral_detections"`
+
 	// Linked Case Ids are cases that are associated with this alert
 	// Required: true
 	LinkedCaseIds []string `json:"linked_case_ids"`
@@ -175,6 +179,10 @@ type DetectsAlert struct {
 	// End goal that an attack adversary intends to achieve according to MITRE
 	// Required: true
 	Objective *string `json:"objective"`
+
+	// Original CID value when the alert was first created, mirrors the cid field during alert creation
+	// Required: true
+	OriginCid *string `json:"origin_cid"`
 
 	// parent details
 	ParentDetails *DetectsAlertParentDetails `json:"parent_details,omitempty"`
@@ -452,6 +460,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
+		// Linked Behavioral Detections are behavioral detections that are associated with this alert
+		// Required: true
+		LinkedBehavioralDetections []string `json:"linked_behavioral_detections"`
+
 		// Linked Case Ids are cases that are associated with this alert
 		// Required: true
 		LinkedCaseIds []string `json:"linked_case_ids"`
@@ -476,6 +488,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// End goal that an attack adversary intends to achieve according to MITRE
 		// Required: true
 		Objective *string `json:"objective"`
+
+		// Original CID value when the alert was first created, mirrors the cid field during alert creation
+		// Required: true
+		OriginCid *string `json:"origin_cid"`
 
 		// parent details
 		ParentDetails *DetectsAlertParentDetails `json:"parent_details,omitempty"`
@@ -656,6 +672,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.IocValue = stage1.IocValue
 	rcv.IocValues = stage1.IocValues
 	rcv.IsSyntheticQuarantineDisposition = stage1.IsSyntheticQuarantineDisposition
+	rcv.LinkedBehavioralDetections = stage1.LinkedBehavioralDetections
 	rcv.LinkedCaseIds = stage1.LinkedCaseIds
 	rcv.LocalProcessID = stage1.LocalProcessID
 	rcv.LogonDomain = stage1.LogonDomain
@@ -663,6 +680,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.MitreAttack = stage1.MitreAttack
 	rcv.Name = stage1.Name
 	rcv.Objective = stage1.Objective
+	rcv.OriginCid = stage1.OriginCid
 	rcv.ParentDetails = stage1.ParentDetails
 	rcv.ParentProcessID = stage1.ParentProcessID
 	rcv.PatternDisposition = stage1.PatternDisposition
@@ -746,6 +764,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "ioc_value")
 	delete(stage2, "ioc_values")
 	delete(stage2, "is_synthetic_quarantine_disposition")
+	delete(stage2, "linked_behavioral_detections")
 	delete(stage2, "linked_case_ids")
 	delete(stage2, "local_process_id")
 	delete(stage2, "logon_domain")
@@ -753,6 +772,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "mitre_attack")
 	delete(stage2, "name")
 	delete(stage2, "objective")
+	delete(stage2, "origin_cid")
 	delete(stage2, "parent_details")
 	delete(stage2, "parent_process_id")
 	delete(stage2, "pattern_disposition")
@@ -941,6 +961,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
+		// Linked Behavioral Detections are behavioral detections that are associated with this alert
+		// Required: true
+		LinkedBehavioralDetections []string `json:"linked_behavioral_detections"`
+
 		// Linked Case Ids are cases that are associated with this alert
 		// Required: true
 		LinkedCaseIds []string `json:"linked_case_ids"`
@@ -965,6 +989,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 		// End goal that an attack adversary intends to achieve according to MITRE
 		// Required: true
 		Objective *string `json:"objective"`
+
+		// Original CID value when the alert was first created, mirrors the cid field during alert creation
+		// Required: true
+		OriginCid *string `json:"origin_cid"`
 
 		// parent details
 		ParentDetails *DetectsAlertParentDetails `json:"parent_details,omitempty"`
@@ -1141,6 +1169,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.IocValue = m.IocValue
 	stage1.IocValues = m.IocValues
 	stage1.IsSyntheticQuarantineDisposition = m.IsSyntheticQuarantineDisposition
+	stage1.LinkedBehavioralDetections = m.LinkedBehavioralDetections
 	stage1.LinkedCaseIds = m.LinkedCaseIds
 	stage1.LocalProcessID = m.LocalProcessID
 	stage1.LogonDomain = m.LogonDomain
@@ -1148,6 +1177,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.MitreAttack = m.MitreAttack
 	stage1.Name = m.Name
 	stage1.Objective = m.Objective
+	stage1.OriginCid = m.OriginCid
 	stage1.ParentDetails = m.ParentDetails
 	stage1.ParentProcessID = m.ParentProcessID
 	stage1.PatternDisposition = m.PatternDisposition
@@ -1303,6 +1333,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLinkedBehavioralDetections(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLinkedCaseIds(formats); err != nil {
 		res = append(res, err)
 	}
@@ -1316,6 +1350,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateObjective(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOriginCid(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1687,6 +1725,15 @@ func (m *DetectsAlert) validateIocContext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateLinkedBehavioralDetections(formats strfmt.Registry) error {
+
+	if err := validate.Required("linked_behavioral_detections", "body", m.LinkedBehavioralDetections); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DetectsAlert) validateLinkedCaseIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("linked_case_ids", "body", m.LinkedCaseIds); err != nil {
@@ -1735,6 +1782,15 @@ func (m *DetectsAlert) validateName(formats strfmt.Registry) error {
 func (m *DetectsAlert) validateObjective(formats strfmt.Registry) error {
 
 	if err := validate.Required("objective", "body", m.Objective); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateOriginCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("origin_cid", "body", m.OriginCid); err != nil {
 		return err
 	}
 

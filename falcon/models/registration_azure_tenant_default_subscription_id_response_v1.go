@@ -30,7 +30,7 @@ type RegistrationAzureTenantDefaultSubscriptionIDResponseV1 struct {
 
 	// resources
 	// Required: true
-	Resources *Resources `json:"resources"`
+	Resources Resources `json:"resources"`
 }
 
 // Validate validates this registration azure tenant default subscription ID response v1
@@ -104,19 +104,8 @@ func (m *RegistrationAzureTenantDefaultSubscriptionIDResponseV1) validateMeta(fo
 
 func (m *RegistrationAzureTenantDefaultSubscriptionIDResponseV1) validateResources(formats strfmt.Registry) error {
 
-	if err := validate.Required("resources", "body", m.Resources); err != nil {
-		return err
-	}
-
-	if m.Resources != nil {
-		if err := m.Resources.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("resources")
-			}
-			return err
-		}
+	if m.Resources == nil {
+		return errors.Required("resources", "body", nil)
 	}
 
 	return nil
@@ -131,10 +120,6 @@ func (m *RegistrationAzureTenantDefaultSubscriptionIDResponseV1) ContextValidate
 	}
 
 	if err := m.contextValidateMeta(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateResources(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -178,23 +163,6 @@ func (m *RegistrationAzureTenantDefaultSubscriptionIDResponseV1) contextValidate
 				return ve.ValidateName("meta")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("meta")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *RegistrationAzureTenantDefaultSubscriptionIDResponseV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Resources != nil {
-
-		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("resources")
 			}
 			return err
 		}

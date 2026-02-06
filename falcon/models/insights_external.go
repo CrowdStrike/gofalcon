@@ -33,6 +33,9 @@ type InsightsExternal struct {
 	// integer value
 	IntegerValue int32 `json:"integerValue,omitempty"`
 
+	// rule Id
+	RuleID string `json:"ruleId,omitempty"`
+
 	// string list value
 	StringListValue []string `json:"stringListValue"`
 

@@ -62,6 +62,12 @@ GetSecurityChecksV3Params contains all the parameters to send to the API endpoin
 */
 type GetSecurityChecksV3Params struct {
 
+	/* CheckTags.
+
+	   Comma separated list of check tags names or ids
+	*/
+	CheckTags *string
+
 	/* CheckType.
 
 	   Check Type
@@ -163,6 +169,17 @@ func (o *GetSecurityChecksV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithCheckTags adds the checkTags to the get security checks v3 params
+func (o *GetSecurityChecksV3Params) WithCheckTags(checkTags *string) *GetSecurityChecksV3Params {
+	o.SetCheckTags(checkTags)
+	return o
+}
+
+// SetCheckTags adds the checkTags to the get security checks v3 params
+func (o *GetSecurityChecksV3Params) SetCheckTags(checkTags *string) {
+	o.CheckTags = checkTags
+}
+
 // WithCheckType adds the checkType to the get security checks v3 params
 func (o *GetSecurityChecksV3Params) WithCheckType(checkType *string) *GetSecurityChecksV3Params {
 	o.SetCheckType(checkType)
@@ -258,6 +275,23 @@ func (o *GetSecurityChecksV3Params) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	if o.CheckTags != nil {
+
+		// query param check_tags
+		var qrCheckTags string
+
+		if o.CheckTags != nil {
+			qrCheckTags = *o.CheckTags
+		}
+		qCheckTags := qrCheckTags
+		if qCheckTags != "" {
+
+			if err := r.SetQueryParam("check_tags", qCheckTags); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.CheckType != nil {
 

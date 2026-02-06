@@ -64,7 +64,7 @@ type GetMigrationIDsV1Params struct {
 
 	/* Filter.
 
-	   The filter expression that should be used to limit the results. Valid fields: id, migration_id, target_cid, status, migration_status, created_by, created_time, name
+	   The filter expression that should be used to limit the results. Valid fields: status, migration_status, created_by, created_time, name, id, migration_id, target_cid
 	*/
 	Filter *string
 

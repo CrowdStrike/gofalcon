@@ -64,7 +64,7 @@ type ClientService interface {
 
 	GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsAttachmentOK, error)
 
-	GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error)
+	GetCSPMGCPAccount(params *GetCSPMGCPAccountParams, opts ...ClientOption) (*GetCSPMGCPAccountOK, *GetCSPMGCPAccountMultiStatus, error)
 
 	GetCSPMGCPServiceAccountsExt(params *GetCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPServiceAccountsExtOK, error)
 
@@ -769,22 +769,22 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 }
 
 /*
-GetCSPMCGPAccount returns information about the current status of an g c p account
+GetCSPMGCPAccount returns information about the current status of an g c p account
 */
-func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error) {
+func (a *Client) GetCSPMGCPAccount(params *GetCSPMGCPAccountParams, opts ...ClientOption) (*GetCSPMGCPAccountOK, *GetCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCSPMCGPAccountParams()
+		params = NewGetCSPMGCPAccountParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetCSPMCGPAccount",
+		ID:                 "GetCSPMGCPAccount",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-cspm-gcp/entities/account/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetCSPMCGPAccountReader{formats: a.formats},
+		Reader:             &GetCSPMGCPAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -797,9 +797,9 @@ func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...Clie
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *GetCSPMCGPAccountOK:
+	case *GetCSPMGCPAccountOK:
 		return value, nil, nil
-	case *GetCSPMCGPAccountMultiStatus:
+	case *GetCSPMGCPAccountMultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue

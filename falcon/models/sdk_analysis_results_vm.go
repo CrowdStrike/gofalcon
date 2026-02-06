@@ -27,6 +27,10 @@ type SdkAnalysisResultsVM struct {
 	// Required: true
 	CloudAssets *SdkAnalysisResultsCloudAssetsVM `json:"cloud_assets"`
 
+	// data domains
+	// Required: true
+	DataDomains []string `json:"data_domains"`
+
 	// events
 	// Required: true
 	Events *SdkAnalysisResultsEventsVM `json:"events"`
@@ -57,6 +61,10 @@ func (m *SdkAnalysisResultsVM) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCloudAssets(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDataDomains(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -121,6 +129,15 @@ func (m *SdkAnalysisResultsVM) validateCloudAssets(formats strfmt.Registry) erro
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *SdkAnalysisResultsVM) validateDataDomains(formats strfmt.Registry) error {
+
+	if err := validate.Required("data_domains", "body", m.DataDomains); err != nil {
+		return err
 	}
 
 	return nil

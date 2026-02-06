@@ -48,9 +48,8 @@ type ExecutionsTriggerResult struct {
 	Result interface{} `json:"result,omitempty"`
 
 	// Timestamp of when the execution first started.
-	// Required: true
 	// Format: date-time
-	StartTimestamp *strfmt.DateTime `json:"start_timestamp"`
+	StartTimestamp strfmt.DateTime `json:"start_timestamp,omitempty"`
 
 	// Current status of execution for the activity.
 	// Required: true
@@ -131,9 +130,8 @@ func (m *ExecutionsTriggerResult) validateNodeID(formats strfmt.Registry) error 
 }
 
 func (m *ExecutionsTriggerResult) validateStartTimestamp(formats strfmt.Registry) error {
-
-	if err := validate.Required("start_timestamp", "body", m.StartTimestamp); err != nil {
-		return err
+	if swag.IsZero(m.StartTimestamp) { // not required
+		return nil
 	}
 
 	if err := validate.FormatOf("start_timestamp", "body", "date-time", m.StartTimestamp.String(), formats); err != nil {

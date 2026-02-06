@@ -43,6 +43,9 @@ type DomainScanHostMetadata struct {
 	// Format: date-time
 	LastUpdated strfmt.DateTime `json:"last_updated,omitempty"`
 
+	// platform name
+	PlatformName string `json:"platform_name,omitempty"`
+
 	// profile id
 	ProfileID string `json:"profile_id,omitempty"`
 

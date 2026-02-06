@@ -22,6 +22,9 @@ type DtoProject struct {
 
 	// project name
 	ProjectName string `json:"project_name,omitempty"`
+
+	// project number
+	ProjectNumber string `json:"project_number,omitempty"`
 }
 
 // Validate validates this dto project

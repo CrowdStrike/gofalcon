@@ -19,6 +19,9 @@ import (
 // swagger:model sdk.CustomFieldVM
 type SdkCustomFieldVM struct {
 
+	// display order
+	DisplayOrder int32 `json:"display_order,omitempty"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`

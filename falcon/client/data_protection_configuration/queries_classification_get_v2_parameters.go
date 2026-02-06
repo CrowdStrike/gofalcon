@@ -64,7 +64,7 @@ type QueriesClassificationGetV2Params struct {
 
 	/* Filter.
 
-	   Filter results by specific attributes , allowed attributes are [created_by modified_by modified_at properties.content_patterns properties.file_types properties.evidence_duplication_enabled properties.protection_mode properties.sensitivity_labels properties.web_sources name created_at]
+	   Filter results by specific attributes , allowed attributes are [properties.sensitivity_labels properties.web_sources name properties.file_types properties.protection_mode created_at created_by modified_by modified_at properties.content_patterns properties.evidence_duplication_enabled]
 	*/
 	Filter *string
 
@@ -84,7 +84,7 @@ type QueriesClassificationGetV2Params struct {
 
 	/* Sort.
 
-	   The property to sort by, allowed fields are :[name created_at modified_at]
+	   The property to sort by, allowed fields are :[modified_at name created_at]
 	*/
 	Sort *string
 

@@ -19,10 +19,6 @@ import (
 // swagger:model api.EnterpriseAccountUpdateRequestV1
 type APIEnterpriseAccountUpdateRequestV1 struct {
 
-	// application group id
-	// Required: true
-	ApplicationGroupID *string `json:"application_group_id"`
-
 	// domains
 	// Required: true
 	Domains []string `json:"domains"`
@@ -34,19 +30,11 @@ type APIEnterpriseAccountUpdateRequestV1 struct {
 	// name
 	// Required: true
 	Name *string `json:"name"`
-
-	// plugin config id
-	// Required: true
-	PluginConfigID *string `json:"plugin_config_id"`
 }
 
 // Validate validates this api enterprise account update request v1
 func (m *APIEnterpriseAccountUpdateRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateApplicationGroupID(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateDomains(formats); err != nil {
 		res = append(res, err)
@@ -60,22 +48,9 @@ func (m *APIEnterpriseAccountUpdateRequestV1) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
-	if err := m.validatePluginConfigID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *APIEnterpriseAccountUpdateRequestV1) validateApplicationGroupID(formats strfmt.Registry) error {
-
-	if err := validate.Required("application_group_id", "body", m.ApplicationGroupID); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -100,15 +75,6 @@ func (m *APIEnterpriseAccountUpdateRequestV1) validateID(formats strfmt.Registry
 func (m *APIEnterpriseAccountUpdateRequestV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIEnterpriseAccountUpdateRequestV1) validatePluginConfigID(formats strfmt.Registry) error {
-
-	if err := validate.Required("plugin_config_id", "body", m.PluginConfigID); err != nil {
 		return err
 	}
 

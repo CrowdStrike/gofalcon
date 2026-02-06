@@ -30,6 +30,12 @@ type InternalSensorStatus struct {
 	// Required: true
 	DeviceID *string `json:"device_id"`
 
+	// directory auditing
+	DirectoryAuditing string `json:"directory_auditing,omitempty"`
+
+	// group policy object
+	GroupPolicyObject string `json:"group_policy_object,omitempty"`
+
 	// heartbeat time
 	HeartbeatTime int64 `json:"heartbeat_time,omitempty"`
 

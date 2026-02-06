@@ -25,8 +25,8 @@ type CreateMLExclusionsV1Reader struct {
 // ReadResponse reads a server response into the received o.
 func (o *CreateMLExclusionsV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		result := NewCreateMLExclusionsV1OK()
+	case 201:
+		result := NewCreateMLExclusionsV1Created()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -60,17 +60,17 @@ func (o *CreateMLExclusionsV1Reader) ReadResponse(response runtime.ClientRespons
 	}
 }
 
-// NewCreateMLExclusionsV1OK creates a CreateMLExclusionsV1OK with default headers values
-func NewCreateMLExclusionsV1OK() *CreateMLExclusionsV1OK {
-	return &CreateMLExclusionsV1OK{}
+// NewCreateMLExclusionsV1Created creates a CreateMLExclusionsV1Created with default headers values
+func NewCreateMLExclusionsV1Created() *CreateMLExclusionsV1Created {
+	return &CreateMLExclusionsV1Created{}
 }
 
 /*
-CreateMLExclusionsV1OK describes a response with status code 200, with default header values.
+CreateMLExclusionsV1Created describes a response with status code 201, with default header values.
 
 OK
 */
-type CreateMLExclusionsV1OK struct {
+type CreateMLExclusionsV1Created struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -87,49 +87,49 @@ type CreateMLExclusionsV1OK struct {
 	Payload *models.ExclusionsRespV1
 }
 
-// IsSuccess returns true when this create m l exclusions v1 o k response has a 2xx status code
-func (o *CreateMLExclusionsV1OK) IsSuccess() bool {
+// IsSuccess returns true when this create m l exclusions v1 created response has a 2xx status code
+func (o *CreateMLExclusionsV1Created) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this create m l exclusions v1 o k response has a 3xx status code
-func (o *CreateMLExclusionsV1OK) IsRedirect() bool {
+// IsRedirect returns true when this create m l exclusions v1 created response has a 3xx status code
+func (o *CreateMLExclusionsV1Created) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this create m l exclusions v1 o k response has a 4xx status code
-func (o *CreateMLExclusionsV1OK) IsClientError() bool {
+// IsClientError returns true when this create m l exclusions v1 created response has a 4xx status code
+func (o *CreateMLExclusionsV1Created) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this create m l exclusions v1 o k response has a 5xx status code
-func (o *CreateMLExclusionsV1OK) IsServerError() bool {
+// IsServerError returns true when this create m l exclusions v1 created response has a 5xx status code
+func (o *CreateMLExclusionsV1Created) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this create m l exclusions v1 o k response a status code equal to that given
-func (o *CreateMLExclusionsV1OK) IsCode(code int) bool {
-	return code == 200
+// IsCode returns true when this create m l exclusions v1 created response a status code equal to that given
+func (o *CreateMLExclusionsV1Created) IsCode(code int) bool {
+	return code == 201
 }
 
-// Code gets the status code for the create m l exclusions v1 o k response
-func (o *CreateMLExclusionsV1OK) Code() int {
-	return 200
+// Code gets the status code for the create m l exclusions v1 created response
+func (o *CreateMLExclusionsV1Created) Code() int {
+	return 201
 }
 
-func (o *CreateMLExclusionsV1OK) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1OK  %+v", 200, o.Payload)
+func (o *CreateMLExclusionsV1Created) Error() string {
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1Created  %+v", 201, o.Payload)
 }
 
-func (o *CreateMLExclusionsV1OK) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1OK  %+v", 200, o.Payload)
+func (o *CreateMLExclusionsV1Created) String() string {
+	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1Created  %+v", 201, o.Payload)
 }
 
-func (o *CreateMLExclusionsV1OK) GetPayload() *models.ExclusionsRespV1 {
+func (o *CreateMLExclusionsV1Created) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
-func (o *CreateMLExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *CreateMLExclusionsV1Created) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -304,7 +304,7 @@ type CreateMLExclusionsV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create m l exclusions v1 forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *CreateMLExclusionsV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /policy/entities/ml-exclusions/v1][%d] createMLExclusionsV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *CreateMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *CreateMLExclusionsV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *CreateMLExclusionsV1Forbidden) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

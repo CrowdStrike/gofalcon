@@ -78,6 +78,7 @@ type CloudComplianceRulePostureSummariesParams struct {
 	- `resource_type_name`
 	- `tag_key`
 	- `tag_value`
+	- `tags_string`
 	*/
 	Filter *string
 

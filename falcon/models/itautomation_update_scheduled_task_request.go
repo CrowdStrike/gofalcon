@@ -44,7 +44,7 @@ type ItautomationUpdateScheduledTaskRequest struct {
 	Schedule *FalconforitapiSchedule `json:"schedule,omitempty"`
 
 	// Custom name for the scheduled task. Example: Weekly Security Scan
-	ScheduledName string `json:"scheduled_name,omitempty"`
+	ScheduleName string `json:"schedule_name,omitempty"`
 
 	// Filter expression to select target hosts. Example: hostname:*prod*
 	Target string `json:"target,omitempty"`

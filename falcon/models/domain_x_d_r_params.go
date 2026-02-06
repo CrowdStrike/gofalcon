@@ -32,6 +32,9 @@ type DomainXDRParams struct {
 	// Required: true
 	Author *string `json:"author"`
 
+	// case template id
+	CaseTemplateID string `json:"case_template_id,omitempty"`
+
 	// comment
 	// Required: true
 	Comment *string `json:"comment"`

@@ -155,6 +155,9 @@ type JsonschemaSubSchema struct {
 	// x cs condition group fields
 	XCsConditionGroupFields *JsonschemaConditionGroupFields `json:"x-cs-condition-group-fields,omitempty"`
 
+	// x cs default table column
+	XCsDefaultTableColumn bool `json:"x-cs-default-table-column,omitempty"`
+
 	// x cs do not hide
 	XCsDoNotHide bool `json:"x-cs-do-not-hide,omitempty"`
 
@@ -176,11 +179,20 @@ type JsonschemaSubSchema struct {
 	// x cs not parameterizable
 	XCsNotParameterizable bool `json:"x-cs-not-parameterizable,omitempty"`
 
+	// x cs openapi
+	XCsOpenapi *JsonschemaOpenAPIExtensions `json:"x-cs-openapi,omitempty"`
+
 	// x cs order
 	XCsOrder []string `json:"x-cs-order"`
 
 	// x cs pivot
 	XCsPivot *JsonschemaPivot `json:"x-cs-pivot,omitempty"`
+
+	// x cs queryable
+	XCsQueryable *JsonschemaQueryConfig `json:"x-cs-queryable,omitempty"`
+
+	// x cs semantic data
+	XCsSemanticData *JsonschemaSemanticData `json:"x-cs-semantic-data,omitempty"`
 
 	// x cs signals
 	XCsSignals *JsonschemaSignalsExtensions `json:"x-cs-signals,omitempty"`
@@ -268,7 +280,19 @@ func (m *JsonschemaSubSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateXCsOpenapi(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateXCsPivot(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXCsQueryable(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXCsSemanticData(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -624,6 +648,25 @@ func (m *JsonschemaSubSchema) validateXCsIndexableFields(formats strfmt.Registry
 	return nil
 }
 
+func (m *JsonschemaSubSchema) validateXCsOpenapi(formats strfmt.Registry) error {
+	if swag.IsZero(m.XCsOpenapi) { // not required
+		return nil
+	}
+
+	if m.XCsOpenapi != nil {
+		if err := m.XCsOpenapi.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-openapi")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-openapi")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *JsonschemaSubSchema) validateXCsPivot(formats strfmt.Registry) error {
 	if swag.IsZero(m.XCsPivot) { // not required
 		return nil
@@ -635,6 +678,44 @@ func (m *JsonschemaSubSchema) validateXCsPivot(formats strfmt.Registry) error {
 				return ve.ValidateName("x-cs-pivot")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("x-cs-pivot")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaSubSchema) validateXCsQueryable(formats strfmt.Registry) error {
+	if swag.IsZero(m.XCsQueryable) { // not required
+		return nil
+	}
+
+	if m.XCsQueryable != nil {
+		if err := m.XCsQueryable.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-queryable")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-queryable")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaSubSchema) validateXCsSemanticData(formats strfmt.Registry) error {
+	if swag.IsZero(m.XCsSemanticData) { // not required
+		return nil
+	}
+
+	if m.XCsSemanticData != nil {
+		if err := m.XCsSemanticData.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-semantic-data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-semantic-data")
 			}
 			return err
 		}
@@ -764,7 +845,19 @@ func (m *JsonschemaSubSchema) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateXCsOpenapi(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateXCsPivot(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateXCsQueryable(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateXCsSemanticData(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1099,6 +1192,27 @@ func (m *JsonschemaSubSchema) contextValidateXCsIndexableFields(ctx context.Cont
 	return nil
 }
 
+func (m *JsonschemaSubSchema) contextValidateXCsOpenapi(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.XCsOpenapi != nil {
+
+		if swag.IsZero(m.XCsOpenapi) { // not required
+			return nil
+		}
+
+		if err := m.XCsOpenapi.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-openapi")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-openapi")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *JsonschemaSubSchema) contextValidateXCsPivot(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.XCsPivot != nil {
@@ -1112,6 +1226,48 @@ func (m *JsonschemaSubSchema) contextValidateXCsPivot(ctx context.Context, forma
 				return ve.ValidateName("x-cs-pivot")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("x-cs-pivot")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaSubSchema) contextValidateXCsQueryable(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.XCsQueryable != nil {
+
+		if swag.IsZero(m.XCsQueryable) { // not required
+			return nil
+		}
+
+		if err := m.XCsQueryable.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-queryable")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-queryable")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaSubSchema) contextValidateXCsSemanticData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.XCsSemanticData != nil {
+
+		if swag.IsZero(m.XCsSemanticData) { // not required
+			return nil
+		}
+
+		if err := m.XCsSemanticData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("x-cs-semantic-data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("x-cs-semantic-data")
 			}
 			return err
 		}

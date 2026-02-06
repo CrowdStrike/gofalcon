@@ -20,8 +20,7 @@ import (
 type CommonUpdateComplianceControlRequest struct {
 
 	// description
-	// Required: true
-	Description *string `json:"description"`
+	Description string `json:"description,omitempty"`
 
 	// name
 	// Required: true
@@ -32,10 +31,6 @@ type CommonUpdateComplianceControlRequest struct {
 func (m *CommonUpdateComplianceControlRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -43,15 +38,6 @@ func (m *CommonUpdateComplianceControlRequest) Validate(formats strfmt.Registry)
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *CommonUpdateComplianceControlRequest) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
 	return nil
 }
 

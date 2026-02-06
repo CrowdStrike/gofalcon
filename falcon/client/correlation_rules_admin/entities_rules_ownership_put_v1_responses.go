@@ -102,7 +102,7 @@ type EntitiesRulesOwnershipPutV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules ownership put v1 o k response has a 2xx status code
@@ -143,7 +143,7 @@ func (o *EntitiesRulesOwnershipPutV1OK) String() string {
 	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1OK  %+v", 200, o.Payload)
 }
 
-func (o *EntitiesRulesOwnershipPutV1OK) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesOwnershipPutV1OK) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -178,7 +178,7 @@ func (o *EntitiesRulesOwnershipPutV1OK) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -212,7 +212,7 @@ type EntitiesRulesOwnershipPutV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules ownership put v1 bad request response has a 2xx status code
@@ -253,7 +253,7 @@ func (o *EntitiesRulesOwnershipPutV1BadRequest) String() string {
 	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *EntitiesRulesOwnershipPutV1BadRequest) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesOwnershipPutV1BadRequest) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -288,7 +288,7 @@ func (o *EntitiesRulesOwnershipPutV1BadRequest) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -322,7 +322,7 @@ type EntitiesRulesOwnershipPutV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules ownership put v1 unauthorized response has a 2xx status code
@@ -363,7 +363,7 @@ func (o *EntitiesRulesOwnershipPutV1Unauthorized) String() string {
 	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *EntitiesRulesOwnershipPutV1Unauthorized) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesOwnershipPutV1Unauthorized) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -398,7 +398,7 @@ func (o *EntitiesRulesOwnershipPutV1Unauthorized) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -432,7 +432,7 @@ type EntitiesRulesOwnershipPutV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules ownership put v1 forbidden response has a 2xx status code
@@ -473,7 +473,7 @@ func (o *EntitiesRulesOwnershipPutV1Forbidden) String() string {
 	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *EntitiesRulesOwnershipPutV1Forbidden) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesOwnershipPutV1Forbidden) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -508,7 +508,7 @@ func (o *EntitiesRulesOwnershipPutV1Forbidden) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -542,7 +542,7 @@ type EntitiesRulesOwnershipPutV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules ownership put v1 not found response has a 2xx status code
@@ -583,7 +583,7 @@ func (o *EntitiesRulesOwnershipPutV1NotFound) String() string {
 	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *EntitiesRulesOwnershipPutV1NotFound) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesOwnershipPutV1NotFound) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -618,7 +618,7 @@ func (o *EntitiesRulesOwnershipPutV1NotFound) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -652,7 +652,7 @@ type EntitiesRulesOwnershipPutV1UnprocessableEntity struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules ownership put v1 unprocessable entity response has a 2xx status code
@@ -693,7 +693,7 @@ func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) String() string {
 	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1UnprocessableEntity  %+v", 422, o.Payload)
 }
 
-func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -728,7 +728,7 @@ func (o *EntitiesRulesOwnershipPutV1UnprocessableEntity) readResponse(response r
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -887,7 +887,7 @@ type EntitiesRulesOwnershipPutV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRulesResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRulesResponseV1
 }
 
 // IsSuccess returns true when this entities rules ownership put v1 internal server error response has a 2xx status code
@@ -928,7 +928,7 @@ func (o *EntitiesRulesOwnershipPutV1InternalServerError) String() string {
 	return fmt.Sprintf("[PUT /correlation-rules/entities/rules/ownership/v1][%d] entitiesRulesOwnershipPutV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *EntitiesRulesOwnershipPutV1InternalServerError) GetPayload() *models.APIGetEntitiesRulesResponseV1 {
+func (o *EntitiesRulesOwnershipPutV1InternalServerError) GetPayload() *models.CorrelationrulesapiGetEntitiesRulesResponseV1 {
 	return o.Payload
 }
 
@@ -963,7 +963,7 @@ func (o *EntitiesRulesOwnershipPutV1InternalServerError) readResponse(response r
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRulesResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRulesResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

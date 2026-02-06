@@ -310,7 +310,7 @@ type PostMalQueryExactSearchV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this post mal query exact search v1 unauthorized response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *PostMalQueryExactSearchV1Unauthorized) String() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *PostMalQueryExactSearchV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
+func (o *PostMalQueryExactSearchV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *PostMalQueryExactSearchV1Unauthorized) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type PostMalQueryExactSearchV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this post mal query exact search v1 forbidden response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *PostMalQueryExactSearchV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *PostMalQueryExactSearchV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *PostMalQueryExactSearchV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *PostMalQueryExactSearchV1Forbidden) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

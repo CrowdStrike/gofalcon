@@ -88,6 +88,8 @@ type AdmissionControlUpdateRuleGroupsParams struct {
 	- 201010: Container(s) without resource limits
 	- 201011: Sensitive host directories mounted in container(s)
 	- 201012: Container(s) with sysadmin capability
+	- 201013: Service attached to load balancer
+	- 201014: Service attached to node port
 	- 201015: Host port attached to container(s)
 	- 201016: Host network attached to container(s)
 	- 201017: Container(s) in host PID namespace

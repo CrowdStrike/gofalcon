@@ -84,7 +84,7 @@ type EntitiesFilesDownloadGetV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIDownloadResponseV1
+	Payload *models.CasefilesapiDownloadResponseV1
 }
 
 // IsSuccess returns true when this entities files download get v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *EntitiesFilesDownloadGetV1OK) String() string {
 	return fmt.Sprintf("[GET /case-files/entities/files/download/v1][%d] entitiesFilesDownloadGetV1OK  %+v", 200, o.Payload)
 }
 
-func (o *EntitiesFilesDownloadGetV1OK) GetPayload() *models.APIDownloadResponseV1 {
+func (o *EntitiesFilesDownloadGetV1OK) GetPayload() *models.CasefilesapiDownloadResponseV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *EntitiesFilesDownloadGetV1OK) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIDownloadResponseV1)
+	o.Payload = new(models.CasefilesapiDownloadResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

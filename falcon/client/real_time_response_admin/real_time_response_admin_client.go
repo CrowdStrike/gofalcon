@@ -36,7 +36,11 @@ type ClientService interface {
 
 	RTRCreatePutFiles(params *RTRCreatePutFilesParams, opts ...ClientOption) (*RTRCreatePutFilesOK, error)
 
+	RTRCreatePutFilesV2(params *RTRCreatePutFilesV2Params, opts ...ClientOption) (*RTRCreatePutFilesV2OK, error)
+
 	RTRCreateScripts(params *RTRCreateScriptsParams, opts ...ClientOption) (*RTRCreateScriptsOK, error)
+
+	RTRCreateScriptsV2(params *RTRCreateScriptsV2Params, opts ...ClientOption) (*RTRCreateScriptsV2OK, error)
 
 	RTRDeletePutFiles(params *RTRDeletePutFilesParams, opts ...ClientOption) (*RTRDeletePutFilesOK, error)
 
@@ -63,6 +67,8 @@ type ClientService interface {
 	RTRListScripts(params *RTRListScriptsParams, opts ...ClientOption) (*RTRListScriptsOK, error)
 
 	RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsAccepted, error)
+
+	RTRUpdateScriptsV2(params *RTRUpdateScriptsV2Params, opts ...ClientOption) (*RTRUpdateScriptsV2Accepted, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -182,6 +188,44 @@ func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams, opts ...Clie
 }
 
 /*
+RTRCreatePutFilesV2 uploads a new put file to use for the r t r put command
+*/
+func (a *Client) RTRCreatePutFilesV2(params *RTRCreatePutFilesV2Params, opts ...ClientOption) (*RTRCreatePutFilesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRCreatePutFilesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-CreatePut-FilesV2",
+		Method:             "POST",
+		PathPattern:        "/real-time-response/entities/put-files/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRCreatePutFilesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRCreatePutFilesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RTR-CreatePut-FilesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 RTRCreateScripts uploads a new custom script to use for the r t r runscript command
 */
 func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, opts ...ClientOption) (*RTRCreateScriptsOK, error) {
@@ -216,6 +260,44 @@ func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for RTR-CreateScripts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RTRCreateScriptsV2 uploads a new custom script to use for the r t r runscript command
+*/
+func (a *Client) RTRCreateScriptsV2(params *RTRCreateScriptsV2Params, opts ...ClientOption) (*RTRCreateScriptsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRCreateScriptsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-CreateScriptsV2",
+		Method:             "POST",
+		PathPattern:        "/real-time-response/entities/scripts/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRCreateScriptsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRCreateScriptsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RTR-CreateScriptsV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -710,6 +792,44 @@ func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for RTR-UpdateScripts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RTRUpdateScriptsV2 uploads a new scripts to replace an existing one
+*/
+func (a *Client) RTRUpdateScriptsV2(params *RTRUpdateScriptsV2Params, opts ...ClientOption) (*RTRUpdateScriptsV2Accepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRUpdateScriptsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-UpdateScriptsV2",
+		Method:             "PATCH",
+		PathPattern:        "/real-time-response/entities/scripts/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRUpdateScriptsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRUpdateScriptsV2Accepted)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RTR-UpdateScriptsV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

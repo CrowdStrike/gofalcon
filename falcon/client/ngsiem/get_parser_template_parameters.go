@@ -69,7 +69,7 @@ type GetParserTemplateParams struct {
 
 	/* Repository.
 
-	   name of repository, options; parsers-repository
+	   name of repository
 	*/
 	Repository *string
 

@@ -30,15 +30,59 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AggregateHuntingGuides(params *AggregateHuntingGuidesParams, opts ...ClientOption) (*AggregateHuntingGuidesOK, error)
+
 	AggregateIntelligenceQueries(params *AggregateIntelligenceQueriesParams, opts ...ClientOption) (*AggregateIntelligenceQueriesOK, error)
 
 	GetArchiveExport(params *GetArchiveExportParams, opts ...ClientOption) (*GetArchiveExportOK, error)
 
+	GetHuntingGuides(params *GetHuntingGuidesParams, opts ...ClientOption) (*GetHuntingGuidesOK, error)
+
 	GetIntelligenceQueries(params *GetIntelligenceQueriesParams, opts ...ClientOption) (*GetIntelligenceQueriesOK, error)
+
+	SearchHuntingGuides(params *SearchHuntingGuidesParams, opts ...ClientOption) (*SearchHuntingGuidesOK, error)
 
 	SearchIntelligenceQueries(params *SearchIntelligenceQueriesParams, opts ...ClientOption) (*SearchIntelligenceQueriesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+AggregateHuntingGuides aggregates hunting guides
+*/
+func (a *Client) AggregateHuntingGuides(params *AggregateHuntingGuidesParams, opts ...ClientOption) (*AggregateHuntingGuidesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAggregateHuntingGuidesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "AggregateHuntingGuides",
+		Method:             "POST",
+		PathPattern:        "/hunting/aggregates/hunting-guides/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AggregateHuntingGuidesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AggregateHuntingGuidesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateHuntingGuides: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -118,6 +162,44 @@ func (a *Client) GetArchiveExport(params *GetArchiveExportParams, opts ...Client
 }
 
 /*
+GetHuntingGuides retrieves a list of hunting guides
+*/
+func (a *Client) GetHuntingGuides(params *GetHuntingGuidesParams, opts ...ClientOption) (*GetHuntingGuidesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetHuntingGuidesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetHuntingGuides",
+		Method:             "GET",
+		PathPattern:        "/hunting/entities/hunting-guides/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetHuntingGuidesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetHuntingGuidesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetHuntingGuides: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetIntelligenceQueries retrieves the details of a list of intelligence queries i ds
 */
 func (a *Client) GetIntelligenceQueries(params *GetIntelligenceQueriesParams, opts ...ClientOption) (*GetIntelligenceQueriesOK, error) {
@@ -152,6 +234,44 @@ func (a *Client) GetIntelligenceQueries(params *GetIntelligenceQueriesParams, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetIntelligenceQueries: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SearchHuntingGuides searches for hunting guides that match the provided conditions
+*/
+func (a *Client) SearchHuntingGuides(params *SearchHuntingGuidesParams, opts ...ClientOption) (*SearchHuntingGuidesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSearchHuntingGuidesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SearchHuntingGuides",
+		Method:             "GET",
+		PathPattern:        "/hunting/queries/hunting-guides/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SearchHuntingGuidesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SearchHuntingGuidesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SearchHuntingGuides: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

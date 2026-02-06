@@ -40,6 +40,10 @@ type APIFieldV1 struct {
 	// default value
 	DefaultValue string `json:"default_value,omitempty"`
 
+	// display order
+	// Required: true
+	DisplayOrder *int32 `json:"display_order"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`
@@ -93,6 +97,10 @@ func (m *APIFieldV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDataType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDisplayOrder(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -179,6 +187,15 @@ func (m *APIFieldV1) validateCreatedTimestamp(formats strfmt.Registry) error {
 func (m *APIFieldV1) validateDataType(formats strfmt.Registry) error {
 
 	if err := validate.Required("data_type", "body", m.DataType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIFieldV1) validateDisplayOrder(formats strfmt.Registry) error {
+
+	if err := validate.Required("display_order", "body", m.DisplayOrder); err != nil {
 		return err
 	}
 

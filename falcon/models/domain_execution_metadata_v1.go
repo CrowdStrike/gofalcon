@@ -19,6 +19,10 @@ import (
 // swagger:model domain.ExecutionMetadataV1
 type DomainExecutionMetadataV1 struct {
 
+	// auto retry count
+	// Required: true
+	AutoRetryCount *int32 `json:"auto_retry_count"`
+
 	// report params
 	// Required: true
 	ReportParams *DomainReportParams `json:"report_params"`
@@ -56,6 +60,10 @@ type DomainExecutionMetadataV1 struct {
 func (m *DomainExecutionMetadataV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAutoRetryCount(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateReportParams(formats); err != nil {
 		res = append(res, err)
 	}
@@ -91,6 +99,15 @@ func (m *DomainExecutionMetadataV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainExecutionMetadataV1) validateAutoRetryCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("auto_retry_count", "body", m.AutoRetryCount); err != nil {
+		return err
+	}
+
 	return nil
 }
 

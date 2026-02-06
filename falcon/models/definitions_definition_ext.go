@@ -28,6 +28,9 @@ type DefinitionsDefinitionExt struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// disconnected nodes
+	DisconnectedNodes []string `json:"disconnected_nodes"`
+
 	// Indicates whether the workflow is enabled and active or not.
 	// Required: true
 	Enabled *bool `json:"enabled"`

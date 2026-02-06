@@ -31,6 +31,10 @@ type SecurityCheckWithComplianceGetSecurityChecks struct {
 	// Required: true
 	BaseCheckID *string `json:"base_check_id"`
 
+	// check tags
+	// Required: true
+	CheckTags []map[string]*string `json:"check_tags"`
+
 	// compliance data
 	// Required: true
 	ComplianceData []map[string]*string `json:"compliance_data"`
@@ -144,6 +148,10 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) Validate(formats strfmt.R
 		res = append(res, err)
 	}
 
+	if err := m.validateCheckTags(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateComplianceData(formats); err != nil {
 		res = append(res, err)
 	}
@@ -251,6 +259,15 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) validateAffected(formats 
 func (m *SecurityCheckWithComplianceGetSecurityChecks) validateBaseCheckID(formats strfmt.Registry) error {
 
 	if err := validate.Required("base_check_id", "body", m.BaseCheckID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SecurityCheckWithComplianceGetSecurityChecks) validateCheckTags(formats strfmt.Registry) error {
+
+	if err := validate.Required("check_tags", "body", m.CheckTags); err != nil {
 		return err
 	}
 

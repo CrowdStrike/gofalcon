@@ -17,6 +17,9 @@ import (
 // swagger:model figapi.Report
 type FigapiReport struct {
 
+	// Slug name of the report
+	Slug string `json:"Slug,omitempty"`
+
 	// Title of the report
 	Title string `json:"Title,omitempty"`
 }

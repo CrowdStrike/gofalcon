@@ -181,7 +181,7 @@ type GetMalQueryEntitiesSamplesFetchV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query entities samples fetch v1 unauthorized response has a 2xx status code
@@ -222,7 +222,7 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -257,7 +257,7 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) readResponse(response ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -291,7 +291,7 @@ type GetMalQueryEntitiesSamplesFetchV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get mal query entities samples fetch v1 forbidden response has a 2xx status code
@@ -332,7 +332,7 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -367,7 +367,7 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

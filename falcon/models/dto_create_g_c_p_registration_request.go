@@ -73,6 +73,9 @@ type DtoCreateGCPRegistrationRequest struct {
 	// wif project id
 	// Required: true
 	WifProjectID *string `json:"wif_project_id"`
+
+	// wif project number
+	WifProjectNumber string `json:"wif_project_number,omitempty"`
 }
 
 // Validate validates this dto create g c p registration request

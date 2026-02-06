@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-CrowdScore queries environment wide crowd score and return the entity data
+CrowdScore ds e p r e c a t e d the incidentapi will be removed in march 2026 query environment wide crowd score and return the entity data
 */
 func (a *Client) CrowdScore(params *CrowdScoreParams, opts ...ClientOption) (*CrowdScoreOK, error) {
 	// TODO: Validate the params before sending
@@ -84,7 +84,7 @@ func (a *Client) CrowdScore(params *CrowdScoreParams, opts ...ClientOption) (*Cr
 }
 
 /*
-GetBehaviors gets details on behaviors by providing behavior i ds
+GetBehaviors ds e p r e c a t e d the incidentapi will be removed in march 2026 get details on behaviors by providing behavior i ds
 */
 func (a *Client) GetBehaviors(params *GetBehaviorsParams, opts ...ClientOption) (*GetBehaviorsOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ func (a *Client) GetBehaviors(params *GetBehaviorsParams, opts ...ClientOption) 
 }
 
 /*
-GetIncidents gets details on incidents by providing incident i ds
+GetIncidents ds e p r e c a t e d the incidentapi will be removed in march 2026 get details on incidents by providing incident i ds
 */
 func (a *Client) GetIncidents(params *GetIncidentsParams, opts ...ClientOption) (*GetIncidentsOK, error) {
 	// TODO: Validate the params before sending
@@ -160,7 +160,7 @@ func (a *Client) GetIncidents(params *GetIncidentsParams, opts ...ClientOption) 
 }
 
 /*
-PerformIncidentAction performs a set of actions on one or more incidents such as adding tags or comments or updating the incident name or description
+PerformIncidentAction ds e p r e c a t e d the incidentapi will be removed in march 2026 perform a set of actions on one or more incidents such as adding tags or comments or updating the incident name or description
 */
 func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams, opts ...ClientOption) (*PerformIncidentActionOK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +198,7 @@ func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams, opts
 }
 
 /*
-QueryBehaviors searches for behaviors by providing an f q l filter sorting and paging details
+QueryBehaviors ds e p r e c a t e d the incidentapi will be removed in march 2026 search for behaviors by providing an f q l filter sorting and paging details
 */
 func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, opts ...ClientOption) (*QueryBehaviorsOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, opts ...ClientOpti
 }
 
 /*
-QueryIncidents searches for incidents by providing an f q l filter sorting and paging details
+QueryIncidents ds e p r e c a t e d the incidentapi will be removed in march 2026 search for incidents by providing an f q l filter sorting and paging details
 */
 func (a *Client) QueryIncidents(params *QueryIncidentsParams, opts ...ClientOption) (*QueryIncidentsOK, error) {
 	// TODO: Validate the params before sending

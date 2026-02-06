@@ -22,6 +22,9 @@ type ApimodelsRuleLogic struct {
 	// logic
 	Logic string `json:"logic,omitempty"`
 
+	// modules
+	Modules map[string]string `json:"modules,omitempty"`
+
 	// platform
 	// Required: true
 	Platform *string `json:"platform"`

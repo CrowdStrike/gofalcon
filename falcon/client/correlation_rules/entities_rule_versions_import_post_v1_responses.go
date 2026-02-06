@@ -102,7 +102,7 @@ type EntitiesRuleVersionsImportPostV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRuleVersionsResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions import post v1 o k response has a 2xx status code
@@ -143,7 +143,7 @@ func (o *EntitiesRuleVersionsImportPostV1OK) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/import/v1][%d] entitiesRuleVersionsImportPostV1OK  %+v", 200, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsImportPostV1OK) GetPayload() *models.APIGetEntitiesRuleVersionsResponseV1 {
+func (o *EntitiesRuleVersionsImportPostV1OK) GetPayload() *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 {
 	return o.Payload
 }
 
@@ -178,7 +178,7 @@ func (o *EntitiesRuleVersionsImportPostV1OK) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRuleVersionsResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -212,7 +212,7 @@ type EntitiesRuleVersionsImportPostV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRuleVersionsResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions import post v1 bad request response has a 2xx status code
@@ -253,7 +253,7 @@ func (o *EntitiesRuleVersionsImportPostV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/import/v1][%d] entitiesRuleVersionsImportPostV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsImportPostV1BadRequest) GetPayload() *models.APIGetEntitiesRuleVersionsResponseV1 {
+func (o *EntitiesRuleVersionsImportPostV1BadRequest) GetPayload() *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 {
 	return o.Payload
 }
 
@@ -288,7 +288,7 @@ func (o *EntitiesRuleVersionsImportPostV1BadRequest) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRuleVersionsResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -322,7 +322,7 @@ type EntitiesRuleVersionsImportPostV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRuleVersionsResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions import post v1 unauthorized response has a 2xx status code
@@ -363,7 +363,7 @@ func (o *EntitiesRuleVersionsImportPostV1Unauthorized) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/import/v1][%d] entitiesRuleVersionsImportPostV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsImportPostV1Unauthorized) GetPayload() *models.APIGetEntitiesRuleVersionsResponseV1 {
+func (o *EntitiesRuleVersionsImportPostV1Unauthorized) GetPayload() *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 {
 	return o.Payload
 }
 
@@ -398,7 +398,7 @@ func (o *EntitiesRuleVersionsImportPostV1Unauthorized) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRuleVersionsResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -432,7 +432,7 @@ type EntitiesRuleVersionsImportPostV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRuleVersionsResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions import post v1 forbidden response has a 2xx status code
@@ -473,7 +473,7 @@ func (o *EntitiesRuleVersionsImportPostV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/import/v1][%d] entitiesRuleVersionsImportPostV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsImportPostV1Forbidden) GetPayload() *models.APIGetEntitiesRuleVersionsResponseV1 {
+func (o *EntitiesRuleVersionsImportPostV1Forbidden) GetPayload() *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 {
 	return o.Payload
 }
 
@@ -508,7 +508,7 @@ func (o *EntitiesRuleVersionsImportPostV1Forbidden) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRuleVersionsResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -542,7 +542,7 @@ type EntitiesRuleVersionsImportPostV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRuleVersionsResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions import post v1 not found response has a 2xx status code
@@ -583,7 +583,7 @@ func (o *EntitiesRuleVersionsImportPostV1NotFound) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/import/v1][%d] entitiesRuleVersionsImportPostV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsImportPostV1NotFound) GetPayload() *models.APIGetEntitiesRuleVersionsResponseV1 {
+func (o *EntitiesRuleVersionsImportPostV1NotFound) GetPayload() *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 {
 	return o.Payload
 }
 
@@ -618,7 +618,7 @@ func (o *EntitiesRuleVersionsImportPostV1NotFound) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRuleVersionsResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -777,7 +777,7 @@ type EntitiesRuleVersionsImportPostV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRuleVersionsResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions import post v1 internal server error response has a 2xx status code
@@ -818,7 +818,7 @@ func (o *EntitiesRuleVersionsImportPostV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/import/v1][%d] entitiesRuleVersionsImportPostV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsImportPostV1InternalServerError) GetPayload() *models.APIGetEntitiesRuleVersionsResponseV1 {
+func (o *EntitiesRuleVersionsImportPostV1InternalServerError) GetPayload() *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 {
 	return o.Payload
 }
 
@@ -853,7 +853,7 @@ func (o *EntitiesRuleVersionsImportPostV1InternalServerError) readResponse(respo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRuleVersionsResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -887,7 +887,7 @@ type EntitiesRuleVersionsImportPostV1ServiceUnavailable struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIGetEntitiesRuleVersionsResponseV1
+	Payload *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1
 }
 
 // IsSuccess returns true when this entities rule versions import post v1 service unavailable response has a 2xx status code
@@ -928,7 +928,7 @@ func (o *EntitiesRuleVersionsImportPostV1ServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /correlation-rules/entities/rule-versions/import/v1][%d] entitiesRuleVersionsImportPostV1ServiceUnavailable  %+v", 503, o.Payload)
 }
 
-func (o *EntitiesRuleVersionsImportPostV1ServiceUnavailable) GetPayload() *models.APIGetEntitiesRuleVersionsResponseV1 {
+func (o *EntitiesRuleVersionsImportPostV1ServiceUnavailable) GetPayload() *models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 {
 	return o.Payload
 }
 
@@ -963,7 +963,7 @@ func (o *EntitiesRuleVersionsImportPostV1ServiceUnavailable) readResponse(respon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIGetEntitiesRuleVersionsResponseV1)
+	o.Payload = new(models.CorrelationrulesapiGetEntitiesRuleVersionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

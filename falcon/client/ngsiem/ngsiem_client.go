@@ -48,6 +48,28 @@ type ClientService interface {
 
 	DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...ClientOption) (*DeleteSavedQueryOK, error)
 
+	ExternalCreateDataConnection(params *ExternalCreateDataConnectionParams, opts ...ClientOption) (*ExternalCreateDataConnectionCreated, error)
+
+	ExternalDeleteDataConnection(params *ExternalDeleteDataConnectionParams, opts ...ClientOption) (*ExternalDeleteDataConnectionOK, error)
+
+	ExternalGetDataConnectionByID(params *ExternalGetDataConnectionByIDParams, opts ...ClientOption) (*ExternalGetDataConnectionByIDOK, error)
+
+	ExternalGetDataConnectionStatus(params *ExternalGetDataConnectionStatusParams, opts ...ClientOption) (*ExternalGetDataConnectionStatusOK, error)
+
+	ExternalGetDataConnectionToken(params *ExternalGetDataConnectionTokenParams, opts ...ClientOption) (*ExternalGetDataConnectionTokenOK, *ExternalGetDataConnectionTokenAccepted, error)
+
+	ExternalListConnectorConfigs(params *ExternalListConnectorConfigsParams, opts ...ClientOption) (*ExternalListConnectorConfigsOK, error)
+
+	ExternalListDataConnections(params *ExternalListDataConnectionsParams, opts ...ClientOption) (*ExternalListDataConnectionsOK, error)
+
+	ExternalListDataConnectors(params *ExternalListDataConnectorsParams, opts ...ClientOption) (*ExternalListDataConnectorsOK, error)
+
+	ExternalRegenerateDataConnectionToken(params *ExternalRegenerateDataConnectionTokenParams, opts ...ClientOption) (*ExternalRegenerateDataConnectionTokenOK, *ExternalRegenerateDataConnectionTokenAccepted, error)
+
+	ExternalUpdateDataConnection(params *ExternalUpdateDataConnectionParams, opts ...ClientOption) (*ExternalUpdateDataConnectionOK, error)
+
+	ExternalUpdateDataConnectionStatus(params *ExternalUpdateDataConnectionStatusParams, opts ...ClientOption) (*ExternalUpdateDataConnectionStatusOK, error)
+
 	GetDashboardTemplate(params *GetDashboardTemplateParams, opts ...ClientOption) (*GetDashboardTemplateOK, error)
 
 	GetLookupFile(params *GetLookupFileParams, opts ...ClientOption) (*GetLookupFileOK, error)
@@ -82,7 +104,11 @@ type ClientService interface {
 
 	UpdateLookupFile(params *UpdateLookupFileParams, opts ...ClientOption) (*UpdateLookupFileOK, error)
 
+	UpdateLookupFileEntries(params *UpdateLookupFileEntriesParams, opts ...ClientOption) (*UpdateLookupFileEntriesOK, error)
+
 	UpdateParser(params *UpdateParserParams, opts ...ClientOption) (*UpdateParserOK, error)
+
+	UpdateParserFromTemplate(params *UpdateParserFromTemplateParams, opts ...ClientOption) (*UpdateParserFromTemplateOK, error)
 
 	UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error)
 
@@ -168,7 +194,7 @@ func (a *Client) CreateLookupFile(params *CreateLookupFileParams, opts ...Client
 }
 
 /*
-CreateParser creates parser in n g s i e m
+CreateParser creates parser in n g s i e m this endpoint has been deprecated in favour of the p o s t entities parsers template v1 API
 */
 func (a *Client) CreateParser(params *CreateParserParams, opts ...ClientOption) (*CreateParserOK, error) {
 	// TODO: Validate the params before sending
@@ -294,7 +320,7 @@ func (a *Client) DeleteDashboard(params *DeleteDashboardParams, opts ...ClientOp
 		Method:             "DELETE",
 		PathPattern:        "/ngsiem-content/entities/dashboards/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteDashboardReader{formats: a.formats},
@@ -332,7 +358,7 @@ func (a *Client) DeleteLookupFile(params *DeleteLookupFileParams, opts ...Client
 		Method:             "DELETE",
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteLookupFileReader{formats: a.formats},
@@ -370,7 +396,7 @@ func (a *Client) DeleteParser(params *DeleteParserParams, opts ...ClientOption) 
 		Method:             "DELETE",
 		PathPattern:        "/ngsiem-content/entities/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteParserReader{formats: a.formats},
@@ -408,7 +434,7 @@ func (a *Client) DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...Client
 		Method:             "DELETE",
 		PathPattern:        "/ngsiem-content/entities/savedqueries/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteSavedQueryReader{formats: a.formats},
@@ -434,6 +460,426 @@ func (a *Client) DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...Client
 }
 
 /*
+ExternalCreateDataConnection creates a new data connection
+*/
+func (a *Client) ExternalCreateDataConnection(params *ExternalCreateDataConnectionParams, opts ...ClientOption) (*ExternalCreateDataConnectionCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalCreateDataConnectionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalCreateDataConnection",
+		Method:             "POST",
+		PathPattern:        "/ngsiem/entities/connections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalCreateDataConnectionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalCreateDataConnectionCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalCreateDataConnection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalDeleteDataConnection deletes a data connection
+*/
+func (a *Client) ExternalDeleteDataConnection(params *ExternalDeleteDataConnectionParams, opts ...ClientOption) (*ExternalDeleteDataConnectionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalDeleteDataConnectionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalDeleteDataConnection",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem/entities/connections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalDeleteDataConnectionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalDeleteDataConnectionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalDeleteDataConnection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalGetDataConnectionByID gets data connection by ID
+*/
+func (a *Client) ExternalGetDataConnectionByID(params *ExternalGetDataConnectionByIDParams, opts ...ClientOption) (*ExternalGetDataConnectionByIDOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalGetDataConnectionByIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalGetDataConnectionByID",
+		Method:             "GET",
+		PathPattern:        "/ngsiem/entities/connections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalGetDataConnectionByIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalGetDataConnectionByIDOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalGetDataConnectionByID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalGetDataConnectionStatus gets data connection provisioning status
+*/
+func (a *Client) ExternalGetDataConnectionStatus(params *ExternalGetDataConnectionStatusParams, opts ...ClientOption) (*ExternalGetDataConnectionStatusOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalGetDataConnectionStatusParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalGetDataConnectionStatus",
+		Method:             "GET",
+		PathPattern:        "/ngsiem/entities/connections/status/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalGetDataConnectionStatusReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalGetDataConnectionStatusOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalGetDataConnectionStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalGetDataConnectionToken gets ingest token for data connection
+*/
+func (a *Client) ExternalGetDataConnectionToken(params *ExternalGetDataConnectionTokenParams, opts ...ClientOption) (*ExternalGetDataConnectionTokenOK, *ExternalGetDataConnectionTokenAccepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalGetDataConnectionTokenParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalGetDataConnectionToken",
+		Method:             "GET",
+		PathPattern:        "/ngsiem/entities/connections/token/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalGetDataConnectionTokenReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ExternalGetDataConnectionTokenOK:
+		return value, nil, nil
+	case *ExternalGetDataConnectionTokenAccepted:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ngsiem: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalListConnectorConfigs lists configurations for a data connector
+*/
+func (a *Client) ExternalListConnectorConfigs(params *ExternalListConnectorConfigsParams, opts ...ClientOption) (*ExternalListConnectorConfigsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalListConnectorConfigsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalListConnectorConfigs",
+		Method:             "GET",
+		PathPattern:        "/ngsiem/entities/connectors/configs/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalListConnectorConfigsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalListConnectorConfigsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalListConnectorConfigs: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalListDataConnections lists and search data connections
+*/
+func (a *Client) ExternalListDataConnections(params *ExternalListDataConnectionsParams, opts ...ClientOption) (*ExternalListDataConnectionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalListDataConnectionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalListDataConnections",
+		Method:             "GET",
+		PathPattern:        "/ngsiem/combined/connections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalListDataConnectionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalListDataConnectionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalListDataConnections: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalListDataConnectors lists available data connectors
+*/
+func (a *Client) ExternalListDataConnectors(params *ExternalListDataConnectorsParams, opts ...ClientOption) (*ExternalListDataConnectorsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalListDataConnectorsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalListDataConnectors",
+		Method:             "GET",
+		PathPattern:        "/ngsiem/combined/connectors/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalListDataConnectorsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalListDataConnectorsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalListDataConnectors: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalRegenerateDataConnectionToken regenerates ingest token for data connection
+*/
+func (a *Client) ExternalRegenerateDataConnectionToken(params *ExternalRegenerateDataConnectionTokenParams, opts ...ClientOption) (*ExternalRegenerateDataConnectionTokenOK, *ExternalRegenerateDataConnectionTokenAccepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalRegenerateDataConnectionTokenParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalRegenerateDataConnectionToken",
+		Method:             "POST",
+		PathPattern:        "/ngsiem/entities/connections/token/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalRegenerateDataConnectionTokenReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ExternalRegenerateDataConnectionTokenOK:
+		return value, nil, nil
+	case *ExternalRegenerateDataConnectionTokenAccepted:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ngsiem: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalUpdateDataConnection updates a data connection
+*/
+func (a *Client) ExternalUpdateDataConnection(params *ExternalUpdateDataConnectionParams, opts ...ClientOption) (*ExternalUpdateDataConnectionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalUpdateDataConnectionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalUpdateDataConnection",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem/entities/connections/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalUpdateDataConnectionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalUpdateDataConnectionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalUpdateDataConnection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExternalUpdateDataConnectionStatus updates data connection status
+*/
+func (a *Client) ExternalUpdateDataConnectionStatus(params *ExternalUpdateDataConnectionStatusParams, opts ...ClientOption) (*ExternalUpdateDataConnectionStatusOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalUpdateDataConnectionStatusParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalUpdateDataConnectionStatus",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem/entities/connections/status/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExternalUpdateDataConnectionStatusReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalUpdateDataConnectionStatusOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalUpdateDataConnectionStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetDashboardTemplate retrieves dashboard in n g s i e m as log scale y a m l template
 */
 func (a *Client) GetDashboardTemplate(params *GetDashboardTemplateParams, opts ...ClientOption) (*GetDashboardTemplateOK, error) {
@@ -446,7 +892,7 @@ func (a *Client) GetDashboardTemplate(params *GetDashboardTemplateParams, opts .
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/entities/dashboards-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetDashboardTemplateReader{formats: a.formats},
@@ -484,7 +930,7 @@ func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetLookupFileReader{formats: a.formats},
@@ -522,7 +968,7 @@ func (a *Client) GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, op
 		Method:             "GET",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{package}/{filename}",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetLookupFromPackageV1Reader{formats: a.formats},
@@ -560,7 +1006,7 @@ func (a *Client) GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackag
 		Method:             "GET",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetLookupFromPackageWithNamespaceV1Reader{formats: a.formats},
@@ -598,7 +1044,7 @@ func (a *Client) GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*
 		Method:             "GET",
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{filename}",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetLookupV1Reader{formats: a.formats},
@@ -624,7 +1070,7 @@ func (a *Client) GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*
 }
 
 /*
-GetParser retrieves parser in n g s i e m
+GetParser retrieves parser in n g s i e m this endpoint has been deprecated in favour of the g e t entities parsers template v1 API
 */
 func (a *Client) GetParser(params *GetParserParams, opts ...ClientOption) (*GetParserOK, error) {
 	// TODO: Validate the params before sending
@@ -636,7 +1082,7 @@ func (a *Client) GetParser(params *GetParserParams, opts ...ClientOption) (*GetP
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/entities/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetParserReader{formats: a.formats},
@@ -674,7 +1120,7 @@ func (a *Client) GetParserTemplate(params *GetParserTemplateParams, opts ...Clie
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/entities/parsers-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetParserTemplateReader{formats: a.formats},
@@ -712,7 +1158,7 @@ func (a *Client) GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/entities/savedqueries-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSavedQueryTemplateReader{formats: a.formats},
@@ -788,7 +1234,7 @@ func (a *Client) ListDashboards(params *ListDashboardsParams, opts ...ClientOpti
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/queries/dashboards/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListDashboardsReader{formats: a.formats},
@@ -826,7 +1272,7 @@ func (a *Client) ListLookupFiles(params *ListLookupFilesParams, opts ...ClientOp
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/queries/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListLookupFilesReader{formats: a.formats},
@@ -864,7 +1310,7 @@ func (a *Client) ListParsers(params *ListParsersParams, opts ...ClientOption) (*
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/queries/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListParsersReader{formats: a.formats},
@@ -902,7 +1348,7 @@ func (a *Client) ListSavedQueries(params *ListSavedQueriesParams, opts ...Client
 		Method:             "GET",
 		PathPattern:        "/ngsiem-content/queries/savedqueries/v1",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"*/*"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListSavedQueriesReader{formats: a.formats},
@@ -1004,7 +1450,7 @@ func (a *Client) StopSearchV1(params *StopSearchV1Params, opts ...ClientOption) 
 }
 
 /*
-UpdateDashboardFromTemplate updates dashboard from log scale y a m l template in n g s i e m please note a successful update will result in a new ID value being returned
+UpdateDashboardFromTemplate updates dashboard from log scale y a m l template in n g s i e m
 */
 func (a *Client) UpdateDashboardFromTemplate(params *UpdateDashboardFromTemplateParams, opts ...ClientOption) (*UpdateDashboardFromTemplateOK, error) {
 	// TODO: Validate the params before sending
@@ -1042,7 +1488,7 @@ func (a *Client) UpdateDashboardFromTemplate(params *UpdateDashboardFromTemplate
 }
 
 /*
-UpdateLookupFile updates lookup file in n g s i e m
+UpdateLookupFile updates an entire lookup file in n g s i e m
 */
 func (a *Client) UpdateLookupFile(params *UpdateLookupFileParams, opts ...ClientOption) (*UpdateLookupFileOK, error) {
 	// TODO: Validate the params before sending
@@ -1080,7 +1526,45 @@ func (a *Client) UpdateLookupFile(params *UpdateLookupFileParams, opts ...Client
 }
 
 /*
-UpdateParser updates parser in n g s i e m please note that name changes are not supported but rather should be created as a new parser
+UpdateLookupFileEntries updates entries in an existing lookup file in n g s i e m
+*/
+func (a *Client) UpdateLookupFileEntries(params *UpdateLookupFileEntriesParams, opts ...ClientOption) (*UpdateLookupFileEntriesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateLookupFileEntriesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateLookupFileEntries",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/lookupfiles-entries/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateLookupFileEntriesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateLookupFileEntriesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateLookupFileEntries: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateParser updates parser in n g s i e m please note that name changes are not supported but rather should be created as a new parser this endpoint has been deprecated in favour of the p a t c h entities parsers template v1 API
 */
 func (a *Client) UpdateParser(params *UpdateParserParams, opts ...ClientOption) (*UpdateParserOK, error) {
 	// TODO: Validate the params before sending
@@ -1118,7 +1602,45 @@ func (a *Client) UpdateParser(params *UpdateParserParams, opts ...ClientOption) 
 }
 
 /*
-UpdateSavedQueryFromTemplate updates saved query from log scale y a m l template in n g s i e m please note a successful update will result in a new ID value being returned
+UpdateParserFromTemplate updates parser in n g s i e m from y a m l template please note that name changes are not supported but rather should be created as a new parser
+*/
+func (a *Client) UpdateParserFromTemplate(params *UpdateParserFromTemplateParams, opts ...ClientOption) (*UpdateParserFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateParserFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateParserFromTemplate",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/parsers-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateParserFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateParserFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateParserFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateSavedQueryFromTemplate updates saved query from log scale y a m l template in n g s i e m
 */
 func (a *Client) UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error) {
 	// TODO: Validate the params before sending

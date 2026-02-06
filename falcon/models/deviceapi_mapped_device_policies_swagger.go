@@ -21,6 +21,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 	// airlock
 	Airlock *DeviceDevicePolicy `json:"airlock,omitempty"`
 
+	// application abuse prevention
+	ApplicationAbusePrevention *DeviceDevicePolicy `json:"application-abuse-prevention,omitempty"`
+
 	// automox
 	Automox *DeviceDevicePolicy `json:"automox,omitempty"`
 
@@ -29,6 +32,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 
 	// browser extension
 	BrowserExtension *DeviceDevicePolicy `json:"browser-extension,omitempty"`
+
+	// cloud ml
+	CloudMl *DeviceDevicePolicy `json:"cloud-ml,omitempty"`
 
 	// content update
 	ContentUpdate *DeviceDevicePolicy `json:"content-update,omitempty"`
@@ -45,6 +51,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 	// exposure management
 	ExposureManagement *DeviceDevicePolicy `json:"exposure-management,omitempty"`
 
+	// fem browser extension control
+	FemBrowserExtensionControl *DeviceDevicePolicy `json:"fem-browser-extension-control,omitempty"`
+
 	// fim
 	Fim *DeviceDevicePolicy `json:"fim,omitempty"`
 
@@ -56,6 +65,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 
 	// host retention
 	HostRetention *DeviceDevicePolicy `json:"host-retention,omitempty"`
+
+	// identity endpoint
+	IdentityEndpoint *DeviceDevicePolicy `json:"identity-endpoint,omitempty"`
 
 	// identity protection
 	IdentityProtection *DeviceDevicePolicy `json:"identity-protection,omitempty"`
@@ -111,6 +123,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 		res = append(res, err)
 	}
 
+	if err := m.validateApplicationAbusePrevention(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAutomox(formats); err != nil {
 		res = append(res, err)
 	}
@@ -120,6 +136,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudMl(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -143,6 +163,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 		res = append(res, err)
 	}
 
+	if err := m.validateFemBrowserExtensionControl(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFim(formats); err != nil {
 		res = append(res, err)
 	}
@@ -156,6 +180,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateHostRetention(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIdentityEndpoint(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -244,6 +272,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateAirlock(formats strfmt.Re
 	return nil
 }
 
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateApplicationAbusePrevention(formats strfmt.Registry) error {
+	if swag.IsZero(m.ApplicationAbusePrevention) { // not required
+		return nil
+	}
+
+	if m.ApplicationAbusePrevention != nil {
+		if err := m.ApplicationAbusePrevention.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application-abuse-prevention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application-abuse-prevention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceapiMappedDevicePoliciesSwagger) validateAutomox(formats strfmt.Registry) error {
 	if swag.IsZero(m.Automox) { // not required
 		return nil
@@ -293,6 +340,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateBrowserExtension(formats 
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateCloudMl(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudMl) { // not required
+		return nil
+	}
+
+	if m.CloudMl != nil {
+		if err := m.CloudMl.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}
@@ -396,6 +462,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateExposureManagement(format
 	return nil
 }
 
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateFemBrowserExtensionControl(formats strfmt.Registry) error {
+	if swag.IsZero(m.FemBrowserExtensionControl) { // not required
+		return nil
+	}
+
+	if m.FemBrowserExtensionControl != nil {
+		if err := m.FemBrowserExtensionControl.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fem-browser-extension-control")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fem-browser-extension-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceapiMappedDevicePoliciesSwagger) validateFim(formats strfmt.Registry) error {
 	if swag.IsZero(m.Fim) { // not required
 		return nil
@@ -464,6 +549,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateHostRetention(formats str
 				return ve.ValidateName("host-retention")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("host-retention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateIdentityEndpoint(formats strfmt.Registry) error {
+	if swag.IsZero(m.IdentityEndpoint) { // not required
+		return nil
+	}
+
+	if m.IdentityEndpoint != nil {
+		if err := m.IdentityEndpoint.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-endpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identity-endpoint")
 			}
 			return err
 		}
@@ -765,6 +869,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateApplicationAbusePrevention(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateAutomox(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -774,6 +882,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 	}
 
 	if err := m.contextValidateBrowserExtension(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCloudMl(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -797,6 +909,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateFemBrowserExtensionControl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFim(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -810,6 +926,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 	}
 
 	if err := m.contextValidateHostRetention(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIdentityEndpoint(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -900,6 +1020,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateAirlock(ctx contex
 	return nil
 }
 
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateApplicationAbusePrevention(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ApplicationAbusePrevention != nil {
+
+		if swag.IsZero(m.ApplicationAbusePrevention) { // not required
+			return nil
+		}
+
+		if err := m.ApplicationAbusePrevention.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application-abuse-prevention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application-abuse-prevention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateAutomox(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Automox != nil {
@@ -955,6 +1096,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateBrowserExtension(c
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateCloudMl(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudMl != nil {
+
+		if swag.IsZero(m.CloudMl) { // not required
+			return nil
+		}
+
+		if err := m.CloudMl.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}
@@ -1068,6 +1230,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateExposureManagement
 	return nil
 }
 
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateFemBrowserExtensionControl(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FemBrowserExtensionControl != nil {
+
+		if swag.IsZero(m.FemBrowserExtensionControl) { // not required
+			return nil
+		}
+
+		if err := m.FemBrowserExtensionControl.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fem-browser-extension-control")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fem-browser-extension-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateFim(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Fim != nil {
@@ -1144,6 +1327,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateHostRetention(ctx 
 				return ve.ValidateName("host-retention")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("host-retention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateIdentityEndpoint(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IdentityEndpoint != nil {
+
+		if swag.IsZero(m.IdentityEndpoint) { // not required
+			return nil
+		}
+
+		if err := m.IdentityEndpoint.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-endpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identity-endpoint")
 			}
 			return err
 		}

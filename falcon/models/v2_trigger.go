@@ -42,7 +42,7 @@ type V2Trigger struct {
 	VersionConstraint string `json:"version_constraint,omitempty"`
 
 	// webhook config
-	WebhookConfig *WebhooktriggerAPIRequest `json:"webhook_config,omitempty"`
+	WebhookConfig *GraphWebhookTriggerDefinition `json:"webhook_config,omitempty"`
 }
 
 // Validate validates this v2 trigger

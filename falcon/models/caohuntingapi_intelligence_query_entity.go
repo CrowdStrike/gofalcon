@@ -73,6 +73,9 @@ type CaohuntingapiIntelligenceQueryEntity struct {
 	// malware families
 	MalwareFamilies []string `json:"malware_families"`
 
+	// mitre
+	Mitre []*CaohuntingapiMitreData `json:"mitre"`
+
 	// mitre technique ids
 	MitreTechniqueIds []string `json:"mitre_technique_ids"`
 
@@ -137,6 +140,10 @@ func (m *CaohuntingapiIntelligenceQueryEntity) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateLastUpdatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMitre(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -232,6 +239,32 @@ func (m *CaohuntingapiIntelligenceQueryEntity) validateLastUpdatedAt(formats str
 	return nil
 }
 
+func (m *CaohuntingapiIntelligenceQueryEntity) validateMitre(formats strfmt.Registry) error {
+	if swag.IsZero(m.Mitre) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Mitre); i++ {
+		if swag.IsZero(m.Mitre[i]) { // not required
+			continue
+		}
+
+		if m.Mitre[i] != nil {
+			if err := m.Mitre[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *CaohuntingapiIntelligenceQueryEntity) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -307,6 +340,10 @@ func (m *CaohuntingapiIntelligenceQueryEntity) validateVersion(formats strfmt.Re
 func (m *CaohuntingapiIntelligenceQueryEntity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateMitre(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateTranslations(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -314,6 +351,31 @@ func (m *CaohuntingapiIntelligenceQueryEntity) ContextValidate(ctx context.Conte
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CaohuntingapiIntelligenceQueryEntity) contextValidateMitre(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Mitre); i++ {
+
+		if m.Mitre[i] != nil {
+
+			if swag.IsZero(m.Mitre[i]) { // not required
+				return nil
+			}
+
+			if err := m.Mitre[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

@@ -31,6 +31,9 @@ type SadomainCreateRuleRequestV1 struct {
 	// Required: true
 	Filter *string `json:"filter"`
 
+	// The duration for which the rule will look back in the past at the first run
+	LookbackPeriod int64 `json:"lookback_period,omitempty"`
+
 	// Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic. Possible values: [`basedomains`, `subdomains`]
 	// Required: true
 	MatchOnTsqResultTypes []string `json:"match_on_tsq_result_types"`

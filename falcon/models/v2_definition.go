@@ -28,6 +28,9 @@ type V2Definition struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// disconnected nodes
+	DisconnectedNodes []string `json:"disconnected_nodes"`
+
 	// labels
 	Labels []string `json:"labels"`
 

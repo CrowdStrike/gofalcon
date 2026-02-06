@@ -90,7 +90,7 @@ type CloudRegistrationAwsQueryAccountsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RestAWSAccountCreateResponseExtV1
+	Payload *models.RestAWSAccountQueryResponseExtV1
 }
 
 // IsSuccess returns true when this cloud registration aws query accounts o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *CloudRegistrationAwsQueryAccountsOK) String() string {
 	return fmt.Sprintf("[GET /cloud-security-registration-aws/queries/account/v1][%d] cloudRegistrationAwsQueryAccountsOK  %+v", 200, o.Payload)
 }
 
-func (o *CloudRegistrationAwsQueryAccountsOK) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
+func (o *CloudRegistrationAwsQueryAccountsOK) GetPayload() *models.RestAWSAccountQueryResponseExtV1 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *CloudRegistrationAwsQueryAccountsOK) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RestAWSAccountCreateResponseExtV1)
+	o.Payload = new(models.RestAWSAccountQueryResponseExtV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type CloudRegistrationAwsQueryAccountsMultiStatus struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RestAWSAccountCreateResponseExtV1
+	Payload *models.RestAWSAccountQueryResponseExtV1
 }
 
 // IsSuccess returns true when this cloud registration aws query accounts multi status response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *CloudRegistrationAwsQueryAccountsMultiStatus) String() string {
 	return fmt.Sprintf("[GET /cloud-security-registration-aws/queries/account/v1][%d] cloudRegistrationAwsQueryAccountsMultiStatus  %+v", 207, o.Payload)
 }
 
-func (o *CloudRegistrationAwsQueryAccountsMultiStatus) GetPayload() *models.RestAWSAccountCreateResponseExtV1 {
+func (o *CloudRegistrationAwsQueryAccountsMultiStatus) GetPayload() *models.RestAWSAccountQueryResponseExtV1 {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *CloudRegistrationAwsQueryAccountsMultiStatus) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RestAWSAccountCreateResponseExtV1)
+	o.Payload = new(models.RestAWSAccountQueryResponseExtV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

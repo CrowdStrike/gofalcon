@@ -69,7 +69,7 @@ type UpdateDashboardFromTemplateParams struct {
 
 	/* SearchDomain.
 
-	   name of search domain (view or repo), options; all, falcon, third-party
+	   name of search domain (view or repo)
 	*/
 	SearchDomain *string
 
@@ -77,7 +77,7 @@ type UpdateDashboardFromTemplateParams struct {
 
 	   LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
 	*/
-	YamlTemplate *string
+	YamlTemplate runtime.NamedReadCloser
 
 	timeout    time.Duration
 	Context    context.Context
@@ -155,13 +155,13 @@ func (o *UpdateDashboardFromTemplateParams) SetSearchDomain(searchDomain *string
 }
 
 // WithYamlTemplate adds the yamlTemplate to the update dashboard from template params
-func (o *UpdateDashboardFromTemplateParams) WithYamlTemplate(yamlTemplate *string) *UpdateDashboardFromTemplateParams {
+func (o *UpdateDashboardFromTemplateParams) WithYamlTemplate(yamlTemplate runtime.NamedReadCloser) *UpdateDashboardFromTemplateParams {
 	o.SetYamlTemplate(yamlTemplate)
 	return o
 }
 
 // SetYamlTemplate adds the yamlTemplate to the update dashboard from template params
-func (o *UpdateDashboardFromTemplateParams) SetYamlTemplate(yamlTemplate *string) {
+func (o *UpdateDashboardFromTemplateParams) SetYamlTemplate(yamlTemplate runtime.NamedReadCloser) {
 	o.YamlTemplate = yamlTemplate
 }
 
@@ -205,14 +205,9 @@ func (o *UpdateDashboardFromTemplateParams) WriteToRequest(r runtime.ClientReque
 
 	if o.YamlTemplate != nil {
 
-		// form param yaml_template
-		var frYamlTemplate string
 		if o.YamlTemplate != nil {
-			frYamlTemplate = *o.YamlTemplate
-		}
-		fYamlTemplate := frYamlTemplate
-		if fYamlTemplate != "" {
-			if err := r.SetFormParam("yaml_template", fYamlTemplate); err != nil {
+			// form file param yaml_template
+			if err := r.SetFileParam("yaml_template", o.YamlTemplate); err != nil {
 				return err
 			}
 		}

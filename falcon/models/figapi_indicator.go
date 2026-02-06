@@ -79,6 +79,9 @@ type FigapiIndicator struct {
 	// reports
 	Reports []*FigapiReport `json:"Reports"`
 
+	// Structure for Root domain
+	RootDomainDetails *FigapiDomain `json:"RootDomainDetails,omitempty"`
+
 	// sectors
 	Sectors []*FigapiSector `json:"Sectors"`
 
@@ -146,6 +149,10 @@ func (m *FigapiIndicator) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateReports(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRootDomainDetails(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -412,6 +419,25 @@ func (m *FigapiIndicator) validateReports(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *FigapiIndicator) validateRootDomainDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.RootDomainDetails) { // not required
+		return nil
+	}
+
+	if m.RootDomainDetails != nil {
+		if err := m.RootDomainDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("RootDomainDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("RootDomainDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *FigapiIndicator) validateSectors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Sectors) { // not required
 		return nil
@@ -573,6 +599,10 @@ func (m *FigapiIndicator) ContextValidate(ctx context.Context, formats strfmt.Re
 	}
 
 	if err := m.contextValidateReports(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRootDomainDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -844,6 +874,27 @@ func (m *FigapiIndicator) contextValidateReports(ctx context.Context, formats st
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *FigapiIndicator) contextValidateRootDomainDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RootDomainDetails != nil {
+
+		if swag.IsZero(m.RootDomainDetails) { // not required
+			return nil
+		}
+
+		if err := m.RootDomainDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("RootDomainDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("RootDomainDetails")
+			}
+			return err
+		}
 	}
 
 	return nil
