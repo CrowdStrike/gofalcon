@@ -167,11 +167,13 @@ func (sh *StreamingHandle) open() error {
 					err := dec.Decode(&rawMessage)
 					if err != nil {
 						sh.Errors <- StreamingError{Fatal: false, Err: err}
+						continue
 					}
 
 					err = json.Unmarshal(rawMessage, &detection)
 					if err != nil {
 						sh.Errors <- StreamingError{Fatal: false, Err: err}
+						continue
 					}
 
 					detection.RawMessage = rawMessage
