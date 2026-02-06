@@ -82,6 +82,8 @@ type ClientService interface {
 
 	UpdateSuppressionRule(params *UpdateSuppressionRuleParams, opts ...ClientOption) (*UpdateSuppressionRuleOK, error)
 
+	QuerySuppressionRules(params *QuerySuppressionRulesParams, opts ...ClientOption) (*QuerySuppressionRulesOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -1071,6 +1073,44 @@ func (a *Client) UpdateSuppressionRule(params *UpdateSuppressionRuleParams, opts
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateSuppressionRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QuerySuppressionRules queries suppression rules with filtering sorting and pagination
+*/
+func (a *Client) QuerySuppressionRules(params *QuerySuppressionRulesParams, opts ...ClientOption) (*QuerySuppressionRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQuerySuppressionRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QuerySuppressionRules",
+		Method:             "GET",
+		PathPattern:        "/cloud-policies/queries/suppression-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QuerySuppressionRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QuerySuppressionRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QuerySuppressionRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
