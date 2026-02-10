@@ -27,7 +27,7 @@ type DomainCIDGroup struct {
 	CidGroupID *string `json:"cid_group_id"`
 
 	// description
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// is default
 	IsDefault bool `json:"is_default,omitempty"`

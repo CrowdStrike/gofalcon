@@ -735,3 +735,6 @@
 
 # Make description nullable for common.CreateComplianceControlRequest
 | .definitions."common.CreateComplianceControlRequest".properties.description += {"x-nullable": true}
+
+# Make description nullable for domain.CIDGroup
+| .definitions."domain.CIDGroup".properties.description += {"x-nullable": true}
