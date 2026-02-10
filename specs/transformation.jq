@@ -219,6 +219,7 @@
 
 # Allow an empty string be passed to assignment_rule
  | .definitions."host_groups.UpdateGroupReqV1".properties.assignment_rule += {"x-nullable": true}
+ | .definitions."host_groups.UpdateGroupReqV1".properties.description += {"x-nullable": true}
 
  # Allow expiration to be nullable
  | .definitions."api.IndicatorCreateReqV1".properties.expiration += {"x-nullable": true}

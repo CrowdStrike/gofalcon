@@ -23,7 +23,7 @@ type HostGroupsUpdateGroupReqV1 struct {
 	AssignmentRule *string `json:"assignment_rule,omitempty"`
 
 	// The new description of the group
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// The id of the group to update
 	// Required: true
