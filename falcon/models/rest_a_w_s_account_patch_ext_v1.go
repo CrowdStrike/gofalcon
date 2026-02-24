@@ -86,7 +86,7 @@ type RestAWSAccountPatchExtV1 struct {
 	S3LogIngestionSnsTopicArn string `json:"s3_log_ingestion_sns_topic_arn,omitempty"`
 
 	// use existing cloudtrail
-	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
+	UseExistingCloudtrail *bool `json:"use_existing_cloudtrail,omitempty"`
 
 	// vulnerability scanning host account id
 	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
