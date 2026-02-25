@@ -10,7 +10,7 @@ import (
 // CommonAuthFlags is a struct that holds common authentication flags used for most examples.
 type CommonAuthFlags struct {
 	ClientId     string
-	ClientSecret string
+	ClientSecret string //nolint:gosec // This struct legitimately holds OAuth2 credentials
 	MemberCID    string
 	Cloud        string
 }
