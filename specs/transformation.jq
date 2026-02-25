@@ -739,5 +739,9 @@
 # Make description nullable for domain.CIDGroup
 | .definitions."domain.CIDGroup".properties.description += {"x-nullable": true}
 
+# Make description nullable for domain.UserGroup
+| .definitions."domain.UserGroup".properties.description += {"x-nullable": true}
+| .definitions."domain.UserGroup".required = ["name"]
+
 # Make use_existing_cloudtrail nullable for rest.AWSAccountPatchExtV1
 | .definitions."rest.AWSAccountPatchExtV1".properties.use_existing_cloudtrail += {"x-nullable": true}
