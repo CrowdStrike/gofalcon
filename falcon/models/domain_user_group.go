@@ -23,8 +23,7 @@ type DomainUserGroup struct {
 	Cid string `json:"cid,omitempty"`
 
 	// description
-	// Required: true
-	Description *string `json:"description"`
+	Description *string `json:"description,omitempty"`
 
 	// name
 	// Required: true
@@ -38,10 +37,6 @@ type DomainUserGroup struct {
 func (m *DomainUserGroup) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -49,15 +44,6 @@ func (m *DomainUserGroup) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainUserGroup) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
 	return nil
 }
 
