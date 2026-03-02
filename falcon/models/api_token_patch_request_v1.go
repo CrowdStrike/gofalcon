@@ -27,7 +27,7 @@ type APITokenPatchRequestV1 struct {
 	Label string `json:"label,omitempty"`
 
 	// Set to true to revoke the token, false to un-revoked it.
-	Revoked bool `json:"revoked,omitempty"`
+	Revoked *bool `json:"revoked,omitempty"`
 }
 
 // Validate validates this api token patch request v1
