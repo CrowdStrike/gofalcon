@@ -743,5 +743,8 @@
 | .definitions."domain.UserGroup".properties.description += {"x-nullable": true}
 | .definitions."domain.UserGroup".required = ["name"]
 
+# Make revoked nullable for api.tokenPatchRequestV1 (allows sending false to un-revoke)
+| .definitions."api.tokenPatchRequestV1".properties.revoked += {"x-nullable": true}
+
 # Make use_existing_cloudtrail nullable for rest.AWSAccountPatchExtV1
 | .definitions."rest.AWSAccountPatchExtV1".properties.use_existing_cloudtrail += {"x-nullable": true}
