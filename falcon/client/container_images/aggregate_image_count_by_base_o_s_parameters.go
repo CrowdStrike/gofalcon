@@ -70,6 +70,8 @@ type AggregateImageCountByBaseOSParams struct {
 	- `first_seen`
 	- `image_digest`
 	- `image_id`
+	- `index_digest`
+	- `multi_arch`
 	- `registry`
 	- `repository`
 	- `source`

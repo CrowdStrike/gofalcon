@@ -33,6 +33,9 @@ type AssetgroupmanagerV1CloudGroupSelectors struct {
 
 	// Select images by image registry.
 	Images []*AssetgroupmanagerV1ImageSelector `json:"images"`
+
+	// Select kubernetes resources.
+	KubernetesResources []*AssetgroupmanagerV1KubernetesResourceSelector `json:"kubernetes_resources"`
 }
 
 // Validate validates this assetgroupmanager v1 cloud group selectors
@@ -44,6 +47,10 @@ func (m *AssetgroupmanagerV1CloudGroupSelectors) Validate(formats strfmt.Registr
 	}
 
 	if err := m.validateImages(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKubernetesResources(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -105,6 +112,32 @@ func (m *AssetgroupmanagerV1CloudGroupSelectors) validateImages(formats strfmt.R
 	return nil
 }
 
+func (m *AssetgroupmanagerV1CloudGroupSelectors) validateKubernetesResources(formats strfmt.Registry) error {
+	if swag.IsZero(m.KubernetesResources) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.KubernetesResources); i++ {
+		if swag.IsZero(m.KubernetesResources[i]) { // not required
+			continue
+		}
+
+		if m.KubernetesResources[i] != nil {
+			if err := m.KubernetesResources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("kubernetes_resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("kubernetes_resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this assetgroupmanager v1 cloud group selectors based on the context it is used
 func (m *AssetgroupmanagerV1CloudGroupSelectors) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -114,6 +147,10 @@ func (m *AssetgroupmanagerV1CloudGroupSelectors) ContextValidate(ctx context.Con
 	}
 
 	if err := m.contextValidateImages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKubernetesResources(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -163,6 +200,31 @@ func (m *AssetgroupmanagerV1CloudGroupSelectors) contextValidateImages(ctx conte
 					return ve.ValidateName("images" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("images" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AssetgroupmanagerV1CloudGroupSelectors) contextValidateKubernetesResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.KubernetesResources); i++ {
+
+		if m.KubernetesResources[i] != nil {
+
+			if swag.IsZero(m.KubernetesResources[i]) { // not required
+				return nil
+			}
+
+			if err := m.KubernetesResources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("kubernetes_resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("kubernetes_resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

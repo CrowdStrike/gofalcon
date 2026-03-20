@@ -57,6 +57,9 @@ type APIWebLocationV2 struct {
 	// provider location name
 	ProviderLocationName string `json:"provider_location_name,omitempty"`
 
+	// supports network inspection
+	SupportsNetworkInspection bool `json:"supports_network_inspection,omitempty"`
+
 	// type
 	// Required: true
 	Type *string `json:"type"`

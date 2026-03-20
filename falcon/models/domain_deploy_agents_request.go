@@ -23,6 +23,15 @@ type DomainDeployAgentsRequest struct {
 	// aids
 	// Required: true
 	Aids []UUIDUUID `json:"aids"`
+
+	// no proxy
+	NoProxy bool `json:"no_proxy,omitempty"`
+
+	// proxy host
+	ProxyHost string `json:"proxy_host,omitempty"`
+
+	// proxy port
+	ProxyPort int64 `json:"proxy_port,omitempty"`
 }
 
 // Validate validates this domain deploy agents request

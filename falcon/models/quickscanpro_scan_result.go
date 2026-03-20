@@ -28,6 +28,12 @@ type QuickscanproScanResult struct {
 	// Required: true
 	FileArtifacts []*QuickscanproFileResult `json:"file_artifacts"`
 
+	// file size
+	FileSize int32 `json:"file_size,omitempty"`
+
+	// file type short
+	FileTypeShort string `json:"file_type_short,omitempty"`
+
 	// malicious confidence
 	// Required: true
 	MaliciousConfidence *int32 `json:"malicious_confidence"`

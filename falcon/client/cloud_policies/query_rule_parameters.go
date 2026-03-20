@@ -66,32 +66,33 @@ type QueryRuleParams struct {
 
 	     FQL filter, allowed properties:
 
-	*rule_origin*
-	*rule_parent_uuid*
-	*rule_name*
-	*rule_cloneable*
-	*rule_description*
-	*rule_domain*
-	*rule_status*
-	*rule_severity*
-	*rule_short_code*
-	*rule_service*
-	*rule_resource_type*
-	*rule_resource_type_name*
-	*rule_provider*
-	*rule_subdomain*
 	*rule_auto_remediable*
-	*rule_control_requirement*
-	*rule_control_section*
+	*rule_category*
+	*rule_cloneable*
 	*rule_compliance_benchmark*
 	*rule_compliance_benchmark_uuid*
 	*rule_compliance_framework*
+	*rule_control_requirement*
+	*rule_control_section*
+	*rule_created_at*
+	*rule_description*
+	*rule_domain*
 	*rule_mitre_tactic*
 	*rule_mitre_technique*
-	*rule_created_at*
+	*rule_name*
+	*rule_origin*
+	*rule_parent_uuid*
+	*rule_provider*
+	*rule_resource_type*
+	*rule_resource_type_name*
+	*rule_risk_factor*
+	*rule_service*
+	*rule_severity*
+	*rule_short_code*
+	*rule_status*
+	*rule_subdomain*
 	*rule_updated_at*
 	*rule_updated_by*
-	*rule_risk_factor*
 
 	*/
 	Filter *string
@@ -114,32 +115,33 @@ type QueryRuleParams struct {
 
 	     Field to sort on. Sortable fields:
 
-	*rule_origin*
-	*rule_parent_uuid*
-	*rule_name*
-	*rule_cloneable*
-	*rule_description*
-	*rule_domain*
-	*rule_status*
-	*rule_severity*
-	*rule_short_code*
-	*rule_service*
-	*rule_resource_type*
-	*rule_resource_type_name*
-	*rule_provider*
-	*rule_subdomain*
 	*rule_auto_remediable*
-	*rule_control_requirement*
-	*rule_control_section*
+	*rule_category*
+	*rule_cloneable*
 	*rule_compliance_benchmark*
 	*rule_compliance_benchmark_uuid*
 	*rule_compliance_framework*
+	*rule_control_requirement*
+	*rule_control_section*
+	*rule_created_at*
+	*rule_description*
+	*rule_domain*
 	*rule_mitre_tactic*
 	*rule_mitre_technique*
-	*rule_created_at*
+	*rule_name*
+	*rule_origin*
+	*rule_parent_uuid*
+	*rule_provider*
+	*rule_resource_type*
+	*rule_resource_type_name*
+	*rule_risk_factor*
+	*rule_service*
+	*rule_severity*
+	*rule_short_code*
+	*rule_status*
+	*rule_subdomain*
 	*rule_updated_at*
 	*rule_updated_by*
-	*rule_risk_factor*
 
 
 	Use the `|asc` or `|desc` suffix to specify sort direction.

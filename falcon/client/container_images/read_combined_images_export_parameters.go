@@ -94,7 +94,9 @@ type ReadCombinedImagesExportParams struct {
 	- `image_digest`
 	- `image_id`
 	- `include_base_image_vuln`
+	- `index_digest`
 	- `layer_digest`
+	- `multi_arch`
 	- `package_name_version`
 	- `registry`
 	- `repository`

@@ -66,6 +66,10 @@ type CountByDateRangeParams struct {
 	     Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `assessed_images_count`
 	- `cid`
+	- `cloud_account_id`
+	- `cloud_name`
+	- `cloud_region`
+	- `cluster_id`
 	- `cluster_name`
 	- `containers_impacted_count`
 	- `detections_count`

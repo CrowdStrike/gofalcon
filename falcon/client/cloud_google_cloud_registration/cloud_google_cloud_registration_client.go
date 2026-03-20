@@ -34,6 +34,8 @@ type ClientService interface {
 
 	CloudRegistrationGcpDeleteRegistration(params *CloudRegistrationGcpDeleteRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpDeleteRegistrationOK, error)
 
+	CloudRegistrationGcpGetEntities(params *CloudRegistrationGcpGetEntitiesParams, opts ...ClientOption) (*CloudRegistrationGcpGetEntitiesOK, error)
+
 	CloudRegistrationGcpGetRegistration(params *CloudRegistrationGcpGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpGetRegistrationOK, error)
 
 	CloudRegistrationGcpPutRegistration(params *CloudRegistrationGcpPutRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpPutRegistrationOK, error)
@@ -59,7 +61,7 @@ func (a *Client) CloudRegistrationGcpCreateRegistration(params *CloudRegistratio
 		PathPattern:        "/cloud-security-registration-google-cloud/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationGcpCreateRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -97,7 +99,7 @@ func (a *Client) CloudRegistrationGcpDeleteRegistration(params *CloudRegistratio
 		PathPattern:        "/cloud-security-registration-google-cloud/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationGcpDeleteRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -122,6 +124,46 @@ func (a *Client) CloudRegistrationGcpDeleteRegistration(params *CloudRegistratio
 }
 
 /*
+CloudRegistrationGcpGetEntities retrieves all g c p entities organizations folders projects grouped by type with support for f q l filtering sorting and pagination
+
+Returns entities grouped by type. Sorting and pagination are applied across all entity types before grouping. Use filter=entity_type:'project' to retrieve only specific entity types.
+*/
+func (a *Client) CloudRegistrationGcpGetEntities(params *CloudRegistrationGcpGetEntitiesParams, opts ...ClientOption) (*CloudRegistrationGcpGetEntitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationGcpGetEntitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-gcp-get-entities",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-google-cloud/entities/accounts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationGcpGetEntitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationGcpGetEntitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-gcp-get-entities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CloudRegistrationGcpGetRegistration retrieves a google cloud registration
 */
 func (a *Client) CloudRegistrationGcpGetRegistration(params *CloudRegistrationGcpGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpGetRegistrationOK, error) {
@@ -135,7 +177,7 @@ func (a *Client) CloudRegistrationGcpGetRegistration(params *CloudRegistrationGc
 		PathPattern:        "/cloud-security-registration-google-cloud/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationGcpGetRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -175,7 +217,7 @@ func (a *Client) CloudRegistrationGcpPutRegistration(params *CloudRegistrationGc
 		PathPattern:        "/cloud-security-registration-google-cloud/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationGcpPutRegistrationReader{formats: a.formats},
 		Context:            params.Context,
@@ -213,7 +255,7 @@ func (a *Client) CloudRegistrationGcpTriggerHealthCheck(params *CloudRegistratio
 		PathPattern:        "/cloud-security-registration-google-cloud/entities/registration-scans/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationGcpTriggerHealthCheckReader{formats: a.formats},
 		Context:            params.Context,
@@ -251,7 +293,7 @@ func (a *Client) CloudRegistrationGcpUpdateRegistration(params *CloudRegistratio
 		PathPattern:        "/cloud-security-registration-google-cloud/entities/registrations/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CloudRegistrationGcpUpdateRegistrationReader{formats: a.formats},
 		Context:            params.Context,

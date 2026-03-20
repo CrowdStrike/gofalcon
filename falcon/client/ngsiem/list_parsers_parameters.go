@@ -83,11 +83,23 @@ type ListParsersParams struct {
 	*/
 	Offset *string
 
+	/* ParserType.
+
+	   filter parsers by type
+	*/
+	ParserType string
+
 	/* Repository.
 
 	   name of repository
 	*/
 	Repository *string
+
+	/* UpdateAvailable.
+
+	   filter parsers by update availability
+	*/
+	UpdateAvailable string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -189,6 +201,17 @@ func (o *ListParsersParams) SetOffset(offset *string) {
 	o.Offset = offset
 }
 
+// WithParserType adds the parserType to the list parsers params
+func (o *ListParsersParams) WithParserType(parserType string) *ListParsersParams {
+	o.SetParserType(parserType)
+	return o
+}
+
+// SetParserType adds the parserType to the list parsers params
+func (o *ListParsersParams) SetParserType(parserType string) {
+	o.ParserType = parserType
+}
+
 // WithRepository adds the repository to the list parsers params
 func (o *ListParsersParams) WithRepository(repository *string) *ListParsersParams {
 	o.SetRepository(repository)
@@ -198,6 +221,17 @@ func (o *ListParsersParams) WithRepository(repository *string) *ListParsersParam
 // SetRepository adds the repository to the list parsers params
 func (o *ListParsersParams) SetRepository(repository *string) {
 	o.Repository = repository
+}
+
+// WithUpdateAvailable adds the updateAvailable to the list parsers params
+func (o *ListParsersParams) WithUpdateAvailable(updateAvailable string) *ListParsersParams {
+	o.SetUpdateAvailable(updateAvailable)
+	return o
+}
+
+// SetUpdateAvailable adds the updateAvailable to the list parsers params
+func (o *ListParsersParams) SetUpdateAvailable(updateAvailable string) {
+	o.UpdateAvailable = updateAvailable
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -259,6 +293,14 @@ func (o *ListParsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		}
 	}
 
+	// query param parser_type
+	qrParserType := o.ParserType
+	qParserType := qrParserType
+
+	if err := r.SetQueryParam("parser_type", qParserType); err != nil {
+		return err
+	}
+
 	if o.Repository != nil {
 
 		// query param repository
@@ -274,6 +316,14 @@ func (o *ListParsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 				return err
 			}
 		}
+	}
+
+	// query param update_available
+	qrUpdateAvailable := o.UpdateAvailable
+	qUpdateAvailable := qrUpdateAvailable
+
+	if err := r.SetQueryParam("update_available", qUpdateAvailable); err != nil {
+		return err
 	}
 
 	if len(res) > 0 {

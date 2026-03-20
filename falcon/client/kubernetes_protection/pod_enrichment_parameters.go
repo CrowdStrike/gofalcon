@@ -65,7 +65,13 @@ type PodEnrichmentParams struct {
 	/* Filter.
 
 	     Supported filter fields:
+	- `cloud_account_id`
+	- `cloud_name`
+	- `cloud_region`
+	- `cluster_id`
+	- `cluster_name`
 	- `last_seen`
+	- `namespace`
 	*/
 	Filter *string
 

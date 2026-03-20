@@ -95,6 +95,10 @@ type ModelsAPIImageCombinedExport struct {
 	// Required: true
 	ImageID *string `json:"image_id"`
 
+	// index digest
+	// Required: true
+	IndexDigest *string `json:"index_digest"`
+
 	// is base image
 	// Required: true
 	IsBaseImage *bool `json:"is_base_image"`
@@ -200,6 +204,10 @@ func (m *ModelsAPIImageCombinedExport) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateImageID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIndexDigest(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -385,6 +393,15 @@ func (m *ModelsAPIImageCombinedExport) validateImageDigest(formats strfmt.Regist
 func (m *ModelsAPIImageCombinedExport) validateImageID(formats strfmt.Registry) error {
 
 	if err := validate.Required("image_id", "body", m.ImageID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPIImageCombinedExport) validateIndexDigest(formats strfmt.Registry) error {
+
+	if err := validate.Required("index_digest", "body", m.IndexDigest); err != nil {
 		return err
 	}
 

@@ -78,6 +78,8 @@ type ListCloudGroupIDsExternalParams struct {
 	- `image_registry`
 	- `image_repository`
 	- `image_tag`
+	- `selector.kubernetes_resource.cluster`
+	- `selector.kubernetes_resource.namespace`
 
 	Group tags:
 	- `business_unit`

@@ -31,6 +31,10 @@ type DomainDiscoverParams struct {
 	// Required: true
 	ApplicationVendors *string `json:"application_vendors"`
 
+	// group by
+	// Required: true
+	GroupBy *string `json:"group_by"`
+
 	// inline app filter
 	// Required: true
 	InlineAppFilter *string `json:"inline_app_filter"`
@@ -38,6 +42,14 @@ type DomainDiscoverParams struct {
 	// requirement criteria
 	// Required: true
 	RequirementCriteria *string `json:"requirement_criteria"`
+
+	// template fields
+	// Required: true
+	TemplateFields []string `json:"template_fields"`
+
+	// top n results
+	// Required: true
+	TopnResults *int32 `json:"top_n_results"`
 }
 
 // Validate validates this domain discover params
@@ -56,11 +68,23 @@ func (m *DomainDiscoverParams) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateGroupBy(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateInlineAppFilter(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateRequirementCriteria(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTemplateFields(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTopnResults(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -97,6 +121,15 @@ func (m *DomainDiscoverParams) validateApplicationVendors(formats strfmt.Registr
 	return nil
 }
 
+func (m *DomainDiscoverParams) validateGroupBy(formats strfmt.Registry) error {
+
+	if err := validate.Required("group_by", "body", m.GroupBy); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverParams) validateInlineAppFilter(formats strfmt.Registry) error {
 
 	if err := validate.Required("inline_app_filter", "body", m.InlineAppFilter); err != nil {
@@ -109,6 +142,24 @@ func (m *DomainDiscoverParams) validateInlineAppFilter(formats strfmt.Registry) 
 func (m *DomainDiscoverParams) validateRequirementCriteria(formats strfmt.Registry) error {
 
 	if err := validate.Required("requirement_criteria", "body", m.RequirementCriteria); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverParams) validateTemplateFields(formats strfmt.Registry) error {
+
+	if err := validate.Required("template_fields", "body", m.TemplateFields); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverParams) validateTopnResults(formats strfmt.Registry) error {
+
+	if err := validate.Required("top_n_results", "body", m.TopnResults); err != nil {
 		return err
 	}
 

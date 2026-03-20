@@ -24,6 +24,10 @@ type PolicymanagerExternalClassificationProperties struct {
 	// content patterns
 	ContentPatterns []string `json:"content_patterns"`
 
+	// ContentPatternsOperator accepts values: 'or', 'and'
+	// Enum: [or and]
+	ContentPatternsOperator string `json:"content_patterns_operator,omitempty"`
+
 	// evidence duplication enabled
 	EvidenceDuplicationEnabled bool `json:"evidence_duplication_enabled,omitempty"`
 
@@ -48,6 +52,10 @@ type PolicymanagerExternalClassificationProperties struct {
 func (m *PolicymanagerExternalClassificationProperties) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateContentPatternsOperator(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateProtectionMode(formats); err != nil {
 		res = append(res, err)
 	}
@@ -59,6 +67,48 @@ func (m *PolicymanagerExternalClassificationProperties) Validate(formats strfmt.
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var policymanagerExternalClassificationPropertiesTypeContentPatternsOperatorPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["or","and"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		policymanagerExternalClassificationPropertiesTypeContentPatternsOperatorPropEnum = append(policymanagerExternalClassificationPropertiesTypeContentPatternsOperatorPropEnum, v)
+	}
+}
+
+const (
+
+	// PolicymanagerExternalClassificationPropertiesContentPatternsOperatorOr captures enum value "or"
+	PolicymanagerExternalClassificationPropertiesContentPatternsOperatorOr string = "or"
+
+	// PolicymanagerExternalClassificationPropertiesContentPatternsOperatorAnd captures enum value "and"
+	PolicymanagerExternalClassificationPropertiesContentPatternsOperatorAnd string = "and"
+)
+
+// prop value enum
+func (m *PolicymanagerExternalClassificationProperties) validateContentPatternsOperatorEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, policymanagerExternalClassificationPropertiesTypeContentPatternsOperatorPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *PolicymanagerExternalClassificationProperties) validateContentPatternsOperator(formats strfmt.Registry) error {
+	if swag.IsZero(m.ContentPatternsOperator) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateContentPatternsOperatorEnum("content_patterns_operator", "body", m.ContentPatternsOperator); err != nil {
+		return err
+	}
+
 	return nil
 }
 

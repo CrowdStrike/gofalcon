@@ -33,6 +33,10 @@ type DomainAzureClientServicePrincipalV1 struct {
 	// client id
 	ClientID string `json:"client_id,omitempty"`
 
+	// If the account has CloudRegistration enabled.
+	// Required: true
+	CloudRegistrationEnabled *bool `json:"cloud_registration_enabled"`
+
 	// conditions
 	Conditions []*StatemgmtCondition `json:"conditions"`
 
@@ -75,6 +79,10 @@ func (m *DomainAzureClientServicePrincipalV1) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
+	if err := m.validateCloudRegistrationEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConditions(formats); err != nil {
 		res = append(res, err)
 	}
@@ -104,6 +112,15 @@ func (m *DomainAzureClientServicePrincipalV1) Validate(formats strfmt.Registry) 
 func (m *DomainAzureClientServicePrincipalV1) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAzureClientServicePrincipalV1) validateCloudRegistrationEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_registration_enabled", "body", m.CloudRegistrationEnabled); err != nil {
 		return err
 	}
 

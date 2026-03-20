@@ -43,6 +43,10 @@ type DomainGCPAccountV1 struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// cloud registration enabled
+	// Required: true
+	CloudRegistrationEnabled *bool `json:"cloud_registration_enabled"`
+
 	// cloud scopes
 	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
 
@@ -132,6 +136,10 @@ func (m *DomainGCPAccountV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCloudRegistrationEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCloudScopes(formats); err != nil {
 		res = append(res, err)
 	}
@@ -217,6 +225,15 @@ func (m *DomainGCPAccountV1) validateUpdatedAt(formats strfmt.Registry) error {
 func (m *DomainGCPAccountV1) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateCloudRegistrationEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_registration_enabled", "body", m.CloudRegistrationEnabled); err != nil {
 		return err
 	}
 

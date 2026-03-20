@@ -67,6 +67,7 @@ type AzureAzureRegistrationCreateInput struct {
 	DspmNetworkConfigurationType string `json:"dspm_network_configuration_type,omitempty"`
 
 	// dspm regions
+	// Required: true
 	DspmRegions []string `json:"dspm_regions"`
 
 	// environment
@@ -136,6 +137,10 @@ func (m *AzureAzureRegistrationCreateInput) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateDspmNetworkConfigurationType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmRegions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -271,6 +276,15 @@ func (m *AzureAzureRegistrationCreateInput) validateDspmNetworkConfigurationType
 
 	// value enum
 	if err := m.validateDspmNetworkConfigurationTypeEnum("dspm_network_configuration_type", "body", m.DspmNetworkConfigurationType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationCreateInput) validateDspmRegions(formats strfmt.Registry) error {
+
+	if err := validate.Required("dspm_regions", "body", m.DspmRegions); err != nil {
 		return err
 	}
 

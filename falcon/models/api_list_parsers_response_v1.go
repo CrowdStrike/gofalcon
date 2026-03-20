@@ -27,9 +27,9 @@ type APIListParsersResponseV1 struct {
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
-	// Contains the list of parser IDs
+	// Contains the list of parsers
 	// Required: true
-	Resources []string `json:"resources"`
+	Resources []*ContentParser `json:"resources"`
 }
 
 // Validate validates this api list parsers response v1
@@ -106,6 +106,24 @@ func (m *APIListParsersResponseV1) validateResources(formats strfmt.Registry) er
 		return err
 	}
 
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -118,6 +136,10 @@ func (m *APIListParsersResponseV1) ContextValidate(ctx context.Context, formats 
 	}
 
 	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResources(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -164,6 +186,31 @@ func (m *APIListParsersResponseV1) contextValidateMeta(ctx context.Context, form
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *APIListParsersResponseV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

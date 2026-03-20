@@ -31,6 +31,9 @@ type DomainExecutionMetadataV1 struct {
 	// Required: true
 	RetryAllowed *bool `json:"retry_allowed"`
 
+	// retry ids
+	RetryIds []string `json:"retry_ids"`
+
 	// retry performed
 	// Required: true
 	RetryPerformed *bool `json:"retry_performed"`

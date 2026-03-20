@@ -68,6 +68,12 @@ type EntitiesTemplatesGetV1Params struct {
 	*/
 	Ids []string
 
+	/* WithHasAccess.
+
+	   Evaluate FGAC and return has_access property
+	*/
+	WithHasAccess *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -132,6 +138,17 @@ func (o *EntitiesTemplatesGetV1Params) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithWithHasAccess adds the withHasAccess to the entities templates get v1 params
+func (o *EntitiesTemplatesGetV1Params) WithWithHasAccess(withHasAccess *bool) *EntitiesTemplatesGetV1Params {
+	o.SetWithHasAccess(withHasAccess)
+	return o
+}
+
+// SetWithHasAccess adds the withHasAccess to the entities templates get v1 params
+func (o *EntitiesTemplatesGetV1Params) SetWithHasAccess(withHasAccess *bool) {
+	o.WithHasAccess = withHasAccess
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *EntitiesTemplatesGetV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -148,6 +165,23 @@ func (o *EntitiesTemplatesGetV1Params) WriteToRequest(r runtime.ClientRequest, r
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
+		}
+	}
+
+	if o.WithHasAccess != nil {
+
+		// query param with_has_access
+		var qrWithHasAccess bool
+
+		if o.WithHasAccess != nil {
+			qrWithHasAccess = *o.WithHasAccess
+		}
+		qWithHasAccess := swag.FormatBool(qrWithHasAccess)
+		if qWithHasAccess != "" {
+
+			if err := r.SetQueryParam("with_has_access", qWithHasAccess); err != nil {
+				return err
+			}
 		}
 	}
 

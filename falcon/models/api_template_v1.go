@@ -20,6 +20,9 @@ import (
 // swagger:model api.TemplateV1
 type APITemplateV1 struct {
 
+	// access tags
+	AccessTags []*APIAccessTagV1 `json:"access_tags"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
@@ -42,6 +45,10 @@ type APITemplateV1 struct {
 
 	// fields
 	Fields []*APIFieldV1 `json:"fields"`
+
+	// has access
+	// Required: true
+	HasAccess *bool `json:"has_access"`
 
 	// id
 	// Required: true
@@ -81,6 +88,10 @@ type APITemplateV1 struct {
 func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAccessTags(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
@@ -98,6 +109,10 @@ func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFields(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHasAccess(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -132,6 +147,32 @@ func (m *APITemplateV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APITemplateV1) validateAccessTags(formats strfmt.Registry) error {
+	if swag.IsZero(m.AccessTags) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AccessTags); i++ {
+		if swag.IsZero(m.AccessTags[i]) { // not required
+			continue
+		}
+
+		if m.AccessTags[i] != nil {
+			if err := m.AccessTags[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -207,6 +248,15 @@ func (m *APITemplateV1) validateFields(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *APITemplateV1) validateHasAccess(formats strfmt.Registry) error {
+
+	if err := validate.Required("has_access", "body", m.HasAccess); err != nil {
+		return err
 	}
 
 	return nil
@@ -328,6 +378,10 @@ func (m *APITemplateV1) validateWorkflows(formats strfmt.Registry) error {
 func (m *APITemplateV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAccessTags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -351,6 +405,31 @@ func (m *APITemplateV1) ContextValidate(ctx context.Context, formats strfmt.Regi
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APITemplateV1) contextValidateAccessTags(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AccessTags); i++ {
+
+		if m.AccessTags[i] != nil {
+
+			if swag.IsZero(m.AccessTags[i]) { // not required
+				return nil
+			}
+
+			if err := m.AccessTags[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

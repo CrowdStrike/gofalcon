@@ -70,6 +70,9 @@ type DomainAWSAccountV2 struct {
 	// cid
 	Cid string `json:"cid,omitempty"`
 
+	// cloud registration enabled
+	CloudRegistrationEnabled bool `json:"cloud_registration_enabled,omitempty"`
+
 	// cloud scopes
 	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
 

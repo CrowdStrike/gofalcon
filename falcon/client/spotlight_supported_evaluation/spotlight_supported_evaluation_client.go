@@ -49,7 +49,7 @@ func (a *Client) CombinedSupportedEvaluationExt(params *CombinedSupportedEvaluat
 		PathPattern:        "/spotlight/combined/supported-evaluation-external/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CombinedSupportedEvaluationExtReader{formats: a.formats},
 		Context:            params.Context,

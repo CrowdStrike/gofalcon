@@ -90,6 +90,7 @@ type AzureTenantRegistration struct {
 	DspmNetworkConfigurationType string `json:"dspm_network_configuration_type,omitempty"`
 
 	// dspm regions
+	// Required: true
 	DspmRegions []string `json:"dspm_regions"`
 
 	// enterprise app url
@@ -174,6 +175,10 @@ func (m *AzureTenantRegistration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDspmNetworkConfigurationType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmRegions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -337,6 +342,15 @@ func (m *AzureTenantRegistration) validateDspmNetworkConfigurationType(formats s
 
 	// value enum
 	if err := m.validateDspmNetworkConfigurationTypeEnum("dspm_network_configuration_type", "body", m.DspmNetworkConfigurationType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistration) validateDspmRegions(formats strfmt.Registry) error {
+
+	if err := validate.Required("dspm_regions", "body", m.DspmRegions); err != nil {
 		return err
 	}
 

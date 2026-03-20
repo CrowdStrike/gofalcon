@@ -117,6 +117,9 @@ type RegistrationAzureAccountV1Ext struct {
 	// Azure Tenant ID to use.
 	TenantID string `json:"tenant_id,omitempty"`
 
+	// Azure Tenant Name.
+	TenantName string `json:"tenant_name,omitempty"`
+
 	// years valid
 	YearsValid int64 `json:"years_valid,omitempty"`
 }
