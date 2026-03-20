@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -24,19 +25,18 @@ type DomainScanScheduling struct {
 	DaysOfMonth []int64 `json:"days_of_month"`
 
 	// The days of the week that scan created will run on
-	// Enum: [Sun,Mon,Tue,Wed,Thu,Fri,Sat]
-	DaysOfWeek []int64 `json:"days_of_week"`
+	DaysOfWeek []string `json:"days_of_week"`
 
 	// The date at which scans created will end running
 	EndDate string `json:"end_date,omitempty"`
 
 	// The frequency of the scan scheduling configuration
 	// Required: true
-	// Enum: [once,daily,weekly,monthly]
+	// Enum: [not_scheduled daily weekly monthly one-time]
 	Frequency *string `json:"frequency"`
 
 	// The occurrence of the scan scheduling configuration
-	// Enum: [Day(s),First,Second,Third,Fourth,Last]
+	// Enum: [first second third fourth last]
 	Occurrence string `json:"occurrence,omitempty"`
 
 	// The date at which scans created will start running
@@ -84,21 +84,20 @@ func (m *DomainScanScheduling) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-var domainScanSchedulingTypeDaysOfWeekPropEnum []interface{}
+var domainScanSchedulingDaysOfWeekItemsEnum []interface{}
 
 func init() {
-	var res [][]int64
-	if err := json.Unmarshal([]byte(`["Sun,Mon,Tue,Wed,Thu,Fri,Sat"]`), &res); err != nil {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
-		domainScanSchedulingTypeDaysOfWeekPropEnum = append(domainScanSchedulingTypeDaysOfWeekPropEnum, v)
+		domainScanSchedulingDaysOfWeekItemsEnum = append(domainScanSchedulingDaysOfWeekItemsEnum, v)
 	}
 }
 
-// prop value enum
-func (m *DomainScanScheduling) validateDaysOfWeekEnum(path, location string, value []int64) error {
-	if err := validate.EnumCase(path, location, value, domainScanSchedulingTypeDaysOfWeekPropEnum, true); err != nil {
+func (m *DomainScanScheduling) validateDaysOfWeekItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, domainScanSchedulingDaysOfWeekItemsEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -109,9 +108,13 @@ func (m *DomainScanScheduling) validateDaysOfWeek(formats strfmt.Registry) error
 		return nil
 	}
 
-	// for slice
-	if err := m.validateDaysOfWeekEnum("days_of_week", "body", m.DaysOfWeek); err != nil {
-		return err
+	for i := 0; i < len(m.DaysOfWeek); i++ {
+
+		// value enum
+		if err := m.validateDaysOfWeekItemsEnum("days_of_week"+"."+strconv.Itoa(i), "body", m.DaysOfWeek[i]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil
@@ -121,7 +124,7 @@ var domainScanSchedulingTypeFrequencyPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["once,daily,weekly,monthly"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["not_scheduled","daily","weekly","monthly","one-time"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -131,8 +134,20 @@ func init() {
 
 const (
 
-	// DomainScanSchedulingFrequencyOnceDailyWeeklyMonthly captures enum value "once,daily,weekly,monthly"
-	DomainScanSchedulingFrequencyOnceDailyWeeklyMonthly string = "once,daily,weekly,monthly"
+	// DomainScanSchedulingFrequencyNotScheduled captures enum value "not_scheduled"
+	DomainScanSchedulingFrequencyNotScheduled string = "not_scheduled"
+
+	// DomainScanSchedulingFrequencyDaily captures enum value "daily"
+	DomainScanSchedulingFrequencyDaily string = "daily"
+
+	// DomainScanSchedulingFrequencyWeekly captures enum value "weekly"
+	DomainScanSchedulingFrequencyWeekly string = "weekly"
+
+	// DomainScanSchedulingFrequencyMonthly captures enum value "monthly"
+	DomainScanSchedulingFrequencyMonthly string = "monthly"
+
+	// DomainScanSchedulingFrequencyOneDashTime captures enum value "one-time"
+	DomainScanSchedulingFrequencyOneDashTime string = "one-time"
 )
 
 // prop value enum
@@ -161,7 +176,7 @@ var domainScanSchedulingTypeOccurrencePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Day(s),First,Second,Third,Fourth,Last"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["first","second","third","fourth","last"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -171,8 +186,20 @@ func init() {
 
 const (
 
-	// DomainScanSchedulingOccurrenceDaysFirstSecondThirdFourthLast captures enum value "Day(s),First,Second,Third,Fourth,Last"
-	DomainScanSchedulingOccurrenceDaysFirstSecondThirdFourthLast string = "Day(s),First,Second,Third,Fourth,Last"
+	// DomainScanSchedulingOccurrenceFirst captures enum value "first"
+	DomainScanSchedulingOccurrenceFirst string = "first"
+
+	// DomainScanSchedulingOccurrenceSecond captures enum value "second"
+	DomainScanSchedulingOccurrenceSecond string = "second"
+
+	// DomainScanSchedulingOccurrenceThird captures enum value "third"
+	DomainScanSchedulingOccurrenceThird string = "third"
+
+	// DomainScanSchedulingOccurrenceFourth captures enum value "fourth"
+	DomainScanSchedulingOccurrenceFourth string = "fourth"
+
+	// DomainScanSchedulingOccurrenceLast captures enum value "last"
+	DomainScanSchedulingOccurrenceLast string = "last"
 )
 
 // prop value enum

@@ -751,3 +751,8 @@
 
 # Make use_existing_cloudtrail nullable for rest.AWSAccountPatchExtV1
 | .definitions."rest.AWSAccountPatchExtV1".properties.use_existing_cloudtrail += {"x-nullable": true}
+
+# Fix domain.ScanScheduling broken enums (comma-separated strings instead of arrays)
+| .definitions."domain.ScanScheduling".properties.days_of_week = {"type": "array", "description": "The days of the week that scan created will run on", "items": {"type": "string", "enum": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}}
+| .definitions."domain.ScanScheduling".properties.frequency.enum = ["not_scheduled", "daily", "weekly", "monthly", "one-time"]
+| .definitions."domain.ScanScheduling".properties.occurrence.enum = ["first", "second", "third", "fourth", "last"]
