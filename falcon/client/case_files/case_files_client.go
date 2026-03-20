@@ -48,7 +48,11 @@ type ClientService interface {
 
 	EntitiesFilesUploadPostV1(params *EntitiesFilesUploadPostV1Params, opts ...ClientOption) (*EntitiesFilesUploadPostV1OK, error)
 
+	EntitiesGetRtrFileMetadataPostV1(params *EntitiesGetRtrFileMetadataPostV1Params, opts ...ClientOption) (*EntitiesGetRtrFileMetadataPostV1OK, error)
+
 	EntitiesRetrieveRtrFilePostV1(params *EntitiesRetrieveRtrFilePostV1Params, opts ...ClientOption) (*EntitiesRetrieveRtrFilePostV1OK, error)
+
+	EntitiesRetrieveRtrRecentFilePostV1(params *EntitiesRetrieveRtrRecentFilePostV1Params, opts ...ClientOption) (*EntitiesRetrieveRtrRecentFilePostV1OK, error)
 
 	QueriesFileDetailsGetV1(params *QueriesFileDetailsGetV1Params, opts ...ClientOption) (*QueriesFileDetailsGetV1OK, error)
 
@@ -69,7 +73,7 @@ func (a *Client) AggregatesFileDetailsPostV1(params *AggregatesFileDetailsPostV1
 		PathPattern:        "/case-files/aggregates/file-details/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &AggregatesFileDetailsPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -107,7 +111,7 @@ func (a *Client) CombinedFileDetailsGetV1(params *CombinedFileDetailsGetV1Params
 		PathPattern:        "/case-files/combined/file-details/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CombinedFileDetailsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -145,7 +149,7 @@ func (a *Client) EntitiesFileDetailsGetV1(params *EntitiesFileDetailsGetV1Params
 		PathPattern:        "/case-files/entities/file-details/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFileDetailsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -183,7 +187,7 @@ func (a *Client) EntitiesFileDetailsPatchV1(params *EntitiesFileDetailsPatchV1Pa
 		PathPattern:        "/case-files/entities/file-details/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFileDetailsPatchV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -221,7 +225,7 @@ func (a *Client) EntitiesFilesDeleteV1(params *EntitiesFilesDeleteV1Params, opts
 		PathPattern:        "/case-files/entities/files/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFilesDeleteV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -259,7 +263,7 @@ func (a *Client) EntitiesFilesBulkDownloadPostV1(params *EntitiesFilesBulkDownlo
 		PathPattern:        "/case-files/entities/files/bulk-download/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFilesBulkDownloadPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -297,7 +301,7 @@ func (a *Client) EntitiesFilesDownloadGetV1(params *EntitiesFilesDownloadGetV1Pa
 		PathPattern:        "/case-files/entities/files/download/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFilesDownloadGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -335,7 +339,7 @@ func (a *Client) EntitiesFilesDownloadPostV1(params *EntitiesFilesDownloadPostV1
 		PathPattern:        "/case-files/entities/files/download/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFilesDownloadPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -373,7 +377,7 @@ func (a *Client) EntitiesFilesUploadPostV1(params *EntitiesFilesUploadPostV1Para
 		PathPattern:        "/case-files/entities/files/upload/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFilesUploadPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -398,6 +402,44 @@ func (a *Client) EntitiesFilesUploadPostV1(params *EntitiesFilesUploadPostV1Para
 }
 
 /*
+EntitiesGetRtrFileMetadataPostV1 gets metadata for a file via r t r without retrieving it
+*/
+func (a *Client) EntitiesGetRtrFileMetadataPostV1(params *EntitiesGetRtrFileMetadataPostV1Params, opts ...ClientOption) (*EntitiesGetRtrFileMetadataPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesGetRtrFileMetadataPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.get-rtr-file-metadata.post.v1",
+		Method:             "POST",
+		PathPattern:        "/case-files/entities/get-rtr-file-metadata/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesGetRtrFileMetadataPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesGetRtrFileMetadataPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.get-rtr-file-metadata.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesRetrieveRtrFilePostV1 retrieves a file from host using r t r and adds it to a case
 */
 func (a *Client) EntitiesRetrieveRtrFilePostV1(params *EntitiesRetrieveRtrFilePostV1Params, opts ...ClientOption) (*EntitiesRetrieveRtrFilePostV1OK, error) {
@@ -411,7 +453,7 @@ func (a *Client) EntitiesRetrieveRtrFilePostV1(params *EntitiesRetrieveRtrFilePo
 		PathPattern:        "/case-files/entities/retrieve-rtr-file/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesRetrieveRtrFilePostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -436,6 +478,44 @@ func (a *Client) EntitiesRetrieveRtrFilePostV1(params *EntitiesRetrieveRtrFilePo
 }
 
 /*
+EntitiesRetrieveRtrRecentFilePostV1 retrieves recent r t r file retrieves a recently fetched r t r file and adds it to a case
+*/
+func (a *Client) EntitiesRetrieveRtrRecentFilePostV1(params *EntitiesRetrieveRtrRecentFilePostV1Params, opts ...ClientOption) (*EntitiesRetrieveRtrRecentFilePostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRetrieveRtrRecentFilePostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.retrieve-rtr-recent-file.post.v1",
+		Method:             "POST",
+		PathPattern:        "/case-files/entities/retrieve-rtr-recent-file/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesRetrieveRtrRecentFilePostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRetrieveRtrRecentFilePostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.retrieve-rtr-recent-file.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueriesFileDetailsGetV1 queries for ids of file details
 */
 func (a *Client) QueriesFileDetailsGetV1(params *QueriesFileDetailsGetV1Params, opts ...ClientOption) (*QueriesFileDetailsGetV1OK, error) {
@@ -449,7 +529,7 @@ func (a *Client) QueriesFileDetailsGetV1(params *QueriesFileDetailsGetV1Params, 
 		PathPattern:        "/case-files/queries/file-details/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesFileDetailsGetV1Reader{formats: a.formats},
 		Context:            params.Context,

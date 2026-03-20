@@ -21,7 +21,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_aws_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_azure_registration"
-	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_google_cloud_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_oci_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_policies"
@@ -96,6 +95,14 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/mobile_enrollment"
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_global_configs"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_networks"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_scan_run_reports"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_scan_runs"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_scanners"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_scans"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_templates"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_zones"
 	"github.com/crowdstrike/gofalcon/falcon/client/ngsiem"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
@@ -120,6 +127,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_usage_api"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/serverless_exports"
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_supported_evaluation"
@@ -185,7 +193,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
 	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
 	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
-	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
 	cli.CloudGoogleCloudRegistration = cloud_google_cloud_registration.New(transport, formats)
 	cli.CloudOciRegistration = cloud_oci_registration.New(transport, formats)
 	cli.CloudPolicies = cloud_policies.New(transport, formats)
@@ -260,6 +267,14 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
 	cli.MobileEnrollment = mobile_enrollment.New(transport, formats)
 	cli.Mssp = mssp.New(transport, formats)
+	cli.NetworkScanGlobalConfigs = network_scan_global_configs.New(transport, formats)
+	cli.NetworkScanNetworks = network_scan_networks.New(transport, formats)
+	cli.NetworkScanScanRunReports = network_scan_scan_run_reports.New(transport, formats)
+	cli.NetworkScanScanRuns = network_scan_scan_runs.New(transport, formats)
+	cli.NetworkScanScanners = network_scan_scanners.New(transport, formats)
+	cli.NetworkScanScans = network_scan_scans.New(transport, formats)
+	cli.NetworkScanTemplates = network_scan_templates.New(transport, formats)
+	cli.NetworkScanZones = network_scan_zones.New(transport, formats)
 	cli.Ngsiem = ngsiem.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
@@ -284,6 +299,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
 	cli.SensorUsageAPI = sensor_usage_api.New(transport, formats)
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
+	cli.ServerlessExports = serverless_exports.New(transport, formats)
 	cli.ServerlessVulnerabilities = serverless_vulnerabilities.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightSupportedEvaluation = spotlight_supported_evaluation.New(transport, formats)
@@ -359,8 +375,6 @@ type CrowdStrikeAPISpecification struct {
 	CloudAwsRegistration cloud_aws_registration.ClientService
 
 	CloudAzureRegistration cloud_azure_registration.ClientService
-
-	CloudConnectAws cloud_connect_aws.ClientService
 
 	CloudGoogleCloudRegistration cloud_google_cloud_registration.ClientService
 
@@ -510,6 +524,22 @@ type CrowdStrikeAPISpecification struct {
 
 	Mssp mssp.ClientService
 
+	NetworkScanGlobalConfigs network_scan_global_configs.ClientService
+
+	NetworkScanNetworks network_scan_networks.ClientService
+
+	NetworkScanScanRunReports network_scan_scan_run_reports.ClientService
+
+	NetworkScanScanRuns network_scan_scan_runs.ClientService
+
+	NetworkScanScanners network_scan_scanners.ClientService
+
+	NetworkScanScans network_scan_scans.ClientService
+
+	NetworkScanTemplates network_scan_templates.ClientService
+
+	NetworkScanZones network_scan_zones.ClientService
+
 	Ngsiem ngsiem.ClientService
 
 	Oauth2 oauth2.ClientService
@@ -558,6 +588,8 @@ type CrowdStrikeAPISpecification struct {
 
 	SensorVisibilityExclusions sensor_visibility_exclusions.ClientService
 
+	ServerlessExports serverless_exports.ClientService
+
 	ServerlessVulnerabilities serverless_vulnerabilities.ClientService
 
 	SpotlightEvaluationLogic spotlight_evaluation_logic.ClientService
@@ -595,7 +627,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CertificateBasedExclusions.SetTransport(transport)
 	c.CloudAwsRegistration.SetTransport(transport)
 	c.CloudAzureRegistration.SetTransport(transport)
-	c.CloudConnectAws.SetTransport(transport)
 	c.CloudGoogleCloudRegistration.SetTransport(transport)
 	c.CloudOciRegistration.SetTransport(transport)
 	c.CloudPolicies.SetTransport(transport)
@@ -670,6 +701,14 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.MlExclusions.SetTransport(transport)
 	c.MobileEnrollment.SetTransport(transport)
 	c.Mssp.SetTransport(transport)
+	c.NetworkScanGlobalConfigs.SetTransport(transport)
+	c.NetworkScanNetworks.SetTransport(transport)
+	c.NetworkScanScanRunReports.SetTransport(transport)
+	c.NetworkScanScanRuns.SetTransport(transport)
+	c.NetworkScanScanners.SetTransport(transport)
+	c.NetworkScanScans.SetTransport(transport)
+	c.NetworkScanTemplates.SetTransport(transport)
+	c.NetworkScanZones.SetTransport(transport)
 	c.Ngsiem.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
@@ -694,6 +733,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorUpdatePolicies.SetTransport(transport)
 	c.SensorUsageAPI.SetTransport(transport)
 	c.SensorVisibilityExclusions.SetTransport(transport)
+	c.ServerlessExports.SetTransport(transport)
 	c.ServerlessVulnerabilities.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightSupportedEvaluation.SetTransport(transport)

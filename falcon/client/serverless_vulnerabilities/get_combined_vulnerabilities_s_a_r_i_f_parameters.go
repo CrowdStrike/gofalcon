@@ -64,7 +64,7 @@ type GetCombinedVulnerabilitiesSARIFParams struct {
 
 	/* Filter.
 
-	   Filter lambda vulnerabilities using a query in Falcon Query Language (FQL).Supported filters:  application_name,application_name_version,cid,cloud_account_id,cloud_account_name,cloud_provider,cve_id,cvss_base_score,exprt_rating,first_seen_timestamp,function_name,function_resource_id,is_supported,is_valid_asset_id,layer,region,runtime,severity,timestamp,type
+	   Filter lambda vulnerabilities using a query in Falcon Query Language (FQL).Supported filters:  application_name,application_name_version,cid,cloud_account_id,cloud_account_name,cloud_provider,cve_id,cve_reachable,cvss_base_score,exprt_rating,first_seen_timestamp,function_name,function_resource_id,is_supported,is_valid_asset_id,layer,region,runtime,severity,timestamp,type
 	*/
 	Filter *string
 

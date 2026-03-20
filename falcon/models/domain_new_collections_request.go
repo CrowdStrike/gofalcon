@@ -52,6 +52,10 @@ type DomainNewCollectionsRequest struct {
 	// priority
 	// Required: true
 	Priority *int64 `json:"priority"`
+
+	// self destruct
+	// Required: true
+	SelfDestruct *bool `json:"self_destruct"`
 }
 
 // Validate validates this domain new collections request
@@ -87,6 +91,10 @@ func (m *DomainNewCollectionsRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePriority(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSelfDestruct(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -192,6 +200,15 @@ func (m *DomainNewCollectionsRequest) validatePlatform(formats strfmt.Registry) 
 func (m *DomainNewCollectionsRequest) validatePriority(formats strfmt.Registry) error {
 
 	if err := validate.Required("priority", "body", m.Priority); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainNewCollectionsRequest) validateSelfDestruct(formats strfmt.Registry) error {
+
+	if err := validate.Required("self_destruct", "body", m.SelfDestruct); err != nil {
 		return err
 	}
 

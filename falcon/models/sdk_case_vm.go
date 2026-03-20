@@ -76,9 +76,9 @@ type SdkCaseVM struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// readable case id
+	// reference id
 	// Required: true
-	ReadableCaseID *string `json:"readable_case_id"`
+	ReferenceID *string `json:"reference_id"`
 
 	// severity
 	// Required: true
@@ -179,7 +179,7 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateReadableCaseID(formats); err != nil {
+	if err := m.validateReferenceID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -459,9 +459,9 @@ func (m *SdkCaseVM) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *SdkCaseVM) validateReadableCaseID(formats strfmt.Registry) error {
+func (m *SdkCaseVM) validateReferenceID(formats strfmt.Registry) error {
 
-	if err := validate.Required("readable_case_id", "body", m.ReadableCaseID); err != nil {
+	if err := validate.Required("reference_id", "body", m.ReferenceID); err != nil {
 		return err
 	}
 

@@ -75,10 +75,6 @@ type EntitiesODSScheduleScanRequest struct {
 	// Required: true
 	MacCloudPupAdwareLevelPrevention *int32 `json:"mac_cloud_pup_adware_level_prevention"`
 
-	// mac file paths
-	// Required: true
-	MacFilePaths []string `json:"mac_file_paths"`
-
 	// mac scan exclusions
 	// Required: true
 	MacScanExclusions []string `json:"mac_scan_exclusions"`
@@ -197,10 +193,6 @@ func (m *EntitiesODSScheduleScanRequest) Validate(formats strfmt.Registry) error
 	}
 
 	if err := m.validateMacCloudPupAdwareLevelPrevention(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMacFilePaths(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -390,15 +382,6 @@ func (m *EntitiesODSScheduleScanRequest) validateMacCloudPupAdwareLevelDetection
 func (m *EntitiesODSScheduleScanRequest) validateMacCloudPupAdwareLevelPrevention(formats strfmt.Registry) error {
 
 	if err := validate.Required("mac_cloud_pup_adware_level_prevention", "body", m.MacCloudPupAdwareLevelPrevention); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *EntitiesODSScheduleScanRequest) validateMacFilePaths(formats strfmt.Registry) error {
-
-	if err := validate.Required("mac_file_paths", "body", m.MacFilePaths); err != nil {
 		return err
 	}
 

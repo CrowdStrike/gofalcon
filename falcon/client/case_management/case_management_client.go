@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AggregatesAccessTagsPostV1(params *AggregatesAccessTagsPostV1Params, opts ...ClientOption) (*AggregatesAccessTagsPostV1OK, error)
+
 	AggregatesNotificationGroupsPostV1(params *AggregatesNotificationGroupsPostV1Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV1OK, error)
 
 	AggregatesNotificationGroupsPostV2(params *AggregatesNotificationGroupsPostV2Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV2OK, error)
@@ -37,6 +39,8 @@ type ClientService interface {
 	AggregatesSlasPostV1(params *AggregatesSlasPostV1Params, opts ...ClientOption) (*AggregatesSlasPostV1OK, error)
 
 	AggregatesTemplatesPostV1(params *AggregatesTemplatesPostV1Params, opts ...ClientOption) (*AggregatesTemplatesPostV1OK, error)
+
+	EntitiesAccessTagsGetV1(params *EntitiesAccessTagsGetV1Params, opts ...ClientOption) (*EntitiesAccessTagsGetV1OK, error)
 
 	EntitiesFieldsGetV1(params *EntitiesFieldsGetV1Params, opts ...ClientOption) (*EntitiesFieldsGetV1OK, error)
 
@@ -78,6 +82,8 @@ type ClientService interface {
 
 	EntitiesTemplatesImportPostV1(params *EntitiesTemplatesImportPostV1Params, opts ...ClientOption) (*EntitiesTemplatesImportPostV1OK, error)
 
+	QueriesAccessTagsGetV1(params *QueriesAccessTagsGetV1Params, opts ...ClientOption) (*QueriesAccessTagsGetV1OK, error)
+
 	QueriesFieldsGetV1(params *QueriesFieldsGetV1Params, opts ...ClientOption) (*QueriesFieldsGetV1OK, error)
 
 	QueriesNotificationGroupsGetV1(params *QueriesNotificationGroupsGetV1Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV1OK, error)
@@ -94,6 +100,44 @@ type ClientService interface {
 }
 
 /*
+AggregatesAccessTagsPostV1 gets access tag aggregates
+*/
+func (a *Client) AggregatesAccessTagsPostV1(params *AggregatesAccessTagsPostV1Params, opts ...ClientOption) (*AggregatesAccessTagsPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAggregatesAccessTagsPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "aggregates.access-tags.post.v1",
+		Method:             "POST",
+		PathPattern:        "/casemgmt/aggregates/access-tags/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &AggregatesAccessTagsPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AggregatesAccessTagsPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for aggregates.access-tags.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 AggregatesNotificationGroupsPostV1 gets notification groups aggregations
 */
 func (a *Client) AggregatesNotificationGroupsPostV1(params *AggregatesNotificationGroupsPostV1Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV1OK, error) {
@@ -107,7 +151,7 @@ func (a *Client) AggregatesNotificationGroupsPostV1(params *AggregatesNotificati
 		PathPattern:        "/casemgmt/aggregates/notification-groups/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &AggregatesNotificationGroupsPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -145,7 +189,7 @@ func (a *Client) AggregatesNotificationGroupsPostV2(params *AggregatesNotificati
 		PathPattern:        "/casemgmt/aggregates/notification-groups/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &AggregatesNotificationGroupsPostV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -183,7 +227,7 @@ func (a *Client) AggregatesSlasPostV1(params *AggregatesSlasPostV1Params, opts .
 		PathPattern:        "/casemgmt/aggregates/slas/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &AggregatesSlasPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -221,7 +265,7 @@ func (a *Client) AggregatesTemplatesPostV1(params *AggregatesTemplatesPostV1Para
 		PathPattern:        "/casemgmt/aggregates/templates/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &AggregatesTemplatesPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -246,6 +290,44 @@ func (a *Client) AggregatesTemplatesPostV1(params *AggregatesTemplatesPostV1Para
 }
 
 /*
+EntitiesAccessTagsGetV1 gets access tags
+*/
+func (a *Client) EntitiesAccessTagsGetV1(params *EntitiesAccessTagsGetV1Params, opts ...ClientOption) (*EntitiesAccessTagsGetV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesAccessTagsGetV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.access-tags.get.v1",
+		Method:             "GET",
+		PathPattern:        "/casemgmt/entities/access-tags/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesAccessTagsGetV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesAccessTagsGetV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.access-tags.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesFieldsGetV1 gets fields by ID
 */
 func (a *Client) EntitiesFieldsGetV1(params *EntitiesFieldsGetV1Params, opts ...ClientOption) (*EntitiesFieldsGetV1OK, error) {
@@ -259,7 +341,7 @@ func (a *Client) EntitiesFieldsGetV1(params *EntitiesFieldsGetV1Params, opts ...
 		PathPattern:        "/casemgmt/entities/fields/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFieldsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -297,7 +379,7 @@ func (a *Client) EntitiesNotificationGroupsDeleteV1(params *EntitiesNotification
 		PathPattern:        "/casemgmt/entities/notification-groups/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsDeleteV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -335,7 +417,7 @@ func (a *Client) EntitiesNotificationGroupsDeleteV2(params *EntitiesNotification
 		PathPattern:        "/casemgmt/entities/notification-groups/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsDeleteV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -373,7 +455,7 @@ func (a *Client) EntitiesNotificationGroupsGetV1(params *EntitiesNotificationGro
 		PathPattern:        "/casemgmt/entities/notification-groups/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -411,7 +493,7 @@ func (a *Client) EntitiesNotificationGroupsGetV2(params *EntitiesNotificationGro
 		PathPattern:        "/casemgmt/entities/notification-groups/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -449,7 +531,7 @@ func (a *Client) EntitiesNotificationGroupsPatchV1(params *EntitiesNotificationG
 		PathPattern:        "/casemgmt/entities/notification-groups/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsPatchV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -487,7 +569,7 @@ func (a *Client) EntitiesNotificationGroupsPatchV2(params *EntitiesNotificationG
 		PathPattern:        "/casemgmt/entities/notification-groups/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsPatchV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -525,7 +607,7 @@ func (a *Client) EntitiesNotificationGroupsPostV1(params *EntitiesNotificationGr
 		PathPattern:        "/casemgmt/entities/notification-groups/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -563,7 +645,7 @@ func (a *Client) EntitiesNotificationGroupsPostV2(params *EntitiesNotificationGr
 		PathPattern:        "/casemgmt/entities/notification-groups/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesNotificationGroupsPostV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -601,7 +683,7 @@ func (a *Client) EntitiesSlasDeleteV1(params *EntitiesSlasDeleteV1Params, opts .
 		PathPattern:        "/casemgmt/entities/slas/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesSlasDeleteV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -639,7 +721,7 @@ func (a *Client) EntitiesSlasGetV1(params *EntitiesSlasGetV1Params, opts ...Clie
 		PathPattern:        "/casemgmt/entities/slas/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesSlasGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -677,7 +759,7 @@ func (a *Client) EntitiesSlasPatchV1(params *EntitiesSlasPatchV1Params, opts ...
 		PathPattern:        "/casemgmt/entities/slas/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesSlasPatchV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -715,7 +797,7 @@ func (a *Client) EntitiesSlasPostV1(params *EntitiesSlasPostV1Params, opts ...Cl
 		PathPattern:        "/casemgmt/entities/slas/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesSlasPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -753,7 +835,7 @@ func (a *Client) EntitiesTemplateSnapshotsGetV1(params *EntitiesTemplateSnapshot
 		PathPattern:        "/casemgmt/entities/template-snapshots/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesTemplateSnapshotsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -791,7 +873,7 @@ func (a *Client) EntitiesTemplatesDeleteV1(params *EntitiesTemplatesDeleteV1Para
 		PathPattern:        "/casemgmt/entities/templates/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesTemplatesDeleteV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -829,7 +911,7 @@ func (a *Client) EntitiesTemplatesGetV1(params *EntitiesTemplatesGetV1Params, op
 		PathPattern:        "/casemgmt/entities/templates/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesTemplatesGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -867,7 +949,7 @@ func (a *Client) EntitiesTemplatesPatchV1(params *EntitiesTemplatesPatchV1Params
 		PathPattern:        "/casemgmt/entities/templates/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesTemplatesPatchV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -905,7 +987,7 @@ func (a *Client) EntitiesTemplatesPostV1(params *EntitiesTemplatesPostV1Params, 
 		PathPattern:        "/casemgmt/entities/templates/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesTemplatesPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -943,7 +1025,7 @@ func (a *Client) EntitiesTemplatesExportGetV1(params *EntitiesTemplatesExportGet
 		PathPattern:        "/casemgmt/entities/templates/export/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesTemplatesExportGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -981,7 +1063,7 @@ func (a *Client) EntitiesTemplatesImportPostV1(params *EntitiesTemplatesImportPo
 		PathPattern:        "/casemgmt/entities/templates/import/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesTemplatesImportPostV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1006,6 +1088,44 @@ func (a *Client) EntitiesTemplatesImportPostV1(params *EntitiesTemplatesImportPo
 }
 
 /*
+QueriesAccessTagsGetV1 queries access tags
+*/
+func (a *Client) QueriesAccessTagsGetV1(params *QueriesAccessTagsGetV1Params, opts ...ClientOption) (*QueriesAccessTagsGetV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesAccessTagsGetV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queries.access-tags.get.v1",
+		Method:             "GET",
+		PathPattern:        "/casemgmt/queries/access-tags/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QueriesAccessTagsGetV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesAccessTagsGetV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queries.access-tags.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueriesFieldsGetV1 queries fields
 */
 func (a *Client) QueriesFieldsGetV1(params *QueriesFieldsGetV1Params, opts ...ClientOption) (*QueriesFieldsGetV1OK, error) {
@@ -1019,7 +1139,7 @@ func (a *Client) QueriesFieldsGetV1(params *QueriesFieldsGetV1Params, opts ...Cl
 		PathPattern:        "/casemgmt/queries/fields/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesFieldsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1057,7 +1177,7 @@ func (a *Client) QueriesNotificationGroupsGetV1(params *QueriesNotificationGroup
 		PathPattern:        "/casemgmt/queries/notification-groups/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesNotificationGroupsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1095,7 +1215,7 @@ func (a *Client) QueriesNotificationGroupsGetV2(params *QueriesNotificationGroup
 		PathPattern:        "/casemgmt/queries/notification-groups/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesNotificationGroupsGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1133,7 +1253,7 @@ func (a *Client) QueriesSlasGetV1(params *QueriesSlasGetV1Params, opts ...Client
 		PathPattern:        "/casemgmt/queries/slas/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesSlasGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1171,7 +1291,7 @@ func (a *Client) QueriesTemplateSnapshotsGetV1(params *QueriesTemplateSnapshotsG
 		PathPattern:        "/casemgmt/queries/template-snapshots/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesTemplateSnapshotsGetV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1209,7 +1329,7 @@ func (a *Client) QueriesTemplatesGetV1(params *QueriesTemplatesGetV1Params, opts
 		PathPattern:        "/casemgmt/queries/templates/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesTemplatesGetV1Reader{formats: a.formats},
 		Context:            params.Context,

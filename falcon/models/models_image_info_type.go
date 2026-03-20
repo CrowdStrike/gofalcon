@@ -34,6 +34,10 @@ type ModelsImageInfoType struct {
 	// Required: true
 	ID *string `json:"ID"`
 
+	// index digest
+	// Required: true
+	IndexDigest *string `json:"IndexDigest"`
+
 	// registry
 	Registry string `json:"Registry,omitempty"`
 
@@ -76,6 +80,10 @@ func (m *ModelsImageInfoType) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIndexDigest(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSize(formats); err != nil {
 		res = append(res, err)
 	}
@@ -107,6 +115,15 @@ func (m *ModelsImageInfoType) validateDigest(formats strfmt.Registry) error {
 func (m *ModelsImageInfoType) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("ID", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsImageInfoType) validateIndexDigest(formats strfmt.Registry) error {
+
+	if err := validate.Required("IndexDigest", "body", m.IndexDigest); err != nil {
 		return err
 	}
 

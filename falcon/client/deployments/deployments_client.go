@@ -49,7 +49,7 @@ func (a *Client) GetDeploymentsExternalV1(params *GetDeploymentsExternalV1Params
 		PathPattern:        "/deployment-coordinator/entities/deployments/external/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetDeploymentsExternalV1Reader{formats: a.formats},
 		Context:            params.Context,

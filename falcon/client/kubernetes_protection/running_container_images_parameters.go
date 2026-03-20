@@ -66,6 +66,9 @@ type RunningContainerImagesParams struct {
 
 	     Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `cid`
+	- `cloud_account_id`
+	- `cloud_name`
+	- `cloud_region`
 	- `cluster_id`
 	- `cluster_name`
 	- `hosts`
@@ -77,6 +80,7 @@ type RunningContainerImagesParams struct {
 	- `image_repository`
 	- `image_tag`
 	- `last_seen`
+	- `namespace`
 	- `running_status`
 	*/
 	Filter *string

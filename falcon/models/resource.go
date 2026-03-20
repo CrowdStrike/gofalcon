@@ -20,6 +20,9 @@ type Resource struct {
 	// id
 	ID []string `json:"id"`
 
+	// tags
+	Tags map[string]string `json:"tags,omitempty"`
+
 	// uuid
 	UUID []string `json:"uuid"`
 }

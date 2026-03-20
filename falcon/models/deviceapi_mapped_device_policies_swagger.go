@@ -45,6 +45,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 	// data protection
 	DataProtection *DeviceDevicePolicy `json:"data-protection,omitempty"`
 
+	// data protection cloud
+	DataProtectionCloud *DeviceDevicePolicy `json:"data-protection-cloud,omitempty"`
+
 	// device control
 	DeviceControl *DeviceDevicePolicy `json:"device_control,omitempty"`
 
@@ -152,6 +155,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateDataProtection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDataProtectionCloud(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -416,6 +423,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateDataProtection(formats st
 				return ve.ValidateName("data-protection")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("data-protection")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateDataProtectionCloud(formats strfmt.Registry) error {
+	if swag.IsZero(m.DataProtectionCloud) { // not required
+		return nil
+	}
+
+	if m.DataProtectionCloud != nil {
+		if err := m.DataProtectionCloud.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("data-protection-cloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("data-protection-cloud")
 			}
 			return err
 		}
@@ -901,6 +927,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDataProtectionCloud(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDeviceControl(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -1180,6 +1210,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateDataProtection(ctx
 				return ve.ValidateName("data-protection")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("data-protection")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateDataProtectionCloud(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DataProtectionCloud != nil {
+
+		if swag.IsZero(m.DataProtectionCloud) { // not required
+			return nil
+		}
+
+		if err := m.DataProtectionCloud.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("data-protection-cloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("data-protection-cloud")
 			}
 			return err
 		}

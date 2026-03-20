@@ -64,6 +64,22 @@ type ClientService interface {
 
 	EntitiesFileTypeGet(params *EntitiesFileTypeGetParams, opts ...ClientOption) (*EntitiesFileTypeGetOK, error)
 
+	EntitiesLocalApplicationGroupCreate(params *EntitiesLocalApplicationGroupCreateParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupCreateOK, error)
+
+	EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplicationGroupDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupDeleteOK, error)
+
+	EntitiesLocalApplicationGroupGet(params *EntitiesLocalApplicationGroupGetParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupGetOK, error)
+
+	EntitiesLocalApplicationGroupPatch(params *EntitiesLocalApplicationGroupPatchParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupPatchOK, error)
+
+	EntitiesLocalApplicationCreate(params *EntitiesLocalApplicationCreateParams, opts ...ClientOption) (*EntitiesLocalApplicationCreateOK, error)
+
+	EntitiesLocalApplicationDelete(params *EntitiesLocalApplicationDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationDeleteOK, error)
+
+	EntitiesLocalApplicationGet(params *EntitiesLocalApplicationGetParams, opts ...ClientOption) (*EntitiesLocalApplicationGetOK, error)
+
+	EntitiesLocalApplicationPatch(params *EntitiesLocalApplicationPatchParams, opts ...ClientOption) (*EntitiesLocalApplicationPatchOK, error)
+
 	EntitiesPolicyDeleteV2(params *EntitiesPolicyDeleteV2Params, opts ...ClientOption) (*EntitiesPolicyDeleteV2OK, error)
 
 	EntitiesPolicyGetV2(params *EntitiesPolicyGetV2Params, opts ...ClientOption) (*EntitiesPolicyGetV2OK, error)
@@ -71,6 +87,8 @@ type ClientService interface {
 	EntitiesPolicyPatchV2(params *EntitiesPolicyPatchV2Params, opts ...ClientOption) (*EntitiesPolicyPatchV2OK, error)
 
 	EntitiesPolicyPostV2(params *EntitiesPolicyPostV2Params, opts ...ClientOption) (*EntitiesPolicyPostV2Created, error)
+
+	EntitiesPolicyPrecedencePostV1(params *EntitiesPolicyPrecedencePostV1Params, opts ...ClientOption) (*EntitiesPolicyPrecedencePostV1OK, error)
 
 	EntitiesSensitivityLabelCreateV2(params *EntitiesSensitivityLabelCreateV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelCreateV2OK, error)
 
@@ -96,6 +114,10 @@ type ClientService interface {
 
 	QueriesFileTypeGetV2(params *QueriesFileTypeGetV2Params, opts ...ClientOption) (*QueriesFileTypeGetV2OK, error)
 
+	QueriesLocalApplicationGroupGet(params *QueriesLocalApplicationGroupGetParams, opts ...ClientOption) (*QueriesLocalApplicationGroupGetOK, error)
+
+	QueriesLocalApplicationGet(params *QueriesLocalApplicationGetParams, opts ...ClientOption) (*QueriesLocalApplicationGetOK, error)
+
 	QueriesPolicyGetV2(params *QueriesPolicyGetV2Params, opts ...ClientOption) (*QueriesPolicyGetV2OK, error)
 
 	QueriesSensitivityLabelGetV2(params *QueriesSensitivityLabelGetV2Params, opts ...ClientOption) (*QueriesSensitivityLabelGetV2OK, error)
@@ -119,7 +141,7 @@ func (a *Client) EntitiesClassificationDeleteV2(params *EntitiesClassificationDe
 		PathPattern:        "/data-protection/entities/classifications/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesClassificationDeleteV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -157,7 +179,7 @@ func (a *Client) EntitiesClassificationGetV2(params *EntitiesClassificationGetV2
 		PathPattern:        "/data-protection/entities/classifications/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesClassificationGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -195,7 +217,7 @@ func (a *Client) EntitiesClassificationPatchV2(params *EntitiesClassificationPat
 		PathPattern:        "/data-protection/entities/classifications/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesClassificationPatchV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -233,7 +255,7 @@ func (a *Client) EntitiesClassificationPostV2(params *EntitiesClassificationPost
 		PathPattern:        "/data-protection/entities/classifications/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesClassificationPostV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -271,7 +293,7 @@ func (a *Client) EntitiesCloudApplicationCreate(params *EntitiesCloudApplication
 		PathPattern:        "/data-protection/entities/cloud-applications/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesCloudApplicationCreateReader{formats: a.formats},
 		Context:            params.Context,
@@ -309,7 +331,7 @@ func (a *Client) EntitiesCloudApplicationDelete(params *EntitiesCloudApplication
 		PathPattern:        "/data-protection/entities/cloud-applications/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesCloudApplicationDeleteReader{formats: a.formats},
 		Context:            params.Context,
@@ -347,7 +369,7 @@ func (a *Client) EntitiesCloudApplicationGet(params *EntitiesCloudApplicationGet
 		PathPattern:        "/data-protection/entities/cloud-applications/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesCloudApplicationGetReader{formats: a.formats},
 		Context:            params.Context,
@@ -385,7 +407,7 @@ func (a *Client) EntitiesCloudApplicationPatch(params *EntitiesCloudApplicationP
 		PathPattern:        "/data-protection/entities/cloud-applications/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesCloudApplicationPatchReader{formats: a.formats},
 		Context:            params.Context,
@@ -423,7 +445,7 @@ func (a *Client) EntitiesContentPatternCreate(params *EntitiesContentPatternCrea
 		PathPattern:        "/data-protection/entities/content-patterns/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesContentPatternCreateReader{formats: a.formats},
 		Context:            params.Context,
@@ -461,7 +483,7 @@ func (a *Client) EntitiesContentPatternDelete(params *EntitiesContentPatternDele
 		PathPattern:        "/data-protection/entities/content-patterns/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesContentPatternDeleteReader{formats: a.formats},
 		Context:            params.Context,
@@ -499,7 +521,7 @@ func (a *Client) EntitiesContentPatternGet(params *EntitiesContentPatternGetPara
 		PathPattern:        "/data-protection/entities/content-patterns/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesContentPatternGetReader{formats: a.formats},
 		Context:            params.Context,
@@ -537,7 +559,7 @@ func (a *Client) EntitiesContentPatternPatch(params *EntitiesContentPatternPatch
 		PathPattern:        "/data-protection/entities/content-patterns/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesContentPatternPatchReader{formats: a.formats},
 		Context:            params.Context,
@@ -575,7 +597,7 @@ func (a *Client) EntitiesEnterpriseAccountCreate(params *EntitiesEnterpriseAccou
 		PathPattern:        "/data-protection/entities/enterprise-accounts/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesEnterpriseAccountCreateReader{formats: a.formats},
 		Context:            params.Context,
@@ -613,7 +635,7 @@ func (a *Client) EntitiesEnterpriseAccountDelete(params *EntitiesEnterpriseAccou
 		PathPattern:        "/data-protection/entities/enterprise-accounts/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesEnterpriseAccountDeleteReader{formats: a.formats},
 		Context:            params.Context,
@@ -651,7 +673,7 @@ func (a *Client) EntitiesEnterpriseAccountGet(params *EntitiesEnterpriseAccountG
 		PathPattern:        "/data-protection/entities/enterprise-accounts/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesEnterpriseAccountGetReader{formats: a.formats},
 		Context:            params.Context,
@@ -689,7 +711,7 @@ func (a *Client) EntitiesEnterpriseAccountPatch(params *EntitiesEnterpriseAccoun
 		PathPattern:        "/data-protection/entities/enterprise-accounts/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesEnterpriseAccountPatchReader{formats: a.formats},
 		Context:            params.Context,
@@ -727,7 +749,7 @@ func (a *Client) EntitiesFileTypeGet(params *EntitiesFileTypeGetParams, opts ...
 		PathPattern:        "/data-protection/entities/file-types/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesFileTypeGetReader{formats: a.formats},
 		Context:            params.Context,
@@ -752,6 +774,310 @@ func (a *Client) EntitiesFileTypeGet(params *EntitiesFileTypeGetParams, opts ...
 }
 
 /*
+EntitiesLocalApplicationGroupCreate persists the given local application group for the provided entity instance
+*/
+func (a *Client) EntitiesLocalApplicationGroupCreate(params *EntitiesLocalApplicationGroupCreateParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupCreateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationGroupCreateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application-group.create",
+		Method:             "POST",
+		PathPattern:        "/data-protection/entities/local-application-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationGroupCreateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationGroupCreateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application-group.create: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLocalApplicationGroupDelete softs delete local application the application won t be visible anymore but will still be in the database
+*/
+func (a *Client) EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplicationGroupDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupDeleteOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationGroupDeleteParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application-group.delete",
+		Method:             "DELETE",
+		PathPattern:        "/data-protection/entities/local-application-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationGroupDeleteReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationGroupDeleteOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application-group.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLocalApplicationGroupGet gets particular local application groups
+*/
+func (a *Client) EntitiesLocalApplicationGroupGet(params *EntitiesLocalApplicationGroupGetParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupGetOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationGroupGetParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application-group.get",
+		Method:             "GET",
+		PathPattern:        "/data-protection/entities/local-application-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationGroupGetReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationGroupGetOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application-group.get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLocalApplicationGroupPatch updates a local application group
+*/
+func (a *Client) EntitiesLocalApplicationGroupPatch(params *EntitiesLocalApplicationGroupPatchParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupPatchOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationGroupPatchParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application-group.patch",
+		Method:             "PATCH",
+		PathPattern:        "/data-protection/entities/local-application-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationGroupPatchReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationGroupPatchOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application-group.patch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLocalApplicationCreate persists the given local application for the provided entity instance
+*/
+func (a *Client) EntitiesLocalApplicationCreate(params *EntitiesLocalApplicationCreateParams, opts ...ClientOption) (*EntitiesLocalApplicationCreateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationCreateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application.create",
+		Method:             "POST",
+		PathPattern:        "/data-protection/entities/local-applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationCreateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationCreateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application.create: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLocalApplicationDelete softs delete local application the application wont be visible anymore but will still be in the database
+*/
+func (a *Client) EntitiesLocalApplicationDelete(params *EntitiesLocalApplicationDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationDeleteOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationDeleteParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application.delete",
+		Method:             "DELETE",
+		PathPattern:        "/data-protection/entities/local-applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationDeleteReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationDeleteOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLocalApplicationGet gets a particular local application
+*/
+func (a *Client) EntitiesLocalApplicationGet(params *EntitiesLocalApplicationGetParams, opts ...ClientOption) (*EntitiesLocalApplicationGetOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationGetParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application.get",
+		Method:             "GET",
+		PathPattern:        "/data-protection/entities/local-applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationGetReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationGetOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application.get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesLocalApplicationPatch updates a local application
+*/
+func (a *Client) EntitiesLocalApplicationPatch(params *EntitiesLocalApplicationPatchParams, opts ...ClientOption) (*EntitiesLocalApplicationPatchOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesLocalApplicationPatchParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.local-application.patch",
+		Method:             "PATCH",
+		PathPattern:        "/data-protection/entities/local-applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesLocalApplicationPatchReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesLocalApplicationPatchOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.local-application.patch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesPolicyDeleteV2 deletes policies that match the provided ids
 */
 func (a *Client) EntitiesPolicyDeleteV2(params *EntitiesPolicyDeleteV2Params, opts ...ClientOption) (*EntitiesPolicyDeleteV2OK, error) {
@@ -765,7 +1091,7 @@ func (a *Client) EntitiesPolicyDeleteV2(params *EntitiesPolicyDeleteV2Params, op
 		PathPattern:        "/data-protection/entities/policies/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesPolicyDeleteV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -803,7 +1129,7 @@ func (a *Client) EntitiesPolicyGetV2(params *EntitiesPolicyGetV2Params, opts ...
 		PathPattern:        "/data-protection/entities/policies/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesPolicyGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -841,7 +1167,7 @@ func (a *Client) EntitiesPolicyPatchV2(params *EntitiesPolicyPatchV2Params, opts
 		PathPattern:        "/data-protection/entities/policies/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesPolicyPatchV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -879,7 +1205,7 @@ func (a *Client) EntitiesPolicyPostV2(params *EntitiesPolicyPostV2Params, opts .
 		PathPattern:        "/data-protection/entities/policies/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesPolicyPostV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -904,6 +1230,44 @@ func (a *Client) EntitiesPolicyPostV2(params *EntitiesPolicyPostV2Params, opts .
 }
 
 /*
+EntitiesPolicyPrecedencePostV1 updates policy precedence
+*/
+func (a *Client) EntitiesPolicyPrecedencePostV1(params *EntitiesPolicyPrecedencePostV1Params, opts ...ClientOption) (*EntitiesPolicyPrecedencePostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesPolicyPrecedencePostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.policy.precedence.post.v1",
+		Method:             "POST",
+		PathPattern:        "/data-protection/entities/data-protection-precedence/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesPolicyPrecedencePostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesPolicyPrecedencePostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.policy.precedence.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesSensitivityLabelCreateV2 creates new sensitivity label v2
 */
 func (a *Client) EntitiesSensitivityLabelCreateV2(params *EntitiesSensitivityLabelCreateV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelCreateV2OK, error) {
@@ -917,7 +1281,7 @@ func (a *Client) EntitiesSensitivityLabelCreateV2(params *EntitiesSensitivityLab
 		PathPattern:        "/data-protection/entities/labels/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesSensitivityLabelCreateV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -955,7 +1319,7 @@ func (a *Client) EntitiesSensitivityLabelDeleteV2(params *EntitiesSensitivityLab
 		PathPattern:        "/data-protection/entities/labels/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesSensitivityLabelDeleteV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -993,7 +1357,7 @@ func (a *Client) EntitiesSensitivityLabelGetV2(params *EntitiesSensitivityLabelG
 		PathPattern:        "/data-protection/entities/labels/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesSensitivityLabelGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1031,7 +1395,7 @@ func (a *Client) EntitiesWebLocationCreateV2(params *EntitiesWebLocationCreateV2
 		PathPattern:        "/data-protection/entities/web-locations/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesWebLocationCreateV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1069,7 +1433,7 @@ func (a *Client) EntitiesWebLocationDeleteV2(params *EntitiesWebLocationDeleteV2
 		PathPattern:        "/data-protection/entities/web-locations/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesWebLocationDeleteV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1107,7 +1471,7 @@ func (a *Client) EntitiesWebLocationGetV2(params *EntitiesWebLocationGetV2Params
 		PathPattern:        "/data-protection/entities/web-locations/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesWebLocationGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1145,7 +1509,7 @@ func (a *Client) EntitiesWebLocationPatchV2(params *EntitiesWebLocationPatchV2Pa
 		PathPattern:        "/data-protection/entities/web-locations/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &EntitiesWebLocationPatchV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1183,7 +1547,7 @@ func (a *Client) QueriesClassificationGetV2(params *QueriesClassificationGetV2Pa
 		PathPattern:        "/data-protection/queries/classifications/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesClassificationGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1221,7 +1585,7 @@ func (a *Client) QueriesCloudApplicationGetV2(params *QueriesCloudApplicationGet
 		PathPattern:        "/data-protection/queries/cloud-applications/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesCloudApplicationGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1259,7 +1623,7 @@ func (a *Client) QueriesContentPatternGetV2(params *QueriesContentPatternGetV2Pa
 		PathPattern:        "/data-protection/queries/content-patterns/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesContentPatternGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1297,7 +1661,7 @@ func (a *Client) QueriesEnterpriseAccountGetV2(params *QueriesEnterpriseAccountG
 		PathPattern:        "/data-protection/queries/enterprise-accounts/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesEnterpriseAccountGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1335,7 +1699,7 @@ func (a *Client) QueriesFileTypeGetV2(params *QueriesFileTypeGetV2Params, opts .
 		PathPattern:        "/data-protection/queries/file-types/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesFileTypeGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1360,6 +1724,82 @@ func (a *Client) QueriesFileTypeGetV2(params *QueriesFileTypeGetV2Params, opts .
 }
 
 /*
+QueriesLocalApplicationGroupGet gets all local application group i ds matching the query with filter
+*/
+func (a *Client) QueriesLocalApplicationGroupGet(params *QueriesLocalApplicationGroupGetParams, opts ...ClientOption) (*QueriesLocalApplicationGroupGetOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesLocalApplicationGroupGetParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queries.local-application-group.get",
+		Method:             "GET",
+		PathPattern:        "/data-protection/queries/local-application-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QueriesLocalApplicationGroupGetReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesLocalApplicationGroupGetOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queries.local-application-group.get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueriesLocalApplicationGet gets all local application i ds matching the query with filter
+*/
+func (a *Client) QueriesLocalApplicationGet(params *QueriesLocalApplicationGetParams, opts ...ClientOption) (*QueriesLocalApplicationGetOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesLocalApplicationGetParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queries.local-application.get",
+		Method:             "GET",
+		PathPattern:        "/data-protection/queries/local-applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QueriesLocalApplicationGetReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesLocalApplicationGetOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queries.local-application.get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueriesPolicyGetV2 searches for policies that match the provided criteria
 */
 func (a *Client) QueriesPolicyGetV2(params *QueriesPolicyGetV2Params, opts ...ClientOption) (*QueriesPolicyGetV2OK, error) {
@@ -1373,7 +1813,7 @@ func (a *Client) QueriesPolicyGetV2(params *QueriesPolicyGetV2Params, opts ...Cl
 		PathPattern:        "/data-protection/queries/policies/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesPolicyGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1411,7 +1851,7 @@ func (a *Client) QueriesSensitivityLabelGetV2(params *QueriesSensitivityLabelGet
 		PathPattern:        "/data-protection/queries/labels/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesSensitivityLabelGetV2Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1449,7 +1889,7 @@ func (a *Client) QueriesWebLocationGetV2(params *QueriesWebLocationGetV2Params, 
 		PathPattern:        "/data-protection/queries/web-locations/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &QueriesWebLocationGetV2Reader{formats: a.formats},
 		Context:            params.Context,

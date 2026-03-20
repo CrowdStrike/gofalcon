@@ -30,6 +30,10 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	BulkInstallParsers(params *BulkInstallParsersParams, opts ...ClientOption) (*BulkInstallParsersOK, error)
+
+	CloneParser(params *CloneParserParams, opts ...ClientOption) (*CloneParserOK, error)
+
 	CreateDashboardFromTemplate(params *CreateDashboardFromTemplateParams, opts ...ClientOption) (*CreateDashboardFromTemplateOK, error)
 
 	CreateLookupFile(params *CreateLookupFileParams, opts ...ClientOption) (*CreateLookupFileOK, error)
@@ -48,7 +52,11 @@ type ClientService interface {
 
 	DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...ClientOption) (*DeleteSavedQueryOK, error)
 
+	ExternalCreateConnectorConfig(params *ExternalCreateConnectorConfigParams, opts ...ClientOption) (*ExternalCreateConnectorConfigCreated, error)
+
 	ExternalCreateDataConnection(params *ExternalCreateDataConnectionParams, opts ...ClientOption) (*ExternalCreateDataConnectionCreated, error)
+
+	ExternalDeleteConnectorConfigs(params *ExternalDeleteConnectorConfigsParams, opts ...ClientOption) (*ExternalDeleteConnectorConfigsOK, error)
 
 	ExternalDeleteDataConnection(params *ExternalDeleteDataConnectionParams, opts ...ClientOption) (*ExternalDeleteDataConnectionOK, error)
 
@@ -63,6 +71,8 @@ type ClientService interface {
 	ExternalListDataConnections(params *ExternalListDataConnectionsParams, opts ...ClientOption) (*ExternalListDataConnectionsOK, error)
 
 	ExternalListDataConnectors(params *ExternalListDataConnectorsParams, opts ...ClientOption) (*ExternalListDataConnectorsOK, error)
+
+	ExternalPatchConnectorConfig(params *ExternalPatchConnectorConfigParams, opts ...ClientOption) (*ExternalPatchConnectorConfigOK, error)
 
 	ExternalRegenerateDataConnectionToken(params *ExternalRegenerateDataConnectionTokenParams, opts ...ClientOption) (*ExternalRegenerateDataConnectionTokenOK, *ExternalRegenerateDataConnectionTokenAccepted, error)
 
@@ -88,6 +98,8 @@ type ClientService interface {
 
 	GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...ClientOption) (*GetSearchStatusV1OK, error)
 
+	InstallParser(params *InstallParserParams, opts ...ClientOption) (*InstallParserOK, error)
+
 	ListDashboards(params *ListDashboardsParams, opts ...ClientOption) (*ListDashboardsOK, error)
 
 	ListLookupFiles(params *ListLookupFilesParams, opts ...ClientOption) (*ListLookupFilesOK, error)
@@ -100,6 +112,8 @@ type ClientService interface {
 
 	StopSearchV1(params *StopSearchV1Params, opts ...ClientOption) (*StopSearchV1OK, error)
 
+	TestParserFromTemplate(params *TestParserFromTemplateParams, opts ...ClientOption) (*TestParserFromTemplateOK, error)
+
 	UpdateDashboardFromTemplate(params *UpdateDashboardFromTemplateParams, opts ...ClientOption) (*UpdateDashboardFromTemplateOK, error)
 
 	UpdateLookupFile(params *UpdateLookupFileParams, opts ...ClientOption) (*UpdateLookupFileOK, error)
@@ -108,6 +122,8 @@ type ClientService interface {
 
 	UpdateParser(params *UpdateParserParams, opts ...ClientOption) (*UpdateParserOK, error)
 
+	UpdateParserAutoUpdatePolicy(params *UpdateParserAutoUpdatePolicyParams, opts ...ClientOption) (*UpdateParserAutoUpdatePolicyOK, error)
+
 	UpdateParserFromTemplate(params *UpdateParserFromTemplateParams, opts ...ClientOption) (*UpdateParserFromTemplateOK, error)
 
 	UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error)
@@ -115,6 +131,82 @@ type ClientService interface {
 	UploadLookupV1(params *UploadLookupV1Params, opts ...ClientOption) (*UploadLookupV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+BulkInstallParsers installs multiple crowd strike managed out of the box o o t b parsers into the customer s repository in a single operation this endpoint provisions multiple pre built parsers with their specific versions for the requesting customer ID c ID the parsers are installed as is and cannot be modified by the customer requires an array of parsers with parser id and version in the request body maximum 100 parsers per request
+*/
+func (a *Client) BulkInstallParsers(params *BulkInstallParsersParams, opts ...ClientOption) (*BulkInstallParsersOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkInstallParsersParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkInstallParsers",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers/bulk-install/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkInstallParsersReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkInstallParsersOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkInstallParsers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloneParser clones an existing parser with a new name
+*/
+func (a *Client) CloneParser(params *CloneParserParams, opts ...ClientOption) (*CloneParserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloneParserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CloneParser",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers-clone/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloneParserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloneParserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CloneParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -131,7 +223,7 @@ func (a *Client) CreateDashboardFromTemplate(params *CreateDashboardFromTemplate
 		PathPattern:        "/ngsiem-content/entities/dashboards-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateDashboardFromTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -169,7 +261,7 @@ func (a *Client) CreateLookupFile(params *CreateLookupFileParams, opts ...Client
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateLookupFileReader{formats: a.formats},
 		Context:            params.Context,
@@ -207,7 +299,7 @@ func (a *Client) CreateParser(params *CreateParserParams, opts ...ClientOption) 
 		PathPattern:        "/ngsiem-content/entities/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateParserReader{formats: a.formats},
 		Context:            params.Context,
@@ -245,7 +337,7 @@ func (a *Client) CreateParserFromTemplate(params *CreateParserFromTemplateParams
 		PathPattern:        "/ngsiem-content/entities/parsers-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateParserFromTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -283,7 +375,7 @@ func (a *Client) CreateSavedQuery(params *CreateSavedQueryParams, opts ...Client
 		PathPattern:        "/ngsiem-content/entities/savedqueries-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &CreateSavedQueryReader{formats: a.formats},
 		Context:            params.Context,
@@ -321,7 +413,7 @@ func (a *Client) DeleteDashboard(params *DeleteDashboardParams, opts ...ClientOp
 		PathPattern:        "/ngsiem-content/entities/dashboards/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteDashboardReader{formats: a.formats},
 		Context:            params.Context,
@@ -359,7 +451,7 @@ func (a *Client) DeleteLookupFile(params *DeleteLookupFileParams, opts ...Client
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteLookupFileReader{formats: a.formats},
 		Context:            params.Context,
@@ -397,7 +489,7 @@ func (a *Client) DeleteParser(params *DeleteParserParams, opts ...ClientOption) 
 		PathPattern:        "/ngsiem-content/entities/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteParserReader{formats: a.formats},
 		Context:            params.Context,
@@ -435,7 +527,7 @@ func (a *Client) DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...Client
 		PathPattern:        "/ngsiem-content/entities/savedqueries/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &DeleteSavedQueryReader{formats: a.formats},
 		Context:            params.Context,
@@ -460,6 +552,44 @@ func (a *Client) DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...Client
 }
 
 /*
+ExternalCreateConnectorConfig creates a new configuration for a data connector
+*/
+func (a *Client) ExternalCreateConnectorConfig(params *ExternalCreateConnectorConfigParams, opts ...ClientOption) (*ExternalCreateConnectorConfigCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalCreateConnectorConfigParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalCreateConnectorConfig",
+		Method:             "POST",
+		PathPattern:        "/ngsiem/entities/connectors/configs/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ExternalCreateConnectorConfigReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalCreateConnectorConfigCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalCreateConnectorConfig: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ExternalCreateDataConnection creates a new data connection
 */
 func (a *Client) ExternalCreateDataConnection(params *ExternalCreateDataConnectionParams, opts ...ClientOption) (*ExternalCreateDataConnectionCreated, error) {
@@ -473,7 +603,7 @@ func (a *Client) ExternalCreateDataConnection(params *ExternalCreateDataConnecti
 		PathPattern:        "/ngsiem/entities/connections/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalCreateDataConnectionReader{formats: a.formats},
 		Context:            params.Context,
@@ -498,6 +628,44 @@ func (a *Client) ExternalCreateDataConnection(params *ExternalCreateDataConnecti
 }
 
 /*
+ExternalDeleteConnectorConfigs deletes data connection config
+*/
+func (a *Client) ExternalDeleteConnectorConfigs(params *ExternalDeleteConnectorConfigsParams, opts ...ClientOption) (*ExternalDeleteConnectorConfigsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalDeleteConnectorConfigsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalDeleteConnectorConfigs",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem/entities/connectors/configs/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ExternalDeleteConnectorConfigsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalDeleteConnectorConfigsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalDeleteConnectorConfigs: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ExternalDeleteDataConnection deletes a data connection
 */
 func (a *Client) ExternalDeleteDataConnection(params *ExternalDeleteDataConnectionParams, opts ...ClientOption) (*ExternalDeleteDataConnectionOK, error) {
@@ -511,7 +679,7 @@ func (a *Client) ExternalDeleteDataConnection(params *ExternalDeleteDataConnecti
 		PathPattern:        "/ngsiem/entities/connections/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalDeleteDataConnectionReader{formats: a.formats},
 		Context:            params.Context,
@@ -549,7 +717,7 @@ func (a *Client) ExternalGetDataConnectionByID(params *ExternalGetDataConnection
 		PathPattern:        "/ngsiem/entities/connections/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalGetDataConnectionByIDReader{formats: a.formats},
 		Context:            params.Context,
@@ -587,7 +755,7 @@ func (a *Client) ExternalGetDataConnectionStatus(params *ExternalGetDataConnecti
 		PathPattern:        "/ngsiem/entities/connections/status/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalGetDataConnectionStatusReader{formats: a.formats},
 		Context:            params.Context,
@@ -625,7 +793,7 @@ func (a *Client) ExternalGetDataConnectionToken(params *ExternalGetDataConnectio
 		PathPattern:        "/ngsiem/entities/connections/token/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalGetDataConnectionTokenReader{formats: a.formats},
 		Context:            params.Context,
@@ -664,7 +832,7 @@ func (a *Client) ExternalListConnectorConfigs(params *ExternalListConnectorConfi
 		PathPattern:        "/ngsiem/entities/connectors/configs/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalListConnectorConfigsReader{formats: a.formats},
 		Context:            params.Context,
@@ -702,7 +870,7 @@ func (a *Client) ExternalListDataConnections(params *ExternalListDataConnections
 		PathPattern:        "/ngsiem/combined/connections/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalListDataConnectionsReader{formats: a.formats},
 		Context:            params.Context,
@@ -740,7 +908,7 @@ func (a *Client) ExternalListDataConnectors(params *ExternalListDataConnectorsPa
 		PathPattern:        "/ngsiem/combined/connectors/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalListDataConnectorsReader{formats: a.formats},
 		Context:            params.Context,
@@ -765,6 +933,44 @@ func (a *Client) ExternalListDataConnectors(params *ExternalListDataConnectorsPa
 }
 
 /*
+ExternalPatchConnectorConfig patches configurations for a data connector
+*/
+func (a *Client) ExternalPatchConnectorConfig(params *ExternalPatchConnectorConfigParams, opts ...ClientOption) (*ExternalPatchConnectorConfigOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExternalPatchConnectorConfigParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExternalPatchConnectorConfig",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem/entities/connectors/configs/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ExternalPatchConnectorConfigReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExternalPatchConnectorConfigOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExternalPatchConnectorConfig: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ExternalRegenerateDataConnectionToken regenerates ingest token for data connection
 */
 func (a *Client) ExternalRegenerateDataConnectionToken(params *ExternalRegenerateDataConnectionTokenParams, opts ...ClientOption) (*ExternalRegenerateDataConnectionTokenOK, *ExternalRegenerateDataConnectionTokenAccepted, error) {
@@ -778,7 +984,7 @@ func (a *Client) ExternalRegenerateDataConnectionToken(params *ExternalRegenerat
 		PathPattern:        "/ngsiem/entities/connections/token/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalRegenerateDataConnectionTokenReader{formats: a.formats},
 		Context:            params.Context,
@@ -817,7 +1023,7 @@ func (a *Client) ExternalUpdateDataConnection(params *ExternalUpdateDataConnecti
 		PathPattern:        "/ngsiem/entities/connections/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalUpdateDataConnectionReader{formats: a.formats},
 		Context:            params.Context,
@@ -855,7 +1061,7 @@ func (a *Client) ExternalUpdateDataConnectionStatus(params *ExternalUpdateDataCo
 		PathPattern:        "/ngsiem/entities/connections/status/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ExternalUpdateDataConnectionStatusReader{formats: a.formats},
 		Context:            params.Context,
@@ -893,7 +1099,7 @@ func (a *Client) GetDashboardTemplate(params *GetDashboardTemplateParams, opts .
 		PathPattern:        "/ngsiem-content/entities/dashboards-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetDashboardTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -931,7 +1137,7 @@ func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetLookupFileReader{formats: a.formats},
 		Context:            params.Context,
@@ -969,7 +1175,7 @@ func (a *Client) GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, op
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{package}/{filename}",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetLookupFromPackageV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1007,7 +1213,7 @@ func (a *Client) GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackag
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetLookupFromPackageWithNamespaceV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1045,7 +1251,7 @@ func (a *Client) GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files/{filename}",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetLookupV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1083,7 +1289,7 @@ func (a *Client) GetParser(params *GetParserParams, opts ...ClientOption) (*GetP
 		PathPattern:        "/ngsiem-content/entities/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetParserReader{formats: a.formats},
 		Context:            params.Context,
@@ -1121,7 +1327,7 @@ func (a *Client) GetParserTemplate(params *GetParserTemplateParams, opts ...Clie
 		PathPattern:        "/ngsiem-content/entities/parsers-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetParserTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -1159,7 +1365,7 @@ func (a *Client) GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts
 		PathPattern:        "/ngsiem-content/entities/savedqueries-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetSavedQueryTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -1197,7 +1403,7 @@ func (a *Client) GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...Clie
 		PathPattern:        "/humio/api/v1/repositories/{repository}/queryjobs/{id}",
 		ProducesMediaTypes: []string{"application/json", "application/x-ndjson", "text/html", "text/plain"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &GetSearchStatusV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1222,6 +1428,44 @@ func (a *Client) GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...Clie
 }
 
 /*
+InstallParser installs a crowd strike managed out of the box o o t b parser into the customer s repository this endpoint provisions a pre built parser with a specific version for the requesting customer ID c ID the parser is installed as is and cannot be modified by the customer requires parser id and version in the request body
+*/
+func (a *Client) InstallParser(params *InstallParserParams, opts ...ClientOption) (*InstallParserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewInstallParserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "InstallParser",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers/install/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &InstallParserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*InstallParserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for InstallParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ListDashboards lists dashboards in n g s i e m
 */
 func (a *Client) ListDashboards(params *ListDashboardsParams, opts ...ClientOption) (*ListDashboardsOK, error) {
@@ -1235,7 +1479,7 @@ func (a *Client) ListDashboards(params *ListDashboardsParams, opts ...ClientOpti
 		PathPattern:        "/ngsiem-content/queries/dashboards/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ListDashboardsReader{formats: a.formats},
 		Context:            params.Context,
@@ -1273,7 +1517,7 @@ func (a *Client) ListLookupFiles(params *ListLookupFilesParams, opts ...ClientOp
 		PathPattern:        "/ngsiem-content/queries/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ListLookupFilesReader{formats: a.formats},
 		Context:            params.Context,
@@ -1311,7 +1555,7 @@ func (a *Client) ListParsers(params *ListParsersParams, opts ...ClientOption) (*
 		PathPattern:        "/ngsiem-content/queries/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ListParsersReader{formats: a.formats},
 		Context:            params.Context,
@@ -1349,7 +1593,7 @@ func (a *Client) ListSavedQueries(params *ListSavedQueriesParams, opts ...Client
 		PathPattern:        "/ngsiem-content/queries/savedqueries/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &ListSavedQueriesReader{formats: a.formats},
 		Context:            params.Context,
@@ -1387,7 +1631,7 @@ func (a *Client) StartSearchV1(params *StartSearchV1Params, opts ...ClientOption
 		PathPattern:        "/humio/api/v1/repositories/{repository}/queryjobs",
 		ProducesMediaTypes: []string{"application/json", "text/html", "text/plain"},
 		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &StartSearchV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1425,7 +1669,7 @@ func (a *Client) StopSearchV1(params *StopSearchV1Params, opts ...ClientOption) 
 		PathPattern:        "/humio/api/v1/repositories/{repository}/queryjobs/{id}",
 		ProducesMediaTypes: []string{"*/*", "application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &StopSearchV1Reader{formats: a.formats},
 		Context:            params.Context,
@@ -1450,6 +1694,44 @@ func (a *Client) StopSearchV1(params *StopSearchV1Params, opts ...ClientOption) 
 }
 
 /*
+TestParserFromTemplate tests parser from log scale y a m l template in n g s i e m
+*/
+func (a *Client) TestParserFromTemplate(params *TestParserFromTemplateParams, opts ...ClientOption) (*TestParserFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewTestParserFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "TestParserFromTemplate",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers-template-test/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &TestParserFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*TestParserFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for TestParserFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 UpdateDashboardFromTemplate updates dashboard from log scale y a m l template in n g s i e m
 */
 func (a *Client) UpdateDashboardFromTemplate(params *UpdateDashboardFromTemplateParams, opts ...ClientOption) (*UpdateDashboardFromTemplateOK, error) {
@@ -1463,7 +1745,7 @@ func (a *Client) UpdateDashboardFromTemplate(params *UpdateDashboardFromTemplate
 		PathPattern:        "/ngsiem-content/entities/dashboards-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateDashboardFromTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -1501,7 +1783,7 @@ func (a *Client) UpdateLookupFile(params *UpdateLookupFileParams, opts ...Client
 		PathPattern:        "/ngsiem-content/entities/lookupfiles/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateLookupFileReader{formats: a.formats},
 		Context:            params.Context,
@@ -1539,7 +1821,7 @@ func (a *Client) UpdateLookupFileEntries(params *UpdateLookupFileEntriesParams, 
 		PathPattern:        "/ngsiem-content/entities/lookupfiles-entries/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateLookupFileEntriesReader{formats: a.formats},
 		Context:            params.Context,
@@ -1577,7 +1859,7 @@ func (a *Client) UpdateParser(params *UpdateParserParams, opts ...ClientOption) 
 		PathPattern:        "/ngsiem-content/entities/parsers/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateParserReader{formats: a.formats},
 		Context:            params.Context,
@@ -1602,6 +1884,44 @@ func (a *Client) UpdateParser(params *UpdateParserParams, opts ...ClientOption) 
 }
 
 /*
+UpdateParserAutoUpdatePolicy updates a parser auto update policy on enables auto updates off disables them
+*/
+func (a *Client) UpdateParserAutoUpdatePolicy(params *UpdateParserAutoUpdatePolicyParams, opts ...ClientOption) (*UpdateParserAutoUpdatePolicyOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateParserAutoUpdatePolicyParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateParserAutoUpdatePolicy",
+		Method:             "PUT",
+		PathPattern:        "/ngsiem-content/entities/parsers/autoupdate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateParserAutoUpdatePolicyReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateParserAutoUpdatePolicyOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateParserAutoUpdatePolicy: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 UpdateParserFromTemplate updates parser in n g s i e m from y a m l template please note that name changes are not supported but rather should be created as a new parser
 */
 func (a *Client) UpdateParserFromTemplate(params *UpdateParserFromTemplateParams, opts ...ClientOption) (*UpdateParserFromTemplateOK, error) {
@@ -1615,7 +1935,7 @@ func (a *Client) UpdateParserFromTemplate(params *UpdateParserFromTemplateParams
 		PathPattern:        "/ngsiem-content/entities/parsers-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateParserFromTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -1653,7 +1973,7 @@ func (a *Client) UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTempla
 		PathPattern:        "/ngsiem-content/entities/savedqueries-template/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UpdateSavedQueryFromTemplateReader{formats: a.formats},
 		Context:            params.Context,
@@ -1691,7 +2011,7 @@ func (a *Client) UploadLookupV1(params *UploadLookupV1Params, opts ...ClientOpti
 		PathPattern:        "/humio/api/v1/repositories/{repository}/files",
 		ProducesMediaTypes: []string{"*/*", "application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
+		Schemes:            []string{"http", "https"},
 		Params:             params,
 		Reader:             &UploadLookupV1Reader{formats: a.formats},
 		Context:            params.Context,

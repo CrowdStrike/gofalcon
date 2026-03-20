@@ -52,7 +52,7 @@ type ModelsInventoryType struct {
 
 	// manifest
 	// Required: true
-	Manifest *Schema2Manifest `json:"Manifest"`
+	Manifest *V1Manifest `json:"Manifest"`
 
 	// o s info
 	// Required: true

@@ -55,6 +55,9 @@ type APICloudApplicationV1 struct {
 	// plugin definition id
 	PluginDefinitionID string `json:"plugin_definition_id,omitempty"`
 
+	// supports network inspection
+	SupportsNetworkInspection bool `json:"supports_network_inspection,omitempty"`
+
 	// urls
 	// Required: true
 	Urls []*APIWebAppURL `json:"urls"`

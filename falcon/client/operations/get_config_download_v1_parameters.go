@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetConfigDownloadV1Params creates a new GetConfigDownloadV1Params object,
@@ -61,17 +62,23 @@ GetConfigDownloadV1Params contains all the parameters to send to the API endpoin
 */
 type GetConfigDownloadV1Params struct {
 
+	/* CollectionTag.
+
+	   Configuration Collection Tag
+	*/
+	CollectionTag *string
+
 	/* ID.
 
 	   Configuration ID
 	*/
 	ID string
 
-	/* Tag.
+	/* SelfDestruct.
 
-	   Configuration Collection Tag
+	   Self-Destruct config
 	*/
-	Tag *string
+	SelfDestruct *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -126,6 +133,17 @@ func (o *GetConfigDownloadV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithCollectionTag adds the collectionTag to the get config download v1 params
+func (o *GetConfigDownloadV1Params) WithCollectionTag(collectionTag *string) *GetConfigDownloadV1Params {
+	o.SetCollectionTag(collectionTag)
+	return o
+}
+
+// SetCollectionTag adds the collectionTag to the get config download v1 params
+func (o *GetConfigDownloadV1Params) SetCollectionTag(collectionTag *string) {
+	o.CollectionTag = collectionTag
+}
+
 // WithID adds the id to the get config download v1 params
 func (o *GetConfigDownloadV1Params) WithID(id string) *GetConfigDownloadV1Params {
 	o.SetID(id)
@@ -137,15 +155,15 @@ func (o *GetConfigDownloadV1Params) SetID(id string) {
 	o.ID = id
 }
 
-// WithTag adds the tag to the get config download v1 params
-func (o *GetConfigDownloadV1Params) WithTag(tag *string) *GetConfigDownloadV1Params {
-	o.SetTag(tag)
+// WithSelfDestruct adds the selfDestruct to the get config download v1 params
+func (o *GetConfigDownloadV1Params) WithSelfDestruct(selfDestruct *bool) *GetConfigDownloadV1Params {
+	o.SetSelfDestruct(selfDestruct)
 	return o
 }
 
-// SetTag adds the tag to the get config download v1 params
-func (o *GetConfigDownloadV1Params) SetTag(tag *string) {
-	o.Tag = tag
+// SetSelfDestruct adds the selfDestruct to the get config download v1 params
+func (o *GetConfigDownloadV1Params) SetSelfDestruct(selfDestruct *bool) {
+	o.SelfDestruct = selfDestruct
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -155,6 +173,23 @@ func (o *GetConfigDownloadV1Params) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	if o.CollectionTag != nil {
+
+		// query param collection_tag
+		var qrCollectionTag string
+
+		if o.CollectionTag != nil {
+			qrCollectionTag = *o.CollectionTag
+		}
+		qCollectionTag := qrCollectionTag
+		if qCollectionTag != "" {
+
+			if err := r.SetQueryParam("collection_tag", qCollectionTag); err != nil {
+				return err
+			}
+		}
+	}
 
 	// query param id
 	qrID := o.ID
@@ -166,18 +201,18 @@ func (o *GetConfigDownloadV1Params) WriteToRequest(r runtime.ClientRequest, reg 
 		}
 	}
 
-	if o.Tag != nil {
+	if o.SelfDestruct != nil {
 
-		// query param tag
-		var qrTag string
+		// query param self_destruct
+		var qrSelfDestruct bool
 
-		if o.Tag != nil {
-			qrTag = *o.Tag
+		if o.SelfDestruct != nil {
+			qrSelfDestruct = *o.SelfDestruct
 		}
-		qTag := qrTag
-		if qTag != "" {
+		qSelfDestruct := swag.FormatBool(qrSelfDestruct)
+		if qSelfDestruct != "" {
 
-			if err := r.SetQueryParam("tag", qTag); err != nil {
+			if err := r.SetQueryParam("self_destruct", qSelfDestruct); err != nil {
 				return err
 			}
 		}

@@ -23,6 +23,10 @@ type SdkEvidenceVM struct {
 	// Required: true
 	Alerts *SdkAlertEvidenceVM `json:"alerts"`
 
+	// custom evidence
+	// Required: true
+	CustomEvidence *SdkCustomEvidenceVM `json:"custom_evidence"`
+
 	// events
 	// Required: true
 	Events *SdkEventEvidenceVM `json:"events"`
@@ -37,6 +41,10 @@ func (m *SdkEvidenceVM) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAlerts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCustomEvidence(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -66,6 +74,26 @@ func (m *SdkEvidenceVM) validateAlerts(formats strfmt.Registry) error {
 				return ve.ValidateName("alerts")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("alerts")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) validateCustomEvidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("custom_evidence", "body", m.CustomEvidence); err != nil {
+		return err
+	}
+
+	if m.CustomEvidence != nil {
+		if err := m.CustomEvidence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("custom_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("custom_evidence")
 			}
 			return err
 		}
@@ -122,6 +150,10 @@ func (m *SdkEvidenceVM) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCustomEvidence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateEvents(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -145,6 +177,23 @@ func (m *SdkEvidenceVM) contextValidateAlerts(ctx context.Context, formats strfm
 				return ve.ValidateName("alerts")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("alerts")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) contextValidateCustomEvidence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CustomEvidence != nil {
+
+		if err := m.CustomEvidence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("custom_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("custom_evidence")
 			}
 			return err
 		}

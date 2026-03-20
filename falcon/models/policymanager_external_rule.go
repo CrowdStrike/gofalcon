@@ -40,6 +40,10 @@ type PolicymanagerExternalRule struct {
 	// Enum: [informational low medium high critical]
 	DetectionSeverity *string `json:"detection_severity"`
 
+	// enable local application groups
+	// Required: true
+	EnableLocalApplicationGroups *bool `json:"enable_local_application_groups"`
+
 	// enable printer egress
 	// Required: true
 	EnablePrinterEgress *bool `json:"enable_printer_egress"`
@@ -55,6 +59,10 @@ type PolicymanagerExternalRule struct {
 	// id
 	// Required: true
 	ID *string `json:"id"`
+
+	// List of local application groups. Maximum of 15 unique UUID groups are allowed
+	// Required: true
+	LocalApplicationGroups []string `json:"local_application_groups"`
 
 	// modified time stamp
 	ModifiedTimeStamp string `json:"modified_time_stamp,omitempty"`
@@ -107,6 +115,10 @@ func (m *PolicymanagerExternalRule) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateEnableLocalApplicationGroups(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEnablePrinterEgress(formats); err != nil {
 		res = append(res, err)
 	}
@@ -120,6 +132,10 @@ func (m *PolicymanagerExternalRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLocalApplicationGroups(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -232,6 +248,15 @@ func (m *PolicymanagerExternalRule) validateDetectionSeverity(formats strfmt.Reg
 	return nil
 }
 
+func (m *PolicymanagerExternalRule) validateEnableLocalApplicationGroups(formats strfmt.Registry) error {
+
+	if err := validate.Required("enable_local_application_groups", "body", m.EnableLocalApplicationGroups); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *PolicymanagerExternalRule) validateEnablePrinterEgress(formats strfmt.Registry) error {
 
 	if err := validate.Required("enable_printer_egress", "body", m.EnablePrinterEgress); err != nil {
@@ -262,6 +287,15 @@ func (m *PolicymanagerExternalRule) validateEnableWebLocations(formats strfmt.Re
 func (m *PolicymanagerExternalRule) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PolicymanagerExternalRule) validateLocalApplicationGroups(formats strfmt.Registry) error {
+
+	if err := validate.Required("local_application_groups", "body", m.LocalApplicationGroups); err != nil {
 		return err
 	}
 

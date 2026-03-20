@@ -54,6 +54,9 @@ type DomainCloudAWSAccountV1 struct {
 	// cid
 	Cid string `json:"cid,omitempty"`
 
+	// cloud registration enabled
+	CloudRegistrationEnabled bool `json:"cloud_registration_enabled,omitempty"`
+
 	// cloudformation stack arn
 	CloudformationStackArn string `json:"cloudformation_stack_arn,omitempty"`
 

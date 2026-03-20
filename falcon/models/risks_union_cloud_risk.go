@@ -58,9 +58,8 @@ type RisksUnionCloudRisk struct {
 	// Required: true
 	CloudGroups []string `json:"cloud_groups"`
 
-	// comment
-	// Required: true
-	Comment []*RiskComments `json:"comment"`
+	// comments
+	Comments []*RiskComments `json:"comments"`
 
 	// crn
 	// Required: true
@@ -121,10 +120,6 @@ type RisksUnionCloudRisk struct {
 	// Required: true
 	Severity *string `json:"severity"`
 
-	// silent
-	// Required: true
-	Silent *bool `json:"silent"`
-
 	// status
 	// Required: true
 	Status *string `json:"status"`
@@ -169,7 +164,7 @@ func (m *RisksUnionCloudRisk) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateComment(formats); err != nil {
+	if err := m.validateComments(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -222,10 +217,6 @@ func (m *RisksUnionCloudRisk) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSeverity(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSilent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -315,23 +306,22 @@ func (m *RisksUnionCloudRisk) validateCloudGroups(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *RisksUnionCloudRisk) validateComment(formats strfmt.Registry) error {
-
-	if err := validate.Required("comment", "body", m.Comment); err != nil {
-		return err
+func (m *RisksUnionCloudRisk) validateComments(formats strfmt.Registry) error {
+	if swag.IsZero(m.Comments) { // not required
+		return nil
 	}
 
-	for i := 0; i < len(m.Comment); i++ {
-		if swag.IsZero(m.Comment[i]) { // not required
+	for i := 0; i < len(m.Comments); i++ {
+		if swag.IsZero(m.Comments[i]) { // not required
 			continue
 		}
 
-		if m.Comment[i] != nil {
-			if err := m.Comment[i].Validate(formats); err != nil {
+		if m.Comments[i] != nil {
+			if err := m.Comments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("comment" + "." + strconv.Itoa(i))
+					return ve.ValidateName("comments" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("comment" + "." + strconv.Itoa(i))
+					return ce.ValidateName("comments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -469,15 +459,6 @@ func (m *RisksUnionCloudRisk) validateSeverity(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *RisksUnionCloudRisk) validateSilent(formats strfmt.Registry) error {
-
-	if err := validate.Required("silent", "body", m.Silent); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *RisksUnionCloudRisk) validateStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
@@ -510,7 +491,7 @@ func (m *RisksUnionCloudRisk) validateSuppression(formats strfmt.Registry) error
 func (m *RisksUnionCloudRisk) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateComment(ctx, formats); err != nil {
+	if err := m.contextValidateComments(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -524,21 +505,21 @@ func (m *RisksUnionCloudRisk) ContextValidate(ctx context.Context, formats strfm
 	return nil
 }
 
-func (m *RisksUnionCloudRisk) contextValidateComment(ctx context.Context, formats strfmt.Registry) error {
+func (m *RisksUnionCloudRisk) contextValidateComments(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.Comment); i++ {
+	for i := 0; i < len(m.Comments); i++ {
 
-		if m.Comment[i] != nil {
+		if m.Comments[i] != nil {
 
-			if swag.IsZero(m.Comment[i]) { // not required
+			if swag.IsZero(m.Comments[i]) { // not required
 				return nil
 			}
 
-			if err := m.Comment[i].ContextValidate(ctx, formats); err != nil {
+			if err := m.Comments[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("comment" + "." + strconv.Itoa(i))
+					return ve.ValidateName("comments" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("comment" + "." + strconv.Itoa(i))
+					return ce.ValidateName("comments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

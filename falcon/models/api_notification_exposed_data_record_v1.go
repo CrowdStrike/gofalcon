@@ -99,6 +99,9 @@ type APINotificationExposedDataRecordV1 struct {
 	// Information of the bot malware family
 	MalwareFamily string `json:"malware_family,omitempty"`
 
+	// The thread group ID of the parent notification associated with this entity
+	NotificationGroupID string `json:"notification_group_id,omitempty"`
+
 	// The ID of the parent notification associated with this entity
 	// Required: true
 	NotificationID *string `json:"notification_id"`

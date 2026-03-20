@@ -24,7 +24,7 @@ type DomainRulePreviewRequest struct {
 	Filter *string `json:"filter"`
 
 	// lookback days
-	LookbackDays []int64 `json:"lookback_days"`
+	LookbackDays int32 `json:"lookback_days,omitempty"`
 
 	// topic
 	// Required: true

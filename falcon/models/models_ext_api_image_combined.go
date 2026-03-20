@@ -63,6 +63,10 @@ type ModelsExtAPIImageCombined struct {
 	// Required: true
 	ImageID *string `json:"image_id"`
 
+	// index digest
+	// Required: true
+	IndexDigest *string `json:"index_digest"`
+
 	// last seen
 	// Required: true
 	LastSeen *string `json:"last_seen"`
@@ -70,6 +74,10 @@ type ModelsExtAPIImageCombined struct {
 	// layers with vulnerabilities
 	// Required: true
 	LayersWithVulnerabilities *int32 `json:"layers_with_vulnerabilities"`
+
+	// multi arch
+	// Required: true
+	MultiArch *bool `json:"multi_arch"`
 
 	// packages
 	// Required: true
@@ -152,11 +160,19 @@ func (m *ModelsExtAPIImageCombined) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIndexDigest(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLastSeen(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateLayersWithVulnerabilities(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMultiArch(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -297,6 +313,15 @@ func (m *ModelsExtAPIImageCombined) validateImageID(formats strfmt.Registry) err
 	return nil
 }
 
+func (m *ModelsExtAPIImageCombined) validateIndexDigest(formats strfmt.Registry) error {
+
+	if err := validate.Required("index_digest", "body", m.IndexDigest); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsExtAPIImageCombined) validateLastSeen(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_seen", "body", m.LastSeen); err != nil {
@@ -309,6 +334,15 @@ func (m *ModelsExtAPIImageCombined) validateLastSeen(formats strfmt.Registry) er
 func (m *ModelsExtAPIImageCombined) validateLayersWithVulnerabilities(formats strfmt.Registry) error {
 
 	if err := validate.Required("layers_with_vulnerabilities", "body", m.LayersWithVulnerabilities); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsExtAPIImageCombined) validateMultiArch(formats strfmt.Registry) error {
+
+	if err := validate.Required("multi_arch", "body", m.MultiArch); err != nil {
 		return err
 	}
 
