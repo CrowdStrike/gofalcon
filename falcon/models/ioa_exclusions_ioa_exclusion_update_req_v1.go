@@ -31,8 +31,7 @@ type IoaExclusionsIoaExclusionUpdateReqV1 struct {
 	Description *string `json:"description"`
 
 	// detection json
-	// Required: true
-	DetectionJSON *string `json:"detection_json"`
+	DetectionJSON string `json:"detection_json,omitempty"`
 
 	// groups
 	// Required: true
@@ -68,10 +67,6 @@ func (m *IoaExclusionsIoaExclusionUpdateReqV1) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDetectionJSON(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -117,15 +112,6 @@ func (m *IoaExclusionsIoaExclusionUpdateReqV1) validateClRegex(formats strfmt.Re
 func (m *IoaExclusionsIoaExclusionUpdateReqV1) validateDescription(formats strfmt.Registry) error {
 
 	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *IoaExclusionsIoaExclusionUpdateReqV1) validateDetectionJSON(formats strfmt.Registry) error {
-
-	if err := validate.Required("detection_json", "body", m.DetectionJSON); err != nil {
 		return err
 	}
 
