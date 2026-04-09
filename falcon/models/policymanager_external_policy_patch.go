@@ -41,8 +41,7 @@ type PolicymanagerExternalPolicyPatch struct {
 	PolicyProperties *PolicymanagerPolicyProperties `json:"policy_properties"`
 
 	// precedence
-	// Required: true
-	Precedence *int32 `json:"precedence"`
+	Precedence *int32 `json:"precedence,omitempty"`
 }
 
 // Validate validates this policymanager external policy patch
@@ -58,10 +57,6 @@ func (m *PolicymanagerExternalPolicyPatch) Validate(formats strfmt.Registry) err
 	}
 
 	if err := m.validatePolicyProperties(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePrecedence(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -104,15 +99,6 @@ func (m *PolicymanagerExternalPolicyPatch) validatePolicyProperties(formats strf
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *PolicymanagerExternalPolicyPatch) validatePrecedence(formats strfmt.Registry) error {
-
-	if err := validate.Required("precedence", "body", m.Precedence); err != nil {
-		return err
 	}
 
 	return nil
