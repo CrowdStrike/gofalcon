@@ -40,8 +40,6 @@ type ClientService interface {
 
 	AggregateEscalations(params *AggregateEscalationsParams, opts ...ClientOption) (*AggregateEscalationsOK, error)
 
-	AggregateFCIncidents(params *AggregateFCIncidentsParams, opts ...ClientOption) (*AggregateFCIncidentsOK, error)
-
 	AggregatePreventionPolicy(params *AggregatePreventionPolicyParams, opts ...ClientOption) (*AggregatePreventionPolicyOK, error)
 
 	AggregateRemediations(params *AggregateRemediationsParams, opts ...ClientOption) (*AggregateRemediationsOK, error)
@@ -63,8 +61,6 @@ type ClientService interface {
 	QueryBlockListFilter(params *QueryBlockListFilterParams, opts ...ClientOption) (*QueryBlockListFilterOK, error)
 
 	QueryEscalationsFilter(params *QueryEscalationsFilterParams, opts ...ClientOption) (*QueryEscalationsFilterOK, error)
-
-	QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams, opts ...ClientOption) (*QueryIncidentIdsByFilterOK, error)
 
 	QueryRemediationsFilter(params *QueryRemediationsFilterParams, opts ...ClientOption) (*QueryRemediationsFilterOK, error)
 
@@ -258,44 +254,6 @@ func (a *Client) AggregateEscalations(params *AggregateEscalationsParams, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for AggregateEscalations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-AggregateFCIncidents retrieves aggregate incident values based on the matched filter
-*/
-func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams, opts ...ClientOption) (*AggregateFCIncidentsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAggregateFCIncidentsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "AggregateFCIncidents",
-		Method:             "POST",
-		PathPattern:        "/falcon-complete-dashboards/aggregates/incidents/GET/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &AggregateFCIncidentsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*AggregateFCIncidentsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AggregateFCIncidents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -714,44 +672,6 @@ func (a *Client) QueryEscalationsFilter(params *QueryEscalationsFilterParams, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryEscalationsFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-QueryIncidentIdsByFilter retrieves incidents that match the provided filter criteria with scrolling enabled
-*/
-func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams, opts ...ClientOption) (*QueryIncidentIdsByFilterOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewQueryIncidentIdsByFilterParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "QueryIncidentIdsByFilter",
-		Method:             "GET",
-		PathPattern:        "/falcon-complete-dashboards/queries/incidents/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &QueryIncidentIdsByFilterReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*QueryIncidentIdsByFilterOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryIncidentIdsByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

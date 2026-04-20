@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CloneComplianceFramework(params *CloneComplianceFrameworkParams, opts ...ClientOption) (*CloneComplianceFrameworkOK, error)
+
 	CreateComplianceControl(params *CreateComplianceControlParams, opts ...ClientOption) (*CreateComplianceControlOK, error)
 
 	CreateComplianceFramework(params *CreateComplianceFrameworkParams, opts ...ClientOption) (*CreateComplianceFrameworkOK, error)
@@ -89,6 +91,44 @@ type ClientService interface {
 	UpdateSuppressionRule(params *UpdateSuppressionRuleParams, opts ...ClientOption) (*UpdateSuppressionRuleOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CloneComplianceFramework clones an existing compliance framework to create a custom copy
+*/
+func (a *Client) CloneComplianceFramework(params *CloneComplianceFrameworkParams, opts ...ClientOption) (*CloneComplianceFrameworkOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloneComplianceFrameworkParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CloneComplianceFramework",
+		Method:             "POST",
+		PathPattern:        "/cloud-policies/entities/compliance/clone-framework/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloneComplianceFrameworkReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloneComplianceFrameworkOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CloneComplianceFramework: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

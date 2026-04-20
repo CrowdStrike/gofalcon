@@ -41,6 +41,14 @@ type APILocalApplication struct {
 	// Format: date-time
 	DeletedAt *strfmt.DateTime `json:"deleted_at"`
 
+	// emit rule matched events only
+	// Required: true
+	EmitRuleMatchedEventsOnly *bool `json:"emit_rule_matched_events_only"`
+
+	// enable rename detection
+	// Required: true
+	EnableRenameDetection *bool `json:"enable_rename_detection"`
+
 	// executable name
 	// Required: true
 	ExecutableName *string `json:"executable_name"`
@@ -84,6 +92,14 @@ func (m *APILocalApplication) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDeletedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEmitRuleMatchedEventsOnly(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEnableRenameDetection(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -160,6 +176,24 @@ func (m *APILocalApplication) validateDeletedAt(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("deleted_at", "body", "date-time", m.DeletedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APILocalApplication) validateEmitRuleMatchedEventsOnly(formats strfmt.Registry) error {
+
+	if err := validate.Required("emit_rule_matched_events_only", "body", m.EmitRuleMatchedEventsOnly); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APILocalApplication) validateEnableRenameDetection(formats strfmt.Registry) error {
+
+	if err := validate.Required("enable_rename_detection", "body", m.EnableRenameDetection); err != nil {
 		return err
 	}
 

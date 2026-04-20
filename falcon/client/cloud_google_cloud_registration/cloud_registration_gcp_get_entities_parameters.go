@@ -64,7 +64,7 @@ type CloudRegistrationGcpGetEntitiesParams struct {
 
 	/* Filter.
 
-	   FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, ioa_status, iom_status, created, updated
+	   FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, project_number, ioa_status, iom_status, created, updated
 	*/
 	Filter *string
 

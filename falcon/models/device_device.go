@@ -72,6 +72,9 @@ type DeviceDevice struct {
 	// cpu vendor
 	CPUVendor string `json:"cpu_vendor,omitempty"`
 
+	// criticality
+	Criticality string `json:"criticality,omitempty"`
+
 	// default gateway ip
 	DefaultGatewayIP string `json:"default_gateway_ip,omitempty"`
 

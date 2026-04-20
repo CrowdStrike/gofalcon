@@ -92,6 +92,9 @@ type RegistrationAzureAccountV1Ext struct {
 	// parent management group name
 	ParentManagementGroupName string `json:"parent_management_group_name,omitempty"`
 
+	// Azure Tenant Primary Domain.
+	PrimaryDomain string `json:"primary_domain,omitempty"`
+
 	// public certificate
 	PublicCertificate string `json:"public_certificate,omitempty"`
 

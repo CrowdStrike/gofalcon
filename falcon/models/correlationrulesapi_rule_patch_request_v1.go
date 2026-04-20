@@ -20,6 +20,9 @@ import (
 // swagger:model correlationrulesapi.RulePatchRequestV1
 type CorrelationrulesapiRulePatchRequestV1 struct {
 
+	// anomaly
+	Anomaly *CorrelationrulesapiPatchAnomalyV1 `json:"anomaly,omitempty"`
+
 	// comment
 	Comment string `json:"comment,omitempty"`
 
@@ -68,6 +71,10 @@ type CorrelationrulesapiRulePatchRequestV1 struct {
 func (m *CorrelationrulesapiRulePatchRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAnomaly(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateGuardrailNotifications(formats); err != nil {
 		res = append(res, err)
 	}
@@ -95,6 +102,25 @@ func (m *CorrelationrulesapiRulePatchRequestV1) Validate(formats strfmt.Registry
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CorrelationrulesapiRulePatchRequestV1) validateAnomaly(formats strfmt.Registry) error {
+	if swag.IsZero(m.Anomaly) { // not required
+		return nil
+	}
+
+	if m.Anomaly != nil {
+		if err := m.Anomaly.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("anomaly")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("anomaly")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -227,6 +253,10 @@ func (m *CorrelationrulesapiRulePatchRequestV1) validateSearch(formats strfmt.Re
 func (m *CorrelationrulesapiRulePatchRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAnomaly(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateGuardrailNotifications(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -250,6 +280,27 @@ func (m *CorrelationrulesapiRulePatchRequestV1) ContextValidate(ctx context.Cont
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CorrelationrulesapiRulePatchRequestV1) contextValidateAnomaly(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Anomaly != nil {
+
+		if swag.IsZero(m.Anomaly) { // not required
+			return nil
+		}
+
+		if err := m.Anomaly.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("anomaly")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("anomaly")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -43,6 +43,9 @@ type AzureAzureRegistrationCreateInput struct {
 	// cs infra subscription id
 	CsInfraSubscriptionID string `json:"cs_infra_subscription_id,omitempty"`
 
+	// cs infra subscription name
+	CsInfraSubscriptionName string `json:"cs_infra_subscription_name,omitempty"`
+
 	// deployment method
 	// Required: true
 	DeploymentMethod *string `json:"deployment_method"`
@@ -88,8 +91,18 @@ type AzureAzureRegistrationCreateInput struct {
 	// microsoft graph permission ids readonly
 	MicrosoftGraphPermissionIdsReadonly bool `json:"microsoft_graph_permission_ids_readonly,omitempty"`
 
+	// primary domain
+	// Required: true
+	PrimaryDomain *string `json:"primary_domain"`
+
 	// products
 	Products []*DomainProductFeatures `json:"products"`
+
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
+	// registration name
+	RegistrationName string `json:"registration_name,omitempty"`
 
 	// resource name prefix
 	ResourceNamePrefix *string `json:"resource_name_prefix,omitempty"`
@@ -153,6 +166,10 @@ func (m *AzureAzureRegistrationCreateInput) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateMicrosoftGraphPermissionIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePrimaryDomain(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -330,6 +347,15 @@ func (m *AzureAzureRegistrationCreateInput) validateManagementGroupIds(formats s
 func (m *AzureAzureRegistrationCreateInput) validateMicrosoftGraphPermissionIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("microsoft_graph_permission_ids", "body", m.MicrosoftGraphPermissionIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationCreateInput) validatePrimaryDomain(formats strfmt.Registry) error {
+
+	if err := validate.Required("primary_domain", "body", m.PrimaryDomain); err != nil {
 		return err
 	}
 

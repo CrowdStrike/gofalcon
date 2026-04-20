@@ -86,6 +86,9 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
 	"github.com/crowdstrike/gofalcon/falcon/client/it_automation"
+	"github.com/crowdstrike/gofalcon/falcon/client/knowledge_base_audit_events"
+	"github.com/crowdstrike/gofalcon/falcon/client/knowledge_base_files"
+	"github.com/crowdstrike/gofalcon/falcon/client/knowledge_bases"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
@@ -258,6 +261,9 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
 	cli.ItAutomation = it_automation.New(transport, formats)
+	cli.KnowledgeBaseAuditEvents = knowledge_base_audit_events.New(transport, formats)
+	cli.KnowledgeBaseFiles = knowledge_base_files.New(transport, formats)
+	cli.KnowledgeBases = knowledge_bases.New(transport, formats)
 	cli.KubernetesContainerCompliance = kubernetes_container_compliance.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
 	cli.LookupFiles = lookup_files.New(transport, formats)
@@ -506,6 +512,12 @@ type CrowdStrikeAPISpecification struct {
 
 	ItAutomation it_automation.ClientService
 
+	KnowledgeBaseAuditEvents knowledge_base_audit_events.ClientService
+
+	KnowledgeBaseFiles knowledge_base_files.ClientService
+
+	KnowledgeBases knowledge_bases.ClientService
+
 	KubernetesContainerCompliance kubernetes_container_compliance.ClientService
 
 	KubernetesProtection kubernetes_protection.ClientService
@@ -692,6 +704,9 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
 	c.ItAutomation.SetTransport(transport)
+	c.KnowledgeBaseAuditEvents.SetTransport(transport)
+	c.KnowledgeBaseFiles.SetTransport(transport)
+	c.KnowledgeBases.SetTransport(transport)
 	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LookupFiles.SetTransport(transport)

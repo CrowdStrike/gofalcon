@@ -158,6 +158,13 @@ type ApimodelsRule struct {
 	// Required: true
 	RuleLogicList []*ApimodelsRuleLogic `json:"rule_logic_list"`
 
+	// scope asset filter
+	ScopeAssetFilter *ApimodelsAssetFilter `json:"scope_asset_filter,omitempty"`
+
+	// scope type
+	// Required: true
+	ScopeType *string `json:"scope_type"`
+
 	// severity
 	// Required: true
 	Severity *int64 `json:"severity"`
@@ -281,6 +288,14 @@ func (m *ApimodelsRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRuleLogicList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScopeAssetFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScopeType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -596,6 +611,34 @@ func (m *ApimodelsRule) validateRuleLogicList(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ApimodelsRule) validateScopeAssetFilter(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScopeAssetFilter) { // not required
+		return nil
+	}
+
+	if m.ScopeAssetFilter != nil {
+		if err := m.ScopeAssetFilter.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scope_asset_filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scope_asset_filter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ApimodelsRule) validateScopeType(formats strfmt.Registry) error {
+
+	if err := validate.Required("scope_type", "body", m.ScopeType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ApimodelsRule) validateSeverity(formats strfmt.Registry) error {
 
 	if err := validate.Required("severity", "body", m.Severity); err != nil {
@@ -661,6 +704,10 @@ func (m *ApimodelsRule) ContextValidate(ctx context.Context, formats strfmt.Regi
 	}
 
 	if err := m.contextValidateRuleLogicList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScopeAssetFilter(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -765,6 +812,27 @@ func (m *ApimodelsRule) contextValidateRuleLogicList(ctx context.Context, format
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *ApimodelsRule) contextValidateScopeAssetFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScopeAssetFilter != nil {
+
+		if swag.IsZero(m.ScopeAssetFilter) { // not required
+			return nil
+		}
+
+		if err := m.ScopeAssetFilter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scope_asset_filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scope_asset_filter")
+			}
+			return err
+		}
 	}
 
 	return nil

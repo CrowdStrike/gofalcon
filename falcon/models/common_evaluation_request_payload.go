@@ -14,10 +14,13 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RuleevaluatorRuleLogicPayload ruleevaluator rule logic payload
+// CommonEvaluationRequestPayload common evaluation request payload
 //
-// swagger:model ruleevaluator.RuleLogicPayload
-type RuleevaluatorRuleLogicPayload struct {
+// swagger:model common.EvaluationRequestPayload
+type CommonEvaluationRequestPayload struct {
+
+	// domain
+	Domain string `json:"domain,omitempty"`
 
 	// input
 	Input interface{} `json:"input,omitempty"`
@@ -25,10 +28,13 @@ type RuleevaluatorRuleLogicPayload struct {
 	// logic
 	// Required: true
 	Logic *string `json:"logic"`
+
+	// subdomain
+	Subdomain string `json:"subdomain,omitempty"`
 }
 
-// Validate validates this ruleevaluator rule logic payload
-func (m *RuleevaluatorRuleLogicPayload) Validate(formats strfmt.Registry) error {
+// Validate validates this common evaluation request payload
+func (m *CommonEvaluationRequestPayload) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateLogic(formats); err != nil {
@@ -41,7 +47,7 @@ func (m *RuleevaluatorRuleLogicPayload) Validate(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *RuleevaluatorRuleLogicPayload) validateLogic(formats strfmt.Registry) error {
+func (m *CommonEvaluationRequestPayload) validateLogic(formats strfmt.Registry) error {
 
 	if err := validate.Required("logic", "body", m.Logic); err != nil {
 		return err
@@ -50,13 +56,13 @@ func (m *RuleevaluatorRuleLogicPayload) validateLogic(formats strfmt.Registry) e
 	return nil
 }
 
-// ContextValidate validates this ruleevaluator rule logic payload based on context it is used
-func (m *RuleevaluatorRuleLogicPayload) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this common evaluation request payload based on context it is used
+func (m *CommonEvaluationRequestPayload) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *RuleevaluatorRuleLogicPayload) MarshalBinary() ([]byte, error) {
+func (m *CommonEvaluationRequestPayload) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -64,8 +70,8 @@ func (m *RuleevaluatorRuleLogicPayload) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *RuleevaluatorRuleLogicPayload) UnmarshalBinary(b []byte) error {
-	var res RuleevaluatorRuleLogicPayload
+func (m *CommonEvaluationRequestPayload) UnmarshalBinary(b []byte) error {
+	var res CommonEvaluationRequestPayload
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

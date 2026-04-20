@@ -61,6 +61,12 @@ GetReportByReferenceParams contains all the parameters to send to the API endpoi
 */
 type GetReportByReferenceParams struct {
 
+	/* Architecture.
+
+	   Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+	*/
+	Architecture *string
+
 	/* Digest.
 
 	   Digest
@@ -166,6 +172,17 @@ func (o *GetReportByReferenceParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithArchitecture adds the architecture to the get report by reference params
+func (o *GetReportByReferenceParams) WithArchitecture(architecture *string) *GetReportByReferenceParams {
+	o.SetArchitecture(architecture)
+	return o
+}
+
+// SetArchitecture adds the architecture to the get report by reference params
+func (o *GetReportByReferenceParams) SetArchitecture(architecture *string) {
+	o.Architecture = architecture
+}
+
 // WithDigest adds the digest to the get report by reference params
 func (o *GetReportByReferenceParams) WithDigest(digest *string) *GetReportByReferenceParams {
 	o.SetDigest(digest)
@@ -239,6 +256,23 @@ func (o *GetReportByReferenceParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
+
+	if o.Architecture != nil {
+
+		// query param architecture
+		var qrArchitecture string
+
+		if o.Architecture != nil {
+			qrArchitecture = *o.Architecture
+		}
+		qArchitecture := qrArchitecture
+		if qArchitecture != "" {
+
+			if err := r.SetQueryParam("architecture", qArchitecture); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Digest != nil {
 

@@ -145,6 +145,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `platform_name`
 	- `publicly_exposed`
 	- `region`
+	- `resource_gcrn`
 	- `resource_id`
 	- `resource_name`
 	- `resource_parent`
@@ -197,6 +198,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `aspm.deployment_cloud_resource_id`
 	- `aspm.deployment_provider`
 	- `aspm.deployment_type`
+	- `aspm.exprt_rating`
 	- `aspm.technologies`
 	- `cloud_provider`
 	- `cloud_risks.open_risk_count`

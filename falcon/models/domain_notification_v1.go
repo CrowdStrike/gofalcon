@@ -80,6 +80,9 @@ type DomainNotificationV1 struct {
 	// logs
 	Logs []*SadomainNotificationLog `json:"logs"`
 
+	// notification group id
+	NotificationGroupID string `json:"notification_group_id,omitempty"`
+
 	// ID of the raw intel item that matched the rule
 	// Required: true
 	RawIntelID *string `json:"raw_intel_id"`

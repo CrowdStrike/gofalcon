@@ -24,16 +24,14 @@ type ReleasecontentsReleaseContentResponseV1 struct {
 	ContentCategory *string `json:"content_category"`
 
 	// content group id
-	// Required: true
-	ContentGroupID *string `json:"content_group_id"`
+	ContentGroupID string `json:"content_group_id,omitempty"`
 
 	// content type
 	// Required: true
 	ContentType *string `json:"content_type"`
 
 	// content version
-	// Required: true
-	ContentVersion *ReleasecontentsReleaseContentVersionResponseV1 `json:"content_version"`
+	ContentVersion *ReleasecontentsReleaseContentVersionResponseV1 `json:"content_version,omitempty"`
 
 	// description
 	Description string `json:"description,omitempty"`
@@ -55,10 +53,6 @@ func (m *ReleasecontentsReleaseContentResponseV1) Validate(formats strfmt.Regist
 	var res []error
 
 	if err := m.validateContentCategory(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateContentGroupID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -93,15 +87,6 @@ func (m *ReleasecontentsReleaseContentResponseV1) validateContentCategory(format
 	return nil
 }
 
-func (m *ReleasecontentsReleaseContentResponseV1) validateContentGroupID(formats strfmt.Registry) error {
-
-	if err := validate.Required("content_group_id", "body", m.ContentGroupID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *ReleasecontentsReleaseContentResponseV1) validateContentType(formats strfmt.Registry) error {
 
 	if err := validate.Required("content_type", "body", m.ContentType); err != nil {
@@ -112,9 +97,8 @@ func (m *ReleasecontentsReleaseContentResponseV1) validateContentType(formats st
 }
 
 func (m *ReleasecontentsReleaseContentResponseV1) validateContentVersion(formats strfmt.Registry) error {
-
-	if err := validate.Required("content_version", "body", m.ContentVersion); err != nil {
-		return err
+	if swag.IsZero(m.ContentVersion) { // not required
+		return nil
 	}
 
 	if m.ContentVersion != nil {
@@ -166,6 +150,10 @@ func (m *ReleasecontentsReleaseContentResponseV1) ContextValidate(ctx context.Co
 func (m *ReleasecontentsReleaseContentResponseV1) contextValidateContentVersion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ContentVersion != nil {
+
+		if swag.IsZero(m.ContentVersion) { // not required
+			return nil
+		}
 
 		if err := m.ContentVersion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {

@@ -79,6 +79,12 @@ type ClientService interface {
 
 	QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error)
 
+	CaoIncidentsAggregatesV1(params *CaoIncidentsAggregatesV1Params, opts ...ClientOption) (*CaoIncidentsAggregatesV1OK, error)
+
+	CaoIncidentsEntitiesV1(params *CaoIncidentsEntitiesV1Params, opts ...ClientOption) (*CaoIncidentsEntitiesV1OK, error)
+
+	CaoIncidentsQueriesV1(params *CaoIncidentsQueriesV1Params, opts ...ClientOption) (*CaoIncidentsQueriesV1OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -991,6 +997,120 @@ func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryVulnerabilities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CaoIncidentsAggregatesV1 performs statistical aggregations over incident data available aggregation properties target countries name Id involves adversaries animal classifier target industries name target regions slug mitre attack tactic name mitre attack technique Id mitre attack technique name target countries slug target regions name mitre attack tactic Id publish date activity start activity end objectives slug motivations slug involves adversaries slug involves threats family name target industries slug
+*/
+func (a *Client) CaoIncidentsAggregatesV1(params *CaoIncidentsAggregatesV1Params, opts ...ClientOption) (*CaoIncidentsAggregatesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCaoIncidentsAggregatesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cao_incidents_aggregates_v1",
+		Method:             "POST",
+		PathPattern:        "/intel/aggregates/incidents/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CaoIncidentsAggregatesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CaoIncidentsAggregatesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cao_incidents_aggregates_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CaoIncidentsEntitiesV1 retrieves full details for one or more adversary incidents by their i ds returns complete incident data including adversary activity timestamps and associated metadata
+*/
+func (a *Client) CaoIncidentsEntitiesV1(params *CaoIncidentsEntitiesV1Params, opts ...ClientOption) (*CaoIncidentsEntitiesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCaoIncidentsEntitiesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cao_incidents_entities_v1",
+		Method:             "POST",
+		PathPattern:        "/intel/entities/incidents/GET/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CaoIncidentsEntitiesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CaoIncidentsEntitiesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cao_incidents_entities_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CaoIncidentsQueriesV1 searches for adversary incidents using f q l criteria and return a paginated list of matching incident i ds use the returned i ds with the entities endpoint to retrieve full incident details
+*/
+func (a *Client) CaoIncidentsQueriesV1(params *CaoIncidentsQueriesV1Params, opts ...ClientOption) (*CaoIncidentsQueriesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCaoIncidentsQueriesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cao_incidents_queries_v1",
+		Method:             "GET",
+		PathPattern:        "/intel/queries/incidents/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CaoIncidentsQueriesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CaoIncidentsQueriesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cao_incidents_queries_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

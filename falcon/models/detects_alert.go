@@ -29,6 +29,14 @@ type DetectsAlert struct {
 	// Required: true
 	AggregateID *string `json:"aggregate_id"`
 
+	// An opaque internal identifier that can uniquely identify the aggregation rule
+	// Required: true
+	AggregationRuleID *string `json:"aggregation_rule_id"`
+
+	// Aggregation rule name
+	// Required: true
+	AggregationRuleName *string `json:"aggregation_rule_name"`
+
 	// alleged filetype
 	AllegedFiletype string `json:"alleged_filetype,omitempty"`
 
@@ -53,6 +61,10 @@ type DetectsAlert struct {
 
 	// cmdline
 	Cmdline string `json:"cmdline,omitempty"`
+
+	// An opaque internal identifier that can uniquely identify the CMS rule which triggered this detection
+	// Required: true
+	CmsRuleID *string `json:"cms_rule_id"`
 
 	// An opaque internal identifier that can uniquely identify an Alert
 	// Required: true
@@ -147,6 +159,10 @@ type DetectsAlert struct {
 
 	// ioc values
 	IocValues []string `json:"ioc_values"`
+
+	// Boolean indicating if this Alert is an aggregated alert
+	// Required: true
+	IsAggregated *bool `json:"is_aggregated"`
 
 	// is synthetic quarantine disposition
 	IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
@@ -338,6 +354,14 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// Required: true
 		AggregateID *string `json:"aggregate_id"`
 
+		// An opaque internal identifier that can uniquely identify the aggregation rule
+		// Required: true
+		AggregationRuleID *string `json:"aggregation_rule_id"`
+
+		// Aggregation rule name
+		// Required: true
+		AggregationRuleName *string `json:"aggregation_rule_name"`
+
 		// alleged filetype
 		AllegedFiletype string `json:"alleged_filetype,omitempty"`
 
@@ -362,6 +386,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 
 		// cmdline
 		Cmdline string `json:"cmdline,omitempty"`
+
+		// An opaque internal identifier that can uniquely identify the CMS rule which triggered this detection
+		// Required: true
+		CmsRuleID *string `json:"cms_rule_id"`
 
 		// An opaque internal identifier that can uniquely identify an Alert
 		// Required: true
@@ -456,6 +484,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 
 		// ioc values
 		IocValues []string `json:"ioc_values"`
+
+		// Boolean indicating if this Alert is an aggregated alert
+		// Required: true
+		IsAggregated *bool `json:"is_aggregated"`
 
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
@@ -637,6 +669,8 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 
 	rcv.AgentID = stage1.AgentID
 	rcv.AggregateID = stage1.AggregateID
+	rcv.AggregationRuleID = stage1.AggregationRuleID
+	rcv.AggregationRuleName = stage1.AggregationRuleName
 	rcv.AllegedFiletype = stage1.AllegedFiletype
 	rcv.AssignedToName = stage1.AssignedToName
 	rcv.AssignedToUID = stage1.AssignedToUID
@@ -644,6 +678,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.Cid = stage1.Cid
 	rcv.CloudIndicator = stage1.CloudIndicator
 	rcv.Cmdline = stage1.Cmdline
+	rcv.CmsRuleID = stage1.CmsRuleID
 	rcv.CompositeID = stage1.CompositeID
 	rcv.Confidence = stage1.Confidence
 	rcv.ContextTimestamp = stage1.ContextTimestamp
@@ -671,6 +706,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.IocType = stage1.IocType
 	rcv.IocValue = stage1.IocValue
 	rcv.IocValues = stage1.IocValues
+	rcv.IsAggregated = stage1.IsAggregated
 	rcv.IsSyntheticQuarantineDisposition = stage1.IsSyntheticQuarantineDisposition
 	rcv.LinkedBehavioralDetections = stage1.LinkedBehavioralDetections
 	rcv.LinkedCaseIds = stage1.LinkedCaseIds
@@ -729,6 +765,8 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 
 	delete(stage2, "agent_id")
 	delete(stage2, "aggregate_id")
+	delete(stage2, "aggregation_rule_id")
+	delete(stage2, "aggregation_rule_name")
 	delete(stage2, "alleged_filetype")
 	delete(stage2, "assigned_to_name")
 	delete(stage2, "assigned_to_uid")
@@ -736,6 +774,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "cid")
 	delete(stage2, "cloud_indicator")
 	delete(stage2, "cmdline")
+	delete(stage2, "cms_rule_id")
 	delete(stage2, "composite_id")
 	delete(stage2, "confidence")
 	delete(stage2, "context_timestamp")
@@ -763,6 +802,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "ioc_type")
 	delete(stage2, "ioc_value")
 	delete(stage2, "ioc_values")
+	delete(stage2, "is_aggregated")
 	delete(stage2, "is_synthetic_quarantine_disposition")
 	delete(stage2, "linked_behavioral_detections")
 	delete(stage2, "linked_case_ids")
@@ -839,6 +879,14 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 		// Required: true
 		AggregateID *string `json:"aggregate_id"`
 
+		// An opaque internal identifier that can uniquely identify the aggregation rule
+		// Required: true
+		AggregationRuleID *string `json:"aggregation_rule_id"`
+
+		// Aggregation rule name
+		// Required: true
+		AggregationRuleName *string `json:"aggregation_rule_name"`
+
 		// alleged filetype
 		AllegedFiletype string `json:"alleged_filetype,omitempty"`
 
@@ -863,6 +911,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 
 		// cmdline
 		Cmdline string `json:"cmdline,omitempty"`
+
+		// An opaque internal identifier that can uniquely identify the CMS rule which triggered this detection
+		// Required: true
+		CmsRuleID *string `json:"cms_rule_id"`
 
 		// An opaque internal identifier that can uniquely identify an Alert
 		// Required: true
@@ -957,6 +1009,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 
 		// ioc values
 		IocValues []string `json:"ioc_values"`
+
+		// Boolean indicating if this Alert is an aggregated alert
+		// Required: true
+		IsAggregated *bool `json:"is_aggregated"`
 
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
@@ -1134,6 +1190,8 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 
 	stage1.AgentID = m.AgentID
 	stage1.AggregateID = m.AggregateID
+	stage1.AggregationRuleID = m.AggregationRuleID
+	stage1.AggregationRuleName = m.AggregationRuleName
 	stage1.AllegedFiletype = m.AllegedFiletype
 	stage1.AssignedToName = m.AssignedToName
 	stage1.AssignedToUID = m.AssignedToUID
@@ -1141,6 +1199,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.Cid = m.Cid
 	stage1.CloudIndicator = m.CloudIndicator
 	stage1.Cmdline = m.Cmdline
+	stage1.CmsRuleID = m.CmsRuleID
 	stage1.CompositeID = m.CompositeID
 	stage1.Confidence = m.Confidence
 	stage1.ContextTimestamp = m.ContextTimestamp
@@ -1168,6 +1227,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.IocType = m.IocType
 	stage1.IocValue = m.IocValue
 	stage1.IocValues = m.IocValues
+	stage1.IsAggregated = m.IsAggregated
 	stage1.IsSyntheticQuarantineDisposition = m.IsSyntheticQuarantineDisposition
 	stage1.LinkedBehavioralDetections = m.LinkedBehavioralDetections
 	stage1.LinkedCaseIds = m.LinkedCaseIds
@@ -1253,6 +1313,14 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAggregationRuleID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAggregationRuleName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAssignedToName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -1266,6 +1334,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCmsRuleID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1330,6 +1402,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIocContext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsAggregated(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1477,6 +1553,24 @@ func (m *DetectsAlert) validateAggregateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateAggregationRuleID(formats strfmt.Registry) error {
+
+	if err := validate.Required("aggregation_rule_id", "body", m.AggregationRuleID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateAggregationRuleName(formats strfmt.Registry) error {
+
+	if err := validate.Required("aggregation_rule_name", "body", m.AggregationRuleName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DetectsAlert) validateAssignedToName(formats strfmt.Registry) error {
 
 	if err := validate.Required("assigned_to_name", "body", m.AssignedToName); err != nil {
@@ -1507,6 +1601,15 @@ func (m *DetectsAlert) validateAssignedToUUID(formats strfmt.Registry) error {
 func (m *DetectsAlert) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCmsRuleID(formats strfmt.Registry) error {
+
+	if err := validate.Required("cms_rule_id", "body", m.CmsRuleID); err != nil {
 		return err
 	}
 
@@ -1720,6 +1823,15 @@ func (m *DetectsAlert) validateIocContext(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateIsAggregated(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_aggregated", "body", m.IsAggregated); err != nil {
+		return err
 	}
 
 	return nil

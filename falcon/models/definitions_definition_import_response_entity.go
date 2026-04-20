@@ -20,8 +20,14 @@ import (
 // swagger:model definitions.DefinitionImportResponseEntity
 type DefinitionsDefinitionImportResponseEntity struct {
 
+	// Map of activity ID to activity metadata (including dependencies with app info and logo URLs) for displaying activity information in the UI
+	ActivityMetadata map[string]ContentActivityMetadata `json:"activity_metadata,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
+
+	// Nodes that are not part of the model but still shown to users. The UI owns all details of these, the backend simply stores/retrieves this in the DB.
+	DisconnectedNodes []JSONRawMessage `json:"disconnected_nodes"`
 
 	// id
 	ID string `json:"id,omitempty"`
@@ -44,6 +50,14 @@ type DefinitionsDefinitionImportResponseEntity struct {
 func (m *DefinitionsDefinitionImportResponseEntity) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateActivityMetadata(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDisconnectedNodes(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateModel(formats); err != nil {
 		res = append(res, err)
 	}
@@ -59,6 +73,53 @@ func (m *DefinitionsDefinitionImportResponseEntity) Validate(formats strfmt.Regi
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DefinitionsDefinitionImportResponseEntity) validateActivityMetadata(formats strfmt.Registry) error {
+	if swag.IsZero(m.ActivityMetadata) { // not required
+		return nil
+	}
+
+	for k := range m.ActivityMetadata {
+
+		if err := validate.Required("activity_metadata"+"."+k, "body", m.ActivityMetadata[k]); err != nil {
+			return err
+		}
+		if val, ok := m.ActivityMetadata[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activity_metadata" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activity_metadata" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionImportResponseEntity) validateDisconnectedNodes(formats strfmt.Registry) error {
+	if swag.IsZero(m.DisconnectedNodes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.DisconnectedNodes); i++ {
+
+		if err := m.DisconnectedNodes[i].Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("disconnected_nodes" + "." + strconv.Itoa(i))
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("disconnected_nodes" + "." + strconv.Itoa(i))
+			}
+			return err
+		}
+
+	}
+
 	return nil
 }
 
@@ -138,6 +199,14 @@ func (m *DefinitionsDefinitionImportResponseEntity) validateValidationErrors(for
 func (m *DefinitionsDefinitionImportResponseEntity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateActivityMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDisconnectedNodes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateModel(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -153,6 +222,39 @@ func (m *DefinitionsDefinitionImportResponseEntity) ContextValidate(ctx context.
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DefinitionsDefinitionImportResponseEntity) contextValidateActivityMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.ActivityMetadata {
+
+		if val, ok := m.ActivityMetadata[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionImportResponseEntity) contextValidateDisconnectedNodes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DisconnectedNodes); i++ {
+
+		if err := m.DisconnectedNodes[i].ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("disconnected_nodes" + "." + strconv.Itoa(i))
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("disconnected_nodes" + "." + strconv.Itoa(i))
+			}
+			return err
+		}
+
+	}
+
 	return nil
 }
 

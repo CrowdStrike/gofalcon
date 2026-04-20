@@ -23,6 +23,14 @@ type APILocalApplicationCreateRequestV1 struct {
 	// Required: true
 	ApplyRulesForChildrenProcesses *bool `json:"apply_rules_for_children_processes"`
 
+	// emit rule matched events only
+	// Required: true
+	EmitRuleMatchedEventsOnly *bool `json:"emit_rule_matched_events_only"`
+
+	// enable rename detection
+	// Required: true
+	EnableRenameDetection *bool `json:"enable_rename_detection"`
+
 	// executable name
 	// Required: true
 	ExecutableName *string `json:"executable_name"`
@@ -41,6 +49,14 @@ func (m *APILocalApplicationCreateRequestV1) Validate(formats strfmt.Registry) e
 	var res []error
 
 	if err := m.validateApplyRulesForChildrenProcesses(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEmitRuleMatchedEventsOnly(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEnableRenameDetection(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -65,6 +81,24 @@ func (m *APILocalApplicationCreateRequestV1) Validate(formats strfmt.Registry) e
 func (m *APILocalApplicationCreateRequestV1) validateApplyRulesForChildrenProcesses(formats strfmt.Registry) error {
 
 	if err := validate.Required("apply_rules_for_children_processes", "body", m.ApplyRulesForChildrenProcesses); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APILocalApplicationCreateRequestV1) validateEmitRuleMatchedEventsOnly(formats strfmt.Registry) error {
+
+	if err := validate.Required("emit_rule_matched_events_only", "body", m.EmitRuleMatchedEventsOnly); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APILocalApplicationCreateRequestV1) validateEnableRenameDetection(formats strfmt.Registry) error {
+
+	if err := validate.Required("enable_rename_detection", "body", m.EnableRenameDetection); err != nil {
 		return err
 	}
 

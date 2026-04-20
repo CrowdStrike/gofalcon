@@ -68,6 +68,12 @@ type ExecutionResultsParams struct {
 	*/
 	Ids []string
 
+	/* SkipFields.
+
+	   Fields to omit from the response; valid values are (trigger, activities, flows, submodels). When specified, the corresponding node-level details are skipped.
+	*/
+	SkipFields []string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -132,6 +138,17 @@ func (o *ExecutionResultsParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithSkipFields adds the skipFields to the execution results params
+func (o *ExecutionResultsParams) WithSkipFields(skipFields []string) *ExecutionResultsParams {
+	o.SetSkipFields(skipFields)
+	return o
+}
+
+// SetSkipFields adds the skipFields to the execution results params
+func (o *ExecutionResultsParams) SetSkipFields(skipFields []string) {
+	o.SkipFields = skipFields
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *ExecutionResultsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -147,6 +164,17 @@ func (o *ExecutionResultsParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
+	}
+
+	if o.SkipFields != nil {
+
+		// binding items for skip_fields
+		joinedSkipFields := o.bindParamSkipFields(reg)
+
+		// query array param skip_fields
+		if err := r.SetQueryParam("skip_fields", joinedSkipFields...); err != nil {
 			return err
 		}
 	}
@@ -172,4 +200,21 @@ func (o *ExecutionResultsParams) bindParamIds(formats strfmt.Registry) []string 
 	idsIS := swag.JoinByFormat(idsIC, "csv")
 
 	return idsIS
+}
+
+// bindParamExecutionResults binds the parameter skip_fields
+func (o *ExecutionResultsParams) bindParamSkipFields(formats strfmt.Registry) []string {
+	skipFieldsIR := o.SkipFields
+
+	var skipFieldsIC []string
+	for _, skipFieldsIIR := range skipFieldsIR { // explode []string
+
+		skipFieldsIIV := skipFieldsIIR // string as string
+		skipFieldsIC = append(skipFieldsIC, skipFieldsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	skipFieldsIS := swag.JoinByFormat(skipFieldsIC, "csv")
+
+	return skipFieldsIS
 }

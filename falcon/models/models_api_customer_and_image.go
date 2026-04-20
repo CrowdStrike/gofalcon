@@ -73,9 +73,16 @@ type ModelsAPICustomerAndImage struct {
 	// Required: true
 	ImageSize *int64 `json:"image_size"`
 
+	// index digest
+	IndexDigest string `json:"index_digest,omitempty"`
+
 	// is base image
 	// Required: true
 	IsBaseImage *bool `json:"is_base_image"`
+
+	// multi arch
+	// Required: true
+	MultiArch *bool `json:"multi_arch"`
 
 	// registry
 	// Required: true
@@ -167,6 +174,10 @@ func (m *ModelsAPICustomerAndImage) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIsBaseImage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMultiArch(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -338,6 +349,15 @@ func (m *ModelsAPICustomerAndImage) validateImageSize(formats strfmt.Registry) e
 func (m *ModelsAPICustomerAndImage) validateIsBaseImage(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_base_image", "body", m.IsBaseImage); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPICustomerAndImage) validateMultiArch(formats strfmt.Registry) error {
+
+	if err := validate.Required("multi_arch", "body", m.MultiArch); err != nil {
 		return err
 	}
 

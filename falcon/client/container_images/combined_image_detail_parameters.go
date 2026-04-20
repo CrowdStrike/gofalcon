@@ -65,7 +65,7 @@ type CombinedImageDetailParams struct {
 	/* Filter.
 
 	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
-	- `arch`
+	- `architecture`
 	- `base_os`
 	- `cid`
 	- `first_seen`

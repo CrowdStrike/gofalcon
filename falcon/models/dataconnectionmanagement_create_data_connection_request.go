@@ -32,6 +32,9 @@ type DataconnectionmanagementCreateDataConnectionRequest struct {
 	// connector type
 	ConnectorType string `json:"connector_type,omitempty"`
 
+	// custom
+	Custom map[string]string `json:"custom,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
 

@@ -25,6 +25,9 @@ type DomainConfigData struct {
 	// data
 	Data string `json:"data,omitempty"`
 
+	// definition id
+	DefinitionID string `json:"definition_id,omitempty"`
+
 	// enable system workflow
 	// Required: true
 	EnableSystemWorkflow *bool `json:"enable_system_workflow"`

@@ -19,11 +19,11 @@ import (
 // swagger:model sadomain.Rule
 type SadomainRule struct {
 
-	// Weather to monitor exclusively for breach data. breach_monitoring_enabled also needs to be sent as true for this to be enabled.
+	// Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
 	// Required: true
 	BreachMonitorOnly *bool `json:"breach_monitor_only"`
 
-	// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
+	// Whether to monitor for exposed data. Available only for `Company Domains` and `Email addresses` rule topics.
 	// Required: true
 	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
 
@@ -31,7 +31,7 @@ type SadomainRule struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
-	// The UUID of the user that created a given rule or Crowdstrike if the rule was system generated
+	// The UUID of the user that created a given rule or or "Crowdstrike" if the rule was system generated
 	CreatedBy string `json:"created_by,omitempty"`
 
 	// The creation time for a given rule
@@ -47,7 +47,7 @@ type SadomainRule struct {
 	// Required: true
 	ID *string `json:"id"`
 
-	// The duration for which the rule will look back in the past at the first run
+	// The duration for which the rule will look back in the past at the first run. Time unit: nanoseconds. Possible values: [`604800000000000 (7 days)`, `2592000000000000 (1 month)`, `15552000000000000 (6 months)`, `31536000000000000 (1 year)`]
 	LookbackPeriod int64 `json:"lookback_period,omitempty"`
 
 	// Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic.
@@ -64,7 +64,7 @@ type SadomainRule struct {
 	// The customer assets for which ownership must be verified, in order to monitor for breach data
 	OwnershipAssets *SadomainCustomerAssets `json:"ownership_assets,omitempty"`
 
-	// The permissions of a given rule
+	// The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public (All Recon users)`, `private (Recon admins)`]
 	// Required: true
 	Permissions *string `json:"permissions"`
 
@@ -86,7 +86,7 @@ type SadomainRule struct {
 	// template priority
 	TemplatePriority int32 `json:"template_priority,omitempty"`
 
-	// The topic of a given rule
+	// The topic of a given rule. Possible values: [`SA_BRAND_PRODUCT (Brands and products)`, `SA_VIP (High-profile-employees)`, `SA_THIRD_PARTY (Supply chain vendors)`, `SA_IP (IP addresses)`, `SA_CVE (Vulnerabilities (CVEs))`, `SA_BIN (Bank identification numbers (BINs))`, `SA_DOMAIN (Company domains)`, `SA_EMAIL (Email addresses)`, `SA_ALIAS (Company names)`, `SA_AUTHOR (Authors)`, `SA_CUSTOM (Custom)`, `SA_TYPOSQUATTING (Typosquatting)`]
 	// Required: true
 	Topic *string `json:"topic"`
 
