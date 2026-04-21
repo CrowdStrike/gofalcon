@@ -47,8 +47,9 @@ type ReleasesReleaseResponseV1 struct {
 	LastModifiedBy string `json:"last_modified_by,omitempty"`
 
 	// last modified timestamp
+	// Required: true
 	// Format: date-time
-	LastModifiedTimestamp strfmt.DateTime `json:"last_modified_timestamp,omitempty"`
+	LastModifiedTimestamp *strfmt.DateTime `json:"last_modified_timestamp"`
 
 	// release contents
 	// Required: true
@@ -147,8 +148,9 @@ func (m *ReleasesReleaseResponseV1) validateID(formats strfmt.Registry) error {
 }
 
 func (m *ReleasesReleaseResponseV1) validateLastModifiedTimestamp(formats strfmt.Registry) error {
-	if swag.IsZero(m.LastModifiedTimestamp) { // not required
-		return nil
+
+	if err := validate.Required("last_modified_timestamp", "body", m.LastModifiedTimestamp); err != nil {
+		return err
 	}
 
 	if err := validate.FormatOf("last_modified_timestamp", "body", "date-time", m.LastModifiedTimestamp.String(), formats); err != nil {

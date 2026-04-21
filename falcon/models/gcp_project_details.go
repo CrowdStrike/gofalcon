@@ -44,6 +44,12 @@ type GcpProjectDetails struct {
 	// iom status
 	IomStatus string `json:"iom_status,omitempty"`
 
+	// is initial registration
+	IsInitialRegistration bool `json:"is_initial_registration,omitempty"`
+
+	// organization id
+	OrganizationID string `json:"organization_id,omitempty"`
+
 	// project id
 	ProjectID string `json:"project_id,omitempty"`
 
@@ -64,6 +70,9 @@ type GcpProjectDetails struct {
 
 	// service account
 	ServiceAccount string `json:"service_account,omitempty"`
+
+	// status
+	Status string `json:"status,omitempty"`
 
 	// updated
 	// Format: date-time

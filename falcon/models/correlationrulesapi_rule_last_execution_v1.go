@@ -18,11 +18,17 @@ import (
 // swagger:model correlationrulesapi.RuleLastExecutionV1
 type CorrelationrulesapiRuleLastExecutionV1 struct {
 
+	// errors
+	Errors []string `json:"errors"`
+
 	// result metadata
 	ResultMetadata *CorrelationrulesapiRuleResultMetadataV1 `json:"result_metadata,omitempty"`
 
 	// status display
 	StatusDisplay string `json:"status_display,omitempty"`
+
+	// warnings
+	Warnings []string `json:"warnings"`
 }
 
 // Validate validates this correlationrulesapi rule last execution v1

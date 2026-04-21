@@ -56,6 +56,9 @@ type AzureTenantRegistration struct {
 	// cs infra subscription id
 	CsInfraSubscriptionID *string `json:"cs_infra_subscription_id,omitempty"`
 
+	// cs infra subscription name
+	CsInfraSubscriptionName string `json:"cs_infra_subscription_name,omitempty"`
+
 	// deleted
 	// Format: date-time
 	Deleted strfmt.DateTime `json:"deleted,omitempty"`
@@ -103,6 +106,10 @@ type AzureTenantRegistration struct {
 	// Required: true
 	EventHubSettings []*AzureEventHubSettings `json:"event_hub_settings"`
 
+	// key info
+	// Required: true
+	KeyInfo *AzureClientKeyInfo `json:"key_info"`
+
 	// management group ids
 	// Required: true
 	ManagementGroupIds []string `json:"management_group_ids"`
@@ -114,8 +121,15 @@ type AzureTenantRegistration struct {
 	// microsoft graph permission ids readonly
 	MicrosoftGraphPermissionIdsReadonly bool `json:"microsoft_graph_permission_ids_readonly,omitempty"`
 
+	// primary domain
+	// Required: true
+	PrimaryDomain *string `json:"primary_domain"`
+
 	// products
 	Products []*DomainProductFeatures `json:"products"`
+
+	// registration id
+	RegistrationID string `json:"registration_id,omitempty"`
 
 	// resource name prefix
 	ResourceNamePrefix *string `json:"resource_name_prefix,omitempty"`
@@ -186,11 +200,19 @@ func (m *AzureTenantRegistration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateKeyInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateManagementGroupIds(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateMicrosoftGraphPermissionIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePrimaryDomain(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -384,6 +406,26 @@ func (m *AzureTenantRegistration) validateEventHubSettings(formats strfmt.Regist
 	return nil
 }
 
+func (m *AzureTenantRegistration) validateKeyInfo(formats strfmt.Registry) error {
+
+	if err := validate.Required("key_info", "body", m.KeyInfo); err != nil {
+		return err
+	}
+
+	if m.KeyInfo != nil {
+		if err := m.KeyInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("key_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("key_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *AzureTenantRegistration) validateManagementGroupIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("management_group_ids", "body", m.ManagementGroupIds); err != nil {
@@ -396,6 +438,15 @@ func (m *AzureTenantRegistration) validateManagementGroupIds(formats strfmt.Regi
 func (m *AzureTenantRegistration) validateMicrosoftGraphPermissionIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("microsoft_graph_permission_ids", "body", m.MicrosoftGraphPermissionIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistration) validatePrimaryDomain(formats strfmt.Registry) error {
+
+	if err := validate.Required("primary_domain", "body", m.PrimaryDomain); err != nil {
 		return err
 	}
 
@@ -492,6 +543,10 @@ func (m *AzureTenantRegistration) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateKeyInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -565,6 +620,23 @@ func (m *AzureTenantRegistration) contextValidateEventHubSettings(ctx context.Co
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistration) contextValidateKeyInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KeyInfo != nil {
+
+		if err := m.KeyInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("key_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("key_info")
+			}
+			return err
+		}
 	}
 
 	return nil

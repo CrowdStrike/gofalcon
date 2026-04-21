@@ -61,6 +61,9 @@ type GcpOrganizationDetails struct {
 	// Required: true
 	RegistrationScope *string `json:"registration_scope"`
 
+	// status
+	Status string `json:"status,omitempty"`
+
 	// updated
 	// Required: true
 	// Format: date-time

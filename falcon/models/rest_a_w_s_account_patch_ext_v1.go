@@ -33,14 +33,23 @@ type RestAWSAccountPatchExtV1 struct {
 	// disable products
 	DisableProducts []*RestAccountProductRequestExtV1 `json:"disable_products"`
 
+	// dspm custom vpc configuration
+	DspmCustomVpcConfiguration RestAWSPatchDSPMSettingsDspmCustomVpcConfiguration `json:"dspm_custom_vpc_configuration,omitempty"`
+
 	// dspm host account id
 	DspmHostAccountID string `json:"dspm_host_account_id,omitempty"`
+
+	// dspm network configuration type
+	DspmNetworkConfigurationType string `json:"dspm_network_configuration_type,omitempty"`
 
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
 
 	// dspm role
 	DspmRole string `json:"dspm_role,omitempty"`
+
+	// dspm service permissions override
+	DspmServicePermissionsOverride []string `json:"dspm_service_permissions_override"`
 
 	// falcon client id
 	FalconClientID string `json:"falcon_client_id,omitempty"`
@@ -88,8 +97,14 @@ type RestAWSAccountPatchExtV1 struct {
 	// use existing cloudtrail
 	UseExistingCloudtrail *bool `json:"use_existing_cloudtrail,omitempty"`
 
+	// vulnerability scanning custom vpc configuration
+	VulnerabilityScanningCustomVpcConfiguration RestAWSPatchVulnerabilityScanningSettingsVulnerabilityScanningCustomVpcConfiguration `json:"vulnerability_scanning_custom_vpc_configuration,omitempty"`
+
 	// vulnerability scanning host account id
 	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
+
+	// vulnerability scanning network configuration type
+	VulnerabilityScanningNetworkConfigurationType string `json:"vulnerability_scanning_network_configuration_type,omitempty"`
 
 	// vulnerability scanning regions
 	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
@@ -110,11 +125,19 @@ func (m *RestAWSAccountPatchExtV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDspmCustomVpcConfiguration(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateProducts(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateRemediationTouAccepted(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningCustomVpcConfiguration(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -159,6 +182,25 @@ func (m *RestAWSAccountPatchExtV1) validateDisableProducts(formats strfmt.Regist
 	return nil
 }
 
+func (m *RestAWSAccountPatchExtV1) validateDspmCustomVpcConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if m.DspmCustomVpcConfiguration != nil {
+		if err := m.DspmCustomVpcConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_custom_vpc_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_custom_vpc_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *RestAWSAccountPatchExtV1) validateProducts(formats strfmt.Registry) error {
 	if swag.IsZero(m.Products) { // not required
 		return nil
@@ -197,6 +239,25 @@ func (m *RestAWSAccountPatchExtV1) validateRemediationTouAccepted(formats strfmt
 	return nil
 }
 
+func (m *RestAWSAccountPatchExtV1) validateVulnerabilityScanningCustomVpcConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningCustomVpcConfiguration != nil {
+		if err := m.VulnerabilityScanningCustomVpcConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this rest a w s account patch ext v1 based on the context it is used
 func (m *RestAWSAccountPatchExtV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -205,7 +266,15 @@ func (m *RestAWSAccountPatchExtV1) ContextValidate(ctx context.Context, formats 
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDspmCustomVpcConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilityScanningCustomVpcConfiguration(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -240,6 +309,24 @@ func (m *RestAWSAccountPatchExtV1) contextValidateDisableProducts(ctx context.Co
 	return nil
 }
 
+func (m *RestAWSAccountPatchExtV1) contextValidateDspmCustomVpcConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DspmCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if err := m.DspmCustomVpcConfiguration.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("dspm_custom_vpc_configuration")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("dspm_custom_vpc_configuration")
+		}
+		return err
+	}
+
+	return nil
+}
+
 func (m *RestAWSAccountPatchExtV1) contextValidateProducts(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Products); i++ {
@@ -260,6 +347,24 @@ func (m *RestAWSAccountPatchExtV1) contextValidateProducts(ctx context.Context, 
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RestAWSAccountPatchExtV1) contextValidateVulnerabilityScanningCustomVpcConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.VulnerabilityScanningCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if err := m.VulnerabilityScanningCustomVpcConfiguration.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+		}
+		return err
 	}
 
 	return nil

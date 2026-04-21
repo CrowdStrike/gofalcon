@@ -22,6 +22,9 @@ type GraphFlow struct {
 	// Defines a conditional statement associated with the flow. The workflow only proceeds down this flow of the condition is met.
 	Condition *GraphCondition `json:"condition,omitempty"`
 
+	// Optional user provided name for the flow, only used for flows with a condition.
+	Name string `json:"name,omitempty"`
+
 	// The position of the activity as rendered in the UI.
 	Position *GraphNodePosition `json:"position,omitempty"`
 

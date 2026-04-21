@@ -18,6 +18,9 @@ import (
 // swagger:model deviceapi.MappedDevicePoliciesSwagger
 type DeviceapiMappedDevicePoliciesSwagger struct {
 
+	// aidr
+	Aidr *DeviceDevicePolicy `json:"aidr,omitempty"`
+
 	// airlock
 	Airlock *DeviceDevicePolicy `json:"airlock,omitempty"`
 
@@ -121,6 +124,10 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 // Validate validates this deviceapi mapped device policies swagger
 func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAidr(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateAirlock(formats); err != nil {
 		res = append(res, err)
@@ -257,6 +264,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateAidr(formats strfmt.Registry) error {
+	if swag.IsZero(m.Aidr) { // not required
+		return nil
+	}
+
+	if m.Aidr != nil {
+		if err := m.Aidr.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("aidr")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("aidr")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -891,6 +917,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateZtl(formats strfmt.Regist
 func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAidr(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateAirlock(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -1026,6 +1056,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateAidr(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Aidr != nil {
+
+		if swag.IsZero(m.Aidr) { // not required
+			return nil
+		}
+
+		if err := m.Aidr.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("aidr")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("aidr")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

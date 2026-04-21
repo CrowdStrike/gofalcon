@@ -41,6 +41,10 @@ type DevicecontrolapiReqUpdateUSBBaseV1External struct {
 	// Enforcement for Windows Storage Spaces (omit to keep current).
 	// Enum: [MONITOR_ONLY MONITOR_ENFORCE]
 	StorageSpaceEnforcementMode string `json:"storage_space_enforcement_mode,omitempty"`
+
+	// Enforcement mode for User Based exceptions
+	// Enum: [MONITOR_ONLY MONITOR_ENFORCE]
+	UserBasedEnforcementMode string `json:"user_based_enforcement_mode,omitempty"`
 }
 
 // Validate validates this devicecontrolapi req update u s b base v1 external
@@ -64,6 +68,10 @@ func (m *DevicecontrolapiReqUpdateUSBBaseV1External) Validate(formats strfmt.Reg
 	}
 
 	if err := m.validateStorageSpaceEnforcementMode(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserBasedEnforcementMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -257,6 +265,48 @@ func (m *DevicecontrolapiReqUpdateUSBBaseV1External) validateStorageSpaceEnforce
 
 	// value enum
 	if err := m.validateStorageSpaceEnforcementModeEnum("storage_space_enforcement_mode", "body", m.StorageSpaceEnforcementMode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var devicecontrolapiReqUpdateUSBBaseV1ExternalTypeUserBasedEnforcementModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		devicecontrolapiReqUpdateUSBBaseV1ExternalTypeUserBasedEnforcementModePropEnum = append(devicecontrolapiReqUpdateUSBBaseV1ExternalTypeUserBasedEnforcementModePropEnum, v)
+	}
+}
+
+const (
+
+	// DevicecontrolapiReqUpdateUSBBaseV1ExternalUserBasedEnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
+	DevicecontrolapiReqUpdateUSBBaseV1ExternalUserBasedEnforcementModeMONITORONLY string = "MONITOR_ONLY"
+
+	// DevicecontrolapiReqUpdateUSBBaseV1ExternalUserBasedEnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
+	DevicecontrolapiReqUpdateUSBBaseV1ExternalUserBasedEnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
+)
+
+// prop value enum
+func (m *DevicecontrolapiReqUpdateUSBBaseV1External) validateUserBasedEnforcementModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, devicecontrolapiReqUpdateUSBBaseV1ExternalTypeUserBasedEnforcementModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DevicecontrolapiReqUpdateUSBBaseV1External) validateUserBasedEnforcementMode(formats strfmt.Registry) error {
+	if swag.IsZero(m.UserBasedEnforcementMode) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateUserBasedEnforcementModeEnum("user_based_enforcement_mode", "body", m.UserBasedEnforcementMode); err != nil {
 		return err
 	}
 

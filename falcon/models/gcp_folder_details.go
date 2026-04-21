@@ -49,6 +49,12 @@ type GcpFolderDetails struct {
 	// iom status
 	IomStatus string `json:"iom_status,omitempty"`
 
+	// is initial registration
+	IsInitialRegistration bool `json:"is_initial_registration,omitempty"`
+
+	// organization id
+	OrganizationID string `json:"organization_id,omitempty"`
+
 	// parent id
 	ParentID string `json:"parent_id,omitempty"`
 
@@ -63,6 +69,12 @@ type GcpFolderDetails struct {
 	// registration scope
 	// Required: true
 	RegistrationScope *string `json:"registration_scope"`
+
+	// root folder id
+	RootFolderID string `json:"root_folder_id,omitempty"`
+
+	// status
+	Status string `json:"status,omitempty"`
 
 	// updated
 	// Required: true

@@ -66,6 +66,7 @@ type GetCombinedImagesParams struct {
 
 	     Filter images using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `ai_related`
+	- `architecture`
 	- `container_id`
 	- `container_running_status`
 	- `cve_id`
@@ -100,11 +101,14 @@ type GetCombinedImagesParams struct {
 	/* Sort.
 
 	     The fields to sort the records on. Supported columns:
+	- `architecture`
 	- `first_seen`
 	- `highest_detection_severity`
 	- `highest_vulnerability_severity`
 	- `image_digest`
 	- `image_id`
+	- `index_digest`
+	- `multi_arch`
 	- `registry`
 	- `repository`
 	- `source`

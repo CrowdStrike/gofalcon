@@ -91,6 +91,7 @@ type CloudSecurityAssetsCombinedComplianceByAccountParams struct {
 	- `environment`
 	- `last_evaluated`
 	- `region`
+	- `resource_gcrn`
 	- `resource_provider`
 	- `resource_type`
 	- `resource_type_name`

@@ -68,6 +68,12 @@ type WorkflowDefinitionsImportParams struct {
 	*/
 	DataFile runtime.NamedReadCloser
 
+	/* IncludeActivityMetadata.
+
+	   When true, populates the definition model with Activity metadata which includes Activity Dependency and Vendor
+	*/
+	IncludeActivityMetadata *bool
+
 	/* Name.
 
 	   Workflow name to override
@@ -98,11 +104,14 @@ func (o *WorkflowDefinitionsImportParams) WithDefaults() *WorkflowDefinitionsImp
 // All values with no default are reset to their zero value.
 func (o *WorkflowDefinitionsImportParams) SetDefaults() {
 	var (
+		includeActivityMetadataDefault = bool(false)
+
 		validateOnlyDefault = bool(false)
 	)
 
 	val := WorkflowDefinitionsImportParams{
-		ValidateOnly: &validateOnlyDefault,
+		IncludeActivityMetadata: &includeActivityMetadataDefault,
+		ValidateOnly:            &validateOnlyDefault,
 	}
 
 	val.timeout = o.timeout
@@ -155,6 +164,17 @@ func (o *WorkflowDefinitionsImportParams) SetDataFile(dataFile runtime.NamedRead
 	o.DataFile = dataFile
 }
 
+// WithIncludeActivityMetadata adds the includeActivityMetadata to the workflow definitions import params
+func (o *WorkflowDefinitionsImportParams) WithIncludeActivityMetadata(includeActivityMetadata *bool) *WorkflowDefinitionsImportParams {
+	o.SetIncludeActivityMetadata(includeActivityMetadata)
+	return o
+}
+
+// SetIncludeActivityMetadata adds the includeActivityMetadata to the workflow definitions import params
+func (o *WorkflowDefinitionsImportParams) SetIncludeActivityMetadata(includeActivityMetadata *bool) {
+	o.IncludeActivityMetadata = includeActivityMetadata
+}
+
 // WithName adds the name to the workflow definitions import params
 func (o *WorkflowDefinitionsImportParams) WithName(name *string) *WorkflowDefinitionsImportParams {
 	o.SetName(name)
@@ -187,6 +207,23 @@ func (o *WorkflowDefinitionsImportParams) WriteToRequest(r runtime.ClientRequest
 	// form file param data_file
 	if err := r.SetFileParam("data_file", o.DataFile); err != nil {
 		return err
+	}
+
+	if o.IncludeActivityMetadata != nil {
+
+		// query param include_activity_metadata
+		var qrIncludeActivityMetadata bool
+
+		if o.IncludeActivityMetadata != nil {
+			qrIncludeActivityMetadata = *o.IncludeActivityMetadata
+		}
+		qIncludeActivityMetadata := swag.FormatBool(qrIncludeActivityMetadata)
+		if qIncludeActivityMetadata != "" {
+
+			if err := r.SetQueryParam("include_activity_metadata", qIncludeActivityMetadata); err != nil {
+				return err
+			}
+		}
 	}
 
 	if o.Name != nil {

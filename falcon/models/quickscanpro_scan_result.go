@@ -21,6 +21,12 @@ import (
 // swagger:model quickscanpro.ScanResult
 type QuickscanproScanResult struct {
 
+	// adversary
+	Adversary string `json:"adversary,omitempty"`
+
+	// artifacts tree
+	ArtifactsTree *QuickscanproArtifactsTree `json:"artifacts_tree,omitempty"`
+
 	// beta intelligence context
 	BetaIntelligenceContext interface{} `json:"beta_intelligence_context,omitempty"`
 
@@ -31,15 +37,33 @@ type QuickscanproScanResult struct {
 	// file size
 	FileSize int32 `json:"file_size,omitempty"`
 
+	// file type
+	FileType string `json:"file_type,omitempty"`
+
 	// file type short
 	FileTypeShort string `json:"file_type_short,omitempty"`
+
+	// first content bytes ascii
+	FirstContentBytesASCII string `json:"first_content_bytes_ascii,omitempty"`
+
+	// first content bytes hex
+	FirstContentBytesHex string `json:"first_content_bytes_hex,omitempty"`
 
 	// malicious confidence
 	// Required: true
 	MaliciousConfidence *int32 `json:"malicious_confidence"`
 
+	// malware config
+	MalwareConfig map[string][]string `json:"malware_config,omitempty"`
+
+	// mime type
+	MimeType string `json:"mime_type,omitempty"`
+
 	// mitre attacks
 	MitreAttacks []*DomainMITREAttack `json:"mitre_attacks"`
+
+	// static indicators
+	StaticIndicators []string `json:"static_indicators"`
 
 	// url artifacts
 	URLArtifacts []*QuickscanproURLResult `json:"url_artifacts"`
@@ -60,6 +84,10 @@ type QuickscanproScanResult struct {
 // Validate validates this quickscanpro scan result
 func (m *QuickscanproScanResult) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateArtifactsTree(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateFileArtifacts(formats); err != nil {
 		res = append(res, err)
@@ -88,6 +116,25 @@ func (m *QuickscanproScanResult) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *QuickscanproScanResult) validateArtifactsTree(formats strfmt.Registry) error {
+	if swag.IsZero(m.ArtifactsTree) { // not required
+		return nil
+	}
+
+	if m.ArtifactsTree != nil {
+		if err := m.ArtifactsTree.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("artifacts_tree")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("artifacts_tree")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -244,6 +291,10 @@ func (m *QuickscanproScanResult) validateVerdictReason(formats strfmt.Registry) 
 func (m *QuickscanproScanResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateArtifactsTree(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFileArtifacts(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -259,6 +310,27 @@ func (m *QuickscanproScanResult) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *QuickscanproScanResult) contextValidateArtifactsTree(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ArtifactsTree != nil {
+
+		if swag.IsZero(m.ArtifactsTree) { // not required
+			return nil
+		}
+
+		if err := m.ArtifactsTree.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("artifacts_tree")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("artifacts_tree")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

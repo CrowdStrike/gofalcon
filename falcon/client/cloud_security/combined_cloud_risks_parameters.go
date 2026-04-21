@@ -67,6 +67,7 @@ type CombinedCloudRisksParams struct {
 	     FQL string to filter results in Falcon Query Language (FQL). Supported fields:
 	- `account_id`
 	- `account_name`
+	- `adversary`
 	- `asset_gcrn`
 	- `asset_id`
 	- `asset_name`
@@ -86,6 +87,7 @@ type CombinedCloudRisksParams struct {
 	- `suppressed_by`
 	- `suppressed_reason`
 	- `tags`
+	- `threat_actors`
 	*/
 	Filter *string
 

@@ -40,13 +40,13 @@ type ClientService interface {
 
 	CloudRegistrationAzureGetRegistration(params *CloudRegistrationAzureGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureGetRegistrationOK, error)
 
+	CloudRegistrationAzureGetScript(params *CloudRegistrationAzureGetScriptParams, opts ...ClientOption) (*CloudRegistrationAzureGetScriptOK, error)
+
 	CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrationAzureTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationAzureTriggerHealthCheckOK, error)
 
 	CloudRegistrationAzureUpdateRegistration(params *CloudRegistrationAzureUpdateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateRegistrationOK, error)
 
 	CloudRegistrationAzureValidateRegistration(params *CloudRegistrationAzureValidateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureValidateRegistrationOK, error)
-
-	DownloadAzureScript(params *DownloadAzureScriptParams, opts ...ClientOption) (*DownloadAzureScriptOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -242,6 +242,44 @@ func (a *Client) CloudRegistrationAzureGetRegistration(params *CloudRegistration
 }
 
 /*
+CloudRegistrationAzureGetScript downloads azure deployment script terraform or bicep
+*/
+func (a *Client) CloudRegistrationAzureGetScript(params *CloudRegistrationAzureGetScriptParams, opts ...ClientOption) (*CloudRegistrationAzureGetScriptOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureGetScriptParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-get-script",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/entities/scripts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureGetScriptReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureGetScriptOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-script: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CloudRegistrationAzureTriggerHealthCheck triggers health check scan for azure registrations
 */
 func (a *Client) CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrationAzureTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationAzureTriggerHealthCheckOK, error) {
@@ -352,44 +390,6 @@ func (a *Client) CloudRegistrationAzureValidateRegistration(params *CloudRegistr
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-validate-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DownloadAzureScript downloads azure deployment script terraform or bicep
-*/
-func (a *Client) DownloadAzureScript(params *DownloadAzureScriptParams, opts ...ClientOption) (*DownloadAzureScriptOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDownloadAzureScriptParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "download_azure_script",
-		Method:             "GET",
-		PathPattern:        "/cloud-security-registration-azure/entities/scripts/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &DownloadAzureScriptReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*DownloadAzureScriptOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for download_azure_script: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

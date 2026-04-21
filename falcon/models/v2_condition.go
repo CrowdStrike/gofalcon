@@ -34,6 +34,9 @@ type V2Condition struct {
 	// expression
 	Expression string `json:"expression,omitempty"`
 
+	// Optional user provided name for the condition.
+	Name string `json:"name,omitempty"`
+
 	// next
 	// Required: true
 	Next []string `json:"next"`

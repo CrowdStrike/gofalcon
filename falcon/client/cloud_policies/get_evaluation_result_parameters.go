@@ -65,7 +65,7 @@ GetEvaluationResultParams contains all the parameters to send to the API endpoin
 type GetEvaluationResultParams struct {
 
 	// Body.
-	Body *models.RuleevaluatorRuleLogicPayload
+	Body *models.CommonEvaluationRequestPayload
 
 	/* CloudProvider.
 
@@ -139,13 +139,13 @@ func (o *GetEvaluationResultParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the get evaluation result params
-func (o *GetEvaluationResultParams) WithBody(body *models.RuleevaluatorRuleLogicPayload) *GetEvaluationResultParams {
+func (o *GetEvaluationResultParams) WithBody(body *models.CommonEvaluationRequestPayload) *GetEvaluationResultParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the get evaluation result params
-func (o *GetEvaluationResultParams) SetBody(body *models.RuleevaluatorRuleLogicPayload) {
+func (o *GetEvaluationResultParams) SetBody(body *models.CommonEvaluationRequestPayload) {
 	o.Body = body
 }
 

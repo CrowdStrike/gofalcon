@@ -61,6 +61,12 @@ PolicyChecksParams contains all the parameters to send to the API endpoint
 */
 type PolicyChecksParams struct {
 
+	/* Architecture.
+
+	   Architecture e.g. 'amd64', 'arm64'...
+	*/
+	Architecture *string
+
 	/* Registry.
 
 	   Registry
@@ -132,6 +138,17 @@ func (o *PolicyChecksParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithArchitecture adds the architecture to the policy checks params
+func (o *PolicyChecksParams) WithArchitecture(architecture *string) *PolicyChecksParams {
+	o.SetArchitecture(architecture)
+	return o
+}
+
+// SetArchitecture adds the architecture to the policy checks params
+func (o *PolicyChecksParams) SetArchitecture(architecture *string) {
+	o.Architecture = architecture
+}
+
 // WithRegistry adds the registry to the policy checks params
 func (o *PolicyChecksParams) WithRegistry(registry *string) *PolicyChecksParams {
 	o.SetRegistry(registry)
@@ -172,6 +189,23 @@ func (o *PolicyChecksParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
+
+	if o.Architecture != nil {
+
+		// query param architecture
+		var qrArchitecture string
+
+		if o.Architecture != nil {
+			qrArchitecture = *o.Architecture
+		}
+		qArchitecture := qrArchitecture
+		if qArchitecture != "" {
+
+			if err := r.SetQueryParam("architecture", qArchitecture); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Registry != nil {
 

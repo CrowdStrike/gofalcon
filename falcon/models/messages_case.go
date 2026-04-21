@@ -36,6 +36,9 @@ type MessagesCase struct {
 	// Required: true
 	Body *string `json:"body"`
 
+	// case type
+	CaseType string `json:"case_type,omitempty"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`

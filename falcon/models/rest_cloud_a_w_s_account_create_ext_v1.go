@@ -38,14 +38,23 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// deployment method
 	DeploymentMethod string `json:"deployment_method,omitempty"`
 
+	// dspm custom vpc configuration
+	DspmCustomVpcConfiguration RestAWSCreateDSPMSettingsDspmCustomVpcConfiguration `json:"dspm_custom_vpc_configuration,omitempty"`
+
 	// dspm host account id
 	DspmHostAccountID string `json:"dspm_host_account_id,omitempty"`
+
+	// dspm network configuration type
+	DspmNetworkConfigurationType string `json:"dspm_network_configuration_type,omitempty"`
 
 	// dspm regions
 	DspmRegions []string `json:"dspm_regions"`
 
 	// dspm role
 	DspmRole string `json:"dspm_role,omitempty"`
+
+	// dspm service permissions override
+	DspmServicePermissionsOverride []string `json:"dspm_service_permissions_override"`
 
 	// falcon client id
 	FalconClientID string `json:"falcon_client_id,omitempty"`
@@ -96,8 +105,14 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// Required: true
 	UseExistingCloudtrail *bool `json:"use_existing_cloudtrail"`
 
+	// vulnerability scanning custom vpc configuration
+	VulnerabilityScanningCustomVpcConfiguration RestAWSCreateVulnerabilityScanningSettingsVulnerabilityScanningCustomVpcConfiguration `json:"vulnerability_scanning_custom_vpc_configuration,omitempty"`
+
 	// vulnerability scanning host account id
 	VulnerabilityScanningHostAccountID string `json:"vulnerability_scanning_host_account_id,omitempty"`
+
+	// vulnerability scanning network configuration type
+	VulnerabilityScanningNetworkConfigurationType string `json:"vulnerability_scanning_network_configuration_type,omitempty"`
 
 	// vulnerability scanning regions
 	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
@@ -110,6 +125,10 @@ type RestCloudAWSAccountCreateExtV1 struct {
 func (m *RestCloudAWSAccountCreateExtV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDspmCustomVpcConfiguration(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateProducts(formats); err != nil {
 		res = append(res, err)
 	}
@@ -118,9 +137,32 @@ func (m *RestCloudAWSAccountCreateExtV1) Validate(formats strfmt.Registry) error
 		res = append(res, err)
 	}
 
+	if err := m.validateVulnerabilityScanningCustomVpcConfiguration(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *RestCloudAWSAccountCreateExtV1) validateDspmCustomVpcConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if m.DspmCustomVpcConfiguration != nil {
+		if err := m.DspmCustomVpcConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_custom_vpc_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_custom_vpc_configuration")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -159,17 +201,62 @@ func (m *RestCloudAWSAccountCreateExtV1) validateUseExistingCloudtrail(formats s
 	return nil
 }
 
+func (m *RestCloudAWSAccountCreateExtV1) validateVulnerabilityScanningCustomVpcConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningCustomVpcConfiguration != nil {
+		if err := m.VulnerabilityScanningCustomVpcConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this rest cloud a w s account create ext v1 based on the context it is used
 func (m *RestCloudAWSAccountCreateExtV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateDspmCustomVpcConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilityScanningCustomVpcConfiguration(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *RestCloudAWSAccountCreateExtV1) contextValidateDspmCustomVpcConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DspmCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if err := m.DspmCustomVpcConfiguration.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("dspm_custom_vpc_configuration")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("dspm_custom_vpc_configuration")
+		}
+		return err
+	}
+
 	return nil
 }
 
@@ -193,6 +280,24 @@ func (m *RestCloudAWSAccountCreateExtV1) contextValidateProducts(ctx context.Con
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RestCloudAWSAccountCreateExtV1) contextValidateVulnerabilityScanningCustomVpcConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.VulnerabilityScanningCustomVpcConfiguration) { // not required
+		return nil
+	}
+
+	if err := m.VulnerabilityScanningCustomVpcConfiguration.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("vulnerability_scanning_custom_vpc_configuration")
+		}
+		return err
 	}
 
 	return nil

@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // ReleasecontentsReleaseContentVersionResponseV1 releasecontents release content version response v1
@@ -23,64 +21,17 @@ type ReleasecontentsReleaseContentVersionResponseV1 struct {
 	CustomerID string `json:"customer_id,omitempty"`
 
 	// source id
-	// Required: true
-	SourceID *string `json:"source_id"`
+	SourceID string `json:"source_id,omitempty"`
 
 	// source type
-	// Required: true
-	SourceType *string `json:"source_type"`
+	SourceType string `json:"source_type,omitempty"`
 
 	// version
-	// Required: true
-	Version *int32 `json:"version"`
+	Version int32 `json:"version,omitempty"`
 }
 
 // Validate validates this releasecontents release content version response v1
 func (m *ReleasecontentsReleaseContentVersionResponseV1) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateSourceID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSourceType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVersion(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *ReleasecontentsReleaseContentVersionResponseV1) validateSourceID(formats strfmt.Registry) error {
-
-	if err := validate.Required("source_id", "body", m.SourceID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ReleasecontentsReleaseContentVersionResponseV1) validateSourceType(formats strfmt.Registry) error {
-
-	if err := validate.Required("source_type", "body", m.SourceType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ReleasecontentsReleaseContentVersionResponseV1) validateVersion(formats strfmt.Registry) error {
-
-	if err := validate.Required("version", "body", m.Version); err != nil {
-		return err
-	}
-
 	return nil
 }
 

@@ -62,11 +62,29 @@ GetEnrichedAssetParams contains all the parameters to send to the API endpoint
 */
 type GetEnrichedAssetParams struct {
 
+	/* Domain.
+
+	   Rule domain (Currently only used for KAC Rego rules)
+	*/
+	Domain *string
+
 	/* Ids.
 
 	   List of asset IDs (maximum 100 IDs allowed).
 	*/
 	Ids []string
+
+	/* ResourceType.
+
+	   Currently the Resource type field is only used when KAC Rules are specified vai Domain: Runtime & Subdomain: IOM. For KAC rules, we return static sample data instead of real assets b/c we don't have KAC payloads stored for customers. This field valued selects what sample data resource type we return which the UI shows in the Rego Editor to do test evaluations
+	*/
+	ResourceType *string
+
+	/* Subdomain.
+
+	   Rule subdomain (Currently only used for KAC Rego rules)
+	*/
+	Subdomain *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -121,6 +139,17 @@ func (o *GetEnrichedAssetParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithDomain adds the domain to the get enriched asset params
+func (o *GetEnrichedAssetParams) WithDomain(domain *string) *GetEnrichedAssetParams {
+	o.SetDomain(domain)
+	return o
+}
+
+// SetDomain adds the domain to the get enriched asset params
+func (o *GetEnrichedAssetParams) SetDomain(domain *string) {
+	o.Domain = domain
+}
+
 // WithIds adds the ids to the get enriched asset params
 func (o *GetEnrichedAssetParams) WithIds(ids []string) *GetEnrichedAssetParams {
 	o.SetIds(ids)
@@ -132,6 +161,28 @@ func (o *GetEnrichedAssetParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithResourceType adds the resourceType to the get enriched asset params
+func (o *GetEnrichedAssetParams) WithResourceType(resourceType *string) *GetEnrichedAssetParams {
+	o.SetResourceType(resourceType)
+	return o
+}
+
+// SetResourceType adds the resourceType to the get enriched asset params
+func (o *GetEnrichedAssetParams) SetResourceType(resourceType *string) {
+	o.ResourceType = resourceType
+}
+
+// WithSubdomain adds the subdomain to the get enriched asset params
+func (o *GetEnrichedAssetParams) WithSubdomain(subdomain *string) *GetEnrichedAssetParams {
+	o.SetSubdomain(subdomain)
+	return o
+}
+
+// SetSubdomain adds the subdomain to the get enriched asset params
+func (o *GetEnrichedAssetParams) SetSubdomain(subdomain *string) {
+	o.Subdomain = subdomain
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetEnrichedAssetParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -139,6 +190,23 @@ func (o *GetEnrichedAssetParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
+
+	if o.Domain != nil {
+
+		// query param domain
+		var qrDomain string
+
+		if o.Domain != nil {
+			qrDomain = *o.Domain
+		}
+		qDomain := qrDomain
+		if qDomain != "" {
+
+			if err := r.SetQueryParam("domain", qDomain); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Ids != nil {
 
@@ -148,6 +216,40 @@ func (o *GetEnrichedAssetParams) WriteToRequest(r runtime.ClientRequest, reg str
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
+		}
+	}
+
+	if o.ResourceType != nil {
+
+		// query param resource_type
+		var qrResourceType string
+
+		if o.ResourceType != nil {
+			qrResourceType = *o.ResourceType
+		}
+		qResourceType := qrResourceType
+		if qResourceType != "" {
+
+			if err := r.SetQueryParam("resource_type", qResourceType); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Subdomain != nil {
+
+		// query param subdomain
+		var qrSubdomain string
+
+		if o.Subdomain != nil {
+			qrSubdomain = *o.Subdomain
+		}
+		qSubdomain := qrSubdomain
+		if qSubdomain != "" {
+
+			if err := r.SetQueryParam("subdomain", qSubdomain); err != nil {
+				return err
+			}
 		}
 	}
 
