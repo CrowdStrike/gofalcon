@@ -48,7 +48,7 @@ type APIIndicatorUpdateReqV1 struct {
 	Platforms []string `json:"platforms"`
 
 	// severity
-	Severity string `json:"severity,omitempty"`
+	Severity *string `json:"severity,omitempty"`
 
 	// source
 	Source string `json:"source,omitempty"`

@@ -224,6 +224,9 @@
  | .definitions."api.IndicatorCreateReqV1".properties.expiration += {"x-nullable": true}
  | .definitions."api.IndicatorUpdateReqV1".properties.expiration += {"x-nullable": true}
 
+ # Allow severity to be nullable so callers can reset it
+ | .definitions."api.IndicatorUpdateReqV1".properties.severity += {"x-nullable": true}
+
  # 202 is a valid response for /real-time-response/entities/scripts/v1 patch
 | .paths."/real-time-response/entities/scripts/v1".patch.responses."202" = .paths."/real-time-response/entities/scripts/v1".patch.responses."200"
 | del(.paths."/real-time-response/entities/scripts/v1".patch.responses."200")
