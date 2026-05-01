@@ -51,7 +51,7 @@ type APIIndicatorUpdateReqV1 struct {
 	Severity *string `json:"severity,omitempty"`
 
 	// source
-	Source string `json:"source,omitempty"`
+	Source *string `json:"source,omitempty"`
 
 	// tags
 	Tags []string `json:"tags"`
