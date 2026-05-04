@@ -30,7 +30,7 @@ type APIIndicatorUpdateReqV1 struct {
 
 	// expiration
 	// Format: date-time
-	Expiration strfmt.DateTime `json:"expiration,omitempty"`
+	Expiration *strfmt.DateTime `json:"expiration,omitempty"`
 
 	// host groups
 	HostGroups []string `json:"host_groups"`
@@ -48,10 +48,10 @@ type APIIndicatorUpdateReqV1 struct {
 	Platforms []string `json:"platforms"`
 
 	// severity
-	Severity string `json:"severity,omitempty"`
+	Severity *string `json:"severity,omitempty"`
 
 	// source
-	Source string `json:"source,omitempty"`
+	Source *string `json:"source,omitempty"`
 
 	// tags
 	Tags []string `json:"tags"`
