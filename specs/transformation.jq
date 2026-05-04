@@ -224,7 +224,8 @@
  | .definitions."api.IndicatorCreateReqV1".properties.expiration += {"x-nullable": true}
  | .definitions."api.IndicatorUpdateReqV1".properties.expiration += {"x-nullable": true}
 
- # Allow severity and source to be nullable so callers can reset them
+ # Allow description, severity, and source to be nullable so callers can reset them
+ | .definitions."api.IndicatorUpdateReqV1".properties.description += {"x-nullable": true}
  | .definitions."api.IndicatorUpdateReqV1".properties.severity += {"x-nullable": true}
  | .definitions."api.IndicatorUpdateReqV1".properties.source += {"x-nullable": true}
 
