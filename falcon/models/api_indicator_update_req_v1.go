@@ -26,7 +26,7 @@ type APIIndicatorUpdateReqV1 struct {
 	AppliedGlobally bool `json:"applied_globally,omitempty"`
 
 	// description
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// expiration
 	// Format: date-time
