@@ -42,7 +42,7 @@ type PolicymanagerPolicyProperties struct {
 	BePasteClipboardMinSizeUnit string `json:"be_paste_clipboard_min_size_unit,omitempty"`
 
 	// be paste clipboard over size behaviour block
-	BePasteClipboardOverSizeBehaviourBlock bool `json:"be_paste_clipboard_over_size_behaviour_block,omitempty"`
+	BePasteClipboardOverSizeBehaviourBlock *bool `json:"be_paste_clipboard_over_size_behaviour_block,omitempty"`
 
 	// Must be a non-negative integer, between 1 and 10000
 	BePasteTimeoutDurationMilliseconds int32 `json:"be_paste_timeout_duration_milliseconds,omitempty"`
@@ -58,7 +58,7 @@ type PolicymanagerPolicyProperties struct {
 	BeSplashCustomMessage string `json:"be_splash_custom_message,omitempty"`
 
 	// be splash enabled
-	BeSplashEnabled bool `json:"be_splash_enabled,omitempty"`
+	BeSplashEnabled *bool `json:"be_splash_enabled,omitempty"`
 
 	// Accepts values: 'default', 'custom'
 	// Enum: [default custom]
@@ -72,7 +72,7 @@ type PolicymanagerPolicyProperties struct {
 	BeUploadTimeoutResponse string `json:"be_upload_timeout_response,omitempty"`
 
 	// block all data access
-	BlockAllDataAccess bool `json:"block_all_data_access,omitempty"`
+	BlockAllDataAccess *bool `json:"block_all_data_access,omitempty"`
 
 	// Windows only. Block notifications accepts values: 'default', 'custom'
 	// Enum: [default custom]
@@ -99,20 +99,19 @@ type PolicymanagerPolicyProperties struct {
 	CustomBlockNotification string `json:"custom_block_notification,omitempty"`
 
 	// enable clipboard inspection
-	EnableClipboardInspection bool `json:"enable_clipboard_inspection,omitempty"`
+	EnableClipboardInspection *bool `json:"enable_clipboard_inspection,omitempty"`
 
 	// enable content inspection
-	// Required: true
-	EnableContentInspection *bool `json:"enable_content_inspection"`
+	EnableContentInspection *bool `json:"enable_content_inspection,omitempty"`
 
 	// enable context inspection
-	EnableContextInspection bool `json:"enable_context_inspection,omitempty"`
+	EnableContextInspection *bool `json:"enable_context_inspection,omitempty"`
 
 	// Windows only.
-	EnableEndUserNotificationsUnsupportedBrowser bool `json:"enable_end_user_notifications_unsupported_browser,omitempty"`
+	EnableEndUserNotificationsUnsupportedBrowser *bool `json:"enable_end_user_notifications_unsupported_browser,omitempty"`
 
 	// Windows only.
-	EnableNetworkInspection bool `json:"enable_network_inspection,omitempty"`
+	EnableNetworkInspection *bool `json:"enable_network_inspection,omitempty"`
 
 	// Windows only. Length must be at least 0 and at max 150000, must be a valid png base64 image, which matches this regular expression '^data:image\/png(?:;charset=utf-8)?;base64,(?:[A-Za-z0-9]|[+\/])+={0,2}'
 	EujDialogBoxLogo string `json:"euj_dialog_box_logo,omitempty"`
@@ -127,19 +126,19 @@ type PolicymanagerPolicyProperties struct {
 	EujHeaderText *PolicymanagerEUJHeaderText `json:"euj_header_text,omitempty"`
 
 	// Windows only.
-	EujRequireAdditionalDetails bool `json:"euj_require_additional_details,omitempty"`
+	EujRequireAdditionalDetails *bool `json:"euj_require_additional_details,omitempty"`
 
 	// Windows only. Must be a non-negative integer
 	EujResponseCacheTimeout int32 `json:"euj_response_cache_timeout,omitempty"`
 
 	// Windows only.
-	EvidenceDownloadEnabled bool `json:"evidence_download_enabled,omitempty"`
+	EvidenceDownloadEnabled *bool `json:"evidence_download_enabled,omitempty"`
 
 	// Windows only.
-	EvidenceDuplicationEnabledDefault bool `json:"evidence_duplication_enabled_default,omitempty"`
+	EvidenceDuplicationEnabledDefault *bool `json:"evidence_duplication_enabled_default,omitempty"`
 
 	// Windows only.
-	EvidenceEncryptedEnabled bool `json:"evidence_encrypted_enabled,omitempty"`
+	EvidenceEncryptedEnabled *bool `json:"evidence_encrypted_enabled,omitempty"`
 
 	// Windows only. Must be between 1 and 90
 	EvidenceStorageFreeDiskPerc float64 `json:"evidence_storage_free_disk_perc,omitempty"`
@@ -167,7 +166,7 @@ type PolicymanagerPolicyProperties struct {
 	NetworkInspectionFilesExceedingSizeLimit string `json:"network_inspection_files_exceeding_size_limit,omitempty"`
 
 	// similarity detection
-	SimilarityDetection bool `json:"similarity_detection,omitempty"`
+	SimilarityDetection *bool `json:"similarity_detection,omitempty"`
 
 	// Similarity threshold percentage values from 10 to 100
 	// Enum: [10 20 30 40 50 60 70 80 90 100]
@@ -215,10 +214,6 @@ func (m *PolicymanagerPolicyProperties) Validate(formats strfmt.Registry) error 
 	}
 
 	if err := m.validateClassifications(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEnableContentInspection(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -599,15 +594,6 @@ func (m *PolicymanagerPolicyProperties) validateBrowsersWithoutActiveExtension(f
 func (m *PolicymanagerPolicyProperties) validateClassifications(formats strfmt.Registry) error {
 
 	if err := validate.Required("classifications", "body", m.Classifications); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *PolicymanagerPolicyProperties) validateEnableContentInspection(formats strfmt.Registry) error {
-
-	if err := validate.Required("enable_content_inspection", "body", m.EnableContentInspection); err != nil {
 		return err
 	}
 

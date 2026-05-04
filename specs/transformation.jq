@@ -761,3 +761,27 @@
 | .definitions."domain.ScanScheduling".properties.days_of_week = {"type": "array", "description": "The days of the week that scan created will run on", "items": {"type": "string", "enum": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}}
 | .definitions."domain.ScanScheduling".properties.frequency.enum = ["not_scheduled", "daily", "weekly", "monthly", "one-time"]
 | .definitions."domain.ScanScheduling".properties.occurrence.enum = ["first", "second", "third", "fourth", "last"]
+
+# Make enable_content_inspection optional (not required by the API)
+| .definitions."policymanager.PolicyProperties".required = ["classifications"]
+
+# Make policymanager.PolicyProperties bool fields nullable (allows sending false via PATCH API)
+| .definitions."policymanager.PolicyProperties".properties.block_all_data_access += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.be_paste_clipboard_over_size_behaviour_block += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.be_splash_enabled += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.enable_clipboard_inspection += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.enable_content_inspection += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.enable_context_inspection += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.enable_end_user_notifications_unsupported_browser += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.enable_network_inspection += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.euj_require_additional_details += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.evidence_download_enabled += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.evidence_duplication_enabled_default += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.evidence_encrypted_enabled += {"x-nullable": true}
+| .definitions."policymanager.PolicyProperties".properties.similarity_detection += {"x-nullable": true}
+
+# Make precedence optional and nullable for data protection policy create and update (0 is a valid value)
+| .definitions."policymanager.ExternalPolicyPatch".required = ["id", "is_enabled", "policy_properties"]
+| .definitions."policymanager.ExternalPolicyPatch".properties.precedence += {"x-nullable": true}
+| .definitions."policymanager.ExternalPolicyPost".required = ["description", "name"]
+| .definitions."policymanager.ExternalPolicyPost".properties.precedence += {"x-nullable": true}
