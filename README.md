@@ -79,6 +79,25 @@ func main() {
 }
 ```
 
+## Retry and Backoff
+
+Gofalcon can automatically retry requests that fail with transient errors (network errors, `429 Too Many Requests`, `5xx` server errors) using exponential backoff. Enable it by setting `RetryConfig` on `ApiConfig`:
+
+```go
+client, err := falcon.NewClient(&falcon.ApiConfig{
+	ClientId:     os.Getenv("FALCON_CLIENT_ID"),
+	ClientSecret: os.Getenv("FALCON_CLIENT_SECRET"),
+	Context:      context.Background(),
+	RetryConfig: &falcon.RetryConfig{
+		MaxTries:        10,           // 0 = unlimited (retry until context cancellation)
+		InitialInterval: 2 * time.Second,
+		MaxInterval:     time.Minute,
+	},
+})
+```
+
+When `RetryConfig` is nil (the default), no retries are performed. Retry behaviour is controlled entirely by the context passed to `ApiConfig` -- cancelling the context stops any in-progress retry loop.
+
 ## Versioning
 
 This module adheres to the Go Module version numbering system, as described in detail at [Go Module version numbering](https://go.dev/doc/modules/version-numbers).

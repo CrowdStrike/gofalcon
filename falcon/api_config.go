@@ -8,6 +8,17 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client"
 )
 
+// RetryConfig configures automatic retry with exponential backoff for transient errors
+// (network errors, 429, 5xx). Assign to ApiConfig.RetryConfig to enable; nil disables retry.
+type RetryConfig struct {
+	// MaxTries is the maximum total number of attempts (initial + retries). 0 means unlimited.
+	MaxTries uint
+	// InitialInterval is the starting backoff duration. Defaults to 2 seconds if zero.
+	InitialInterval time.Duration
+	// MaxInterval caps the exponential backoff. Defaults to 1 minute if zero.
+	MaxInterval time.Duration
+}
+
 // ApiConfig object is used to initialise and configure API Client. Together with NewClient function, ApiConfig provides preferred way to initiate API communication.
 type ApiConfig struct {
 	// AccessToken is the access token used to access the CrowdStrike Falcon platform.
@@ -34,6 +45,9 @@ type ApiConfig struct {
 	HttpTimeOutOverride *time.Duration
 	// UserAgentOverride allows to override default User-Agent HTTP header when talking with CrowdStrike API (default: gofalcon/$VERSION)
 	UserAgentOverride string
+	// RetryConfig enables automatic retry with exponential backoff for transient errors (network errors, 429, 5xx).
+	// Nil disables retry entirely.
+	RetryConfig *RetryConfig
 	// TransportDecorator allows users to decorate and customize default authenticated client http.RoundTripper behavior.
 	TransportDecorator TransportDecorator
 	// Debug forces print out of all http traffic going through the API Runtime

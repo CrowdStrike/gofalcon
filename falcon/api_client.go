@@ -1,11 +1,15 @@
 package falcon
 
 import (
+	"bytes"
 	"errors"
+	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"time"
 
+	"github.com/cenkalti/backoff/v5"
 	"github.com/crowdstrike/gofalcon/falcon/client"
 	httpruntime "github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
@@ -89,6 +93,10 @@ func commonHTTPClientConfig(c *http.Client, ac *ApiConfig) *http.Client {
 		UserAgent: ac.UserAgent(),
 	}
 
+	if ac.RetryConfig != nil {
+		c.Transport = &retryTransport{T: c.Transport, config: ac.RetryConfig}
+	}
+
 	if ac.TransportDecorator != nil {
 		c.Transport = ac.TransportDecorator(c.Transport)
 	}
@@ -133,6 +141,85 @@ func (w *workaround) RoundTrip(req *http.Request) (*http.Response, error) {
 		req.Header.Add("Content-Type", "application/json")
 	}
 	return w.T.RoundTrip(req)
+}
+
+type retryTransport struct {
+	T      http.RoundTripper
+	config *RetryConfig
+}
+
+func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	var resp *http.Response
+
+	operation := func() (*http.Response, error) {
+		cloned, err := cloneRequest(req)
+		if err != nil {
+			return nil, backoff.Permanent(fmt.Errorf("failed to clone request: %w", err))
+		}
+
+		resp, err := rt.T.RoundTrip(cloned)
+		if err != nil {
+			return resp, err
+		}
+
+		if resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode >= 500 {
+			log.Debugf("gofalcon: retrying request to %s, status %d", req.URL.Path, resp.StatusCode)
+			drainBody(resp)
+			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
+		}
+
+		return resp, nil
+	}
+
+	b := backoff.NewExponentialBackOff()
+	if rt.config.InitialInterval != 0 {
+		b.InitialInterval = rt.config.InitialInterval
+	} else {
+		b.InitialInterval = 2 * time.Second
+	}
+	if rt.config.MaxInterval != 0 {
+		b.MaxInterval = rt.config.MaxInterval
+	} else {
+		b.MaxInterval = time.Minute
+	}
+
+	opts := []backoff.RetryOption{backoff.WithBackOff(b)}
+	if rt.config.MaxTries > 0 {
+		opts = append(opts, backoff.WithMaxTries(rt.config.MaxTries))
+	}
+
+	resp, err := backoff.Retry(req.Context(), operation, opts...)
+	return resp, err
+}
+
+func cloneRequest(req *http.Request) (*http.Request, error) {
+	cloned := req.Clone(req.Context())
+
+	if req.Body != nil && req.Body != http.NoBody {
+		if req.GetBody != nil {
+			body, err := req.GetBody()
+			if err != nil {
+				return nil, fmt.Errorf("failed to get request body: %w", err)
+			}
+			cloned.Body = body
+		} else {
+			bodyBytes, err := io.ReadAll(req.Body)
+			if err != nil {
+				return nil, fmt.Errorf("failed to read request body: %w", err)
+			}
+			req.Body = io.NopCloser(bytes.NewReader(bodyBytes))
+			cloned.Body = io.NopCloser(bytes.NewReader(bodyBytes))
+		}
+	}
+
+	return cloned, nil
+}
+
+func drainBody(resp *http.Response) {
+	if resp != nil && resp.Body != nil {
+		_, _ = io.Copy(io.Discard, resp.Body)
+		resp.Body.Close()
+	}
 }
 
 // TransportDecorator accepts a RoundTripper and returns a RoundTripper.
