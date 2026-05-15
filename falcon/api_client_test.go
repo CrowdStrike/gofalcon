@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -198,5 +199,149 @@ func TestRetryTransport_BodyReplayedOnRetry(t *testing.T) {
 		if b != body {
 			t.Errorf("call %d: expected body %q, got %q", i, body, b)
 		}
+	}
+}
+
+func fakeRespWithRetryAfter(code int, retryAfter string) *http.Response {
+	r := fakeResp(code)
+	r.Header.Set("X-RateLimit-RetryAfter", retryAfter)
+	return r
+}
+
+func TestRetryTransport_UsesRetryAfterHeader(t *testing.T) {
+	retryAt := fmt.Sprintf("%d", time.Now().Add(1*time.Second).Unix())
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeRespWithRetryAfter(429, retryAt), fakeResp(200)},
+		errors:    []error{nil, nil},
+	}
+	rt := &retryTransport{T: fake, config: fastRetry(3)}
+
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	resp, err := rt.RoundTrip(req)
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if resp.StatusCode != 200 {
+		t.Fatalf("expected status 200, got %d", resp.StatusCode)
+	}
+	if fake.calls != 2 {
+		t.Fatalf("expected 2 calls, got %d", fake.calls)
+	}
+}
+
+func TestParseRetryAfter(t *testing.T) {
+	tests := map[string]struct {
+		header   string
+		wantMin  time.Duration
+		wantMax  time.Duration
+		wantZero bool
+	}{
+		"future epoch": {
+			header:  fmt.Sprintf("%d", time.Now().Add(30*time.Second).Unix()),
+			wantMin: 25 * time.Second,
+			wantMax: 35 * time.Second,
+		},
+		"near-future epoch clamps to 1s": {
+			header:  fmt.Sprintf("%d", time.Now().Unix()+1),
+			wantMin: 1 * time.Millisecond,
+			wantMax: 2 * time.Second,
+		},
+		"past epoch": {
+			header:   fmt.Sprintf("%d", time.Now().Add(-10*time.Second).Unix()),
+			wantZero: true,
+		},
+		"empty string": {
+			header:   "",
+			wantZero: true,
+		},
+		"non-numeric": {
+			header:   "not-a-number",
+			wantZero: true,
+		},
+	}
+
+	for name, tc := range tests {
+		t.Run(name, func(t *testing.T) {
+			got := parseRetryAfter(tc.header)
+			if tc.wantZero {
+				if got != 0 {
+					t.Fatalf("expected 0, got %v", got)
+				}
+				return
+			}
+			if got < tc.wantMin || got > tc.wantMax {
+				t.Fatalf("expected duration in [%v, %v], got %v", tc.wantMin, tc.wantMax, got)
+			}
+		})
+	}
+}
+
+func TestRetryTransport_RetryAfterMissingHeaderFallsBack(t *testing.T) {
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeResp(429), fakeResp(200)},
+		errors:    []error{nil, nil},
+	}
+	rt := &retryTransport{T: fake, config: fastRetry(3)}
+
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	resp, err := rt.RoundTrip(req)
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if resp.StatusCode != 200 {
+		t.Fatalf("expected status 200, got %d", resp.StatusCode)
+	}
+	if fake.calls != 2 {
+		t.Fatalf("expected 2 calls, got %d", fake.calls)
+	}
+}
+
+func TestRetryTransport_RetryAfterInvalidHeaderFallsBack(t *testing.T) {
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeRespWithRetryAfter(429, "not-a-number"), fakeResp(200)},
+		errors:    []error{nil, nil},
+	}
+	rt := &retryTransport{T: fake, config: fastRetry(3)}
+
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	resp, err := rt.RoundTrip(req)
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if resp.StatusCode != 200 {
+		t.Fatalf("expected status 200, got %d", resp.StatusCode)
+	}
+	if fake.calls != 2 {
+		t.Fatalf("expected 2 calls, got %d", fake.calls)
+	}
+}
+
+func TestRetryTransport_5xxDoesNotUseRetryAfter(t *testing.T) {
+	retryAt := fmt.Sprintf("%d", time.Now().Add(30*time.Second).Unix())
+	resp503 := fakeResp(503)
+	resp503.Header.Set("X-RateLimit-RetryAfter", retryAt)
+
+	fake := &fakeTransport{
+		responses: []*http.Response{resp503, fakeResp(200)},
+		errors:    []error{nil, nil},
+	}
+	rt := &retryTransport{T: fake, config: fastRetry(3)}
+
+	start := time.Now()
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	resp, err := rt.RoundTrip(req)
+	elapsed := time.Since(start)
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if resp.StatusCode != 200 {
+		t.Fatalf("expected status 200, got %d", resp.StatusCode)
+	}
+	if elapsed > 5*time.Second {
+		t.Fatalf("5xx should use exponential backoff, not retry-after; elapsed %v", elapsed)
 	}
 }

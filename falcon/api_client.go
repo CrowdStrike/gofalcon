@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strconv"
 	"time"
 
 	"github.com/cenkalti/backoff/v5"
@@ -151,6 +152,18 @@ type retryTransport struct {
 func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 	var resp *http.Response
 
+	bo := &retryAfterBackOff{ExponentialBackOff: backoff.NewExponentialBackOff()}
+	if rt.config.InitialInterval != 0 {
+		bo.InitialInterval = rt.config.InitialInterval
+	} else {
+		bo.InitialInterval = 2 * time.Second
+	}
+	if rt.config.MaxInterval != 0 {
+		bo.MaxInterval = rt.config.MaxInterval
+	} else {
+		bo.MaxInterval = time.Minute
+	}
+
 	operation := func() (*http.Response, error) {
 		cloned, err := cloneRequest(req)
 		if err != nil {
@@ -162,8 +175,17 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 			return resp, err
 		}
 
-		if resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode >= 500 {
-			log.Debugf("gofalcon: retrying request to %s, status %d", req.URL.Path, resp.StatusCode)
+		if resp.StatusCode == http.StatusTooManyRequests {
+			if wait := parseRetryAfter(resp.Header.Get("X-RateLimit-RetryAfter")); wait > 0 {
+				bo.override = wait
+			}
+			log.Debugf("rate limited on %s, retrying", req.URL.Path)
+			drainBody(resp)
+			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
+		}
+
+		if resp.StatusCode >= 500 {
+			log.Debugf("retrying request to %s, status %d", req.URL.Path, resp.StatusCode)
 			drainBody(resp)
 			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
 		}
@@ -171,19 +193,7 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 		return resp, nil
 	}
 
-	b := backoff.NewExponentialBackOff()
-	if rt.config.InitialInterval != 0 {
-		b.InitialInterval = rt.config.InitialInterval
-	} else {
-		b.InitialInterval = 2 * time.Second
-	}
-	if rt.config.MaxInterval != 0 {
-		b.MaxInterval = rt.config.MaxInterval
-	} else {
-		b.MaxInterval = time.Minute
-	}
-
-	opts := []backoff.RetryOption{backoff.WithBackOff(b)}
+	opts := []backoff.RetryOption{backoff.WithBackOff(bo)}
 	if rt.config.MaxTries > 0 {
 		opts = append(opts, backoff.WithMaxTries(rt.config.MaxTries))
 	}
@@ -220,6 +230,43 @@ func drainBody(resp *http.Response) {
 		_, _ = io.Copy(io.Discard, resp.Body)
 		resp.Body.Close()
 	}
+}
+
+// retryAfterBackOff wraps ExponentialBackOff to honor X-RateLimit-RetryAfter on 429 responses.
+type retryAfterBackOff struct {
+	*backoff.ExponentialBackOff
+	override time.Duration
+}
+
+// NextBackOff returns the override duration if set, otherwise delegates to exponential backoff.
+func (b *retryAfterBackOff) NextBackOff() time.Duration {
+	if b.override > 0 {
+		d := min(b.override, b.MaxInterval)
+		b.override = 0
+		return d
+	}
+	return b.ExponentialBackOff.NextBackOff()
+}
+
+// parseRetryAfter parses the X-RateLimit-RetryAfter header (Unix epoch) and returns
+// the duration to wait, with a minimum of 10 seconds. Returns 0 if the header is
+// missing or unparseable.
+func parseRetryAfter(header string) time.Duration {
+	if header == "" {
+		return 0
+	}
+	epoch, err := strconv.ParseInt(header, 10, 64)
+	if err != nil {
+		return 0
+	}
+	wait := time.Until(time.Unix(epoch, 0))
+	if wait <= 0 {
+		return 0
+	}
+	if wait < time.Second {
+		wait = time.Second
+	}
+	return wait
 }
 
 // TransportDecorator accepts a RoundTripper and returns a RoundTripper.
