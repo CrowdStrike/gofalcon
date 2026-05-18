@@ -11,7 +11,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // DomainRequest domain request
@@ -19,16 +18,24 @@ import (
 // swagger:model domain.Request
 type DomainRequest struct {
 
-	// description
-	// Required: true
-	Description *string `json:"description"`
+	// data
+	Data string `json:"data,omitempty"`
+
+	// json
+	JSON DomainRequestJSON `json:"json,omitempty"`
+
+	// params
+	Params *DomainParams `json:"params,omitempty"`
+
+	// x www form urlencoded
+	XWwwFormUrlencoded interface{} `json:"x-www-form-urlencoded,omitempty"`
 }
 
 // Validate validates this domain request
 func (m *DomainRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDescription(formats); err != nil {
+	if err := m.validateParams(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -38,17 +45,57 @@ func (m *DomainRequest) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainRequest) validateDescription(formats strfmt.Registry) error {
+func (m *DomainRequest) validateParams(formats strfmt.Registry) error {
+	if swag.IsZero(m.Params) { // not required
+		return nil
+	}
 
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
+	if m.Params != nil {
+		if err := m.Params.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("params")
+			}
+			return err
+		}
 	}
 
 	return nil
 }
 
-// ContextValidate validates this domain request based on context it is used
+// ContextValidate validate this domain request based on the context it is used
 func (m *DomainRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainRequest) contextValidateParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Params != nil {
+
+		if swag.IsZero(m.Params) { // not required
+			return nil
+		}
+
+		if err := m.Params.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("params")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
