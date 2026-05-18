@@ -2,12 +2,15 @@ package falcon
 
 import (
 	"bytes"
+	"context"
 	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"net/url"
 	"strconv"
+	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/cenkalti/backoff/v5"
@@ -89,10 +92,12 @@ func clientCredentialsHTTPClient(ac *ApiConfig) *http.Client {
 
 func commonHTTPClientConfig(c *http.Client, ac *ApiConfig) *http.Client {
 	c.Timeout = ac.HttpTimeout()
-	c.Transport = &roundTripper{
+	rt := &roundTripper{
 		T:         &workaround{T: c.Transport},
 		UserAgent: ac.UserAgent(),
 	}
+	rt.remaining.Store(-1)
+	c.Transport = rt
 
 	if ac.RetryConfig != nil {
 		c.Transport = &retryTransport{T: c.Transport, config: ac.RetryConfig}
@@ -105,23 +110,54 @@ func commonHTTPClientConfig(c *http.Client, ac *ApiConfig) *http.Client {
 	return c
 }
 
+const (
+	rateLimitThresholdHigh int64 = 10
+	rateLimitThresholdLow  int64 = 5
+)
+
 type roundTripper struct {
-	T                   http.RoundTripper
-	UserAgent           string
-	LastRateLimitDigits int
+	T         http.RoundTripper
+	UserAgent string
+	remaining atomic.Int64
+}
+
+func (rt *roundTripper) proactiveDelay() time.Duration {
+	remaining := rt.remaining.Load()
+	switch {
+	case remaining < 0:
+		return 0
+	case remaining <= rateLimitThresholdLow:
+		return 500 * time.Millisecond
+	case remaining <= rateLimitThresholdHigh:
+		return 200 * time.Millisecond
+	default:
+		return 0
+	}
 }
 
 func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 	req.Header.Add("User-Agent", rt.UserAgent)
 	req.Header.Add("CrowdStrike-SDK", "crowdstrike-gofalcon/"+Version.String())
 
-	if rt.LastRateLimitDigits == 1 || rt.LastRateLimitDigits == 2 {
-		log.Debug("Approaching CrowdStrike API rate limits. Waiting 500 millisecond.")
-		time.Sleep(500 * time.Millisecond)
+	if delay := rt.proactiveDelay(); delay > 0 {
+		log.Debugf("Approaching CrowdStrike API rate limits (remaining=%d). Waiting %s.",
+			rt.remaining.Load(), delay)
+		timer := time.NewTimer(delay)
+		select {
+		case <-timer.C:
+		case <-req.Context().Done():
+			timer.Stop()
+			return nil, req.Context().Err()
+		}
 	}
+
 	response, err := rt.T.RoundTrip(req)
 	if response != nil {
-		rt.LastRateLimitDigits = len(response.Header.Get("X-Ratelimit-Remaining"))
+		if s := response.Header.Get("X-Ratelimit-Remaining"); s != "" {
+			if v, parseErr := strconv.ParseInt(s, 10, 64); parseErr == nil {
+				rt.remaining.Store(v)
+			}
+		}
 	}
 
 	return response, err
@@ -147,6 +183,9 @@ func (w *workaround) RoundTrip(req *http.Request) (*http.Response, error) {
 type retryTransport struct {
 	T      http.RoundTripper
 	config *RetryConfig
+
+	mu            sync.Mutex
+	cooldownUntil time.Time
 }
 
 func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
@@ -165,6 +204,10 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 	}
 
 	operation := func() (*http.Response, error) {
+		if err := rt.waitForCooldown(req.Context()); err != nil {
+			return nil, backoff.Permanent(err)
+		}
+
 		cloned, err := cloneRequest(req)
 		if err != nil {
 			return nil, backoff.Permanent(fmt.Errorf("failed to clone request: %w", err))
@@ -178,6 +221,7 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 		if resp.StatusCode == http.StatusTooManyRequests {
 			if wait := parseRetryAfter(resp.Header.Get("X-RateLimit-RetryAfter")); wait > 0 {
 				bo.override = wait
+				rt.setCooldown(wait)
 			}
 			log.Debugf("rate limited on %s, retrying", req.URL.Path)
 			drainBody(resp)
@@ -200,6 +244,46 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 
 	resp, err := backoff.Retry(req.Context(), operation, opts...)
 	return resp, err
+}
+
+// setCooldown updates the shared cooldown timestamp so subsequent requests
+// wait before sending.
+func (rt *retryTransport) setCooldown(d time.Duration) {
+	rt.mu.Lock()
+	defer rt.mu.Unlock()
+	until := time.Now().Add(d)
+	if until.After(rt.cooldownUntil) {
+		rt.cooldownUntil = until
+	}
+}
+
+// waitForCooldown blocks until the shared rate-limit cooldown expires or the
+// context is cancelled.
+func (rt *retryTransport) waitForCooldown(ctx context.Context) error {
+	rt.mu.Lock()
+	until := rt.cooldownUntil
+	rt.mu.Unlock()
+
+	wait := time.Until(until)
+	if wait <= 0 {
+		return nil
+	}
+
+	if deadline, ok := ctx.Deadline(); ok && deadline.Before(until) {
+		return fmt.Errorf("rate-limit cooldown (%s) exceeds context deadline: %w",
+			wait.Round(time.Millisecond), context.DeadlineExceeded)
+	}
+
+	log.Debugf("waiting %s for rate-limit cooldown before sending request", wait.Round(time.Millisecond))
+	timer := time.NewTimer(wait)
+	defer timer.Stop()
+
+	select {
+	case <-timer.C:
+		return nil
+	case <-ctx.Done():
+		return ctx.Err()
+	}
 }
 
 func cloneRequest(req *http.Request) (*http.Request, error) {
