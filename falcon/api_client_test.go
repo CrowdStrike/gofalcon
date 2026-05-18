@@ -8,6 +8,8 @@ import (
 	"io"
 	"net/http"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"testing"
 	"time"
 )
@@ -343,5 +345,250 @@ func TestRetryTransport_5xxDoesNotUseRetryAfter(t *testing.T) {
 	}
 	if elapsed > 5*time.Second {
 		t.Fatalf("5xx should use exponential backoff, not retry-after; elapsed %v", elapsed)
+	}
+}
+
+func TestRetryTransport_SharedCooldownGatesSubsequentRequests(t *testing.T) {
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeResp(200), fakeResp(200)},
+		errors:    []error{nil, nil},
+	}
+	rt := &retryTransport{T: fake, config: fastRetry(3)}
+
+	rt.setCooldown(500 * time.Millisecond)
+
+	rt.mu.Lock()
+	cooldownSet := !rt.cooldownUntil.IsZero()
+	rt.mu.Unlock()
+
+	if !cooldownSet {
+		t.Fatal("expected cooldownUntil to be set after setCooldown")
+	}
+
+	start := time.Now()
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com/gated", nil)
+	resp, err := rt.RoundTrip(req)
+	waited := time.Since(start)
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if resp.StatusCode != 200 {
+		t.Fatalf("expected 200, got %d", resp.StatusCode)
+	}
+	if waited < 400*time.Millisecond {
+		t.Fatalf("expected request to be gated by cooldown, but only waited %v", waited)
+	}
+}
+
+func TestRetryTransport_SharedCooldownConcurrentRequests(t *testing.T) {
+	transport := &funcTransport{fn: func(req *http.Request) (*http.Response, error) {
+		return fakeResp(200), nil
+	}}
+	rt := &retryTransport{T: transport, config: fastRetry(5)}
+
+	rt.setCooldown(500 * time.Millisecond)
+
+	var wg sync.WaitGroup
+	var gatedCount atomic.Int32
+
+	for range 5 {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			start := time.Now()
+			req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com/gated", nil)
+			resp, err := rt.RoundTrip(req)
+			elapsed := time.Since(start)
+			if err != nil {
+				t.Errorf("unexpected error: %v", err)
+				return
+			}
+			if resp.StatusCode != 200 {
+				t.Errorf("expected 200, got %d", resp.StatusCode)
+				return
+			}
+			if elapsed >= 400*time.Millisecond {
+				gatedCount.Add(1)
+			}
+		}()
+	}
+
+	wg.Wait()
+
+	if gatedCount.Load() == 0 {
+		t.Fatal("expected at least one concurrent request to be gated by cooldown")
+	}
+}
+
+func TestRetryTransport_CooldownRespectsContextCancellation(t *testing.T) {
+	rt := &retryTransport{
+		T:      &fakeTransport{responses: []*http.Response{fakeResp(200)}, errors: []error{nil}},
+		config: fastRetry(3),
+	}
+
+	rt.mu.Lock()
+	rt.cooldownUntil = time.Now().Add(10 * time.Second)
+	rt.mu.Unlock()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 50*time.Millisecond)
+	defer cancel()
+
+	req, _ := http.NewRequestWithContext(ctx, http.MethodGet, "http://example.com", nil)
+	_, err := rt.RoundTrip(req)
+
+	if !errors.Is(err, context.DeadlineExceeded) {
+		t.Fatalf("expected context.DeadlineExceeded, got: %v", err)
+	}
+}
+
+// funcTransport is a test helper that calls a function for each RoundTrip.
+type funcTransport struct {
+	fn func(*http.Request) (*http.Response, error)
+}
+
+func (f *funcTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	return f.fn(req)
+}
+
+func fakeRespWithRemaining(code int, remaining string) *http.Response {
+	r := fakeResp(code)
+	r.Header.Set("X-Ratelimit-Remaining", remaining)
+	return r
+}
+
+func TestRoundTripper_ProactiveThrottle_NoDelay(t *testing.T) {
+	t.Parallel()
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeRespWithRemaining(200, "50"), fakeRespWithRemaining(200, "49")},
+		errors:    []error{nil, nil},
+	}
+	rt := &roundTripper{T: fake, UserAgent: "test"}
+	rt.remaining.Store(-1)
+
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	start := time.Now()
+	_, _ = rt.RoundTrip(req)
+	if time.Since(start) > 50*time.Millisecond {
+		t.Fatal("unexpected delay on first request with unknown remaining")
+	}
+
+	req2, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	start = time.Now()
+	_, _ = rt.RoundTrip(req2)
+	if time.Since(start) > 50*time.Millisecond {
+		t.Fatal("unexpected delay when remaining=50")
+	}
+}
+
+func TestRoundTripper_ProactiveThrottle_ModerateDelay(t *testing.T) {
+	t.Parallel()
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeRespWithRemaining(200, "7")},
+		errors:    []error{nil},
+	}
+	rt := &roundTripper{T: fake, UserAgent: "test"}
+	rt.remaining.Store(8)
+
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	start := time.Now()
+	_, _ = rt.RoundTrip(req)
+	elapsed := time.Since(start)
+	if elapsed < 150*time.Millisecond || elapsed > 400*time.Millisecond {
+		t.Fatalf("expected ~200ms delay, got %v", elapsed)
+	}
+}
+
+func TestRoundTripper_ProactiveThrottle_StrongDelay(t *testing.T) {
+	t.Parallel()
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeRespWithRemaining(200, "2")},
+		errors:    []error{nil},
+	}
+	rt := &roundTripper{T: fake, UserAgent: "test"}
+	rt.remaining.Store(3)
+
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	start := time.Now()
+	_, _ = rt.RoundTrip(req)
+	elapsed := time.Since(start)
+	if elapsed < 400*time.Millisecond || elapsed > 750*time.Millisecond {
+		t.Fatalf("expected ~500ms delay, got %v", elapsed)
+	}
+}
+
+func TestRoundTripper_ProactiveThrottle_ContextCancelled(t *testing.T) {
+	t.Parallel()
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeResp(200)},
+		errors:    []error{nil},
+	}
+	rt := &roundTripper{T: fake, UserAgent: "test"}
+	rt.remaining.Store(1)
+
+	ctx, cancel := context.WithCancel(context.Background())
+	go func() {
+		time.Sleep(50 * time.Millisecond)
+		cancel()
+	}()
+
+	req, _ := http.NewRequestWithContext(ctx, http.MethodGet, "http://example.com", nil)
+	start := time.Now()
+	_, err := rt.RoundTrip(req)
+	elapsed := time.Since(start)
+
+	if !errors.Is(err, context.Canceled) {
+		t.Fatalf("expected context.Canceled, got: %v", err)
+	}
+	if elapsed > 200*time.Millisecond {
+		t.Fatalf("expected prompt cancellation, but waited %v", elapsed)
+	}
+}
+
+func TestRoundTripper_ProactiveThrottle_UnparseableHeader(t *testing.T) {
+	t.Parallel()
+	fake := &fakeTransport{
+		responses: []*http.Response{fakeRespWithRemaining(200, "abc")},
+		errors:    []error{nil},
+	}
+	rt := &roundTripper{T: fake, UserAgent: "test"}
+	rt.remaining.Store(-1)
+
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "http://example.com", nil)
+	start := time.Now()
+	_, _ = rt.RoundTrip(req)
+	if time.Since(start) > 50*time.Millisecond {
+		t.Fatal("unexpected delay with unparseable header")
+	}
+	if rt.remaining.Load() != -1 {
+		t.Fatalf("expected remaining to stay -1, got %d", rt.remaining.Load())
+	}
+}
+
+func TestWaitForCooldown_PreflightDeadlineExceeded(t *testing.T) {
+	t.Parallel()
+	rt := &retryTransport{
+		T:      &fakeTransport{responses: []*http.Response{fakeResp(200)}, errors: []error{nil}},
+		config: fastRetry(3),
+	}
+	rt.mu.Lock()
+	rt.cooldownUntil = time.Now().Add(10 * time.Second)
+	rt.mu.Unlock()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 50*time.Millisecond)
+	defer cancel()
+
+	start := time.Now()
+	err := rt.waitForCooldown(ctx)
+	elapsed := time.Since(start)
+
+	if !errors.Is(err, context.DeadlineExceeded) {
+		t.Fatalf("expected context.DeadlineExceeded, got: %v", err)
+	}
+	if elapsed > 10*time.Millisecond {
+		t.Fatalf("expected immediate return from preflight check, but waited %v", elapsed)
+	}
+	if !strings.Contains(err.Error(), "exceeds context deadline") {
+		t.Fatalf("expected descriptive error message, got: %v", err)
 	}
 }
