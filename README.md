@@ -98,6 +98,31 @@ client, err := falcon.NewClient(&falcon.ApiConfig{
 
 When `RetryConfig` is nil (the default), no retries are performed. Retry behaviour is controlled entirely by the context passed to `ApiConfig` -- cancelling the context stops any in-progress retry loop.
 
+## Testing
+
+The `falcon/testing` package provides a fake client for testing GoFalcon applications without API credentials or network calls. It intercepts at the transport layer, so your application code requires zero changes.
+
+```go
+import (
+    faketest "github.com/crowdstrike/gofalcon/falcon/testing"
+)
+
+fakeClient := faketest.NewFakeClient()
+fakeClient.AddMockHandler("QueryDevicesByFilter", func(request faketest.Request) (bool, interface{}, error) {
+    return true, myResponse, nil
+})
+client := fakeClient.GetClient()
+```
+
+For focused unit tests, use `NewMockClient()` to get a fully-wired client where you swap in interface mocks for individual services:
+
+```go
+mc := faketest.NewMockClient()
+mc.Hosts = &myMockHosts{} // only mock what you test
+```
+
+See [falcon/testing/README.md](falcon/testing/README.md) for full documentation, including handler chaining, request verification, and interface-level mocking.
+
 ## Versioning
 
 This module adheres to the Go Module version numbering system, as described in detail at [Go Module version numbering](https://go.dev/doc/modules/version-numbers).
