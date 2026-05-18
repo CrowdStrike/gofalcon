@@ -790,3 +790,14 @@
 # Make detection_json optional for IOA exclusion create/update requests (API does not require it)
 | .definitions."ioa_exclusions.IoaExclusionCreateReqV1".required = ["cl_regex", "description", "groups", "ifn_regex", "name", "pattern_id", "pattern_name"]
 | .definitions."ioa_exclusions.IoaExclusionUpdateReqV1".required = ["cl_regex", "description", "groups", "id", "ifn_regex", "name", "pattern_id", "pattern_name"]
+
+# Restore domain.Request fields that were dropped from the spec.
+# v0.19.0 generated data, json, params, and x-www-form-urlencoded; the current spec only exposes description.
+| .definitions."domain.Request" = {
+    "properties": {
+      "data": {"type": "string"},
+      "json": {"$ref": "#/definitions/domain.Request.json"},
+      "params": {"$ref": "#/definitions/domain.Params"},
+      "x-www-form-urlencoded": {"type": "object"}
+    }
+  }
