@@ -133,6 +133,20 @@ type AzureAzureRegistrationUpdateInput struct {
 	// tenant name
 	// Required: true
 	TenantName *string `json:"tenant_name"`
+
+	// Map of region names to custom VNET configuration for Vulnerability Scanning
+	VulnerabilityScanningCustomVnetConfiguration AzureVulnerabilityScanningSettingsVulnerabilityScanningCustomVnetConfiguration `json:"vulnerability_scanning_custom_vnet_configuration,omitempty"`
+
+	// vulnerability scanning host subscription id
+	VulnerabilityScanningHostSubscriptionID string `json:"vulnerability_scanning_host_subscription_id,omitempty"`
+
+	// Network configuration type for Vulnerability Scanning
+	// Enum: [managed managed_no_nat custom]
+	VulnerabilityScanningNetworkConfigurationType string `json:"vulnerability_scanning_network_configuration_type,omitempty"`
+
+	// vulnerability scanning regions
+	// Required: true
+	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
 }
 
 // Validate validates this azure azure registration update input
@@ -188,6 +202,18 @@ func (m *AzureAzureRegistrationUpdateInput) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateTenantName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningCustomVnetConfiguration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningNetworkConfigurationType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningRegions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -413,6 +439,79 @@ func (m *AzureAzureRegistrationUpdateInput) validateTenantName(formats strfmt.Re
 	return nil
 }
 
+func (m *AzureAzureRegistrationUpdateInput) validateVulnerabilityScanningCustomVnetConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningCustomVnetConfiguration) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningCustomVnetConfiguration != nil {
+		if err := m.VulnerabilityScanningCustomVnetConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var azureAzureRegistrationUpdateInputTypeVulnerabilityScanningNetworkConfigurationTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["managed","managed_no_nat","custom"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		azureAzureRegistrationUpdateInputTypeVulnerabilityScanningNetworkConfigurationTypePropEnum = append(azureAzureRegistrationUpdateInputTypeVulnerabilityScanningNetworkConfigurationTypePropEnum, v)
+	}
+}
+
+const (
+
+	// AzureAzureRegistrationUpdateInputVulnerabilityScanningNetworkConfigurationTypeManaged captures enum value "managed"
+	AzureAzureRegistrationUpdateInputVulnerabilityScanningNetworkConfigurationTypeManaged string = "managed"
+
+	// AzureAzureRegistrationUpdateInputVulnerabilityScanningNetworkConfigurationTypeManagedNoNat captures enum value "managed_no_nat"
+	AzureAzureRegistrationUpdateInputVulnerabilityScanningNetworkConfigurationTypeManagedNoNat string = "managed_no_nat"
+
+	// AzureAzureRegistrationUpdateInputVulnerabilityScanningNetworkConfigurationTypeCustom captures enum value "custom"
+	AzureAzureRegistrationUpdateInputVulnerabilityScanningNetworkConfigurationTypeCustom string = "custom"
+)
+
+// prop value enum
+func (m *AzureAzureRegistrationUpdateInput) validateVulnerabilityScanningNetworkConfigurationTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, azureAzureRegistrationUpdateInputTypeVulnerabilityScanningNetworkConfigurationTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AzureAzureRegistrationUpdateInput) validateVulnerabilityScanningNetworkConfigurationType(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningNetworkConfigurationType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateVulnerabilityScanningNetworkConfigurationTypeEnum("vulnerability_scanning_network_configuration_type", "body", m.VulnerabilityScanningNetworkConfigurationType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationUpdateInput) validateVulnerabilityScanningRegions(formats strfmt.Registry) error {
+
+	if err := validate.Required("vulnerability_scanning_regions", "body", m.VulnerabilityScanningRegions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // ContextValidate validate this azure azure registration update input based on the context it is used
 func (m *AzureAzureRegistrationUpdateInput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -430,6 +529,10 @@ func (m *AzureAzureRegistrationUpdateInput) ContextValidate(ctx context.Context,
 	}
 
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilityScanningCustomVnetConfiguration(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -527,6 +630,24 @@ func (m *AzureAzureRegistrationUpdateInput) contextValidateProducts(ctx context.
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureAzureRegistrationUpdateInput) contextValidateVulnerabilityScanningCustomVnetConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.VulnerabilityScanningCustomVnetConfiguration) { // not required
+		return nil
+	}
+
+	if err := m.VulnerabilityScanningCustomVnetConfiguration.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+		}
+		return err
 	}
 
 	return nil
