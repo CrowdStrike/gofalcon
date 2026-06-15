@@ -31,6 +31,9 @@ type AzureEventHubSettings struct {
 	// Required: true
 	EventHubID *string `json:"event_hub_id"`
 
+	// management type
+	ManagementType string `json:"management_type,omitempty"`
+
 	// purpose
 	// Required: true
 	Purpose *string `json:"purpose"`

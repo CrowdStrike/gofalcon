@@ -44,11 +44,15 @@ type PolicymanagerExternalRule struct {
 	// Required: true
 	EnableLocalApplicationGroups *bool `json:"enable_local_application_groups"`
 
-	// enable printer egress
+	// Warning(Windows): Filepath, file type and sensitivity label conditions are not supported
 	// Required: true
 	EnablePrinterEgress *bool `json:"enable_printer_egress"`
 
-	// enable usb devices
+	// Enable screen capture for this rule, the policy this classification is attached to should have screen capture enabled as a prerequisite
+	// Required: true
+	EnableScreenCaptureRule *bool `json:"enable_screen_capture_rule"`
+
+	// Warning: File path conditions are partially supported; file name and extension matching only; full file paths are not supported
 	// Required: true
 	EnableUsbDevices *bool `json:"enable_usb_devices"`
 
@@ -120,6 +124,10 @@ func (m *PolicymanagerExternalRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateEnablePrinterEgress(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEnableScreenCaptureRule(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -260,6 +268,15 @@ func (m *PolicymanagerExternalRule) validateEnableLocalApplicationGroups(formats
 func (m *PolicymanagerExternalRule) validateEnablePrinterEgress(formats strfmt.Registry) error {
 
 	if err := validate.Required("enable_printer_egress", "body", m.EnablePrinterEgress); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PolicymanagerExternalRule) validateEnableScreenCaptureRule(formats strfmt.Registry) error {
+
+	if err := validate.Required("enable_screen_capture_rule", "body", m.EnableScreenCaptureRule); err != nil {
 		return err
 	}
 

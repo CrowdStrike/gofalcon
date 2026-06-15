@@ -24,6 +24,9 @@ type RestAWSAccountPatchExtV1 struct {
 	// Required: true
 	AccountID *string `json:"account_id"`
 
+	// cloudformation stack arn
+	CloudformationStackArn string `json:"cloudformation_stack_arn,omitempty"`
+
 	// cloudtrail region
 	CloudtrailRegion string `json:"cloudtrail_region,omitempty"`
 
@@ -93,6 +96,9 @@ type RestAWSAccountPatchExtV1 struct {
 
 	// s3 log ingestion sns topic arn
 	S3LogIngestionSnsTopicArn string `json:"s3_log_ingestion_sns_topic_arn,omitempty"`
+
+	// target ous
+	TargetOus []string `json:"target_ous"`
 
 	// use existing cloudtrail
 	UseExistingCloudtrail *bool `json:"use_existing_cloudtrail,omitempty"`

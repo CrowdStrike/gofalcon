@@ -161,6 +161,9 @@ type JsonschemaSubSchema struct {
 	// x cs do not hide
 	XCsDoNotHide bool `json:"x-cs-do-not-hide,omitempty"`
 
+	// x cs error message
+	XCsErrorMessage map[string]string `json:"x-cs-errorMessage,omitempty"`
+
 	// x cs immutable
 	XCsImmutable bool `json:"x-cs-immutable,omitempty"`
 
@@ -208,6 +211,9 @@ type JsonschemaSubSchema struct {
 
 	// x cs tags
 	XCsTags []string `json:"x-cs-tags"`
+
+	// x cs ucl cid specific
+	XCsUclCidSpecific bool `json:"x-cs-ucl-cid-specific,omitempty"`
 
 	// x cs ui
 	XCsUI *JsonschemaUIExtensions `json:"x-cs-ui,omitempty"`

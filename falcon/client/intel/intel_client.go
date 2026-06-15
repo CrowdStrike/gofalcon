@@ -1001,7 +1001,7 @@ func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts .
 }
 
 /*
-CaoIncidentsAggregatesV1 performs statistical aggregations over incident data available aggregation properties target countries name Id involves adversaries animal classifier target industries name target regions slug mitre attack tactic name mitre attack technique Id mitre attack technique name target countries slug target regions name mitre attack tactic Id publish date activity start activity end objectives slug motivations slug involves adversaries slug involves threats family name target industries slug
+CaoIncidentsAggregatesV1 performs statistical aggregations over incident data available aggregation properties target industries name mitre attack tactic Id mitre attack technique Id mitre attack technique name publish date activity start activity end Id motivations slug involves adversaries slug target regions slug objectives slug involves adversaries animal classifier involves threats family name target countries slug target countries name target industries slug target regions name mitre attack tactic name
 */
 func (a *Client) CaoIncidentsAggregatesV1(params *CaoIncidentsAggregatesV1Params, opts ...ClientOption) (*CaoIncidentsAggregatesV1OK, error) {
 	// TODO: Validate the params before sending

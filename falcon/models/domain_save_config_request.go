@@ -44,10 +44,6 @@ type DomainSaveConfigRequest struct {
 	// Required: true
 	Platform *string `json:"platform"`
 
-	// self destruct
-	// Required: true
-	SelfDestruct *bool `json:"self_destruct"`
-
 	// tag
 	// Required: true
 	Tag *string `json:"tag"`
@@ -78,10 +74,6 @@ func (m *DomainSaveConfigRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePlatform(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSelfDestruct(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -161,15 +153,6 @@ func (m *DomainSaveConfigRequest) validateName(formats strfmt.Registry) error {
 func (m *DomainSaveConfigRequest) validatePlatform(formats strfmt.Registry) error {
 
 	if err := validate.Required("platform", "body", m.Platform); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSaveConfigRequest) validateSelfDestruct(formats strfmt.Registry) error {
-
-	if err := validate.Required("self_destruct", "body", m.SelfDestruct); err != nil {
 		return err
 	}
 

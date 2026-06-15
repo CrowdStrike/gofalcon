@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // APIContentPatternUpdateRequestV1 api content pattern update request v1
@@ -20,115 +18,26 @@ import (
 type APIContentPatternUpdateRequestV1 struct {
 
 	// description
-	// Required: true
-	Description *string `json:"description"`
+	Description string `json:"description,omitempty"`
 
 	// example
-	// Required: true
-	Example *string `json:"example"`
+	Example string `json:"example,omitempty"`
 
 	// id
-	// Required: true
-	ID *string `json:"id"`
+	ID string `json:"id,omitempty"`
 
 	// min match threshold
-	// Required: true
-	MinMatchThreshold *int32 `json:"min_match_threshold"`
+	MinMatchThreshold int32 `json:"min_match_threshold,omitempty"`
 
 	// name
-	// Required: true
-	Name *string `json:"name"`
+	Name string `json:"name,omitempty"`
 
 	// regexes
-	// Required: true
 	Regexes []string `json:"regexes"`
 }
 
 // Validate validates this api content pattern update request v1
 func (m *APIContentPatternUpdateRequestV1) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateExample(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMinMatchThreshold(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRegexes(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *APIContentPatternUpdateRequestV1) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIContentPatternUpdateRequestV1) validateExample(formats strfmt.Registry) error {
-
-	if err := validate.Required("example", "body", m.Example); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIContentPatternUpdateRequestV1) validateID(formats strfmt.Registry) error {
-
-	if err := validate.Required("id", "body", m.ID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIContentPatternUpdateRequestV1) validateMinMatchThreshold(formats strfmt.Registry) error {
-
-	if err := validate.Required("min_match_threshold", "body", m.MinMatchThreshold); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIContentPatternUpdateRequestV1) validateName(formats strfmt.Registry) error {
-
-	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIContentPatternUpdateRequestV1) validateRegexes(formats strfmt.Registry) error {
-
-	if err := validate.Required("regexes", "body", m.Regexes); err != nil {
-		return err
-	}
-
 	return nil
 }
 

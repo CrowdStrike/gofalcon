@@ -87,6 +87,13 @@ type DomainNotificationV1 struct {
 	// Required: true
 	RawIntelID *string `json:"raw_intel_id"`
 
+	// risk score label
+	// Required: true
+	RiskScoreLabel *string `json:"risk_score_label"`
+
+	// risk score matching criteria
+	RiskScoreMatchingCriteria []*DomainRiskScoreMatchingCriteriaResponse `json:"risk_score_matching_criteria"`
+
 	// The name of the user who created the rule
 	RuleCreatorName string `json:"rule_creator_name,omitempty"`
 
@@ -169,6 +176,14 @@ func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRawIntelID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRiskScoreLabel(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRiskScoreMatchingCriteria(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -331,6 +346,41 @@ func (m *DomainNotificationV1) validateRawIntelID(formats strfmt.Registry) error
 	return nil
 }
 
+func (m *DomainNotificationV1) validateRiskScoreLabel(formats strfmt.Registry) error {
+
+	if err := validate.Required("risk_score_label", "body", m.RiskScoreLabel); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainNotificationV1) validateRiskScoreMatchingCriteria(formats strfmt.Registry) error {
+	if swag.IsZero(m.RiskScoreMatchingCriteria) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RiskScoreMatchingCriteria); i++ {
+		if swag.IsZero(m.RiskScoreMatchingCriteria[i]) { // not required
+			continue
+		}
+
+		if m.RiskScoreMatchingCriteria[i] != nil {
+			if err := m.RiskScoreMatchingCriteria[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("risk_score_matching_criteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("risk_score_matching_criteria" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainNotificationV1) validateRuleID(formats strfmt.Registry) error {
 
 	if err := validate.Required("rule_id", "body", m.RuleID); err != nil {
@@ -420,6 +470,10 @@ func (m *DomainNotificationV1) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateRiskScoreMatchingCriteria(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateTyposquatting(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -466,6 +520,31 @@ func (m *DomainNotificationV1) contextValidateLogs(ctx context.Context, formats 
 					return ve.ValidateName("logs" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("logs" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainNotificationV1) contextValidateRiskScoreMatchingCriteria(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RiskScoreMatchingCriteria); i++ {
+
+		if m.RiskScoreMatchingCriteria[i] != nil {
+
+			if swag.IsZero(m.RiskScoreMatchingCriteria[i]) { // not required
+				return nil
+			}
+
+			if err := m.RiskScoreMatchingCriteria[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("risk_score_matching_criteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("risk_score_matching_criteria" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

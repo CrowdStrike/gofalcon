@@ -19,6 +19,9 @@ import (
 // swagger:model api.CollectionMetadata
 type APICollectionMetadata struct {
 
+	// agent tools meta
+	AgentToolsMeta *APIAgentToolsMetadata `json:"agent_tools_meta,omitempty"`
+
 	// created by
 	CreatedBy *APIUserMetadata `json:"created_by,omitempty"`
 
@@ -78,6 +81,10 @@ type APICollectionMetadata struct {
 func (m *APICollectionMetadata) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAgentToolsMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -121,6 +128,25 @@ func (m *APICollectionMetadata) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APICollectionMetadata) validateAgentToolsMeta(formats strfmt.Registry) error {
+	if swag.IsZero(m.AgentToolsMeta) { // not required
+		return nil
+	}
+
+	if m.AgentToolsMeta != nil {
+		if err := m.AgentToolsMeta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agent_tools_meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent_tools_meta")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -256,6 +282,10 @@ func (m *APICollectionMetadata) validateWorkflowMeta(formats strfmt.Registry) er
 func (m *APICollectionMetadata) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAgentToolsMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -271,6 +301,27 @@ func (m *APICollectionMetadata) ContextValidate(ctx context.Context, formats str
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APICollectionMetadata) contextValidateAgentToolsMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AgentToolsMeta != nil {
+
+		if swag.IsZero(m.AgentToolsMeta) { // not required
+			return nil
+		}
+
+		if err := m.AgentToolsMeta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agent_tools_meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent_tools_meta")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

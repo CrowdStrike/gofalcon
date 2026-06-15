@@ -34,6 +34,10 @@ type SdkEvidenceVM struct {
 	// leads
 	// Required: true
 	Leads *SdkLeadEvidenceVM `json:"leads"`
+
+	// users
+	// Required: true
+	Users *SdkUserEvidenceVM `json:"users"`
 }
 
 // Validate validates this sdk evidence VM
@@ -53,6 +57,10 @@ func (m *SdkEvidenceVM) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLeads(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUsers(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -142,6 +150,26 @@ func (m *SdkEvidenceVM) validateLeads(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkEvidenceVM) validateUsers(formats strfmt.Registry) error {
+
+	if err := validate.Required("users", "body", m.Users); err != nil {
+		return err
+	}
+
+	if m.Users != nil {
+		if err := m.Users.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("users")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("users")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this sdk evidence VM based on the context it is used
 func (m *SdkEvidenceVM) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -159,6 +187,10 @@ func (m *SdkEvidenceVM) ContextValidate(ctx context.Context, formats strfmt.Regi
 	}
 
 	if err := m.contextValidateLeads(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsers(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -228,6 +260,23 @@ func (m *SdkEvidenceVM) contextValidateLeads(ctx context.Context, formats strfmt
 				return ve.ValidateName("leads")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("leads")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) contextValidateUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Users != nil {
+
+		if err := m.Users.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("users")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("users")
 			}
 			return err
 		}

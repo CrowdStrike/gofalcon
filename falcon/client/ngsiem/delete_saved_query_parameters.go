@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewDeleteSavedQueryParams creates a new DeleteSavedQueryParams object,
@@ -63,9 +64,9 @@ type DeleteSavedQueryParams struct {
 
 	/* Ids.
 
-	   saved query ID value
+	   saved query ID value(s). Supports single or multiple IDs for bulk delete.
 	*/
-	Ids *string
+	Ids []string
 
 	/* SearchDomain.
 
@@ -127,13 +128,13 @@ func (o *DeleteSavedQueryParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithIds adds the ids to the delete saved query params
-func (o *DeleteSavedQueryParams) WithIds(ids *string) *DeleteSavedQueryParams {
+func (o *DeleteSavedQueryParams) WithIds(ids []string) *DeleteSavedQueryParams {
 	o.SetIds(ids)
 	return o
 }
 
 // SetIds adds the ids to the delete saved query params
-func (o *DeleteSavedQueryParams) SetIds(ids *string) {
+func (o *DeleteSavedQueryParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
@@ -158,18 +159,12 @@ func (o *DeleteSavedQueryParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 	if o.Ids != nil {
 
-		// query param ids
-		var qrIds string
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
 
-		if o.Ids != nil {
-			qrIds = *o.Ids
-		}
-		qIds := qrIds
-		if qIds != "" {
-
-			if err := r.SetQueryParam("ids", qIds); err != nil {
-				return err
-			}
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
 		}
 	}
 
@@ -194,4 +189,21 @@ func (o *DeleteSavedQueryParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteSavedQuery binds the parameter ids
+func (o *DeleteSavedQueryParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

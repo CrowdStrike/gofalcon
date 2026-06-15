@@ -71,6 +71,9 @@ type DomainConfigData struct {
 	// token parameters
 	TokenParameters map[string][]string `json:"token_parameters,omitempty"`
 
+	// token response metadata
+	TokenResponseMetadata string `json:"token_response_metadata,omitempty"`
+
 	// x www form urlencoded
 	XWwwFormUrlencoded interface{} `json:"x-www-form-urlencoded,omitempty"`
 }

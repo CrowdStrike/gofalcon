@@ -35,8 +35,14 @@ type DomainDiscoverAPIDeviceSlot struct {
 	// The Slot Number of the Rack Slot of IoT Asset
 	SlotNumber int32 `json:"slot_number,omitempty"`
 
+	// The PLC mode of the slot
+	SlotPlcMode string `json:"slot_plc_mode,omitempty"`
+
 	// The Serial Number of the Rack Slot of IoT Asset
 	SlotSerialNumber string `json:"slot_serial_number,omitempty"`
+
+	// The ICS ID of the child device discovered through this slot
+	SlotTargetIcsID string `json:"slot_target_ics_id,omitempty"`
 
 	// The IoT asset's slot type
 	SlotType string `json:"slot_type,omitempty"`

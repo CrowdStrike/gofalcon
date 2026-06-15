@@ -49,6 +49,9 @@ type DomainUser struct {
 	// Format: date-time
 	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
 
+	// user type
+	UserType string `json:"user_type,omitempty"`
+
 	// uuid
 	UUID string `json:"uuid,omitempty"`
 }

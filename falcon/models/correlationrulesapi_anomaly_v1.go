@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,17 +20,19 @@ import (
 // swagger:model correlationrulesapi.AnomalyV1
 type CorrelationrulesapiAnomalyV1 struct {
 
-	// event field name
+	// event field names
 	// Required: true
-	EventFieldName *string `json:"event_field_name"`
+	EventFieldNames []string `json:"event_field_names"`
 
 	// lookback timeframe
 	// Required: true
 	LookbackTimeframe *string `json:"lookback_timeframe"`
 
 	// scope
-	// Required: true
-	Scope *string `json:"scope"`
+	Scope string `json:"scope,omitempty"`
+
+	// scopes
+	Scopes []*CorrelationrulesapiAnomalyScopes `json:"scopes"`
 
 	// type
 	// Required: true
@@ -44,7 +47,7 @@ type CorrelationrulesapiAnomalyV1 struct {
 func (m *CorrelationrulesapiAnomalyV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateEventFieldName(formats); err != nil {
+	if err := m.validateEventFieldNames(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,7 +55,7 @@ func (m *CorrelationrulesapiAnomalyV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateScope(formats); err != nil {
+	if err := m.validateScopes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -70,9 +73,9 @@ func (m *CorrelationrulesapiAnomalyV1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CorrelationrulesapiAnomalyV1) validateEventFieldName(formats strfmt.Registry) error {
+func (m *CorrelationrulesapiAnomalyV1) validateEventFieldNames(formats strfmt.Registry) error {
 
-	if err := validate.Required("event_field_name", "body", m.EventFieldName); err != nil {
+	if err := validate.Required("event_field_names", "body", m.EventFieldNames); err != nil {
 		return err
 	}
 
@@ -88,10 +91,27 @@ func (m *CorrelationrulesapiAnomalyV1) validateLookbackTimeframe(formats strfmt.
 	return nil
 }
 
-func (m *CorrelationrulesapiAnomalyV1) validateScope(formats strfmt.Registry) error {
+func (m *CorrelationrulesapiAnomalyV1) validateScopes(formats strfmt.Registry) error {
+	if swag.IsZero(m.Scopes) { // not required
+		return nil
+	}
 
-	if err := validate.Required("scope", "body", m.Scope); err != nil {
-		return err
+	for i := 0; i < len(m.Scopes); i++ {
+		if swag.IsZero(m.Scopes[i]) { // not required
+			continue
+		}
+
+		if m.Scopes[i] != nil {
+			if err := m.Scopes[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -115,8 +135,42 @@ func (m *CorrelationrulesapiAnomalyV1) validateUseEstablishedEntityOnly(formats 
 	return nil
 }
 
-// ContextValidate validates this correlationrulesapi anomaly v1 based on context it is used
+// ContextValidate validate this correlationrulesapi anomaly v1 based on the context it is used
 func (m *CorrelationrulesapiAnomalyV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateScopes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CorrelationrulesapiAnomalyV1) contextValidateScopes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Scopes); i++ {
+
+		if m.Scopes[i] != nil {
+
+			if swag.IsZero(m.Scopes[i]) { // not required
+				return nil
+			}
+
+			if err := m.Scopes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

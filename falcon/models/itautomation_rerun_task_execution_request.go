@@ -20,10 +20,13 @@ import (
 // swagger:model itautomation.RerunTaskExecutionRequest
 type ItautomationRerunTaskExecutionRequest struct {
 
-	// Type of rerun. When set to hosts, re-run on same hosts again. When set to failed, re-run only on failed hosts. When set to offline, re-run only on offline hosts. When set to target, re-run on all the hosts resolved to set criteria.
-	// Required: true
+	// [Deprecated: use run_types] Type of rerun. When set to hosts, re-run on same hosts again. When set to failed, re-run only on failed hosts. When set to offline, re-run only on offline hosts. When set to target, re-run on all the hosts resolved to set criteria.
 	// Enum: [hosts failed offline target]
-	RunType *string `json:"run_type"`
+	RunType string `json:"run_type,omitempty"`
+
+	// Types of reruns to combine with OR logic. Cannot be used with run_type. Example: ['failed', 'offline']
+	// Enum: [hosts failed offline target completed canceled expired]
+	RunTypes []string `json:"run_types"`
 
 	// ID of the task execution to rerun. Example: f64b95555ef54ea682619ce880d267cc
 	// Required: true
@@ -35,6 +38,10 @@ func (m *ItautomationRerunTaskExecutionRequest) Validate(formats strfmt.Registry
 	var res []error
 
 	if err := m.validateRunType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRunTypes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,13 +91,45 @@ func (m *ItautomationRerunTaskExecutionRequest) validateRunTypeEnum(path, locati
 }
 
 func (m *ItautomationRerunTaskExecutionRequest) validateRunType(formats strfmt.Registry) error {
-
-	if err := validate.Required("run_type", "body", m.RunType); err != nil {
-		return err
+	if swag.IsZero(m.RunType) { // not required
+		return nil
 	}
 
 	// value enum
-	if err := m.validateRunTypeEnum("run_type", "body", *m.RunType); err != nil {
+	if err := m.validateRunTypeEnum("run_type", "body", m.RunType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["hosts","failed","offline","target","completed","canceled","expired"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum = append(itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum, v)
+	}
+}
+
+// prop value enum
+func (m *ItautomationRerunTaskExecutionRequest) validateRunTypesEnum(path, location string, value []string) error {
+	if err := validate.EnumCase(path, location, value, itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ItautomationRerunTaskExecutionRequest) validateRunTypes(formats strfmt.Registry) error {
+	if swag.IsZero(m.RunTypes) { // not required
+		return nil
+	}
+
+	// for slice
+	if err := m.validateRunTypesEnum("run_types", "body", m.RunTypes); err != nil {
 		return err
 	}
 

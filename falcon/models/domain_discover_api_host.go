@@ -38,6 +38,9 @@ type DomainDiscoverAPIHost struct {
 	// The agent ID of the Falcon sensor installed on the asset.
 	Aid string `json:"aid,omitempty"`
 
+	// All subnets (current and historical) to which the device is or was connected.
+	AllSubnets []string `json:"all_subnets"`
+
 	// The asset role or roles currently assigned to the asset either automatically or by a user (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
 	AssetRoles []string `json:"asset_roles"`
 
@@ -165,6 +168,9 @@ type DomainDiscoverAPIHost struct {
 	// The department where the asset is used.
 	Department string `json:"department,omitempty"`
 
+	// The deployment type of the asset.
+	DeploymentType string `json:"deployment_type,omitempty"`
+
 	// The descriptions of the asset in Active Directory (Cannot be used for filtering, sorting, or querying).
 	Descriptions []string `json:"descriptions"`
 
@@ -286,6 +292,9 @@ type DomainDiscoverAPIHost struct {
 	// For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
 	KernelVersion string `json:"kernel_version,omitempty"`
 
+	// The date of the most recent authenticated scan.
+	LastAuthenticatedScanDate string `json:"last_authenticated_scan_date,omitempty"`
+
 	// The agent ID of the Falcon sensor installed on the source that most recently discovered the asset.
 	LastDiscovererAid string `json:"last_discoverer_aid,omitempty"`
 
@@ -297,6 +306,12 @@ type DomainDiscoverAPIHost struct {
 
 	// The most recent time the asset was seen in your environment.
 	LastSeenTimestamp string `json:"last_seen_timestamp,omitempty"`
+
+	// The date of the most recent unauthenticated scan.
+	LastUnauthenticatedScanDate string `json:"last_unauthenticated_scan_date,omitempty"`
+
+	// The sensor mode of the Linux asset.
+	LinuxSensorMode string `json:"linux_sensor_mode,omitempty"`
 
 	// Historical local IPv4 addresses associated with the asset.
 	LocalIPAddresses []string `json:"local_ip_addresses"`
@@ -333,6 +348,9 @@ type DomainDiscoverAPIHost struct {
 
 	// The path, used and available space on mounted disks
 	MountStorageInfo []*DomainDiscoverAPIMountStorageInfo `json:"mount_storage_info"`
+
+	// The IP addresses across multiple network interfaces of the device.
+	MultiNicIPAddresses []string `json:"multi_nic_ip_addresses"`
 
 	// The network ID to which device is connected.
 	NetworkID string `json:"network_id,omitempty"`
@@ -435,6 +453,9 @@ type DomainDiscoverAPIHost struct {
 
 	// The subnet to which device is connected.
 	Subnet string `json:"subnet,omitempty"`
+
+	// The historical subnets to which the device was connected.
+	SubnetHistory []string `json:"subnet_history"`
 
 	// The asset's system manufacturer.
 	SystemManufacturer string `json:"system_manufacturer,omitempty"`

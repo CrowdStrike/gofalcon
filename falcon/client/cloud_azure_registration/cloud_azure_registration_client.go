@@ -32,19 +32,35 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	CloudRegistrationAzureCreateRegistration(params *CloudRegistrationAzureCreateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureCreateRegistrationCreated, error)
 
+	CloudRegistrationAzureCreateSuppressions(params *CloudRegistrationAzureCreateSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureCreateSuppressionsCreated, error)
+
 	CloudRegistrationAzureDeleteLegacySubscription(params *CloudRegistrationAzureDeleteLegacySubscriptionParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteLegacySubscriptionOK, error)
 
 	CloudRegistrationAzureDeleteRegistration(params *CloudRegistrationAzureDeleteRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteRegistrationOK, error)
 
+	CloudRegistrationAzureDeleteSuppressions(params *CloudRegistrationAzureDeleteSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteSuppressionsOK, error)
+
 	CloudRegistrationAzureDownloadScript(params *CloudRegistrationAzureDownloadScriptParams, opts ...ClientOption) (*CloudRegistrationAzureDownloadScriptOK, error)
+
+	CloudRegistrationAzureGetIssueSuppressionValuesByField(params *CloudRegistrationAzureGetIssueSuppressionValuesByFieldParams, opts ...ClientOption) (*CloudRegistrationAzureGetIssueSuppressionValuesByFieldOK, error)
+
+	CloudRegistrationAzureGetIssueValuesByField(params *CloudRegistrationAzureGetIssueValuesByFieldParams, opts ...ClientOption) (*CloudRegistrationAzureGetIssueValuesByFieldOK, error)
+
+	CloudRegistrationAzureGetIssues(params *CloudRegistrationAzureGetIssuesParams, opts ...ClientOption) (*CloudRegistrationAzureGetIssuesOK, error)
 
 	CloudRegistrationAzureGetRegistration(params *CloudRegistrationAzureGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureGetRegistrationOK, error)
 
 	CloudRegistrationAzureGetScript(params *CloudRegistrationAzureGetScriptParams, opts ...ClientOption) (*CloudRegistrationAzureGetScriptOK, error)
 
+	CloudRegistrationAzureGetScriptVersions(params *CloudRegistrationAzureGetScriptVersionsParams, opts ...ClientOption) (*CloudRegistrationAzureGetScriptVersionsOK, error)
+
+	CloudRegistrationAzureGetSuppressions(params *CloudRegistrationAzureGetSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureGetSuppressionsOK, error)
+
 	CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrationAzureTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationAzureTriggerHealthCheckOK, error)
 
 	CloudRegistrationAzureUpdateRegistration(params *CloudRegistrationAzureUpdateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateRegistrationOK, error)
+
+	CloudRegistrationAzureUpdateSuppressions(params *CloudRegistrationAzureUpdateSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateSuppressionsOK, error)
 
 	CloudRegistrationAzureValidateRegistration(params *CloudRegistrationAzureValidateRegistrationParams, opts ...ClientOption) (*CloudRegistrationAzureValidateRegistrationOK, error)
 
@@ -86,6 +102,44 @@ func (a *Client) CloudRegistrationAzureCreateRegistration(params *CloudRegistrat
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-create-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureCreateSuppressions creates new issue suppression rules
+*/
+func (a *Client) CloudRegistrationAzureCreateSuppressions(params *CloudRegistrationAzureCreateSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureCreateSuppressionsCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureCreateSuppressionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-create-suppressions",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-azure/entities/issue-suppressions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureCreateSuppressionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureCreateSuppressionsCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-create-suppressions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -166,6 +220,44 @@ func (a *Client) CloudRegistrationAzureDeleteRegistration(params *CloudRegistrat
 }
 
 /*
+CloudRegistrationAzureDeleteSuppressions removes revoke suppression rules
+*/
+func (a *Client) CloudRegistrationAzureDeleteSuppressions(params *CloudRegistrationAzureDeleteSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureDeleteSuppressionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureDeleteSuppressionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-delete-suppressions",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-security-registration-azure/entities/issue-suppressions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureDeleteSuppressionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureDeleteSuppressionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-delete-suppressions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CloudRegistrationAzureDownloadScript retrieves script to create resources
 */
 func (a *Client) CloudRegistrationAzureDownloadScript(params *CloudRegistrationAzureDownloadScriptParams, opts ...ClientOption) (*CloudRegistrationAzureDownloadScriptOK, error) {
@@ -200,6 +292,120 @@ func (a *Client) CloudRegistrationAzureDownloadScript(params *CloudRegistrationA
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-download-script: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureGetIssueSuppressionValuesByField retrieves distinct filterable values for issue suppression fields
+*/
+func (a *Client) CloudRegistrationAzureGetIssueSuppressionValuesByField(params *CloudRegistrationAzureGetIssueSuppressionValuesByFieldParams, opts ...ClientOption) (*CloudRegistrationAzureGetIssueSuppressionValuesByFieldOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureGetIssueSuppressionValuesByFieldParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-get-issue-suppression-values-by-field",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/aggregates/issue-suppressions-values-by-fields/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureGetIssueSuppressionValuesByFieldReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureGetIssueSuppressionValuesByFieldOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-issue-suppression-values-by-field: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureGetIssueValuesByField retrieves distinct filterable values for issue fields
+*/
+func (a *Client) CloudRegistrationAzureGetIssueValuesByField(params *CloudRegistrationAzureGetIssueValuesByFieldParams, opts ...ClientOption) (*CloudRegistrationAzureGetIssueValuesByFieldOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureGetIssueValuesByFieldParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-get-issue-values-by-field",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/aggregates/issues-values-by-fields/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureGetIssueValuesByFieldReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureGetIssueValuesByFieldOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-issue-values-by-field: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureGetIssues retrieves issues for azure registrations
+*/
+func (a *Client) CloudRegistrationAzureGetIssues(params *CloudRegistrationAzureGetIssuesParams, opts ...ClientOption) (*CloudRegistrationAzureGetIssuesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureGetIssuesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-get-issues",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/entities/issues/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureGetIssuesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureGetIssuesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-issues: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -280,6 +486,82 @@ func (a *Client) CloudRegistrationAzureGetScript(params *CloudRegistrationAzureG
 }
 
 /*
+CloudRegistrationAzureGetScriptVersions retrieves all available script versions with filtering and sorting
+*/
+func (a *Client) CloudRegistrationAzureGetScriptVersions(params *CloudRegistrationAzureGetScriptVersionsParams, opts ...ClientOption) (*CloudRegistrationAzureGetScriptVersionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureGetScriptVersionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-get-script-versions",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/entities/script-versions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureGetScriptVersionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureGetScriptVersionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-script-versions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureGetSuppressions retrieves existing suppression rules with filtering
+*/
+func (a *Client) CloudRegistrationAzureGetSuppressions(params *CloudRegistrationAzureGetSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureGetSuppressionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureGetSuppressionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-get-suppressions",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-azure/entities/issue-suppressions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureGetSuppressionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureGetSuppressionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-get-suppressions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CloudRegistrationAzureTriggerHealthCheck triggers health check scan for azure registrations
 */
 func (a *Client) CloudRegistrationAzureTriggerHealthCheck(params *CloudRegistrationAzureTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationAzureTriggerHealthCheckOK, error) {
@@ -352,6 +634,44 @@ func (a *Client) CloudRegistrationAzureUpdateRegistration(params *CloudRegistrat
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-update-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationAzureUpdateSuppressions updates existing suppression rules
+*/
+func (a *Client) CloudRegistrationAzureUpdateSuppressions(params *CloudRegistrationAzureUpdateSuppressionsParams, opts ...ClientOption) (*CloudRegistrationAzureUpdateSuppressionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationAzureUpdateSuppressionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-azure-update-suppressions",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-security-registration-azure/entities/issue-suppressions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationAzureUpdateSuppressionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationAzureUpdateSuppressionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-azure-update-suppressions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -76,6 +76,10 @@ type CombinedCloudRisksParams struct {
 	- `cloud_group`
 	- `cloud_provider`
 	- `first_seen`
+	- `groups`
+	- `groups.business_impact`
+	- `groups.business_unit`
+	- `groups.environment`
 	- `last_seen`
 	- `resolved_at`
 	- `risk_factor`

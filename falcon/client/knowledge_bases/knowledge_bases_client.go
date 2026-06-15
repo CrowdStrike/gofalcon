@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	AggregatesKnowledgeBasesV1(params *AggregatesKnowledgeBasesV1Params, opts ...ClientOption) (*AggregatesKnowledgeBasesV1OK, error)
 
+	CombinedKnowledgeBasesV1(params *CombinedKnowledgeBasesV1Params, opts ...ClientOption) (*CombinedKnowledgeBasesV1OK, error)
+
 	EntitiesKnowledgeBasesCreateV1(params *EntitiesKnowledgeBasesCreateV1Params, opts ...ClientOption) (*EntitiesKnowledgeBasesCreateV1OK, error)
 
 	EntitiesKnowledgeBasesUpdateV1(params *EntitiesKnowledgeBasesUpdateV1Params, opts ...ClientOption) (*EntitiesKnowledgeBasesUpdateV1OK, error)
@@ -78,6 +80,44 @@ func (a *Client) AggregatesKnowledgeBasesV1(params *AggregatesKnowledgeBasesV1Pa
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for AggregatesKnowledgeBasesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CombinedKnowledgeBasesV1 searches for knowledge bases with filtering and return full entity details in a single response
+*/
+func (a *Client) CombinedKnowledgeBasesV1(params *CombinedKnowledgeBasesV1Params, opts ...ClientOption) (*CombinedKnowledgeBasesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedKnowledgeBasesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CombinedKnowledgeBasesV1",
+		Method:             "GET",
+		PathPattern:        "/agentic-studio/combined/knowledge_bases/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CombinedKnowledgeBasesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedKnowledgeBasesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CombinedKnowledgeBasesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

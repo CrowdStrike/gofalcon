@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // APIEnterpriseAccountUpdateRequestV1 api enterprise account update request v1
@@ -20,64 +18,17 @@ import (
 type APIEnterpriseAccountUpdateRequestV1 struct {
 
 	// domains
-	// Required: true
 	Domains []string `json:"domains"`
 
 	// id
-	// Required: true
-	ID *string `json:"id"`
+	ID string `json:"id,omitempty"`
 
 	// name
-	// Required: true
-	Name *string `json:"name"`
+	Name string `json:"name,omitempty"`
 }
 
 // Validate validates this api enterprise account update request v1
 func (m *APIEnterpriseAccountUpdateRequestV1) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateDomains(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *APIEnterpriseAccountUpdateRequestV1) validateDomains(formats strfmt.Registry) error {
-
-	if err := validate.Required("domains", "body", m.Domains); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIEnterpriseAccountUpdateRequestV1) validateID(formats strfmt.Registry) error {
-
-	if err := validate.Required("id", "body", m.ID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIEnterpriseAccountUpdateRequestV1) validateName(formats strfmt.Registry) error {
-
-	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
 	return nil
 }
 

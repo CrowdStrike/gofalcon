@@ -54,6 +54,11 @@ type DomainAgentV1 struct {
 	// Required: true
 	Platform *int64 `json:"platform"`
 
+	// seen timestamp
+	// Required: true
+	// Format: date-time
+	SeenTimestamp *strfmt.DateTime `json:"seen_timestamp"`
+
 	// sessionid
 	// Required: true
 	Sessionid *string `json:"sessionid"`
@@ -101,6 +106,10 @@ func (m *DomainAgentV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePlatform(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSeenTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -200,6 +209,19 @@ func (m *DomainAgentV1) validateNotes(formats strfmt.Registry) error {
 func (m *DomainAgentV1) validatePlatform(formats strfmt.Registry) error {
 
 	if err := validate.Required("platform", "body", m.Platform); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAgentV1) validateSeenTimestamp(formats strfmt.Registry) error {
+
+	if err := validate.Required("seen_timestamp", "body", m.SeenTimestamp); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("seen_timestamp", "body", "date-time", m.SeenTimestamp.String(), formats); err != nil {
 		return err
 	}
 

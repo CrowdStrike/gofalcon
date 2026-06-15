@@ -80,6 +80,12 @@ type WorkflowActivitiesCombinedParams struct {
 	*/
 	Offset *string
 
+	/* SkipArtifactResolution.
+
+	   When true, skip Foundry artifact resolution and return the latest version of the activity, regardless of whether the associated Foundry app is installed
+	*/
+	SkipArtifactResolution *bool
+
 	/* Sort.
 
 	   Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
@@ -103,7 +109,18 @@ func (o *WorkflowActivitiesCombinedParams) WithDefaults() *WorkflowActivitiesCom
 //
 // All values with no default are reset to their zero value.
 func (o *WorkflowActivitiesCombinedParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		skipArtifactResolutionDefault = bool(false)
+	)
+
+	val := WorkflowActivitiesCombinedParams{
+		SkipArtifactResolution: &skipArtifactResolutionDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the workflow activities combined params
@@ -172,6 +189,17 @@ func (o *WorkflowActivitiesCombinedParams) SetOffset(offset *string) {
 	o.Offset = offset
 }
 
+// WithSkipArtifactResolution adds the skipArtifactResolution to the workflow activities combined params
+func (o *WorkflowActivitiesCombinedParams) WithSkipArtifactResolution(skipArtifactResolution *bool) *WorkflowActivitiesCombinedParams {
+	o.SetSkipArtifactResolution(skipArtifactResolution)
+	return o
+}
+
+// SetSkipArtifactResolution adds the skipArtifactResolution to the workflow activities combined params
+func (o *WorkflowActivitiesCombinedParams) SetSkipArtifactResolution(skipArtifactResolution *bool) {
+	o.SkipArtifactResolution = skipArtifactResolution
+}
+
 // WithSort adds the sort to the workflow activities combined params
 func (o *WorkflowActivitiesCombinedParams) WithSort(sort *string) *WorkflowActivitiesCombinedParams {
 	o.SetSort(sort)
@@ -228,6 +256,23 @@ func (o *WorkflowActivitiesCombinedParams) WriteToRequest(r runtime.ClientReques
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.SkipArtifactResolution != nil {
+
+		// query param skip_artifact_resolution
+		var qrSkipArtifactResolution bool
+
+		if o.SkipArtifactResolution != nil {
+			qrSkipArtifactResolution = *o.SkipArtifactResolution
+		}
+		qSkipArtifactResolution := swag.FormatBool(qrSkipArtifactResolution)
+		if qSkipArtifactResolution != "" {
+
+			if err := r.SetQueryParam("skip_artifact_resolution", qSkipArtifactResolution); err != nil {
 				return err
 			}
 		}

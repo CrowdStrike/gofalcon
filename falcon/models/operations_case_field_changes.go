@@ -35,6 +35,12 @@ type OperationsCaseFieldChanges struct {
 	// Required: true
 	Description *string `json:"description"`
 
+	// description format
+	DescriptionFormat string `json:"description_format,omitempty"`
+
+	// description tagged users
+	DescriptionTaggedUsers []string `json:"description_tagged_users"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`

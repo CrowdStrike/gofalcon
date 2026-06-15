@@ -54,6 +54,9 @@ type DomainNewsDocument struct {
 	// Malware mentioned, related or referenced in the news/report
 	Malware []*DomainReportMalware `json:"malware"`
 
+	// MITRE attacks referenced in the news/report
+	MitreAttacks []*DomainMitreAttack `json:"mitre_attacks"`
+
 	// News mentioned motivation or motivation of related actors and malware families
 	// Required: true
 	Motivations []*DomainEntity `json:"motivations"`
@@ -146,6 +149,10 @@ func (m *DomainNewsDocument) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMalware(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMitreAttacks(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -336,6 +343,32 @@ func (m *DomainNewsDocument) validateMalware(formats strfmt.Registry) error {
 					return ve.ValidateName("malware" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("malware" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainNewsDocument) validateMitreAttacks(formats strfmt.Registry) error {
+	if swag.IsZero(m.MitreAttacks) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MitreAttacks); i++ {
+		if swag.IsZero(m.MitreAttacks[i]) { // not required
+			continue
+		}
+
+		if m.MitreAttacks[i] != nil {
+			if err := m.MitreAttacks[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -573,6 +606,10 @@ func (m *DomainNewsDocument) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateMitreAttacks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMotivations(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -722,6 +759,31 @@ func (m *DomainNewsDocument) contextValidateMalware(ctx context.Context, formats
 					return ve.ValidateName("malware" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("malware" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainNewsDocument) contextValidateMitreAttacks(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MitreAttacks); i++ {
+
+		if m.MitreAttacks[i] != nil {
+
+			if swag.IsZero(m.MitreAttacks[i]) { // not required
+				return nil
+			}
+
+			if err := m.MitreAttacks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -22,6 +22,9 @@ type V2Definition struct {
 	// actions
 	Actions map[string]V2Activity `json:"actions,omitempty"`
 
+	// budget
+	Budget *V2Budget `json:"budget,omitempty"`
+
 	// conditions
 	Conditions map[string]V2Condition `json:"conditions,omitempty"`
 
@@ -90,6 +93,10 @@ func (m *V2Definition) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateBudget(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConditions(formats); err != nil {
 		res = append(res, err)
 	}
@@ -149,6 +156,25 @@ func (m *V2Definition) validateActions(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *V2Definition) validateBudget(formats strfmt.Registry) error {
+	if swag.IsZero(m.Budget) { // not required
+		return nil
+	}
+
+	if m.Budget != nil {
+		if err := m.Budget.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("budget")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("budget")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -300,6 +326,10 @@ func (m *V2Definition) ContextValidate(ctx context.Context, formats strfmt.Regis
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateBudget(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateConditions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -336,6 +366,27 @@ func (m *V2Definition) contextValidateActions(ctx context.Context, formats strfm
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *V2Definition) contextValidateBudget(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Budget != nil {
+
+		if swag.IsZero(m.Budget) { // not required
+			return nil
+		}
+
+		if err := m.Budget.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("budget")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("budget")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -45,6 +45,9 @@ type APICreateWebLocationRequestV2 struct {
 	// type
 	// Required: true
 	Type *string `json:"type"`
+
+	// web location group ids
+	WebLocationGroupIds []string `json:"web_location_group_ids"`
 }
 
 // Validate validates this api create web location request v2

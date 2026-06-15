@@ -65,7 +65,7 @@ type CaoIncidentsQueriesV1Params struct {
 	/* Filter.
 
 	    Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-	Available filters: ReferencesNotableEvents.Title, InvolvesIndicators.Value, LastModifiedAt, ActivityEnd, InvolvesAdversaries.Slug, MitreAttack.TacticId, All, Title, ActivityStart, InvolvesAdversaries.Name, InvolvesAdversaries.AnimalClassifier, TargetsVulnerabilities.CVE, Motivations.Slug, TargetingProfile.Slug, PublishDate, InvolvesThreats.FamilyName, MitreAttack.Id, MitreAttack.TacticName, MitreAttack.TechniqueId, TargetCountries.Slug, TargetRegions.Slug, TargetIndustries.Slug, Id, InvolvesAdversaries.Id, Objectives.Slug, MitreAttack.TechniqueName. 'All' can be used for text queries on all attributes.
+	Available filters: MitreAttack.TacticName, All, Title, InvolvesAdversaries.Id, InvolvesAdversaries.Name, MitreAttack.Id, MitreAttack.TacticId, ReferencesNotableEvents.Title, ActivityStart, PublishDate, InvolvesAdversaries.Slug, Objectives.Slug, Motivations.Slug, MitreAttack.TechniqueName, LastModifiedAt, InvolvesAdversaries.AnimalClassifier, TargetsVulnerabilities.CVE, TargetingProfile.Slug, MitreAttack.TechniqueId, TargetCountries.Slug, TargetRegions.Slug, TargetIndustries.Slug, InvolvesIndicators.Value, Id, ActivityEnd, InvolvesThreats.FamilyName. 'All' can be used for text queries on all attributes.
 	*/
 	Filter *string
 

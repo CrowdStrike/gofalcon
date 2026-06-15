@@ -20,6 +20,9 @@ import (
 // swagger:model domain.ScanProfile
 type DomainScanProfile struct {
 
+	// channel file status
+	ChannelFileStatus int32 `json:"channel_file_status,omitempty"`
+
 	// cid
 	Cid string `json:"cid,omitempty"`
 
@@ -149,6 +152,9 @@ type DomainScanProfile struct {
 
 	// targeted host count
 	TargetedHostCount int32 `json:"targeted_host_count,omitempty"`
+
+	// targeted platforms
+	TargetedPlatforms []string `json:"targeted_platforms"`
 }
 
 // Validate validates this domain scan profile

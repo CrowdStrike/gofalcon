@@ -25,12 +25,12 @@ type ItautomationConcurrencyConfig struct {
 	ConcurrentHostFileTransferLimit int32 `json:"concurrent_host_file_transfer_limit,omitempty"`
 
 	// Maximum number of hosts that can run operations simultaneously. Example:1000
-	// Maximum: 100000
+	// Maximum: 1e+06
 	// Minimum: 1
 	ConcurrentHostLimit int32 `json:"concurrent_host_limit,omitempty"`
 
 	// Maximum number of tasks that can run in parallel. Example: 3
-	// Maximum: 5
+	// Maximum: 20
 	// Minimum: 1
 	ConcurrentTaskLimit int32 `json:"concurrent_task_limit,omitempty"`
 }
@@ -82,7 +82,7 @@ func (m *ItautomationConcurrencyConfig) validateConcurrentHostLimit(formats strf
 		return err
 	}
 
-	if err := validate.MaximumInt("concurrent_host_limit", "body", int64(m.ConcurrentHostLimit), 100000, false); err != nil {
+	if err := validate.MaximumInt("concurrent_host_limit", "body", int64(m.ConcurrentHostLimit), 1e+06, false); err != nil {
 		return err
 	}
 
@@ -98,7 +98,7 @@ func (m *ItautomationConcurrencyConfig) validateConcurrentTaskLimit(formats strf
 		return err
 	}
 
-	if err := validate.MaximumInt("concurrent_task_limit", "body", int64(m.ConcurrentTaskLimit), 5, false); err != nil {
+	if err := validate.MaximumInt("concurrent_task_limit", "body", int64(m.ConcurrentTaskLimit), 20, false); err != nil {
 		return err
 	}
 

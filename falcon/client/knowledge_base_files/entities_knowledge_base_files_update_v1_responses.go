@@ -49,6 +49,12 @@ func (o *EntitiesKnowledgeBaseFilesUpdateV1Reader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewEntitiesKnowledgeBaseFilesUpdateV1Conflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesKnowledgeBaseFilesUpdateV1TooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -466,6 +472,116 @@ func (o *EntitiesKnowledgeBaseFilesUpdateV1NotFound) GetPayload() *models.APIErr
 }
 
 func (o *EntitiesKnowledgeBaseFilesUpdateV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIErrorResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesKnowledgeBaseFilesUpdateV1Conflict creates a EntitiesKnowledgeBaseFilesUpdateV1Conflict with default headers values
+func NewEntitiesKnowledgeBaseFilesUpdateV1Conflict() *EntitiesKnowledgeBaseFilesUpdateV1Conflict {
+	return &EntitiesKnowledgeBaseFilesUpdateV1Conflict{}
+}
+
+/*
+EntitiesKnowledgeBaseFilesUpdateV1Conflict describes a response with status code 409, with default header values.
+
+File with this name already exists in the knowledge base
+*/
+type EntitiesKnowledgeBaseFilesUpdateV1Conflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIErrorResponse
+}
+
+// IsSuccess returns true when this entities knowledge base files update v1 conflict response has a 2xx status code
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities knowledge base files update v1 conflict response has a 3xx status code
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities knowledge base files update v1 conflict response has a 4xx status code
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities knowledge base files update v1 conflict response has a 5xx status code
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities knowledge base files update v1 conflict response a status code equal to that given
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the entities knowledge base files update v1 conflict response
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) Code() int {
+	return 409
+}
+
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) Error() string {
+	return fmt.Sprintf("[PUT /agentic-studio/entities/knowledge_base_files/v1][%d] entitiesKnowledgeBaseFilesUpdateV1Conflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) String() string {
+	return fmt.Sprintf("[PUT /agentic-studio/entities/knowledge_base_files/v1][%d] entitiesKnowledgeBaseFilesUpdateV1Conflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) GetPayload() *models.APIErrorResponse {
+	return o.Payload
+}
+
+func (o *EntitiesKnowledgeBaseFilesUpdateV1Conflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

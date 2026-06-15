@@ -29,7 +29,7 @@ type AssetgroupmanagerV1CloudResourceSelector struct {
 
 	// cloud provider
 	// Required: true
-	// Enum: [aws azure gcp]
+	// Enum: [aws azure gcp oci]
 	CloudProvider *string `json:"cloud_provider"`
 
 	// Filter to be used to select the cloud resource. Selector will find assets matching the filters.
@@ -59,7 +59,7 @@ var assetgroupmanagerV1CloudResourceSelectorTypeCloudProviderPropEnum []interfac
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["aws","azure","gcp"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["aws","azure","gcp","oci"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -77,6 +77,9 @@ const (
 
 	// AssetgroupmanagerV1CloudResourceSelectorCloudProviderGcp captures enum value "gcp"
 	AssetgroupmanagerV1CloudResourceSelectorCloudProviderGcp string = "gcp"
+
+	// AssetgroupmanagerV1CloudResourceSelectorCloudProviderOci captures enum value "oci"
+	AssetgroupmanagerV1CloudResourceSelectorCloudProviderOci string = "oci"
 )
 
 // prop value enum

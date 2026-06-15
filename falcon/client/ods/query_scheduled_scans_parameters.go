@@ -64,7 +64,7 @@ type QueryScheduledScansParams struct {
 
 	/* Filter.
 
-	   A FQL compatible query string. Terms: [id description.keyword description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
+	   A FQL compatible query string. Terms: [id description.keyword description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted targeted_platforms channel_file_status]
 	*/
 	Filter string
 

@@ -28,6 +28,10 @@ type DomainKestrelDataExportHeaderMappingV2 struct {
 	// Required: true
 	ComputationFunctions []*DomainKestrelDataExportHeaderComputationFunctionV2 `json:"computation_functions"`
 
+	// formatter override
+	// Required: true
+	FormatterOverride *string `json:"formatter_override"`
+
 	// header name
 	// Required: true
 	HeaderName *string `json:"header_name"`
@@ -46,6 +50,10 @@ func (m *DomainKestrelDataExportHeaderMappingV2) Validate(formats strfmt.Registr
 	}
 
 	if err := m.validateComputationFunctions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFormatterOverride(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,6 +102,15 @@ func (m *DomainKestrelDataExportHeaderMappingV2) validateComputationFunctions(fo
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainKestrelDataExportHeaderMappingV2) validateFormatterOverride(formats strfmt.Registry) error {
+
+	if err := validate.Required("formatter_override", "body", m.FormatterOverride); err != nil {
+		return err
 	}
 
 	return nil

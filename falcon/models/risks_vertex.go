@@ -19,10 +19,6 @@ import (
 // swagger:model risks.Vertex
 type RisksVertex struct {
 
-	// category
-	// Required: true
-	Category *string `json:"category"`
-
 	// properties
 	// Required: true
 	Properties interface{} `json:"properties"`
@@ -40,10 +36,6 @@ type RisksVertex struct {
 func (m *RisksVertex) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCategory(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateProperties(formats); err != nil {
 		res = append(res, err)
 	}
@@ -59,15 +51,6 @@ func (m *RisksVertex) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *RisksVertex) validateCategory(formats strfmt.Registry) error {
-
-	if err := validate.Required("category", "body", m.Category); err != nil {
-		return err
-	}
-
 	return nil
 }
 

@@ -71,6 +71,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	/* Filter.
 
 	     FQL string to filter on asset contents. Filterable fields include:
+	- `account_bitmap_token_64`
 	- `account_id`
 	- `account_name`
 	- `active`
@@ -78,6 +79,7 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `aspm.deployment_provider`
 	- `aspm.deployment_type`
 	- `aspm.technologies`
+	- `azure.resource_group`
 	- `azure.vm_id`
 	- `business_impact`
 	- `cloud_group`

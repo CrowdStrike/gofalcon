@@ -168,8 +168,8 @@ func (o *EntitiesWebLocationDeleteV2Params) bindParamIds(formats strfmt.Registry
 		idsIC = append(idsIC, idsIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	idsIS := swag.JoinByFormat(idsIC, "csv")
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
 
 	return idsIS
 }

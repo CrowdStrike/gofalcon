@@ -20,6 +20,9 @@ import (
 // swagger:model domain.KestrelDataExportParams
 type DomainKestrelDataExportParams struct {
 
+	// execution context
+	ExecutionContext *DomainKestrelDataExportExecutionContext `json:"execution_context,omitempty"`
+
 	// export mapping v2
 	// Required: true
 	ExportMappingV2 []*DomainKestrelDataExportHeaderMappingV2 `json:"export_mapping_v2"`
@@ -31,6 +34,9 @@ type DomainKestrelDataExportParams struct {
 	// limit
 	Limit int32 `json:"limit,omitempty"`
 
+	// store headers
+	StoreHeaders map[string]DomainKestrelDataExportParamsStoreHeaders `json:"store_headers,omitempty"`
+
 	// view id
 	// Required: true
 	ViewID *string `json:"view_id"`
@@ -39,6 +45,10 @@ type DomainKestrelDataExportParams struct {
 // Validate validates this domain kestrel data export params
 func (m *DomainKestrelDataExportParams) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateExecutionContext(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateExportMappingV2(formats); err != nil {
 		res = append(res, err)
@@ -55,6 +65,25 @@ func (m *DomainKestrelDataExportParams) Validate(formats strfmt.Registry) error 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainKestrelDataExportParams) validateExecutionContext(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExecutionContext) { // not required
+		return nil
+	}
+
+	if m.ExecutionContext != nil {
+		if err := m.ExecutionContext.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("execution_context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("execution_context")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -107,6 +136,10 @@ func (m *DomainKestrelDataExportParams) validateViewID(formats strfmt.Registry) 
 func (m *DomainKestrelDataExportParams) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateExecutionContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateExportMappingV2(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -114,6 +147,27 @@ func (m *DomainKestrelDataExportParams) ContextValidate(ctx context.Context, for
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainKestrelDataExportParams) contextValidateExecutionContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExecutionContext != nil {
+
+		if swag.IsZero(m.ExecutionContext) { // not required
+			return nil
+		}
+
+		if err := m.ExecutionContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("execution_context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("execution_context")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

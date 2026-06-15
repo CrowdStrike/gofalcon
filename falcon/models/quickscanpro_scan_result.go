@@ -56,6 +56,9 @@ type QuickscanproScanResult struct {
 	// malware config
 	MalwareConfig map[string][]string `json:"malware_config,omitempty"`
 
+	// malware families
+	MalwareFamilies []*QuickscanproMalwareFamily `json:"malware_families"`
+
 	// mime type
 	MimeType string `json:"mime_type,omitempty"`
 
@@ -77,8 +80,14 @@ type QuickscanproScanResult struct {
 	// Required: true
 	VerdictReason *string `json:"verdict_reason"`
 
+	// verdict reasons
+	VerdictReasons []string `json:"verdict_reasons"`
+
 	// verdict source
 	VerdictSource []string `json:"verdict_source"`
+
+	// yara rules
+	YaraRules []*QuickscanproYaraRule `json:"yara_rules"`
 }
 
 // Validate validates this quickscanpro scan result
@@ -97,6 +106,10 @@ func (m *QuickscanproScanResult) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMalwareFamilies(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMitreAttacks(formats); err != nil {
 		res = append(res, err)
 	}
@@ -110,6 +123,10 @@ func (m *QuickscanproScanResult) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateVerdictReason(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateYaraRules(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -169,6 +186,32 @@ func (m *QuickscanproScanResult) validateMaliciousConfidence(formats strfmt.Regi
 
 	if err := validate.Required("malicious_confidence", "body", m.MaliciousConfidence); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *QuickscanproScanResult) validateMalwareFamilies(formats strfmt.Registry) error {
+	if swag.IsZero(m.MalwareFamilies) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MalwareFamilies); i++ {
+		if swag.IsZero(m.MalwareFamilies[i]) { // not required
+			continue
+		}
+
+		if m.MalwareFamilies[i] != nil {
+			if err := m.MalwareFamilies[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("malware_families" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("malware_families" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -287,6 +330,32 @@ func (m *QuickscanproScanResult) validateVerdictReason(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *QuickscanproScanResult) validateYaraRules(formats strfmt.Registry) error {
+	if swag.IsZero(m.YaraRules) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.YaraRules); i++ {
+		if swag.IsZero(m.YaraRules[i]) { // not required
+			continue
+		}
+
+		if m.YaraRules[i] != nil {
+			if err := m.YaraRules[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("yara_rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("yara_rules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this quickscanpro scan result based on the context it is used
 func (m *QuickscanproScanResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -299,11 +368,19 @@ func (m *QuickscanproScanResult) ContextValidate(ctx context.Context, formats st
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateMalwareFamilies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMitreAttacks(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateURLArtifacts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateYaraRules(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -359,6 +436,31 @@ func (m *QuickscanproScanResult) contextValidateFileArtifacts(ctx context.Contex
 	return nil
 }
 
+func (m *QuickscanproScanResult) contextValidateMalwareFamilies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MalwareFamilies); i++ {
+
+		if m.MalwareFamilies[i] != nil {
+
+			if swag.IsZero(m.MalwareFamilies[i]) { // not required
+				return nil
+			}
+
+			if err := m.MalwareFamilies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("malware_families" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("malware_families" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *QuickscanproScanResult) contextValidateMitreAttacks(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.MitreAttacks); i++ {
@@ -399,6 +501,31 @@ func (m *QuickscanproScanResult) contextValidateURLArtifacts(ctx context.Context
 					return ve.ValidateName("url_artifacts" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("url_artifacts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *QuickscanproScanResult) contextValidateYaraRules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.YaraRules); i++ {
+
+		if m.YaraRules[i] != nil {
+
+			if swag.IsZero(m.YaraRules[i]) { // not required
+				return nil
+			}
+
+			if err := m.YaraRules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("yara_rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("yara_rules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

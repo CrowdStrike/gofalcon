@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewDeleteLookupFileParams creates a new DeleteLookupFileParams object,
@@ -63,9 +64,9 @@ type DeleteLookupFileParams struct {
 
 	/* Filename.
 
-	   lookup file filename
+	   lookup file filename(s). Supports single or multiple filenames for bulk delete.
 	*/
-	Filename *string
+	Filename []string
 
 	/* SearchDomain.
 
@@ -127,13 +128,13 @@ func (o *DeleteLookupFileParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithFilename adds the filename to the delete lookup file params
-func (o *DeleteLookupFileParams) WithFilename(filename *string) *DeleteLookupFileParams {
+func (o *DeleteLookupFileParams) WithFilename(filename []string) *DeleteLookupFileParams {
 	o.SetFilename(filename)
 	return o
 }
 
 // SetFilename adds the filename to the delete lookup file params
-func (o *DeleteLookupFileParams) SetFilename(filename *string) {
+func (o *DeleteLookupFileParams) SetFilename(filename []string) {
 	o.Filename = filename
 }
 
@@ -158,18 +159,12 @@ func (o *DeleteLookupFileParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 	if o.Filename != nil {
 
-		// query param filename
-		var qrFilename string
+		// binding items for filename
+		joinedFilename := o.bindParamFilename(reg)
 
-		if o.Filename != nil {
-			qrFilename = *o.Filename
-		}
-		qFilename := qrFilename
-		if qFilename != "" {
-
-			if err := r.SetQueryParam("filename", qFilename); err != nil {
-				return err
-			}
+		// query array param filename
+		if err := r.SetQueryParam("filename", joinedFilename...); err != nil {
+			return err
 		}
 	}
 
@@ -194,4 +189,21 @@ func (o *DeleteLookupFileParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteLookupFile binds the parameter filename
+func (o *DeleteLookupFileParams) bindParamFilename(formats strfmt.Registry) []string {
+	filenameIR := o.Filename
+
+	var filenameIC []string
+	for _, filenameIIR := range filenameIR { // explode []string
+
+		filenameIIV := filenameIIR // string as string
+		filenameIC = append(filenameIC, filenameIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	filenameIS := swag.JoinByFormat(filenameIC, "csv")
+
+	return filenameIS
 }

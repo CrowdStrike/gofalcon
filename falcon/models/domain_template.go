@@ -51,6 +51,12 @@ type DomainTemplate struct {
 	// Required: true
 	Detections []string `json:"detections"`
 
+	// Excluded TCP ports associated with the template
+	ExcludedTCPPorts []string `json:"excluded_tcp_ports"`
+
+	// Excluded UDP ports associated with the template
+	ExcludedUDPPorts []string `json:"excluded_udp_ports"`
+
 	// The unique identifier of the template
 	// Required: true
 	ID *string `json:"id"`
@@ -68,9 +74,12 @@ type DomainTemplate struct {
 	// Enum: [default,all_ports,custom]
 	PortsScanLevel *string `json:"ports_scan_level"`
 
+	// Custom nmap flag overrides for this template
+	ScanFlags *NswipScanFlags `json:"scan_flags,omitempty"`
+
 	// The scan intensity at which scans will run from this template
 	// Required: true
-	// Enum: [basic,standard,cautious,maximum]
+	// Enum: [basic,standard,cautious,maximum,custom]
 	ScanIntensity *string `json:"scan_intensity"`
 
 	// The type of the template
@@ -126,6 +135,10 @@ func (m *DomainTemplate) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePortsScanLevel(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanFlags(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -295,11 +308,30 @@ func (m *DomainTemplate) validatePortsScanLevel(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainTemplate) validateScanFlags(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScanFlags) { // not required
+		return nil
+	}
+
+	if m.ScanFlags != nil {
+		if err := m.ScanFlags.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scan_flags")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scan_flags")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 var domainTemplateTypeScanIntensityPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["basic,standard,cautious,maximum"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["basic,standard,cautious,maximum,custom"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -309,8 +341,8 @@ func init() {
 
 const (
 
-	// DomainTemplateScanIntensityBasicStandardCautiousMaximum captures enum value "basic,standard,cautious,maximum"
-	DomainTemplateScanIntensityBasicStandardCautiousMaximum string = "basic,standard,cautious,maximum"
+	// DomainTemplateScanIntensityBasicStandardCautiousMaximumCustom captures enum value "basic,standard,cautious,maximum,custom"
+	DomainTemplateScanIntensityBasicStandardCautiousMaximumCustom string = "basic,standard,cautious,maximum,custom"
 )
 
 // prop value enum
@@ -375,8 +407,38 @@ func (m *DomainTemplate) validateType(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain template based on context it is used
+// ContextValidate validate this domain template based on the context it is used
 func (m *DomainTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateScanFlags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainTemplate) contextValidateScanFlags(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScanFlags != nil {
+
+		if swag.IsZero(m.ScanFlags) { // not required
+			return nil
+		}
+
+		if err := m.ScanFlags.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scan_flags")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scan_flags")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

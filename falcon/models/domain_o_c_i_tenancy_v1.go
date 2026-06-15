@@ -87,6 +87,18 @@ type DomainOCITenancyV1 struct {
 	// Required: true
 	PublicKey *string `json:"public_key"`
 
+	// registration description
+	// Required: true
+	RegistrationDescription *string `json:"registration_description"`
+
+	// registration id
+	// Required: true
+	RegistrationID *string `json:"registration_id"`
+
+	// registration name
+	// Required: true
+	RegistrationName *string `json:"registration_name"`
+
 	// OCI Tenancy stack name
 	// Required: true
 	StackName *string `json:"stack_name"`
@@ -186,6 +198,18 @@ func (m *DomainOCITenancyV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePublicKey(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRegistrationDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRegistrationID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRegistrationName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -404,6 +428,33 @@ func (m *DomainOCITenancyV1) validateProducts(formats strfmt.Registry) error {
 func (m *DomainOCITenancyV1) validatePublicKey(formats strfmt.Registry) error {
 
 	if err := validate.Required("public_key", "body", m.PublicKey); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainOCITenancyV1) validateRegistrationDescription(formats strfmt.Registry) error {
+
+	if err := validate.Required("registration_description", "body", m.RegistrationDescription); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainOCITenancyV1) validateRegistrationID(formats strfmt.Registry) error {
+
+	if err := validate.Required("registration_id", "body", m.RegistrationID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainOCITenancyV1) validateRegistrationName(formats strfmt.Registry) error {
+
+	if err := validate.Required("registration_name", "body", m.RegistrationName); err != nil {
 		return err
 	}
 

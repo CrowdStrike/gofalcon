@@ -36,6 +36,9 @@ type DomainScanRun struct {
 	// Required: true
 	CreatedTimestamp *string `json:"created_timestamp"`
 
+	// summary of credential usage across scanned assets
+	CredentialedAssetSummary *DomainCredentialedAssetSummary `json:"credentialed_asset_summary,omitempty"`
+
 	// The end time of the scan run
 	// Required: true
 	EndTimestamp *string `json:"end_timestamp"`
@@ -129,6 +132,10 @@ func (m *DomainScanRun) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCreatedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCredentialedAssetSummary(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -239,6 +246,25 @@ func (m *DomainScanRun) validateCreatedTimestamp(formats strfmt.Registry) error 
 
 	if err := validate.Required("created_timestamp", "body", m.CreatedTimestamp); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DomainScanRun) validateCredentialedAssetSummary(formats strfmt.Registry) error {
+	if swag.IsZero(m.CredentialedAssetSummary) { // not required
+		return nil
+	}
+
+	if m.CredentialedAssetSummary != nil {
+		if err := m.CredentialedAssetSummary.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("credentialed_asset_summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credentialed_asset_summary")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -528,6 +554,10 @@ func (m *DomainScanRun) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCredentialedAssetSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateScanners(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -551,6 +581,27 @@ func (m *DomainScanRun) contextValidateConfig(ctx context.Context, formats strfm
 				return ve.ValidateName("config")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainScanRun) contextValidateCredentialedAssetSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CredentialedAssetSummary != nil {
+
+		if swag.IsZero(m.CredentialedAssetSummary) { // not required
+			return nil
+		}
+
+		if err := m.CredentialedAssetSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("credentialed_asset_summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credentialed_asset_summary")
 			}
 			return err
 		}

@@ -28,11 +28,14 @@ type PolicymanagerExternalClassificationProperties struct {
 	// Enum: [or and]
 	ContentPatternsOperator string `json:"content_patterns_operator,omitempty"`
 
-	// evidence duplication enabled
+	// Warning: Disabling evidence duplication will also disable forensic screen capture in all the rules
 	EvidenceDuplicationEnabled bool `json:"evidence_duplication_enabled,omitempty"`
 
 	// file types
 	FileTypes []string `json:"file_types"`
+
+	// File path pattern globs for mac
+	MacFilePathPatterns []string `json:"mac_file_path_patterns"`
 
 	// Protection mode accepts values: 'monitor', 'simulate', 'enforce'
 	// Enum: [monitor simulate enforce]
@@ -46,6 +49,9 @@ type PolicymanagerExternalClassificationProperties struct {
 
 	// web sources
 	WebSources []string `json:"web_sources"`
+
+	// File path pattern globs for windows
+	WinFilePathPatterns []string `json:"win_file_path_patterns"`
 }
 
 // Validate validates this policymanager external classification properties

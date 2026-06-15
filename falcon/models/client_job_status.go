@@ -28,6 +28,21 @@ type ClientJobStatus struct {
 	// digest hex
 	DigestHex string `json:"digest_hex,omitempty"`
 
+	// error category
+	ErrorCategory string `json:"error_category,omitempty"`
+
+	// error http code
+	ErrorHTTPCode int32 `json:"error_http_code,omitempty"`
+
+	// error message
+	ErrorMessage string `json:"error_message,omitempty"`
+
+	// error retryable
+	ErrorRetryable bool `json:"error_retryable,omitempty"`
+
+	// error type
+	ErrorType string `json:"error_type,omitempty"`
+
 	// event count
 	EventCount int64 `json:"event_count,omitempty"`
 

@@ -78,7 +78,7 @@ type PolicymanagerPolicyProperties struct {
 	// Enum: [default custom]
 	BlockNotifications string `json:"block_notifications,omitempty"`
 
-	// Browsers without active extension accepts values: 'allow', 'block_policy'
+	// Define behaviour of browsers without active extension, accepts values: 'allow', 'block_policy'.
 	// Enum: [allow block_policy]
 	BrowsersWithoutActiveExtension string `json:"browsers_without_active_extension,omitempty"`
 
@@ -107,37 +107,37 @@ type PolicymanagerPolicyProperties struct {
 	// enable context inspection
 	EnableContextInspection *bool `json:"enable_context_inspection,omitempty"`
 
-	// Windows only.
+	// Windows only. When enabled, users will receive a notification when data from unsupported browsers is blocked
 	EnableEndUserNotificationsUnsupportedBrowser *bool `json:"enable_end_user_notifications_unsupported_browser,omitempty"`
 
-	// Windows only.
+	// Windows only. Enable or disable network inspection
 	EnableNetworkInspection *bool `json:"enable_network_inspection,omitempty"`
 
-	// Windows only. Length must be at least 0 and at max 150000, must be a valid png base64 image, which matches this regular expression '^data:image\/png(?:;charset=utf-8)?;base64,(?:[A-Za-z0-9]|[+\/])+={0,2}'
+	// Windows only. Enable screen capture before and after egress event
+	EnableScreenCapture bool `json:"enable_screen_capture,omitempty"`
+
+	// Length must be at least 0 and at max 150000, must be a valid png base64 image, which matches this regular expression '^data:image\/png(?:;charset=utf-8)?;base64,(?:[A-Za-z0-9]|[+\/])+={0,2}'
 	EujDialogBoxLogo string `json:"euj_dialog_box_logo,omitempty"`
 
-	// Windows only. Must be a positive integer
+	// Configurable between 60 and 420 sec. This property sets the timeout for the end user justification dialog box. If the user fails to provide a justification, the egress will be blocked.
 	EujDialogTimeout int32 `json:"euj_dialog_timeout,omitempty"`
 
-	// Windows only. Must have at least 2 and at max 4 options. The first two options have to be 'Business purposes' and 'Personal use' in that order
+	// Must have at least 2 and at most 4 options. The first two options must be 'Business purposes' and 'Personal use' in that order
 	EujDropdownOptions *PolicymanagerEUJDropdownOptions `json:"euj_dropdown_options,omitempty"`
 
-	// Windows only. Must have 2 options. The first option has to be 'The action you are trying to perform is blocked by your organization's data protection policy. Provide a justification to proceed'
+	// Must have 2 options. The first option must be 'The action you are trying to perform is blocked by your organization's data protection policy. Provide a justification to proceed'
 	EujHeaderText *PolicymanagerEUJHeaderText `json:"euj_header_text,omitempty"`
 
-	// Windows only.
+	// If enabled, the user must provide additional details to justify the egress
 	EujRequireAdditionalDetails *bool `json:"euj_require_additional_details,omitempty"`
 
-	// Windows only. Must be a non-negative integer
-	EujResponseCacheTimeout int32 `json:"euj_response_cache_timeout,omitempty"`
-
-	// Windows only.
+	// Windows only. If enabled, Falcon Console users with Data Protection Forensics Manager role can request and download files for egress events. Data will be copied to the host's local storage when requested, or when matching a classification with storage enabled.
 	EvidenceDownloadEnabled *bool `json:"evidence_download_enabled,omitempty"`
 
-	// Windows only.
+	// Windows only. If enabled, data is copied to a protected evidence folder on the host at the time a download is requested to prevent tampering. Copies of data will be stored on the originating host for up to 30 days.
 	EvidenceDuplicationEnabledDefault *bool `json:"evidence_duplication_enabled_default,omitempty"`
 
-	// Windows only.
+	// Windows only. If enabled, when data encryption occurs, a copy of the original data is stored in a protected folder on the host. This ensures encrypted data is retrievable if it is part of an egress event within the following 30 days.
 	EvidenceEncryptedEnabled *bool `json:"evidence_encrypted_enabled,omitempty"`
 
 	// Windows only. Must be between 1 and 90
@@ -165,16 +165,20 @@ type PolicymanagerPolicyProperties struct {
 	// Enum: [block allow]
 	NetworkInspectionFilesExceedingSizeLimit string `json:"network_inspection_files_exceeding_size_limit,omitempty"`
 
+	// Windows only. Screen capture duration in seconds after egress event. Only accepts '3', '5', or '10'
+	// Enum: [3 5 10]
+	ScreenCaptureDurationPostEvent string `json:"screen_capture_duration_post_event,omitempty"`
+
+	// Windows only. Screen capture duration in seconds before egress event. Only accepts '3', '5', or '10'
+	// Enum: [3 5 10]
+	ScreenCaptureDurationPreEvent string `json:"screen_capture_duration_pre_event,omitempty"`
+
 	// similarity detection
 	SimilarityDetection *bool `json:"similarity_detection,omitempty"`
 
 	// Similarity threshold percentage values from 10 to 100
 	// Enum: [10 20 30 40 50 60 70 80 90 100]
 	SimilarityThreshold string `json:"similarity_threshold,omitempty"`
-
-	// Windows only. Unsupported browsers action accepts values: 'allow', 'block_policy', 'block'
-	// Enum: [allow block_policy block]
-	UnsupportedBrowsersAction string `json:"unsupported_browsers_action,omitempty"`
 }
 
 // Validate validates this policymanager policy properties
@@ -241,11 +245,15 @@ func (m *PolicymanagerPolicyProperties) Validate(formats strfmt.Registry) error 
 		res = append(res, err)
 	}
 
-	if err := m.validateSimilarityThreshold(formats); err != nil {
+	if err := m.validateScreenCaptureDurationPostEvent(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateUnsupportedBrowsersAction(formats); err != nil {
+	if err := m.validateScreenCaptureDurationPreEvent(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSimilarityThreshold(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -815,6 +823,96 @@ func (m *PolicymanagerPolicyProperties) validateNetworkInspectionFilesExceedingS
 	return nil
 }
 
+var policymanagerPolicyPropertiesTypeScreenCaptureDurationPostEventPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["3","5","10"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		policymanagerPolicyPropertiesTypeScreenCaptureDurationPostEventPropEnum = append(policymanagerPolicyPropertiesTypeScreenCaptureDurationPostEventPropEnum, v)
+	}
+}
+
+const (
+
+	// PolicymanagerPolicyPropertiesScreenCaptureDurationPostEventNr3 captures enum value "3"
+	PolicymanagerPolicyPropertiesScreenCaptureDurationPostEventNr3 string = "3"
+
+	// PolicymanagerPolicyPropertiesScreenCaptureDurationPostEventNr5 captures enum value "5"
+	PolicymanagerPolicyPropertiesScreenCaptureDurationPostEventNr5 string = "5"
+
+	// PolicymanagerPolicyPropertiesScreenCaptureDurationPostEventNr10 captures enum value "10"
+	PolicymanagerPolicyPropertiesScreenCaptureDurationPostEventNr10 string = "10"
+)
+
+// prop value enum
+func (m *PolicymanagerPolicyProperties) validateScreenCaptureDurationPostEventEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, policymanagerPolicyPropertiesTypeScreenCaptureDurationPostEventPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *PolicymanagerPolicyProperties) validateScreenCaptureDurationPostEvent(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScreenCaptureDurationPostEvent) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateScreenCaptureDurationPostEventEnum("screen_capture_duration_post_event", "body", m.ScreenCaptureDurationPostEvent); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var policymanagerPolicyPropertiesTypeScreenCaptureDurationPreEventPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["3","5","10"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		policymanagerPolicyPropertiesTypeScreenCaptureDurationPreEventPropEnum = append(policymanagerPolicyPropertiesTypeScreenCaptureDurationPreEventPropEnum, v)
+	}
+}
+
+const (
+
+	// PolicymanagerPolicyPropertiesScreenCaptureDurationPreEventNr3 captures enum value "3"
+	PolicymanagerPolicyPropertiesScreenCaptureDurationPreEventNr3 string = "3"
+
+	// PolicymanagerPolicyPropertiesScreenCaptureDurationPreEventNr5 captures enum value "5"
+	PolicymanagerPolicyPropertiesScreenCaptureDurationPreEventNr5 string = "5"
+
+	// PolicymanagerPolicyPropertiesScreenCaptureDurationPreEventNr10 captures enum value "10"
+	PolicymanagerPolicyPropertiesScreenCaptureDurationPreEventNr10 string = "10"
+)
+
+// prop value enum
+func (m *PolicymanagerPolicyProperties) validateScreenCaptureDurationPreEventEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, policymanagerPolicyPropertiesTypeScreenCaptureDurationPreEventPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *PolicymanagerPolicyProperties) validateScreenCaptureDurationPreEvent(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScreenCaptureDurationPreEvent) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateScreenCaptureDurationPreEventEnum("screen_capture_duration_pre_event", "body", m.ScreenCaptureDurationPreEvent); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var policymanagerPolicyPropertiesTypeSimilarityThresholdPropEnum []interface{}
 
 func init() {
@@ -875,51 +973,6 @@ func (m *PolicymanagerPolicyProperties) validateSimilarityThreshold(formats strf
 
 	// value enum
 	if err := m.validateSimilarityThresholdEnum("similarity_threshold", "body", m.SimilarityThreshold); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-var policymanagerPolicyPropertiesTypeUnsupportedBrowsersActionPropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["allow","block_policy","block"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		policymanagerPolicyPropertiesTypeUnsupportedBrowsersActionPropEnum = append(policymanagerPolicyPropertiesTypeUnsupportedBrowsersActionPropEnum, v)
-	}
-}
-
-const (
-
-	// PolicymanagerPolicyPropertiesUnsupportedBrowsersActionAllow captures enum value "allow"
-	PolicymanagerPolicyPropertiesUnsupportedBrowsersActionAllow string = "allow"
-
-	// PolicymanagerPolicyPropertiesUnsupportedBrowsersActionBlockPolicy captures enum value "block_policy"
-	PolicymanagerPolicyPropertiesUnsupportedBrowsersActionBlockPolicy string = "block_policy"
-
-	// PolicymanagerPolicyPropertiesUnsupportedBrowsersActionBlock captures enum value "block"
-	PolicymanagerPolicyPropertiesUnsupportedBrowsersActionBlock string = "block"
-)
-
-// prop value enum
-func (m *PolicymanagerPolicyProperties) validateUnsupportedBrowsersActionEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, policymanagerPolicyPropertiesTypeUnsupportedBrowsersActionPropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *PolicymanagerPolicyProperties) validateUnsupportedBrowsersAction(formats strfmt.Registry) error {
-	if swag.IsZero(m.UnsupportedBrowsersAction) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateUnsupportedBrowsersActionEnum("unsupported_browsers_action", "body", m.UnsupportedBrowsersAction); err != nil {
 		return err
 	}
 

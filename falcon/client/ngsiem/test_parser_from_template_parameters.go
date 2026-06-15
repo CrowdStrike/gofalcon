@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewTestParserFromTemplateParams creates a new TestParserFromTemplateParams object,
@@ -60,6 +61,14 @@ TestParserFromTemplateParams contains all the parameters to send to the API endp
 	Typically these are written to a http.Request.
 */
 type TestParserFromTemplateParams struct {
+
+	/* SchemaValidationEnabled.
+
+	   When true, schema validation is enforced (CPS) and validates against Crowdstrike Parsing Standard
+
+
+	*/
+	SchemaValidationEnabled bool
 
 	/* YamlTemplate.
 
@@ -120,6 +129,17 @@ func (o *TestParserFromTemplateParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithSchemaValidationEnabled adds the schemaValidationEnabled to the test parser from template params
+func (o *TestParserFromTemplateParams) WithSchemaValidationEnabled(schemaValidationEnabled bool) *TestParserFromTemplateParams {
+	o.SetSchemaValidationEnabled(schemaValidationEnabled)
+	return o
+}
+
+// SetSchemaValidationEnabled adds the schemaValidationEnabled to the test parser from template params
+func (o *TestParserFromTemplateParams) SetSchemaValidationEnabled(schemaValidationEnabled bool) {
+	o.SchemaValidationEnabled = schemaValidationEnabled
+}
+
 // WithYamlTemplate adds the yamlTemplate to the test parser from template params
 func (o *TestParserFromTemplateParams) WithYamlTemplate(yamlTemplate runtime.NamedReadCloser) *TestParserFromTemplateParams {
 	o.SetYamlTemplate(yamlTemplate)
@@ -138,6 +158,13 @@ func (o *TestParserFromTemplateParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
+
+	// form param schema_validation_enabled
+	frSchemaValidationEnabled := o.SchemaValidationEnabled
+	fSchemaValidationEnabled := swag.FormatBool(frSchemaValidationEnabled)
+	if err := r.SetFormParam("schema_validation_enabled", fSchemaValidationEnabled); err != nil {
+		return err
+	}
 
 	if o.YamlTemplate != nil {
 

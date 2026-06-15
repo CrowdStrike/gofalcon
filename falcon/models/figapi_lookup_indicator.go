@@ -88,6 +88,9 @@ type FigapiLookupIndicator struct {
 	// sectors
 	Sectors []*FigapiSector `json:"Sectors"`
 
+	// software packages
+	SoftwarePackages []*FigapiSoftwarePackage `json:"SoftwarePackages"`
+
 	// threat types
 	ThreatTypes []string `json:"ThreatTypes"`
 
@@ -160,6 +163,10 @@ func (m *FigapiLookupIndicator) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSectors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSoftwarePackages(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -467,6 +474,32 @@ func (m *FigapiLookupIndicator) validateSectors(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *FigapiLookupIndicator) validateSoftwarePackages(formats strfmt.Registry) error {
+	if swag.IsZero(m.SoftwarePackages) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SoftwarePackages); i++ {
+		if swag.IsZero(m.SoftwarePackages[i]) { // not required
+			continue
+		}
+
+		if m.SoftwarePackages[i] != nil {
+			if err := m.SoftwarePackages[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("SoftwarePackages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("SoftwarePackages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *FigapiLookupIndicator) validateThreats(formats strfmt.Registry) error {
 	if swag.IsZero(m.Threats) { // not required
 		return nil
@@ -610,6 +643,10 @@ func (m *FigapiLookupIndicator) ContextValidate(ctx context.Context, formats str
 	}
 
 	if err := m.contextValidateSectors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSoftwarePackages(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -918,6 +955,31 @@ func (m *FigapiLookupIndicator) contextValidateSectors(ctx context.Context, form
 					return ve.ValidateName("Sectors" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("Sectors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FigapiLookupIndicator) contextValidateSoftwarePackages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SoftwarePackages); i++ {
+
+		if m.SoftwarePackages[i] != nil {
+
+			if swag.IsZero(m.SoftwarePackages[i]) { // not required
+				return nil
+			}
+
+			if err := m.SoftwarePackages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("SoftwarePackages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("SoftwarePackages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -61,11 +61,17 @@ CloudRegistrationAzureGetRegistrationParams contains all the parameters to send 
 */
 type CloudRegistrationAzureGetRegistrationParams struct {
 
+	/* RegistrationID.
+
+	   Registration ID
+	*/
+	RegistrationID *string
+
 	/* TenantID.
 
 	   Tenant ID
 	*/
-	TenantID string
+	TenantID *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,14 +126,25 @@ func (o *CloudRegistrationAzureGetRegistrationParams) SetHTTPClient(client *http
 	o.HTTPClient = client
 }
 
+// WithRegistrationID adds the registrationID to the cloud registration azure get registration params
+func (o *CloudRegistrationAzureGetRegistrationParams) WithRegistrationID(registrationID *string) *CloudRegistrationAzureGetRegistrationParams {
+	o.SetRegistrationID(registrationID)
+	return o
+}
+
+// SetRegistrationID adds the registrationId to the cloud registration azure get registration params
+func (o *CloudRegistrationAzureGetRegistrationParams) SetRegistrationID(registrationID *string) {
+	o.RegistrationID = registrationID
+}
+
 // WithTenantID adds the tenantID to the cloud registration azure get registration params
-func (o *CloudRegistrationAzureGetRegistrationParams) WithTenantID(tenantID string) *CloudRegistrationAzureGetRegistrationParams {
+func (o *CloudRegistrationAzureGetRegistrationParams) WithTenantID(tenantID *string) *CloudRegistrationAzureGetRegistrationParams {
 	o.SetTenantID(tenantID)
 	return o
 }
 
 // SetTenantID adds the tenantId to the cloud registration azure get registration params
-func (o *CloudRegistrationAzureGetRegistrationParams) SetTenantID(tenantID string) {
+func (o *CloudRegistrationAzureGetRegistrationParams) SetTenantID(tenantID *string) {
 	o.TenantID = tenantID
 }
 
@@ -139,13 +156,37 @@ func (o *CloudRegistrationAzureGetRegistrationParams) WriteToRequest(r runtime.C
 	}
 	var res []error
 
-	// query param tenant_id
-	qrTenantID := o.TenantID
-	qTenantID := qrTenantID
-	if qTenantID != "" {
+	if o.RegistrationID != nil {
 
-		if err := r.SetQueryParam("tenant_id", qTenantID); err != nil {
-			return err
+		// query param registration_id
+		var qrRegistrationID string
+
+		if o.RegistrationID != nil {
+			qrRegistrationID = *o.RegistrationID
+		}
+		qRegistrationID := qrRegistrationID
+		if qRegistrationID != "" {
+
+			if err := r.SetQueryParam("registration_id", qRegistrationID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.TenantID != nil {
+
+		// query param tenant_id
+		var qrTenantID string
+
+		if o.TenantID != nil {
+			qrTenantID = *o.TenantID
+		}
+		qTenantID := qrTenantID
+		if qTenantID != "" {
+
+			if err := r.SetQueryParam("tenant_id", qTenantID); err != nil {
+				return err
+			}
 		}
 	}
 

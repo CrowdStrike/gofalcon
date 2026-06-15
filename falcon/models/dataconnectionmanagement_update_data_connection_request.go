@@ -24,6 +24,9 @@ type DataconnectionmanagementUpdateDataConnectionRequest struct {
 	// config id
 	ConfigID string `json:"config_id,omitempty"`
 
+	// custom
+	Custom map[string]string `json:"custom,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
 
@@ -32,6 +35,9 @@ type DataconnectionmanagementUpdateDataConnectionRequest struct {
 
 	// enable user enrichment
 	EnableUserEnrichment bool `json:"enable_user_enrichment,omitempty"`
+
+	// log sources
+	LogSources []string `json:"log_sources"`
 
 	// name
 	Name string `json:"name,omitempty"`

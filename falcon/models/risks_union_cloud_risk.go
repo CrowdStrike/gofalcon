@@ -32,6 +32,9 @@ type RisksUnionCloudRisk struct {
 	// Required: true
 	Adversaries []string `json:"adversaries"`
 
+	// agv2 id
+	Agv2ID string `json:"agv2_id,omitempty"`
+
 	// asset gcrn
 	// Required: true
 	AssetGcrn *string `json:"asset_gcrn"`
@@ -80,6 +83,9 @@ type RisksUnionCloudRisk struct {
 	// Required: true
 	// Format: date-time
 	FirstSeen *strfmt.DateTime `json:"first_seen"`
+
+	// graph
+	Graph *RisksGraph `json:"graph,omitempty"`
 
 	// id
 	// Required: true
@@ -195,6 +201,10 @@ func (m *RisksUnionCloudRisk) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFirstSeen(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGraph(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -420,6 +430,25 @@ func (m *RisksUnionCloudRisk) validateFirstSeen(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *RisksUnionCloudRisk) validateGraph(formats strfmt.Registry) error {
+	if swag.IsZero(m.Graph) { // not required
+		return nil
+	}
+
+	if m.Graph != nil {
+		if err := m.Graph.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("graph")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("graph")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *RisksUnionCloudRisk) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
@@ -582,6 +611,10 @@ func (m *RisksUnionCloudRisk) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateGraph(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSuppression(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -641,6 +674,27 @@ func (m *RisksUnionCloudRisk) contextValidateEdges(ctx context.Context, formats 
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RisksUnionCloudRisk) contextValidateGraph(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Graph != nil {
+
+		if swag.IsZero(m.Graph) { // not required
+			return nil
+		}
+
+		if err := m.Graph.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("graph")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("graph")
+			}
+			return err
+		}
 	}
 
 	return nil

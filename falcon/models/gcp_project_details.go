@@ -26,6 +26,12 @@ type GcpProjectDetails struct {
 	// deployment method
 	DeploymentMethod string `json:"deployment_method,omitempty"`
 
+	// dspm settings
+	DspmSettings *GcpAgentlessScanningSettings `json:"dspm_settings,omitempty"`
+
+	// dspm status
+	DspmStatus string `json:"dspm_status,omitempty"`
+
 	// ioa failed permissions
 	IoaFailedPermissions []string `json:"ioa_failed_permissions"`
 
@@ -59,6 +65,9 @@ type GcpProjectDetails struct {
 	// project number
 	ProjectNumber string `json:"project_number,omitempty"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
 	// registration id
 	RegistrationID string `json:"registration_id,omitempty"`
 
@@ -77,6 +86,12 @@ type GcpProjectDetails struct {
 	// updated
 	// Format: date-time
 	Updated strfmt.DateTime `json:"updated,omitempty"`
+
+	// vulnerability scanning settings
+	VulnerabilityScanningSettings *GcpAgentlessScanningSettings `json:"vulnerability_scanning_settings,omitempty"`
+
+	// vulnerability scanning status
+	VulnerabilityScanningStatus string `json:"vulnerability_scanning_status,omitempty"`
 }
 
 // Validate validates this gcp project details
@@ -87,7 +102,15 @@ func (m *GcpProjectDetails) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDspmSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateUpdated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -109,6 +132,25 @@ func (m *GcpProjectDetails) validateCreated(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *GcpProjectDetails) validateDspmSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmSettings) { // not required
+		return nil
+	}
+
+	if m.DspmSettings != nil {
+		if err := m.DspmSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GcpProjectDetails) validateUpdated(formats strfmt.Registry) error {
 	if swag.IsZero(m.Updated) { // not required
 		return nil
@@ -121,8 +163,82 @@ func (m *GcpProjectDetails) validateUpdated(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this gcp project details based on context it is used
+func (m *GcpProjectDetails) validateVulnerabilityScanningSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningSettings != nil {
+		if err := m.VulnerabilityScanningSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this gcp project details based on the context it is used
 func (m *GcpProjectDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDspmSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilityScanningSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *GcpProjectDetails) contextValidateDspmSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DspmSettings != nil {
+
+		if swag.IsZero(m.DspmSettings) { // not required
+			return nil
+		}
+
+		if err := m.DspmSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GcpProjectDetails) contextValidateVulnerabilityScanningSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.VulnerabilityScanningSettings != nil {
+
+		if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+			return nil
+		}
+
+		if err := m.VulnerabilityScanningSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

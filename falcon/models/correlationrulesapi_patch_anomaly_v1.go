@@ -7,7 +7,9 @@ package models
 
 import (
 	"context"
+	"strconv"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -17,14 +19,17 @@ import (
 // swagger:model correlationrulesapi.PatchAnomalyV1
 type CorrelationrulesapiPatchAnomalyV1 struct {
 
-	// event field name
-	EventFieldName string `json:"event_field_name,omitempty"`
+	// event field names
+	EventFieldNames []string `json:"event_field_names"`
 
 	// lookback timeframe
 	LookbackTimeframe string `json:"lookback_timeframe,omitempty"`
 
 	// scope
 	Scope string `json:"scope,omitempty"`
+
+	// scopes
+	Scopes []*CorrelationrulesapiAnomalyScopes `json:"scopes"`
 
 	// type
 	Type string `json:"type,omitempty"`
@@ -35,11 +40,80 @@ type CorrelationrulesapiPatchAnomalyV1 struct {
 
 // Validate validates this correlationrulesapi patch anomaly v1
 func (m *CorrelationrulesapiPatchAnomalyV1) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateScopes(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this correlationrulesapi patch anomaly v1 based on context it is used
+func (m *CorrelationrulesapiPatchAnomalyV1) validateScopes(formats strfmt.Registry) error {
+	if swag.IsZero(m.Scopes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Scopes); i++ {
+		if swag.IsZero(m.Scopes[i]) { // not required
+			continue
+		}
+
+		if m.Scopes[i] != nil {
+			if err := m.Scopes[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this correlationrulesapi patch anomaly v1 based on the context it is used
 func (m *CorrelationrulesapiPatchAnomalyV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateScopes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CorrelationrulesapiPatchAnomalyV1) contextValidateScopes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Scopes); i++ {
+
+		if m.Scopes[i] != nil {
+
+			if swag.IsZero(m.Scopes[i]) { // not required
+				return nil
+			}
+
+			if err := m.Scopes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

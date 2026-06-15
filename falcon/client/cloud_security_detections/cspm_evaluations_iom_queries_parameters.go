@@ -122,6 +122,7 @@ type CspmEvaluationsIomQueriesParams struct {
 	- `tags_string`
 	- `technique_id`
 	- `technique_name`
+	- `tenant_id`
 	*/
 	Filter *string
 
@@ -193,6 +194,7 @@ type CspmEvaluationsIomQueriesParams struct {
 	- `tags_string`
 	- `technique_id`
 	- `technique_name`
+	- `tenant_id`
 	*/
 	Sort *string
 

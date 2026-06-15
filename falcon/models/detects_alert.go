@@ -66,6 +66,14 @@ type DetectsAlert struct {
 	// Required: true
 	CmsRuleID *string `json:"cms_rule_id"`
 
+	// An opaque internal identifier that can uniquely identify the CMS rule instance which triggered this detection
+	// Required: true
+	CmsRuleInstanceID *string `json:"cms_rule_instance_id"`
+
+	// An opaque internal identifier that can uniquely identify the CMS rule instance version which triggered this detection
+	// Required: true
+	CmsRuleInstanceVersion *string `json:"cms_rule_instance_version"`
+
 	// An opaque internal identifier that can uniquely identify an Alert
 	// Required: true
 	CompositeID *string `json:"composite_id"`
@@ -391,6 +399,14 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// Required: true
 		CmsRuleID *string `json:"cms_rule_id"`
 
+		// An opaque internal identifier that can uniquely identify the CMS rule instance which triggered this detection
+		// Required: true
+		CmsRuleInstanceID *string `json:"cms_rule_instance_id"`
+
+		// An opaque internal identifier that can uniquely identify the CMS rule instance version which triggered this detection
+		// Required: true
+		CmsRuleInstanceVersion *string `json:"cms_rule_instance_version"`
+
 		// An opaque internal identifier that can uniquely identify an Alert
 		// Required: true
 		CompositeID *string `json:"composite_id"`
@@ -679,6 +695,8 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.CloudIndicator = stage1.CloudIndicator
 	rcv.Cmdline = stage1.Cmdline
 	rcv.CmsRuleID = stage1.CmsRuleID
+	rcv.CmsRuleInstanceID = stage1.CmsRuleInstanceID
+	rcv.CmsRuleInstanceVersion = stage1.CmsRuleInstanceVersion
 	rcv.CompositeID = stage1.CompositeID
 	rcv.Confidence = stage1.Confidence
 	rcv.ContextTimestamp = stage1.ContextTimestamp
@@ -775,6 +793,8 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "cloud_indicator")
 	delete(stage2, "cmdline")
 	delete(stage2, "cms_rule_id")
+	delete(stage2, "cms_rule_instance_id")
+	delete(stage2, "cms_rule_instance_version")
 	delete(stage2, "composite_id")
 	delete(stage2, "confidence")
 	delete(stage2, "context_timestamp")
@@ -915,6 +935,14 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 		// An opaque internal identifier that can uniquely identify the CMS rule which triggered this detection
 		// Required: true
 		CmsRuleID *string `json:"cms_rule_id"`
+
+		// An opaque internal identifier that can uniquely identify the CMS rule instance which triggered this detection
+		// Required: true
+		CmsRuleInstanceID *string `json:"cms_rule_instance_id"`
+
+		// An opaque internal identifier that can uniquely identify the CMS rule instance version which triggered this detection
+		// Required: true
+		CmsRuleInstanceVersion *string `json:"cms_rule_instance_version"`
 
 		// An opaque internal identifier that can uniquely identify an Alert
 		// Required: true
@@ -1200,6 +1228,8 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.CloudIndicator = m.CloudIndicator
 	stage1.Cmdline = m.Cmdline
 	stage1.CmsRuleID = m.CmsRuleID
+	stage1.CmsRuleInstanceID = m.CmsRuleInstanceID
+	stage1.CmsRuleInstanceVersion = m.CmsRuleInstanceVersion
 	stage1.CompositeID = m.CompositeID
 	stage1.Confidence = m.Confidence
 	stage1.ContextTimestamp = m.ContextTimestamp
@@ -1338,6 +1368,14 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCmsRuleID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCmsRuleInstanceID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCmsRuleInstanceVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1610,6 +1648,24 @@ func (m *DetectsAlert) validateCid(formats strfmt.Registry) error {
 func (m *DetectsAlert) validateCmsRuleID(formats strfmt.Registry) error {
 
 	if err := validate.Required("cms_rule_id", "body", m.CmsRuleID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCmsRuleInstanceID(formats strfmt.Registry) error {
+
+	if err := validate.Required("cms_rule_instance_id", "body", m.CmsRuleInstanceID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateCmsRuleInstanceVersion(formats strfmt.Registry) error {
+
+	if err := validate.Required("cms_rule_instance_version", "body", m.CmsRuleInstanceVersion); err != nil {
 		return err
 	}
 

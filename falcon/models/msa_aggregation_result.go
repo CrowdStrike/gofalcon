@@ -27,6 +27,9 @@ type MsaAggregationResult struct {
 	// doc count error upper bound
 	DocCountErrorUpperBound int64 `json:"doc_count_error_upper_bound,omitempty"`
 
+	// hits
+	Hits *MsaHits `json:"hits,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`
@@ -40,6 +43,10 @@ func (m *MsaAggregationResult) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateBuckets(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHits(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -80,6 +87,25 @@ func (m *MsaAggregationResult) validateBuckets(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *MsaAggregationResult) validateHits(formats strfmt.Registry) error {
+	if swag.IsZero(m.Hits) { // not required
+		return nil
+	}
+
+	if m.Hits != nil {
+		if err := m.Hits.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("hits")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hits")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *MsaAggregationResult) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -94,6 +120,10 @@ func (m *MsaAggregationResult) ContextValidate(ctx context.Context, formats strf
 	var res []error
 
 	if err := m.contextValidateBuckets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHits(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -123,6 +153,27 @@ func (m *MsaAggregationResult) contextValidateBuckets(ctx context.Context, forma
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *MsaAggregationResult) contextValidateHits(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Hits != nil {
+
+		if swag.IsZero(m.Hits) { // not required
+			return nil
+		}
+
+		if err := m.Hits.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("hits")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hits")
+			}
+			return err
+		}
 	}
 
 	return nil

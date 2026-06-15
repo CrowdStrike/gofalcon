@@ -25,6 +25,9 @@ type DtoUpdateGCPRegistrationRequest struct {
 	// deployment method
 	DeploymentMethod string `json:"deployment_method,omitempty"`
 
+	// dspm settings
+	DspmSettings *GcpAgentlessScanningSettings `json:"dspm_settings,omitempty"`
+
 	// entity id
 	EntityID []string `json:"entity_id"`
 
@@ -58,6 +61,9 @@ type DtoUpdateGCPRegistrationRequest struct {
 	// products
 	Products []*DomainProductFeatures `json:"products"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
 	// registration name
 	RegistrationName string `json:"registration_name,omitempty"`
 
@@ -72,6 +78,9 @@ type DtoUpdateGCPRegistrationRequest struct {
 
 	// tags
 	Tags GcpTags `json:"tags,omitempty"`
+
+	// vulnerability scanning settings
+	VulnerabilityScanningSettings *GcpAgentlessScanningSettings `json:"vulnerability_scanning_settings,omitempty"`
 
 	// wif pool name
 	WifPoolName *string `json:"wif_pool_name,omitempty"`
@@ -90,6 +99,10 @@ type DtoUpdateGCPRegistrationRequest struct {
 func (m *DtoUpdateGCPRegistrationRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDspmSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLabels(formats); err != nil {
 		res = append(res, err)
 	}
@@ -102,9 +115,32 @@ func (m *DtoUpdateGCPRegistrationRequest) Validate(formats strfmt.Registry) erro
 		res = append(res, err)
 	}
 
+	if err := m.validateVulnerabilityScanningSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DtoUpdateGCPRegistrationRequest) validateDspmSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmSettings) { // not required
+		return nil
+	}
+
+	if m.DspmSettings != nil {
+		if err := m.DspmSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -172,9 +208,32 @@ func (m *DtoUpdateGCPRegistrationRequest) validateTags(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *DtoUpdateGCPRegistrationRequest) validateVulnerabilityScanningSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningSettings != nil {
+		if err := m.VulnerabilityScanningSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this dto update g c p registration request based on the context it is used
 func (m *DtoUpdateGCPRegistrationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.contextValidateDspmSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.contextValidateLabels(ctx, formats); err != nil {
 		res = append(res, err)
@@ -188,9 +247,34 @@ func (m *DtoUpdateGCPRegistrationRequest) ContextValidate(ctx context.Context, f
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateVulnerabilityScanningSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DtoUpdateGCPRegistrationRequest) contextValidateDspmSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DspmSettings != nil {
+
+		if swag.IsZero(m.DspmSettings) { // not required
+			return nil
+		}
+
+		if err := m.DspmSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -250,6 +334,27 @@ func (m *DtoUpdateGCPRegistrationRequest) contextValidateTags(ctx context.Contex
 			return ce.ValidateName("tags")
 		}
 		return err
+	}
+
+	return nil
+}
+
+func (m *DtoUpdateGCPRegistrationRequest) contextValidateVulnerabilityScanningSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.VulnerabilityScanningSettings != nil {
+
+		if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+			return nil
+		}
+
+		if err := m.VulnerabilityScanningSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
 	}
 
 	return nil

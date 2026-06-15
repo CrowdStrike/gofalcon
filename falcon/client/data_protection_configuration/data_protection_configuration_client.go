@@ -850,7 +850,7 @@ func (a *Client) EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplic
 }
 
 /*
-EntitiesLocalApplicationGroupGet gets particular local application groups
+EntitiesLocalApplicationGroupGet gets specific local application groups
 */
 func (a *Client) EntitiesLocalApplicationGroupGet(params *EntitiesLocalApplicationGroupGetParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupGetOK, error) {
 	// TODO: Validate the params before sending

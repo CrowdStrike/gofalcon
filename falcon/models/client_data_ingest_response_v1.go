@@ -19,6 +19,18 @@ import (
 // swagger:model client.DataIngestResponseV1
 type ClientDataIngestResponseV1 struct {
 
+	// error message
+	ErrorMessage string `json:"error_message,omitempty"`
+
+	// failed events
+	FailedEvents int32 `json:"failed_events,omitempty"`
+
+	// failed item indices
+	FailedItemIndices []int64 `json:"failed_item_indices"`
+
+	// partial success
+	PartialSuccess bool `json:"partial_success,omitempty"`
+
 	// repo
 	// Required: true
 	Repo *ClientRepository `json:"repo"`
@@ -26,6 +38,12 @@ type ClientDataIngestResponseV1 struct {
 	// rows written
 	// Required: true
 	RowsWritten *int32 `json:"rows_written"`
+
+	// successful events
+	SuccessfulEvents int32 `json:"successful_events,omitempty"`
+
+	// total events
+	TotalEvents int32 `json:"total_events,omitempty"`
 }
 
 // Validate validates this client data ingest response v1
