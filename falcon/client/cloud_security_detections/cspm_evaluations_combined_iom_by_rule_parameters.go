@@ -112,6 +112,7 @@ type CspmEvaluationsCombinedIomByRuleParams struct {
 	- `tags_string`
 	- `technique_id`
 	- `technique_name`
+	- `tenant_id`
 	- `zone`
 	*/
 	Filter *string

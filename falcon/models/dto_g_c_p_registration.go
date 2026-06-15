@@ -23,12 +23,23 @@ type DtoGCPRegistration struct {
 	// additional properties
 	AdditionalProperties DtoGCPRegistrationBaseAdditionalProperties `json:"additional_properties,omitempty"`
 
+	// cloud registration enabled
+	// Required: true
+	CloudRegistrationEnabled *bool `json:"cloud_registration_enabled"`
+
 	// created
 	// Format: date-time
 	Created strfmt.DateTime `json:"created,omitempty"`
 
+	// cspm enabled
+	// Required: true
+	CspmEnabled *bool `json:"cspm_enabled"`
+
 	// deployment method
 	DeploymentMethod string `json:"deployment_method,omitempty"`
+
+	// dspm settings
+	DspmSettings *GcpAgentlessScanningSettings `json:"dspm_settings,omitempty"`
 
 	// excluded project patterns
 	ExcludedProjectPatterns []string `json:"excluded_project_patterns"`
@@ -63,6 +74,9 @@ type DtoGCPRegistration struct {
 	// projects
 	Projects []*DtoProject `json:"projects"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
 	// registration id
 	RegistrationID string `json:"registration_id,omitempty"`
 
@@ -78,6 +92,9 @@ type DtoGCPRegistration struct {
 	// resource name suffix
 	ResourceNameSuffix string `json:"resource_name_suffix,omitempty"`
 
+	// service account properties
+	ServiceAccountProperties *DtoServiceAccountProperties `json:"service_account_properties,omitempty"`
+
 	// status
 	Status string `json:"status,omitempty"`
 
@@ -88,6 +105,9 @@ type DtoGCPRegistration struct {
 	// Format: date-time
 	Updated strfmt.DateTime `json:"updated,omitempty"`
 
+	// vulnerability scanning settings
+	VulnerabilityScanningSettings *GcpAgentlessScanningSettings `json:"vulnerability_scanning_settings,omitempty"`
+
 	// wif properties
 	WifProperties *DtoWIFProperties `json:"wif_properties,omitempty"`
 }
@@ -96,7 +116,19 @@ type DtoGCPRegistration struct {
 func (m *DtoGCPRegistration) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCloudRegistrationEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCspmEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -128,11 +160,19 @@ func (m *DtoGCPRegistration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateServiceAccountProperties(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateTags(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateUpdated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -146,6 +186,15 @@ func (m *DtoGCPRegistration) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DtoGCPRegistration) validateCloudRegistrationEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_registration_enabled", "body", m.CloudRegistrationEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DtoGCPRegistration) validateCreated(formats strfmt.Registry) error {
 	if swag.IsZero(m.Created) { // not required
 		return nil
@@ -153,6 +202,34 @@ func (m *DtoGCPRegistration) validateCreated(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("created", "body", "date-time", m.Created.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DtoGCPRegistration) validateCspmEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("cspm_enabled", "body", m.CspmEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DtoGCPRegistration) validateDspmSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmSettings) { // not required
+		return nil
+	}
+
+	if m.DspmSettings != nil {
+		if err := m.DspmSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -312,6 +389,25 @@ func (m *DtoGCPRegistration) validateProjects(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DtoGCPRegistration) validateServiceAccountProperties(formats strfmt.Registry) error {
+	if swag.IsZero(m.ServiceAccountProperties) { // not required
+		return nil
+	}
+
+	if m.ServiceAccountProperties != nil {
+		if err := m.ServiceAccountProperties.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("service_account_properties")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("service_account_properties")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DtoGCPRegistration) validateTags(formats strfmt.Registry) error {
 	if swag.IsZero(m.Tags) { // not required
 		return nil
@@ -343,6 +439,25 @@ func (m *DtoGCPRegistration) validateUpdated(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DtoGCPRegistration) validateVulnerabilityScanningSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningSettings != nil {
+		if err := m.VulnerabilityScanningSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DtoGCPRegistration) validateWifProperties(formats strfmt.Registry) error {
 	if swag.IsZero(m.WifProperties) { // not required
 		return nil
@@ -365,6 +480,10 @@ func (m *DtoGCPRegistration) validateWifProperties(formats strfmt.Registry) erro
 // ContextValidate validate this dto g c p registration based on the context it is used
 func (m *DtoGCPRegistration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.contextValidateDspmSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.contextValidateFolders(ctx, formats); err != nil {
 		res = append(res, err)
@@ -394,7 +513,15 @@ func (m *DtoGCPRegistration) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateServiceAccountProperties(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateTags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilityScanningSettings(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -405,6 +532,27 @@ func (m *DtoGCPRegistration) ContextValidate(ctx context.Context, formats strfmt
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DtoGCPRegistration) contextValidateDspmSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DspmSettings != nil {
+
+		if swag.IsZero(m.DspmSettings) { // not required
+			return nil
+		}
+
+		if err := m.DspmSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -564,6 +712,27 @@ func (m *DtoGCPRegistration) contextValidateProjects(ctx context.Context, format
 	return nil
 }
 
+func (m *DtoGCPRegistration) contextValidateServiceAccountProperties(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ServiceAccountProperties != nil {
+
+		if swag.IsZero(m.ServiceAccountProperties) { // not required
+			return nil
+		}
+
+		if err := m.ServiceAccountProperties.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("service_account_properties")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("service_account_properties")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DtoGCPRegistration) contextValidateTags(ctx context.Context, formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Tags) { // not required
@@ -577,6 +746,27 @@ func (m *DtoGCPRegistration) contextValidateTags(ctx context.Context, formats st
 			return ce.ValidateName("tags")
 		}
 		return err
+	}
+
+	return nil
+}
+
+func (m *DtoGCPRegistration) contextValidateVulnerabilityScanningSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.VulnerabilityScanningSettings != nil {
+
+		if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+			return nil
+		}
+
+		if err := m.VulnerabilityScanningSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
 	}
 
 	return nil

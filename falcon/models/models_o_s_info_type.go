@@ -19,6 +19,15 @@ import (
 // swagger:model models.OSInfoType
 type ModelsOSInfoType struct {
 
+	// display version
+	DisplayVersion string `json:"DisplayVersion,omitempty"`
+
+	// edition ID
+	EditionID string `json:"EditionID,omitempty"`
+
+	// install type
+	InstallType string `json:"InstallType,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"Name"`

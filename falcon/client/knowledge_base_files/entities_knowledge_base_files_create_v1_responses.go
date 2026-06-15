@@ -43,6 +43,12 @@ func (o *EntitiesKnowledgeBaseFilesCreateV1Reader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewEntitiesKnowledgeBaseFilesCreateV1Conflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesKnowledgeBaseFilesCreateV1TooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -381,6 +387,116 @@ func (o *EntitiesKnowledgeBaseFilesCreateV1Forbidden) readResponse(response runt
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesKnowledgeBaseFilesCreateV1Conflict creates a EntitiesKnowledgeBaseFilesCreateV1Conflict with default headers values
+func NewEntitiesKnowledgeBaseFilesCreateV1Conflict() *EntitiesKnowledgeBaseFilesCreateV1Conflict {
+	return &EntitiesKnowledgeBaseFilesCreateV1Conflict{}
+}
+
+/*
+EntitiesKnowledgeBaseFilesCreateV1Conflict describes a response with status code 409, with default header values.
+
+File with this name already exists in the knowledge base
+*/
+type EntitiesKnowledgeBaseFilesCreateV1Conflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIErrorResponse
+}
+
+// IsSuccess returns true when this entities knowledge base files create v1 conflict response has a 2xx status code
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities knowledge base files create v1 conflict response has a 3xx status code
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities knowledge base files create v1 conflict response has a 4xx status code
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities knowledge base files create v1 conflict response has a 5xx status code
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities knowledge base files create v1 conflict response a status code equal to that given
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the entities knowledge base files create v1 conflict response
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) Code() int {
+	return 409
+}
+
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) Error() string {
+	return fmt.Sprintf("[POST /agentic-studio/entities/knowledge_base_files/v1][%d] entitiesKnowledgeBaseFilesCreateV1Conflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) String() string {
+	return fmt.Sprintf("[POST /agentic-studio/entities/knowledge_base_files/v1][%d] entitiesKnowledgeBaseFilesCreateV1Conflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) GetPayload() *models.APIErrorResponse {
+	return o.Payload
+}
+
+func (o *EntitiesKnowledgeBaseFilesCreateV1Conflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIErrorResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

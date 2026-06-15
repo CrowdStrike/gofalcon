@@ -51,6 +51,9 @@ type FlightcontrolapiCombinedUserRolesResourceV2 struct {
 	// user group name
 	UserGroupName string `json:"user_group_name,omitempty"`
 
+	// user type
+	UserType string `json:"user_type,omitempty"`
+
 	// uuid
 	UUID string `json:"uuid,omitempty"`
 }

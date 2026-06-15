@@ -74,6 +74,7 @@ type ListCloudGroupsExternalParams struct {
 	- `cloud_provider`
 	- `account_id`
 	- `region`
+	- `gcrn`
 	- `cloud_provider_tag`
 	- `image_registry`
 	- `image_repository`

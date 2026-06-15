@@ -11,8 +11,10 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/crowdstrike/gofalcon/falcon/client/a_s_p_m"
+	"github.com/crowdstrike/gofalcon/falcon/client/access_scopes"
 	"github.com/crowdstrike/gofalcon/falcon/client/admission_control_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
+	"github.com/crowdstrike/gofalcon/falcon/client/api_clients"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
 	"github.com/crowdstrike/gofalcon/falcon/client/cao_hunting"
 	"github.com/crowdstrike/gofalcon/falcon/client/case_files"
@@ -28,6 +30,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_assets"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_detections"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_registration_combined"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_risks"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
@@ -64,12 +68,15 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container_cli"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container_image"
+	"github.com/crowdstrike/gofalcon/falcon/client/falcon_id"
 	"github.com/crowdstrike/gofalcon/falcon/client/falconx_sandbox"
+	"github.com/crowdstrike/gofalcon/falcon/client/federated_connections"
 	"github.com/crowdstrike/gofalcon/falcon/client/field_schema"
 	"github.com/crowdstrike/gofalcon/falcon/client/filevantage"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/foundry_logscale"
+	"github.com/crowdstrike/gofalcon/falcon/client/foundry_lookup_files"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_migration"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
@@ -91,7 +98,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/knowledge_bases"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_container_compliance"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
-	"github.com/crowdstrike/gofalcon/falcon/client/lookup_files"
 	"github.com/crowdstrike/gofalcon/falcon/client/maintenance_token"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/message_center"
@@ -111,6 +117,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
 	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/profile_groups"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan_pro"
@@ -186,8 +193,10 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli := new(CrowdStrikeAPISpecification)
 	cli.Transport = transport
 	cli.Aspm = a_s_p_m.New(transport, formats)
+	cli.AccessScopes = access_scopes.New(transport, formats)
 	cli.AdmissionControlPolicies = admission_control_policies.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
+	cli.APIClients = api_clients.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
 	cli.CaoHunting = cao_hunting.New(transport, formats)
 	cli.CaseFiles = case_files.New(transport, formats)
@@ -203,6 +212,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CloudSecurityAssets = cloud_security_assets.New(transport, formats)
 	cli.CloudSecurityCompliance = cloud_security_compliance.New(transport, formats)
 	cli.CloudSecurityDetections = cloud_security_detections.New(transport, formats)
+	cli.CloudSecurityRegistrationCombined = cloud_security_registration_combined.New(transport, formats)
+	cli.CloudSecurityRisks = cloud_security_risks.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
@@ -239,12 +250,15 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FalconContainer = falcon_container.New(transport, formats)
 	cli.FalconContainerCli = falcon_container_cli.New(transport, formats)
 	cli.FalconContainerImage = falcon_container_image.New(transport, formats)
+	cli.FalconID = falcon_id.New(transport, formats)
 	cli.FalconxSandbox = falconx_sandbox.New(transport, formats)
+	cli.FederatedConnections = federated_connections.New(transport, formats)
 	cli.FieldSchema = field_schema.New(transport, formats)
 	cli.Filevantage = filevantage.New(transport, formats)
 	cli.FirewallManagement = firewall_management.New(transport, formats)
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
 	cli.FoundryLogscale = foundry_logscale.New(transport, formats)
+	cli.FoundryLookupFiles = foundry_lookup_files.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
 	cli.HostMigration = host_migration.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
@@ -266,7 +280,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.KnowledgeBases = knowledge_bases.New(transport, formats)
 	cli.KubernetesContainerCompliance = kubernetes_container_compliance.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
-	cli.LookupFiles = lookup_files.New(transport, formats)
 	cli.MaintenanceToken = maintenance_token.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MessageCenter = message_center.New(transport, formats)
@@ -286,6 +299,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Ods = ods.New(transport, formats)
 	cli.Operations = operations.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
+	cli.ProfileGroups = profile_groups.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
 	cli.QuickScanPro = quick_scan_pro.New(transport, formats)
@@ -362,9 +376,13 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 type CrowdStrikeAPISpecification struct {
 	Aspm a_s_p_m.ClientService
 
+	AccessScopes access_scopes.ClientService
+
 	AdmissionControlPolicies admission_control_policies.ClientService
 
 	Alerts alerts.ClientService
+
+	APIClients api_clients.ClientService
 
 	APIIntegrations api_integrations.ClientService
 
@@ -395,6 +413,10 @@ type CrowdStrikeAPISpecification struct {
 	CloudSecurityCompliance cloud_security_compliance.ClientService
 
 	CloudSecurityDetections cloud_security_detections.ClientService
+
+	CloudSecurityRegistrationCombined cloud_security_registration_combined.ClientService
+
+	CloudSecurityRisks cloud_security_risks.ClientService
 
 	CloudSnapshots cloud_snapshots.ClientService
 
@@ -468,7 +490,11 @@ type CrowdStrikeAPISpecification struct {
 
 	FalconContainerImage falcon_container_image.ClientService
 
+	FalconID falcon_id.ClientService
+
 	FalconxSandbox falconx_sandbox.ClientService
+
+	FederatedConnections federated_connections.ClientService
 
 	FieldSchema field_schema.ClientService
 
@@ -479,6 +505,8 @@ type CrowdStrikeAPISpecification struct {
 	FirewallPolicies firewall_policies.ClientService
 
 	FoundryLogscale foundry_logscale.ClientService
+
+	FoundryLookupFiles foundry_lookup_files.ClientService
 
 	HostGroup host_group.ClientService
 
@@ -522,8 +550,6 @@ type CrowdStrikeAPISpecification struct {
 
 	KubernetesProtection kubernetes_protection.ClientService
 
-	LookupFiles lookup_files.ClientService
-
 	MaintenanceToken maintenance_token.ClientService
 
 	Malquery malquery.ClientService
@@ -561,6 +587,8 @@ type CrowdStrikeAPISpecification struct {
 	Operations operations.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
+
+	ProfileGroups profile_groups.ClientService
 
 	Quarantine quarantine.ClientService
 
@@ -629,8 +657,10 @@ type CrowdStrikeAPISpecification struct {
 func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.Aspm.SetTransport(transport)
+	c.AccessScopes.SetTransport(transport)
 	c.AdmissionControlPolicies.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
+	c.APIClients.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
 	c.CaoHunting.SetTransport(transport)
 	c.CaseFiles.SetTransport(transport)
@@ -646,6 +676,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CloudSecurityAssets.SetTransport(transport)
 	c.CloudSecurityCompliance.SetTransport(transport)
 	c.CloudSecurityDetections.SetTransport(transport)
+	c.CloudSecurityRegistrationCombined.SetTransport(transport)
+	c.CloudSecurityRisks.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
@@ -682,12 +714,15 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FalconContainer.SetTransport(transport)
 	c.FalconContainerCli.SetTransport(transport)
 	c.FalconContainerImage.SetTransport(transport)
+	c.FalconID.SetTransport(transport)
 	c.FalconxSandbox.SetTransport(transport)
+	c.FederatedConnections.SetTransport(transport)
 	c.FieldSchema.SetTransport(transport)
 	c.Filevantage.SetTransport(transport)
 	c.FirewallManagement.SetTransport(transport)
 	c.FirewallPolicies.SetTransport(transport)
 	c.FoundryLogscale.SetTransport(transport)
+	c.FoundryLookupFiles.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
 	c.HostMigration.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
@@ -709,7 +744,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.KnowledgeBases.SetTransport(transport)
 	c.KubernetesContainerCompliance.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
-	c.LookupFiles.SetTransport(transport)
 	c.MaintenanceToken.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
 	c.MessageCenter.SetTransport(transport)
@@ -729,6 +763,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ods.SetTransport(transport)
 	c.Operations.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
+	c.ProfileGroups.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)
 	c.QuickScanPro.SetTransport(transport)

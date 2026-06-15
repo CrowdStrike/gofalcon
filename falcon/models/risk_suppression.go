@@ -50,6 +50,9 @@ type RiskSuppression struct {
 	// suppression date
 	// Format: date-time
 	SuppressionDate strfmt.DateTime `json:"suppression_date,omitempty"`
+
+	// suppression rule id
+	SuppressionRuleID string `json:"suppression_rule_id,omitempty"`
 }
 
 // Validate validates this risk suppression

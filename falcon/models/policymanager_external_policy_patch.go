@@ -41,7 +41,7 @@ type PolicymanagerExternalPolicyPatch struct {
 	PolicyProperties *PolicymanagerPolicyProperties `json:"policy_properties"`
 
 	// precedence
-	Precedence *int32 `json:"precedence,omitempty"`
+	Precedence interface{} `json:"precedence,omitempty"`
 }
 
 // Validate validates this policymanager external policy patch

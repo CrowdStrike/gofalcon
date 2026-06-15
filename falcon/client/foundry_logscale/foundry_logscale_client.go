@@ -481,7 +481,7 @@ func (a *Client) IngestDataAsyncV1(params *IngestDataAsyncV1Params, opts ...Clie
 }
 
 /*
-ListRepos lists available repositories and views
+ListRepos lists available repositories
 */
 func (a *Client) ListRepos(params *ListReposParams, opts ...ClientOption) (*ListReposOK, error) {
 	// TODO: Validate the params before sending
@@ -519,7 +519,7 @@ func (a *Client) ListRepos(params *ListReposParams, opts ...ClientOption) (*List
 }
 
 /*
-ListViews lists views
+ListViews lists available views
 */
 func (a *Client) ListViews(params *ListViewsParams, opts ...ClientOption) (*ListViewsOK, error) {
 	// TODO: Validate the params before sending

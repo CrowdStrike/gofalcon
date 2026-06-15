@@ -30,8 +30,6 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Empty(params *EmptyParams, opts ...ClientOption) (*OK, error)
-
 	DeleteCollectionsV1(params *DeleteCollectionsV1Params, opts ...ClientOption) (*DeleteCollectionsV1OK, error)
 
 	DeleteConfigsV1(params *DeleteConfigsV1Params, opts ...ClientOption) (*DeleteConfigsV1OK, error)
@@ -82,51 +80,11 @@ type ClientService interface {
 
 	CombinedQueryInstalledPatches(params *CombinedQueryInstalledPatchesParams, opts ...ClientOption) (*CombinedQueryInstalledPatchesOK, error)
 
-	PostGraphqlQueryMixin0(params *PostGraphqlQueryMixin0Params, opts ...ClientOption) (*PostGraphqlQueryMixin0OK, error)
-
 	V1HostConfigsPost(params *V1HostConfigsPostParams, opts ...ClientOption) (*V1HostConfigsPostOK, *V1HostConfigsPostAccepted, error)
 
 	V1StatusGet(params *V1StatusGetParams, opts ...ClientOption) (*V1StatusGetOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Empty  API
-*/
-func (a *Client) Empty(params *EmptyParams, opts ...ClientOption) (*OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewEmptyParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "",
-		Method:             "GET",
-		PathPattern:        "/falcon-complete-dashboards/queries/detects/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &EmptyReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for : API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
 }
 
 /*
@@ -1076,44 +1034,6 @@ func (a *Client) CombinedQueryInstalledPatches(params *CombinedQueryInstalledPat
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for combinedQueryInstalledPatches: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-PostGraphqlQueryMixin0 - request graphql query
-*/
-func (a *Client) PostGraphqlQueryMixin0(params *PostGraphqlQueryMixin0Params, opts ...ClientOption) (*PostGraphqlQueryMixin0OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPostGraphqlQueryMixin0Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "post-graphql-queryMixin0",
-		Method:             "POST",
-		PathPattern:        "/cloud-data-protection/entities/schedules/graphql/v2",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &PostGraphqlQueryMixin0Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*PostGraphqlQueryMixin0OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for post-graphql-queryMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

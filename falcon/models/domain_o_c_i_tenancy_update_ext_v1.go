@@ -33,6 +33,12 @@ type DomainOCITenancyUpdateExtV1 struct {
 	// Required: true
 	Products []*DomainCloudOCIProductFeature `json:"products"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
+	// registration name
+	RegistrationName string `json:"registration_name,omitempty"`
+
 	// Stack OCID
 	StackOcid string `json:"stack_ocid,omitempty"`
 

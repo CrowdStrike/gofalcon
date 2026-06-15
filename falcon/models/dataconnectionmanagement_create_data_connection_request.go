@@ -48,12 +48,10 @@ type DataconnectionmanagementCreateDataConnectionRequest struct {
 	LogSources []string `json:"log_sources"`
 
 	// name
-	// Required: true
-	Name *string `json:"name"`
+	Name string `json:"name,omitempty"`
 
 	// parser
-	// Required: true
-	Parser *string `json:"parser"`
+	Parser string `json:"parser,omitempty"`
 
 	// vendor name
 	VendorName string `json:"vendor_name,omitempty"`
@@ -71,14 +69,6 @@ func (m *DataconnectionmanagementCreateDataConnectionRequest) Validate(formats s
 	}
 
 	if err := m.validateConnectorID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateParser(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -110,24 +100,6 @@ func (m *DataconnectionmanagementCreateDataConnectionRequest) validateConfig(for
 func (m *DataconnectionmanagementCreateDataConnectionRequest) validateConnectorID(formats strfmt.Registry) error {
 
 	if err := validate.Required("connector_id", "body", m.ConnectorID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DataconnectionmanagementCreateDataConnectionRequest) validateName(formats strfmt.Registry) error {
-
-	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DataconnectionmanagementCreateDataConnectionRequest) validateParser(formats strfmt.Registry) error {
-
-	if err := validate.Required("parser", "body", m.Parser); err != nil {
 		return err
 	}
 

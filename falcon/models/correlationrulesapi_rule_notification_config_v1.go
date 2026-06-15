@@ -19,6 +19,9 @@ import (
 // swagger:model correlationrulesapi.RuleNotificationConfigV1
 type CorrelationrulesapiRuleNotificationConfigV1 struct {
 
+	// channel id
+	ChannelID string `json:"channel_id,omitempty"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
@@ -38,6 +41,9 @@ type CorrelationrulesapiRuleNotificationConfigV1 struct {
 	// severity
 	// Required: true
 	Severity *string `json:"severity"`
+
+	// team id
+	TeamID string `json:"team_id,omitempty"`
 }
 
 // Validate validates this correlationrulesapi rule notification config v1

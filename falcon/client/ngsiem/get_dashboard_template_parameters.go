@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetDashboardTemplateParams creates a new GetDashboardTemplateParams object,
@@ -63,9 +64,9 @@ type GetDashboardTemplateParams struct {
 
 	/* Ids.
 
-	   dashboard ID value
+	   dashboard ID value(s)
 	*/
-	Ids *string
+	Ids []string
 
 	/* SearchDomain.
 
@@ -127,13 +128,13 @@ func (o *GetDashboardTemplateParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithIds adds the ids to the get dashboard template params
-func (o *GetDashboardTemplateParams) WithIds(ids *string) *GetDashboardTemplateParams {
+func (o *GetDashboardTemplateParams) WithIds(ids []string) *GetDashboardTemplateParams {
 	o.SetIds(ids)
 	return o
 }
 
 // SetIds adds the ids to the get dashboard template params
-func (o *GetDashboardTemplateParams) SetIds(ids *string) {
+func (o *GetDashboardTemplateParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
@@ -158,18 +159,12 @@ func (o *GetDashboardTemplateParams) WriteToRequest(r runtime.ClientRequest, reg
 
 	if o.Ids != nil {
 
-		// query param ids
-		var qrIds string
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
 
-		if o.Ids != nil {
-			qrIds = *o.Ids
-		}
-		qIds := qrIds
-		if qIds != "" {
-
-			if err := r.SetQueryParam("ids", qIds); err != nil {
-				return err
-			}
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
 		}
 	}
 
@@ -194,4 +189,21 @@ func (o *GetDashboardTemplateParams) WriteToRequest(r runtime.ClientRequest, reg
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetDashboardTemplate binds the parameter ids
+func (o *GetDashboardTemplateParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

@@ -19,24 +19,67 @@ import (
 // swagger:model api.ParserTestCaseOutputFailures
 type APIParserTestCaseOutputFailures struct {
 
+	// Arrays with gaps in their indices
+	ArraysWithGaps []*APIArrayWithGap `json:"arrays_with_gaps"`
+
 	// Assertion failures on fields
 	AssertionFailuresOnFields []*APIAssertionFailureOnField `json:"assertion_failures_on_fields"`
 
+	// Fields starting with '#' that are not proper tags
+	FalselyTaggedFields []string `json:"falsely_tagged_fields"`
+
 	// Parsing errors
 	ParsingErrors []string `json:"parsing_errors"`
+
+	// Schema violations detected
+	SchemaViolations []*APISchemaViolation `json:"schema_violations"`
 }
 
 // Validate validates this api parser test case output failures
 func (m *APIParserTestCaseOutputFailures) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateArraysWithGaps(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAssertionFailuresOnFields(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSchemaViolations(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIParserTestCaseOutputFailures) validateArraysWithGaps(formats strfmt.Registry) error {
+	if swag.IsZero(m.ArraysWithGaps) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ArraysWithGaps); i++ {
+		if swag.IsZero(m.ArraysWithGaps[i]) { // not required
+			continue
+		}
+
+		if m.ArraysWithGaps[i] != nil {
+			if err := m.ArraysWithGaps[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("arrays_with_gaps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("arrays_with_gaps" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -66,17 +109,76 @@ func (m *APIParserTestCaseOutputFailures) validateAssertionFailuresOnFields(form
 	return nil
 }
 
+func (m *APIParserTestCaseOutputFailures) validateSchemaViolations(formats strfmt.Registry) error {
+	if swag.IsZero(m.SchemaViolations) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SchemaViolations); i++ {
+		if swag.IsZero(m.SchemaViolations[i]) { // not required
+			continue
+		}
+
+		if m.SchemaViolations[i] != nil {
+			if err := m.SchemaViolations[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("schema_violations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("schema_violations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this api parser test case output failures based on the context it is used
 func (m *APIParserTestCaseOutputFailures) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateArraysWithGaps(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateAssertionFailuresOnFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchemaViolations(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIParserTestCaseOutputFailures) contextValidateArraysWithGaps(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ArraysWithGaps); i++ {
+
+		if m.ArraysWithGaps[i] != nil {
+
+			if swag.IsZero(m.ArraysWithGaps[i]) { // not required
+				return nil
+			}
+
+			if err := m.ArraysWithGaps[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("arrays_with_gaps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("arrays_with_gaps" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -95,6 +197,31 @@ func (m *APIParserTestCaseOutputFailures) contextValidateAssertionFailuresOnFiel
 					return ve.ValidateName("assertion_failures_on_fields" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("assertion_failures_on_fields" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APIParserTestCaseOutputFailures) contextValidateSchemaViolations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SchemaViolations); i++ {
+
+		if m.SchemaViolations[i] != nil {
+
+			if swag.IsZero(m.SchemaViolations[i]) { // not required
+				return nil
+			}
+
+			if err := m.SchemaViolations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("schema_violations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("schema_violations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

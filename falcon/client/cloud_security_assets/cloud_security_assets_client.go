@@ -36,6 +36,8 @@ type ClientService interface {
 
 	CloudSecurityAssetsEntitiesGet(params *CloudSecurityAssetsEntitiesGetParams, opts ...ClientOption) (*CloudSecurityAssetsEntitiesGetOK, error)
 
+	CloudSecurityAssetsEntitiesPost(params *CloudSecurityAssetsEntitiesPostParams, opts ...ClientOption) (*CloudSecurityAssetsEntitiesPostOK, error)
+
 	CloudSecurityAssetsQueries(params *CloudSecurityAssetsQueriesParams, opts ...ClientOption) (*CloudSecurityAssetsQueriesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -152,6 +154,44 @@ func (a *Client) CloudSecurityAssetsEntitiesGet(params *CloudSecurityAssetsEntit
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-security-assets-entities-get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudSecurityAssetsEntitiesPost gets raw resources based on i ds in the request body maximum of 500 resources can be requested
+*/
+func (a *Client) CloudSecurityAssetsEntitiesPost(params *CloudSecurityAssetsEntitiesPostParams, opts ...ClientOption) (*CloudSecurityAssetsEntitiesPostOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudSecurityAssetsEntitiesPostParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-security-assets-entities-post",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-assets/entities/resources/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudSecurityAssetsEntitiesPostReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudSecurityAssetsEntitiesPostOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-security-assets-entities-post: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

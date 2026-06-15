@@ -31,6 +31,9 @@ type APIPostEnrollmentDetailsV4 struct {
 	// Required: true
 	// Format: date-time
 	ExpiresAt *strfmt.DateTime `json:"expires_at"`
+
+	// use network extension
+	UseNetworkExtension bool `json:"use_network_extension,omitempty"`
 }
 
 // Validate validates this api post enrollment details v4

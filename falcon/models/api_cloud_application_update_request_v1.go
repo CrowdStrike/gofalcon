@@ -12,7 +12,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // APICloudApplicationUpdateRequestV1 api cloud application update request v1
@@ -21,29 +20,18 @@ import (
 type APICloudApplicationUpdateRequestV1 struct {
 
 	// description
-	// Required: true
-	Description *string `json:"description"`
+	Description string `json:"description,omitempty"`
 
 	// name
-	// Required: true
-	Name *string `json:"name"`
+	Name string `json:"name,omitempty"`
 
 	// urls
-	// Required: true
 	Urls []*APIWebAppURL `json:"urls"`
 }
 
 // Validate validates this api cloud application update request v1
 func (m *APICloudApplicationUpdateRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateUrls(formats); err != nil {
 		res = append(res, err)
@@ -55,28 +43,9 @@ func (m *APICloudApplicationUpdateRequestV1) Validate(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *APICloudApplicationUpdateRequestV1) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APICloudApplicationUpdateRequestV1) validateName(formats strfmt.Registry) error {
-
-	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *APICloudApplicationUpdateRequestV1) validateUrls(formats strfmt.Registry) error {
-
-	if err := validate.Required("urls", "body", m.Urls); err != nil {
-		return err
+	if swag.IsZero(m.Urls) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Urls); i++ {

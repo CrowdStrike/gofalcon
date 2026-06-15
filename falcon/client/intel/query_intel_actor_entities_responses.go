@@ -84,7 +84,7 @@ type QueryIntelActorEntitiesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainActorsResponse
+	Payload *models.ActorActorPaginatedResponse
 }
 
 // IsSuccess returns true when this query intel actor entities o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *QueryIntelActorEntitiesOK) String() string {
 	return fmt.Sprintf("[GET /intel/combined/actors/v1][%d] queryIntelActorEntitiesOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryIntelActorEntitiesOK) GetPayload() *models.DomainActorsResponse {
+func (o *QueryIntelActorEntitiesOK) GetPayload() *models.ActorActorPaginatedResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *QueryIntelActorEntitiesOK) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainActorsResponse)
+	o.Payload = new(models.ActorActorPaginatedResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

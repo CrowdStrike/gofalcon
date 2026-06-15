@@ -58,6 +58,9 @@ type ReleasesReleaseResponseV1 struct {
 	// release notes ticket
 	ReleaseNotesTicket string `json:"release_notes_ticket,omitempty"`
 
+	// replication role
+	ReplicationRole string `json:"replication_role,omitempty"`
+
 	// status
 	// Required: true
 	Status *string `json:"status"`

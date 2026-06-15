@@ -64,13 +64,13 @@ type ExtAggregateClusterAssessmentsParams struct {
 	/* Filter.
 
 	     Filter results using a query in Falcon Query Language (FQL). Supported Filters:
-	cloud_info.cloud_account_id: Cloud account ID
-	cloud_info.namespace: Kubernetes namespace
-	compliance_finding.framework: Compliance finding framework (available values: CIS)
 	cid: Customer ID
+	cloud_info.namespace: Kubernetes namespace
+	cloud_info.cloud_account_id: Cloud account ID
 	cloud_info.cloud_region: Cloud region
-	cloud_info.cluster_name: Kubernetes cluster name
 	cloud_info.cloud_provider: Cloud provider
+	cloud_info.cluster_name: Kubernetes cluster name
+	compliance_finding.framework: Compliance finding framework (available values: CIS)
 
 	*/
 	Filter *string

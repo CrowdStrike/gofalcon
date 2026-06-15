@@ -34,6 +34,8 @@ type ClientService interface {
 
 	CombinedHiddenDevicesByFilter(params *CombinedHiddenDevicesByFilterParams, opts ...ClientOption) (*CombinedHiddenDevicesByFilterOK, error)
 
+	DevicesActionsDeleteV1(params *DevicesActionsDeleteV1Params, opts ...ClientOption) (*DevicesActionsDeleteV1Accepted, error)
+
 	GetDeviceDetailsV2(params *GetDeviceDetailsV2Params, opts ...ClientOption) (*GetDeviceDetailsV2OK, error)
 
 	GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...ClientOption) (*GetOnlineStateV1OK, error)
@@ -138,6 +140,44 @@ func (a *Client) CombinedHiddenDevicesByFilter(params *CombinedHiddenDevicesByFi
 }
 
 /*
+DevicesActionsDeleteV1 permanentlies delete hosts from the system
+*/
+func (a *Client) DevicesActionsDeleteV1(params *DevicesActionsDeleteV1Params, opts ...ClientOption) (*DevicesActionsDeleteV1Accepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDevicesActionsDeleteV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DevicesActionsDeleteV1",
+		Method:             "POST",
+		PathPattern:        "/devices/entities/devices-actions-delete/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DevicesActionsDeleteV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DevicesActionsDeleteV1Accepted)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DevicesActionsDeleteV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetDeviceDetailsV2 gets details on one or more hosts by providing host i ds as a query parameter supports up to a maximum 100 i ds
 */
 func (a *Client) GetDeviceDetailsV2(params *GetDeviceDetailsV2Params, opts ...ClientOption) (*GetDeviceDetailsV2OK, error) {
@@ -214,7 +254,7 @@ func (a *Client) GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...Client
 }
 
 /*
-PerformActionV2 takes various actions on the hosts in your environment contain or lift containment on a host delete or restore a host
+PerformActionV2 takes various actions on the hosts in your environment contain or lift containment on a host hide or unhide a host
 */
 func (a *Client) PerformActionV2(params *PerformActionV2Params, opts ...ClientOption) (*PerformActionV2Accepted, error) {
 	// TODO: Validate the params before sending

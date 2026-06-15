@@ -21,7 +21,7 @@ import (
 type DefinitionsDefinitionImportResponseEntity struct {
 
 	// Map of activity ID to activity metadata (including dependencies with app info and logo URLs) for displaying activity information in the UI
-	ActivityMetadata map[string]ContentActivityMetadata `json:"activity_metadata,omitempty"`
+	ActivityMetadata map[string]DefinitionsActivityMetadata `json:"activity_metadata,omitempty"`
 
 	// description
 	Description string `json:"description,omitempty"`

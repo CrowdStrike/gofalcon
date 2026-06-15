@@ -63,6 +63,10 @@ type APIWebLocationV2 struct {
 	// type
 	// Required: true
 	Type *string `json:"type"`
+
+	// web location group ids
+	// Required: true
+	WebLocationGroupIds []string `json:"web_location_group_ids"`
 }
 
 // Validate validates this api web location v2
@@ -90,6 +94,10 @@ func (m *APIWebLocationV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWebLocationGroupIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -153,6 +161,15 @@ func (m *APIWebLocationV2) validateLocationType(formats strfmt.Registry) error {
 func (m *APIWebLocationV2) validateType(formats strfmt.Registry) error {
 
 	if err := validate.Required("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIWebLocationV2) validateWebLocationGroupIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("web_location_group_ids", "body", m.WebLocationGroupIds); err != nil {
 		return err
 	}
 

@@ -46,10 +46,6 @@ type DomainDiscoverParams struct {
 	// template fields
 	// Required: true
 	TemplateFields []string `json:"template_fields"`
-
-	// top n results
-	// Required: true
-	TopnResults *int32 `json:"top_n_results"`
 }
 
 // Validate validates this domain discover params
@@ -81,10 +77,6 @@ func (m *DomainDiscoverParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTemplateFields(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTopnResults(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,15 +143,6 @@ func (m *DomainDiscoverParams) validateRequirementCriteria(formats strfmt.Regist
 func (m *DomainDiscoverParams) validateTemplateFields(formats strfmt.Registry) error {
 
 	if err := validate.Required("template_fields", "body", m.TemplateFields); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainDiscoverParams) validateTopnResults(formats strfmt.Registry) error {
-
-	if err := validate.Required("top_n_results", "body", m.TopnResults); err != nil {
 		return err
 	}
 

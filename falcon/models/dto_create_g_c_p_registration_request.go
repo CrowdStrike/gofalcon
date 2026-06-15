@@ -27,6 +27,9 @@ type DtoCreateGCPRegistrationRequest struct {
 	// Required: true
 	DeploymentMethod *string `json:"deployment_method"`
 
+	// dspm settings
+	DspmSettings *GcpAgentlessScanningSettings `json:"dspm_settings,omitempty"`
+
 	// entity id
 	// Required: true
 	EntityID []string `json:"entity_id"`
@@ -53,6 +56,9 @@ type DtoCreateGCPRegistrationRequest struct {
 	// products
 	Products []*DomainProductFeatures `json:"products"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
 	// registration name
 	// Required: true
 	RegistrationName *string `json:"registration_name"`
@@ -70,6 +76,9 @@ type DtoCreateGCPRegistrationRequest struct {
 	// tags
 	Tags GcpTags `json:"tags,omitempty"`
 
+	// vulnerability scanning settings
+	VulnerabilityScanningSettings *GcpAgentlessScanningSettings `json:"vulnerability_scanning_settings,omitempty"`
+
 	// wif project id
 	// Required: true
 	WifProjectID *string `json:"wif_project_id"`
@@ -83,6 +92,10 @@ func (m *DtoCreateGCPRegistrationRequest) Validate(formats strfmt.Registry) erro
 	var res []error
 
 	if err := m.validateDeploymentMethod(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -114,6 +127,10 @@ func (m *DtoCreateGCPRegistrationRequest) Validate(formats strfmt.Registry) erro
 		res = append(res, err)
 	}
 
+	if err := m.validateVulnerabilityScanningSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateWifProjectID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -128,6 +145,25 @@ func (m *DtoCreateGCPRegistrationRequest) validateDeploymentMethod(formats strfm
 
 	if err := validate.Required("deployment_method", "body", m.DeploymentMethod); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DtoCreateGCPRegistrationRequest) validateDspmSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmSettings) { // not required
+		return nil
+	}
+
+	if m.DspmSettings != nil {
+		if err := m.DspmSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -233,6 +269,25 @@ func (m *DtoCreateGCPRegistrationRequest) validateTags(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *DtoCreateGCPRegistrationRequest) validateVulnerabilityScanningSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningSettings != nil {
+		if err := m.VulnerabilityScanningSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DtoCreateGCPRegistrationRequest) validateWifProjectID(formats strfmt.Registry) error {
 
 	if err := validate.Required("wif_project_id", "body", m.WifProjectID); err != nil {
@@ -246,6 +301,10 @@ func (m *DtoCreateGCPRegistrationRequest) validateWifProjectID(formats strfmt.Re
 func (m *DtoCreateGCPRegistrationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateDspmSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLabels(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -258,9 +317,34 @@ func (m *DtoCreateGCPRegistrationRequest) ContextValidate(ctx context.Context, f
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateVulnerabilityScanningSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DtoCreateGCPRegistrationRequest) contextValidateDspmSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DspmSettings != nil {
+
+		if swag.IsZero(m.DspmSettings) { // not required
+			return nil
+		}
+
+		if err := m.DspmSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -320,6 +404,27 @@ func (m *DtoCreateGCPRegistrationRequest) contextValidateTags(ctx context.Contex
 			return ce.ValidateName("tags")
 		}
 		return err
+	}
+
+	return nil
+}
+
+func (m *DtoCreateGCPRegistrationRequest) contextValidateVulnerabilityScanningSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.VulnerabilityScanningSettings != nil {
+
+		if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
+			return nil
+		}
+
+		if err := m.VulnerabilityScanningSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_settings")
+			}
+			return err
+		}
 	}
 
 	return nil

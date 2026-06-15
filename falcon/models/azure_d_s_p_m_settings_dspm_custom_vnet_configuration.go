@@ -16,7 +16,7 @@ import (
 // AzureDSPMSettingsDspmCustomVnetConfiguration azure d s p m settings dspm custom vnet configuration
 //
 // swagger:model azure.DSPMSettings.dspm_custom_vnet_configuration
-type AzureDSPMSettingsDspmCustomVnetConfiguration map[string]AzureDSPMRegionCustomNetworkConfiguration
+type AzureDSPMSettingsDspmCustomVnetConfiguration map[string]AzureAgentlessScanningRegionCustomNetworkConfiguration
 
 // Validate validates this azure d s p m settings dspm custom vnet configuration
 func (m AzureDSPMSettingsDspmCustomVnetConfiguration) Validate(formats strfmt.Registry) error {

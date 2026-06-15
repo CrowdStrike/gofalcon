@@ -17,6 +17,9 @@ import (
 // swagger:model assetgroupmanager.v1.CloudResourceFilters
 type AssetgroupmanagerV1CloudResourceFilters struct {
 
+	// gcrn
+	Gcrn []string `json:"gcrn"`
+
 	// region
 	Region []string `json:"region"`
 

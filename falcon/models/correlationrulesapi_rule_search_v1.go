@@ -43,8 +43,7 @@ type CorrelationrulesapiRuleSearchV1 struct {
 	TriggerMode *string `json:"trigger_mode"`
 
 	// use ingest time
-	// Required: true
-	UseIngestTime *bool `json:"use_ingest_time"`
+	UseIngestTime bool `json:"use_ingest_time,omitempty"`
 }
 
 // Validate validates this correlationrulesapi rule search v1
@@ -68,10 +67,6 @@ func (m *CorrelationrulesapiRuleSearchV1) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateTriggerMode(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUseIngestTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -120,15 +115,6 @@ func (m *CorrelationrulesapiRuleSearchV1) validateOutcome(formats strfmt.Registr
 func (m *CorrelationrulesapiRuleSearchV1) validateTriggerMode(formats strfmt.Registry) error {
 
 	if err := validate.Required("trigger_mode", "body", m.TriggerMode); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CorrelationrulesapiRuleSearchV1) validateUseIngestTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("use_ingest_time", "body", m.UseIngestTime); err != nil {
 		return err
 	}
 

@@ -12,7 +12,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // QuickscanproArtifactsTree quickscanpro artifacts tree
@@ -24,7 +23,7 @@ type QuickscanproArtifactsTree struct {
 	Edges []*QuickscanproArtifactEdge `json:"edges"`
 
 	// nodes
-	Nodes map[string]QuickscanproArtifactNode `json:"nodes,omitempty"`
+	Nodes []*QuickscanproArtifactNode `json:"nodes"`
 }
 
 // Validate validates this quickscanpro artifacts tree
@@ -76,17 +75,17 @@ func (m *QuickscanproArtifactsTree) validateNodes(formats strfmt.Registry) error
 		return nil
 	}
 
-	for k := range m.Nodes {
-
-		if err := validate.Required("nodes"+"."+k, "body", m.Nodes[k]); err != nil {
-			return err
+	for i := 0; i < len(m.Nodes); i++ {
+		if swag.IsZero(m.Nodes[i]) { // not required
+			continue
 		}
-		if val, ok := m.Nodes[k]; ok {
-			if err := val.Validate(formats); err != nil {
+
+		if m.Nodes[i] != nil {
+			if err := m.Nodes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("nodes" + "." + k)
+					return ve.ValidateName("nodes" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("nodes" + "." + k)
+					return ce.ValidateName("nodes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -142,10 +141,20 @@ func (m *QuickscanproArtifactsTree) contextValidateEdges(ctx context.Context, fo
 
 func (m *QuickscanproArtifactsTree) contextValidateNodes(ctx context.Context, formats strfmt.Registry) error {
 
-	for k := range m.Nodes {
+	for i := 0; i < len(m.Nodes); i++ {
 
-		if val, ok := m.Nodes[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
+		if m.Nodes[i] != nil {
+
+			if swag.IsZero(m.Nodes[i]) { // not required
+				return nil
+			}
+
+			if err := m.Nodes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("nodes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("nodes" + "." + strconv.Itoa(i))
+				}
 				return err
 			}
 		}

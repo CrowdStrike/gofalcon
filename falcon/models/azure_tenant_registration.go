@@ -128,8 +128,14 @@ type AzureTenantRegistration struct {
 	// products
 	Products []*DomainProductFeatures `json:"products"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
 	// registration id
 	RegistrationID string `json:"registration_id,omitempty"`
+
+	// registration name
+	RegistrationName string `json:"registration_name,omitempty"`
 
 	// resource name prefix
 	ResourceNamePrefix *string `json:"resource_name_prefix,omitempty"`
@@ -162,6 +168,20 @@ type AzureTenantRegistration struct {
 	// updated
 	// Format: date-time
 	Updated strfmt.DateTime `json:"updated,omitempty"`
+
+	// Map of region names to custom VNET configuration for Vulnerability Scanning
+	VulnerabilityScanningCustomVnetConfiguration AzureVulnerabilityScanningSettingsVulnerabilityScanningCustomVnetConfiguration `json:"vulnerability_scanning_custom_vnet_configuration,omitempty"`
+
+	// vulnerability scanning host subscription id
+	VulnerabilityScanningHostSubscriptionID string `json:"vulnerability_scanning_host_subscription_id,omitempty"`
+
+	// Network configuration type for Vulnerability Scanning
+	// Enum: [managed managed_no_nat custom]
+	VulnerabilityScanningNetworkConfigurationType string `json:"vulnerability_scanning_network_configuration_type,omitempty"`
+
+	// vulnerability scanning regions
+	// Required: true
+	VulnerabilityScanningRegions []string `json:"vulnerability_scanning_regions"`
 }
 
 // Validate validates this azure tenant registration
@@ -237,6 +257,18 @@ func (m *AzureTenantRegistration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUpdated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningCustomVnetConfiguration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningNetworkConfigurationType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityScanningRegions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -527,6 +559,79 @@ func (m *AzureTenantRegistration) validateUpdated(formats strfmt.Registry) error
 	return nil
 }
 
+func (m *AzureTenantRegistration) validateVulnerabilityScanningCustomVnetConfiguration(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningCustomVnetConfiguration) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityScanningCustomVnetConfiguration != nil {
+		if err := m.VulnerabilityScanningCustomVnetConfiguration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var azureTenantRegistrationTypeVulnerabilityScanningNetworkConfigurationTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["managed","managed_no_nat","custom"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		azureTenantRegistrationTypeVulnerabilityScanningNetworkConfigurationTypePropEnum = append(azureTenantRegistrationTypeVulnerabilityScanningNetworkConfigurationTypePropEnum, v)
+	}
+}
+
+const (
+
+	// AzureTenantRegistrationVulnerabilityScanningNetworkConfigurationTypeManaged captures enum value "managed"
+	AzureTenantRegistrationVulnerabilityScanningNetworkConfigurationTypeManaged string = "managed"
+
+	// AzureTenantRegistrationVulnerabilityScanningNetworkConfigurationTypeManagedNoNat captures enum value "managed_no_nat"
+	AzureTenantRegistrationVulnerabilityScanningNetworkConfigurationTypeManagedNoNat string = "managed_no_nat"
+
+	// AzureTenantRegistrationVulnerabilityScanningNetworkConfigurationTypeCustom captures enum value "custom"
+	AzureTenantRegistrationVulnerabilityScanningNetworkConfigurationTypeCustom string = "custom"
+)
+
+// prop value enum
+func (m *AzureTenantRegistration) validateVulnerabilityScanningNetworkConfigurationTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, azureTenantRegistrationTypeVulnerabilityScanningNetworkConfigurationTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AzureTenantRegistration) validateVulnerabilityScanningNetworkConfigurationType(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityScanningNetworkConfigurationType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateVulnerabilityScanningNetworkConfigurationTypeEnum("vulnerability_scanning_network_configuration_type", "body", m.VulnerabilityScanningNetworkConfigurationType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistration) validateVulnerabilityScanningRegions(formats strfmt.Registry) error {
+
+	if err := validate.Required("vulnerability_scanning_regions", "body", m.VulnerabilityScanningRegions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // ContextValidate validate this azure tenant registration based on the context it is used
 func (m *AzureTenantRegistration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -548,6 +653,10 @@ func (m *AzureTenantRegistration) ContextValidate(ctx context.Context, formats s
 	}
 
 	if err := m.contextValidateProducts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilityScanningCustomVnetConfiguration(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -662,6 +771,24 @@ func (m *AzureTenantRegistration) contextValidateProducts(ctx context.Context, f
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *AzureTenantRegistration) contextValidateVulnerabilityScanningCustomVnetConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.VulnerabilityScanningCustomVnetConfiguration) { // not required
+		return nil
+	}
+
+	if err := m.VulnerabilityScanningCustomVnetConfiguration.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("vulnerability_scanning_custom_vnet_configuration")
+		}
+		return err
 	}
 
 	return nil

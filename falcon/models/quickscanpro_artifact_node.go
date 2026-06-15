@@ -22,6 +22,9 @@ type QuickscanproArtifactNode struct {
 	// adversary
 	Adversary string `json:"adversary,omitempty"`
 
+	// id
+	ID string `json:"id,omitempty"`
+
 	// malicious confidence
 	// Required: true
 	MaliciousConfidence *int32 `json:"malicious_confidence"`

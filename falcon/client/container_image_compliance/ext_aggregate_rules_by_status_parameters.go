@@ -64,23 +64,23 @@ type ExtAggregateRulesByStatusParams struct {
 	/* Filter.
 
 	     Filter results using a query in Falcon Query Language (FQL). Supported Filters:
-	cloud_info.cloud_provider: Cloud provider
-	cloud_info.cloud_account_id: Cloud account ID
-	asset_type: asset type (container, image)
-	image_id: Image ID
-	container_name: Container name
-	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
-	cid: Customer ID
 	image_repository: Image repository
+	cloud_info.cloud_account_id: Cloud account ID
+	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
 	container_id: Container ID
-	image_digest: Image digest (sha256 digest)
-	cloud_info.cluster_name: Kubernetes cluster name
-	image_registry: Image registry
-	compliance_finding.name: Compliance finding Name
-	cloud_info.cloud_region: Cloud region
-	image_tag: Image tag
 	compliance_finding.id: Compliance finding ID
+	cloud_info.cluster_name: Kubernetes cluster name
+	cloud_info.cloud_provider: Cloud provider
+	compliance_finding.name: Compliance finding Name
+	image_id: Image ID
+	asset_type: asset type (container, image)
+	image_digest: Image digest (sha256 digest)
+	container_name: Container name
+	cid: Customer ID
+	cloud_info.cloud_region: Cloud region
 	compliance_finding.framework: Compliance finding framework (available values: CIS)
+	image_registry: Image registry
+	image_tag: Image tag
 
 	*/
 	Filter *string

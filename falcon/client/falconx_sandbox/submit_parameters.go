@@ -73,11 +73,12 @@ type SubmitParams struct {
 
 	     Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.
 
-	**`environment_id`**: Specifies the sandbox environment used for analysis. Values:
+	**`environment_id`**: Specifies the sandbox environment used for analysis. Note: Deprecated platform values are still accepted to maintain backward compatibility; however, they will be automatically mapped to their recommended equivalents. It is strongly advised to update any integration scripts to use the current supported platform versions. Values:
 
-	- `400`: MacOS Catalina 10.15
-	- `300`: Linux Ubuntu 16.04, 64-bit - deprecated
-	- `310`: Linux Ubuntu 20, 64-bit
+	- `430`: MacOS Tahoe ARM
+	- `400`: MacOS Catalina 10.15 - deprecated, will fallback to MacOS Tahoe ARM
+	- `330`: Linux Ubuntu 24, 64-bit
+	- `310`: Linux Ubuntu 20, 64-bit - deprecated, will fallback to Linux Ubuntu 24
 	- `200`: Android (static analysis)
 	- `160`: Windows 10, 64-bit
 	- `140`: Windows 11, 64-bit

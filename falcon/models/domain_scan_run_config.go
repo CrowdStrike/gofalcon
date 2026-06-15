@@ -32,6 +32,12 @@ type DomainScanRunConfig struct {
 	// The detections to use for the scan
 	Detections []string `json:"detections"`
 
+	// The set of excluded TCP ports
+	ExcludedTCPPorts []string `json:"excluded_tcp_ports"`
+
+	// The set of excluded UDP ports
+	ExcludedUDPPorts []string `json:"excluded_udp_ports"`
+
 	// Indicates whether fragile device detection is enabled or not
 	FragileDeviceDetection bool `json:"fragile_device_detection,omitempty"`
 
@@ -45,6 +51,9 @@ type DomainScanRunConfig struct {
 
 	// The scan exclusion configuration
 	ScanExclusion *DomainScanExclusion `json:"scan_exclusion,omitempty"`
+
+	// Custom nmap flag overrides for this scan run
+	ScanFlags *NswipScanFlags `json:"scan_flags,omitempty"`
 
 	// The scan intensity
 	// Required: true
@@ -86,6 +95,10 @@ func (m *DomainScanRunConfig) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateScanExclusion(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanFlags(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -178,6 +191,25 @@ func (m *DomainScanRunConfig) validateScanExclusion(formats strfmt.Registry) err
 				return ve.ValidateName("scan_exclusion")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("scan_exclusion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainScanRunConfig) validateScanFlags(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScanFlags) { // not required
+		return nil
+	}
+
+	if m.ScanFlags != nil {
+		if err := m.ScanFlags.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scan_flags")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scan_flags")
 			}
 			return err
 		}
@@ -409,6 +441,10 @@ func (m *DomainScanRunConfig) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateScanFlags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateTargetAsset(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -448,6 +484,27 @@ func (m *DomainScanRunConfig) contextValidateScanExclusion(ctx context.Context, 
 				return ve.ValidateName("scan_exclusion")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("scan_exclusion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainScanRunConfig) contextValidateScanFlags(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScanFlags != nil {
+
+		if swag.IsZero(m.ScanFlags) { // not required
+			return nil
+		}
+
+		if err := m.ScanFlags.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scan_flags")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scan_flags")
 			}
 			return err
 		}

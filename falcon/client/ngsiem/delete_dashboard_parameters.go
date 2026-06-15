@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewDeleteDashboardParams creates a new DeleteDashboardParams object,
@@ -63,9 +64,9 @@ type DeleteDashboardParams struct {
 
 	/* Ids.
 
-	   dashboard ID value
+	   dashboard ID value(s). Supports single or multiple IDs for bulk delete.
 	*/
-	Ids *string
+	Ids []string
 
 	/* SearchDomain.
 
@@ -127,13 +128,13 @@ func (o *DeleteDashboardParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithIds adds the ids to the delete dashboard params
-func (o *DeleteDashboardParams) WithIds(ids *string) *DeleteDashboardParams {
+func (o *DeleteDashboardParams) WithIds(ids []string) *DeleteDashboardParams {
 	o.SetIds(ids)
 	return o
 }
 
 // SetIds adds the ids to the delete dashboard params
-func (o *DeleteDashboardParams) SetIds(ids *string) {
+func (o *DeleteDashboardParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
@@ -158,18 +159,12 @@ func (o *DeleteDashboardParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 	if o.Ids != nil {
 
-		// query param ids
-		var qrIds string
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
 
-		if o.Ids != nil {
-			qrIds = *o.Ids
-		}
-		qIds := qrIds
-		if qIds != "" {
-
-			if err := r.SetQueryParam("ids", qIds); err != nil {
-				return err
-			}
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
 		}
 	}
 
@@ -194,4 +189,21 @@ func (o *DeleteDashboardParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteDashboard binds the parameter ids
+func (o *DeleteDashboardParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

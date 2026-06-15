@@ -507,8 +507,6 @@ type LookupIndicatorsTooManyRequests struct {
 	/* Too many requests, retry after this time (as milliseconds since epoch)
 	 */
 	XRateLimitRetryAfter int64
-
-	Payload *models.MsaReplyMetaOnly
 }
 
 // IsSuccess returns true when this lookup indicators too many requests response has a 2xx status code
@@ -542,15 +540,11 @@ func (o *LookupIndicatorsTooManyRequests) Code() int {
 }
 
 func (o *LookupIndicatorsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /intelligence/combined/lookup-indicators/v1][%d] lookupIndicatorsTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /intelligence/combined/lookup-indicators/v1][%d] lookupIndicatorsTooManyRequests ", 429)
 }
 
 func (o *LookupIndicatorsTooManyRequests) String() string {
-	return fmt.Sprintf("[POST /intelligence/combined/lookup-indicators/v1][%d] lookupIndicatorsTooManyRequests  %+v", 429, o.Payload)
-}
-
-func (o *LookupIndicatorsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
+	return fmt.Sprintf("[POST /intelligence/combined/lookup-indicators/v1][%d] lookupIndicatorsTooManyRequests ", 429)
 }
 
 func (o *LookupIndicatorsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -593,13 +587,6 @@ func (o *LookupIndicatorsTooManyRequests) readResponse(response runtime.ClientRe
 			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
-	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
 	}
 
 	return nil

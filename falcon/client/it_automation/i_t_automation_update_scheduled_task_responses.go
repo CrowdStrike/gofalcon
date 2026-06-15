@@ -310,7 +310,7 @@ type ITAutomationUpdateScheduledTaskForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this i t automation update scheduled task forbidden response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *ITAutomationUpdateScheduledTaskForbidden) String() string {
 	return fmt.Sprintf("[PATCH /it-automation/entities/scheduled-tasks/v1][%d] iTAutomationUpdateScheduledTaskForbidden  %+v", 403, o.Payload)
 }
 
-func (o *ITAutomationUpdateScheduledTaskForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ITAutomationUpdateScheduledTaskForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *ITAutomationUpdateScheduledTaskForbidden) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

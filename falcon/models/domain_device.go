@@ -35,6 +35,9 @@ type DomainDevice struct {
 	// config id platform
 	ConfigIDPlatform string `json:"config_id_platform,omitempty"`
 
+	// deployment type
+	DeploymentType string `json:"deployment_type,omitempty"`
+
 	// device id
 	// Required: true
 	DeviceID *string `json:"device_id"`

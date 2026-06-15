@@ -19,6 +19,9 @@ import (
 // swagger:model models.PackageInfoType
 type ModelsPackageInfoType struct {
 
+	// install date
+	InstallDate string `json:"InstallDate,omitempty"`
+
 	// layer hash
 	LayerHash string `json:"LayerHash,omitempty"`
 

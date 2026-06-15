@@ -30,7 +30,21 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	BulkCreateDashboardsFromTemplate(params *BulkCreateDashboardsFromTemplateParams, opts ...ClientOption) (*BulkCreateDashboardsFromTemplateOK, error)
+
+	BulkCreateLookupFiles(params *BulkCreateLookupFilesParams, opts ...ClientOption) (*BulkCreateLookupFilesOK, error)
+
+	BulkCreateSavedQueriesFromTemplate(params *BulkCreateSavedQueriesFromTemplateParams, opts ...ClientOption) (*BulkCreateSavedQueriesFromTemplateOK, error)
+
+	BulkGetLookupFiles(params *BulkGetLookupFilesParams, opts ...ClientOption) (*BulkGetLookupFilesOK, error)
+
 	BulkInstallParsers(params *BulkInstallParsersParams, opts ...ClientOption) (*BulkInstallParsersOK, error)
+
+	BulkUpdateDashboardsFromTemplate(params *BulkUpdateDashboardsFromTemplateParams, opts ...ClientOption) (*BulkUpdateDashboardsFromTemplateOK, error)
+
+	BulkUpdateLookupFiles(params *BulkUpdateLookupFilesParams, opts ...ClientOption) (*BulkUpdateLookupFilesOK, error)
+
+	BulkUpdateSavedQueriesFromTemplate(params *BulkUpdateSavedQueriesFromTemplateParams, opts ...ClientOption) (*BulkUpdateSavedQueriesFromTemplateOK, error)
 
 	CloneParser(params *CloneParserParams, opts ...ClientOption) (*CloneParserOK, error)
 
@@ -39,6 +53,8 @@ type ClientService interface {
 	CreateLookupFile(params *CreateLookupFileParams, opts ...ClientOption) (*CreateLookupFileOK, error)
 
 	CreateParser(params *CreateParserParams, opts ...ClientOption) (*CreateParserOK, error)
+
+	CreateParserExtension(params *CreateParserExtensionParams, opts ...ClientOption) (*CreateParserExtensionOK, error)
 
 	CreateParserFromTemplate(params *CreateParserFromTemplateParams, opts ...ClientOption) (*CreateParserFromTemplateOK, error)
 
@@ -134,6 +150,158 @@ type ClientService interface {
 }
 
 /*
+BulkCreateDashboardsFromTemplate creates multiple dashboards from y a m l templates processes all items and returns per item success failure results failed items are included in the errors array with appropriate HTTP status codes
+*/
+func (a *Client) BulkCreateDashboardsFromTemplate(params *BulkCreateDashboardsFromTemplateParams, opts ...ClientOption) (*BulkCreateDashboardsFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkCreateDashboardsFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkCreateDashboardsFromTemplate",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-dashboards-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkCreateDashboardsFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkCreateDashboardsFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkCreateDashboardsFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkCreateLookupFiles creates multiple lookup files processes all items and returns per item success failure results failed items are included in the errors array with appropriate HTTP status codes
+*/
+func (a *Client) BulkCreateLookupFiles(params *BulkCreateLookupFilesParams, opts ...ClientOption) (*BulkCreateLookupFilesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkCreateLookupFilesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkCreateLookupFiles",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkCreateLookupFilesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkCreateLookupFilesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkCreateLookupFiles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkCreateSavedQueriesFromTemplate creates multiple saved queries from log scale y a m l templates processes all items and returns per item success failure results failed items are included in the errors array with appropriate HTTP status codes
+*/
+func (a *Client) BulkCreateSavedQueriesFromTemplate(params *BulkCreateSavedQueriesFromTemplateParams, opts ...ClientOption) (*BulkCreateSavedQueriesFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkCreateSavedQueriesFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkCreateSavedQueriesFromTemplate",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-savedqueries-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkCreateSavedQueriesFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkCreateSavedQueriesFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkCreateSavedQueriesFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkGetLookupFiles retrieves multiple lookup files by filenames in n g s i e m
+*/
+func (a *Client) BulkGetLookupFiles(params *BulkGetLookupFilesParams, opts ...ClientOption) (*BulkGetLookupFilesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkGetLookupFilesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkGetLookupFiles",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/bulk-lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkGetLookupFilesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkGetLookupFilesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkGetLookupFiles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 BulkInstallParsers installs multiple crowd strike managed out of the box o o t b parsers into the customer s repository in a single operation this endpoint provisions multiple pre built parsers with their specific versions for the requesting customer ID c ID the parsers are installed as is and cannot be modified by the customer requires an array of parsers with parser id and version in the request body maximum 100 parsers per request
 */
 func (a *Client) BulkInstallParsers(params *BulkInstallParsersParams, opts ...ClientOption) (*BulkInstallParsersOK, error) {
@@ -168,6 +336,120 @@ func (a *Client) BulkInstallParsers(params *BulkInstallParsersParams, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for BulkInstallParsers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkUpdateDashboardsFromTemplate updates multiple dashboards from y a m l templates processes all items and returns per item success failure results failed items are included in the errors array with appropriate HTTP status codes
+*/
+func (a *Client) BulkUpdateDashboardsFromTemplate(params *BulkUpdateDashboardsFromTemplateParams, opts ...ClientOption) (*BulkUpdateDashboardsFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateDashboardsFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkUpdateDashboardsFromTemplate",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/bulk-dashboards-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkUpdateDashboardsFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkUpdateDashboardsFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkUpdateDashboardsFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkUpdateLookupFiles updates multiple lookup files processes all items and returns per item success failure results failed items are included in the errors array with appropriate HTTP status codes
+*/
+func (a *Client) BulkUpdateLookupFiles(params *BulkUpdateLookupFilesParams, opts ...ClientOption) (*BulkUpdateLookupFilesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateLookupFilesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkUpdateLookupFiles",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/bulk-lookupfiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkUpdateLookupFilesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkUpdateLookupFilesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkUpdateLookupFiles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkUpdateSavedQueriesFromTemplate updates multiple saved queries from log scale y a m l templates processes all items and returns per item success failure results failed items are included in the errors array with appropriate HTTP status codes
+*/
+func (a *Client) BulkUpdateSavedQueriesFromTemplate(params *BulkUpdateSavedQueriesFromTemplateParams, opts ...ClientOption) (*BulkUpdateSavedQueriesFromTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateSavedQueriesFromTemplateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkUpdateSavedQueriesFromTemplate",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/bulk-savedqueries-template/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkUpdateSavedQueriesFromTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkUpdateSavedQueriesFromTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkUpdateSavedQueriesFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -320,6 +602,44 @@ func (a *Client) CreateParser(params *CreateParserParams, opts ...ClientOption) 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for CreateParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateParserExtension creates a parser extension in n g s i e m for the provided base parser
+*/
+func (a *Client) CreateParserExtension(params *CreateParserExtensionParams, opts ...ClientOption) (*CreateParserExtensionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateParserExtensionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateParserExtension",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers-extensions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreateParserExtensionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateParserExtensionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateParserExtension: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1086,7 +1406,7 @@ func (a *Client) ExternalUpdateDataConnectionStatus(params *ExternalUpdateDataCo
 }
 
 /*
-GetDashboardTemplate retrieves dashboard in n g s i e m as log scale y a m l template
+GetDashboardTemplate retrieves dashboard s in n g s i e m as log scale y a m l template supports single or multiple i ds
 */
 func (a *Client) GetDashboardTemplate(params *GetDashboardTemplateParams, opts ...ClientOption) (*GetDashboardTemplateOK, error) {
 	// TODO: Validate the params before sending
@@ -1352,7 +1672,7 @@ func (a *Client) GetParserTemplate(params *GetParserTemplateParams, opts ...Clie
 }
 
 /*
-GetSavedQueryTemplate retrieves saved query in n g s i e m as log scale y a m l template
+GetSavedQueryTemplate retrieves saved quer ies in n g s i e m as log scale y a m l template supports single or multiple i ds
 */
 func (a *Client) GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts ...ClientOption) (*GetSavedQueryTemplateOK, error) {
 	// TODO: Validate the params before sending
@@ -1466,7 +1786,7 @@ func (a *Client) InstallParser(params *InstallParserParams, opts ...ClientOption
 }
 
 /*
-ListDashboards lists dashboards in n g s i e m
+ListDashboards lists dashboards in n g s i e m with pagination and filtering returns dashboard ID and name supports pagination default limit 50 and optional name filtering
 */
 func (a *Client) ListDashboards(params *ListDashboardsParams, opts ...ClientOption) (*ListDashboardsOK, error) {
 	// TODO: Validate the params before sending
@@ -1504,7 +1824,7 @@ func (a *Client) ListDashboards(params *ListDashboardsParams, opts ...ClientOpti
 }
 
 /*
-ListLookupFiles lists lookup files in n g s i e m
+ListLookupFiles lists lookup files in n g s i e m with pagination and filtering supports bulk listing with pagination default limit 50 and optional name filtering
 */
 func (a *Client) ListLookupFiles(params *ListLookupFilesParams, opts ...ClientOption) (*ListLookupFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -1580,7 +1900,7 @@ func (a *Client) ListParsers(params *ListParsersParams, opts ...ClientOption) (*
 }
 
 /*
-ListSavedQueries gets saved queries in n g s i e m
+ListSavedQueries lists saved queries in n g s i e m with pagination and filtering supports bulk listing with pagination default limit 50 and optional name filtering
 */
 func (a *Client) ListSavedQueries(params *ListSavedQueriesParams, opts ...ClientOption) (*ListSavedQueriesOK, error) {
 	// TODO: Validate the params before sending

@@ -112,6 +112,9 @@ type DomainCloudAWSAccountV1 struct {
 	// Required: true
 	Products []*DomainProductFeatures `json:"products"`
 
+	// registration id
+	RegistrationID string `json:"registration_id,omitempty"`
+
 	// registration status
 	RegistrationStatus string `json:"registration_status,omitempty"`
 

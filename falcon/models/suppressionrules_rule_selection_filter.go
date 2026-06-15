@@ -29,6 +29,12 @@ type SuppressionrulesRuleSelectionFilter struct {
 	// rule providers
 	RuleProviders []string `json:"rule_providers"`
 
+	// rule resource type names
+	RuleResourceTypeNames []string `json:"rule_resource_type_names"`
+
+	// rule risk factors
+	RuleRiskFactors []string `json:"rule_risk_factors"`
+
 	// rule services
 	RuleServices []string `json:"rule_services"`
 
