@@ -106,7 +106,7 @@ func (m *ItautomationRerunTaskExecutionRequest) validateRunType(formats strfmt.R
 var itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum []interface{}
 
 func init() {
-	var res [][]string
+	var res []string
 	if err := json.Unmarshal([]byte(`["hosts","failed","offline","target","completed","canceled","expired"]`), &res); err != nil {
 		panic(err)
 	}
