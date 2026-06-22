@@ -17,6 +17,7 @@ const (
 	CloudAutoDiscover = iota
 	CloudUs1
 	CloudUs2
+	CloudUs3
 	CloudEu1
 	CloudUsGov1
 	CloudGov1
@@ -45,6 +46,8 @@ func CloudValidate(cloudString string) (CloudType, error) {
 		return CloudUs1, nil
 	case "us2":
 		return CloudUs2, nil
+	case "us3":
+		return CloudUs3, nil
 	case "eu1":
 		return CloudEu1, nil
 	case "usgov1":
@@ -68,6 +71,8 @@ func (c CloudType) Host() string {
 		return "api.crowdstrike.com"
 	case CloudUs2:
 		return "api.us-2.crowdstrike.com"
+	case CloudUs3:
+		return "api.us-3.crowdstrike.com"
 	case CloudEu1:
 		return "api.eu-1.crowdstrike.com"
 	case CloudUsGov1:
@@ -89,6 +94,8 @@ func (c CloudType) String() string {
 		return "us-1"
 	case CloudUs2:
 		return "us-2"
+	case CloudUs3:
+		return "us-3"
 	case CloudEu1:
 		return "eu-1"
 	case CloudUsGov1:
