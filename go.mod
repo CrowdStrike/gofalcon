@@ -1,11 +1,11 @@
 module github.com/crowdstrike/gofalcon
 
-go 1.23.0
+go 1.25.0
 
 require (
 	github.com/blang/semver/v4 v4.0.0
 	github.com/cenkalti/backoff/v5 v5.0.3
-	github.com/go-openapi/errors v0.22.0
+	github.com/go-openapi/errors v0.22.8
 	github.com/go-openapi/runtime v0.27.1
 	github.com/go-openapi/strfmt v0.22.2
 	github.com/go-openapi/swag v0.22.9
