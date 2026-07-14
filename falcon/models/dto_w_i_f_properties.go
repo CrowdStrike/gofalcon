@@ -17,6 +17,9 @@ import (
 // swagger:model dto.WIFProperties
 type DtoWIFProperties struct {
 
+	// identity source
+	IdentitySource string `json:"identity_source,omitempty"`
+
 	// pool id
 	PoolID string `json:"pool_id,omitempty"`
 
