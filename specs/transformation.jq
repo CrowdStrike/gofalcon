@@ -801,3 +801,9 @@
       "x-www-form-urlencoded": {"type": "object"}
     }
   }
+
+# The serverless SARIF combined endpoint (GET /lambdas/combined/vulnerabilities/sarif/v1)
+# returns "resources" as a single SARIF object ({$schema, version, runs}), but the spec
+# declares it as an array. Correct it to a single object so the generated model can decode
+# a real response (an array type fails to unmarshal the object the API returns).
+| .definitions."vulnerabilities.VulnerabilityEntitySARIFResponse".properties.resources = {"$ref": "#/definitions/models.VulnerabilitySARIF"}
