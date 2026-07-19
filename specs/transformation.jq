@@ -807,3 +807,15 @@
 # declares it as an array. Correct it to a single object so the generated model can decode
 # a real response (an array type fails to unmarshal the object the API returns).
 | .definitions."vulnerabilities.VulnerabilityEntitySARIFResponse".properties.resources = {"$ref": "#/definitions/models.VulnerabilitySARIF"}
+
+# The ML (machine-learning) exclusions v2 operations declare an empty {} 200 response
+# schema, so go-swagger falls back to msa.ReplyMetaOnly and silently drops every resource
+# the API returns. The record shape matches the existing v1 definitions, so point the 200
+# schemas at the same $refs the ML v1 operations already use (query/delete -> IDs,
+# get/create/update -> full records). Runs before the msaspec.* -> msa.* rename walk, so
+# msaspec.QueryResponse here matches how the IOA v2 search 200 is declared in the raw spec.
+| .paths."/exclusions/queries/exclusions/v2"."get"."responses"."200"."schema"    = {"$ref": "#/definitions/msaspec.QueryResponse"}
+| .paths."/exclusions/entities/exclusions/v2"."get"."responses"."200"."schema"   = {"$ref": "#/definitions/exclusions.RespV1"}
+| .paths."/exclusions/entities/exclusions/v2"."post"."responses"."200"."schema"  = {"$ref": "#/definitions/exclusions.RespV1"}
+| .paths."/exclusions/entities/exclusions/v2"."patch"."responses"."200"."schema" = {"$ref": "#/definitions/exclusions.RespV1"}
+| .paths."/exclusions/entities/exclusions/v2"."delete"."responses"."200"."schema"= {"$ref": "#/definitions/msaspec.QueryResponse"}

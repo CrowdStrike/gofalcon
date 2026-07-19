@@ -77,6 +77,8 @@ type ExclusionsDeleteV2OK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this exclusions delete v2 o k response has a 2xx status code
@@ -110,11 +112,15 @@ func (o *ExclusionsDeleteV2OK) Code() int {
 }
 
 func (o *ExclusionsDeleteV2OK) Error() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/exclusions/v2][%d] exclusionsDeleteV2OK ", 200)
+	return fmt.Sprintf("[DELETE /exclusions/entities/exclusions/v2][%d] exclusionsDeleteV2OK  %+v", 200, o.Payload)
 }
 
 func (o *ExclusionsDeleteV2OK) String() string {
-	return fmt.Sprintf("[DELETE /exclusions/entities/exclusions/v2][%d] exclusionsDeleteV2OK ", 200)
+	return fmt.Sprintf("[DELETE /exclusions/entities/exclusions/v2][%d] exclusionsDeleteV2OK  %+v", 200, o.Payload)
+}
+
+func (o *ExclusionsDeleteV2OK) GetPayload() *models.MsaspecQueryResponse {
+	return o.Payload
 }
 
 func (o *ExclusionsDeleteV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -146,6 +152,13 @@ func (o *ExclusionsDeleteV2OK) readResponse(response runtime.ClientResponse, con
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecQueryResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil
