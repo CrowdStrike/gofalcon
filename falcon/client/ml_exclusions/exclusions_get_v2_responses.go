@@ -77,6 +77,8 @@ type ExclusionsGetV2OK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload *models.ExclusionsRespV1
 }
 
 // IsSuccess returns true when this exclusions get v2 o k response has a 2xx status code
@@ -110,11 +112,15 @@ func (o *ExclusionsGetV2OK) Code() int {
 }
 
 func (o *ExclusionsGetV2OK) Error() string {
-	return fmt.Sprintf("[GET /exclusions/entities/exclusions/v2][%d] exclusionsGetV2OK ", 200)
+	return fmt.Sprintf("[GET /exclusions/entities/exclusions/v2][%d] exclusionsGetV2OK  %+v", 200, o.Payload)
 }
 
 func (o *ExclusionsGetV2OK) String() string {
-	return fmt.Sprintf("[GET /exclusions/entities/exclusions/v2][%d] exclusionsGetV2OK ", 200)
+	return fmt.Sprintf("[GET /exclusions/entities/exclusions/v2][%d] exclusionsGetV2OK  %+v", 200, o.Payload)
+}
+
+func (o *ExclusionsGetV2OK) GetPayload() *models.ExclusionsRespV1 {
+	return o.Payload
 }
 
 func (o *ExclusionsGetV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -146,6 +152,13 @@ func (o *ExclusionsGetV2OK) readResponse(response runtime.ClientResponse, consum
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.ExclusionsRespV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil
