@@ -47,9 +47,9 @@ type ClientService interface {
 
 	GetMalwareEntities(params *GetMalwareEntitiesParams, opts ...ClientOption) (*GetMalwareEntitiesOK, error)
 
-	GetMalwareMitreReport(params *GetMalwareMitreReportParams, opts ...ClientOption) (*GetMalwareMitreReportOK, error)
+	GetMalwareMitreReport(params *GetMalwareMitreReportParams, writer io.Writer, opts ...ClientOption) (*GetMalwareMitreReportOK, error)
 
-	GetMitreReport(params *GetMitreReportParams, opts ...ClientOption) (*GetMitreReportOK, error)
+	GetMitreReport(params *GetMitreReportParams, writer io.Writer, opts ...ClientOption) (*GetMitreReportOK, error)
 
 	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
 
@@ -395,7 +395,7 @@ func (a *Client) GetMalwareEntities(params *GetMalwareEntitiesParams, opts ...Cl
 /*
 GetMalwareMitreReport exports mitre a t t and c k information for a given malware family
 */
-func (a *Client) GetMalwareMitreReport(params *GetMalwareMitreReportParams, opts ...ClientOption) (*GetMalwareMitreReportOK, error) {
+func (a *Client) GetMalwareMitreReport(params *GetMalwareMitreReportParams, writer io.Writer, opts ...ClientOption) (*GetMalwareMitreReportOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMalwareMitreReportParams()
@@ -408,7 +408,7 @@ func (a *Client) GetMalwareMitreReport(params *GetMalwareMitreReportParams, opts
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &GetMalwareMitreReportReader{formats: a.formats},
+		Reader:             &GetMalwareMitreReportReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -433,7 +433,7 @@ func (a *Client) GetMalwareMitreReport(params *GetMalwareMitreReportParams, opts
 /*
 GetMitreReport exports mitre a t t and c k information for a given actor
 */
-func (a *Client) GetMitreReport(params *GetMitreReportParams, opts ...ClientOption) (*GetMitreReportOK, error) {
+func (a *Client) GetMitreReport(params *GetMitreReportParams, writer io.Writer, opts ...ClientOption) (*GetMitreReportOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMitreReportParams()
@@ -446,7 +446,7 @@ func (a *Client) GetMitreReport(params *GetMitreReportParams, opts ...ClientOpti
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &GetMitreReportReader{formats: a.formats},
+		Reader:             &GetMitreReportReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
