@@ -20,13 +20,14 @@ import (
 // GetMitreReportReader is a Reader for the GetMitreReport structure.
 type GetMitreReportReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *GetMitreReportReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetMitreReportOK()
+		result := NewGetMitreReportOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -55,8 +56,11 @@ func (o *GetMitreReportReader) ReadResponse(response runtime.ClientResponse, con
 }
 
 // NewGetMitreReportOK creates a GetMitreReportOK with default headers values
-func NewGetMitreReportOK() *GetMitreReportOK {
-	return &GetMitreReportOK{}
+func NewGetMitreReportOK(writer io.Writer) *GetMitreReportOK {
+	return &GetMitreReportOK{
+
+		Payload: writer,
+	}
 }
 
 /*
@@ -77,6 +81,8 @@ type GetMitreReportOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload io.Writer
 }
 
 // IsSuccess returns true when this get mitre report o k response has a 2xx status code
@@ -110,11 +116,15 @@ func (o *GetMitreReportOK) Code() int {
 }
 
 func (o *GetMitreReportOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK ", 200)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK  %+v", 200, o.Payload)
 }
 
 func (o *GetMitreReportOK) String() string {
-	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK ", 200)
+	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK  %+v", 200, o.Payload)
+}
+
+func (o *GetMitreReportOK) GetPayload() io.Writer {
+	return o.Payload
 }
 
 func (o *GetMitreReportOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -146,6 +156,11 @@ func (o *GetMitreReportOK) readResponse(response runtime.ClientResponse, consume
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil
