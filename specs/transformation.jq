@@ -38,6 +38,18 @@
   | .definitions."domain.RuleMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
   | .definitions."domain.MsaMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
 
+  # QueryIntelActorEntities (GET /intel/combined/actors/v1) returns meta.pagination the
+  # standard way (flat pagination/query_time/trace_id siblings), but the spec typed its
+  # meta as actor.MsaMetaInfoWithPaging — a struct-embedding artifact that nests the real
+  # fields under a literal "MsaMetaInfo" key and duplicates paging, so meta.pagination never
+  # decodes. Point meta at msa.MetaInfo (the shape sibling intel ops like QueryIntelReportEntities
+  # already use) and drop the malformed definition.
+  | .definitions."actor.ActorPaginatedResponse".properties.meta = {
+      "description": "Meta information of a request, including traceID of the request and pagination information",
+      "$ref": "#/definitions/msa.MetaInfo"
+    }
+  | del(.definitions."actor.MsaMetaInfoWithPaging")
+
 # Misc fixes
   | .paths."/intel/entities/rules-latest-files/v1".get.parameters |= . + [{type: "string", description: "Download Only if changed since", name: "If-Modified-Since", "in": "header"}]
   | .paths."/intel/entities/rules-latest-files/v1".get.responses."304" = {description: "Not Modified"}

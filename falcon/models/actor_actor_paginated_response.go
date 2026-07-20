@@ -26,7 +26,7 @@ type ActorActorPaginatedResponse struct {
 
 	// Meta information of a request, including traceID of the request and pagination information
 	// Required: true
-	Meta *ActorMsaMetaInfoWithPaging `json:"meta"`
+	Meta *MsaMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true
