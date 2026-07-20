@@ -19,6 +19,9 @@ import (
 // swagger:model domain.ExclusionUpdateReqV2
 type DomainExclusionUpdateReqV2 struct {
 
+	// applied globally
+	AppliedGlobally bool `json:"applied_globally,omitempty"`
+
 	// comment
 	Comment string `json:"comment,omitempty"`
 
@@ -34,6 +37,9 @@ type DomainExclusionUpdateReqV2 struct {
 	// id
 	// Required: true
 	ID *string `json:"id"`
+
+	// is descendant process
+	IsDescendantProcess bool `json:"is_descendant_process,omitempty"`
 
 	// parent value
 	ParentValue string `json:"parent_value,omitempty"`

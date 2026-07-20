@@ -819,3 +819,13 @@
 | .paths."/exclusions/entities/exclusions/v2"."post"."responses"."200"."schema"  = {"$ref": "#/definitions/exclusions.RespV1"}
 | .paths."/exclusions/entities/exclusions/v2"."patch"."responses"."200"."schema" = {"$ref": "#/definitions/exclusions.RespV1"}
 | .paths."/exclusions/entities/exclusions/v2"."delete"."responses"."200"."schema"= {"$ref": "#/definitions/msaspec.QueryResponse"}
+
+# The ML (machine-learning) exclusions v2 create/update request bodies accept applied_globally
+# and is_descendant_process, but the spec omits both from the request definitions. Add them as
+# optional booleans (verified accepted on live create/update) so callers can set them, matching
+# the shapes already used by sv_exclusions.UpdateReqV1.is_descendant_process and
+# api.CertBasedExclusionCreateReqV1.applied_globally.
+| .definitions."domain.ExclusionCreateReqV2".properties.applied_globally = {"type": "boolean"}
+| .definitions."domain.ExclusionCreateReqV2".properties.is_descendant_process = {"type": "boolean"}
+| .definitions."domain.ExclusionUpdateReqV2".properties.applied_globally = {"type": "boolean"}
+| .definitions."domain.ExclusionUpdateReqV2".properties.is_descendant_process = {"type": "boolean"}
