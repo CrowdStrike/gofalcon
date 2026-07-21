@@ -843,3 +843,14 @@
 | .definitions."domain.ExclusionCreateReqV2".properties.is_descendant_process = {"type": "boolean"}
 | .definitions."domain.ExclusionUpdateReqV2".properties.applied_globally = {"type": "boolean"}
 | .definitions."domain.ExclusionUpdateReqV2".properties.is_descendant_process = {"type": "boolean"}
+
+# The ML (machine-learning) exclusions v2 response record (exclusions.ExclusionV1, the element
+# type of exclusions.RespV1.resources) declares "groups" as an array of host_groups.HostGroupV1
+# objects, but the live API returns an array of host-group ID strings. Decoding any real exclusion
+# that has host groups fails with "cannot unmarshal string into ... HostGroupsHostGroupV1". The
+# request models domain.ExclusionCreateReqV2/UpdateReqV2 already type groups as []string, so the
+# response record is the outlier. Override it to an array of strings. The spec also omits
+# is_descendant_process from this response record even though the live API returns it as a boolean,
+# so go-swagger silently drops it; add it as an optional boolean (verified present on live get).
+| .definitions."exclusions.ExclusionV1".properties.groups = {"type": "array", "items": {"type": "string"}}
+| .definitions."exclusions.ExclusionV1".properties.is_descendant_process = {"type": "boolean"}
