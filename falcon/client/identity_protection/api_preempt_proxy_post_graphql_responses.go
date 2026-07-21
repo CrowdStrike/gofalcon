@@ -77,6 +77,8 @@ type APIPreemptProxyPostGraphqlOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload *models.SwaggerGraphQLResponse
 }
 
 // IsSuccess returns true when this api preempt proxy post graphql o k response has a 2xx status code
@@ -110,11 +112,15 @@ func (o *APIPreemptProxyPostGraphqlOK) Code() int {
 }
 
 func (o *APIPreemptProxyPostGraphqlOK) Error() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK ", 200)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK  %+v", 200, o.Payload)
 }
 
 func (o *APIPreemptProxyPostGraphqlOK) String() string {
-	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK ", 200)
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK  %+v", 200, o.Payload)
+}
+
+func (o *APIPreemptProxyPostGraphqlOK) GetPayload() *models.SwaggerGraphQLResponse {
+	return o.Payload
 }
 
 func (o *APIPreemptProxyPostGraphqlOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -146,6 +152,13 @@ func (o *APIPreemptProxyPostGraphqlOK) readResponse(response runtime.ClientRespo
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.SwaggerGraphQLResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil

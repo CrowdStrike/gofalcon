@@ -52,6 +52,20 @@
     }
   | del(.definitions."actor.MsaMetaInfoWithPaging")
 
+# Identity Protection GraphQL endpoint drops its response body: the spec's 200
+# response declares only headers, no schema, so the generated OK struct has no
+# Payload and the {data, errors, extensions} GraphQL body is discarded. Define a
+# free-form response model and wire it as the 200 schema so the body is decoded.
+  | .definitions."swagger.GraphQLResponse" = {
+      "type": "object",
+      "properties": {
+        "data": {"type": "object", "description": "GraphQL query result data. Shape depends on the submitted query."},
+        "errors": {"type": "array", "description": "GraphQL execution errors, when present.", "items": {"type": "object"}},
+        "extensions": {"type": "object", "description": "GraphQL response extensions (e.g. rate-limit accounting)."}
+      }
+    }
+  | .paths."/identity-protection/combined/graphql/v1".post.responses."200".schema = {"$ref": "#/definitions/swagger.GraphQLResponse"}
+
 # Misc fixes
   | .paths."/intel/entities/rules-latest-files/v1".get.parameters |= . + [{type: "string", description: "Download Only if changed since", name: "If-Modified-Since", "in": "header"}]
   | .paths."/intel/entities/rules-latest-files/v1".get.responses."304" = {description: "Not Modified"}
