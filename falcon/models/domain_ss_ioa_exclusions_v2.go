@@ -23,61 +23,61 @@ type DomainSsIoaExclusionsV2 struct {
 	AppliedGlobally *bool `json:"applied_globally,omitempty"`
 
 	// cl regex
-	ClRegex string `json:"cl_regex,omitempty"`
+	ClRegex *string `json:"cl_regex,omitempty"`
 
 	// comment
 	Comment *string `json:"comment,omitempty"`
 
 	// created by
-	CreatedBy string `json:"created_by,omitempty"`
+	CreatedBy *string `json:"created_by,omitempty"`
 
 	// created on
 	// Format: date-time
-	CreatedOn strfmt.DateTime `json:"created_on,omitempty"`
+	CreatedOn *strfmt.DateTime `json:"created_on,omitempty"`
 
 	// description
 	Description *string `json:"description,omitempty"`
 
 	// detection json
-	DetectionJSON string `json:"detection_json,omitempty"`
+	DetectionJSON *string `json:"detection_json,omitempty"`
 
 	// grandparent cl regex
-	GrandparentClRegex string `json:"grandparent_cl_regex,omitempty"`
+	GrandparentClRegex *string `json:"grandparent_cl_regex,omitempty"`
 
 	// grandparent ifn regex
-	GrandparentIfnRegex string `json:"grandparent_ifn_regex,omitempty"`
+	GrandparentIfnRegex *string `json:"grandparent_ifn_regex,omitempty"`
 
 	// host groups
-	HostGroups []string `json:"host_groups"`
+	HostGroups []string `json:"host_groups,omitempty"`
 
 	// id
 	// Required: true
 	ID *string `json:"id"`
 
 	// ifn regex
-	IfnRegex string `json:"ifn_regex,omitempty"`
+	IfnRegex *string `json:"ifn_regex,omitempty"`
 
 	// last modified
 	// Format: date-time
-	LastModified strfmt.DateTime `json:"last_modified,omitempty"`
+	LastModified *strfmt.DateTime `json:"last_modified,omitempty"`
 
 	// modified by
-	ModifiedBy string `json:"modified_by,omitempty"`
+	ModifiedBy *string `json:"modified_by,omitempty"`
 
 	// name
-	Name string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 
 	// parent cl regex
-	ParentClRegex string `json:"parent_cl_regex,omitempty"`
+	ParentClRegex *string `json:"parent_cl_regex,omitempty"`
 
 	// parent ifn regex
-	ParentIfnRegex string `json:"parent_ifn_regex,omitempty"`
+	ParentIfnRegex *string `json:"parent_ifn_regex,omitempty"`
 
 	// pattern id
-	PatternID string `json:"pattern_id,omitempty"`
+	PatternID *string `json:"pattern_id,omitempty"`
 
 	// pattern name
-	PatternName string `json:"pattern_name,omitempty"`
+	PatternName *string `json:"pattern_name,omitempty"`
 }
 
 // Validate validates this domain ss ioa exclusions v2

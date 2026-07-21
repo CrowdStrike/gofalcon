@@ -942,3 +942,44 @@
 | .definitions."domain.SsIoaExclusionsV2".properties.description       += {"x-nullable": true}
 | .definitions."api.CertBasedExclusionV1".properties.applied_globally  += {"x-nullable": true}
 | .definitions."api.CertBasedExclusionV1".properties.comment           += {"x-nullable": true}
+
+# Exhaustive fidelity fix for the four exclusion RESPONSE record models: every OPTIONAL
+# (non-required) value field is made nullable. go-swagger tags optional value fields with
+# omitempty, so a typed decode-then-reencode drops any field the live API sent present-as-zero
+# (false / "" / a zero timestamp) and can emit a zero value for one the API omitted. The live
+# API sends these optional fields on some records and omits them on others, so a faithful 1:1
+# round-trip (the tool returns raw-API-equivalent records) requires pointers: present values —
+# including false/"" — serialize, absent values stay nil. This generalizes the earlier
+# applied_globally/comment/description fix (#686) to the whole class so no optional field is
+# silently dropped. Required fields already generate as non-omitempty pointers and are left as-is;
+# arrays and object refs are already nil-able and are left as-is.
+| .definitions."exclusions.ExclusionV1".properties.is_descendant_process    += {"x-nullable": true}
+| .definitions."sv_exclusions.SVExclusionV1".properties.is_descendant_process += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.cl_regex               += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.created_by             += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.created_on             += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.detection_json         += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.grandparent_cl_regex   += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.grandparent_ifn_regex  += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.ifn_regex              += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.last_modified          += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.modified_by            += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.name                   += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.parent_cl_regex        += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.parent_ifn_regex       += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.pattern_id             += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.pattern_name           += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.created_by             += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.created_on             += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.description            += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.modified_by            += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.modified_on            += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.name                   += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.status                 += {"x-nullable": true}
+# IOA host_groups is the one optional ARRAY that needs omitempty rather than nullable: the live
+# API sends it populated on scoped exclusions and OMITS it entirely on globally-applied ones (never
+# as [] or null). Without omitempty go-swagger emits "host_groups":null for the omit case, adding a
+# key the raw body never had. x-omitempty makes a nil slice omit, reproducing absent-vs-populated
+# exactly. (ML/SV groups and excluded_from, and CB children_cids/host_groups, are always present in
+# the live body — populated or [] — so they already round-trip and are left unchanged.)
+| .definitions."domain.SsIoaExclusionsV2".properties.host_groups += {"x-omitempty": true}

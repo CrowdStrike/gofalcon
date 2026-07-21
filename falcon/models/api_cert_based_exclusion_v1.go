@@ -36,14 +36,14 @@ type APICertBasedExclusionV1 struct {
 	Comment *string `json:"comment,omitempty"`
 
 	// created by
-	CreatedBy string `json:"created_by,omitempty"`
+	CreatedBy *string `json:"created_by,omitempty"`
 
 	// created on
 	// Format: date-time
-	CreatedOn strfmt.DateTime `json:"created_on,omitempty"`
+	CreatedOn *strfmt.DateTime `json:"created_on,omitempty"`
 
 	// description
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// host groups
 	HostGroups []string `json:"host_groups"`
@@ -53,17 +53,17 @@ type APICertBasedExclusionV1 struct {
 	ID *string `json:"id"`
 
 	// modified by
-	ModifiedBy string `json:"modified_by,omitempty"`
+	ModifiedBy *string `json:"modified_by,omitempty"`
 
 	// modified on
 	// Format: date-time
-	ModifiedOn strfmt.DateTime `json:"modified_on,omitempty"`
+	ModifiedOn *strfmt.DateTime `json:"modified_on,omitempty"`
 
 	// name
-	Name string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 
 	// status
-	Status string `json:"status,omitempty"`
+	Status *string `json:"status,omitempty"`
 }
 
 // Validate validates this api cert based exclusion v1
