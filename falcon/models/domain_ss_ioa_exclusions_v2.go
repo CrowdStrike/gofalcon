@@ -20,13 +20,13 @@ import (
 type DomainSsIoaExclusionsV2 struct {
 
 	// applied globally
-	AppliedGlobally bool `json:"applied_globally,omitempty"`
+	AppliedGlobally *bool `json:"applied_globally,omitempty"`
 
 	// cl regex
 	ClRegex string `json:"cl_regex,omitempty"`
 
 	// comment
-	Comment string `json:"comment,omitempty"`
+	Comment *string `json:"comment,omitempty"`
 
 	// created by
 	CreatedBy string `json:"created_by,omitempty"`
@@ -36,7 +36,7 @@ type DomainSsIoaExclusionsV2 struct {
 	CreatedOn strfmt.DateTime `json:"created_on,omitempty"`
 
 	// description
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// detection json
 	DetectionJSON string `json:"detection_json,omitempty"`

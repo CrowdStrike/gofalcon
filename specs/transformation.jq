@@ -928,3 +928,17 @@
       }
     }
   }
+
+# IOA (domain.SsIoaExclusionsV2) and certificate-based (api.CertBasedExclusionV1) exclusion RESPONSE
+# records carry applied_globally/comment/description on some records and omit them on others (verified
+# live: IOA applied_globally was false on some records and absent on others). With go-swagger's default
+# omitempty on these value-typed fields, a typed decode-then-reencode cannot reproduce that shape — it
+# drops false and "" — so a typed round-trip loses data the raw API sent. Make them nullable (*bool/*string)
+# so present values (including false/"") serialize and absent values stay nil, faithfully reproducing the
+# live present/absent-per-record pattern. Narrow to only the fields proven dropped; the other response
+# fields are always sent and must stay non-optional.
+| .definitions."domain.SsIoaExclusionsV2".properties.applied_globally += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.comment          += {"x-nullable": true}
+| .definitions."domain.SsIoaExclusionsV2".properties.description       += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.applied_globally  += {"x-nullable": true}
+| .definitions."api.CertBasedExclusionV1".properties.comment           += {"x-nullable": true}
