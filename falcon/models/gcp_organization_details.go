@@ -227,7 +227,7 @@ func (m *GcpOrganizationDetails) validateVulnerabilityScanningSettings(formats s
 	return nil
 }
 
-// ContextValidate validate this gcp organization details based on the context it is used
+// ContextValidate validates this gcp organization details based on context it is used
 func (m *GcpOrganizationDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 

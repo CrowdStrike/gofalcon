@@ -73,7 +73,7 @@ type UpdateScannersParams struct {
 
 	   "scanners" specifications for updating
 	*/
-	Body *models.DomainScannersUpdateRequest
+	Body *models.NvaapiScannersUpdateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *UpdateScannersParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the update scanners params
-func (o *UpdateScannersParams) WithBody(body *models.DomainScannersUpdateRequest) *UpdateScannersParams {
+func (o *UpdateScannersParams) WithBody(body *models.NvaapiScannersUpdateRequest) *UpdateScannersParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update scanners params
-func (o *UpdateScannersParams) SetBody(body *models.DomainScannersUpdateRequest) {
+func (o *UpdateScannersParams) SetBody(body *models.NvaapiScannersUpdateRequest) {
 	o.Body = body
 }
 

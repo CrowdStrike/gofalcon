@@ -38,6 +38,8 @@ type ClientService interface {
 
 	CloudRegistrationGcpGetRegistration(params *CloudRegistrationGcpGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpGetRegistrationOK, error)
 
+	CloudRegistrationGcpPostTerraformScript(params *CloudRegistrationGcpPostTerraformScriptParams, opts ...ClientOption) (*CloudRegistrationGcpPostTerraformScriptOK, error)
+
 	CloudRegistrationGcpPutRegistration(params *CloudRegistrationGcpPutRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpPutRegistrationOK, error)
 
 	CloudRegistrationGcpTriggerHealthCheck(params *CloudRegistrationGcpTriggerHealthCheckParams, opts ...ClientOption) (*CloudRegistrationGcpTriggerHealthCheckOK, error)
@@ -198,6 +200,46 @@ func (a *Client) CloudRegistrationGcpGetRegistration(params *CloudRegistrationGc
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-gcp-get-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationGcpPostTerraformScript generates google cloud terraform deployment scripts zip files
+
+Only supports terraform-native deployment method. Returns zip files containing Terraform scripts.
+*/
+func (a *Client) CloudRegistrationGcpPostTerraformScript(params *CloudRegistrationGcpPostTerraformScriptParams, opts ...ClientOption) (*CloudRegistrationGcpPostTerraformScriptOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationGcpPostTerraformScriptParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-gcp-post-terraform-script",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-google-cloud/entities/scripts-terraform/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationGcpPostTerraformScriptReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationGcpPostTerraformScriptOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-gcp-post-terraform-script: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

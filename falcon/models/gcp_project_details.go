@@ -182,7 +182,7 @@ func (m *GcpProjectDetails) validateVulnerabilityScanningSettings(formats strfmt
 	return nil
 }
 
-// ContextValidate validate this gcp project details based on the context it is used
+// ContextValidate validates this gcp project details based on context it is used
 func (m *GcpProjectDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 

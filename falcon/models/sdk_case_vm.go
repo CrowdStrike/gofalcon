@@ -48,6 +48,10 @@ type SdkCaseVM struct {
 	// Format: date-time
 	CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
 
+	// creation actor
+	// Required: true
+	CreationActor *SdkActorVM `json:"creation_actor"`
+
 	// description
 	// Required: true
 	Description *string `json:"description"`
@@ -82,6 +86,10 @@ type SdkCaseVM struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// read only
+	// Required: true
+	ReadOnly *SdkReadOnlyVM `json:"read_only"`
+
 	// reference id
 	// Required: true
 	ReferenceID *string `json:"reference_id"`
@@ -111,6 +119,10 @@ type SdkCaseVM struct {
 
 	// template
 	Template *SdkTemplateVM `json:"template,omitempty"`
+
+	// update actor
+	// Required: true
+	UpdateActor *SdkActorVM `json:"update_actor"`
 
 	// updated timestamp
 	// Required: true
@@ -157,6 +169,10 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCreationActor(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
@@ -185,6 +201,10 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateReadOnly(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateReferenceID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -210,6 +230,10 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTemplate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdateActor(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -359,6 +383,26 @@ func (m *SdkCaseVM) validateCreatedTimestamp(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkCaseVM) validateCreationActor(formats strfmt.Registry) error {
+
+	if err := validate.Required("creation_actor", "body", m.CreationActor); err != nil {
+		return err
+	}
+
+	if m.CreationActor != nil {
+		if err := m.CreationActor.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("creation_actor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("creation_actor")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) validateDescription(formats strfmt.Registry) error {
 
 	if err := validate.Required("description", "body", m.Description); err != nil {
@@ -465,6 +509,26 @@ func (m *SdkCaseVM) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkCaseVM) validateReadOnly(formats strfmt.Registry) error {
+
+	if err := validate.Required("read_only", "body", m.ReadOnly); err != nil {
+		return err
+	}
+
+	if m.ReadOnly != nil {
+		if err := m.ReadOnly.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("read_only")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("read_only")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) validateReferenceID(formats strfmt.Registry) error {
 
 	if err := validate.Required("reference_id", "body", m.ReferenceID); err != nil {
@@ -563,6 +627,26 @@ func (m *SdkCaseVM) validateTemplate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkCaseVM) validateUpdateActor(formats strfmt.Registry) error {
+
+	if err := validate.Required("update_actor", "body", m.UpdateActor); err != nil {
+		return err
+	}
+
+	if m.UpdateActor != nil {
+		if err := m.UpdateActor.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("update_actor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("update_actor")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) validateUpdatedTimestamp(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated_timestamp", "body", m.UpdatedTimestamp); err != nil {
@@ -635,6 +719,10 @@ func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCreationActor(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateEvidence(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -647,6 +735,10 @@ func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateReadOnly(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSeverityInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -656,6 +748,10 @@ func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry
 	}
 
 	if err := m.contextValidateTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUpdateActor(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -762,6 +858,23 @@ func (m *SdkCaseVM) contextValidateCreatedBy(ctx context.Context, formats strfmt
 	return nil
 }
 
+func (m *SdkCaseVM) contextValidateCreationActor(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreationActor != nil {
+
+		if err := m.CreationActor.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("creation_actor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("creation_actor")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) contextValidateEvidence(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Evidence != nil {
@@ -821,6 +934,23 @@ func (m *SdkCaseVM) contextValidateLastUpdatedBy(ctx context.Context, formats st
 	return nil
 }
 
+func (m *SdkCaseVM) contextValidateReadOnly(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReadOnly != nil {
+
+		if err := m.ReadOnly.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("read_only")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("read_only")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) contextValidateSeverityInfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SeverityInfo != nil {
@@ -872,6 +1002,23 @@ func (m *SdkCaseVM) contextValidateTemplate(ctx context.Context, formats strfmt.
 				return ve.ValidateName("template")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("template")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkCaseVM) contextValidateUpdateActor(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UpdateActor != nil {
+
+		if err := m.UpdateActor.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("update_actor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("update_actor")
 			}
 			return err
 		}

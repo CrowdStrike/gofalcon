@@ -96,7 +96,7 @@ type CreateZonesCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainZoneEntitiesResponse
+	Payload *models.NvaapiZoneEntitiesResponse
 }
 
 // IsSuccess returns true when this create zones created response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *CreateZonesCreated) String() string {
 	return fmt.Sprintf("[POST /netscan/entities/zones/v1][%d] createZonesCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateZonesCreated) GetPayload() *models.DomainZoneEntitiesResponse {
+func (o *CreateZonesCreated) GetPayload() *models.NvaapiZoneEntitiesResponse {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *CreateZonesCreated) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainZoneEntitiesResponse)
+	o.Payload = new(models.NvaapiZoneEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

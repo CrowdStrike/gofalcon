@@ -51,6 +51,9 @@ type DeviceDevice struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// cloud service compartment id
+	CloudServiceCompartmentID string `json:"cloud_service_compartment_id,omitempty"`
+
 	// config id base
 	ConfigIDBase string `json:"config_id_base,omitempty"`
 

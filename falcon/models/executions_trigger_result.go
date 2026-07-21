@@ -33,6 +33,9 @@ type ExecutionsTriggerResult struct {
 	// Unique identifier for the selected trigger as provided by the triggers API
 	ID string `json:"id,omitempty"`
 
+	// Execution-time node metadata (e.g. throttling counters/timestamps, rate limit, version constraint). Keys mirror the node config.
+	Metadata map[string]string `json:"metadata,omitempty"`
+
 	// Whether this node's result is mocked
 	Mocked bool `json:"mocked,omitempty"`
 

@@ -25,9 +25,6 @@ type CorrelationrulesapiPatchAnomalyV1 struct {
 	// lookback timeframe
 	LookbackTimeframe string `json:"lookback_timeframe,omitempty"`
 
-	// scope
-	Scope string `json:"scope,omitempty"`
-
 	// scopes
 	Scopes []*CorrelationrulesapiAnomalyScopes `json:"scopes"`
 

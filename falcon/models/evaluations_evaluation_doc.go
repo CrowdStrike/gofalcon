@@ -47,6 +47,10 @@ type EvaluationsEvaluationDoc struct {
 	// Format: date-time
 	LastDetected strfmt.DateTime `json:"last_detected,omitempty"`
 
+	// last status change
+	// Format: date-time
+	LastStatusChange strfmt.DateTime `json:"last_status_change,omitempty"`
+
 	// rule
 	Rule *EvaluationsRule `json:"rule,omitempty"`
 
@@ -81,6 +85,10 @@ func (m *EvaluationsEvaluationDoc) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastDetected(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastStatusChange(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -169,6 +177,18 @@ func (m *EvaluationsEvaluationDoc) validateLastDetected(formats strfmt.Registry)
 	}
 
 	if err := validate.FormatOf("last_detected", "body", "date-time", m.LastDetected.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EvaluationsEvaluationDoc) validateLastStatusChange(formats strfmt.Registry) error {
+	if swag.IsZero(m.LastStatusChange) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("last_status_change", "body", "date-time", m.LastStatusChange.String(), formats); err != nil {
 		return err
 	}
 

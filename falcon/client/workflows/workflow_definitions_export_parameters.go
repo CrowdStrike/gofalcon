@@ -68,6 +68,12 @@ type WorkflowDefinitionsExportParams struct {
 	*/
 	ID string
 
+	/* IncludeMocks.
+
+	   when enabled, includes referenced node-mocks inline in the exported YAML. Each mock's output_data field is a JSON-encoded string rather than native YAML.
+	*/
+	IncludeMocks *bool
+
 	/* Sanitize.
 
 	   whether or not to sanitize PII from workflow before it's exported
@@ -75,6 +81,12 @@ type WorkflowDefinitionsExportParams struct {
 	   Default: true
 	*/
 	Sanitize *bool
+
+	/* Version.
+
+	   version of the definition to export (e.g. 0 for draft); omit for active/published
+	*/
+	Version *int64
 
 	timeout    time.Duration
 	Context    context.Context
@@ -94,11 +106,14 @@ func (o *WorkflowDefinitionsExportParams) WithDefaults() *WorkflowDefinitionsExp
 // All values with no default are reset to their zero value.
 func (o *WorkflowDefinitionsExportParams) SetDefaults() {
 	var (
+		includeMocksDefault = bool(false)
+
 		sanitizeDefault = bool(true)
 	)
 
 	val := WorkflowDefinitionsExportParams{
-		Sanitize: &sanitizeDefault,
+		IncludeMocks: &includeMocksDefault,
+		Sanitize:     &sanitizeDefault,
 	}
 
 	val.timeout = o.timeout
@@ -151,6 +166,17 @@ func (o *WorkflowDefinitionsExportParams) SetID(id string) {
 	o.ID = id
 }
 
+// WithIncludeMocks adds the includeMocks to the workflow definitions export params
+func (o *WorkflowDefinitionsExportParams) WithIncludeMocks(includeMocks *bool) *WorkflowDefinitionsExportParams {
+	o.SetIncludeMocks(includeMocks)
+	return o
+}
+
+// SetIncludeMocks adds the includeMocks to the workflow definitions export params
+func (o *WorkflowDefinitionsExportParams) SetIncludeMocks(includeMocks *bool) {
+	o.IncludeMocks = includeMocks
+}
+
 // WithSanitize adds the sanitize to the workflow definitions export params
 func (o *WorkflowDefinitionsExportParams) WithSanitize(sanitize *bool) *WorkflowDefinitionsExportParams {
 	o.SetSanitize(sanitize)
@@ -160,6 +186,17 @@ func (o *WorkflowDefinitionsExportParams) WithSanitize(sanitize *bool) *Workflow
 // SetSanitize adds the sanitize to the workflow definitions export params
 func (o *WorkflowDefinitionsExportParams) SetSanitize(sanitize *bool) {
 	o.Sanitize = sanitize
+}
+
+// WithVersion adds the version to the workflow definitions export params
+func (o *WorkflowDefinitionsExportParams) WithVersion(version *int64) *WorkflowDefinitionsExportParams {
+	o.SetVersion(version)
+	return o
+}
+
+// SetVersion adds the version to the workflow definitions export params
+func (o *WorkflowDefinitionsExportParams) SetVersion(version *int64) {
+	o.Version = version
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -180,6 +217,23 @@ func (o *WorkflowDefinitionsExportParams) WriteToRequest(r runtime.ClientRequest
 		}
 	}
 
+	if o.IncludeMocks != nil {
+
+		// query param include_mocks
+		var qrIncludeMocks bool
+
+		if o.IncludeMocks != nil {
+			qrIncludeMocks = *o.IncludeMocks
+		}
+		qIncludeMocks := swag.FormatBool(qrIncludeMocks)
+		if qIncludeMocks != "" {
+
+			if err := r.SetQueryParam("include_mocks", qIncludeMocks); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.Sanitize != nil {
 
 		// query param sanitize
@@ -192,6 +246,23 @@ func (o *WorkflowDefinitionsExportParams) WriteToRequest(r runtime.ClientRequest
 		if qSanitize != "" {
 
 			if err := r.SetQueryParam("sanitize", qSanitize); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Version != nil {
+
+		// query param version
+		var qrVersion int64
+
+		if o.Version != nil {
+			qrVersion = *o.Version
+		}
+		qVersion := swag.FormatInt64(qrVersion)
+		if qVersion != "" {
+
+			if err := r.SetQueryParam("version", qVersion); err != nil {
 				return err
 			}
 		}

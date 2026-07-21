@@ -126,6 +126,9 @@ type DomainNotificationV1 struct {
 	// Required: true
 	Status *string `json:"status"`
 
+	// Term matches with their highlighted text and source field information
+	TermMatches []*SadomainTermMatch `json:"term_matches"`
+
 	// Details about the infrastructure component that matched the Typosquatting rule
 	Typosquatting *SadomainTyposquattingComponent `json:"typosquatting,omitempty"`
 
@@ -204,6 +207,10 @@ func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTermMatches(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -426,6 +433,32 @@ func (m *DomainNotificationV1) validateStatus(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainNotificationV1) validateTermMatches(formats strfmt.Registry) error {
+	if swag.IsZero(m.TermMatches) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.TermMatches); i++ {
+		if swag.IsZero(m.TermMatches[i]) { // not required
+			continue
+		}
+
+		if m.TermMatches[i] != nil {
+			if err := m.TermMatches[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("term_matches" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("term_matches" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainNotificationV1) validateTyposquatting(formats strfmt.Registry) error {
 	if swag.IsZero(m.Typosquatting) { // not required
 		return nil
@@ -471,6 +504,10 @@ func (m *DomainNotificationV1) ContextValidate(ctx context.Context, formats strf
 	}
 
 	if err := m.contextValidateRiskScoreMatchingCriteria(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTermMatches(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -545,6 +582,31 @@ func (m *DomainNotificationV1) contextValidateRiskScoreMatchingCriteria(ctx cont
 					return ve.ValidateName("risk_score_matching_criteria" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("risk_score_matching_criteria" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainNotificationV1) contextValidateTermMatches(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TermMatches); i++ {
+
+		if m.TermMatches[i] != nil {
+
+			if swag.IsZero(m.TermMatches[i]) { // not required
+				return nil
+			}
+
+			if err := m.TermMatches[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("term_matches" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("term_matches" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

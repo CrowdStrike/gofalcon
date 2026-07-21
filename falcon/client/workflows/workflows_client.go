@@ -58,8 +58,6 @@ type ClientService interface {
 
 	WorkflowDefinitionsUpdate(params *WorkflowDefinitionsUpdateParams, opts ...ClientOption) (*WorkflowDefinitionsUpdateOK, error)
 
-	WorkflowExecuteInternal(params *WorkflowExecuteInternalParams, opts ...ClientOption) (*WorkflowExecuteInternalOK, error)
-
 	WorkflowExecuteSingleNodeV1(params *WorkflowExecuteSingleNodeV1Params, opts ...ClientOption) (*WorkflowExecuteSingleNodeV1OK, error)
 
 	WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error)
@@ -609,44 +607,6 @@ func (a *Client) WorkflowDefinitionsUpdate(params *WorkflowDefinitionsUpdatePara
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for WorkflowDefinitionsUpdate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-WorkflowExecuteInternal executes an on demand workflow internal workflows permitted the body is JSON used to trigger the execution the response the execution ID s
-*/
-func (a *Client) WorkflowExecuteInternal(params *WorkflowExecuteInternalParams, opts ...ClientOption) (*WorkflowExecuteInternalOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewWorkflowExecuteInternalParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "WorkflowExecuteInternal",
-		Method:             "POST",
-		PathPattern:        "/workflows/entities/execute/internal/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &WorkflowExecuteInternalReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*WorkflowExecuteInternalOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for WorkflowExecuteInternal: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

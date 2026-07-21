@@ -19,6 +19,9 @@ import (
 // swagger:model correlationrulesapi.AnomalyScopes
 type CorrelationrulesapiAnomalyScopes struct {
 
+	// custom field name
+	CustomFieldName string `json:"custom_field_name,omitempty"`
+
 	// role
 	Role string `json:"role,omitempty"`
 

@@ -67,6 +67,7 @@ type KubernetesIomEntitiesCombinedParams struct {
 	     Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `cid`
 	- `cis_id`
+	- `cloud_service`
 	- `cluster_id`
 	- `cluster_name`
 	- `containers_impacted_ai_related`

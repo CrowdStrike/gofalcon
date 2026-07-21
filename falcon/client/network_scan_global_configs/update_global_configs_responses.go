@@ -102,7 +102,7 @@ type UpdateGlobalConfigsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainGlobalConfigEntitiesResponse
+	Payload *models.NvaapiGlobalConfigEntitiesResponse
 }
 
 // IsSuccess returns true when this update global configs o k response has a 2xx status code
@@ -143,7 +143,7 @@ func (o *UpdateGlobalConfigsOK) String() string {
 	return fmt.Sprintf("[PATCH /netscan/entities/global-configs/v1][%d] updateGlobalConfigsOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateGlobalConfigsOK) GetPayload() *models.DomainGlobalConfigEntitiesResponse {
+func (o *UpdateGlobalConfigsOK) GetPayload() *models.NvaapiGlobalConfigEntitiesResponse {
 	return o.Payload
 }
 
@@ -178,7 +178,7 @@ func (o *UpdateGlobalConfigsOK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainGlobalConfigEntitiesResponse)
+	o.Payload = new(models.NvaapiGlobalConfigEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

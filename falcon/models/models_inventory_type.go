@@ -35,6 +35,9 @@ type ModelsInventoryType struct {
 	// Required: true
 	ELFBinaries []*ModelsELFBinaryInfoType `json:"ELFBinaries"`
 
+	// hashed files
+	HashedFiles []*ModelsHashedFileInfoType `json:"HashedFiles"`
+
 	// image info
 	// Required: true
 	ImageInfo *ModelsImageInfoType `json:"ImageInfo"`
@@ -92,6 +95,10 @@ func (m *ModelsInventoryType) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateELFBinaries(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHashedFiles(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -216,6 +223,32 @@ func (m *ModelsInventoryType) validateELFBinaries(formats strfmt.Registry) error
 					return ve.ValidateName("ELFBinaries" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("ELFBinaries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ModelsInventoryType) validateHashedFiles(formats strfmt.Registry) error {
+	if swag.IsZero(m.HashedFiles) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.HashedFiles); i++ {
+		if swag.IsZero(m.HashedFiles[i]) { // not required
+			continue
+		}
+
+		if m.HashedFiles[i] != nil {
+			if err := m.HashedFiles[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("HashedFiles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("HashedFiles" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -432,6 +465,10 @@ func (m *ModelsInventoryType) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateHashedFiles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateImageInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -544,6 +581,31 @@ func (m *ModelsInventoryType) contextValidateELFBinaries(ctx context.Context, fo
 					return ve.ValidateName("ELFBinaries" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("ELFBinaries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ModelsInventoryType) contextValidateHashedFiles(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HashedFiles); i++ {
+
+		if m.HashedFiles[i] != nil {
+
+			if swag.IsZero(m.HashedFiles[i]) { // not required
+				return nil
+			}
+
+			if err := m.HashedFiles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("HashedFiles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("HashedFiles" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

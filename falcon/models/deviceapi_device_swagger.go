@@ -51,6 +51,9 @@ type DeviceapiDeviceSwagger struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// cloud service compartment id
+	CloudServiceCompartmentID string `json:"cloud_service_compartment_id,omitempty"`
+
 	// config id base
 	ConfigIDBase string `json:"config_id_base,omitempty"`
 
@@ -123,9 +126,6 @@ type DeviceapiDeviceSwagger struct {
 
 	// instance id
 	InstanceID string `json:"instance_id,omitempty"`
-
-	// internet exposure
-	InternetExposure string `json:"internet_exposure,omitempty"`
 
 	// k8s cluster git version
 	K8sClusterGitVersion string `json:"k8s_cluster_git_version,omitempty"`

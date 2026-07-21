@@ -426,7 +426,7 @@ type CspmEvaluationsIomEntitiesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RestCursorQueryResponse
+	Payload *models.EvaluationsGetIOMsResponse
 }
 
 // IsSuccess returns true when this cspm evaluations iom entities not found response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *CspmEvaluationsIomEntitiesNotFound) String() string {
 	return fmt.Sprintf("[GET /cloud-security-evaluations/entities/ioms/v1][%d] cspmEvaluationsIomEntitiesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *CspmEvaluationsIomEntitiesNotFound) GetPayload() *models.RestCursorQueryResponse {
+func (o *CspmEvaluationsIomEntitiesNotFound) GetPayload() *models.EvaluationsGetIOMsResponse {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *CspmEvaluationsIomEntitiesNotFound) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RestCursorQueryResponse)
+	o.Payload = new(models.EvaluationsGetIOMsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

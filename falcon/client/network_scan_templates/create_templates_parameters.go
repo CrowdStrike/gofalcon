@@ -73,7 +73,7 @@ type CreateTemplatesParams struct {
 
 	   "templates" specifications
 	*/
-	Body []*models.DomainTemplateCreateRequest
+	Body []*models.NvaapiTemplateCreateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *CreateTemplatesParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the create templates params
-func (o *CreateTemplatesParams) WithBody(body []*models.DomainTemplateCreateRequest) *CreateTemplatesParams {
+func (o *CreateTemplatesParams) WithBody(body []*models.NvaapiTemplateCreateRequest) *CreateTemplatesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create templates params
-func (o *CreateTemplatesParams) SetBody(body []*models.DomainTemplateCreateRequest) {
+func (o *CreateTemplatesParams) SetBody(body []*models.NvaapiTemplateCreateRequest) {
 	o.Body = body
 }
 

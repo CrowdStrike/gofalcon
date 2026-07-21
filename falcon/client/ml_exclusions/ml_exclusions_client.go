@@ -48,6 +48,8 @@ type ClientService interface {
 
 	ExclusionsPerformActionV2(params *ExclusionsPerformActionV2Params, opts ...ClientOption) (*ExclusionsPerformActionV2OK, error)
 
+	ExclusionsSdmfQueryV1(params *ExclusionsSdmfQueryV1Params, opts ...ClientOption) (*ExclusionsSdmfQueryV1OK, error)
+
 	ExclusionsSearchV2(params *ExclusionsSearchV2Params, opts ...ClientOption) (*ExclusionsSearchV2OK, error)
 
 	ExclusionsUpdateV2(params *ExclusionsUpdateV2Params, opts ...ClientOption) (*ExclusionsUpdateV2OK, error)
@@ -400,6 +402,44 @@ func (a *Client) ExclusionsPerformActionV2(params *ExclusionsPerformActionV2Para
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for exclusions.perform-action.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExclusionsSdmfQueryV1 executes an s d m f data frame query against exclusion entities
+*/
+func (a *Client) ExclusionsSdmfQueryV1(params *ExclusionsSdmfQueryV1Params, opts ...ClientOption) (*ExclusionsSdmfQueryV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExclusionsSdmfQueryV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "exclusions.sdmf-query.v1",
+		Method:             "POST",
+		PathPattern:        "/exclusions/sdmf/query/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ExclusionsSdmfQueryV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExclusionsSdmfQueryV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for exclusions.sdmf-query.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -73,7 +73,7 @@ type UpdateNetworksParams struct {
 
 	   "networks" specifications for updating
 	*/
-	Body []*models.DomainNetworkUpdateRequest
+	Body []*models.NvaapiNetworkUpdateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *UpdateNetworksParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the update networks params
-func (o *UpdateNetworksParams) WithBody(body []*models.DomainNetworkUpdateRequest) *UpdateNetworksParams {
+func (o *UpdateNetworksParams) WithBody(body []*models.NvaapiNetworkUpdateRequest) *UpdateNetworksParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update networks params
-func (o *UpdateNetworksParams) SetBody(body []*models.DomainNetworkUpdateRequest) {
+func (o *UpdateNetworksParams) SetBody(body []*models.NvaapiNetworkUpdateRequest) {
 	o.Body = body
 }
 

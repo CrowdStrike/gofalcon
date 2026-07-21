@@ -64,7 +64,7 @@ WorkflowUpdateHumanInputV1Params contains all the parameters to send to the API 
 type WorkflowUpdateHumanInputV1Params struct {
 
 	// Body.
-	Body *models.ModelUserInputUpdateRequest
+	Body *models.UserinputUpdateRequest
 
 	/* ID.
 
@@ -126,13 +126,13 @@ func (o *WorkflowUpdateHumanInputV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the workflow update human input v1 params
-func (o *WorkflowUpdateHumanInputV1Params) WithBody(body *models.ModelUserInputUpdateRequest) *WorkflowUpdateHumanInputV1Params {
+func (o *WorkflowUpdateHumanInputV1Params) WithBody(body *models.UserinputUpdateRequest) *WorkflowUpdateHumanInputV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the workflow update human input v1 params
-func (o *WorkflowUpdateHumanInputV1Params) SetBody(body *models.ModelUserInputUpdateRequest) {
+func (o *WorkflowUpdateHumanInputV1Params) SetBody(body *models.UserinputUpdateRequest) {
 	o.Body = body
 }
 

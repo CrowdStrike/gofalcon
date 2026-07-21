@@ -39,6 +39,9 @@ type ModelsAPIKubernetesIOM struct {
 	// Required: true
 	CisID []string `json:"cis_id"`
 
+	// cloud service
+	CloudService string `json:"cloud_service,omitempty"`
+
 	// cluster id
 	// Required: true
 	ClusterID *string `json:"cluster_id"`

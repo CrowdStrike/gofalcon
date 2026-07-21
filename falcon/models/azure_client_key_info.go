@@ -22,6 +22,9 @@ type AzureClientKeyInfo struct {
 	// app registration id
 	AppRegistrationID string `json:"app_registration_id,omitempty"`
 
+	// app registration name
+	AppRegistrationName string `json:"app_registration_name,omitempty"`
+
 	// created
 	// Format: date-time
 	Created strfmt.DateTime `json:"created,omitempty"`

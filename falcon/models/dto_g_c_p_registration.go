@@ -62,6 +62,10 @@ type DtoGCPRegistration struct {
 	// labels
 	Labels GcpLabels `json:"labels,omitempty"`
 
+	// last healthcheck completed at
+	// Format: date-time
+	LastHealthcheckCompletedAt strfmt.DateTime `json:"last_healthcheck_completed_at,omitempty"`
+
 	// log ingestion properties
 	LogIngestionProperties *DtoLogIngestionProperties `json:"log_ingestion_properties,omitempty"`
 
@@ -141,6 +145,10 @@ func (m *DtoGCPRegistration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLabels(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastHealthcheckCompletedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -294,6 +302,18 @@ func (m *DtoGCPRegistration) validateLabels(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DtoGCPRegistration) validateLastHealthcheckCompletedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.LastHealthcheckCompletedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("last_healthcheck_completed_at", "body", "date-time", m.LastHealthcheckCompletedAt.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

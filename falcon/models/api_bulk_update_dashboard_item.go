@@ -23,6 +23,9 @@ type APIBulkUpdateDashboardItem struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// Optional labels to replace existing labels (max 10 labels, max 60 chars each)
+	Labels []string `json:"labels"`
+
 	// The YAML representation of the dashboard to update
 	// Required: true
 	YamlTemplate *string `json:"yaml_template"`

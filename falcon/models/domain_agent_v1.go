@@ -41,6 +41,12 @@ type DomainAgentV1 struct {
 	// Required: true
 	Ffcid *string `json:"ffcid"`
 
+	// hostname
+	Hostname string `json:"hostname,omitempty"`
+
+	// ip address
+	IPAddress string `json:"ip_address,omitempty"`
+
 	// modified timestamp
 	// Required: true
 	// Format: date-time

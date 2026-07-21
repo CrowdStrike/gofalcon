@@ -90,7 +90,7 @@ type WorkflowGetHumanInputV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ModelUserInputReadResponse
+	Payload *models.UserinputReadResponse
 }
 
 // IsSuccess returns true when this workflow get human input v1 o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *WorkflowGetHumanInputV1OK) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/human-inputs/v1][%d] workflowGetHumanInputV1OK  %+v", 200, o.Payload)
 }
 
-func (o *WorkflowGetHumanInputV1OK) GetPayload() *models.ModelUserInputReadResponse {
+func (o *WorkflowGetHumanInputV1OK) GetPayload() *models.UserinputReadResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *WorkflowGetHumanInputV1OK) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ModelUserInputReadResponse)
+	o.Payload = new(models.UserinputReadResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type WorkflowGetHumanInputV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ModelUserInputReadResponse
+	Payload *models.UserinputReadResponse
 }
 
 // IsSuccess returns true when this workflow get human input v1 bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *WorkflowGetHumanInputV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/human-inputs/v1][%d] workflowGetHumanInputV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *WorkflowGetHumanInputV1BadRequest) GetPayload() *models.ModelUserInputReadResponse {
+func (o *WorkflowGetHumanInputV1BadRequest) GetPayload() *models.UserinputReadResponse {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *WorkflowGetHumanInputV1BadRequest) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ModelUserInputReadResponse)
+	o.Payload = new(models.UserinputReadResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type WorkflowGetHumanInputV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ModelUserInputReadResponse
+	Payload *models.UserinputReadResponse
 }
 
 // IsSuccess returns true when this workflow get human input v1 not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *WorkflowGetHumanInputV1NotFound) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/human-inputs/v1][%d] workflowGetHumanInputV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *WorkflowGetHumanInputV1NotFound) GetPayload() *models.ModelUserInputReadResponse {
+func (o *WorkflowGetHumanInputV1NotFound) GetPayload() *models.UserinputReadResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *WorkflowGetHumanInputV1NotFound) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ModelUserInputReadResponse)
+	o.Payload = new(models.UserinputReadResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type WorkflowGetHumanInputV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ModelUserInputReadResponse
+	Payload *models.UserinputReadResponse
 }
 
 // IsSuccess returns true when this workflow get human input v1 internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *WorkflowGetHumanInputV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/human-inputs/v1][%d] workflowGetHumanInputV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *WorkflowGetHumanInputV1InternalServerError) GetPayload() *models.ModelUserInputReadResponse {
+func (o *WorkflowGetHumanInputV1InternalServerError) GetPayload() *models.UserinputReadResponse {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *WorkflowGetHumanInputV1InternalServerError) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ModelUserInputReadResponse)
+	o.Payload = new(models.UserinputReadResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

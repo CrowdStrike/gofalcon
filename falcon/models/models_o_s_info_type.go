@@ -28,6 +28,12 @@ type ModelsOSInfoType struct {
 	// install type
 	InstallType string `json:"InstallType,omitempty"`
 
+	// layer hash
+	LayerHash string `json:"LayerHash,omitempty"`
+
+	// layer index
+	LayerIndex int32 `json:"LayerIndex,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"Name"`

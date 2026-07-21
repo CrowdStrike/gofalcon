@@ -39,6 +39,9 @@ type DomainAPIEvaluationLogicV1 struct {
 	// logic
 	Logic []*DomainAPIEvaluationLogicItemV1 `json:"logic"`
 
+	// logic expression
+	LogicExpression string `json:"logic_expression,omitempty"`
+
 	// updated timestamp
 	UpdatedTimestamp string `json:"updated_timestamp,omitempty"`
 }

@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetRuleInputSchemaParams creates a new GetRuleInputSchemaParams object,
@@ -73,6 +74,14 @@ type GetRuleInputSchemaParams struct {
 	*/
 	Domain string
 
+	/* Enriched.
+
+	   When true, returns the enriched schema with inlined related resource types. Defaults to true.
+
+	   Default: true
+	*/
+	Enriched *bool
+
 	/* ResourceType.
 
 	   Selects the resource type for which to retrieve the rule input schema
@@ -102,7 +111,18 @@ func (o *GetRuleInputSchemaParams) WithDefaults() *GetRuleInputSchemaParams {
 //
 // All values with no default are reset to their zero value.
 func (o *GetRuleInputSchemaParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		enrichedDefault = bool(true)
+	)
+
+	val := GetRuleInputSchemaParams{
+		Enriched: &enrichedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get rule input schema params
@@ -160,6 +180,17 @@ func (o *GetRuleInputSchemaParams) SetDomain(domain string) {
 	o.Domain = domain
 }
 
+// WithEnriched adds the enriched to the get rule input schema params
+func (o *GetRuleInputSchemaParams) WithEnriched(enriched *bool) *GetRuleInputSchemaParams {
+	o.SetEnriched(enriched)
+	return o
+}
+
+// SetEnriched adds the enriched to the get rule input schema params
+func (o *GetRuleInputSchemaParams) SetEnriched(enriched *bool) {
+	o.Enriched = enriched
+}
+
 // WithResourceType adds the resourceType to the get rule input schema params
 func (o *GetRuleInputSchemaParams) WithResourceType(resourceType string) *GetRuleInputSchemaParams {
 	o.SetResourceType(resourceType)
@@ -214,6 +245,23 @@ func (o *GetRuleInputSchemaParams) WriteToRequest(r runtime.ClientRequest, reg s
 
 		if err := r.SetQueryParam("domain", qDomain); err != nil {
 			return err
+		}
+	}
+
+	if o.Enriched != nil {
+
+		// query param enriched
+		var qrEnriched bool
+
+		if o.Enriched != nil {
+			qrEnriched = *o.Enriched
+		}
+		qEnriched := swag.FormatBool(qrEnriched)
+		if qEnriched != "" {
+
+			if err := r.SetQueryParam("enriched", qEnriched); err != nil {
+				return err
+			}
 		}
 	}
 

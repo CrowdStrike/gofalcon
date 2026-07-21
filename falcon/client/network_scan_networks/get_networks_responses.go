@@ -90,7 +90,7 @@ type GetNetworksOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainNetworkEntitiesResponse
+	Payload *models.NvaapiNetworkEntitiesResponse
 }
 
 // IsSuccess returns true when this get networks o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetNetworksOK) String() string {
 	return fmt.Sprintf("[GET /netscan/entities/networks/v1][%d] getNetworksOK  %+v", 200, o.Payload)
 }
 
-func (o *GetNetworksOK) GetPayload() *models.DomainNetworkEntitiesResponse {
+func (o *GetNetworksOK) GetPayload() *models.NvaapiNetworkEntitiesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetNetworksOK) readResponse(response runtime.ClientResponse, consumer r
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainNetworkEntitiesResponse)
+	o.Payload = new(models.NvaapiNetworkEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

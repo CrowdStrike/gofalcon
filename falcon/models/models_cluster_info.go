@@ -34,6 +34,9 @@ type ModelsClusterInfo struct {
 
 	// cluster name
 	ClusterName string `json:"cluster_name,omitempty"`
+
+	// k8s distro
+	K8sDistro string `json:"k8s_distro,omitempty"`
 }
 
 // Validate validates this models cluster info

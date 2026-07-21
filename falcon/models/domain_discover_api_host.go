@@ -361,6 +361,9 @@ type DomainDiscoverAPIHost struct {
 	// The set of unique identifiers for the asset scanned by the Falcon sensor.
 	NetworkScannedIds []string `json:"network_scanned_ids"`
 
+	// The external ID of the IoT Device in 3rd Party System (Nozomi Vantage)
+	NozomiID string `json:"nozomi_id,omitempty"`
+
 	// The number of active physical drives available on the system.
 	NumberOfDiskDrives int32 `json:"number_of_disk_drives,omitempty"`
 
