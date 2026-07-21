@@ -140,11 +140,49 @@ type ClientService interface {
 
 	UpdateParserAutoUpdatePolicy(params *UpdateParserAutoUpdatePolicyParams, opts ...ClientOption) (*UpdateParserAutoUpdatePolicyOK, error)
 
+	UpdateParserExtension(params *UpdateParserExtensionParams, opts ...ClientOption) (*UpdateParserExtensionOK, error)
+
 	UpdateParserFromTemplate(params *UpdateParserFromTemplateParams, opts ...ClientOption) (*UpdateParserFromTemplateOK, error)
 
 	UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error)
 
 	UploadLookupV1(params *UploadLookupV1Params, opts ...ClientOption) (*UploadLookupV1OK, error)
+
+	AddDashboardLabels(params *AddDashboardLabelsParams, opts ...ClientOption) (*AddDashboardLabelsOK, error)
+
+	AddFileLabels(params *AddFileLabelsParams, opts ...ClientOption) (*AddFileLabelsOK, error)
+
+	AddSavedQueryLabels(params *AddSavedQueryLabelsParams, opts ...ClientOption) (*AddSavedQueryLabelsOK, error)
+
+	BulkAddDashboardLabels(params *BulkAddDashboardLabelsParams, opts ...ClientOption) (*BulkAddDashboardLabelsOK, error)
+
+	BulkAddLookupFileLabels(params *BulkAddLookupFileLabelsParams, opts ...ClientOption) (*BulkAddLookupFileLabelsOK, error)
+
+	BulkAddSavedQueryLabels(params *BulkAddSavedQueryLabelsParams, opts ...ClientOption) (*BulkAddSavedQueryLabelsOK, error)
+
+	BulkRemoveDashboardLabels(params *BulkRemoveDashboardLabelsParams, opts ...ClientOption) (*BulkRemoveDashboardLabelsOK, error)
+
+	BulkRemoveLookupFileLabels(params *BulkRemoveLookupFileLabelsParams, opts ...ClientOption) (*BulkRemoveLookupFileLabelsOK, error)
+
+	BulkRemoveSavedQueryLabels(params *BulkRemoveSavedQueryLabelsParams, opts ...ClientOption) (*BulkRemoveSavedQueryLabelsOK, error)
+
+	BulkUpdateDashboardLabels(params *BulkUpdateDashboardLabelsParams, opts ...ClientOption) (*BulkUpdateDashboardLabelsOK, error)
+
+	BulkUpdateLookupFileLabels(params *BulkUpdateLookupFileLabelsParams, opts ...ClientOption) (*BulkUpdateLookupFileLabelsOK, error)
+
+	BulkUpdateSavedQueryLabels(params *BulkUpdateSavedQueryLabelsParams, opts ...ClientOption) (*BulkUpdateSavedQueryLabelsOK, error)
+
+	RemoveDashboardLabels(params *RemoveDashboardLabelsParams, opts ...ClientOption) (*RemoveDashboardLabelsOK, error)
+
+	RemoveFileLabels(params *RemoveFileLabelsParams, opts ...ClientOption) (*RemoveFileLabelsOK, error)
+
+	RemoveSavedQueryLabels(params *RemoveSavedQueryLabelsParams, opts ...ClientOption) (*RemoveSavedQueryLabelsOK, error)
+
+	UpdateDashboardLabels(params *UpdateDashboardLabelsParams, opts ...ClientOption) (*UpdateDashboardLabelsOK, error)
+
+	UpdateFileLabels(params *UpdateFileLabelsParams, opts ...ClientOption) (*UpdateFileLabelsOK, error)
+
+	UpdateSavedQueryLabels(params *UpdateSavedQueryLabelsParams, opts ...ClientOption) (*UpdateSavedQueryLabelsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -2242,6 +2280,44 @@ func (a *Client) UpdateParserAutoUpdatePolicy(params *UpdateParserAutoUpdatePoli
 }
 
 /*
+UpdateParserExtension updates an existing parser extension in n g s i e m at least one field must be provided for update
+*/
+func (a *Client) UpdateParserExtension(params *UpdateParserExtensionParams, opts ...ClientOption) (*UpdateParserExtensionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateParserExtensionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateParserExtension",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/parsers-extensions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateParserExtensionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateParserExtensionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateParserExtension: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 UpdateParserFromTemplate updates parser in n g s i e m from y a m l template please note that name changes are not supported but rather should be created as a new parser
 */
 func (a *Client) UpdateParserFromTemplate(params *UpdateParserFromTemplateParams, opts ...ClientOption) (*UpdateParserFromTemplateOK, error) {
@@ -2352,6 +2428,690 @@ func (a *Client) UploadLookupV1(params *UploadLookupV1Params, opts ...ClientOpti
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UploadLookupV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+AddDashboardLabels adds multiple labels to a single dashboard
+*/
+func (a *Client) AddDashboardLabels(params *AddDashboardLabelsParams, opts ...ClientOption) (*AddDashboardLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAddDashboardLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "addDashboardLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/dashboard-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &AddDashboardLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AddDashboardLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for addDashboardLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+AddFileLabels adds multiple labels to a single file
+*/
+func (a *Client) AddFileLabels(params *AddFileLabelsParams, opts ...ClientOption) (*AddFileLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAddFileLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "addFileLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/lookupfile-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &AddFileLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AddFileLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for addFileLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+AddSavedQueryLabels adds multiple labels to a saved query
+*/
+func (a *Client) AddSavedQueryLabels(params *AddSavedQueryLabelsParams, opts ...ClientOption) (*AddSavedQueryLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAddSavedQueryLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "addSavedQueryLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/savedquery-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &AddSavedQueryLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AddSavedQueryLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for addSavedQueryLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkAddDashboardLabels adds labels to multiple dashboards max 100 items non transactional
+*/
+func (a *Client) BulkAddDashboardLabels(params *BulkAddDashboardLabelsParams, opts ...ClientOption) (*BulkAddDashboardLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkAddDashboardLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkAddDashboardLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-dashboard-labels-add/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkAddDashboardLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkAddDashboardLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkAddDashboardLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkAddLookupFileLabels adds labels to multiple lookup files max 100 items non transactional
+*/
+func (a *Client) BulkAddLookupFileLabels(params *BulkAddLookupFileLabelsParams, opts ...ClientOption) (*BulkAddLookupFileLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkAddLookupFileLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkAddLookupFileLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-lookupfile-labels-add/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkAddLookupFileLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkAddLookupFileLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkAddLookupFileLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkAddSavedQueryLabels adds labels to multiple saved queries max 100 items non transactional
+*/
+func (a *Client) BulkAddSavedQueryLabels(params *BulkAddSavedQueryLabelsParams, opts ...ClientOption) (*BulkAddSavedQueryLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkAddSavedQueryLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkAddSavedQueryLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-savedquery-labels-add/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkAddSavedQueryLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkAddSavedQueryLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkAddSavedQueryLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkRemoveDashboardLabels removes labels from multiple dashboards max 100 items non transactional
+*/
+func (a *Client) BulkRemoveDashboardLabels(params *BulkRemoveDashboardLabelsParams, opts ...ClientOption) (*BulkRemoveDashboardLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkRemoveDashboardLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkRemoveDashboardLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-dashboard-labels-remove/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkRemoveDashboardLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkRemoveDashboardLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkRemoveDashboardLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkRemoveLookupFileLabels removes labels from multiple lookup files max 100 items non transactional
+*/
+func (a *Client) BulkRemoveLookupFileLabels(params *BulkRemoveLookupFileLabelsParams, opts ...ClientOption) (*BulkRemoveLookupFileLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkRemoveLookupFileLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkRemoveLookupFileLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-lookupfile-labels-remove/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkRemoveLookupFileLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkRemoveLookupFileLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkRemoveLookupFileLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkRemoveSavedQueryLabels removes labels from multiple saved queries max 100 items non transactional
+*/
+func (a *Client) BulkRemoveSavedQueryLabels(params *BulkRemoveSavedQueryLabelsParams, opts ...ClientOption) (*BulkRemoveSavedQueryLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkRemoveSavedQueryLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkRemoveSavedQueryLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-savedquery-labels-remove/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkRemoveSavedQueryLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkRemoveSavedQueryLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkRemoveSavedQueryLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkUpdateDashboardLabels replaces all labels on multiple dashboards max 100 items non transactional
+*/
+func (a *Client) BulkUpdateDashboardLabels(params *BulkUpdateDashboardLabelsParams, opts ...ClientOption) (*BulkUpdateDashboardLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateDashboardLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkUpdateDashboardLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-dashboard-labels-replace/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkUpdateDashboardLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkUpdateDashboardLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkUpdateDashboardLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkUpdateLookupFileLabels replaces all labels on multiple lookup files max 100 items non transactional
+*/
+func (a *Client) BulkUpdateLookupFileLabels(params *BulkUpdateLookupFileLabelsParams, opts ...ClientOption) (*BulkUpdateLookupFileLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateLookupFileLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkUpdateLookupFileLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-lookupfile-labels-replace/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkUpdateLookupFileLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkUpdateLookupFileLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkUpdateLookupFileLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkUpdateSavedQueryLabels replaces all labels on multiple saved queries max 100 items non transactional
+*/
+func (a *Client) BulkUpdateSavedQueryLabels(params *BulkUpdateSavedQueryLabelsParams, opts ...ClientOption) (*BulkUpdateSavedQueryLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateSavedQueryLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "bulkUpdateSavedQueryLabels",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-savedquery-labels-replace/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkUpdateSavedQueryLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkUpdateSavedQueryLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for bulkUpdateSavedQueryLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RemoveDashboardLabels removes multiple labels from a single dashboard
+*/
+func (a *Client) RemoveDashboardLabels(params *RemoveDashboardLabelsParams, opts ...ClientOption) (*RemoveDashboardLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRemoveDashboardLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "removeDashboardLabels",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/dashboard-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &RemoveDashboardLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RemoveDashboardLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for removeDashboardLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RemoveFileLabels removes multiple labels from a single file
+*/
+func (a *Client) RemoveFileLabels(params *RemoveFileLabelsParams, opts ...ClientOption) (*RemoveFileLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRemoveFileLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "removeFileLabels",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/lookupfile-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &RemoveFileLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RemoveFileLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for removeFileLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RemoveSavedQueryLabels removes multiple labels from a saved query
+*/
+func (a *Client) RemoveSavedQueryLabels(params *RemoveSavedQueryLabelsParams, opts ...ClientOption) (*RemoveSavedQueryLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRemoveSavedQueryLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "removeSavedQueryLabels",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/savedquery-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &RemoveSavedQueryLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RemoveSavedQueryLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for removeSavedQueryLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateDashboardLabels replaces all labels on a single dashboard
+*/
+func (a *Client) UpdateDashboardLabels(params *UpdateDashboardLabelsParams, opts ...ClientOption) (*UpdateDashboardLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDashboardLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateDashboardLabels",
+		Method:             "PUT",
+		PathPattern:        "/ngsiem-content/entities/dashboard-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateDashboardLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDashboardLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateDashboardLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateFileLabels replaces all labels on a single file
+*/
+func (a *Client) UpdateFileLabels(params *UpdateFileLabelsParams, opts ...ClientOption) (*UpdateFileLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateFileLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateFileLabels",
+		Method:             "PUT",
+		PathPattern:        "/ngsiem-content/entities/lookupfile-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateFileLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateFileLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateFileLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateSavedQueryLabels replaces all labels on a single saved query
+*/
+func (a *Client) UpdateSavedQueryLabels(params *UpdateSavedQueryLabelsParams, opts ...ClientOption) (*UpdateSavedQueryLabelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateSavedQueryLabelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateSavedQueryLabels",
+		Method:             "PUT",
+		PathPattern:        "/ngsiem-content/entities/savedquery-labels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateSavedQueryLabelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateSavedQueryLabelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateSavedQueryLabels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

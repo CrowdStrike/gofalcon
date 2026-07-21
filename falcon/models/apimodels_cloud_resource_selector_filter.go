@@ -17,6 +17,9 @@ import (
 // swagger:model apimodels.CloudResourceSelectorFilter
 type ApimodelsCloudResourceSelectorFilter struct {
 
+	// gcrn
+	Gcrn []string `json:"gcrn"`
+
 	// region
 	Region []string `json:"region"`
 

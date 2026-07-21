@@ -73,7 +73,7 @@ type UpdateZonesParams struct {
 
 	   "zones" specifications for updating
 	*/
-	Body []*models.DomainZoneUpdateRequest
+	Body []*models.NvaapiZoneUpdateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *UpdateZonesParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the update zones params
-func (o *UpdateZonesParams) WithBody(body []*models.DomainZoneUpdateRequest) *UpdateZonesParams {
+func (o *UpdateZonesParams) WithBody(body []*models.NvaapiZoneUpdateRequest) *UpdateZonesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update zones params
-func (o *UpdateZonesParams) SetBody(body []*models.DomainZoneUpdateRequest) {
+func (o *UpdateZonesParams) SetBody(body []*models.NvaapiZoneUpdateRequest) {
 	o.Body = body
 }
 

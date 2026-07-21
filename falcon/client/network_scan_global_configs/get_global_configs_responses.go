@@ -90,7 +90,7 @@ type GetGlobalConfigsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainGlobalConfigEntitiesResponse
+	Payload *models.NvaapiGlobalConfigEntitiesResponse
 }
 
 // IsSuccess returns true when this get global configs o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetGlobalConfigsOK) String() string {
 	return fmt.Sprintf("[GET /netscan/entities/global-configs/v1][%d] getGlobalConfigsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetGlobalConfigsOK) GetPayload() *models.DomainGlobalConfigEntitiesResponse {
+func (o *GetGlobalConfigsOK) GetPayload() *models.NvaapiGlobalConfigEntitiesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetGlobalConfigsOK) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainGlobalConfigEntitiesResponse)
+	o.Payload = new(models.NvaapiGlobalConfigEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

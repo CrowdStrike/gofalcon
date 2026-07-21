@@ -73,7 +73,7 @@ type CreateZonesParams struct {
 
 	   "zones" specifications
 	*/
-	Body []*models.DomainZoneCreateRequest
+	Body []*models.NvaapiZoneCreateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *CreateZonesParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the create zones params
-func (o *CreateZonesParams) WithBody(body []*models.DomainZoneCreateRequest) *CreateZonesParams {
+func (o *CreateZonesParams) WithBody(body []*models.NvaapiZoneCreateRequest) *CreateZonesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create zones params
-func (o *CreateZonesParams) SetBody(body []*models.DomainZoneCreateRequest) {
+func (o *CreateZonesParams) SetBody(body []*models.NvaapiZoneCreateRequest) {
 	o.Body = body
 }
 

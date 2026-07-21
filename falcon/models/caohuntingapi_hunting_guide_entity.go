@@ -71,6 +71,9 @@ type CaohuntingapiHuntingGuideEntity struct {
 	// name
 	// Required: true
 	Name *string `json:"name"`
+
+	// queries
+	Queries []*DomainEntityInfo `json:"queries"`
 }
 
 // Validate validates this caohuntingapi hunting guide entity
@@ -102,6 +105,10 @@ func (m *CaohuntingapiHuntingGuideEntity) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQueries(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -206,6 +213,32 @@ func (m *CaohuntingapiHuntingGuideEntity) validateName(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *CaohuntingapiHuntingGuideEntity) validateQueries(formats strfmt.Registry) error {
+	if swag.IsZero(m.Queries) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Queries); i++ {
+		if swag.IsZero(m.Queries[i]) { // not required
+			continue
+		}
+
+		if m.Queries[i] != nil {
+			if err := m.Queries[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this caohuntingapi hunting guide entity based on the context it is used
 func (m *CaohuntingapiHuntingGuideEntity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -215,6 +248,10 @@ func (m *CaohuntingapiHuntingGuideEntity) ContextValidate(ctx context.Context, f
 	}
 
 	if err := m.contextValidateMitre(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueries(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -256,6 +293,31 @@ func (m *CaohuntingapiHuntingGuideEntity) contextValidateMitre(ctx context.Conte
 					return ve.ValidateName("mitre" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("mitre" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CaohuntingapiHuntingGuideEntity) contextValidateQueries(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Queries); i++ {
+
+		if m.Queries[i] != nil {
+
+			if swag.IsZero(m.Queries[i]) { // not required
+				return nil
+			}
+
+			if err := m.Queries[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

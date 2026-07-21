@@ -27,6 +27,10 @@ type ModelsAPIDetectionResponse struct {
 	// Required: true
 	FileName *string `json:"file_name"`
 
+	// is from module
+	// Required: true
+	IsFromModule *bool `json:"is_from_module"`
+
 	// last detected
 	// Required: true
 	// Format: date-time
@@ -35,6 +39,18 @@ type ModelsAPIDetectionResponse struct {
 	// misconfigured line
 	// Required: true
 	MisconfiguredLine *int32 `json:"misconfigured_line"`
+
+	// module path
+	ModulePath string `json:"module_path,omitempty"`
+
+	// module remediation
+	ModuleRemediation *ModelsModuleRemediation `json:"module_remediation,omitempty"`
+
+	// module source
+	ModuleSource string `json:"module_source,omitempty"`
+
+	// module version
+	ModuleVersion string `json:"module_version,omitempty"`
 
 	// project name
 	// Required: true
@@ -77,11 +93,19 @@ func (m *ModelsAPIDetectionResponse) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIsFromModule(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLastDetected(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateMisconfiguredLine(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateModuleRemediation(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -137,6 +161,15 @@ func (m *ModelsAPIDetectionResponse) validateFileName(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *ModelsAPIDetectionResponse) validateIsFromModule(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_from_module", "body", m.IsFromModule); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsAPIDetectionResponse) validateLastDetected(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_detected", "body", m.LastDetected); err != nil {
@@ -154,6 +187,25 @@ func (m *ModelsAPIDetectionResponse) validateMisconfiguredLine(formats strfmt.Re
 
 	if err := validate.Required("misconfigured_line", "body", m.MisconfiguredLine); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPIDetectionResponse) validateModuleRemediation(formats strfmt.Registry) error {
+	if swag.IsZero(m.ModuleRemediation) { // not required
+		return nil
+	}
+
+	if m.ModuleRemediation != nil {
+		if err := m.ModuleRemediation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("module_remediation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("module_remediation")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -248,6 +300,10 @@ func (m *ModelsAPIDetectionResponse) validateRule(formats strfmt.Registry) error
 func (m *ModelsAPIDetectionResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateModuleRemediation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateRemediation(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -259,6 +315,27 @@ func (m *ModelsAPIDetectionResponse) ContextValidate(ctx context.Context, format
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ModelsAPIDetectionResponse) contextValidateModuleRemediation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModuleRemediation != nil {
+
+		if swag.IsZero(m.ModuleRemediation) { // not required
+			return nil
+		}
+
+		if err := m.ModuleRemediation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("module_remediation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("module_remediation")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

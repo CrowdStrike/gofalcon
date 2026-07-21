@@ -28,10 +28,8 @@ type CorrelationrulesapiAnomalyV1 struct {
 	// Required: true
 	LookbackTimeframe *string `json:"lookback_timeframe"`
 
-	// scope
-	Scope string `json:"scope,omitempty"`
-
 	// scopes
+	// Required: true
 	Scopes []*CorrelationrulesapiAnomalyScopes `json:"scopes"`
 
 	// type
@@ -92,8 +90,9 @@ func (m *CorrelationrulesapiAnomalyV1) validateLookbackTimeframe(formats strfmt.
 }
 
 func (m *CorrelationrulesapiAnomalyV1) validateScopes(formats strfmt.Registry) error {
-	if swag.IsZero(m.Scopes) { // not required
-		return nil
+
+	if err := validate.Required("scopes", "body", m.Scopes); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Scopes); i++ {

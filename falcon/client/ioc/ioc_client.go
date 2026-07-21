@@ -52,6 +52,8 @@ type ClientService interface {
 
 	IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOption) (*IndicatorGetV1OK, error)
 
+	IndicatorSdmfQueryV1(params *IndicatorSdmfQueryV1Params, opts ...ClientOption) (*IndicatorSdmfQueryV1OK, error)
+
 	IndicatorSearchV1(params *IndicatorSearchV1Params, opts ...ClientOption) (*IndicatorSearchV1OK, error)
 
 	IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...ClientOption) (*IndicatorUpdateV1OK, error)
@@ -480,6 +482,44 @@ func (a *Client) IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOpti
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for indicator.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+IndicatorSdmfQueryV1 executes an s d m f data frame query against i o c indicators
+*/
+func (a *Client) IndicatorSdmfQueryV1(params *IndicatorSdmfQueryV1Params, opts ...ClientOption) (*IndicatorSdmfQueryV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIndicatorSdmfQueryV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "indicator.sdmf-query.v1",
+		Method:             "POST",
+		PathPattern:        "/iocs/sdmf/query/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &IndicatorSdmfQueryV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IndicatorSdmfQueryV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.sdmf-query.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

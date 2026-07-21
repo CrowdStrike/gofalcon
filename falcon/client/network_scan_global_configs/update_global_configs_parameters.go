@@ -73,7 +73,7 @@ type UpdateGlobalConfigsParams struct {
 
 	   "global-configs" specifications for updating
 	*/
-	Body *models.DomainGlobalConfigUpdateRequest
+	Body *models.NvaapiGlobalConfigUpdateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *UpdateGlobalConfigsParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the update global configs params
-func (o *UpdateGlobalConfigsParams) WithBody(body *models.DomainGlobalConfigUpdateRequest) *UpdateGlobalConfigsParams {
+func (o *UpdateGlobalConfigsParams) WithBody(body *models.NvaapiGlobalConfigUpdateRequest) *UpdateGlobalConfigsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update global configs params
-func (o *UpdateGlobalConfigsParams) SetBody(body *models.DomainGlobalConfigUpdateRequest) {
+func (o *UpdateGlobalConfigsParams) SetBody(body *models.NvaapiGlobalConfigUpdateRequest) {
 	o.Body = body
 }
 

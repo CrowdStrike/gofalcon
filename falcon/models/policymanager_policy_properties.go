@@ -101,6 +101,9 @@ type PolicymanagerPolicyProperties struct {
 	// enable clipboard inspection
 	EnableClipboardInspection *bool `json:"enable_clipboard_inspection,omitempty"`
 
+	// Track and attribute web sources for clipboard content when copying from web applications. Requires context inspection to be enabled
+	EnableClipboardWebOrigin bool `json:"enable_clipboard_web_origin,omitempty"`
+
 	// enable content inspection
 	EnableContentInspection *bool `json:"enable_content_inspection,omitempty"`
 
@@ -112,6 +115,9 @@ type PolicymanagerPolicyProperties struct {
 
 	// Windows only. Enable or disable network inspection
 	EnableNetworkInspection *bool `json:"enable_network_inspection,omitempty"`
+
+	// Mac only. Enable or disable OCR
+	EnableOcr bool `json:"enable_ocr,omitempty"`
 
 	// Windows only. Enable screen capture before and after egress event
 	EnableScreenCapture bool `json:"enable_screen_capture,omitempty"`

@@ -90,7 +90,7 @@ type GetTemplatesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainTemplateEntitiesResponse
+	Payload *models.NvaapiTemplateEntitiesResponse
 }
 
 // IsSuccess returns true when this get templates o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetTemplatesOK) String() string {
 	return fmt.Sprintf("[GET /netscan/entities/templates/v1][%d] getTemplatesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetTemplatesOK) GetPayload() *models.DomainTemplateEntitiesResponse {
+func (o *GetTemplatesOK) GetPayload() *models.NvaapiTemplateEntitiesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetTemplatesOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainTemplateEntitiesResponse)
+	o.Payload = new(models.NvaapiTemplateEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

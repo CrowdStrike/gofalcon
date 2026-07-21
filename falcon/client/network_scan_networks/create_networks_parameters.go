@@ -73,7 +73,7 @@ type CreateNetworksParams struct {
 
 	   "networks" specifications
 	*/
-	Body []*models.DomainNetworkCreateRequest
+	Body []*models.NvaapiNetworkCreateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *CreateNetworksParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the create networks params
-func (o *CreateNetworksParams) WithBody(body []*models.DomainNetworkCreateRequest) *CreateNetworksParams {
+func (o *CreateNetworksParams) WithBody(body []*models.NvaapiNetworkCreateRequest) *CreateNetworksParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create networks params
-func (o *CreateNetworksParams) SetBody(body []*models.DomainNetworkCreateRequest) {
+func (o *CreateNetworksParams) SetBody(body []*models.NvaapiNetworkCreateRequest) {
 	o.Body = body
 }
 

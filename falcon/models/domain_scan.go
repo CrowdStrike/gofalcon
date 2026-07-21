@@ -98,9 +98,6 @@ type DomainScan struct {
 	// mac cloud pup adware level prevention
 	MacCloudPupAdwareLevelPrevention int32 `json:"mac_cloud_pup_adware_level_prevention,omitempty"`
 
-	// mac file paths
-	MacFilePaths []string `json:"mac_file_paths"`
-
 	// mac policy setting
 	MacPolicySetting []int64 `json:"mac_policy_setting"`
 

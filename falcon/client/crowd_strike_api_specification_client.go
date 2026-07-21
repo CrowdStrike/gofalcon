@@ -13,6 +13,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/a_s_p_m"
 	"github.com/crowdstrike/gofalcon/falcon/client/access_scopes"
 	"github.com/crowdstrike/gofalcon/falcon/client/admission_control_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/agent_invocation"
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_clients"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
@@ -132,6 +133,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/runtime_detections"
 	"github.com/crowdstrike/gofalcon/falcon/client/saas_security"
 	"github.com/crowdstrike/gofalcon/falcon/client/sample_uploads"
+	"github.com/crowdstrike/gofalcon/falcon/client/scanning_orchestrator"
 	"github.com/crowdstrike/gofalcon/falcon/client/scheduled_reports"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
@@ -143,6 +145,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_supported_evaluation"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerability_metadata"
+	"github.com/crowdstrike/gofalcon/falcon/client/stream"
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
@@ -195,6 +198,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Aspm = a_s_p_m.New(transport, formats)
 	cli.AccessScopes = access_scopes.New(transport, formats)
 	cli.AdmissionControlPolicies = admission_control_policies.New(transport, formats)
+	cli.AgentInvocation = agent_invocation.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIClients = api_clients.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
@@ -314,6 +318,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.RuntimeDetections = runtime_detections.New(transport, formats)
 	cli.SaasSecurity = saas_security.New(transport, formats)
 	cli.SampleUploads = sample_uploads.New(transport, formats)
+	cli.ScanningOrchestrator = scanning_orchestrator.New(transport, formats)
 	cli.ScheduledReports = scheduled_reports.New(transport, formats)
 	cli.SensorDownload = sensor_download.New(transport, formats)
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
@@ -325,6 +330,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SpotlightSupportedEvaluation = spotlight_supported_evaluation.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
 	cli.SpotlightVulnerabilityMetadata = spotlight_vulnerability_metadata.New(transport, formats)
+	cli.Stream = stream.New(transport, formats)
 	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
@@ -379,6 +385,8 @@ type CrowdStrikeAPISpecification struct {
 	AccessScopes access_scopes.ClientService
 
 	AdmissionControlPolicies admission_control_policies.ClientService
+
+	AgentInvocation agent_invocation.ClientService
 
 	Alerts alerts.ClientService
 
@@ -618,6 +626,8 @@ type CrowdStrikeAPISpecification struct {
 
 	SampleUploads sample_uploads.ClientService
 
+	ScanningOrchestrator scanning_orchestrator.ClientService
+
 	ScheduledReports scheduled_reports.ClientService
 
 	SensorDownload sensor_download.ClientService
@@ -640,6 +650,8 @@ type CrowdStrikeAPISpecification struct {
 
 	SpotlightVulnerabilityMetadata spotlight_vulnerability_metadata.ClientService
 
+	Stream stream.ClientService
+
 	Threatgraph threatgraph.ClientService
 
 	UnidentifiedContainers unidentified_containers.ClientService
@@ -659,6 +671,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Aspm.SetTransport(transport)
 	c.AccessScopes.SetTransport(transport)
 	c.AdmissionControlPolicies.SetTransport(transport)
+	c.AgentInvocation.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIClients.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
@@ -778,6 +791,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.RuntimeDetections.SetTransport(transport)
 	c.SaasSecurity.SetTransport(transport)
 	c.SampleUploads.SetTransport(transport)
+	c.ScanningOrchestrator.SetTransport(transport)
 	c.ScheduledReports.SetTransport(transport)
 	c.SensorDownload.SetTransport(transport)
 	c.SensorUpdatePolicies.SetTransport(transport)
@@ -789,6 +803,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SpotlightSupportedEvaluation.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
 	c.SpotlightVulnerabilityMetadata.SetTransport(transport)
+	c.Stream.SetTransport(transport)
 	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)

@@ -76,9 +76,6 @@ type RisksUnionCloudRisk struct {
 	// Required: true
 	Disabled *bool `json:"disabled"`
 
-	// edges
-	Edges []*RisksEdge `json:"edges"`
-
 	// first seen
 	// Required: true
 	// Format: date-time
@@ -139,9 +136,6 @@ type RisksUnionCloudRisk struct {
 
 	// suppression
 	Suppression *RiskSuppression `json:"suppression,omitempty"`
-
-	// vertices
-	Vertices []*RisksVertex `json:"vertices"`
 }
 
 // Validate validates this risks union cloud risk
@@ -193,10 +187,6 @@ func (m *RisksUnionCloudRisk) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisabled(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEdges(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -253,10 +243,6 @@ func (m *RisksUnionCloudRisk) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSuppression(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVertices(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -386,32 +372,6 @@ func (m *RisksUnionCloudRisk) validateDisabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("disabled", "body", m.Disabled); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *RisksUnionCloudRisk) validateEdges(formats strfmt.Registry) error {
-	if swag.IsZero(m.Edges) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.Edges); i++ {
-		if swag.IsZero(m.Edges[i]) { // not required
-			continue
-		}
-
-		if m.Edges[i] != nil {
-			if err := m.Edges[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("edges" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("edges" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil
@@ -573,32 +533,6 @@ func (m *RisksUnionCloudRisk) validateSuppression(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *RisksUnionCloudRisk) validateVertices(formats strfmt.Registry) error {
-	if swag.IsZero(m.Vertices) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.Vertices); i++ {
-		if swag.IsZero(m.Vertices[i]) { // not required
-			continue
-		}
-
-		if m.Vertices[i] != nil {
-			if err := m.Vertices[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("vertices" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("vertices" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
 // ContextValidate validate this risks union cloud risk based on the context it is used
 func (m *RisksUnionCloudRisk) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -607,19 +541,11 @@ func (m *RisksUnionCloudRisk) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateEdges(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateGraph(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateSuppression(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateVertices(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -644,31 +570,6 @@ func (m *RisksUnionCloudRisk) contextValidateComments(ctx context.Context, forma
 					return ve.ValidateName("comments" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("comments" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *RisksUnionCloudRisk) contextValidateEdges(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Edges); i++ {
-
-		if m.Edges[i] != nil {
-
-			if swag.IsZero(m.Edges[i]) { // not required
-				return nil
-			}
-
-			if err := m.Edges[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("edges" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("edges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -716,31 +617,6 @@ func (m *RisksUnionCloudRisk) contextValidateSuppression(ctx context.Context, fo
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *RisksUnionCloudRisk) contextValidateVertices(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Vertices); i++ {
-
-		if m.Vertices[i] != nil {
-
-			if swag.IsZero(m.Vertices[i]) { // not required
-				return nil
-			}
-
-			if err := m.Vertices[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("vertices" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("vertices" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil

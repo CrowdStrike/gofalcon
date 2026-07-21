@@ -84,7 +84,7 @@ type CombinedZonesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainZoneEntitiesResponse
+	Payload *models.NvaapiZoneEntitiesResponse
 }
 
 // IsSuccess returns true when this combined zones o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CombinedZonesOK) String() string {
 	return fmt.Sprintf("[GET /netscan/combined/zones/v1][%d] combinedZonesOK  %+v", 200, o.Payload)
 }
 
-func (o *CombinedZonesOK) GetPayload() *models.DomainZoneEntitiesResponse {
+func (o *CombinedZonesOK) GetPayload() *models.NvaapiZoneEntitiesResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CombinedZonesOK) readResponse(response runtime.ClientResponse, consumer
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainZoneEntitiesResponse)
+	o.Payload = new(models.NvaapiZoneEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

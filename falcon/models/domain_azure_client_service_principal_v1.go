@@ -47,6 +47,9 @@ type DomainAzureClientServicePrincipalV1 struct {
 	// default subscription id
 	DefaultSubscriptionID string `json:"default_subscription_id,omitempty"`
 
+	// display name
+	DisplayName string `json:"display_name,omitempty"`
+
 	// encrypted private key
 	EncryptedPrivateKey string `json:"encrypted_private_key,omitempty"`
 

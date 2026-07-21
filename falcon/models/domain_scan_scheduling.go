@@ -16,42 +16,21 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainScanScheduling Represents scan scheduling configuration
+// DomainScanScheduling domain scan scheduling
 //
 // swagger:model domain.ScanScheduling
 type DomainScanScheduling struct {
 
-	// The days of the month that scan created will run on. Valid range: 1-31
-	DaysOfMonth []int64 `json:"days_of_month"`
-
 	// The days of the week that scan created will run on
 	DaysOfWeek []string `json:"days_of_week"`
 
-	// The date at which scans created will end running
-	EndDate string `json:"end_date,omitempty"`
-
-	// The frequency of the scan scheduling configuration
-	// Required: true
+	// frequency
 	// Enum: [not_scheduled daily weekly monthly one-time]
-	Frequency *string `json:"frequency"`
+	Frequency interface{} `json:"frequency,omitempty"`
 
-	// The occurrence of the scan scheduling configuration
+	// occurrence
 	// Enum: [first second third fourth last]
-	Occurrence string `json:"occurrence,omitempty"`
-
-	// The date at which scans created will start running
-	// Required: true
-	StartDate *string `json:"start_date"`
-
-	// The time at which scans created will start running
-	// Required: true
-	StartTime *string `json:"start_time"`
-
-	// The timeout seconds of the scan scheduling configuration
-	TimeoutSeconds int32 `json:"timeout_seconds,omitempty"`
-
-	// The timezone used to identify the scan scheduling configuration
-	Timezone string `json:"timezone,omitempty"`
+	Occurrence interface{} `json:"occurrence,omitempty"`
 }
 
 // Validate validates this domain scan scheduling
@@ -59,22 +38,6 @@ func (m *DomainScanScheduling) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDaysOfWeek(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFrequency(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateOccurrence(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStartDate(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStartTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -115,127 +78,6 @@ func (m *DomainScanScheduling) validateDaysOfWeek(formats strfmt.Registry) error
 			return err
 		}
 
-	}
-
-	return nil
-}
-
-var domainScanSchedulingTypeFrequencyPropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["not_scheduled","daily","weekly","monthly","one-time"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		domainScanSchedulingTypeFrequencyPropEnum = append(domainScanSchedulingTypeFrequencyPropEnum, v)
-	}
-}
-
-const (
-
-	// DomainScanSchedulingFrequencyNotScheduled captures enum value "not_scheduled"
-	DomainScanSchedulingFrequencyNotScheduled string = "not_scheduled"
-
-	// DomainScanSchedulingFrequencyDaily captures enum value "daily"
-	DomainScanSchedulingFrequencyDaily string = "daily"
-
-	// DomainScanSchedulingFrequencyWeekly captures enum value "weekly"
-	DomainScanSchedulingFrequencyWeekly string = "weekly"
-
-	// DomainScanSchedulingFrequencyMonthly captures enum value "monthly"
-	DomainScanSchedulingFrequencyMonthly string = "monthly"
-
-	// DomainScanSchedulingFrequencyOneDashTime captures enum value "one-time"
-	DomainScanSchedulingFrequencyOneDashTime string = "one-time"
-)
-
-// prop value enum
-func (m *DomainScanScheduling) validateFrequencyEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, domainScanSchedulingTypeFrequencyPropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *DomainScanScheduling) validateFrequency(formats strfmt.Registry) error {
-
-	if err := validate.Required("frequency", "body", m.Frequency); err != nil {
-		return err
-	}
-
-	// value enum
-	if err := m.validateFrequencyEnum("frequency", "body", *m.Frequency); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-var domainScanSchedulingTypeOccurrencePropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["first","second","third","fourth","last"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		domainScanSchedulingTypeOccurrencePropEnum = append(domainScanSchedulingTypeOccurrencePropEnum, v)
-	}
-}
-
-const (
-
-	// DomainScanSchedulingOccurrenceFirst captures enum value "first"
-	DomainScanSchedulingOccurrenceFirst string = "first"
-
-	// DomainScanSchedulingOccurrenceSecond captures enum value "second"
-	DomainScanSchedulingOccurrenceSecond string = "second"
-
-	// DomainScanSchedulingOccurrenceThird captures enum value "third"
-	DomainScanSchedulingOccurrenceThird string = "third"
-
-	// DomainScanSchedulingOccurrenceFourth captures enum value "fourth"
-	DomainScanSchedulingOccurrenceFourth string = "fourth"
-
-	// DomainScanSchedulingOccurrenceLast captures enum value "last"
-	DomainScanSchedulingOccurrenceLast string = "last"
-)
-
-// prop value enum
-func (m *DomainScanScheduling) validateOccurrenceEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, domainScanSchedulingTypeOccurrencePropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *DomainScanScheduling) validateOccurrence(formats strfmt.Registry) error {
-	if swag.IsZero(m.Occurrence) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateOccurrenceEnum("occurrence", "body", m.Occurrence); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainScanScheduling) validateStartDate(formats strfmt.Registry) error {
-
-	if err := validate.Required("start_date", "body", m.StartDate); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainScanScheduling) validateStartTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("start_time", "body", m.StartTime); err != nil {
-		return err
 	}
 
 	return nil

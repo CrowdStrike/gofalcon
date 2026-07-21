@@ -1538,7 +1538,7 @@ func (a *Client) ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPService
 }
 
 /*
-GetCloudEventIDs gets list of related cloud event log scale i ds for a given i o a
+GetCloudEventIDs deprecateds use cdrapi entities event details v1 logscale related events query instead get list of related cloud event log scale i ds for a given i o a
 */
 func (a *Client) GetCloudEventIDs(params *GetCloudEventIDsParams, opts ...ClientOption) (*GetCloudEventIDsOK, *GetCloudEventIDsMultiStatus, error) {
 	// TODO: Validate the params before sending

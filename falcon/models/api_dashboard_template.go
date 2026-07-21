@@ -23,6 +23,10 @@ type APIDashboardTemplate struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// Labels associated with the dashboard
+	// Required: true
+	Labels []string `json:"labels"`
+
 	// The dashboard's name
 	// Required: true
 	Name *string `json:"name"`
@@ -37,6 +41,10 @@ func (m *APIDashboardTemplate) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLabels(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -57,6 +65,15 @@ func (m *APIDashboardTemplate) Validate(formats strfmt.Registry) error {
 func (m *APIDashboardTemplate) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIDashboardTemplate) validateLabels(formats strfmt.Registry) error {
+
+	if err := validate.Required("labels", "body", m.Labels); err != nil {
 		return err
 	}
 

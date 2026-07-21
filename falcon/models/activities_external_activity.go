@@ -80,6 +80,9 @@ type ActivitiesExternalActivity struct {
 	// JSON Schema describing the structured output of the activity once executed
 	OutputSchema *JsonschemaSchema `json:"output_schema,omitempty"`
 
+	// Activity semantic version
+	SemanticVersion string `json:"semantic_version,omitempty"`
+
 	// Timestamp of when the activity was last updated
 	// Format: date-time
 	Updated strfmt.DateTime `json:"updated,omitempty"`

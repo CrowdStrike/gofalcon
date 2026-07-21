@@ -64,21 +64,21 @@ type ExtAggregateFailedImagesByRulesPathParams struct {
 	/* Filter.
 
 	     Filter results using a query in Falcon Query Language (FQL). Supported Filters:
-	image_id: Image ID
-	cloud_info.cloud_provider: Cloud provider
-	image_registry: Image registry
-	image_tag: Image tag
-	image_repository: Image repository
-	compliance_finding.id: Compliance finding ID
-	image_digest: Image digest (sha256 digest)
-	cid: Customer ID
-	cloud_info.cluster_name: Kubernetes cluster name
-	cloud_info.namespace: Kubernetes namespace
-	compliance_finding.framework: Compliance finding framework (available values: CIS)
 	cloud_info.cloud_account_id: Cloud account ID
-	compliance_finding.name: Compliance finding Name
-	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
+	image_registry: Image registry
+	image_digest: Image digest (sha256 digest)
+	cloud_info.cloud_provider: Cloud provider
+	image_tag: Image tag
+	compliance_finding.id: Compliance finding ID
+	image_id: Image ID
+	image_repository: Image repository
 	cloud_info.cloud_region: Cloud region
+	cloud_info.namespace: Kubernetes namespace
+	cid: Customer ID
+	compliance_finding.framework: Compliance finding framework (available values: CIS)
+	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
+	cloud_info.cluster_name: Kubernetes cluster name
+	compliance_finding.name: Compliance finding Name
 
 	*/
 	Filter *string

@@ -19,6 +19,10 @@ import (
 // swagger:model domain.User
 type DomainUser struct {
 
+	// access granted at
+	// Format: date-time
+	AccessGrantedAt strfmt.DateTime `json:"access_granted_at,omitempty"`
+
 	// cid
 	Cid string `json:"cid,omitempty"`
 
@@ -60,6 +64,10 @@ type DomainUser struct {
 func (m *DomainUser) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAccessGrantedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedAt(formats); err != nil {
 		res = append(res, err)
 	}
@@ -75,6 +83,18 @@ func (m *DomainUser) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainUser) validateAccessGrantedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.AccessGrantedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("access_granted_at", "body", "date-time", m.AccessGrantedAt.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

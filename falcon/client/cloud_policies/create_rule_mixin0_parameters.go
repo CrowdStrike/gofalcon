@@ -67,6 +67,7 @@ type CreateRuleMixin0Params struct {
 
 	     Rule severity integer to provide maps to the following: 0=Critical, 1=High, 2=Medium and 3=Low.
 	For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified.
+	For CSPM IAC Custom Rules, logic is mandatory and description is optional.
 	For Runtime IOM Custom Rules (KAC), logic is mandatory. Fields `controls`, `resource_type`, and `parent_rule_id` should not be specified.
 	For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
 	*/

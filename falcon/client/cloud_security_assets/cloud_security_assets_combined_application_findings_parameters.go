@@ -94,6 +94,12 @@ type CloudSecurityAssetsCombinedApplicationFindingsParams struct {
 	*/
 	Offset *int64
 
+	/* Sort.
+
+	   Sort expression in the format field|direction (e.g. key|desc), where direction is asc or desc. Sortable fields depend on the finding type. Currently supported for packages: 'key' (package name and version) and 'vulnerabilities' (number of vulnerabilities).
+	*/
+	Sort *string
+
 	/* Type.
 
 	   Finding type
@@ -222,6 +228,17 @@ func (o *CloudSecurityAssetsCombinedApplicationFindingsParams) SetOffset(offset 
 	o.Offset = offset
 }
 
+// WithSort adds the sort to the cloud security assets combined application findings params
+func (o *CloudSecurityAssetsCombinedApplicationFindingsParams) WithSort(sort *string) *CloudSecurityAssetsCombinedApplicationFindingsParams {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the cloud security assets combined application findings params
+func (o *CloudSecurityAssetsCombinedApplicationFindingsParams) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WithType adds the typeVar to the cloud security assets combined application findings params
 func (o *CloudSecurityAssetsCombinedApplicationFindingsParams) WithType(typeVar string) *CloudSecurityAssetsCombinedApplicationFindingsParams {
 	o.SetType(typeVar)
@@ -321,6 +338,23 @@ func (o *CloudSecurityAssetsCombinedApplicationFindingsParams) WriteToRequest(r 
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}

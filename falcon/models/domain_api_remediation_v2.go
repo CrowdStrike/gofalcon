@@ -23,6 +23,9 @@ type DomainAPIRemediationV2 struct {
 	// Required: true
 	Action *string `json:"action"`
 
+	// The timestamp when this remediation was created
+	CreatedTimestamp string `json:"created_timestamp,omitempty"`
+
 	// Refers to an unique identifier for a given remediation
 	// Required: true
 	ID *string `json:"id"`
@@ -34,6 +37,10 @@ type DomainAPIRemediationV2 struct {
 	// The timestamp that this remediation was published
 	PatchPublicationDate string `json:"patch_publication_date,omitempty"`
 
+	// The provider of the remediation
+	// Required: true
+	Provider *string `json:"provider"`
+
 	// The type of recommendation for this remediation, usually either 'recommended' or 'minimum'
 	RecommendationType string `json:"recommendation_type,omitempty"`
 
@@ -44,6 +51,13 @@ type DomainAPIRemediationV2 struct {
 	// Short description of the remediation
 	// Required: true
 	Title *string `json:"title"`
+
+	// The type of remediation (e.g., patch, workaround)
+	// Required: true
+	Type *string `json:"type"`
+
+	// The timestamp when this remediation was last updated
+	UpdatedTimestamp string `json:"updated_timestamp,omitempty"`
 
 	// Link to the vendor advisory - Note: This field is populated if there are extra steps that are required to complete the remediation
 	// Required: true
@@ -66,11 +80,19 @@ func (m *DomainAPIRemediationV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateProvider(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateReference(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateTitle(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -111,6 +133,15 @@ func (m *DomainAPIRemediationV2) validateLink(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainAPIRemediationV2) validateProvider(formats strfmt.Registry) error {
+
+	if err := validate.Required("provider", "body", m.Provider); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainAPIRemediationV2) validateReference(formats strfmt.Registry) error {
 
 	if err := validate.Required("reference", "body", m.Reference); err != nil {
@@ -123,6 +154,15 @@ func (m *DomainAPIRemediationV2) validateReference(formats strfmt.Registry) erro
 func (m *DomainAPIRemediationV2) validateTitle(formats strfmt.Registry) error {
 
 	if err := validate.Required("title", "body", m.Title); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAPIRemediationV2) validateType(formats strfmt.Registry) error {
+
+	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
 

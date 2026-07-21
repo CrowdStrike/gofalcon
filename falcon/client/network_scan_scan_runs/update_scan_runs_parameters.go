@@ -73,7 +73,7 @@ type UpdateScanRunsParams struct {
 
 	   "scan-runs" specifications for updating
 	*/
-	Body []*models.DomainScanRunUpdateRequest
+	Body []*models.NvaapiScanRunUpdateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *UpdateScanRunsParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the update scan runs params
-func (o *UpdateScanRunsParams) WithBody(body []*models.DomainScanRunUpdateRequest) *UpdateScanRunsParams {
+func (o *UpdateScanRunsParams) WithBody(body []*models.NvaapiScanRunUpdateRequest) *UpdateScanRunsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update scan runs params
-func (o *UpdateScanRunsParams) SetBody(body []*models.DomainScanRunUpdateRequest) {
+func (o *UpdateScanRunsParams) SetBody(body []*models.NvaapiScanRunUpdateRequest) {
 	o.Body = body
 }
 

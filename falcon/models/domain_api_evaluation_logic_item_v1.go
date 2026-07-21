@@ -41,6 +41,9 @@ type DomainAPIEvaluationLogicItemV1 struct {
 	// items
 	Items []DomainAPIEvaluationLogicSystemCharacteristicV1 `json:"items"`
 
+	// label
+	Label string `json:"label,omitempty"`
+
 	// negate
 	Negate bool `json:"negate,omitempty"`
 

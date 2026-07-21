@@ -96,7 +96,7 @@ type CreateTemplatesCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainTemplateEntitiesResponse
+	Payload *models.NvaapiTemplateEntitiesResponse
 }
 
 // IsSuccess returns true when this create templates created response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *CreateTemplatesCreated) String() string {
 	return fmt.Sprintf("[POST /netscan/entities/templates/v1][%d] createTemplatesCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateTemplatesCreated) GetPayload() *models.DomainTemplateEntitiesResponse {
+func (o *CreateTemplatesCreated) GetPayload() *models.NvaapiTemplateEntitiesResponse {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *CreateTemplatesCreated) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainTemplateEntitiesResponse)
+	o.Payload = new(models.NvaapiTemplateEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

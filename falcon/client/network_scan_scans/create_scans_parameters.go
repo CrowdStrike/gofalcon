@@ -73,7 +73,7 @@ type CreateScansParams struct {
 
 	   "scans" specifications
 	*/
-	Body []*models.DomainScanCreateRequest
+	Body []*models.NvaapiScanCreateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *CreateScansParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the create scans params
-func (o *CreateScansParams) WithBody(body []*models.DomainScanCreateRequest) *CreateScansParams {
+func (o *CreateScansParams) WithBody(body []*models.NvaapiScanCreateRequest) *CreateScansParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create scans params
-func (o *CreateScansParams) SetBody(body []*models.DomainScanCreateRequest) {
+func (o *CreateScansParams) SetBody(body []*models.NvaapiScanCreateRequest) {
 	o.Body = body
 }
 

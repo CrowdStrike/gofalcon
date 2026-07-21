@@ -44,6 +44,8 @@ type ClientService interface {
 
 	EntitiesEventEvidencePostV1(params *EntitiesEventEvidencePostV1Params, opts ...ClientOption) (*EntitiesEventEvidencePostV1OK, error)
 
+	EntitiesMergePostV1(params *EntitiesMergePostV1Params, opts ...ClientOption) (*EntitiesMergePostV1OK, error)
+
 	QueriesCasesGetV1(params *QueriesCasesGetV1Params, opts ...ClientOption) (*QueriesCasesGetV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -312,6 +314,44 @@ func (a *Client) EntitiesEventEvidencePostV1(params *EntitiesEventEvidencePostV1
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities.event-evidence.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesMergePostV1 merges a source case into a destination case
+*/
+func (a *Client) EntitiesMergePostV1(params *EntitiesMergePostV1Params, opts ...ClientOption) (*EntitiesMergePostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesMergePostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.merge.post.v1",
+		Method:             "POST",
+		PathPattern:        "/cases/entities/merge/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesMergePostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesMergePostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.merge.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

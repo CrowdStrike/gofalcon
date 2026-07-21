@@ -19,6 +19,9 @@ import (
 // swagger:model api.BulkCreateDashboardItem
 type APIBulkCreateDashboardItem struct {
 
+	// Optional labels to apply to the dashboard (max 10 labels, max 60 chars each)
+	Labels []string `json:"labels"`
+
 	// The name of the dashboard
 	// Required: true
 	Name *string `json:"name"`

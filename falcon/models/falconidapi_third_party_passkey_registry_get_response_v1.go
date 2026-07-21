@@ -29,7 +29,7 @@ type FalconidapiThirdPartyPasskeyRegistryGetResponseV1 struct {
 
 	// resources
 	// Required: true
-	Resources []*DomainThirdPartyPasskeyRegistryDeviceIntegrity `json:"resources"`
+	Resources []*FalconidapiThirdPartyPasskeyRegistryDeviceIntegrity `json:"resources"`
 }
 
 // Validate validates this falconidapi third party passkey registry get response v1

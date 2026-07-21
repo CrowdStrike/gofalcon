@@ -19,6 +19,10 @@ import (
 // swagger:model sdk.AlertEvidenceRecordVM
 type SdkAlertEvidenceRecordVM struct {
 
+	// id
+	// Required: true
+	ID *string `json:"id"`
+
 	// selector
 	// Required: true
 	Selector *SdkAlertEvidenceSelector `json:"selector"`
@@ -28,6 +32,10 @@ type SdkAlertEvidenceRecordVM struct {
 func (m *SdkAlertEvidenceRecordVM) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSelector(formats); err != nil {
 		res = append(res, err)
 	}
@@ -35,6 +43,15 @@ func (m *SdkAlertEvidenceRecordVM) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SdkAlertEvidenceRecordVM) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
 	return nil
 }
 

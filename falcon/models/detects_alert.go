@@ -172,6 +172,10 @@ type DetectsAlert struct {
 	// Required: true
 	IsAggregated *bool `json:"is_aggregated"`
 
+	// Boolean indicating if this Alert is coming from a Falcon Platform IOA rule
+	// Required: true
+	IsFalconPlatformIoa *bool `json:"is_falcon_platform_ioa"`
+
 	// is synthetic quarantine disposition
 	IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
@@ -505,6 +509,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// Required: true
 		IsAggregated *bool `json:"is_aggregated"`
 
+		// Boolean indicating if this Alert is coming from a Falcon Platform IOA rule
+		// Required: true
+		IsFalconPlatformIoa *bool `json:"is_falcon_platform_ioa"`
+
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
@@ -725,6 +733,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.IocValue = stage1.IocValue
 	rcv.IocValues = stage1.IocValues
 	rcv.IsAggregated = stage1.IsAggregated
+	rcv.IsFalconPlatformIoa = stage1.IsFalconPlatformIoa
 	rcv.IsSyntheticQuarantineDisposition = stage1.IsSyntheticQuarantineDisposition
 	rcv.LinkedBehavioralDetections = stage1.LinkedBehavioralDetections
 	rcv.LinkedCaseIds = stage1.LinkedCaseIds
@@ -823,6 +832,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "ioc_value")
 	delete(stage2, "ioc_values")
 	delete(stage2, "is_aggregated")
+	delete(stage2, "is_falcon_platform_ioa")
 	delete(stage2, "is_synthetic_quarantine_disposition")
 	delete(stage2, "linked_behavioral_detections")
 	delete(stage2, "linked_case_ids")
@@ -1042,6 +1052,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 		// Required: true
 		IsAggregated *bool `json:"is_aggregated"`
 
+		// Boolean indicating if this Alert is coming from a Falcon Platform IOA rule
+		// Required: true
+		IsFalconPlatformIoa *bool `json:"is_falcon_platform_ioa"`
+
 		// is synthetic quarantine disposition
 		IsSyntheticQuarantineDisposition bool `json:"is_synthetic_quarantine_disposition,omitempty"`
 
@@ -1258,6 +1272,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.IocValue = m.IocValue
 	stage1.IocValues = m.IocValues
 	stage1.IsAggregated = m.IsAggregated
+	stage1.IsFalconPlatformIoa = m.IsFalconPlatformIoa
 	stage1.IsSyntheticQuarantineDisposition = m.IsSyntheticQuarantineDisposition
 	stage1.LinkedBehavioralDetections = m.LinkedBehavioralDetections
 	stage1.LinkedCaseIds = m.LinkedCaseIds
@@ -1444,6 +1459,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIsAggregated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsFalconPlatformIoa(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1887,6 +1906,15 @@ func (m *DetectsAlert) validateIocContext(formats strfmt.Registry) error {
 func (m *DetectsAlert) validateIsAggregated(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_aggregated", "body", m.IsAggregated); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateIsFalconPlatformIoa(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_falcon_platform_ioa", "body", m.IsFalconPlatformIoa); err != nil {
 		return err
 	}
 

@@ -73,7 +73,7 @@ type UpdateTemplatesParams struct {
 
 	   "templates" specifications for updating
 	*/
-	Body []*models.DomainTemplateUpdateRequest
+	Body []*models.NvaapiTemplateUpdateRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *UpdateTemplatesParams) SetXCSUSERUUID(xCSUSERUUID *string) {
 }
 
 // WithBody adds the body to the update templates params
-func (o *UpdateTemplatesParams) WithBody(body []*models.DomainTemplateUpdateRequest) *UpdateTemplatesParams {
+func (o *UpdateTemplatesParams) WithBody(body []*models.NvaapiTemplateUpdateRequest) *UpdateTemplatesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update templates params
-func (o *UpdateTemplatesParams) SetBody(body []*models.DomainTemplateUpdateRequest) {
+func (o *UpdateTemplatesParams) SetBody(body []*models.NvaapiTemplateUpdateRequest) {
 	o.Body = body
 }
 

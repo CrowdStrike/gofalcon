@@ -331,6 +331,9 @@ type DomainDiscoverAPIIoTHost struct {
 	// The asset's network interfaces (Cannot be used for filtering, sorting, or querying).
 	NetworkInterfaces []*DomainDiscoverAPINetworkInterface `json:"network_interfaces"`
 
+	// The external ID of the IoT Device in 3rd Party System (Nozomi Vantage)
+	NozomiID string `json:"nozomi_id,omitempty"`
+
 	// The number of active physical drives available on the system.
 	NumberOfDiskDrives int32 `json:"number_of_disk_drives,omitempty"`
 

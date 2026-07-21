@@ -64,7 +64,7 @@ type CombinedDetectionsParams struct {
 
 	/* Filter.
 
-	   Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,last_detected,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
+	   Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,is_from_module,last_detected,module_path,module_source,module_version,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
 	*/
 	Filter *string
 
@@ -82,7 +82,7 @@ type CombinedDetectionsParams struct {
 
 	/* Sort.
 
-	   fields to sort the records on. Supported columns:  [detection_uuid file_name last_detected platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
+	   fields to sort the records on. Supported columns:  [detection_uuid file_name is_from_module last_detected module_path module_source module_version platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
 	*/
 	Sort *string
 

@@ -96,7 +96,7 @@ type CreateNetworksCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainNetworkEntitiesResponse
+	Payload *models.NvaapiNetworkEntitiesResponse
 }
 
 // IsSuccess returns true when this create networks created response has a 2xx status code
@@ -137,7 +137,7 @@ func (o *CreateNetworksCreated) String() string {
 	return fmt.Sprintf("[POST /netscan/entities/networks/v1][%d] createNetworksCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateNetworksCreated) GetPayload() *models.DomainNetworkEntitiesResponse {
+func (o *CreateNetworksCreated) GetPayload() *models.NvaapiNetworkEntitiesResponse {
 	return o.Payload
 }
 
@@ -172,7 +172,7 @@ func (o *CreateNetworksCreated) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainNetworkEntitiesResponse)
+	o.Payload = new(models.NvaapiNetworkEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

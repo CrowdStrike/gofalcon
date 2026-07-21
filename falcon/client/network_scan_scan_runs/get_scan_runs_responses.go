@@ -90,7 +90,7 @@ type GetScanRunsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainScanRunEntitiesResponse
+	Payload *models.NvaapiScanRunEntitiesResponse
 }
 
 // IsSuccess returns true when this get scan runs o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetScanRunsOK) String() string {
 	return fmt.Sprintf("[GET /netscan/entities/scan-runs/v1][%d] getScanRunsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetScanRunsOK) GetPayload() *models.DomainScanRunEntitiesResponse {
+func (o *GetScanRunsOK) GetPayload() *models.NvaapiScanRunEntitiesResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetScanRunsOK) readResponse(response runtime.ClientResponse, consumer r
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainScanRunEntitiesResponse)
+	o.Payload = new(models.NvaapiScanRunEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
