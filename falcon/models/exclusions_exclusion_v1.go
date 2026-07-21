@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -38,11 +37,14 @@ type ExclusionsExclusionV1 struct {
 
 	// groups
 	// Required: true
-	Groups []*HostGroupsHostGroupV1 `json:"groups"`
+	Groups []string `json:"groups"`
 
 	// id
 	// Required: true
 	ID *string `json:"id"`
+
+	// is descendant process
+	IsDescendantProcess bool `json:"is_descendant_process,omitempty"`
 
 	// last modified
 	// Required: true
@@ -153,24 +155,6 @@ func (m *ExclusionsExclusionV1) validateGroups(formats strfmt.Registry) error {
 		return err
 	}
 
-	for i := 0; i < len(m.Groups); i++ {
-		if swag.IsZero(m.Groups[i]) { // not required
-			continue
-		}
-
-		if m.Groups[i] != nil {
-			if err := m.Groups[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -232,42 +216,8 @@ func (m *ExclusionsExclusionV1) validateValueHash(formats strfmt.Registry) error
 	return nil
 }
 
-// ContextValidate validate this exclusions exclusion v1 based on the context it is used
+// ContextValidate validates this exclusions exclusion v1 based on context it is used
 func (m *ExclusionsExclusionV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateGroups(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *ExclusionsExclusionV1) contextValidateGroups(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Groups); i++ {
-
-		if m.Groups[i] != nil {
-
-			if swag.IsZero(m.Groups[i]) { // not required
-				return nil
-			}
-
-			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
