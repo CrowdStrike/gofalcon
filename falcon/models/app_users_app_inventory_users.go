@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -30,7 +31,7 @@ type AppUsersAppInventoryUsers struct {
 
 	// users
 	// Required: true
-	Users []*string `json:"users"`
+	Users []*AppUsersAppInventoryUsersUsersItems0 `json:"users"`
 }
 
 // Validate validates this app users app inventory users
@@ -83,11 +84,63 @@ func (m *AppUsersAppInventoryUsers) validateUsers(formats strfmt.Registry) error
 		return err
 	}
 
+	for i := 0; i < len(m.Users); i++ {
+		if swag.IsZero(m.Users[i]) { // not required
+			continue
+		}
+
+		if m.Users[i] != nil {
+			if err := m.Users[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("users" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
-// ContextValidate validates this app users app inventory users based on context it is used
+// ContextValidate validate this app users app inventory users based on the context it is used
 func (m *AppUsersAppInventoryUsers) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AppUsersAppInventoryUsers) contextValidateUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Users); i++ {
+
+		if m.Users[i] != nil {
+
+			if swag.IsZero(m.Users[i]) { // not required
+				return nil
+			}
+
+			if err := m.Users[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("users" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -102,6 +155,46 @@ func (m *AppUsersAppInventoryUsers) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (m *AppUsersAppInventoryUsers) UnmarshalBinary(b []byte) error {
 	var res AppUsersAppInventoryUsers
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// AppUsersAppInventoryUsersUsersItems0 app users app inventory users users items0
+//
+// swagger:model AppUsersAppInventoryUsersUsersItems0
+type AppUsersAppInventoryUsersUsersItems0 struct {
+
+	// permission grant id
+	PermissionGrantID *string `json:"permission_grant_id,omitempty"`
+
+	// username
+	Username *string `json:"username,omitempty"`
+}
+
+// Validate validates this app users app inventory users users items0
+func (m *AppUsersAppInventoryUsersUsersItems0) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this app users app inventory users users items0 based on context it is used
+func (m *AppUsersAppInventoryUsersUsersItems0) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *AppUsersAppInventoryUsersUsersItems0) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *AppUsersAppInventoryUsersUsersItems0) UnmarshalBinary(b []byte) error {
+	var res AppUsersAppInventoryUsersUsersItems0
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

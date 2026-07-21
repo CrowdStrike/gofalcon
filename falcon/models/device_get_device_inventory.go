@@ -7,6 +7,8 @@ package models
 
 import (
 	"context"
+	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -81,11 +83,11 @@ type DeviceGetDeviceInventory struct {
 
 	// reported apps
 	// Required: true
-	ReportedApps []*string `json:"reported_apps"`
+	ReportedApps []*DeviceGetDeviceInventoryReportedAppsItems0 `json:"reported_apps"`
 
 	// reporters
 	// Required: true
-	Reporters []*string `json:"reporters"`
+	Reporters []*DeviceGetDeviceInventoryReportersItems0 `json:"reporters"`
 
 	// User email
 	// Required: true
@@ -330,6 +332,24 @@ func (m *DeviceGetDeviceInventory) validateReportedApps(formats strfmt.Registry)
 		return err
 	}
 
+	for i := 0; i < len(m.ReportedApps); i++ {
+		if swag.IsZero(m.ReportedApps[i]) { // not required
+			continue
+		}
+
+		if m.ReportedApps[i] != nil {
+			if err := m.ReportedApps[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("reported_apps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("reported_apps" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -337,6 +357,24 @@ func (m *DeviceGetDeviceInventory) validateReporters(formats strfmt.Registry) er
 
 	if err := validate.Required("reporters", "body", m.Reporters); err != nil {
 		return err
+	}
+
+	for i := 0; i < len(m.Reporters); i++ {
+		if swag.IsZero(m.Reporters[i]) { // not required
+			continue
+		}
+
+		if m.Reporters[i] != nil {
+			if err := m.Reporters[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("reporters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("reporters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -364,8 +402,71 @@ func (m *DeviceGetDeviceInventory) validateUserExists(formats strfmt.Registry) e
 	return nil
 }
 
-// ContextValidate validates this device get device inventory based on context it is used
+// ContextValidate validate this device get device inventory based on the context it is used
 func (m *DeviceGetDeviceInventory) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateReportedApps(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReporters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DeviceGetDeviceInventory) contextValidateReportedApps(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ReportedApps); i++ {
+
+		if m.ReportedApps[i] != nil {
+
+			if swag.IsZero(m.ReportedApps[i]) { // not required
+				return nil
+			}
+
+			if err := m.ReportedApps[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("reported_apps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("reported_apps" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DeviceGetDeviceInventory) contextValidateReporters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Reporters); i++ {
+
+		if m.Reporters[i] != nil {
+
+			if swag.IsZero(m.Reporters[i]) { // not required
+				return nil
+			}
+
+			if err := m.Reporters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("reporters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("reporters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -380,6 +481,162 @@ func (m *DeviceGetDeviceInventory) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (m *DeviceGetDeviceInventory) UnmarshalBinary(b []byte) error {
 	var res DeviceGetDeviceInventory
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DeviceGetDeviceInventoryReportedAppsItems0 device get device inventory reported apps items0
+//
+// swagger:model DeviceGetDeviceInventoryReportedAppsItems0
+type DeviceGetDeviceInventoryReportedAppsItems0 struct {
+
+	// app name
+	AppName *string `json:"app_name,omitempty"`
+
+	// device get device inventory reported apps items0 additional properties
+	DeviceGetDeviceInventoryReportedAppsItems0AdditionalProperties map[string]interface{} `json:"-"`
+}
+
+// UnmarshalJSON unmarshals this object with additional properties from JSON
+func (m *DeviceGetDeviceInventoryReportedAppsItems0) UnmarshalJSON(data []byte) error {
+	// stage 1, bind the properties
+	var stage1 struct {
+
+		// app name
+		AppName *string `json:"app_name,omitempty"`
+	}
+	if err := json.Unmarshal(data, &stage1); err != nil {
+		return err
+	}
+	var rcv DeviceGetDeviceInventoryReportedAppsItems0
+
+	rcv.AppName = stage1.AppName
+	*m = rcv
+
+	// stage 2, remove properties and add to map
+	stage2 := make(map[string]json.RawMessage)
+	if err := json.Unmarshal(data, &stage2); err != nil {
+		return err
+	}
+
+	delete(stage2, "app_name")
+	// stage 3, add additional properties values
+	if len(stage2) > 0 {
+		result := make(map[string]interface{})
+		for k, v := range stage2 {
+			var toadd interface{}
+			if err := json.Unmarshal(v, &toadd); err != nil {
+				return err
+			}
+			result[k] = toadd
+		}
+		m.DeviceGetDeviceInventoryReportedAppsItems0AdditionalProperties = result
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals this object with additional properties into a JSON object
+func (m DeviceGetDeviceInventoryReportedAppsItems0) MarshalJSON() ([]byte, error) {
+	var stage1 struct {
+
+		// app name
+		AppName *string `json:"app_name,omitempty"`
+	}
+
+	stage1.AppName = m.AppName
+
+	// make JSON object for known properties
+	props, err := json.Marshal(stage1)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(m.DeviceGetDeviceInventoryReportedAppsItems0AdditionalProperties) == 0 { // no additional properties
+		return props, nil
+	}
+
+	// make JSON object for the additional properties
+	additional, err := json.Marshal(m.DeviceGetDeviceInventoryReportedAppsItems0AdditionalProperties)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(props) < 3 { // "{}": only additional properties
+		return additional, nil
+	}
+
+	// concatenate the 2 objects
+	return swag.ConcatJSON(props, additional), nil
+}
+
+// Validate validates this device get device inventory reported apps items0
+func (m *DeviceGetDeviceInventoryReportedAppsItems0) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this device get device inventory reported apps items0 based on context it is used
+func (m *DeviceGetDeviceInventoryReportedAppsItems0) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DeviceGetDeviceInventoryReportedAppsItems0) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DeviceGetDeviceInventoryReportedAppsItems0) UnmarshalBinary(b []byte) error {
+	var res DeviceGetDeviceInventoryReportedAppsItems0
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// DeviceGetDeviceInventoryReportersItems0 device get device inventory reporters items0
+//
+// swagger:model DeviceGetDeviceInventoryReportersItems0
+type DeviceGetDeviceInventoryReportersItems0 struct {
+
+	// alias
+	Alias *string `json:"alias,omitempty"`
+
+	// integration id
+	IntegrationID *string `json:"integration_id,omitempty"`
+
+	// title
+	Title *string `json:"title,omitempty"`
+}
+
+// Validate validates this device get device inventory reporters items0
+func (m *DeviceGetDeviceInventoryReportersItems0) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this device get device inventory reporters items0 based on context it is used
+func (m *DeviceGetDeviceInventoryReportersItems0) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *DeviceGetDeviceInventoryReportersItems0) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *DeviceGetDeviceInventoryReportersItems0) UnmarshalBinary(b []byte) error {
+	var res DeviceGetDeviceInventoryReportersItems0
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
