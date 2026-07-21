@@ -20,7 +20,7 @@ import (
 type APICertBasedExclusionV1 struct {
 
 	// applied globally
-	AppliedGlobally bool `json:"applied_globally,omitempty"`
+	AppliedGlobally *bool `json:"applied_globally,omitempty"`
 
 	// certificate
 	Certificate *APICertificateV1 `json:"certificate,omitempty"`
@@ -33,7 +33,7 @@ type APICertBasedExclusionV1 struct {
 	Cid *string `json:"cid"`
 
 	// comment
-	Comment string `json:"comment,omitempty"`
+	Comment *string `json:"comment,omitempty"`
 
 	// created by
 	CreatedBy string `json:"created_by,omitempty"`
