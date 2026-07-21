@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -74,7 +75,7 @@ type AppAppInventory struct {
 
 	// scopes
 	// Required: true
-	Scopes []*string `json:"scopes"`
+	Scopes []*AppAppInventoryScopesItems0 `json:"scopes"`
 
 	// Status
 	// Required: true
@@ -303,6 +304,24 @@ func (m *AppAppInventory) validateScopes(formats strfmt.Registry) error {
 		return err
 	}
 
+	for i := 0; i < len(m.Scopes); i++ {
+		if swag.IsZero(m.Scopes[i]) { // not required
+			continue
+		}
+
+		if m.Scopes[i] != nil {
+			if err := m.Scopes[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -345,8 +364,42 @@ func (m *AppAppInventory) validateStatusReason(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this app app inventory based on context it is used
+// ContextValidate validate this app app inventory based on the context it is used
 func (m *AppAppInventory) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateScopes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AppAppInventory) contextValidateScopes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Scopes); i++ {
+
+		if m.Scopes[i] != nil {
+
+			if swag.IsZero(m.Scopes[i]) { // not required
+				return nil
+			}
+
+			if err := m.Scopes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -361,6 +414,52 @@ func (m *AppAppInventory) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (m *AppAppInventory) UnmarshalBinary(b []byte) error {
 	var res AppAppInventory
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// AppAppInventoryScopesItems0 app app inventory scopes items0
+//
+// swagger:model AppAppInventoryScopesItems0
+type AppAppInventoryScopesItems0 struct {
+
+	// access level
+	AccessLevel *string `json:"access_level,omitempty"`
+
+	// is read
+	IsRead *bool `json:"is_read,omitempty"`
+
+	// is write
+	IsWrite *bool `json:"is_write,omitempty"`
+
+	// name
+	Name *string `json:"name,omitempty"`
+}
+
+// Validate validates this app app inventory scopes items0
+func (m *AppAppInventoryScopesItems0) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this app app inventory scopes items0 based on context it is used
+func (m *AppAppInventoryScopesItems0) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *AppAppInventoryScopesItems0) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *AppAppInventoryScopesItems0) UnmarshalBinary(b []byte) error {
+	var res AppAppInventoryScopesItems0
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

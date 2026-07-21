@@ -868,3 +868,63 @@
 # so go-swagger silently drops it; add it as an optional boolean (verified present on live get).
 | .definitions."exclusions.ExclusionV1".properties.groups = {"type": "array", "items": {"type": "string"}}
 | .definitions."exclusions.ExclusionV1".properties.is_descendant_process = {"type": "boolean"}
+
+# --- SaaS Security (Falcon Shield) array-of-object fixes ---
+# The spec types several SaaS Security record fields as arrays of strings, but
+# the live API returns arrays of objects. go-swagger generates []*string for
+# them, so decoding any real response panics with
+# "cannot unmarshal object into Go struct field ... of type string".
+# Retype each to an array of objects matching the live response shape (verified
+# live 2026-07-21). Objects are defined inline so go-swagger emits nested typed
+# structs; additionalProperties:true tolerates fields not modeled here.
+#
+# Device_GetDeviceInventory.reporters: which integrations reported the device.
+| .definitions."Device_GetDeviceInventory".properties.reporters = {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "integration_id": {"type": "string", "x-nullable": true},
+        "alias": {"type": "string", "x-nullable": true},
+        "title": {"type": "string", "x-nullable": true}
+      }
+    }
+  }
+# Device_GetDeviceInventory.reported_apps: apps observed on the device. Shape is
+# heterogeneous (Falcon adds score/vulnerabilities; other integrations add
+# fields), so only app_name is modeled and additionalProperties is allowed.
+| .definitions."Device_GetDeviceInventory".properties.reported_apps = {
+    "type": "array",
+    "x-nullable": true,
+    "items": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "app_name": {"type": "string", "x-nullable": true}
+      }
+    }
+  }
+# App_AppInventory.scopes: OAuth/permission scopes granted to the app.
+| .definitions."App_AppInventory".properties.scopes = {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string", "x-nullable": true},
+        "access_level": {"type": "string", "x-nullable": true},
+        "is_read": {"type": "boolean", "x-nullable": true},
+        "is_write": {"type": "boolean", "x-nullable": true}
+      }
+    }
+  }
+# AppUsers_AppInventoryUsers.users: users associated with the app.
+| .definitions."AppUsers_AppInventoryUsers".properties.users = {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "username": {"type": "string", "x-nullable": true},
+        "permission_grant_id": {"type": "string", "x-nullable": true}
+      }
+    }
+  }
