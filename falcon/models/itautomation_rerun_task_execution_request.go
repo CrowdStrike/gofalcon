@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -25,7 +26,6 @@ type ItautomationRerunTaskExecutionRequest struct {
 	RunType string `json:"run_type,omitempty"`
 
 	// Types of reruns to combine with OR logic. Cannot be used with run_type. Example: ['failed', 'offline']
-	// Enum: [hosts failed offline target completed canceled expired]
 	RunTypes []string `json:"run_types"`
 
 	// ID of the task execution to rerun. Example: f64b95555ef54ea682619ce880d267cc
@@ -103,21 +103,20 @@ func (m *ItautomationRerunTaskExecutionRequest) validateRunType(formats strfmt.R
 	return nil
 }
 
-var itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum []interface{}
+var itautomationRerunTaskExecutionRequestRunTypesItemsEnum []interface{}
 
 func init() {
-	var res [][]string
+	var res []string
 	if err := json.Unmarshal([]byte(`["hosts","failed","offline","target","completed","canceled","expired"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
-		itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum = append(itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum, v)
+		itautomationRerunTaskExecutionRequestRunTypesItemsEnum = append(itautomationRerunTaskExecutionRequestRunTypesItemsEnum, v)
 	}
 }
 
-// prop value enum
-func (m *ItautomationRerunTaskExecutionRequest) validateRunTypesEnum(path, location string, value []string) error {
-	if err := validate.EnumCase(path, location, value, itautomationRerunTaskExecutionRequestTypeRunTypesPropEnum, true); err != nil {
+func (m *ItautomationRerunTaskExecutionRequest) validateRunTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, itautomationRerunTaskExecutionRequestRunTypesItemsEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -128,9 +127,13 @@ func (m *ItautomationRerunTaskExecutionRequest) validateRunTypes(formats strfmt.
 		return nil
 	}
 
-	// for slice
-	if err := m.validateRunTypesEnum("run_types", "body", m.RunTypes); err != nil {
-		return err
+	for i := 0; i < len(m.RunTypes); i++ {
+
+		// value enum
+		if err := m.validateRunTypesItemsEnum("run_types"+"."+strconv.Itoa(i), "body", m.RunTypes[i]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil
