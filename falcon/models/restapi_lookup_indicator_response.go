@@ -30,7 +30,7 @@ type RestapiLookupIndicatorResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*FigapiLookupIndicator `json:"resources"`
+	Resources []*RestapiLookupIndicator `json:"resources"`
 }
 
 // Validate validates this restapi lookup indicator response

@@ -29,6 +29,9 @@ type GraphHMACConfig struct {
 	// Name of the header containing the webhook message ID
 	MessageIDHeaderName string `json:"message_id_header_name,omitempty"`
 
+	// The message ids key in a compound header for HMAC authentication (e.g. 'm' for 'm=<message_id>,v1=<signature>').
+	MessageIDKey string `json:"message_id_key,omitempty"`
+
 	// Secret key for HMAC signing
 	Secret string `json:"secret,omitempty"`
 
@@ -38,11 +41,20 @@ type GraphHMACConfig struct {
 	// Name of the header containing the HMAC signature
 	SignatureHeaderName string `json:"signature_header_name,omitempty"`
 
+	// The signatures key in a compound header for HMAC authentication (e.g. 'v1' for 't=<timestamp>,v1=<signature>')
+	SignatureKey string `json:"signature_key,omitempty"`
+
 	// Prefix of the HMAC signature which defines the signature format
 	SignaturePrefix string `json:"signature_prefix,omitempty"`
 
-	// Name of the header containing the timestamp
+	// Name of the header containing the timestamp. Mutually exclusive with timestamp_prefix.
 	TimestampHeaderName string `json:"timestamp_header_name,omitempty"`
+
+	// The timestamps key in a compound header for HMAC authentication (e.g. 't' for 't=<timestamp>,v1=<signature>').
+	TimestampKey string `json:"timestamp_key,omitempty"`
+
+	// Using a compound header searches the HMAC signature header for message_id and timestamp values using given
+	UseCompoundHeader bool `json:"use_compound_header,omitempty"`
 }
 
 // Validate validates this graph h m a c config

@@ -19,9 +19,15 @@ import (
 // swagger:model domain.MitreAttackMapping
 type DomainMitreAttackMapping struct {
 
+	// tactic
+	Tactic string `json:"tactic,omitempty"`
+
 	// tactic id
 	// Required: true
 	TacticID *string `json:"tactic_id"`
+
+	// technique
+	Technique string `json:"technique,omitempty"`
 
 	// technique id
 	TechniqueID string `json:"technique_id,omitempty"`

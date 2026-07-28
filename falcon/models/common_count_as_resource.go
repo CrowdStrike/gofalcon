@@ -22,6 +22,10 @@ type CommonCountAsResource struct {
 	// count
 	// Required: true
 	Count *int64 `json:"count"`
+
+	// label
+	// Required: true
+	Label *string `json:"label"`
 }
 
 // Validate validates this common count as resource
@@ -29,6 +33,10 @@ func (m *CommonCountAsResource) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLabel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -41,6 +49,15 @@ func (m *CommonCountAsResource) Validate(formats strfmt.Registry) error {
 func (m *CommonCountAsResource) validateCount(formats strfmt.Registry) error {
 
 	if err := validate.Required("count", "body", m.Count); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CommonCountAsResource) validateLabel(formats strfmt.Registry) error {
+
+	if err := validate.Required("label", "body", m.Label); err != nil {
 		return err
 	}
 

@@ -65,7 +65,7 @@ type CaoIncidentsQueriesV1Params struct {
 	/* Filter.
 
 	    Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-	Available filters: MitreAttack.TacticName, All, Title, InvolvesAdversaries.Id, InvolvesAdversaries.Name, MitreAttack.Id, MitreAttack.TacticId, ReferencesNotableEvents.Title, ActivityStart, PublishDate, InvolvesAdversaries.Slug, Objectives.Slug, Motivations.Slug, MitreAttack.TechniqueName, LastModifiedAt, InvolvesAdversaries.AnimalClassifier, TargetsVulnerabilities.CVE, TargetingProfile.Slug, MitreAttack.TechniqueId, TargetCountries.Slug, TargetRegions.Slug, TargetIndustries.Slug, InvolvesIndicators.Value, Id, ActivityEnd, InvolvesThreats.FamilyName. 'All' can be used for text queries on all attributes.
+	Available filters: TargetIndustries.Slug, InvolvesAdversaries.Name, MitreAttack.Id, Id, Title, InvolvesAdversaries.Slug, Motivations.Slug, MitreAttack.TacticId, TargetCountries.Slug, TargetRegions.Slug, InvolvesIndicators.Value, ActivityEnd, InvolvesAdversaries.Id, InvolvesThreats.FamilyName, TargetsVulnerabilities.CVE, Objectives.Slug, TargetingProfile.Slug, MitreAttack.TacticName, LastModifiedAt, All, ActivityStart, PublishDate, InvolvesAdversaries.AnimalClassifier, MitreAttack.TechniqueId, MitreAttack.TechniqueName, ReferencesNotableEvents.Title. 'All' can be used for text queries on all attributes.
 	*/
 	Filter *string
 
@@ -83,7 +83,7 @@ type CaoIncidentsQueriesV1Params struct {
 
 	/* Sort.
 
-	   The property to sort on, followed by a dot (.), followed by the sort direction, either "asc" or "desc". Available sort properties: ActivityEnd, PublishDate, InvolvesAdversaries.Name, InvolvesAdversaries.Slug, LastModifiedAt, ActivityStart.
+	   The property to sort on, followed by a dot (.), followed by the sort direction, either "asc" or "desc". Available sort properties: ActivityStart, ActivityEnd, PublishDate, InvolvesAdversaries.Name, InvolvesAdversaries.Slug, LastModifiedAt.
 	*/
 	Sort *string
 

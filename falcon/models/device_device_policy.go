@@ -33,6 +33,10 @@ type DeviceDevicePolicy struct {
 	// exempt
 	Exempt bool `json:"exempt,omitempty"`
 
+	// last evaluation date
+	// Format: date-time
+	LastEvaluationDate strfmt.DateTime `json:"last_evaluation_date,omitempty"`
+
 	// policy id
 	// Required: true
 	PolicyID *string `json:"policy_id"`
@@ -63,6 +67,10 @@ func (m *DeviceDevicePolicy) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAssignedDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastEvaluationDate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -98,6 +106,18 @@ func (m *DeviceDevicePolicy) validateAssignedDate(formats strfmt.Registry) error
 	}
 
 	if err := validate.FormatOf("assigned_date", "body", "date-time", m.AssignedDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceDevicePolicy) validateLastEvaluationDate(formats strfmt.Registry) error {
+	if swag.IsZero(m.LastEvaluationDate) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("last_evaluation_date", "body", "date-time", m.LastEvaluationDate.String(), formats); err != nil {
 		return err
 	}
 

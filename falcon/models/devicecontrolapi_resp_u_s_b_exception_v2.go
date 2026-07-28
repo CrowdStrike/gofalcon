@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -30,8 +31,18 @@ type DevicecontrolapiRespUSBExceptionV2 struct {
 	// combined id
 	CombinedID string `json:"combined_id,omitempty"`
 
+	// created timestamp
+	// Format: date-time
+	CreatedTimestamp strfmt.DateTime `json:"created_timestamp,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
+
+	// List of groups excluded from the exception scope
+	ExcludedGroups []*DevicecontrolapiIdentityV1 `json:"excluded_groups"`
+
+	// List of users excluded from the exception scope
+	ExcludedUsers []*DevicecontrolapiIdentityV1 `json:"excluded_users"`
 
 	// expiration time
 	// Format: date-time
@@ -41,9 +52,19 @@ type DevicecontrolapiRespUSBExceptionV2 struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// List of groups included in the exception scope
+	IncludedGroups []*DevicecontrolapiIdentityV1 `json:"included_groups"`
+
+	// List of users included in the exception scope
+	IncludedUsers []*DevicecontrolapiIdentityV1 `json:"included_users"`
+
 	// match method
 	// Required: true
 	MatchMethod *string `json:"match_method"`
+
+	// modified timestamp
+	// Format: date-time
+	ModifiedTimestamp strfmt.DateTime `json:"modified_timestamp,omitempty"`
 
 	// product id
 	ProductID string `json:"product_id,omitempty"`
@@ -67,6 +88,9 @@ type DevicecontrolapiRespUSBExceptionV2 struct {
 	// Name of the vendor
 	// Required: true
 	VendorName *string `json:"vendor_name"`
+
+	// warning trigger ids
+	WarningTriggerIds []string `json:"warning_trigger_ids"`
 }
 
 // Validate validates this devicecontrolapi resp u s b exception v2
@@ -81,6 +105,18 @@ func (m *DevicecontrolapiRespUSBExceptionV2) Validate(formats strfmt.Registry) e
 		res = append(res, err)
 	}
 
+	if err := m.validateCreatedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExcludedGroups(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExcludedUsers(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateExpirationTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -89,7 +125,19 @@ func (m *DevicecontrolapiRespUSBExceptionV2) Validate(formats strfmt.Registry) e
 		res = append(res, err)
 	}
 
+	if err := m.validateIncludedGroups(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIncludedUsers(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMatchMethod(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateModifiedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -125,6 +173,70 @@ func (m *DevicecontrolapiRespUSBExceptionV2) validateClass(formats strfmt.Regist
 	return nil
 }
 
+func (m *DevicecontrolapiRespUSBExceptionV2) validateCreatedTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.CreatedTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) validateExcludedGroups(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExcludedGroups) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ExcludedGroups); i++ {
+		if swag.IsZero(m.ExcludedGroups[i]) { // not required
+			continue
+		}
+
+		if m.ExcludedGroups[i] != nil {
+			if err := m.ExcludedGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("excluded_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("excluded_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) validateExcludedUsers(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExcludedUsers) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ExcludedUsers); i++ {
+		if swag.IsZero(m.ExcludedUsers[i]) { // not required
+			continue
+		}
+
+		if m.ExcludedUsers[i] != nil {
+			if err := m.ExcludedUsers[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("excluded_users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("excluded_users" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DevicecontrolapiRespUSBExceptionV2) validateExpirationTime(formats strfmt.Registry) error {
 	if swag.IsZero(m.ExpirationTime) { // not required
 		return nil
@@ -146,9 +258,73 @@ func (m *DevicecontrolapiRespUSBExceptionV2) validateID(formats strfmt.Registry)
 	return nil
 }
 
+func (m *DevicecontrolapiRespUSBExceptionV2) validateIncludedGroups(formats strfmt.Registry) error {
+	if swag.IsZero(m.IncludedGroups) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.IncludedGroups); i++ {
+		if swag.IsZero(m.IncludedGroups[i]) { // not required
+			continue
+		}
+
+		if m.IncludedGroups[i] != nil {
+			if err := m.IncludedGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("included_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("included_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) validateIncludedUsers(formats strfmt.Registry) error {
+	if swag.IsZero(m.IncludedUsers) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.IncludedUsers); i++ {
+		if swag.IsZero(m.IncludedUsers[i]) { // not required
+			continue
+		}
+
+		if m.IncludedUsers[i] != nil {
+			if err := m.IncludedUsers[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("included_users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("included_users" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DevicecontrolapiRespUSBExceptionV2) validateMatchMethod(formats strfmt.Registry) error {
 
 	if err := validate.Required("match_method", "body", m.MatchMethod); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) validateModifiedTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.ModifiedTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("modified_timestamp", "body", "date-time", m.ModifiedTimestamp.String(), formats); err != nil {
 		return err
 	}
 
@@ -173,8 +349,129 @@ func (m *DevicecontrolapiRespUSBExceptionV2) validateVendorName(formats strfmt.R
 	return nil
 }
 
-// ContextValidate validates this devicecontrolapi resp u s b exception v2 based on context it is used
+// ContextValidate validate this devicecontrolapi resp u s b exception v2 based on the context it is used
 func (m *DevicecontrolapiRespUSBExceptionV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExcludedGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExcludedUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIncludedGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIncludedUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) contextValidateExcludedGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExcludedGroups); i++ {
+
+		if m.ExcludedGroups[i] != nil {
+
+			if swag.IsZero(m.ExcludedGroups[i]) { // not required
+				return nil
+			}
+
+			if err := m.ExcludedGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("excluded_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("excluded_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) contextValidateExcludedUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExcludedUsers); i++ {
+
+		if m.ExcludedUsers[i] != nil {
+
+			if swag.IsZero(m.ExcludedUsers[i]) { // not required
+				return nil
+			}
+
+			if err := m.ExcludedUsers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("excluded_users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("excluded_users" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) contextValidateIncludedGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IncludedGroups); i++ {
+
+		if m.IncludedGroups[i] != nil {
+
+			if swag.IsZero(m.IncludedGroups[i]) { // not required
+				return nil
+			}
+
+			if err := m.IncludedGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("included_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("included_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBExceptionV2) contextValidateIncludedUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IncludedUsers); i++ {
+
+		if m.IncludedUsers[i] != nil {
+
+			if swag.IsZero(m.IncludedUsers[i]) { // not required
+				return nil
+			}
+
+			if err := m.IncludedUsers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("included_users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("included_users" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

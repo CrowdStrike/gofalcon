@@ -19,24 +19,32 @@ import (
 // swagger:model domain.Permission
 type DomainPermission struct {
 
-	// name
+	// action
 	// Required: true
-	Name *string `json:"name"`
+	Action *string `json:"action"`
 
-	// status
+	// resource
 	// Required: true
-	Status *string `json:"status"`
+	Resource *string `json:"resource"`
+
+	// resource regex
+	// Required: true
+	ResourceRegex *RegexpRegexp `json:"resourceRegex"`
 }
 
 // Validate validates this domain permission
 func (m *DomainPermission) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateAction(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateStatus(formats); err != nil {
+	if err := m.validateResource(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResourceRegex(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -46,26 +54,72 @@ func (m *DomainPermission) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainPermission) validateName(formats strfmt.Registry) error {
+func (m *DomainPermission) validateAction(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("action", "body", m.Action); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainPermission) validateStatus(formats strfmt.Registry) error {
+func (m *DomainPermission) validateResource(formats strfmt.Registry) error {
 
-	if err := validate.Required("status", "body", m.Status); err != nil {
+	if err := validate.Required("resource", "body", m.Resource); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-// ContextValidate validates this domain permission based on context it is used
+func (m *DomainPermission) validateResourceRegex(formats strfmt.Registry) error {
+
+	if err := validate.Required("resourceRegex", "body", m.ResourceRegex); err != nil {
+		return err
+	}
+
+	if m.ResourceRegex != nil {
+		if err := m.ResourceRegex.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resourceRegex")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceRegex")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain permission based on the context it is used
 func (m *DomainPermission) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateResourceRegex(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainPermission) contextValidateResourceRegex(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ResourceRegex != nil {
+
+		if err := m.ResourceRegex.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resourceRegex")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceRegex")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

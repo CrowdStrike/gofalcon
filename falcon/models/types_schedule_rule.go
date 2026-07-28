@@ -27,9 +27,6 @@ type TypesScheduleRule struct {
 	// all regions
 	AllRegions bool `json:"all_regions,omitempty"`
 
-	// asset filter fql
-	AssetFilterFql string `json:"asset_filter_fql,omitempty"`
-
 	// cadence
 	Cadence *CadenceCadence `json:"cadence,omitempty"`
 

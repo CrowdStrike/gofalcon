@@ -32,6 +32,9 @@ type TypesAssetFilter struct {
 
 	// provider type
 	ProviderType TypesProviderType `json:"provider_type,omitempty"`
+
+	// scan product
+	ScanProduct ScanProductsScanProduct `json:"scan_product,omitempty"`
 }
 
 // Validate validates this types asset filter
@@ -55,6 +58,10 @@ func (m *TypesAssetFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProviderType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanProduct(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -157,6 +164,23 @@ func (m *TypesAssetFilter) validateProviderType(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *TypesAssetFilter) validateScanProduct(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScanProduct) { // not required
+		return nil
+	}
+
+	if err := m.ScanProduct.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("scan_product")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("scan_product")
+		}
+		return err
+	}
+
+	return nil
+}
+
 // ContextValidate validate this types asset filter based on the context it is used
 func (m *TypesAssetFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -178,6 +202,10 @@ func (m *TypesAssetFilter) ContextValidate(ctx context.Context, formats strfmt.R
 	}
 
 	if err := m.contextValidateProviderType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScanProduct(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -282,6 +310,24 @@ func (m *TypesAssetFilter) contextValidateProviderType(ctx context.Context, form
 			return ve.ValidateName("provider_type")
 		} else if ce, ok := err.(*errors.CompositeError); ok {
 			return ce.ValidateName("provider_type")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *TypesAssetFilter) contextValidateScanProduct(ctx context.Context, formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ScanProduct) { // not required
+		return nil
+	}
+
+	if err := m.ScanProduct.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("scan_product")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("scan_product")
 		}
 		return err
 	}
