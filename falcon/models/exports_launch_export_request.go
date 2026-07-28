@@ -19,6 +19,9 @@ import (
 // swagger:model exports.LaunchExportRequest
 type ExportsLaunchExportRequest struct {
 
+	// When set to true for function vulnerabilities export, includes detailed vulnerability information. Currently returns same data as without expansion - full expansion to be implemented in next step
+	ExpandVulnerabilities bool `json:"expand_vulnerabilities,omitempty"`
+
 	// Format of the export file. One of: csv, json
 	// Required: true
 	Format *string `json:"format"`

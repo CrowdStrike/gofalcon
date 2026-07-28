@@ -29,7 +29,7 @@ type DataconnectionmanagementConnectionTokenResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*DataconnectionmanagementConnectionToken `json:"resources"`
+	Resources *DataconnectionmanagementConnectionToken `json:"resources"`
 }
 
 // Validate validates this dataconnectionmanagement connection token response
@@ -106,22 +106,15 @@ func (m *DataconnectionmanagementConnectionTokenResponse) validateResources(form
 		return err
 	}
 
-	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
+	if m.Resources != nil {
+		if err := m.Resources.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resources")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resources")
 			}
+			return err
 		}
-
 	}
 
 	return nil
@@ -193,24 +186,16 @@ func (m *DataconnectionmanagementConnectionTokenResponse) contextValidateMeta(ct
 
 func (m *DataconnectionmanagementConnectionTokenResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.Resources); i++ {
+	if m.Resources != nil {
 
-		if m.Resources[i] != nil {
-
-			if swag.IsZero(m.Resources[i]) { // not required
-				return nil
+		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resources")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resources")
 			}
-
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
+			return err
 		}
-
 	}
 
 	return nil

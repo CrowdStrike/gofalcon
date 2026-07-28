@@ -64,7 +64,7 @@ type QueriesClassificationGetV2Params struct {
 
 	/* Filter.
 
-	   Filter results by specific attributes , allowed attributes are [created_by modified_at properties.content_patterns properties.evidence_duplication_enabled properties.protection_mode modified_by properties.content_patterns_operator properties.file_types properties.sensitivity_labels properties.web_sources name created_at]
+	   Filter results by specific attributes , allowed attributes are [created_by properties.content_patterns_operator properties.protection_mode properties.sensitivity_labels created_at modified_by modified_at properties.content_patterns properties.evidence_duplication_enabled properties.file_types properties.web_sources name]
 	*/
 	Filter *string
 

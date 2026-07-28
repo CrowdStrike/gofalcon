@@ -21,208 +21,198 @@ import (
 type ModelsContainer struct {
 
 	// agents
-	// Required: true
 	Agents []ModelsContainerAgents `json:"agents"`
 
-	// ai related
-	// Required: true
-	AiRelated *bool `json:"ai_related"`
-
 	// allow privilege escalation
-	// Required: true
-	AllowPrivilegeEscalation *bool `json:"allow_privilege_escalation"`
-
-	// app name
-	// Required: true
-	AppName *string `json:"app_name"`
+	AllowPrivilegeEscalation bool `json:"allow_privilege_escalation,omitempty"`
 
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// cloud
+	Cloud string `json:"cloud,omitempty"`
+
 	// cloud account id
-	// Required: true
-	CloudAccountID *string `json:"cloud_account_id"`
-
-	// cloud instance id
-	// Required: true
-	CloudInstanceID *string `json:"cloud_instance_id"`
-
-	// cloud name
-	// Required: true
-	CloudName *string `json:"cloud_name"`
+	CloudAccountID string `json:"cloud_account_id,omitempty"`
 
 	// cloud region
-	// Required: true
-	CloudRegion *string `json:"cloud_region"`
-
-	// cloud service
-	// Required: true
-	CloudService *string `json:"cloud_service"`
+	CloudRegion string `json:"cloud_region,omitempty"`
 
 	// cluster id
-	// Required: true
-	ClusterID *string `json:"cluster_id"`
+	ClusterID string `json:"cluster_id,omitempty"`
 
 	// cluster name
-	// Required: true
-	ClusterName *string `json:"cluster_name"`
+	ClusterName string `json:"cluster_name,omitempty"`
 
 	// config labels
-	// Required: true
-	ConfigLabels *string `json:"config_labels"`
+	ConfigLabels string `json:"config_labels,omitempty"`
 
-	// container id
-	// Required: true
-	ContainerID *string `json:"container_id"`
+	// config user
+	ConfigUser string `json:"config_user,omitempty"`
 
-	// container name
-	// Required: true
-	ContainerName *string `json:"container_name"`
+	// container image id
+	ContainerImageID string `json:"container_image_id,omitempty"`
 
 	// created at
-	// Required: true
-	CreatedAt *string `json:"created_at"`
+	CreatedAt int64 `json:"created_at,omitempty"`
+
+	// cve ids
+	CveIds []string `json:"cve_ids"`
 
 	// first seen
+	FirstSeen string `json:"first_seen,omitempty"`
+
+	// host config devices
+	HostConfigDevices string `json:"host_config_devices,omitempty"`
+
+	// id
 	// Required: true
-	FirstSeen *string `json:"first_seen"`
+	ID *string `json:"id"`
 
 	// image application package count
-	// Required: true
-	ImageApplicationPackageCount *int32 `json:"image_application_package_count"`
+	ImageApplicationPackageCount int32 `json:"image_application_package_count,omitempty"`
 
 	// image assessed at
-	// Required: true
-	ImageAssessedAt *int64 `json:"image_assessed_at"`
+	ImageAssessedAt int64 `json:"image_assessed_at,omitempty"`
 
 	// image detection count
-	// Required: true
-	ImageDetectionCount *int32 `json:"image_detection_count"`
+	ImageDetectionCount int32 `json:"image_detection_count,omitempty"`
+
+	// image detection id list
+	ImageDetectionIDList []string `json:"image_detection_id_list"`
+
+	// image detection name list
+	ImageDetectionNameList []string `json:"image_detection_name_list"`
+
+	// image detection severity by type
+	ImageDetectionSeverityByType map[string]int64 `json:"image_detection_severity_by_type,omitempty"`
 
 	// image digest
-	// Required: true
-	ImageDigest *string `json:"image_digest"`
+	ImageDigest string `json:"image_digest,omitempty"`
 
 	// image has been assessed
-	// Required: true
-	ImageHasBeenAssessed *bool `json:"image_has_been_assessed"`
+	ImageHasBeenAssessed bool `json:"image_has_been_assessed,omitempty"`
 
 	// image highest severity vulnerability
-	// Required: true
-	ImageHighestSeverityVulnerability *string `json:"image_highest_severity_vulnerability"`
+	ImageHighestSeverityVulnerability string `json:"image_highest_severity_vulnerability,omitempty"`
 
 	// image id
-	// Required: true
-	ImageID *string `json:"image_id"`
+	ImageID string `json:"image_id,omitempty"`
 
 	// image package count
-	// Required: true
-	ImagePackageCount *int32 `json:"image_package_count"`
+	ImagePackageCount int32 `json:"image_package_count,omitempty"`
 
 	// image registry
-	// Required: true
-	ImageRegistry *string `json:"image_registry"`
+	ImageRegistry string `json:"image_registry,omitempty"`
 
-	// image repository
-	// Required: true
-	ImageRepository *string `json:"image_repository"`
+	// image repo
+	ImageRepo string `json:"image_repo,omitempty"`
 
 	// image tag
-	// Required: true
-	ImageTag *string `json:"image_tag"`
+	ImageTag string `json:"image_tag,omitempty"`
 
 	// image vulnerability count
-	// Required: true
-	ImageVulnerabilityCount *int32 `json:"image_vulnerability_count"`
+	ImageVulnerabilityCount int32 `json:"image_vulnerability_count,omitempty"`
+
+	// image vulnerability severity by type
+	ImageVulnerabilitySeverityByType map[string]int64 `json:"image_vulnerability_severity_by_type,omitempty"`
 
 	// insecure mount source
-	// Required: true
-	InsecureMountSource *string `json:"insecure_mount_source"`
+	InsecureMountSource string `json:"insecure_mount_source,omitempty"`
 
 	// insecure mount type
-	// Required: true
-	InsecureMountType *string `json:"insecure_mount_type"`
+	InsecureMountType string `json:"insecure_mount_type,omitempty"`
 
 	// insecure propagation mode
-	// Required: true
-	InsecurePropagationMode *bool `json:"insecure_propagation_mode"`
+	InsecurePropagationMode bool `json:"insecure_propagation_mode,omitempty"`
 
 	// interactive mode
-	// Required: true
-	InteractiveMode *bool `json:"interactive_mode"`
+	InteractiveMode bool `json:"interactive_mode,omitempty"`
 
 	// ipv4
-	// Required: true
-	IPV4 *string `json:"ipv4"`
+	IPV4 string `json:"ipv4,omitempty"`
 
 	// ipv6
-	// Required: true
-	IPV6 *string `json:"ipv6"`
+	IPV6 string `json:"ipv6,omitempty"`
 
-	// kac agent id
-	// Required: true
-	KacAgentID *string `json:"kac_agent_id"`
+	// kpa coverage
+	KpaCoverage bool `json:"kpa_coverage,omitempty"`
 
 	// labels
-	// Required: true
-	Labels map[string]string `json:"labels"`
+	Labels map[string]string `json:"labels,omitempty"`
 
 	// labels list
-	// Required: true
 	LabelsList []string `json:"labels_list"`
 
 	// last seen
-	// Required: true
-	LastSeen *string `json:"last_seen"`
+	LastSeen string `json:"last_seen,omitempty"`
+
+	// linux sensor aid
+	LinuxSensorAid string `json:"linux_sensor_aid,omitempty"`
+
+	// linux sensor config build
+	LinuxSensorConfigBuild string `json:"linux_sensor_config_build,omitempty"`
+
+	// linux sensor coverage
+	LinuxSensorCoverage bool `json:"linux_sensor_coverage,omitempty"`
+
+	// lumos sensor aid
+	LumosSensorAid string `json:"lumos_sensor_aid,omitempty"`
+
+	// lumos sensor config build
+	LumosSensorConfigBuild string `json:"lumos_sensor_config_build,omitempty"`
+
+	// lumos sensor coverage
+	LumosSensorCoverage bool `json:"lumos_sensor_coverage,omitempty"`
+
+	// name
+	Name string `json:"name,omitempty"`
 
 	// namespace
-	// Required: true
-	Namespace *string `json:"namespace"`
+	Namespace string `json:"namespace,omitempty"`
+
+	// node id
+	NodeID string `json:"node_id,omitempty"`
 
 	// node name
-	// Required: true
-	NodeName *string `json:"node_name"`
-
-	// node uid
-	// Required: true
-	NodeUID *string `json:"node_uid"`
+	NodeName string `json:"node_name,omitempty"`
 
 	// pod id
-	// Required: true
-	PodID *string `json:"pod_id"`
+	PodID string `json:"pod_id,omitempty"`
 
 	// pod name
-	// Required: true
-	PodName *string `json:"pod_name"`
+	PodName string `json:"pod_name,omitempty"`
 
-	// ports
-	// Required: true
-	Ports []ModelsContainerPorts `json:"ports"`
+	// port list
+	PortList []ModelsContainerPortList `json:"port_list"`
 
 	// privileged
-	// Required: true
-	Privileged *bool `json:"privileged"`
+	Privileged bool `json:"privileged,omitempty"`
 
 	// root write access
-	// Required: true
-	RootWriteAccess *bool `json:"root_write_access"`
+	RootWriteAccess bool `json:"root_write_access,omitempty"`
+
+	// rpd
+	Rpd []int64 `json:"rpd"`
 
 	// run as root group
-	// Required: true
-	RunAsRootGroup *bool `json:"run_as_root_group"`
+	RunAsRootGroup bool `json:"run_as_root_group,omitempty"`
 
 	// run as root user
-	// Required: true
-	RunAsRootUser *bool `json:"run_as_root_user"`
+	RunAsRootUser bool `json:"run_as_root_user,omitempty"`
 
 	// running status
-	// Required: true
-	RunningStatus *bool `json:"running_status"`
+	RunningStatus bool `json:"running_status,omitempty"`
+
+	// snapshot coverage
+	SnapshotCoverage bool `json:"snapshot_coverage,omitempty"`
+
+	// unidentified
+	Unidentified bool `json:"unidentified,omitempty"`
 
 	// volume mounts
-	// Required: true
-	VolumeMounts *string `json:"volume_mounts"`
+	VolumeMounts string `json:"volume_mounts,omitempty"`
 }
 
 // Validate validates this models container
@@ -233,203 +223,15 @@ func (m *ModelsContainer) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateAiRelated(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateAllowPrivilegeEscalation(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateAppName(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCloudAccountID(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCloudInstanceID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCloudName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCloudRegion(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCloudService(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateClusterID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateClusterName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateConfigLabels(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateContainerID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateContainerName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCreatedAt(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFirstSeen(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageApplicationPackageCount(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageAssessedAt(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageDetectionCount(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageDigest(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageHasBeenAssessed(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageHighestSeverityVulnerability(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImagePackageCount(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageRegistry(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageRepository(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageTag(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImageVulnerabilityCount(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateInsecureMountSource(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateInsecureMountType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateInsecurePropagationMode(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateInteractiveMode(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIPV4(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIPV6(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateKacAgentID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLabels(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLabelsList(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLastSeen(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateNamespace(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateNodeName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateNodeUID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePodID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePodName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePorts(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePrivileged(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRootWriteAccess(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRunAsRootGroup(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRunAsRootUser(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRunningStatus(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVolumeMounts(formats); err != nil {
+	if err := m.validatePortList(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -440,9 +242,8 @@ func (m *ModelsContainer) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ModelsContainer) validateAgents(formats strfmt.Registry) error {
-
-	if err := validate.Required("agents", "body", m.Agents); err != nil {
-		return err
+	if swag.IsZero(m.Agents) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Agents); i++ {
@@ -463,33 +264,6 @@ func (m *ModelsContainer) validateAgents(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ModelsContainer) validateAiRelated(formats strfmt.Registry) error {
-
-	if err := validate.Required("ai_related", "body", m.AiRelated); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateAllowPrivilegeEscalation(formats strfmt.Registry) error {
-
-	if err := validate.Required("allow_privilege_escalation", "body", m.AllowPrivilegeEscalation); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateAppName(formats strfmt.Registry) error {
-
-	if err := validate.Required("app_name", "body", m.AppName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *ModelsContainer) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
@@ -499,430 +273,33 @@ func (m *ModelsContainer) validateCid(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ModelsContainer) validateCloudAccountID(formats strfmt.Registry) error {
+func (m *ModelsContainer) validateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("cloud_account_id", "body", m.CloudAccountID); err != nil {
+	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsContainer) validateCloudInstanceID(formats strfmt.Registry) error {
-
-	if err := validate.Required("cloud_instance_id", "body", m.CloudInstanceID); err != nil {
-		return err
+func (m *ModelsContainer) validatePortList(formats strfmt.Registry) error {
+	if swag.IsZero(m.PortList) { // not required
+		return nil
 	}
 
-	return nil
-}
+	for i := 0; i < len(m.PortList); i++ {
 
-func (m *ModelsContainer) validateCloudName(formats strfmt.Registry) error {
-
-	if err := validate.Required("cloud_name", "body", m.CloudName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateCloudRegion(formats strfmt.Registry) error {
-
-	if err := validate.Required("cloud_region", "body", m.CloudRegion); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateCloudService(formats strfmt.Registry) error {
-
-	if err := validate.Required("cloud_service", "body", m.CloudService); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateClusterID(formats strfmt.Registry) error {
-
-	if err := validate.Required("cluster_id", "body", m.ClusterID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateClusterName(formats strfmt.Registry) error {
-
-	if err := validate.Required("cluster_name", "body", m.ClusterName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateConfigLabels(formats strfmt.Registry) error {
-
-	if err := validate.Required("config_labels", "body", m.ConfigLabels); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateContainerID(formats strfmt.Registry) error {
-
-	if err := validate.Required("container_id", "body", m.ContainerID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateContainerName(formats strfmt.Registry) error {
-
-	if err := validate.Required("container_name", "body", m.ContainerName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateCreatedAt(formats strfmt.Registry) error {
-
-	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateFirstSeen(formats strfmt.Registry) error {
-
-	if err := validate.Required("first_seen", "body", m.FirstSeen); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageApplicationPackageCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_application_package_count", "body", m.ImageApplicationPackageCount); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageAssessedAt(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_assessed_at", "body", m.ImageAssessedAt); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageDetectionCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_detection_count", "body", m.ImageDetectionCount); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageDigest(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_digest", "body", m.ImageDigest); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageHasBeenAssessed(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_has_been_assessed", "body", m.ImageHasBeenAssessed); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageHighestSeverityVulnerability(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_highest_severity_vulnerability", "body", m.ImageHighestSeverityVulnerability); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageID(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_id", "body", m.ImageID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImagePackageCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_package_count", "body", m.ImagePackageCount); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageRegistry(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_registry", "body", m.ImageRegistry); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageRepository(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_repository", "body", m.ImageRepository); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageTag(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_tag", "body", m.ImageTag); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateImageVulnerabilityCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("image_vulnerability_count", "body", m.ImageVulnerabilityCount); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateInsecureMountSource(formats strfmt.Registry) error {
-
-	if err := validate.Required("insecure_mount_source", "body", m.InsecureMountSource); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateInsecureMountType(formats strfmt.Registry) error {
-
-	if err := validate.Required("insecure_mount_type", "body", m.InsecureMountType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateInsecurePropagationMode(formats strfmt.Registry) error {
-
-	if err := validate.Required("insecure_propagation_mode", "body", m.InsecurePropagationMode); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateInteractiveMode(formats strfmt.Registry) error {
-
-	if err := validate.Required("interactive_mode", "body", m.InteractiveMode); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateIPV4(formats strfmt.Registry) error {
-
-	if err := validate.Required("ipv4", "body", m.IPV4); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateIPV6(formats strfmt.Registry) error {
-
-	if err := validate.Required("ipv6", "body", m.IPV6); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateKacAgentID(formats strfmt.Registry) error {
-
-	if err := validate.Required("kac_agent_id", "body", m.KacAgentID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateLabels(formats strfmt.Registry) error {
-
-	if err := validate.Required("labels", "body", m.Labels); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateLabelsList(formats strfmt.Registry) error {
-
-	if err := validate.Required("labels_list", "body", m.LabelsList); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateLastSeen(formats strfmt.Registry) error {
-
-	if err := validate.Required("last_seen", "body", m.LastSeen); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateNamespace(formats strfmt.Registry) error {
-
-	if err := validate.Required("namespace", "body", m.Namespace); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateNodeName(formats strfmt.Registry) error {
-
-	if err := validate.Required("node_name", "body", m.NodeName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateNodeUID(formats strfmt.Registry) error {
-
-	if err := validate.Required("node_uid", "body", m.NodeUID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validatePodID(formats strfmt.Registry) error {
-
-	if err := validate.Required("pod_id", "body", m.PodID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validatePodName(formats strfmt.Registry) error {
-
-	if err := validate.Required("pod_name", "body", m.PodName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validatePorts(formats strfmt.Registry) error {
-
-	if err := validate.Required("ports", "body", m.Ports); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Ports); i++ {
-
-		if m.Ports[i] != nil {
-			if err := m.Ports[i].Validate(formats); err != nil {
+		if m.PortList[i] != nil {
+			if err := m.PortList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("ports" + "." + strconv.Itoa(i))
+					return ve.ValidateName("port_list" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("ports" + "." + strconv.Itoa(i))
+					return ce.ValidateName("port_list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validatePrivileged(formats strfmt.Registry) error {
-
-	if err := validate.Required("privileged", "body", m.Privileged); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateRootWriteAccess(formats strfmt.Registry) error {
-
-	if err := validate.Required("root_write_access", "body", m.RootWriteAccess); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateRunAsRootGroup(formats strfmt.Registry) error {
-
-	if err := validate.Required("run_as_root_group", "body", m.RunAsRootGroup); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateRunAsRootUser(formats strfmt.Registry) error {
-
-	if err := validate.Required("run_as_root_user", "body", m.RunAsRootUser); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateRunningStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("running_status", "body", m.RunningStatus); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsContainer) validateVolumeMounts(formats strfmt.Registry) error {
-
-	if err := validate.Required("volume_mounts", "body", m.VolumeMounts); err != nil {
-		return err
 	}
 
 	return nil
@@ -936,7 +313,7 @@ func (m *ModelsContainer) ContextValidate(ctx context.Context, formats strfmt.Re
 		res = append(res, err)
 	}
 
-	if err := m.contextValidatePorts(ctx, formats); err != nil {
+	if err := m.contextValidatePortList(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -968,19 +345,19 @@ func (m *ModelsContainer) contextValidateAgents(ctx context.Context, formats str
 	return nil
 }
 
-func (m *ModelsContainer) contextValidatePorts(ctx context.Context, formats strfmt.Registry) error {
+func (m *ModelsContainer) contextValidatePortList(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.Ports); i++ {
+	for i := 0; i < len(m.PortList); i++ {
 
-		if swag.IsZero(m.Ports[i]) { // not required
+		if swag.IsZero(m.PortList[i]) { // not required
 			return nil
 		}
 
-		if err := m.Ports[i].ContextValidate(ctx, formats); err != nil {
+		if err := m.PortList[i].ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("ports" + "." + strconv.Itoa(i))
+				return ve.ValidateName("port_list" + "." + strconv.Itoa(i))
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("ports" + "." + strconv.Itoa(i))
+				return ce.ValidateName("port_list" + "." + strconv.Itoa(i))
 			}
 			return err
 		}

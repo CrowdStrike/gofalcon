@@ -66,7 +66,7 @@ type ClientService interface {
 
 	CreateAzureSubscription(params *CreateAzureSubscriptionParams, opts ...ClientOption) (*CreateAzureSubscriptionCreated, *CreateAzureSubscriptionMultiStatus, error)
 
-	DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...ClientOption) (*DeleteAWSAccountsOK, *DeleteAWSAccountsMultiStatus, error)
+	DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, opts ...ClientOption) (*DeleteAWSAccountsMixin0OK, *DeleteAWSAccountsMixin0MultiStatus, error)
 
 	DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, opts ...ClientOption) (*DeleteAzureSubscriptionOK, *DeleteAzureSubscriptionMultiStatus, error)
 
@@ -84,7 +84,7 @@ type ClientService interface {
 
 	FindContainersCountAffectedByZeroDayVulnerabilities(params *FindContainersCountAffectedByZeroDayVulnerabilitiesParams, opts ...ClientOption) (*FindContainersCountAffectedByZeroDayVulnerabilitiesOK, error)
 
-	GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOption) (*GetAWSAccountsOK, *GetAWSAccountsMultiStatus, error)
+	GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts ...ClientOption) (*GetAWSAccountsMixin0OK, *GetAWSAccountsMixin0MultiStatus, error)
 
 	GetAzureInstallScript(params *GetAzureInstallScriptParams, opts ...ClientOption) (*GetAzureInstallScriptOK, *GetAzureInstallScriptMultiStatus, error)
 
@@ -848,22 +848,22 @@ func (a *Client) CreateAzureSubscription(params *CreateAzureSubscriptionParams, 
 }
 
 /*
-DeleteAWSAccounts deletes a w s accounts
+DeleteAWSAccountsMixin0 deletes a w s accounts
 */
-func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...ClientOption) (*DeleteAWSAccountsOK, *DeleteAWSAccountsMultiStatus, error) {
+func (a *Client) DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, opts ...ClientOption) (*DeleteAWSAccountsMixin0OK, *DeleteAWSAccountsMixin0MultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteAWSAccountsParams()
+		params = NewDeleteAWSAccountsMixin0Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteAWSAccounts",
+		ID:                 "DeleteAWSAccountsMixin0",
 		Method:             "DELETE",
 		PathPattern:        "/kubernetes-protection/entities/accounts/aws/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &DeleteAWSAccountsReader{formats: a.formats},
+		Reader:             &DeleteAWSAccountsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -876,9 +876,9 @@ func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...Clie
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *DeleteAWSAccountsOK:
+	case *DeleteAWSAccountsMixin0OK:
 		return value, nil, nil
-	case *DeleteAWSAccountsMultiStatus:
+	case *DeleteAWSAccountsMixin0MultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
@@ -1192,22 +1192,22 @@ func (a *Client) FindContainersCountAffectedByZeroDayVulnerabilities(params *Fin
 }
 
 /*
-GetAWSAccounts provides a list of a w s accounts
+GetAWSAccountsMixin0 provides a list of a w s accounts
 */
-func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOption) (*GetAWSAccountsOK, *GetAWSAccountsMultiStatus, error) {
+func (a *Client) GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts ...ClientOption) (*GetAWSAccountsMixin0OK, *GetAWSAccountsMixin0MultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetAWSAccountsParams()
+		params = NewGetAWSAccountsMixin0Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetAWSAccounts",
+		ID:                 "GetAWSAccountsMixin0",
 		Method:             "GET",
 		PathPattern:        "/kubernetes-protection/entities/accounts/aws/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &GetAWSAccountsReader{formats: a.formats},
+		Reader:             &GetAWSAccountsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1220,9 +1220,9 @@ func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOpti
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *GetAWSAccountsOK:
+	case *GetAWSAccountsMixin0OK:
 		return value, nil, nil
-	case *GetAWSAccountsMultiStatus:
+	case *GetAWSAccountsMixin0MultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue

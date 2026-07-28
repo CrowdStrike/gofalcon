@@ -39,6 +39,16 @@ type DevicecontrolapiRespUSBSettingsV2 struct {
 	// Required: true
 	EnhancedFileMetadata *bool `json:"enhanced_file_metadata"`
 
+	// Enforcement mode for the Removable Storage devices (PCIe/SD)
+	// Required: true
+	PcieEnforcementMode *string `json:"pcie_enforcement_mode"`
+
+	// Enforcement mode for Windows Storage Spaces
+	StorageSpaceEnforcementMode string `json:"storage_space_enforcement_mode,omitempty"`
+
+	// Enforcement mode for User Based exceptions
+	UserBasedEnforcementMode string `json:"user_based_enforcement_mode,omitempty"`
+
 	// Indicates whether the policy will include whitelist exceptions (ENABLE_ALWAYS, DISABLE_VIRTUAL)
 	WhitelistMode string `json:"whitelist_mode,omitempty"`
 }
@@ -64,6 +74,10 @@ func (m *DevicecontrolapiRespUSBSettingsV2) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateEnhancedFileMetadata(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePcieEnforcementMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -140,6 +154,15 @@ func (m *DevicecontrolapiRespUSBSettingsV2) validateEnforcementMode(formats strf
 func (m *DevicecontrolapiRespUSBSettingsV2) validateEnhancedFileMetadata(formats strfmt.Registry) error {
 
 	if err := validate.Required("enhanced_file_metadata", "body", m.EnhancedFileMetadata); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevicecontrolapiRespUSBSettingsV2) validatePcieEnforcementMode(formats strfmt.Registry) error {
+
+	if err := validate.Required("pcie_enforcement_mode", "body", m.PcieEnforcementMode); err != nil {
 		return err
 	}
 

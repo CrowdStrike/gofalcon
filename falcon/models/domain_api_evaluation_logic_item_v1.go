@@ -26,8 +26,8 @@ type DomainAPIEvaluationLogicItemV1 struct {
 	// comparisons
 	Comparisons *DomainAPIEvaluationLogicComparisonsV1 `json:"comparisons,omitempty"`
 
-	// details
-	Details string `json:"details,omitempty"`
+	// description
+	Description string `json:"description,omitempty"`
 
 	// determined by comparison
 	DeterminedByComparison bool `json:"determined_by_comparison,omitempty"`
@@ -41,18 +41,8 @@ type DomainAPIEvaluationLogicItemV1 struct {
 	// items
 	Items []DomainAPIEvaluationLogicSystemCharacteristicV1 `json:"items"`
 
-	// label
-	Label string `json:"label,omitempty"`
-
 	// negate
 	Negate bool `json:"negate,omitempty"`
-
-	// script
-	Script *DomainAPIScriptInfoV1 `json:"script,omitempty"`
-
-	// status
-	// Required: true
-	Status *string `json:"status"`
 
 	// title
 	// Required: true
@@ -68,14 +58,6 @@ func (m *DomainAPIEvaluationLogicItemV1) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateComparisons(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateScript(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -112,34 +94,6 @@ func (m *DomainAPIEvaluationLogicItemV1) validateComparisons(formats strfmt.Regi
 	return nil
 }
 
-func (m *DomainAPIEvaluationLogicItemV1) validateScript(formats strfmt.Registry) error {
-	if swag.IsZero(m.Script) { // not required
-		return nil
-	}
-
-	if m.Script != nil {
-		if err := m.Script.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("script")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("script")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainAPIEvaluationLogicItemV1) validateStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("status", "body", m.Status); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *DomainAPIEvaluationLogicItemV1) validateTitle(formats strfmt.Registry) error {
 
 	if err := validate.Required("title", "body", m.Title); err != nil {
@@ -166,10 +120,6 @@ func (m *DomainAPIEvaluationLogicItemV1) ContextValidate(ctx context.Context, fo
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateScript(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -189,27 +139,6 @@ func (m *DomainAPIEvaluationLogicItemV1) contextValidateComparisons(ctx context.
 				return ve.ValidateName("comparisons")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("comparisons")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainAPIEvaluationLogicItemV1) contextValidateScript(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Script != nil {
-
-		if swag.IsZero(m.Script) { // not required
-			return nil
-		}
-
-		if err := m.Script.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("script")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("script")
 			}
 			return err
 		}

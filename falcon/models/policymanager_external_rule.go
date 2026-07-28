@@ -89,6 +89,10 @@ type PolicymanagerExternalRule struct {
 	// Enum: [all specific]
 	UserScope *string `json:"user_scope"`
 
+	// List of web location destination groups. Maximum of 15 unique UUID groups are allowed
+	// Required: true
+	WebLocationDestinationGroups []string `json:"web_location_destination_groups"`
+
 	// web locations
 	// Required: true
 	WebLocations []string `json:"web_locations"`
@@ -160,6 +164,10 @@ func (m *PolicymanagerExternalRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUserScope(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWebLocationDestinationGroups(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -420,6 +428,15 @@ func (m *PolicymanagerExternalRule) validateUserScope(formats strfmt.Registry) e
 
 	// value enum
 	if err := m.validateUserScopeEnum("user_scope", "body", *m.UserScope); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PolicymanagerExternalRule) validateWebLocationDestinationGroups(formats strfmt.Registry) error {
+
+	if err := validate.Required("web_location_destination_groups", "body", m.WebLocationDestinationGroups); err != nil {
 		return err
 	}
 

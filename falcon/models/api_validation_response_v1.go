@@ -29,7 +29,7 @@ type APIValidationResponseV1 struct {
 
 	// resources
 	// Required: true
-	Resources []*APIPatternMatchV1 `json:"resources"`
+	Resources []*DomainFieldValidation `json:"resources"`
 }
 
 // Validate validates this api validation response v1

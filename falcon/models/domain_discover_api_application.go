@@ -20,6 +20,15 @@ import (
 // swagger:model domain.DiscoverAPIApplication
 type DomainDiscoverAPIApplication struct {
 
+	// The name of the account that last used this application.
+	AccountName string `json:"account_name,omitempty"`
+
+	// The type of the account (Local or Domain).
+	AccountType string `json:"account_type,omitempty"`
+
+	// Whether the account has admin privileges (Yes, No, or Unknown).
+	AdminPrivileges string `json:"admin_privileges,omitempty"`
+
 	// Represents the application architectures (x86 / x64).
 	Architectures []string `json:"architectures"`
 
@@ -36,6 +45,9 @@ type DomainDiscoverAPIApplication struct {
 	// Details about the package. Populated for applications of a package type
 	DevPackage *DomainDiscoverAPIApplicationPackage `json:"dev_package,omitempty"`
 
+	// The methods used to discover this application.
+	DiscoveryMethods []string `json:"discovery_methods"`
+
 	// The unique identifier for the extension.
 	ExtensionID string `json:"extension_id,omitempty"`
 
@@ -50,6 +62,9 @@ type DomainDiscoverAPIApplication struct {
 
 	// The host on which an application is installed and/or used.
 	Host *DomainDiscoverAPIApplicationHost `json:"host,omitempty"`
+
+	// The host application for this application.
+	HostApplication string `json:"host_application,omitempty"`
 
 	// The unique ID for the application.
 	// Required: true
@@ -90,6 +105,9 @@ type DomainDiscoverAPIApplication struct {
 
 	// The user SID of the last user that used this application.
 	LastUsedUserSid string `json:"last_used_user_sid,omitempty"`
+
+	// Whether the account has local admin privileges (Yes, No, or Unknown).
+	LocalAdminPrivileges string `json:"local_admin_privileges,omitempty"`
 
 	// The name of the application.
 	Name string `json:"name,omitempty"`

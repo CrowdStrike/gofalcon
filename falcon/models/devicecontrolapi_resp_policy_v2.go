@@ -80,6 +80,9 @@ type DevicecontrolapiRespPolicyV2 struct {
 	// Required: true
 	Precedence *int64 `json:"precedence"`
 
+	// For Flight Control enabled CIDs, indicates whether to propagate to child CIDs
+	Propagated bool `json:"propagated,omitempty"`
+
 	// The hash of hostgroups assigned to the policy
 	SettingsHash string `json:"settings_hash,omitempty"`
 

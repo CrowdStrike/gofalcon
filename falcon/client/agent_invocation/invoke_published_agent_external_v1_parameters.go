@@ -65,7 +65,7 @@ type InvokePublishedAgentExternalV1Params struct {
 
 	/* Body.
 
-	   Published agent invocation request containing agent ID and input
+	   Published agent invocation request containing agent ID and input. Optional deadline_seconds must be at least 90; smaller values are rejected with a 400.
 	*/
 	Body *models.APIInvokePublishedAgentExternalRequest
 

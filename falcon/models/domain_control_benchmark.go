@@ -17,9 +17,6 @@ import (
 // swagger:model domain.ControlBenchmark
 type DomainControlBenchmark struct {
 
-	// id
-	ID string `json:"id,omitempty"`
-
 	// name
 	Name string `json:"name,omitempty"`
 

@@ -14,6 +14,9 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/access_scopes"
 	"github.com/crowdstrike/gofalcon/falcon/client/admission_control_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/agent_invocation"
+	"github.com/crowdstrike/gofalcon/falcon/client/agent_templates"
+	"github.com/crowdstrike/gofalcon/falcon/client/agent_versions"
+	"github.com/crowdstrike/gofalcon/falcon/client/agentic_models"
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_clients"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
@@ -24,6 +27,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/certificate_based_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_aws_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_azure_registration"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_google_cloud_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_oci_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_policies"
@@ -84,7 +88,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_entities"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/image_assessment_policies"
-	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens"
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens_settings"
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
@@ -141,12 +144,15 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_exports"
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/spans"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_supported_evaluation"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerability_metadata"
 	"github.com/crowdstrike/gofalcon/falcon/client/stream"
+	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
+	"github.com/crowdstrike/gofalcon/falcon/client/tools"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/workflows"
@@ -159,7 +165,7 @@ var Default = NewHTTPClient(nil)
 const (
 	// DefaultHost is the default Host
 	// found in Meta (info) section of spec file
-	DefaultHost string = "api.us-2.crowdstrike.com"
+	DefaultHost string = "api.crowdstrike.com"
 	// DefaultBasePath is the default BasePath
 	// found in Meta (info) section of spec file
 	DefaultBasePath string = "/"
@@ -199,6 +205,9 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.AccessScopes = access_scopes.New(transport, formats)
 	cli.AdmissionControlPolicies = admission_control_policies.New(transport, formats)
 	cli.AgentInvocation = agent_invocation.New(transport, formats)
+	cli.AgentTemplates = agent_templates.New(transport, formats)
+	cli.AgentVersions = agent_versions.New(transport, formats)
+	cli.AgenticModels = agentic_models.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIClients = api_clients.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
@@ -209,6 +218,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CertificateBasedExclusions = certificate_based_exclusions.New(transport, formats)
 	cli.CloudAwsRegistration = cloud_aws_registration.New(transport, formats)
 	cli.CloudAzureRegistration = cloud_azure_registration.New(transport, formats)
+	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
 	cli.CloudGoogleCloudRegistration = cloud_google_cloud_registration.New(transport, formats)
 	cli.CloudOciRegistration = cloud_oci_registration.New(transport, formats)
 	cli.CloudPolicies = cloud_policies.New(transport, formats)
@@ -269,7 +279,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.IdentityEntities = identity_entities.New(transport, formats)
 	cli.IdentityProtection = identity_protection.New(transport, formats)
 	cli.ImageAssessmentPolicies = image_assessment_policies.New(transport, formats)
-	cli.Incidents = incidents.New(transport, formats)
 	cli.InstallationTokens = installation_tokens.New(transport, formats)
 	cli.InstallationTokensSettings = installation_tokens_settings.New(transport, formats)
 	cli.Intel = intel.New(transport, formats)
@@ -326,12 +335,15 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
 	cli.ServerlessExports = serverless_exports.New(transport, formats)
 	cli.ServerlessVulnerabilities = serverless_vulnerabilities.New(transport, formats)
+	cli.Spans = spans.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightSupportedEvaluation = spotlight_supported_evaluation.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
 	cli.SpotlightVulnerabilityMetadata = spotlight_vulnerability_metadata.New(transport, formats)
 	cli.Stream = stream.New(transport, formats)
+	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.Threatgraph = threatgraph.New(transport, formats)
+	cli.Tools = tools.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.Workflows = workflows.New(transport, formats)
@@ -388,6 +400,12 @@ type CrowdStrikeAPISpecification struct {
 
 	AgentInvocation agent_invocation.ClientService
 
+	AgentTemplates agent_templates.ClientService
+
+	AgentVersions agent_versions.ClientService
+
+	AgenticModels agentic_models.ClientService
+
 	Alerts alerts.ClientService
 
 	APIClients api_clients.ClientService
@@ -407,6 +425,8 @@ type CrowdStrikeAPISpecification struct {
 	CloudAwsRegistration cloud_aws_registration.ClientService
 
 	CloudAzureRegistration cloud_azure_registration.ClientService
+
+	CloudConnectAws cloud_connect_aws.ClientService
 
 	CloudGoogleCloudRegistration cloud_google_cloud_registration.ClientService
 
@@ -528,8 +548,6 @@ type CrowdStrikeAPISpecification struct {
 
 	ImageAssessmentPolicies image_assessment_policies.ClientService
 
-	Incidents incidents.ClientService
-
 	InstallationTokens installation_tokens.ClientService
 
 	InstallationTokensSettings installation_tokens_settings.ClientService
@@ -642,6 +660,8 @@ type CrowdStrikeAPISpecification struct {
 
 	ServerlessVulnerabilities serverless_vulnerabilities.ClientService
 
+	Spans spans.ClientService
+
 	SpotlightEvaluationLogic spotlight_evaluation_logic.ClientService
 
 	SpotlightSupportedEvaluation spotlight_supported_evaluation.ClientService
@@ -652,7 +672,11 @@ type CrowdStrikeAPISpecification struct {
 
 	Stream stream.ClientService
 
+	TailoredIntelligence tailored_intelligence.ClientService
+
 	Threatgraph threatgraph.ClientService
+
+	Tools tools.ClientService
 
 	UnidentifiedContainers unidentified_containers.ClientService
 
@@ -672,6 +696,9 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.AccessScopes.SetTransport(transport)
 	c.AdmissionControlPolicies.SetTransport(transport)
 	c.AgentInvocation.SetTransport(transport)
+	c.AgentTemplates.SetTransport(transport)
+	c.AgentVersions.SetTransport(transport)
+	c.AgenticModels.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIClients.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
@@ -682,6 +709,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CertificateBasedExclusions.SetTransport(transport)
 	c.CloudAwsRegistration.SetTransport(transport)
 	c.CloudAzureRegistration.SetTransport(transport)
+	c.CloudConnectAws.SetTransport(transport)
 	c.CloudGoogleCloudRegistration.SetTransport(transport)
 	c.CloudOciRegistration.SetTransport(transport)
 	c.CloudPolicies.SetTransport(transport)
@@ -742,7 +770,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.IdentityEntities.SetTransport(transport)
 	c.IdentityProtection.SetTransport(transport)
 	c.ImageAssessmentPolicies.SetTransport(transport)
-	c.Incidents.SetTransport(transport)
 	c.InstallationTokens.SetTransport(transport)
 	c.InstallationTokensSettings.SetTransport(transport)
 	c.Intel.SetTransport(transport)
@@ -799,12 +826,15 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorVisibilityExclusions.SetTransport(transport)
 	c.ServerlessExports.SetTransport(transport)
 	c.ServerlessVulnerabilities.SetTransport(transport)
+	c.Spans.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightSupportedEvaluation.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
 	c.SpotlightVulnerabilityMetadata.SetTransport(transport)
 	c.Stream.SetTransport(transport)
+	c.TailoredIntelligence.SetTransport(transport)
 	c.Threatgraph.SetTransport(transport)
+	c.Tools.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
 	c.Workflows.SetTransport(transport)

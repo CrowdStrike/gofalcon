@@ -96,6 +96,14 @@ type ClientService interface {
 
 	EntitiesSensitivityLabelGetV2(params *EntitiesSensitivityLabelGetV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelGetV2OK, error)
 
+	EntitiesWebLocationGroupCreate(params *EntitiesWebLocationGroupCreateParams, opts ...ClientOption) (*EntitiesWebLocationGroupCreateOK, error)
+
+	EntitiesWebLocationGroupDelete(params *EntitiesWebLocationGroupDeleteParams, opts ...ClientOption) (*EntitiesWebLocationGroupDeleteOK, error)
+
+	EntitiesWebLocationGroupGet(params *EntitiesWebLocationGroupGetParams, opts ...ClientOption) (*EntitiesWebLocationGroupGetOK, error)
+
+	EntitiesWebLocationGroupPatch(params *EntitiesWebLocationGroupPatchParams, opts ...ClientOption) (*EntitiesWebLocationGroupPatchOK, error)
+
 	EntitiesWebLocationCreateV2(params *EntitiesWebLocationCreateV2Params, opts ...ClientOption) (*EntitiesWebLocationCreateV2OK, error)
 
 	EntitiesWebLocationDeleteV2(params *EntitiesWebLocationDeleteV2Params, opts ...ClientOption) (*EntitiesWebLocationDeleteV2OK, error)
@@ -121,6 +129,8 @@ type ClientService interface {
 	QueriesPolicyGetV2(params *QueriesPolicyGetV2Params, opts ...ClientOption) (*QueriesPolicyGetV2OK, error)
 
 	QueriesSensitivityLabelGetV2(params *QueriesSensitivityLabelGetV2Params, opts ...ClientOption) (*QueriesSensitivityLabelGetV2OK, error)
+
+	QueriesWebLocationGroupGet(params *QueriesWebLocationGroupGetParams, opts ...ClientOption) (*QueriesWebLocationGroupGetOK, error)
 
 	QueriesWebLocationGetV2(params *QueriesWebLocationGetV2Params, opts ...ClientOption) (*QueriesWebLocationGetV2OK, error)
 
@@ -1382,6 +1392,158 @@ func (a *Client) EntitiesSensitivityLabelGetV2(params *EntitiesSensitivityLabelG
 }
 
 /*
+EntitiesWebLocationGroupCreate creates a web location group
+*/
+func (a *Client) EntitiesWebLocationGroupCreate(params *EntitiesWebLocationGroupCreateParams, opts ...ClientOption) (*EntitiesWebLocationGroupCreateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesWebLocationGroupCreateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.web-location-group.create",
+		Method:             "POST",
+		PathPattern:        "/data-protection/entities/web-location-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesWebLocationGroupCreateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesWebLocationGroupCreateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.web-location-group.create: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesWebLocationGroupDelete softs delete web location groups
+*/
+func (a *Client) EntitiesWebLocationGroupDelete(params *EntitiesWebLocationGroupDeleteParams, opts ...ClientOption) (*EntitiesWebLocationGroupDeleteOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesWebLocationGroupDeleteParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.web-location-group.delete",
+		Method:             "DELETE",
+		PathPattern:        "/data-protection/entities/web-location-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesWebLocationGroupDeleteReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesWebLocationGroupDeleteOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.web-location-group.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesWebLocationGroupGet gets specific web location groups
+*/
+func (a *Client) EntitiesWebLocationGroupGet(params *EntitiesWebLocationGroupGetParams, opts ...ClientOption) (*EntitiesWebLocationGroupGetOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesWebLocationGroupGetParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.web-location-group.get",
+		Method:             "GET",
+		PathPattern:        "/data-protection/entities/web-location-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesWebLocationGroupGetReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesWebLocationGroupGetOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.web-location-group.get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesWebLocationGroupPatch updates a web location group
+*/
+func (a *Client) EntitiesWebLocationGroupPatch(params *EntitiesWebLocationGroupPatchParams, opts ...ClientOption) (*EntitiesWebLocationGroupPatchOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesWebLocationGroupPatchParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.web-location-group.patch",
+		Method:             "PATCH",
+		PathPattern:        "/data-protection/entities/web-location-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesWebLocationGroupPatchReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesWebLocationGroupPatchOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.web-location-group.patch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesWebLocationCreateV2 persists the given web locations
 */
 func (a *Client) EntitiesWebLocationCreateV2(params *EntitiesWebLocationCreateV2Params, opts ...ClientOption) (*EntitiesWebLocationCreateV2OK, error) {
@@ -1872,6 +2034,44 @@ func (a *Client) QueriesSensitivityLabelGetV2(params *QueriesSensitivityLabelGet
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for queries.sensitivity-label.get-v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueriesWebLocationGroupGet gets all web location group i ds matching the query with filter
+*/
+func (a *Client) QueriesWebLocationGroupGet(params *QueriesWebLocationGroupGetParams, opts ...ClientOption) (*QueriesWebLocationGroupGetOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesWebLocationGroupGetParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queries.web-location-group.get",
+		Method:             "GET",
+		PathPattern:        "/data-protection/queries/web-location-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QueriesWebLocationGroupGetReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesWebLocationGroupGetOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queries.web-location-group.get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

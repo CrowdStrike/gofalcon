@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // DomainSchedule domain schedule
@@ -19,87 +17,18 @@ import (
 // swagger:model domain.Schedule
 type DomainSchedule struct {
 
-	// can stagger
-	// Required: true
-	CanStagger *bool `json:"can_stagger"`
+	// ignored by channelfile
+	IgnoredByChannelfile bool `json:"ignored_by_channelfile,omitempty"`
 
-	// definition
-	// Required: true
-	Definition *string `json:"definition"`
+	// interval
+	Interval int32 `json:"interval,omitempty"`
 
-	// display
-	// Required: true
-	Display *string `json:"display"`
-
-	// scheduled time
-	// Required: true
-	// Format: date-time
-	ScheduledTime *strfmt.DateTime `json:"scheduled_time"`
+	// start timestamp
+	StartTimestamp string `json:"start_timestamp,omitempty"`
 }
 
 // Validate validates this domain schedule
 func (m *DomainSchedule) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateCanStagger(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDefinition(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDisplay(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateScheduledTime(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *DomainSchedule) validateCanStagger(formats strfmt.Registry) error {
-
-	if err := validate.Required("can_stagger", "body", m.CanStagger); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSchedule) validateDefinition(formats strfmt.Registry) error {
-
-	if err := validate.Required("definition", "body", m.Definition); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSchedule) validateDisplay(formats strfmt.Registry) error {
-
-	if err := validate.Required("display", "body", m.Display); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSchedule) validateScheduledTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("scheduled_time", "body", m.ScheduledTime); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("scheduled_time", "body", "date-time", m.ScheduledTime.String(), formats); err != nil {
-		return err
-	}
-
 	return nil
 }
 

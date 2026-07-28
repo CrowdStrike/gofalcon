@@ -26,12 +26,12 @@ type DevicecontrolapiReqUpdateBluetoothBaseV1 struct {
 
 	// Determines if a notification will be shown to the end user (omit to keep current)
 	// Required: true
-	// Enum: [NOTIFY_USER,SILENT]
+	// Enum: [NOTIFY_USER SILENT]
 	EndUserNotification *string `json:"end_user_notification"`
 
 	// Enforcement for the Bluetooth policy (omit to keep current)
 	// Required: true
-	// Enum: [MONITOR_ONLY,MONITOR_ENFORCE,OFF]
+	// Enum: [MONITOR_ONLY MONITOR_ENFORCE OFF]
 	EnforcementMode *string `json:"enforcement_mode"`
 }
 
@@ -81,7 +81,7 @@ var devicecontrolapiReqUpdateBluetoothBaseV1TypeEndUserNotificationPropEnum []in
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["NOTIFY_USER,SILENT"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["NOTIFY_USER","SILENT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -91,8 +91,11 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateBluetoothBaseV1EndUserNotificationNOTIFYUSERSILENT captures enum value "NOTIFY_USER,SILENT"
-	DevicecontrolapiReqUpdateBluetoothBaseV1EndUserNotificationNOTIFYUSERSILENT string = "NOTIFY_USER,SILENT"
+	// DevicecontrolapiReqUpdateBluetoothBaseV1EndUserNotificationNOTIFYUSER captures enum value "NOTIFY_USER"
+	DevicecontrolapiReqUpdateBluetoothBaseV1EndUserNotificationNOTIFYUSER string = "NOTIFY_USER"
+
+	// DevicecontrolapiReqUpdateBluetoothBaseV1EndUserNotificationSILENT captures enum value "SILENT"
+	DevicecontrolapiReqUpdateBluetoothBaseV1EndUserNotificationSILENT string = "SILENT"
 )
 
 // prop value enum
@@ -121,7 +124,7 @@ var devicecontrolapiReqUpdateBluetoothBaseV1TypeEnforcementModePropEnum []interf
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MONITOR_ONLY,MONITOR_ENFORCE,OFF"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE","OFF"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -131,8 +134,14 @@ func init() {
 
 const (
 
-	// DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeMONITORONLYMONITORENFORCEOFF captures enum value "MONITOR_ONLY,MONITOR_ENFORCE,OFF"
-	DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeMONITORONLYMONITORENFORCEOFF string = "MONITOR_ONLY,MONITOR_ENFORCE,OFF"
+	// DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
+	DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeMONITORONLY string = "MONITOR_ONLY"
+
+	// DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
+	DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
+
+	// DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeOFF captures enum value "OFF"
+	DevicecontrolapiReqUpdateBluetoothBaseV1EnforcementModeOFF string = "OFF"
 )
 
 // prop value enum

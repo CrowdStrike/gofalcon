@@ -205,6 +205,17 @@
   | .paths."/alerts/aggregates/alerts/v2".post.operationId = "GetAggregateV2"
   | .paths."/alerts/entities/alerts/v2".post.operationId = "GetV2"
 
+  # Rename the "models" tag to "agentic-models". The bare "models" tag generates a
+  # falcon/client/models package that shadows the shared falcon/models package,
+  # producing a repo-wide import cycle. Rename to match the other agentic-studio collections.
+  | .paths."/agentic-studio/entities/models/v1".get.tags = ["agentic-models"]
+  | .paths."/agentic-studio/queries/models/v1".get.tags = ["agentic-models"]
+
+  # jsonschema.FormatDef has a property named "Validate", which collides with the
+  # Validate(formats) method go-swagger generates on every model ("field and method with
+  # the same name Validate"). Rename the Go field only; the JSON wire key stays "Validate".
+  | .definitions."jsonschema.FormatDef".properties.Validate += {"x-go-name": "ValidateFunc"}
+
   # Better operationId for kubernetes-protection collection
   | .paths."/container-security/combined/clusters/v1".get.operationId = "ClusterCombined"
   | .paths."/container-security/aggregates/clusters/count/v1".get.operationId = "ClusterCount"

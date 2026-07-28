@@ -24,9 +24,6 @@ type GcpFolderDetails struct {
 	// Format: date-time
 	Created *strfmt.DateTime `json:"created"`
 
-	// dspm settings
-	DspmSettings *GcpAgentlessScanningSettings `json:"dspm_settings,omitempty"`
-
 	// dspm status
 	DspmStatus string `json:"dspm_status,omitempty"`
 
@@ -90,9 +87,6 @@ type GcpFolderDetails struct {
 	// Format: date-time
 	Updated *strfmt.DateTime `json:"updated"`
 
-	// vulnerability scanning settings
-	VulnerabilityScanningSettings *GcpAgentlessScanningSettings `json:"vulnerability_scanning_settings,omitempty"`
-
 	// vulnerability scanning status
 	VulnerabilityScanningStatus string `json:"vulnerability_scanning_status,omitempty"`
 }
@@ -102,10 +96,6 @@ func (m *GcpFolderDetails) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCreated(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDspmSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -129,10 +119,6 @@ func (m *GcpFolderDetails) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateVulnerabilityScanningSettings(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -147,25 +133,6 @@ func (m *GcpFolderDetails) validateCreated(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("created", "body", "date-time", m.Created.String(), formats); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *GcpFolderDetails) validateDspmSettings(formats strfmt.Registry) error {
-	if swag.IsZero(m.DspmSettings) { // not required
-		return nil
-	}
-
-	if m.DspmSettings != nil {
-		if err := m.DspmSettings.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("dspm_settings")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("dspm_settings")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -220,82 +187,8 @@ func (m *GcpFolderDetails) validateUpdated(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *GcpFolderDetails) validateVulnerabilityScanningSettings(formats strfmt.Registry) error {
-	if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
-		return nil
-	}
-
-	if m.VulnerabilityScanningSettings != nil {
-		if err := m.VulnerabilityScanningSettings.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("vulnerability_scanning_settings")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("vulnerability_scanning_settings")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 // ContextValidate validates this gcp folder details based on context it is used
 func (m *GcpFolderDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateDspmSettings(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateVulnerabilityScanningSettings(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *GcpFolderDetails) contextValidateDspmSettings(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.DspmSettings != nil {
-
-		if swag.IsZero(m.DspmSettings) { // not required
-			return nil
-		}
-
-		if err := m.DspmSettings.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("dspm_settings")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("dspm_settings")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *GcpFolderDetails) contextValidateVulnerabilityScanningSettings(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.VulnerabilityScanningSettings != nil {
-
-		if swag.IsZero(m.VulnerabilityScanningSettings) { // not required
-			return nil
-		}
-
-		if err := m.VulnerabilityScanningSettings.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("vulnerability_scanning_settings")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("vulnerability_scanning_settings")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

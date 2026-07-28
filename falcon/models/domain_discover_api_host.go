@@ -391,6 +391,12 @@ type DomainDiscoverAPIHost struct {
 	// A list of network ids to which host belongs
 	OtNetworkIds []string `json:"ot_network_ids"`
 
+	// The OT platform of the device
+	OtPlatform string `json:"ot_platform,omitempty"`
+
+	// The OT platform version of the device
+	OtPlatformVersion string `json:"ot_platform_version,omitempty"`
+
 	// A list of ot serial numbers that discovered with host
 	OtSerialNumbers []string `json:"ot_serial_numbers"`
 

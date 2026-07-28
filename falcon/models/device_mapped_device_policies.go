@@ -18,8 +18,14 @@ import (
 // swagger:model device.MappedDevicePolicies
 type DeviceMappedDevicePolicies struct {
 
+	// aidr
+	Aidr *DeviceDevicePolicy `json:"aidr,omitempty"`
+
 	// airlock
 	Airlock *DeviceDevicePolicy `json:"airlock,omitempty"`
+
+	// application abuse prevention
+	ApplicationAbusePrevention *DeviceDevicePolicy `json:"application-abuse-prevention,omitempty"`
 
 	// automox
 	Automox *DeviceDevicePolicy `json:"automox,omitempty"`
@@ -29,6 +35,9 @@ type DeviceMappedDevicePolicies struct {
 
 	// browser extension
 	BrowserExtension *DeviceDevicePolicy `json:"browser-extension,omitempty"`
+
+	// cloud ml
+	CloudMl *DeviceDevicePolicy `json:"cloud-ml,omitempty"`
 
 	// consumer subscription
 	ConsumerSubscription *DeviceDevicePolicy `json:"consumer-subscription,omitempty"`
@@ -42,8 +51,17 @@ type DeviceMappedDevicePolicies struct {
 	// data protection
 	DataProtection *DeviceDevicePolicy `json:"data-protection,omitempty"`
 
+	// data protection cloud
+	DataProtectionCloud *DeviceDevicePolicy `json:"data-protection-cloud,omitempty"`
+
 	// device control
 	DeviceControl *DeviceDevicePolicy `json:"device_control,omitempty"`
+
+	// exposure management
+	ExposureManagement *DeviceDevicePolicy `json:"exposure-management,omitempty"`
+
+	// fem browser extension control
+	FemBrowserExtensionControl *DeviceDevicePolicy `json:"fem-browser-extension-control,omitempty"`
 
 	// fim
 	Fim *DeviceDevicePolicy `json:"fim,omitempty"`
@@ -57,6 +75,9 @@ type DeviceMappedDevicePolicies struct {
 	// host retention
 	HostRetention *DeviceDevicePolicy `json:"host-retention,omitempty"`
 
+	// identity endpoint
+	IdentityEndpoint *DeviceDevicePolicy `json:"identity-endpoint,omitempty"`
+
 	// identity protection
 	IdentityProtection *DeviceDevicePolicy `json:"identity-protection,omitempty"`
 
@@ -68,6 +89,9 @@ type DeviceMappedDevicePolicies struct {
 
 	// kubernetes admission control
 	KubernetesAdmissionControl *DeviceDevicePolicy `json:"kubernetes-admission-control,omitempty"`
+
+	// logscale collector
+	LogscaleCollector *DeviceDevicePolicy `json:"logscale-collector,omitempty"`
 
 	// mobile
 	Mobile *DeviceDevicePolicy `json:"mobile,omitempty"`
@@ -104,7 +128,15 @@ type DeviceMappedDevicePolicies struct {
 func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAidr(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAirlock(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateApplicationAbusePrevention(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -117,6 +149,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudMl(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -136,7 +172,19 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDataProtectionCloud(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDeviceControl(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExposureManagement(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFemBrowserExtensionControl(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -156,6 +204,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIdentityEndpoint(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIdentityProtection(formats); err != nil {
 		res = append(res, err)
 	}
@@ -169,6 +221,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateKubernetesAdmissionControl(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLogscaleCollector(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -218,6 +274,25 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateAidr(formats strfmt.Registry) error {
+	if swag.IsZero(m.Aidr) { // not required
+		return nil
+	}
+
+	if m.Aidr != nil {
+		if err := m.Aidr.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("aidr")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("aidr")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateAirlock(formats strfmt.Registry) error {
 	if swag.IsZero(m.Airlock) { // not required
 		return nil
@@ -229,6 +304,25 @@ func (m *DeviceMappedDevicePolicies) validateAirlock(formats strfmt.Registry) er
 				return ve.ValidateName("airlock")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("airlock")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateApplicationAbusePrevention(formats strfmt.Registry) error {
+	if swag.IsZero(m.ApplicationAbusePrevention) { // not required
+		return nil
+	}
+
+	if m.ApplicationAbusePrevention != nil {
+		if err := m.ApplicationAbusePrevention.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application-abuse-prevention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application-abuse-prevention")
 			}
 			return err
 		}
@@ -286,6 +380,25 @@ func (m *DeviceMappedDevicePolicies) validateBrowserExtension(formats strfmt.Reg
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateCloudMl(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudMl) { // not required
+		return nil
+	}
+
+	if m.CloudMl != nil {
+		if err := m.CloudMl.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}
@@ -370,6 +483,25 @@ func (m *DeviceMappedDevicePolicies) validateDataProtection(formats strfmt.Regis
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateDataProtectionCloud(formats strfmt.Registry) error {
+	if swag.IsZero(m.DataProtectionCloud) { // not required
+		return nil
+	}
+
+	if m.DataProtectionCloud != nil {
+		if err := m.DataProtectionCloud.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("data-protection-cloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("data-protection-cloud")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateDeviceControl(formats strfmt.Registry) error {
 	if swag.IsZero(m.DeviceControl) { // not required
 		return nil
@@ -381,6 +513,44 @@ func (m *DeviceMappedDevicePolicies) validateDeviceControl(formats strfmt.Regist
 				return ve.ValidateName("device_control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("device_control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateExposureManagement(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExposureManagement) { // not required
+		return nil
+	}
+
+	if m.ExposureManagement != nil {
+		if err := m.ExposureManagement.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("exposure-management")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exposure-management")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateFemBrowserExtensionControl(formats strfmt.Registry) error {
+	if swag.IsZero(m.FemBrowserExtensionControl) { // not required
+		return nil
+	}
+
+	if m.FemBrowserExtensionControl != nil {
+		if err := m.FemBrowserExtensionControl.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fem-browser-extension-control")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fem-browser-extension-control")
 			}
 			return err
 		}
@@ -465,6 +635,25 @@ func (m *DeviceMappedDevicePolicies) validateHostRetention(formats strfmt.Regist
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateIdentityEndpoint(formats strfmt.Registry) error {
+	if swag.IsZero(m.IdentityEndpoint) { // not required
+		return nil
+	}
+
+	if m.IdentityEndpoint != nil {
+		if err := m.IdentityEndpoint.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-endpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identity-endpoint")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateIdentityProtection(formats strfmt.Registry) error {
 	if swag.IsZero(m.IdentityProtection) { // not required
 		return nil
@@ -533,6 +722,25 @@ func (m *DeviceMappedDevicePolicies) validateKubernetesAdmissionControl(formats 
 				return ve.ValidateName("kubernetes-admission-control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kubernetes-admission-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateLogscaleCollector(formats strfmt.Registry) error {
+	if swag.IsZero(m.LogscaleCollector) { // not required
+		return nil
+	}
+
+	if m.LogscaleCollector != nil {
+		if err := m.LogscaleCollector.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("logscale-collector")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logscale-collector")
 			}
 			return err
 		}
@@ -735,7 +943,15 @@ func (m *DeviceMappedDevicePolicies) validateZtl(formats strfmt.Registry) error 
 func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAidr(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateAirlock(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateApplicationAbusePrevention(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -748,6 +964,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateBrowserExtension(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCloudMl(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -767,7 +987,19 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDataProtectionCloud(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDeviceControl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExposureManagement(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFemBrowserExtensionControl(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -787,6 +1019,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIdentityEndpoint(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateIdentityProtection(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -800,6 +1036,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateKubernetesAdmissionControl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLogscaleCollector(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -849,6 +1089,27 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) contextValidateAidr(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Aidr != nil {
+
+		if swag.IsZero(m.Aidr) { // not required
+			return nil
+		}
+
+		if err := m.Aidr.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("aidr")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("aidr")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) contextValidateAirlock(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Airlock != nil {
@@ -862,6 +1123,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateAirlock(ctx context.Context,
 				return ve.ValidateName("airlock")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("airlock")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateApplicationAbusePrevention(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ApplicationAbusePrevention != nil {
+
+		if swag.IsZero(m.ApplicationAbusePrevention) { // not required
+			return nil
+		}
+
+		if err := m.ApplicationAbusePrevention.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application-abuse-prevention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application-abuse-prevention")
 			}
 			return err
 		}
@@ -925,6 +1207,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateBrowserExtension(ctx context
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateCloudMl(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudMl != nil {
+
+		if swag.IsZero(m.CloudMl) { // not required
+			return nil
+		}
+
+		if err := m.CloudMl.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-ml")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-ml")
 			}
 			return err
 		}
@@ -1017,6 +1320,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateDataProtection(ctx context.C
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) contextValidateDataProtectionCloud(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DataProtectionCloud != nil {
+
+		if swag.IsZero(m.DataProtectionCloud) { // not required
+			return nil
+		}
+
+		if err := m.DataProtectionCloud.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("data-protection-cloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("data-protection-cloud")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) contextValidateDeviceControl(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceControl != nil {
@@ -1030,6 +1354,48 @@ func (m *DeviceMappedDevicePolicies) contextValidateDeviceControl(ctx context.Co
 				return ve.ValidateName("device_control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("device_control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateExposureManagement(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExposureManagement != nil {
+
+		if swag.IsZero(m.ExposureManagement) { // not required
+			return nil
+		}
+
+		if err := m.ExposureManagement.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("exposure-management")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exposure-management")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateFemBrowserExtensionControl(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FemBrowserExtensionControl != nil {
+
+		if swag.IsZero(m.FemBrowserExtensionControl) { // not required
+			return nil
+		}
+
+		if err := m.FemBrowserExtensionControl.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fem-browser-extension-control")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fem-browser-extension-control")
 			}
 			return err
 		}
@@ -1122,6 +1488,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateHostRetention(ctx context.Co
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) contextValidateIdentityEndpoint(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IdentityEndpoint != nil {
+
+		if swag.IsZero(m.IdentityEndpoint) { // not required
+			return nil
+		}
+
+		if err := m.IdentityEndpoint.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-endpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identity-endpoint")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) contextValidateIdentityProtection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IdentityProtection != nil {
@@ -1198,6 +1585,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateKubernetesAdmissionControl(c
 				return ve.ValidateName("kubernetes-admission-control")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kubernetes-admission-control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateLogscaleCollector(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LogscaleCollector != nil {
+
+		if swag.IsZero(m.LogscaleCollector) { // not required
+			return nil
+		}
+
+		if err := m.LogscaleCollector.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("logscale-collector")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logscale-collector")
 			}
 			return err
 		}

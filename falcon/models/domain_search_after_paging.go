@@ -19,13 +19,17 @@ import (
 // swagger:model domain.SearchAfterPaging
 type DomainSearchAfterPaging struct {
 
-	// after
-	// Required: true
-	After *string `json:"after"`
-
 	// limit
 	// Required: true
 	Limit *int32 `json:"limit"`
+
+	// next
+	// Required: true
+	Next *string `json:"next"`
+
+	// offset
+	// Required: true
+	Offset *string `json:"offset"`
 
 	// total
 	// Required: true
@@ -36,11 +40,15 @@ type DomainSearchAfterPaging struct {
 func (m *DomainSearchAfterPaging) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAfter(formats); err != nil {
+	if err := m.validateLimit(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateLimit(formats); err != nil {
+	if err := m.validateNext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOffset(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -54,18 +62,27 @@ func (m *DomainSearchAfterPaging) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainSearchAfterPaging) validateAfter(formats strfmt.Registry) error {
+func (m *DomainSearchAfterPaging) validateLimit(formats strfmt.Registry) error {
 
-	if err := validate.Required("after", "body", m.After); err != nil {
+	if err := validate.Required("limit", "body", m.Limit); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainSearchAfterPaging) validateLimit(formats strfmt.Registry) error {
+func (m *DomainSearchAfterPaging) validateNext(formats strfmt.Registry) error {
 
-	if err := validate.Required("limit", "body", m.Limit); err != nil {
+	if err := validate.Required("next", "body", m.Next); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainSearchAfterPaging) validateOffset(formats strfmt.Registry) error {
+
+	if err := validate.Required("offset", "body", m.Offset); err != nil {
 		return err
 	}
 

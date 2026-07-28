@@ -20,17 +20,17 @@ import (
 // swagger:model domain.AggregatesResponse
 type DomainAggregatesResponse struct {
 
-	// errors
+	// Array of API Errors
 	// Required: true
-	Errors []*DomainReconAPIError `json:"errors"`
+	Errors []*MsaAPIError `json:"errors"`
 
-	// meta
+	// Meta information of a request, including traceID of the request
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
-	// resources
+	// Array of aggregation results, 1 per AggregateQueryRequest
 	// Required: true
-	Resources []*MsaAggregationResult `json:"resources"`
+	Resources []*DomainAggregationResult `json:"resources"`
 }
 
 // Validate validates this domain aggregates response

@@ -87,7 +87,7 @@ func (m *NvaapiScanScheduling) Validate(formats strfmt.Registry) error {
 var nvaapiScanSchedulingTypeDaysOfWeekPropEnum []interface{}
 
 func init() {
-	var res []string
+	var res [][]int64
 	if err := json.Unmarshal([]byte(`["Sun,Mon,Tue,Wed,Thu,Fri,Sat"]`), &res); err != nil {
 		panic(err)
 	}

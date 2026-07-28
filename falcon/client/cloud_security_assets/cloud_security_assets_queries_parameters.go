@@ -75,6 +75,12 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `account_id`
 	- `account_name`
 	- `active`
+	- `application_name`
+	- `aspm.cloud_account`
+	- `aspm.cloud_region`
+	- `aspm.cloud_tag_key`
+	- `aspm.cloud_tag_value`
+	- `aspm.cloud_tags`
 	- `aspm.deployment_cloud_resource_id`
 	- `aspm.deployment_provider`
 	- `aspm.deployment_type`
@@ -118,6 +124,8 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `environment`
 	- `exprt_ratings`
 	- `first_seen`
+	- `gcp.multi_region`
+	- `gcp.physical_region`
 	- `highest_severity`
 	- `id`
 	- `insights.boolean_value`

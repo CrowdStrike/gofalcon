@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetAgentInvocationV3(params *GetAgentInvocationV3Params, opts ...ClientOption) (*GetAgentInvocationV3OK, error)
 
+	InvokeAgentVersionExternalV1(params *InvokeAgentVersionExternalV1Params, opts ...ClientOption) (*InvokeAgentVersionExternalV1OK, error)
+
 	InvokePublishedAgentExternalV1(params *InvokePublishedAgentExternalV1Params, opts ...ClientOption) (*InvokePublishedAgentExternalV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -72,6 +74,44 @@ func (a *Client) GetAgentInvocationV3(params *GetAgentInvocationV3Params, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetAgentInvocationV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+InvokeAgentVersionExternalV1 invokes a specific agent version by agent ID and version ID with the specified input returns the agent s completion response
+*/
+func (a *Client) InvokeAgentVersionExternalV1(params *InvokeAgentVersionExternalV1Params, opts ...ClientOption) (*InvokeAgentVersionExternalV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewInvokeAgentVersionExternalV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "InvokeAgentVersionExternalV1",
+		Method:             "POST",
+		PathPattern:        "/agentic-studio/entities/agent-version-invocations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &InvokeAgentVersionExternalV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*InvokeAgentVersionExternalV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for InvokeAgentVersionExternalV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

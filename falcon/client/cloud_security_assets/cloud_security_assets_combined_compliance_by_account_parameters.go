@@ -73,6 +73,12 @@ type CloudSecurityAssetsCombinedComplianceByAccountParams struct {
 	     FQL string to filter on asset contents. Filterable fields include:
 	- `account_id`
 	- `account_name`
+	- `aspm.cloud_account`
+	- `aspm.cloud_region`
+	- `aspm.cloud_tag_key`
+	- `aspm.cloud_tag_value`
+	- `aspm.cloud_tags`
+	- `aspm.deployment_provider`
 	- `assessment_id`
 	- `business_impact`
 	- `cloud_group`
