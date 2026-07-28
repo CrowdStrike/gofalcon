@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -24,19 +25,18 @@ type NvaapiScanScheduling struct {
 	DaysOfMonth []int64 `json:"days_of_month"`
 
 	// The days of the week that scan created will run on
-	// Enum: [Sun,Mon,Tue,Wed,Thu,Fri,Sat]
-	DaysOfWeek []int64 `json:"days_of_week"`
+	DaysOfWeek []string `json:"days_of_week"`
 
 	// The date at which scans created will end running
 	EndDate string `json:"end_date,omitempty"`
 
 	// The frequency of the scan scheduling configuration
 	// Required: true
-	// Enum: [once,daily,weekly,monthly]
+	// Enum: [not_scheduled daily weekly monthly one-time]
 	Frequency *string `json:"frequency"`
 
 	// The occurrence of the scan scheduling configuration
-	// Enum: [Day(s),First,Second,Third,Fourth,Last]
+	// Enum: [first second third fourth last]
 	Occurrence string `json:"occurrence,omitempty"`
 
 	// The date at which scans created will start running
@@ -84,21 +84,20 @@ func (m *NvaapiScanScheduling) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-var nvaapiScanSchedulingTypeDaysOfWeekPropEnum []interface{}
+var nvaapiScanSchedulingDaysOfWeekItemsEnum []interface{}
 
 func init() {
-	var res [][]int64
-	if err := json.Unmarshal([]byte(`["Sun,Mon,Tue,Wed,Thu,Fri,Sat"]`), &res); err != nil {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
-		nvaapiScanSchedulingTypeDaysOfWeekPropEnum = append(nvaapiScanSchedulingTypeDaysOfWeekPropEnum, v)
+		nvaapiScanSchedulingDaysOfWeekItemsEnum = append(nvaapiScanSchedulingDaysOfWeekItemsEnum, v)
 	}
 }
 
-// prop value enum
-func (m *NvaapiScanScheduling) validateDaysOfWeekEnum(path, location string, value []int64) error {
-	if err := validate.EnumCase(path, location, value, nvaapiScanSchedulingTypeDaysOfWeekPropEnum, true); err != nil {
+func (m *NvaapiScanScheduling) validateDaysOfWeekItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, nvaapiScanSchedulingDaysOfWeekItemsEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -109,9 +108,13 @@ func (m *NvaapiScanScheduling) validateDaysOfWeek(formats strfmt.Registry) error
 		return nil
 	}
 
-	// for slice
-	if err := m.validateDaysOfWeekEnum("days_of_week", "body", m.DaysOfWeek); err != nil {
-		return err
+	for i := 0; i < len(m.DaysOfWeek); i++ {
+
+		// value enum
+		if err := m.validateDaysOfWeekItemsEnum("days_of_week"+"."+strconv.Itoa(i), "body", m.DaysOfWeek[i]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil
@@ -121,7 +124,7 @@ var nvaapiScanSchedulingTypeFrequencyPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["once,daily,weekly,monthly"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["not_scheduled","daily","weekly","monthly","one-time"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -131,8 +134,20 @@ func init() {
 
 const (
 
-	// NvaapiScanSchedulingFrequencyOnceDailyWeeklyMonthly captures enum value "once,daily,weekly,monthly"
-	NvaapiScanSchedulingFrequencyOnceDailyWeeklyMonthly string = "once,daily,weekly,monthly"
+	// NvaapiScanSchedulingFrequencyNotScheduled captures enum value "not_scheduled"
+	NvaapiScanSchedulingFrequencyNotScheduled string = "not_scheduled"
+
+	// NvaapiScanSchedulingFrequencyDaily captures enum value "daily"
+	NvaapiScanSchedulingFrequencyDaily string = "daily"
+
+	// NvaapiScanSchedulingFrequencyWeekly captures enum value "weekly"
+	NvaapiScanSchedulingFrequencyWeekly string = "weekly"
+
+	// NvaapiScanSchedulingFrequencyMonthly captures enum value "monthly"
+	NvaapiScanSchedulingFrequencyMonthly string = "monthly"
+
+	// NvaapiScanSchedulingFrequencyOneDashTime captures enum value "one-time"
+	NvaapiScanSchedulingFrequencyOneDashTime string = "one-time"
 )
 
 // prop value enum
@@ -161,7 +176,7 @@ var nvaapiScanSchedulingTypeOccurrencePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Day(s),First,Second,Third,Fourth,Last"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["first","second","third","fourth","last"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -171,8 +186,20 @@ func init() {
 
 const (
 
-	// NvaapiScanSchedulingOccurrenceDaysFirstSecondThirdFourthLast captures enum value "Day(s),First,Second,Third,Fourth,Last"
-	NvaapiScanSchedulingOccurrenceDaysFirstSecondThirdFourthLast string = "Day(s),First,Second,Third,Fourth,Last"
+	// NvaapiScanSchedulingOccurrenceFirst captures enum value "first"
+	NvaapiScanSchedulingOccurrenceFirst string = "first"
+
+	// NvaapiScanSchedulingOccurrenceSecond captures enum value "second"
+	NvaapiScanSchedulingOccurrenceSecond string = "second"
+
+	// NvaapiScanSchedulingOccurrenceThird captures enum value "third"
+	NvaapiScanSchedulingOccurrenceThird string = "third"
+
+	// NvaapiScanSchedulingOccurrenceFourth captures enum value "fourth"
+	NvaapiScanSchedulingOccurrenceFourth string = "fourth"
+
+	// NvaapiScanSchedulingOccurrenceLast captures enum value "last"
+	NvaapiScanSchedulingOccurrenceLast string = "last"
 )
 
 // prop value enum

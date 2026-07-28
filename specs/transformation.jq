@@ -797,10 +797,17 @@
 # Make use_existing_cloudtrail nullable for rest.AWSAccountPatchExtV1
 | .definitions."rest.AWSAccountPatchExtV1".properties.use_existing_cloudtrail += {"x-nullable": true}
 
-# Fix domain.ScanScheduling broken enums (comma-separated strings instead of arrays)
-| .definitions."domain.ScanScheduling".properties.days_of_week = {"type": "array", "description": "The days of the week that scan created will run on", "items": {"type": "string", "enum": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}}
-| .definitions."domain.ScanScheduling".properties.frequency.enum = ["not_scheduled", "daily", "weekly", "monthly", "one-time"]
-| .definitions."domain.ScanScheduling".properties.occurrence.enum = ["first", "second", "third", "fourth", "last"]
+# Fix nvaapi.ScanScheduling broken enums (comma-separated strings instead of arrays).
+# Renamed from domain.ScanScheduling in the 07-28-2026 spec. days_of_week is also typed
+# array[integer] but holds strings, which panics during init() when the enum is unmarshalled.
+| .definitions."nvaapi.ScanScheduling".properties.days_of_week = {"type": "array", "description": "The days of the week that scan created will run on", "items": {"type": "string", "enum": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}}
+| .definitions."nvaapi.ScanScheduling".properties.frequency.enum = ["not_scheduled", "daily", "weekly", "monthly", "one-time"]
+| .definitions."nvaapi.ScanScheduling".properties.occurrence.enum = ["first", "second", "third", "fourth", "last"]
+
+# itautomation.RerunTaskExecutionRequest.run_types is an array whose enum lists the
+# permitted item values rather than permitted arrays. go-swagger reads that as [][]string
+# and panics during init(). Move the enum onto items, which is what it means.
+| .definitions."itautomation.RerunTaskExecutionRequest".properties.run_types = {"type": "array", "description": "Types of reruns to combine with OR logic. Cannot be used with run_type. Example: ['failed', 'offline']", "items": {"type": "string", "enum": ["hosts", "failed", "offline", "target", "completed", "canceled", "expired"]}}
 
 # Make enable_content_inspection optional (not required by the API)
 | .definitions."policymanager.PolicyProperties".required = ["classifications"]
