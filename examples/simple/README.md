@@ -1,10 +1,12 @@
 # Simple
 
-Minimalist example to show case authentication and initialisation of client library. Upon successful authentication the very latest [CrowdStrike Score](https://www.crowdstrike.com/blog/tech-center/crowdscore-efficiency/) is shown.
+Minimalist example to show case authentication and initialisation of client library. Upon successful authentication a short list of hosts registered to the Falcon platform is shown.
 
 Example run:
 ```
 $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" \
         go run github.com/crowdstrike/gofalcon/examples/simple
-As of 2021-01-29T13:47:55.362Z your CrowdScore is 0.
+Found 2 host(s):
+ - 1234567890abcdef1234567890abcdef
+ - fedcba0987654321fedcba0987654321
 ```

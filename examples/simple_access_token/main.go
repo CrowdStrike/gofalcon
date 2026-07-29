@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/crowdstrike/gofalcon/falcon"
+	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
@@ -29,25 +30,20 @@ func main() {
 		panic(err)
 	}
 
-	// The incidents collection (including CrowdScore) was removed from the CrowdStrike
-	// API spec, so this call no longer generates. Kept here for reference until the
-	// example is repointed at a current endpoint.
-	//
-	// desc := "timestamp.desc"
-	// res, err := client.Incidents.CrowdScore(&incidents.CrowdScoreParams{
-	// 	Context: context.Background(),
-	// 	Sort:    &desc,
-	// })
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// payload := res.GetPayload()
-	// if err = falcon.AssertNoError(payload.Errors); err != nil {
-	// 	panic(err)
-	// }
-	// fmt.Printf("As of %s your CrowdScore is %d.\n",
-	// 	payload.Resources[0].Timestamp.String(), *payload.Resources[0].Score)
-
-	fmt.Println("Successfully authenticated to the CrowdStrike Falcon platform.")
-	_ = client
+	limit := int64(10)
+	res, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
+		Context: context.Background(),
+		Limit:   &limit,
+	})
+	if err != nil {
+		panic(err)
+	}
+	payload := res.GetPayload()
+	if err = falcon.AssertNoError(payload.Errors); err != nil {
+		panic(err)
+	}
+	fmt.Printf("Found %d host(s):\n", len(payload.Resources))
+	for _, id := range payload.Resources {
+		fmt.Println(" -", id)
+	}
 }
