@@ -1,6 +1,6 @@
 # Authentication with Access Token
 
-Minimalist example to showcase authentication and initialization of client library using an existing access token. The very latest [CrowdStrike Score](https://www.crowdstrike.com/blog/tech-center/crowdscore-efficiency/) is shown.
+Minimalist example to showcase authentication and initialization of client library using an existing access token. Upon successful authentication a short list of hosts registered to the Falcon platform is shown.
 
 Example run:
 ```
@@ -11,5 +11,7 @@ FALCON_CLOUD="us-1" \
 
 Example output:
 ```
-As of 2021-01-29T13:47:55.362Z your CrowdScore is 0.
+Found 2 host(s):
+ - 1234567890abcdef1234567890abcdef
+ - fedcba0987654321fedcba0987654321
 ```
