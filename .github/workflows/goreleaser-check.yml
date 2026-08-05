@@ -5,6 +5,9 @@ on:
     paths:
       - '.goreleaser.yml'
 
+permissions:
+  contents: read
+
 jobs:
   goreleaser-check:
     runs-on: ubuntu-latest
