@@ -866,6 +866,13 @@
 | .paths."/exclusions/entities/exclusions/v2"."patch"."responses"."200"."schema" = {"$ref": "#/definitions/exclusions.RespV1"}
 | .paths."/exclusions/entities/exclusions/v2"."delete"."responses"."200"."schema"= {"$ref": "#/definitions/msaspec.QueryResponse"}
 
+# 201 is a valid response for POST /exclusions/entities/exclusions/v2, 200 is not. The live API
+# answers a create with 201 Created, so the generated reader treats every success as an unknown
+# status and returns an error. Must run after the 200 schema fix above so the copied response
+# carries the exclusions.RespV1 schema and not an empty body.
+| .paths."/exclusions/entities/exclusions/v2".post.responses."201" = .paths."/exclusions/entities/exclusions/v2".post.responses."200"
+| del(.paths."/exclusions/entities/exclusions/v2".post.responses."200")
+
 # The ML (machine-learning) exclusions v2 create/update request bodies accept applied_globally
 # and is_descendant_process, but the spec omits both from the request definitions. Add them as
 # optional booleans (verified accepted on live create/update) so callers can set them, matching
