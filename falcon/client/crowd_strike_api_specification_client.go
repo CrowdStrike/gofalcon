@@ -17,6 +17,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/agent_templates"
 	"github.com/crowdstrike/gofalcon/falcon/client/agent_versions"
 	"github.com/crowdstrike/gofalcon/falcon/client/agentic_models"
+	"github.com/crowdstrike/gofalcon/falcon/client/agents"
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_clients"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
@@ -208,6 +209,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.AgentTemplates = agent_templates.New(transport, formats)
 	cli.AgentVersions = agent_versions.New(transport, formats)
 	cli.AgenticModels = agentic_models.New(transport, formats)
+	cli.Agents = agents.New(transport, formats)
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIClients = api_clients.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
@@ -405,6 +407,8 @@ type CrowdStrikeAPISpecification struct {
 	AgentVersions agent_versions.ClientService
 
 	AgenticModels agentic_models.ClientService
+
+	Agents agents.ClientService
 
 	Alerts alerts.ClientService
 
@@ -699,6 +703,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.AgentTemplates.SetTransport(transport)
 	c.AgentVersions.SetTransport(transport)
 	c.AgenticModels.SetTransport(transport)
+	c.Agents.SetTransport(transport)
 	c.Alerts.SetTransport(transport)
 	c.APIClients.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)

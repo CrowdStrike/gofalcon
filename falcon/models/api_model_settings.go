@@ -23,6 +23,9 @@ type APIModelSettings struct {
 	// Required: true
 	AcceptedParameters *APIAcceptedModelParameters `json:"accepted_parameters"`
 
+	// byo model
+	ByoModel *APIByoModel `json:"byo_model,omitempty"`
+
 	// description
 	// Required: true
 	Description *string `json:"description"`
@@ -53,6 +56,10 @@ func (m *APIModelSettings) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAcceptedParameters(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateByoModel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -98,6 +105,25 @@ func (m *APIModelSettings) validateAcceptedParameters(formats strfmt.Registry) e
 				return ve.ValidateName("accepted_parameters")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("accepted_parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIModelSettings) validateByoModel(formats strfmt.Registry) error {
+	if swag.IsZero(m.ByoModel) { // not required
+		return nil
+	}
+
+	if m.ByoModel != nil {
+		if err := m.ByoModel.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("byo_model")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("byo_model")
 			}
 			return err
 		}
@@ -168,6 +194,10 @@ func (m *APIModelSettings) ContextValidate(ctx context.Context, formats strfmt.R
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateByoModel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -183,6 +213,27 @@ func (m *APIModelSettings) contextValidateAcceptedParameters(ctx context.Context
 				return ve.ValidateName("accepted_parameters")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("accepted_parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIModelSettings) contextValidateByoModel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ByoModel != nil {
+
+		if swag.IsZero(m.ByoModel) { // not required
+			return nil
+		}
+
+		if err := m.ByoModel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("byo_model")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("byo_model")
 			}
 			return err
 		}

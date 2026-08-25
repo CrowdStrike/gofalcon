@@ -36,11 +36,13 @@ type ClientService interface {
 
 	InvokePublishedAgentExternalV1(params *InvokePublishedAgentExternalV1Params, opts ...ClientOption) (*InvokePublishedAgentExternalV1OK, error)
 
+	PatchAgentInvocationV3(params *PatchAgentInvocationV3Params, opts ...ClientOption) (*PatchAgentInvocationV3Accepted, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-GetAgentInvocationV3 retrieves the list of of messages that are resulted from the specified invocation
+GetAgentInvocationV3 gets the messages that an invocation produced
 */
 func (a *Client) GetAgentInvocationV3(params *GetAgentInvocationV3Params, opts ...ClientOption) (*GetAgentInvocationV3OK, error) {
 	// TODO: Validate the params before sending
@@ -150,6 +152,44 @@ func (a *Client) InvokePublishedAgentExternalV1(params *InvokePublishedAgentExte
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for InvokePublishedAgentExternalV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PatchAgentInvocationV3 modifies an in flight agent invocation the only accepted status transition is to cancelled which cancels the invocation any other status is rejected with 400 cancelling an invocation that has already reached a terminal state succeeds without changing it
+*/
+func (a *Client) PatchAgentInvocationV3(params *PatchAgentInvocationV3Params, opts ...ClientOption) (*PatchAgentInvocationV3Accepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPatchAgentInvocationV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PatchAgentInvocationV3",
+		Method:             "PATCH",
+		PathPattern:        "/agentic-studio/entities/agent-invocations/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PatchAgentInvocationV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PatchAgentInvocationV3Accepted)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PatchAgentInvocationV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

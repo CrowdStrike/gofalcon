@@ -76,7 +76,7 @@ func (a *Client) EntitiesModelsV1(params *EntitiesModelsV1Params, opts ...Client
 }
 
 /*
-QueriesModelsV1 queries models based on the provided filters t b d what the available filters are
+QueriesModelsV1 queries models based on the provided filters
 */
 func (a *Client) QueriesModelsV1(params *QueriesModelsV1Params, opts ...ClientOption) (*QueriesModelsV1OK, error) {
 	// TODO: Validate the params before sending
