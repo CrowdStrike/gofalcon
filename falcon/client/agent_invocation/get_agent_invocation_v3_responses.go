@@ -74,7 +74,7 @@ func NewGetAgentInvocationV3OK() *GetAgentInvocationV3OK {
 /*
 GetAgentInvocationV3OK describes a response with status code 200, with default header values.
 
-Successfully invoked
+Successfully retrieved
 */
 type GetAgentInvocationV3OK struct {
 

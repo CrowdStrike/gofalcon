@@ -15,18 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APIAgentVersion api agent version
+// APIIdentifiableAgentVersionDefinition api identifiable agent version definition
 //
-// swagger:model api.AgentVersion
-type APIAgentVersion struct {
-
-	// agent id
-	// Required: true
-	AgentID *string `json:"agent_id"`
-
-	// cid
-	// Required: true
-	Cid *string `json:"cid"`
+// swagger:model api.IdentifiableAgentVersionDefinition
+type APIIdentifiableAgentVersionDefinition struct {
 
 	// compaction config
 	CompactionConfig *APICompactionConfig `json:"compaction_config,omitempty"`
@@ -67,14 +59,6 @@ type APIAgentVersion struct {
 	// knowledge base ids
 	// Required: true
 	KnowledgeBaseIds []string `json:"knowledge_base_ids"`
-
-	// metadata
-	Metadata map[string]string `json:"metadata,omitempty"`
-
-	// metadata updated at
-	// Required: true
-	// Format: date-time
-	MetadataUpdatedAt *strfmt.DateTime `json:"metadata_updated_at"`
 
 	// model
 	// Required: true
@@ -125,17 +109,9 @@ type APIAgentVersion struct {
 	UpdatedBy *APIUser `json:"updated_by"`
 }
 
-// Validate validates this api agent version
-func (m *APIAgentVersion) Validate(formats strfmt.Registry) error {
+// Validate validates this api identifiable agent version definition
+func (m *APIIdentifiableAgentVersionDefinition) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateAgentID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCid(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateCompactionConfig(formats); err != nil {
 		res = append(res, err)
@@ -174,10 +150,6 @@ func (m *APIAgentVersion) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateKnowledgeBaseIds(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMetadataUpdatedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -231,25 +203,7 @@ func (m *APIAgentVersion) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateAgentID(formats strfmt.Registry) error {
-
-	if err := validate.Required("agent_id", "body", m.AgentID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIAgentVersion) validateCid(formats strfmt.Registry) error {
-
-	if err := validate.Required("cid", "body", m.Cid); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIAgentVersion) validateCompactionConfig(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateCompactionConfig(formats strfmt.Registry) error {
 	if swag.IsZero(m.CompactionConfig) { // not required
 		return nil
 	}
@@ -268,7 +222,7 @@ func (m *APIAgentVersion) validateCompactionConfig(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *APIAgentVersion) validateCreatedAt(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateCreatedAt(formats strfmt.Registry) error {
 
 	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
 		return err
@@ -281,7 +235,7 @@ func (m *APIAgentVersion) validateCreatedAt(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateCreatedBy(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateCreatedBy(formats strfmt.Registry) error {
 
 	if err := validate.Required("created_by", "body", m.CreatedBy); err != nil {
 		return err
@@ -301,7 +255,7 @@ func (m *APIAgentVersion) validateCreatedBy(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateDescription(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateDescription(formats strfmt.Registry) error {
 
 	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
@@ -310,7 +264,7 @@ func (m *APIAgentVersion) validateDescription(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateFlightControlConfig(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateFlightControlConfig(formats strfmt.Registry) error {
 
 	if err := validate.Required("flight_control_config", "body", m.FlightControlConfig); err != nil {
 		return err
@@ -330,7 +284,7 @@ func (m *APIAgentVersion) validateFlightControlConfig(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *APIAgentVersion) validateID(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
@@ -339,7 +293,7 @@ func (m *APIAgentVersion) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateInputFormat(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateInputFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("input_format", "body", m.InputFormat); err != nil {
 		return err
@@ -359,7 +313,7 @@ func (m *APIAgentVersion) validateInputFormat(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateIsEnabled(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateIsEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_enabled", "body", m.IsEnabled); err != nil {
 		return err
@@ -368,7 +322,7 @@ func (m *APIAgentVersion) validateIsEnabled(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateIsPublished(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateIsPublished(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_published", "body", m.IsPublished); err != nil {
 		return err
@@ -377,7 +331,7 @@ func (m *APIAgentVersion) validateIsPublished(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateKnowledgeBaseIds(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateKnowledgeBaseIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("knowledge_base_ids", "body", m.KnowledgeBaseIds); err != nil {
 		return err
@@ -386,20 +340,7 @@ func (m *APIAgentVersion) validateKnowledgeBaseIds(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *APIAgentVersion) validateMetadataUpdatedAt(formats strfmt.Registry) error {
-
-	if err := validate.Required("metadata_updated_at", "body", m.MetadataUpdatedAt); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("metadata_updated_at", "body", "date-time", m.MetadataUpdatedAt.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIAgentVersion) validateModel(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateModel(formats strfmt.Registry) error {
 
 	if err := validate.Required("model", "body", m.Model); err != nil {
 		return err
@@ -408,7 +349,7 @@ func (m *APIAgentVersion) validateModel(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateModelConfig(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateModelConfig(formats strfmt.Registry) error {
 
 	if err := validate.Required("model_config", "body", m.ModelConfig); err != nil {
 		return err
@@ -428,7 +369,7 @@ func (m *APIAgentVersion) validateModelConfig(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateName(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -437,7 +378,7 @@ func (m *APIAgentVersion) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateOutputFormat(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateOutputFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("output_format", "body", m.OutputFormat); err != nil {
 		return err
@@ -457,7 +398,7 @@ func (m *APIAgentVersion) validateOutputFormat(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateParentVersionIds(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateParentVersionIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("parent_version_ids", "body", m.ParentVersionIds); err != nil {
 		return err
@@ -466,7 +407,7 @@ func (m *APIAgentVersion) validateParentVersionIds(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *APIAgentVersion) validateSkillIds(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateSkillIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("skill_ids", "body", m.SkillIds); err != nil {
 		return err
@@ -475,7 +416,7 @@ func (m *APIAgentVersion) validateSkillIds(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateSystemPrompt(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateSystemPrompt(formats strfmt.Registry) error {
 
 	if err := validate.Required("system_prompt", "body", m.SystemPrompt); err != nil {
 		return err
@@ -484,7 +425,7 @@ func (m *APIAgentVersion) validateSystemPrompt(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateTargetingConfig(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateTargetingConfig(formats strfmt.Registry) error {
 
 	if err := validate.Required("targeting_config", "body", m.TargetingConfig); err != nil {
 		return err
@@ -504,7 +445,7 @@ func (m *APIAgentVersion) validateTargetingConfig(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *APIAgentVersion) validateTools(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateTools(formats strfmt.Registry) error {
 
 	if err := validate.Required("tools", "body", m.Tools); err != nil {
 		return err
@@ -531,7 +472,7 @@ func (m *APIAgentVersion) validateTools(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateUpdatedAt(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateUpdatedAt(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated_at", "body", m.UpdatedAt); err != nil {
 		return err
@@ -544,7 +485,7 @@ func (m *APIAgentVersion) validateUpdatedAt(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIAgentVersion) validateUpdatedBy(formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) validateUpdatedBy(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated_by", "body", m.UpdatedBy); err != nil {
 		return err
@@ -564,8 +505,8 @@ func (m *APIAgentVersion) validateUpdatedBy(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this api agent version based on the context it is used
-func (m *APIAgentVersion) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this api identifiable agent version definition based on the context it is used
+func (m *APIIdentifiableAgentVersionDefinition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateCompactionConfig(ctx, formats); err != nil {
@@ -610,7 +551,7 @@ func (m *APIAgentVersion) ContextValidate(ctx context.Context, formats strfmt.Re
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateCompactionConfig(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateCompactionConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CompactionConfig != nil {
 
@@ -631,7 +572,7 @@ func (m *APIAgentVersion) contextValidateCompactionConfig(ctx context.Context, f
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CreatedBy != nil {
 
@@ -648,7 +589,7 @@ func (m *APIAgentVersion) contextValidateCreatedBy(ctx context.Context, formats 
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateFlightControlConfig(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateFlightControlConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.FlightControlConfig != nil {
 
@@ -665,7 +606,7 @@ func (m *APIAgentVersion) contextValidateFlightControlConfig(ctx context.Context
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateInputFormat(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateInputFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.InputFormat != nil {
 
@@ -682,7 +623,7 @@ func (m *APIAgentVersion) contextValidateInputFormat(ctx context.Context, format
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateModelConfig(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateModelConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ModelConfig != nil {
 
@@ -699,7 +640,7 @@ func (m *APIAgentVersion) contextValidateModelConfig(ctx context.Context, format
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateOutputFormat(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateOutputFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OutputFormat != nil {
 
@@ -716,7 +657,7 @@ func (m *APIAgentVersion) contextValidateOutputFormat(ctx context.Context, forma
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateTargetingConfig(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateTargetingConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TargetingConfig != nil {
 
@@ -733,7 +674,7 @@ func (m *APIAgentVersion) contextValidateTargetingConfig(ctx context.Context, fo
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateTools(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateTools(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Tools); i++ {
 
@@ -758,7 +699,7 @@ func (m *APIAgentVersion) contextValidateTools(ctx context.Context, formats strf
 	return nil
 }
 
-func (m *APIAgentVersion) contextValidateUpdatedBy(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIIdentifiableAgentVersionDefinition) contextValidateUpdatedBy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.UpdatedBy != nil {
 
@@ -776,7 +717,7 @@ func (m *APIAgentVersion) contextValidateUpdatedBy(ctx context.Context, formats 
 }
 
 // MarshalBinary interface implementation
-func (m *APIAgentVersion) MarshalBinary() ([]byte, error) {
+func (m *APIIdentifiableAgentVersionDefinition) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -784,8 +725,8 @@ func (m *APIAgentVersion) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *APIAgentVersion) UnmarshalBinary(b []byte) error {
-	var res APIAgentVersion
+func (m *APIIdentifiableAgentVersionDefinition) UnmarshalBinary(b []byte) error {
+	var res APIIdentifiableAgentVersionDefinition
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
