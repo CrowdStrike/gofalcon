@@ -36,7 +36,7 @@ type ClientService interface {
 
 	ExclusionsAggregatesV2(params *ExclusionsAggregatesV2Params, opts ...ClientOption) (*ExclusionsAggregatesV2OK, error)
 
-	ExclusionsCreateV2(params *ExclusionsCreateV2Params, opts ...ClientOption) (*ExclusionsCreateV2OK, error)
+	ExclusionsCreateV2(params *ExclusionsCreateV2Params, opts ...ClientOption) (*ExclusionsCreateV2Created, error)
 
 	ExclusionsDeleteV2(params *ExclusionsDeleteV2Params, opts ...ClientOption) (*ExclusionsDeleteV2OK, error)
 
@@ -180,7 +180,7 @@ func (a *Client) ExclusionsAggregatesV2(params *ExclusionsAggregatesV2Params, op
 /*
 ExclusionsCreateV2 creates the exclusions with ancestor fields
 */
-func (a *Client) ExclusionsCreateV2(params *ExclusionsCreateV2Params, opts ...ClientOption) (*ExclusionsCreateV2OK, error) {
+func (a *Client) ExclusionsCreateV2(params *ExclusionsCreateV2Params, opts ...ClientOption) (*ExclusionsCreateV2Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExclusionsCreateV2Params()
@@ -205,7 +205,7 @@ func (a *Client) ExclusionsCreateV2(params *ExclusionsCreateV2Params, opts ...Cl
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ExclusionsCreateV2OK)
+	success, ok := result.(*ExclusionsCreateV2Created)
 	if ok {
 		return success, nil
 	}
