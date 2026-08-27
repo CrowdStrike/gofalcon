@@ -76,6 +76,14 @@ OK
 */
 type ReportExecutionsDownloadGetOK struct {
 
+	/* Attachment disposition carrying the report filename, e.g. attachment;filename=<report>.json
+	 */
+	ContentDisposition string
+
+	/* Media type of the downloaded report
+	 */
+	ContentType string
+
 	/* Trace-ID: submit to support if resolving an issue
 	 */
 	XCSTRACEID string
@@ -134,6 +142,20 @@ func (o *ReportExecutionsDownloadGetOK) GetPayload() io.Writer {
 }
 
 func (o *ReportExecutionsDownloadGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header Content-Disposition
+	hdrContentDisposition := response.GetHeader("Content-Disposition")
+
+	if hdrContentDisposition != "" {
+		o.ContentDisposition = hdrContentDisposition
+	}
+
+	// hydrates response header Content-Type
+	hdrContentType := response.GetHeader("Content-Type")
+
+	if hdrContentType != "" {
+		o.ContentType = hdrContentType
+	}
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
