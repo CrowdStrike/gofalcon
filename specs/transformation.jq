@@ -854,6 +854,19 @@
 # a real response (an array type fails to unmarshal the object the API returns).
 | .definitions."vulnerabilities.VulnerabilityEntitySARIFResponse".properties.resources = {"$ref": "#/definitions/models.VulnerabilitySARIF"}
 
+# insights.External models a single insight value as flat primitive siblings (booleanValue,
+# dateValue, integerValue, stringValue, stringListValue), only one of which is populated per
+# record. The default codegen loses data: a value-typed "booleanValue,omitempty" drops a real
+# false, omitempty is a no-op on the strfmt.DateTime struct so an unset dateValue marshals as
+# "0001-01-01T00:00:00.000Z", and an array without omitempty emits nil as null on every record.
+# Make the scalars nullable (pointers: nil when absent, zero preserved when set) and give the
+# array omitempty, so an absent value is omitted rather than corrupted.
+| .definitions."insights.External".properties.booleanValue    += {"x-nullable": true}
+| .definitions."insights.External".properties.dateValue       += {"x-nullable": true}
+| .definitions."insights.External".properties.integerValue    += {"x-nullable": true}
+| .definitions."insights.External".properties.stringValue      += {"x-nullable": true}
+| .definitions."insights.External".properties.stringListValue += {"x-omitempty": true}
+
 # The ML (machine-learning) exclusions v2 operations declare an empty {} 200 response
 # schema, so go-swagger falls back to msa.ReplyMetaOnly and silently drops every resource
 # the API returns. The record shape matches the existing v1 definitions, so point the 200

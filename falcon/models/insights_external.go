@@ -20,27 +20,27 @@ import (
 type InsightsExternal struct {
 
 	// boolean value
-	BooleanValue bool `json:"booleanValue,omitempty"`
+	BooleanValue *bool `json:"booleanValue,omitempty"`
 
 	// date value
 	// Format: date-time
-	DateValue strfmt.DateTime `json:"dateValue,omitempty"`
+	DateValue *strfmt.DateTime `json:"dateValue,omitempty"`
 
 	// id
 	// Required: true
 	ID *string `json:"id"`
 
 	// integer value
-	IntegerValue int32 `json:"integerValue,omitempty"`
+	IntegerValue *int32 `json:"integerValue,omitempty"`
 
 	// rule Id
 	RuleID string `json:"ruleId,omitempty"`
 
 	// string list value
-	StringListValue []string `json:"stringListValue"`
+	StringListValue []string `json:"stringListValue,omitempty"`
 
 	// string value
-	StringValue string `json:"stringValue,omitempty"`
+	StringValue *string `json:"stringValue,omitempty"`
 }
 
 // Validate validates this insights external

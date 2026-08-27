@@ -24,6 +24,9 @@ type ApimodelsRule struct {
 	// Required: true
 	AlertInfo *string `json:"alert_info"`
 
+	// annotation status
+	AnnotationStatus string `json:"annotation_status,omitempty"`
+
 	// attack types
 	AttackTypes []string `json:"attack_types"`
 
@@ -75,6 +78,9 @@ type ApimodelsRule struct {
 	// domain
 	// Required: true
 	Domain *string `json:"domain"`
+
+	// insight id
+	InsightID string `json:"insight_id,omitempty"`
 
 	// logic
 	Logic string `json:"logic,omitempty"`
