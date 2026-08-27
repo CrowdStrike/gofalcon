@@ -7,6 +7,7 @@ package report_executions
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -30,7 +31,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGetParams, opts ...ClientOption) (*ReportExecutionsDownloadGetOK, error)
+	ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGetParams, writer io.Writer, opts ...ClientOption) (*ReportExecutionsDownloadGetOK, error)
 
 	ReportExecutionsGet(params *ReportExecutionsGetParams, opts ...ClientOption) (*ReportExecutionsGetOK, error)
 
@@ -44,7 +45,7 @@ type ClientService interface {
 /*
 ReportExecutionsDownloadGet gets report entity download
 */
-func (a *Client) ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGetParams, opts ...ClientOption) (*ReportExecutionsDownloadGetOK, error) {
+func (a *Client) ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGetParams, writer io.Writer, opts ...ClientOption) (*ReportExecutionsDownloadGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewReportExecutionsDownloadGetParams()
@@ -57,7 +58,7 @@ func (a *Client) ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGet
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &ReportExecutionsDownloadGetReader{formats: a.formats},
+		Reader:             &ReportExecutionsDownloadGetReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

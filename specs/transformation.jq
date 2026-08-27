@@ -10,6 +10,7 @@
   | .paths."/intel/entities/mitre-reports/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/intel/entities/malware-mitre-reports/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/real-time-response/entities/extracted-file-contents/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  | .paths."/reports/entities/report-executions-download/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   # Fix overflow on json number (more than 63 bits are needed hold this field)
   | .definitions."domain.APIEvaluationLogicItemV1".properties.id."x-go-type"={type: "Number", import: {package: "encoding/json"}, hints: {noValidation: true}}
   | .definitions."domain.APISimplifiedEvaluationLogicItemV1".properties.id."x-go-type"={type: "Number", import: {package: "encoding/json"}, hints: {noValidation: true}}
