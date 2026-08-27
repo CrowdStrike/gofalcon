@@ -20,13 +20,14 @@ import (
 // ReportExecutionsDownloadGetReader is a Reader for the ReportExecutionsDownloadGet structure.
 type ReportExecutionsDownloadGetReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *ReportExecutionsDownloadGetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewReportExecutionsDownloadGetOK()
+		result := NewReportExecutionsDownloadGetOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -61,8 +62,11 @@ func (o *ReportExecutionsDownloadGetReader) ReadResponse(response runtime.Client
 }
 
 // NewReportExecutionsDownloadGetOK creates a ReportExecutionsDownloadGetOK with default headers values
-func NewReportExecutionsDownloadGetOK() *ReportExecutionsDownloadGetOK {
-	return &ReportExecutionsDownloadGetOK{}
+func NewReportExecutionsDownloadGetOK(writer io.Writer) *ReportExecutionsDownloadGetOK {
+	return &ReportExecutionsDownloadGetOK{
+
+		Payload: writer,
+	}
 }
 
 /*
@@ -83,6 +87,8 @@ type ReportExecutionsDownloadGetOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload io.Writer
 }
 
 // IsSuccess returns true when this report executions download get o k response has a 2xx status code
@@ -116,11 +122,15 @@ func (o *ReportExecutionsDownloadGetOK) Code() int {
 }
 
 func (o *ReportExecutionsDownloadGetOK) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK ", 200)
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK  %+v", 200, o.Payload)
 }
 
 func (o *ReportExecutionsDownloadGetOK) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK ", 200)
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK  %+v", 200, o.Payload)
+}
+
+func (o *ReportExecutionsDownloadGetOK) GetPayload() io.Writer {
+	return o.Payload
 }
 
 func (o *ReportExecutionsDownloadGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -152,6 +162,11 @@ func (o *ReportExecutionsDownloadGetOK) readResponse(response runtime.ClientResp
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil
