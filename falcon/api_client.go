@@ -56,8 +56,25 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	customTransport.Debug = ac.Debug
 	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
 	customTransport.Consumers["application/x-7z-compressed"] = httpruntime.ByteStreamConsumer()
+	customTransport.Consumers["application/json"] = downloadAwareJSONConsumer()
 
 	return client.New(customTransport, strfmt.Default), nil
+}
+
+// downloadAwareJSONConsumer streams binary download payloads (io.Writer / io.ReaderFrom
+// targets) through the byte-stream consumer and decodes all other JSON responses with the
+// standard JSON consumer.
+func downloadAwareJSONConsumer() httpruntime.Consumer {
+	byteStream := httpruntime.ByteStreamConsumer()
+	jsonConsumer := httpruntime.JSONConsumer()
+	return httpruntime.ConsumerFunc(func(reader io.Reader, data any) error {
+		switch data.(type) {
+		case io.Writer, io.ReaderFrom:
+			return byteStream.Consume(reader, data)
+		default:
+			return jsonConsumer.Consume(reader, data)
+		}
+	})
 }
 
 func credentialsOk(ac *ApiConfig) (bool, error) {

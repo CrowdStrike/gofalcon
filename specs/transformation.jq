@@ -14,9 +14,10 @@
   # The report-executions-download 200 response carries Content-Type and Content-Disposition
   # (verified live: application/json and attachment;filename=<report>.json), but the spec declares
   # neither, so the generated OK struct drops them. A report can be delivered in different formats
-  # (produces: */*) and the Content-Disposition filename is the only signal of which one, so both
-  # headers are load-bearing for a caller that writes the body to a file. Declare them so the OK
-  # struct exposes ContentType/ContentDisposition and readResponse hydrates them.
+  # (produces: */*); Content-Type and the Content-Disposition filename let a caller detect the
+  # format straight from the download response, so both headers are load-bearing for a caller that
+  # writes the body to a file. Declare them so the OK struct exposes ContentType/ContentDisposition
+  # and readResponse hydrates them.
   | .paths."/reports/entities/report-executions-download/v1"."get"."responses"."200"."headers"."Content-Type" = {"type": "string", "description": "Media type of the downloaded report"}
   | .paths."/reports/entities/report-executions-download/v1"."get"."responses"."200"."headers"."Content-Disposition" = {"type": "string", "description": "Attachment disposition carrying the report filename, e.g. attachment;filename=<report>.json"}
   # Fix overflow on json number (more than 63 bits are needed hold this field)
