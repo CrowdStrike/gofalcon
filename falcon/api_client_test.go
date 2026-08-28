@@ -3,6 +3,7 @@ package falcon
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -591,4 +592,44 @@ func TestWaitForCooldown_PreflightDeadlineExceeded(t *testing.T) {
 	if !strings.Contains(err.Error(), "exceeds context deadline") {
 		t.Fatalf("expected descriptive error message, got: %v", err)
 	}
+}
+
+func TestDownloadAwareJSONConsumer(t *testing.T) {
+	jsonArray := `[{"a":1},{"b":2}]`
+	jsonObject := `{"n":123}`
+
+	// writerTarget cases assert raw bytes are streamed verbatim into an io.Writer,
+	// which is how the report-download endpoints pass their payload. A plain
+	// JSONConsumer would instead try to json-decode into the writer and fail.
+	t.Run("io.Writer target streams JSON array verbatim", func(t *testing.T) {
+		var buf bytes.Buffer
+		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonArray), &buf); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if buf.String() != jsonArray {
+			t.Fatalf("expected %q, got %q", jsonArray, buf.String())
+		}
+	})
+
+	t.Run("io.Writer target streams JSON object verbatim", func(t *testing.T) {
+		var buf bytes.Buffer
+		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonObject), &buf); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if buf.String() != jsonObject {
+			t.Fatalf("expected %q, got %q", jsonObject, buf.String())
+		}
+	})
+
+	t.Run("non-writer target decodes as JSON with UseNumber", func(t *testing.T) {
+		var out struct {
+			N json.Number `json:"n"`
+		}
+		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonObject), &out); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if out.N != json.Number("123") {
+			t.Fatalf("expected json.Number 123, got %q", out.N)
+		}
+	})
 }
