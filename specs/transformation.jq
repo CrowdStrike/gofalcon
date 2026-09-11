@@ -1031,3 +1031,84 @@
 # exactly. (ML/SV groups and excluded_from, and CB children_cids/host_groups, are always present in
 # the live body — populated or [] — so they already round-trip and are left unchanged.)
 | .definitions."domain.SsIoaExclusionsV2".properties.host_groups += {"x-omitempty": true}
+
+# Network containment allowlist rules (ContainmentAllowlistRules, /customers/{entities,queries}/
+# containment-allowlist-rules/v1). The spec disagrees with the live API (verified against us-2) in
+# ways that break the generated client outright, so the fixes below are needed, not cosmetic.
+#
+# Rule IDs are composites derived from the rule body, not opaque tokens: "<context>|<rule>" for
+# ip_range and fqdn rules (e.g. "containment|203.0.113.0/24"), and "<context>|dns|<rule>" for
+# ip_dns rules (e.g. "containment|dns|192.0.2.53"). That is why ids cannot be csv-encoded and why
+# PATCH cannot change `rule`.
+#
+# 1. POST answers 201, not 200. The spec declares only 200, so the generated reader falls through
+#    to runtime.NewAPIError("unknown error", ...) on every SUCCESSFUL create and throws away the
+#    created rule. Retag the success response as 201.
+| .paths."/customers/entities/containment-allowlist-rules/v1".post.responses."201" =
+    .paths."/customers/entities/containment-allowlist-rules/v1".post.responses."200"
+| del(.paths."/customers/entities/containment-allowlist-rules/v1".post.responses."200")
+| .paths."/customers/entities/containment-allowlist-rules/v1".post.responses."201".description = "Created"
+#
+# 2. `ids` is a repeated query param, not a csv one. GET with ids=a,b returns 500; ids=a&ids=b
+#    returns both rules. Composite IDs make csv ambiguous anyway.
+| .paths."/customers/entities/containment-allowlist-rules/v1".get.parameters |=
+    map(if .name == "ids" then
+          .collectionFormat = "multi"
+          | .description = "Containment allowlist rule ID as returned by the query endpoint: <context>|<rule>, or <context>|dns|<rule> for ip_dns rules. Repeat the parameter for multiple IDs; comma-separated IDs are rejected with a 500."
+        else . end)
+#
+# 3. DELETE declares `ids` as a single optional string. The API takes the same repeated array form
+#    as GET (ids=a,b returns 500; ids=a&ids=b deletes both), so a single string cannot delete more
+#    than one rule. `required` is also set: a DELETE with no ids at all answers 200 and it is not
+#    established whether that is a no-op or a delete-all, so the client must never be able to send
+#    an unscoped delete.
+| .paths."/customers/entities/containment-allowlist-rules/v1".delete.parameters |=
+    map(if .name == "ids" then
+          {"type": "array",
+           "items": {"type": "string"},
+           "collectionFormat": "multi",
+           "description": "Containment allowlist rule ID as returned by the query endpoint: <context>|<rule>, or <context>|dns|<rule> for ip_dns rules. Repeat the parameter for multiple IDs; comma-separated IDs are rejected with a 500.",
+           "name": "ids",
+           "in": "query",
+           "required": true}
+        else . end)
+#
+# 4. Undeclared error statuses. The spec declares only 403/429/500, but validation and conflict
+#    failures come back on codes go-swagger therefore has no case for, so the caller gets
+#    "unknown error" instead of the message. All of these carry a {meta, errors:[{code,message}]}
+#    body, which is exactly msa.ReplyMetaOnly. Observed:
+#      POST   400 "At least one rule is required" / "invalid context given: x" /
+#                 "invalid rule type provided" / "invalid FQDN provided: x" /
+#                 "invalid IP / CIDR address provided: x" / FQDN-without-a-DNS-rule
+#             409 "Rule containment|203.0.113.0/24 already exists"
+#      PATCH  400 "ID is required"
+#             416 "some rules not found" (yes, 416, with an inner errors[0].code of 400)
+#      DELETE 400 "By deleting the last DNS rule type, all FQDN containment rules would be
+#                 disabled..." (see the ip_dns/fqdn ordering constraint below)
+#             404 "Rule containment|198.51.100.99 does not exist"
+| .paths."/customers/entities/containment-allowlist-rules/v1".post.responses."400" =
+    {"description": "Bad Request", "schema": {"$ref": "#/definitions/msa.ReplyMetaOnly"}}
+| .paths."/customers/entities/containment-allowlist-rules/v1".post.responses."409" =
+    {"description": "Conflict: a rule with this context and rule value already exists", "schema": {"$ref": "#/definitions/msa.ReplyMetaOnly"}}
+| .paths."/customers/entities/containment-allowlist-rules/v1".patch.responses."400" =
+    {"description": "Bad Request", "schema": {"$ref": "#/definitions/msa.ReplyMetaOnly"}}
+| .paths."/customers/entities/containment-allowlist-rules/v1".patch.responses."416" =
+    {"description": "Requested Range Not Satisfiable: one or more of the submitted rule IDs do not exist", "schema": {"$ref": "#/definitions/msa.ReplyMetaOnly"}}
+| .paths."/customers/entities/containment-allowlist-rules/v1".delete.responses."400" =
+    {"description": "Bad Request: deleting these rules would leave FQDN rules without a DNS rule", "schema": {"$ref": "#/definitions/msa.ReplyMetaOnly"}}
+| .paths."/customers/entities/containment-allowlist-rules/v1".delete.responses."404" =
+    {"description": "Not Found: no rule with the given ID", "schema": {"$ref": "#/definitions/msa.ReplyMetaOnly"}}
+#
+# 5. Document the behaviour a caller cannot guess from the types. `context` and `type` are typed as
+#    free-form strings but the API enforces a closed set. They are left as strings rather than
+#    enums so that a value added server-side does not hard-fail client-side validation; the
+#    accepted values are documented on the fields instead.
+| .paths."/customers/entities/containment-allowlist-rules/v1".get.summary = "Get network containment allowlist rules for the specified IDs. An ID that does not exist is not an error: the call answers 200 with a null resources array. A malformed ID (one that is not a <context>|<rule> composite) answers 500."
+| .paths."/customers/entities/containment-allowlist-rules/v1".patch.summary = "Update network containment allowlist rules. Each rule must carry its id, which is otherwise optional on this model. Only label and options are mutable: a changed rule value is silently ignored and the stored rule is returned unchanged. Each update also resets created_on to the update time and blanks created_by."
+| .paths."/customers/entities/containment-allowlist-rules/v1".delete.summary = "Delete network containment allowlist rules by ID. The last remaining ip_dns rule cannot be deleted while any fqdn rule exists; that request is rejected with a 400."
+| .definitions."ipwhitelistinteractor.AllowlistRule".properties.id.description = "Rule ID assigned by the API, a composite of the rule body: <context>|<rule> for ip_range and fqdn rules (for example containment|203.0.113.0/24), or <context>|dns|<rule> for ip_dns rules (for example containment|dns|192.0.2.53). Ignored on create, required on update."
+| .definitions."ipwhitelistinteractor.AllowlistRule".properties.context.description = "Allowlist context. The only value the API accepts is containment; anything else is rejected with 400 'invalid context given'."
+| .definitions."ipwhitelistinteractor.AllowlistRule".properties.type.description = "Rule type: ip_range (a single IP, or an IPv4/IPv6 CIDR block), fqdn (a domain contained hosts may reach), or ip_dns (a DNS server contained hosts may resolve against). fqdn rules depend on ip_dns rules: creating one with no ip_dns rule present is rejected with 400, though both may be created in the same request, and deleting the last ip_dns rule while any fqdn rule remains is likewise rejected."
+| .definitions."ipwhitelistinteractor.AllowlistRule".properties.rule.description = "The allowlisted value: an IP or CIDR block for ip_range, a domain for fqdn, a DNS server IP for ip_dns. Immutable, since it forms part of the rule ID."
+| .definitions."ipwhitelistinteractor.AllowlistRule".properties.created_by.description = "UUID of the user who created the rule. Returned empty by update."
+| .definitions."ipwhitelistinteractor.RuleOption".properties.allow_subdomain.description = "For fqdn rules, also allow one level of subdomains beyond the given domain (example.com allows mail.example.com but not my.maps.example.com). Returned as false on other rule types, where it has no effect."

@@ -48,6 +48,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/container_images"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_packages"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/containment_allowlist_rules"
 	"github.com/crowdstrike/gofalcon/falcon/client/content_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/correlation_rules"
 	"github.com/crowdstrike/gofalcon/falcon/client/correlation_rules_admin"
@@ -241,6 +242,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ContainerImages = container_images.New(transport, formats)
 	cli.ContainerPackages = container_packages.New(transport, formats)
 	cli.ContainerVulnerabilities = container_vulnerabilities.New(transport, formats)
+	cli.ContainmentAllowlistRules = containment_allowlist_rules.New(transport, formats)
 	cli.ContentUpdatePolicies = content_update_policies.New(transport, formats)
 	cli.CorrelationRules = correlation_rules.New(transport, formats)
 	cli.CorrelationRulesAdmin = correlation_rules_admin.New(transport, formats)
@@ -471,6 +473,8 @@ type CrowdStrikeAPISpecification struct {
 	ContainerPackages container_packages.ClientService
 
 	ContainerVulnerabilities container_vulnerabilities.ClientService
+
+	ContainmentAllowlistRules containment_allowlist_rules.ClientService
 
 	ContentUpdatePolicies content_update_policies.ClientService
 
@@ -738,6 +742,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ContainerImages.SetTransport(transport)
 	c.ContainerPackages.SetTransport(transport)
 	c.ContainerVulnerabilities.SetTransport(transport)
+	c.ContainmentAllowlistRules.SetTransport(transport)
 	c.ContentUpdatePolicies.SetTransport(transport)
 	c.CorrelationRules.SetTransport(transport)
 	c.CorrelationRulesAdmin.SetTransport(transport)
