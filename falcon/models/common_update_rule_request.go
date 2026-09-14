@@ -23,6 +23,9 @@ type CommonUpdateRuleRequest struct {
 	// alert info
 	AlertInfo *string `json:"alert_info,omitempty"`
 
+	// annotation status
+	AnnotationStatus string `json:"annotation_status,omitempty"`
+
 	// attack types
 	AttackTypes []string `json:"attack_types"`
 
@@ -42,7 +45,7 @@ type CommonUpdateRuleRequest struct {
 	RuleLogicList []*ApimodelsRuleLogic `json:"rule_logic_list"`
 
 	// severity
-	Severity int64 `json:"severity,omitempty"`
+	Severity int64 `json:"severity"`
 
 	// uuid
 	// Required: true

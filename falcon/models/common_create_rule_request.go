@@ -74,7 +74,7 @@ type CommonCreateRuleRequest struct {
 	ResourceType *string `json:"resource_type"`
 
 	// severity
-	Severity int64 `json:"severity,omitempty"`
+	Severity int64 `json:"severity"`
 
 	// subdomain
 	// Required: true
