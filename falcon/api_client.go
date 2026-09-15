@@ -59,6 +59,11 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	customTransport.Consumers["application/json"] = downloadAwareConsumer(httpruntime.JSONConsumer())
 	customTransport.Consumers["text/csv"] = downloadAwareConsumer(httpruntime.CSVConsumer())
 
+	byteStream := httpruntime.ByteStreamConsumer()
+	for _, mediaType := range binaryDownloadMediaTypes() {
+		customTransport.Consumers[mediaType] = byteStream
+	}
+
 	return client.New(customTransport, strfmt.Default), nil
 }
 
@@ -75,6 +80,28 @@ func downloadAwareConsumer(fallback httpruntime.Consumer) httpruntime.Consumer {
 			return fallback.Consume(reader, data)
 		}
 	})
+}
+
+// binaryDownloadMediaTypes lists the binary content types returned by download
+// endpoints, such as message-center case-attachment downloads, that the
+// go-openapi runtime does not register a consumer for by default. Each is
+// streamed verbatim into the response payload rather than decoded. The
+// application/pdf, application/json, and text/plain content types those
+// endpoints also advertise are handled separately and are intentionally absent.
+func binaryDownloadMediaTypes() []string {
+	return []string{
+		"application/msword",
+		"application/vnd.ms-excel",
+		"application/vnd.openxmlformats-officedocument.presentationml.presentation",
+		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+		"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		"application/zip",
+		"image/bmp",
+		"image/gif",
+		"image/jpeg",
+		"image/jpg",
+		"image/png",
+	}
 }
 
 func credentialsOk(ac *ApiConfig) (bool, error) {
