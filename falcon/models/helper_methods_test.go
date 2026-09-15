@@ -1,10 +1,21 @@
-package models
+// Package models_test holds the tests for the hand-written String() methods in
+// helper_methods.go.
+//
+// These tests deliberately live in an external test package rather than in
+// package models. An in-package test file makes the toolchain build a test
+// variant of models, and models is 3200 files, so golangci-lint then analyses
+// the whole package twice. That roughly doubled lint time and pushed the macOS
+// CI job past its --timeout. Nothing here needs unexported access, so keep it
+// external.
+package models_test
 
 import (
 	"fmt"
 	"reflect"
 	"strings"
 	"testing"
+
+	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
 const (
@@ -17,159 +28,159 @@ const (
 // tests below drive all of it, which is what keeps it honest.
 func errorModelsWithString() []fmt.Stringer {
 	return []fmt.Stringer{
-		&AccessscopemanagerV1Error{},
-		&AccessscopemanagerV1Meta{},
-		&AccessscopemanagerV1Pagination{},
-		&APICursorMetaInfo{},
-		&APIDetectsQueryMeta{},
-		&APIDetectsQueryPaging{},
-		&APIIndicatorsQueryMeta{},
-		&APIIndicatorsQueryPaging{},
-		&APIMetaInfo{},
-		&APIModelEntityMetaInfo{},
-		&APIPaging{},
-		&APIPatchAgentMetaInfo{},
-		&APISdmError{},
-		&AssetgroupmanagerV1Error{},
-		&AssetgroupmanagerV1Meta{},
-		&AssetgroupmanagerV1Pagination{},
-		&ChangesHighVolumeQueryMeta{},
-		&ChangesHighVolumeQueryPaging{},
-		&DetectsapiPostCombinedAlertsV1Meta{},
-		&DetectsapiPostCombinedAlertsV1Paging{},
-		&DeviceapiDevicePaging{},
-		&DeviceapiDevicePagingV2{},
-		&DeviceapiMetaInfo{},
-		&DeviceapiRequestMeta{},
-		&DevicecontrolapiRespMSAErrorV1{},
-		&DevicecontrolapiRespMSAMetaV1{},
-		&DevicecontrolapiRespPagingDetailsV1{},
-		&DomainAPIQueryMetaV1{},
-		&DomainAPIQueryPagingV1{},
-		&DomainDiscoverAPIMetaInfo{},
-		&DomainDiscoverAPIPaging{},
-		&DomainFemEcosystemSubsidiariesMeta{},
-		&DomainMetaInfo{},
-		&DomainMsaMetaInfoWithSearchAfter{},
-		&DomainPagingWithSearchAfter{},
-		&DomainQuota{},
-		&DomainReconAPIError{},
-		&DomainReconAPIErrorDetail{},
-		&DomainRuleMetaInfo{},
-		&DomainRuleQuota{},
-		&DomainSearchAfterMeta{},
-		&DomainSearchAfterPaging{},
-		&DomainSPAPIQueryMeta{},
-		&DomainSPAPIQueryPaging{},
-		&DomainVulnMetadataAPIMeta{},
-		&ErrorAppInventory{},
-		&ErrorAppInventoryUsers{},
-		&ErrorDismissAffected{},
-		&ErrorDismissSecurityCheck{},
-		&ErrorGetActivityMonitor{},
-		&ErrorGetAffected{},
-		&ErrorGetAlertsResponse{},
-		&ErrorGetAssetInventory{},
-		&ErrorGetDeviceInventory{},
-		&ErrorGetEndTransaction{},
-		&ErrorGetIntegrations{},
-		&ErrorGetMetrics{},
-		&ErrorGetSecurityChecks{},
-		&ErrorGetSecurityCompliance{},
-		&ErrorGetSupportedSaas{},
-		&ErrorGetSystemLogs{},
-		&ErrorGetSystemUsers{},
-		&ErrorGetTransactionStatus{},
-		&ErrorGetUserInventory{},
-		&ErrorUploadDataResponse{},
-		&FalconxMetaInfo{},
-		&FalconxQuota{},
-		&FwmgrAPIMetaInfo{},
-		&FwmgrAPIQueryPaging{},
-		&FwmgrMsaspecError{},
-		&FwmgrMsaspecMetaInfo{},
-		&FwmgrMsaspecPaging{},
-		&FwmgrMsaspecWrites{},
-		&GraphValidationError{},
-		&IocapiPaginationMeta{},
-		&IocapiResponseMeta{},
-		&MalqueryExternalHuntOptions{},
-		&MalqueryFuzzySearchMetaInfo{},
-		&MalqueryQueryError{},
-		&MalqueryQueryMetaInfo{},
-		&MalqueryRateLimitsMeta{},
-		&MalqueryRequestMetaInfo{},
-		&MalquerySamplesMetadataMetaInfo{},
-		&MalquerySearchParameter{},
-		&MalqueryStats{},
-		&MalqueryUserRequestCount{},
-		&MetaAppInventory{},
-		&MetaAppInventoryUsers{},
-		&MetaDismissAffected{},
-		&MetaDismissSecurityCheck{},
-		&MetaGetActivityMonitor{},
-		&MetaGetAffected{},
-		&MetaGetAlertsResponse{},
-		&MetaGetAssetInventory{},
-		&MetaGetDeviceInventory{},
-		&MetaGetEndTransaction{},
-		&MetaGetIntegrations{},
-		&MetaGetMetrics{},
-		&MetaGetSecurityChecks{},
-		&MetaGetSecurityCompliance{},
-		&MetaGetSupportedSaas{},
-		&MetaGetSystemLogs{},
-		&MetaGetSystemUsers{},
-		&MetaGetTransactionStatus{},
-		&MetaGetUserInventory{},
-		&MetaUploadDataResponse{},
-		&MlscannerapiMetaInfo{},
-		&MlscannerapiQuota{},
-		&MsaAPIError{},
-		&MsahandlerMSAError{},
-		&MsahandlerMSAMeta{},
-		&MsahandlerPagination{},
-		&MsaMetaInfo{},
-		&MsaPaging{},
-		&MsaResources{},
-		&MsaspecWrites{},
-		&PaginationMetaAppInventory{},
-		&PaginationMetaAppInventoryUsers{},
-		&PaginationMetaDismissAffected{},
-		&PaginationMetaDismissSecurityCheck{},
-		&PaginationMetaGetActivityMonitor{},
-		&PaginationMetaGetAffected{},
-		&PaginationMetaGetAlertsResponse{},
-		&PaginationMetaGetAssetInventory{},
-		&PaginationMetaGetDeviceInventory{},
-		&PaginationMetaGetEndTransaction{},
-		&PaginationMetaGetIntegrations{},
-		&PaginationMetaGetMetrics{},
-		&PaginationMetaGetSecurityChecks{},
-		&PaginationMetaGetSecurityCompliance{},
-		&PaginationMetaGetSupportedSaas{},
-		&PaginationMetaGetSystemLogs{},
-		&PaginationMetaGetSystemUsers{},
-		&PaginationMetaGetTransactionStatus{},
-		&PaginationMetaGetUserInventory{},
-		&PaginationMetaUploadDataResponse{},
-		&PolicymanagerError{},
-		&QuickscanproError{},
-		&QuickscanproMetaInfo{},
-		&QuickscanproQuotaResource{},
-		&ReconmsaAPIError{},
-		&ReconmsaAPIErrorDetail{},
-		&RegistrationIOMEventIDResponseMeta{},
-		&RegistrationMSAMetaInfoExtension{},
-		&RegistrationMSAPagingExtension{},
-		&RegistrationNextTokenPagination{},
-		&ResponsesError{},
-		&RestCursorAndLimitMetaInfo{},
-		&RestCursorMetaInfo{},
-		&RestPaging{},
-		&ThreatgraphMeta{},
-		&ThreatgraphPaging{},
-		&VulnerabilitymetadataapiVulnAPIQueryPaging{},
+		&models.AccessscopemanagerV1Error{},
+		&models.AccessscopemanagerV1Meta{},
+		&models.AccessscopemanagerV1Pagination{},
+		&models.APICursorMetaInfo{},
+		&models.APIDetectsQueryMeta{},
+		&models.APIDetectsQueryPaging{},
+		&models.APIIndicatorsQueryMeta{},
+		&models.APIIndicatorsQueryPaging{},
+		&models.APIMetaInfo{},
+		&models.APIModelEntityMetaInfo{},
+		&models.APIPaging{},
+		&models.APIPatchAgentMetaInfo{},
+		&models.APISdmError{},
+		&models.AssetgroupmanagerV1Error{},
+		&models.AssetgroupmanagerV1Meta{},
+		&models.AssetgroupmanagerV1Pagination{},
+		&models.ChangesHighVolumeQueryMeta{},
+		&models.ChangesHighVolumeQueryPaging{},
+		&models.DetectsapiPostCombinedAlertsV1Meta{},
+		&models.DetectsapiPostCombinedAlertsV1Paging{},
+		&models.DeviceapiDevicePaging{},
+		&models.DeviceapiDevicePagingV2{},
+		&models.DeviceapiMetaInfo{},
+		&models.DeviceapiRequestMeta{},
+		&models.DevicecontrolapiRespMSAErrorV1{},
+		&models.DevicecontrolapiRespMSAMetaV1{},
+		&models.DevicecontrolapiRespPagingDetailsV1{},
+		&models.DomainAPIQueryMetaV1{},
+		&models.DomainAPIQueryPagingV1{},
+		&models.DomainDiscoverAPIMetaInfo{},
+		&models.DomainDiscoverAPIPaging{},
+		&models.DomainFemEcosystemSubsidiariesMeta{},
+		&models.DomainMetaInfo{},
+		&models.DomainMsaMetaInfoWithSearchAfter{},
+		&models.DomainPagingWithSearchAfter{},
+		&models.DomainQuota{},
+		&models.DomainReconAPIError{},
+		&models.DomainReconAPIErrorDetail{},
+		&models.DomainRuleMetaInfo{},
+		&models.DomainRuleQuota{},
+		&models.DomainSearchAfterMeta{},
+		&models.DomainSearchAfterPaging{},
+		&models.DomainSPAPIQueryMeta{},
+		&models.DomainSPAPIQueryPaging{},
+		&models.DomainVulnMetadataAPIMeta{},
+		&models.ErrorAppInventory{},
+		&models.ErrorAppInventoryUsers{},
+		&models.ErrorDismissAffected{},
+		&models.ErrorDismissSecurityCheck{},
+		&models.ErrorGetActivityMonitor{},
+		&models.ErrorGetAffected{},
+		&models.ErrorGetAlertsResponse{},
+		&models.ErrorGetAssetInventory{},
+		&models.ErrorGetDeviceInventory{},
+		&models.ErrorGetEndTransaction{},
+		&models.ErrorGetIntegrations{},
+		&models.ErrorGetMetrics{},
+		&models.ErrorGetSecurityChecks{},
+		&models.ErrorGetSecurityCompliance{},
+		&models.ErrorGetSupportedSaas{},
+		&models.ErrorGetSystemLogs{},
+		&models.ErrorGetSystemUsers{},
+		&models.ErrorGetTransactionStatus{},
+		&models.ErrorGetUserInventory{},
+		&models.ErrorUploadDataResponse{},
+		&models.FalconxMetaInfo{},
+		&models.FalconxQuota{},
+		&models.FwmgrAPIMetaInfo{},
+		&models.FwmgrAPIQueryPaging{},
+		&models.FwmgrMsaspecError{},
+		&models.FwmgrMsaspecMetaInfo{},
+		&models.FwmgrMsaspecPaging{},
+		&models.FwmgrMsaspecWrites{},
+		&models.GraphValidationError{},
+		&models.IocapiPaginationMeta{},
+		&models.IocapiResponseMeta{},
+		&models.MalqueryExternalHuntOptions{},
+		&models.MalqueryFuzzySearchMetaInfo{},
+		&models.MalqueryQueryError{},
+		&models.MalqueryQueryMetaInfo{},
+		&models.MalqueryRateLimitsMeta{},
+		&models.MalqueryRequestMetaInfo{},
+		&models.MalquerySamplesMetadataMetaInfo{},
+		&models.MalquerySearchParameter{},
+		&models.MalqueryStats{},
+		&models.MalqueryUserRequestCount{},
+		&models.MetaAppInventory{},
+		&models.MetaAppInventoryUsers{},
+		&models.MetaDismissAffected{},
+		&models.MetaDismissSecurityCheck{},
+		&models.MetaGetActivityMonitor{},
+		&models.MetaGetAffected{},
+		&models.MetaGetAlertsResponse{},
+		&models.MetaGetAssetInventory{},
+		&models.MetaGetDeviceInventory{},
+		&models.MetaGetEndTransaction{},
+		&models.MetaGetIntegrations{},
+		&models.MetaGetMetrics{},
+		&models.MetaGetSecurityChecks{},
+		&models.MetaGetSecurityCompliance{},
+		&models.MetaGetSupportedSaas{},
+		&models.MetaGetSystemLogs{},
+		&models.MetaGetSystemUsers{},
+		&models.MetaGetTransactionStatus{},
+		&models.MetaGetUserInventory{},
+		&models.MetaUploadDataResponse{},
+		&models.MlscannerapiMetaInfo{},
+		&models.MlscannerapiQuota{},
+		&models.MsaAPIError{},
+		&models.MsahandlerMSAError{},
+		&models.MsahandlerMSAMeta{},
+		&models.MsahandlerPagination{},
+		&models.MsaMetaInfo{},
+		&models.MsaPaging{},
+		&models.MsaResources{},
+		&models.MsaspecWrites{},
+		&models.PaginationMetaAppInventory{},
+		&models.PaginationMetaAppInventoryUsers{},
+		&models.PaginationMetaDismissAffected{},
+		&models.PaginationMetaDismissSecurityCheck{},
+		&models.PaginationMetaGetActivityMonitor{},
+		&models.PaginationMetaGetAffected{},
+		&models.PaginationMetaGetAlertsResponse{},
+		&models.PaginationMetaGetAssetInventory{},
+		&models.PaginationMetaGetDeviceInventory{},
+		&models.PaginationMetaGetEndTransaction{},
+		&models.PaginationMetaGetIntegrations{},
+		&models.PaginationMetaGetMetrics{},
+		&models.PaginationMetaGetSecurityChecks{},
+		&models.PaginationMetaGetSecurityCompliance{},
+		&models.PaginationMetaGetSupportedSaas{},
+		&models.PaginationMetaGetSystemLogs{},
+		&models.PaginationMetaGetSystemUsers{},
+		&models.PaginationMetaGetTransactionStatus{},
+		&models.PaginationMetaGetUserInventory{},
+		&models.PaginationMetaUploadDataResponse{},
+		&models.PolicymanagerError{},
+		&models.QuickscanproError{},
+		&models.QuickscanproMetaInfo{},
+		&models.QuickscanproQuotaResource{},
+		&models.ReconmsaAPIError{},
+		&models.ReconmsaAPIErrorDetail{},
+		&models.RegistrationIOMEventIDResponseMeta{},
+		&models.RegistrationMSAMetaInfoExtension{},
+		&models.RegistrationMSAPagingExtension{},
+		&models.RegistrationNextTokenPagination{},
+		&models.ResponsesError{},
+		&models.RestCursorAndLimitMetaInfo{},
+		&models.RestCursorMetaInfo{},
+		&models.RestPaging{},
+		&models.ThreatgraphMeta{},
+		&models.ThreatgraphPaging{},
+		&models.VulnerabilitymetadataapiVulnAPIQueryPaging{},
 	}
 }
 
@@ -225,7 +236,7 @@ func TestErrorModelsRenderEmptyAsBraces(t *testing.T) {
 
 // TestErrorModelsFullyPopulatedRenderNoAddress populates every field of every
 // model and asserts the rendering never shows a pointer address. This is the
-// check that caught the nested leak in MsaMetaInfo, whose *MsaPaging fields are
+// check that caught the nested leak in models.MsaMetaInfo, whose *models.MsaPaging fields are
 // all pointers. See issue #719.
 func TestErrorModelsFullyPopulatedRenderNoAddress(t *testing.T) {
 	for _, model := range errorModelsWithString() {
@@ -249,12 +260,12 @@ func TestErrorModelsFullyPopulatedRenderNoAddress(t *testing.T) {
 // the Errors and the Meta field.
 func TestErrorPayloadsRenderNoAddress(t *testing.T) {
 	payloads := []any{
-		&MsaErrorsOnly{},
-		&MsahandlerQuerySkillUsageResponse{},
-		&FwmgrAPINetworkLocationSummariesResponse{},
-		&DomainSPAPICombinedInstalledPatchesResponse{},
-		&DomainDiscoverAPICombinedHostsResponse{},
-		&CustomStorageObjectKeys{},
+		&models.MsaErrorsOnly{},
+		&models.MsahandlerQuerySkillUsageResponse{},
+		&models.FwmgrAPINetworkLocationSummariesResponse{},
+		&models.DomainSPAPICombinedInstalledPatchesResponse{},
+		&models.DomainDiscoverAPICombinedHostsResponse{},
+		&models.CustomStorageObjectKeys{},
 	}
 
 	for _, payload := range payloads {
@@ -291,19 +302,19 @@ func TestErrorModelStringRendersMessage(t *testing.T) {
 		name  string
 		value fmt.Stringer
 	}{
-		{"code and message", &DomainReconAPIError{Code: &code, Message: &message}},
-		{"message only", &DomainReconAPIError{Message: &message}},
-		{"string code", &ErrorGetAlertsResponse{Code: &codeText, Message: &message}},
-		{"non-pointer fields", &AccessscopemanagerV1Error{Code: codeText, ID: "id", Message: message}},
-		{"nested details", &DomainReconAPIError{
+		{"code and message", &models.DomainReconAPIError{Code: &code, Message: &message}},
+		{"message only", &models.DomainReconAPIError{Message: &message}},
+		{"string code", &models.ErrorGetAlertsResponse{Code: &codeText, Message: &message}},
+		{"non-pointer fields", &models.AccessscopemanagerV1Error{Code: codeText, ID: "id", Message: message}},
+		{"nested details", &models.DomainReconAPIError{
 			Code:    &code,
-			Details: []*DomainReconAPIErrorDetail{{Field: &field, Message: &message}},
+			Details: []*models.DomainReconAPIErrorDetail{{Field: &field, Message: &message}},
 		}},
-		{"nested recon details", &ReconmsaAPIError{
+		{"nested recon details", &models.ReconmsaAPIError{
 			Code:    &code,
-			Details: []*ReconmsaAPIErrorDetail{{Field: &field, Message: &message}},
+			Details: []*models.ReconmsaAPIErrorDetail{{Field: &field, Message: &message}},
 		}},
-		{"msa api error", &MsaAPIError{Code: &code, Message: &message}},
+		{"msa api error", &models.MsaAPIError{Code: &code, Message: &message}},
 	}
 
 	for _, tt := range tests {
@@ -327,13 +338,13 @@ func TestErrorPayloadRenderingMatchesIssueReproducer(t *testing.T) {
 	code := int32(400)
 
 	payloads := []any{
-		&MsaReplyMetaOnly{
-			Errors: []*MsaAPIError{{Code: &code, Message: &message}},
-			Meta:   &MsaMetaInfo{},
+		&models.MsaReplyMetaOnly{
+			Errors: []*models.MsaAPIError{{Code: &code, Message: &message}},
+			Meta:   &models.MsaMetaInfo{},
 		},
-		&DomainErrorsOnly{
-			Errors: []*DomainReconAPIError{{Code: &code, Message: &message}},
-			Meta:   &MsaMetaInfo{},
+		&models.DomainErrorsOnly{
+			Errors: []*models.DomainReconAPIError{{Code: &code, Message: &message}},
+			Meta:   &models.MsaMetaInfo{},
 		},
 	}
 
@@ -349,7 +360,7 @@ func TestErrorPayloadRenderingMatchesIssueReproducer(t *testing.T) {
 }
 
 // TestMsaMetaInfoNestedPointersRender covers the leak the original #116 fix left
-// behind: MsaMetaInfo.String() rendered *MsaPaging and *MsaResources with %+v, so
+// behind: models.MsaMetaInfo.String() rendered *models.MsaPaging and *models.MsaResources with %+v, so
 // their all-pointer fields printed as addresses.
 func TestMsaMetaInfoNestedPointersRender(t *testing.T) {
 	limit, offset := int32(10), int32(0)
@@ -358,38 +369,38 @@ func TestMsaMetaInfoNestedPointersRender(t *testing.T) {
 	traceID := "44b31c94"
 	affected := int32(3)
 
-	meta := &MsaMetaInfo{
-		Pagination: &MsaPaging{Limit: &limit, Offset: &offset, Total: &total},
+	meta := &models.MsaMetaInfo{
+		Pagination: &models.MsaPaging{Limit: &limit, Offset: &offset, Total: &total},
 		PoweredBy:  "recon",
 		QueryTime:  &queryTime,
 		TraceID:    &traceID,
-		Writes:     &MsaResources{ResourcesAffected: &affected},
+		Writes:     &models.MsaResources{ResourcesAffected: &affected},
 	}
 
 	got := meta.String()
 	if strings.Contains(got, "0x") {
-		t.Fatalf("MsaMetaInfo leaked a pointer address: %s", got)
+		t.Fatalf("models.MsaMetaInfo leaked a pointer address: %s", got)
 	}
 	for _, want := range []string{"Limit:10", "Offset:0", "Total:99", "PoweredBy:recon", "ResourcesAffected:3"} {
 		if !strings.Contains(got, want) {
-			t.Errorf("MsaMetaInfo rendering %q is missing %q", got, want)
+			t.Errorf("models.MsaMetaInfo rendering %q is missing %q", got, want)
 		}
 	}
 }
 
-// TestErrorModelRenderingIsBraceBalanced guards the defect MsaMetaInfo.String()
+// TestErrorModelRenderingIsBraceBalanced guards the defect models.MsaMetaInfo.String()
 // carried since v0.2.9, where it emitted a trailing "}" with no opening brace.
 func TestErrorModelRenderingIsBraceBalanced(t *testing.T) {
 	code := int32(400)
 	message := testErrorMessage
 
 	values := []fmt.Stringer{
-		&MsaAPIError{Code: &code},
-		&MsaAPIError{Code: &code, Message: &message},
-		&MsaMetaInfo{},
-		&MsaMetaInfo{PoweredBy: "recon"},
-		&MsaPaging{},
-		&DomainReconAPIError{Code: &code},
+		&models.MsaAPIError{Code: &code},
+		&models.MsaAPIError{Code: &code, Message: &message},
+		&models.MsaMetaInfo{},
+		&models.MsaMetaInfo{PoweredBy: "recon"},
+		&models.MsaPaging{},
+		&models.DomainReconAPIError{Code: &code},
 	}
 
 	for _, value := range values {
@@ -406,7 +417,7 @@ func TestErrorModelRenderingIsBraceBalanced(t *testing.T) {
 // TestErrorModelStringNilPointerElement documents that a nil element in an Errors
 // slice renders as <nil> rather than panicking.
 func TestErrorModelStringNilPointerElement(t *testing.T) {
-	payload := &DomainErrorsOnly{Errors: []*DomainReconAPIError{nil}}
+	payload := &models.DomainErrorsOnly{Errors: []*models.DomainReconAPIError{nil}}
 
 	got := fmt.Sprintf("%+v", payload)
 	if strings.Contains(got, "0x") || strings.Contains(got, "PANIC") {
@@ -424,7 +435,7 @@ func TestRenderErrorFieldsKeepsPointerToZero(t *testing.T) {
 	zero := int32(0)
 	message := testErrorMessage
 
-	got := (&DomainReconAPIError{Code: &zero, Message: &message}).String()
+	got := (&models.DomainReconAPIError{Code: &zero, Message: &message}).String()
 	if !strings.Contains(got, "Code:0") {
 		t.Errorf("String() = %q, want it to report Code:0", got)
 	}
@@ -433,7 +444,7 @@ func TestRenderErrorFieldsKeepsPointerToZero(t *testing.T) {
 // TestRenderErrorFieldsNilReceiver checks the helper does not panic when called
 // on a nil model.
 func TestRenderErrorFieldsNilReceiver(t *testing.T) {
-	var model *DomainReconAPIError
+	var model *models.DomainReconAPIError
 	if got := model.String(); got != "<nil>" {
 		t.Errorf("nil receiver rendered %q, want \"<nil>\"", got)
 	}
