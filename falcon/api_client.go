@@ -57,6 +57,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
 	customTransport.Consumers["application/x-7z-compressed"] = httpruntime.ByteStreamConsumer()
 	customTransport.Consumers["application/json"] = downloadAwareJSONConsumer()
+	customTransport.Consumers["text/csv"] = downloadAwareCSVConsumer()
 
 	return client.New(customTransport, strfmt.Default), nil
 }
@@ -73,6 +74,24 @@ func downloadAwareJSONConsumer() httpruntime.Consumer {
 			return byteStream.Consume(reader, data)
 		default:
 			return jsonConsumer.Consume(reader, data)
+		}
+	})
+}
+
+// downloadAwareCSVConsumer streams CSV download payloads (io.Writer / io.ReaderFrom
+// targets) verbatim through the byte-stream consumer and decodes all other CSV
+// responses with the standard CSV consumer. The default CSV consumer would otherwise
+// round-trip a download through csv.Reader/csv.Writer, re-quoting fields and rewriting
+// line endings instead of preserving the exact bytes the caller writes to a file.
+func downloadAwareCSVConsumer() httpruntime.Consumer {
+	byteStream := httpruntime.ByteStreamConsumer()
+	csvConsumer := httpruntime.CSVConsumer()
+	return httpruntime.ConsumerFunc(func(reader io.Reader, data any) error {
+		switch data.(type) {
+		case io.Writer, io.ReaderFrom:
+			return byteStream.Consume(reader, data)
+		default:
+			return csvConsumer.Consume(reader, data)
 		}
 	})
 }
