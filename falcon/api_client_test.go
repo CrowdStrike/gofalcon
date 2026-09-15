@@ -14,6 +14,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
+
+	httpruntime "github.com/go-openapi/runtime"
 )
 
 // fakeTransport returns responses from a pre-configured sequence, repeating the
@@ -604,7 +606,7 @@ func TestDownloadAwareJSONConsumer(t *testing.T) {
 	// JSONConsumer would instead try to json-decode into the writer and fail.
 	t.Run("io.Writer target streams JSON array verbatim", func(t *testing.T) {
 		var buf bytes.Buffer
-		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonArray), &buf); err != nil {
+		if err := downloadAwareConsumer(httpruntime.JSONConsumer()).Consume(strings.NewReader(jsonArray), &buf); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if buf.String() != jsonArray {
@@ -614,7 +616,7 @@ func TestDownloadAwareJSONConsumer(t *testing.T) {
 
 	t.Run("io.Writer target streams JSON object verbatim", func(t *testing.T) {
 		var buf bytes.Buffer
-		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonObject), &buf); err != nil {
+		if err := downloadAwareConsumer(httpruntime.JSONConsumer()).Consume(strings.NewReader(jsonObject), &buf); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if buf.String() != jsonObject {
@@ -626,7 +628,7 @@ func TestDownloadAwareJSONConsumer(t *testing.T) {
 		var out struct {
 			N json.Number `json:"n"`
 		}
-		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonObject), &out); err != nil {
+		if err := downloadAwareConsumer(httpruntime.JSONConsumer()).Consume(strings.NewReader(jsonObject), &out); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if out.N != json.Number("123") {
@@ -644,7 +646,7 @@ func TestDownloadAwareCSVConsumer(t *testing.T) {
 
 	t.Run("io.Writer target streams CSV verbatim", func(t *testing.T) {
 		var buf bytes.Buffer
-		if err := downloadAwareCSVConsumer().Consume(strings.NewReader(rawCSV), &buf); err != nil {
+		if err := downloadAwareConsumer(httpruntime.CSVConsumer()).Consume(strings.NewReader(rawCSV), &buf); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if buf.String() != rawCSV {
@@ -654,7 +656,7 @@ func TestDownloadAwareCSVConsumer(t *testing.T) {
 
 	t.Run("io.ReaderFrom target streams CSV verbatim", func(t *testing.T) {
 		var target readerFromBuffer
-		if err := downloadAwareCSVConsumer().Consume(strings.NewReader(rawCSV), &target); err != nil {
+		if err := downloadAwareConsumer(httpruntime.CSVConsumer()).Consume(strings.NewReader(rawCSV), &target); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if target.buf.String() != rawCSV {
@@ -664,7 +666,7 @@ func TestDownloadAwareCSVConsumer(t *testing.T) {
 
 	t.Run("non-writer target decodes CSV into records", func(t *testing.T) {
 		var records [][]string
-		if err := downloadAwareCSVConsumer().Consume(strings.NewReader(rawCSV), &records); err != nil {
+		if err := downloadAwareConsumer(httpruntime.CSVConsumer()).Consume(strings.NewReader(rawCSV), &records); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		want := [][]string{{"a", "b"}, {"c", "d,e"}}
