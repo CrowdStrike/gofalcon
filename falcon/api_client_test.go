@@ -8,11 +8,14 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"reflect"
 	"strings"
 	"sync"
 	"sync/atomic"
 	"testing"
 	"time"
+
+	httpruntime "github.com/go-openapi/runtime"
 )
 
 // fakeTransport returns responses from a pre-configured sequence, repeating the
@@ -603,7 +606,7 @@ func TestDownloadAwareJSONConsumer(t *testing.T) {
 	// JSONConsumer would instead try to json-decode into the writer and fail.
 	t.Run("io.Writer target streams JSON array verbatim", func(t *testing.T) {
 		var buf bytes.Buffer
-		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonArray), &buf); err != nil {
+		if err := downloadAwareConsumer(httpruntime.JSONConsumer()).Consume(strings.NewReader(jsonArray), &buf); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if buf.String() != jsonArray {
@@ -613,7 +616,7 @@ func TestDownloadAwareJSONConsumer(t *testing.T) {
 
 	t.Run("io.Writer target streams JSON object verbatim", func(t *testing.T) {
 		var buf bytes.Buffer
-		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonObject), &buf); err != nil {
+		if err := downloadAwareConsumer(httpruntime.JSONConsumer()).Consume(strings.NewReader(jsonObject), &buf); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if buf.String() != jsonObject {
@@ -625,11 +628,60 @@ func TestDownloadAwareJSONConsumer(t *testing.T) {
 		var out struct {
 			N json.Number `json:"n"`
 		}
-		if err := downloadAwareJSONConsumer().Consume(strings.NewReader(jsonObject), &out); err != nil {
+		if err := downloadAwareConsumer(httpruntime.JSONConsumer()).Consume(strings.NewReader(jsonObject), &out); err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 		if out.N != json.Number("123") {
 			t.Fatalf("expected json.Number 123, got %q", out.N)
 		}
 	})
+}
+
+func TestDownloadAwareCSVConsumer(t *testing.T) {
+	// rawCSV uses CRLF row terminators and a quoted field containing a comma.
+	// A csv.Reader -> csv.Writer round-trip (what the default CSVConsumer does for
+	// an io.Writer target) rewrites CRLF to LF and may re-quote fields, so this
+	// payload proves the download path streams the exact bytes instead.
+	rawCSV := "a,b\r\nc,\"d,e\"\r\n"
+
+	t.Run("io.Writer target streams CSV verbatim", func(t *testing.T) {
+		var buf bytes.Buffer
+		if err := downloadAwareConsumer(httpruntime.CSVConsumer()).Consume(strings.NewReader(rawCSV), &buf); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if buf.String() != rawCSV {
+			t.Fatalf("expected %q, got %q", rawCSV, buf.String())
+		}
+	})
+
+	t.Run("io.ReaderFrom target streams CSV verbatim", func(t *testing.T) {
+		var target readerFromBuffer
+		if err := downloadAwareConsumer(httpruntime.CSVConsumer()).Consume(strings.NewReader(rawCSV), &target); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if target.buf.String() != rawCSV {
+			t.Fatalf("expected %q, got %q", rawCSV, target.buf.String())
+		}
+	})
+
+	t.Run("non-writer target decodes CSV into records", func(t *testing.T) {
+		var records [][]string
+		if err := downloadAwareConsumer(httpruntime.CSVConsumer()).Consume(strings.NewReader(rawCSV), &records); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		want := [][]string{{"a", "b"}, {"c", "d,e"}}
+		if !reflect.DeepEqual(records, want) {
+			t.Fatalf("expected %v, got %v", want, records)
+		}
+	})
+}
+
+// readerFromBuffer is an io.ReaderFrom that is not itself an io.Writer, so it
+// exercises the consumer's io.ReaderFrom branch rather than the io.Writer one.
+type readerFromBuffer struct {
+	buf bytes.Buffer
+}
+
+func (r *readerFromBuffer) ReadFrom(src io.Reader) (int64, error) {
+	return r.buf.ReadFrom(src)
 }

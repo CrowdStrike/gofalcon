@@ -56,23 +56,23 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	customTransport.Debug = ac.Debug
 	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
 	customTransport.Consumers["application/x-7z-compressed"] = httpruntime.ByteStreamConsumer()
-	customTransport.Consumers["application/json"] = downloadAwareJSONConsumer()
+	customTransport.Consumers["application/json"] = downloadAwareConsumer(httpruntime.JSONConsumer())
+	customTransport.Consumers["text/csv"] = downloadAwareConsumer(httpruntime.CSVConsumer())
 
 	return client.New(customTransport, strfmt.Default), nil
 }
 
-// downloadAwareJSONConsumer streams binary download payloads (io.Writer / io.ReaderFrom
-// targets) through the byte-stream consumer and decodes all other JSON responses with the
-// standard JSON consumer.
-func downloadAwareJSONConsumer() httpruntime.Consumer {
+// downloadAwareConsumer streams download payloads (io.Writer / io.ReaderFrom targets)
+// verbatim through the byte-stream consumer, preserving the exact response bytes, and
+// decodes every other response with fallback.
+func downloadAwareConsumer(fallback httpruntime.Consumer) httpruntime.Consumer {
 	byteStream := httpruntime.ByteStreamConsumer()
-	jsonConsumer := httpruntime.JSONConsumer()
 	return httpruntime.ConsumerFunc(func(reader io.Reader, data any) error {
 		switch data.(type) {
 		case io.Writer, io.ReaderFrom:
 			return byteStream.Consume(reader, data)
 		default:
-			return jsonConsumer.Consume(reader, data)
+			return fallback.Consume(reader, data)
 		}
 	})
 }
