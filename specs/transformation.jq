@@ -289,6 +289,23 @@
 | .definitions."models.Container".properties.first_seen.type = "string"
 | .definitions."models.Container".properties.last_seen.type = "string"
 
+# The Container API still returns these fields under their pre-v0.22.0 wire names,
+# so the renamed properties in the upstream spec decode as empty. Restore the old
+# wire names (and v0.21.1 nullability) so the values decode again. See issue #716.
+| .definitions."models.Container".properties.container_id = .definitions."models.Container".properties.id
+| del(.definitions."models.Container".properties.id)
+| .definitions."models.Container".required = [.definitions."models.Container".required[] | if . == "id" then "container_id" else . end]
+| .definitions."models.Container".properties.container_name = (.definitions."models.Container".properties.name + {"x-nullable": true, "x-omitempty": false})
+| del(.definitions."models.Container".properties.name)
+| .definitions."models.Container".properties.image_repository = (.definitions."models.Container".properties.image_repo + {"x-nullable": true, "x-omitempty": false})
+| del(.definitions."models.Container".properties.image_repo)
+| .definitions."models.Container".properties.node_uid = (.definitions."models.Container".properties.node_id + {"x-nullable": true, "x-omitempty": false})
+| del(.definitions."models.Container".properties.node_id)
+| .definitions."models.Container".properties.cloud_name = (.definitions."models.Container".properties.cloud + {"x-nullable": true, "x-omitempty": false})
+| del(.definitions."models.Container".properties.cloud)
+| .definitions."models.Container".properties.ports = .definitions."models.Container".properties.port_list
+| del(.definitions."models.Container".properties.port_list)
+
 # add intel.CVSSv2 model definition
 | .definitions."intel.CVSSv2" = {
     "properties": {
