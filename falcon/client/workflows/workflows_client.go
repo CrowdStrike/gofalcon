@@ -7,6 +7,7 @@ package workflows
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -52,7 +53,7 @@ type ClientService interface {
 
 	WorkflowDefinitionsDelete(params *WorkflowDefinitionsDeleteParams, opts ...ClientOption) (*WorkflowDefinitionsDeleteOK, error)
 
-	WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error)
+	WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, writer io.Writer, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error)
 
 	WorkflowDefinitionsImport(params *WorkflowDefinitionsImportParams, opts ...ClientOption) (*WorkflowDefinitionsImportOK, error)
 
@@ -498,7 +499,7 @@ func (a *Client) WorkflowDefinitionsDelete(params *WorkflowDefinitionsDeletePara
 /*
 WorkflowDefinitionsExport exports a workflow definition for the given definition ID
 */
-func (a *Client) WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error) {
+func (a *Client) WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, writer io.Writer, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewWorkflowDefinitionsExportParams()
@@ -511,7 +512,7 @@ func (a *Client) WorkflowDefinitionsExport(params *WorkflowDefinitionsExportPara
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &WorkflowDefinitionsExportReader{formats: a.formats},
+		Reader:             &WorkflowDefinitionsExportReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

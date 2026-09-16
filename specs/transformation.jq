@@ -18,6 +18,24 @@
   | .paths."/humio/api/v1/repositories/{repository}/files/{filename}"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/humio/api/v1/repositories/{repository}/files/{package}/{filename}"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  # Fix workflow definition export (issue #440): the spec types every response of this endpoint
+  # as an integer array, so the generated payload is []int64 and cannot capture the exported
+  # YAML/JSON workflow document. Remap the success responses (200/299) to the binary DownloadItem
+  # so callers can read the export into an io.Writer, and the error responses to msa.ReplyMetaOnly
+  # so failures deserialize instead of erroring while consuming into []int64.
+  | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."299"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."400"."schema"={"$ref": "#/definitions/msa.ReplyMetaOnly"}
+  | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."404"."schema"={"$ref": "#/definitions/msa.ReplyMetaOnly"}
+  | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."500"."schema"={"$ref": "#/definitions/msa.ReplyMetaOnly"}
+  # The export endpoint negotiates its body format (produces: application/yaml, application/json),
+  # so a caller streaming the response into an io.Writer cannot otherwise tell whether it received
+  # YAML or JSON. The spec declares no response headers, so the generated OK struct drops them.
+  # Declare Content-Type and Content-Disposition so the OK struct exposes ContentType/
+  # ContentDisposition and readResponse hydrates them, letting the caller detect the format and the
+  # exported filename straight from the download response.
+  | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."200"."headers"."Content-Type" = {"type": "string", "description": "Media type of the exported definition, e.g. application/yaml or application/json"}
+  | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."200"."headers"."Content-Disposition" = {"type": "string", "description": "Attachment disposition carrying the exported filename, e.g. attachment;filename=<workflow>.yaml"}
   # The report-executions-download 200 response carries Content-Type and Content-Disposition
   # (verified live: application/json and attachment;filename=<report>.json), but the spec declares
   # neither, so the generated OK struct drops them. A report can be delivered in different formats
