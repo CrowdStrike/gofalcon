@@ -15,24 +15,48 @@ List detected CSPM IOMs and parse results with jq
 $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
       falcon_cspm_ioms | jq '.[]'
 {
-  "account_id": "0000000000",
-  "account_name": "0000000000",
-  "azure_tenant_id": "N/A",
   "cid": "00000000000000000000000000000000",
-  "cloud_provider": "GCP",
-  "finding": "Role: iam.serviceAccountUser, iam.serviceAccountAdmin",
-  "policy_id": "463",
-  "policy_statement": "IAM users have overly permissive service account privileges",
-  "region": "global",
-  "report_date_time": "2021-03-02 12:28:13",
-  "resource_attributes": "{\"Project ID\" : \"marketing\", \"Member\" : \"user:username@domain.loc\", \"Role(s)\" : \"owner, iam.serviceAccountUser, iam.serviceAccountAdmin\"}",
-  "resource_create_time": "N/A",
-  "resource_id": "user:username@domain.loc",
-  "resource_id_type": "IAM User Account",
-  "resource_url": "N/A",
-  "service": "IAM",
-  "severity": "High",
-  "status": "Reoccurring",
-  "tags": "N/A"
+  "cloud": {
+    "account_id": "0000000000",
+    "account_name": "marketing",
+    "provider": "GCP",
+    "region": "global"
+  },
+  "environment": [
+    "production"
+  ],
+  "evaluation": {
+    "attack_types": [
+      "Lateral Movement"
+    ],
+    "first_detected": "2021-03-02T12:28:13Z",
+    "last_detected": "2021-03-02T12:28:13Z",
+    "findings": [
+      {
+        "name": "Role",
+        "value": "iam.serviceAccountUser, iam.serviceAccountAdmin"
+      }
+    ],
+    "rule": {
+      "id": "463",
+      "name": "IAM users have overly permissive service account privileges",
+      "policy_id": 463,
+      "remediation": "Restrict the service account roles granted to the IAM user.",
+      "severity": "High"
+    },
+    "severity": "High",
+    "status": "Reoccurring"
+  },
+  "id": "00000000-0000-0000-0000-000000000000",
+  "resource": {
+    "creation_time": "2021-03-02T12:28:13Z",
+    "resource_id": "user:username@domain.loc",
+    "resource_name": "username@domain.loc",
+    "resource_type": "IAM User Account",
+    "service": "IAM",
+    "service_category": "Identity",
+    "status": "Reoccurring"
+  }
 }
 ```
+
