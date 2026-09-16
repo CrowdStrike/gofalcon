@@ -20,25 +20,21 @@ import (
 // swagger:model k8sassets.DeploymentEnrichmentResponse
 type K8sassetsDeploymentEnrichmentResponse struct {
 
-	// enrichment data
-	// Required: true
-	EnrichmentData []*K8sassetsDeploymentEnrichmentEntry `json:"EnrichmentData"`
-
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*K8sassetsDeploymentEnrichmentEntry `json:"resources"`
 }
 
 // Validate validates this k8sassets deployment enrichment response
 func (m *K8sassetsDeploymentEnrichmentResponse) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateEnrichmentData(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateErrors(formats); err != nil {
 		res = append(res, err)
@@ -48,36 +44,13 @@ func (m *K8sassetsDeploymentEnrichmentResponse) Validate(formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *K8sassetsDeploymentEnrichmentResponse) validateEnrichmentData(formats strfmt.Registry) error {
-
-	if err := validate.Required("EnrichmentData", "body", m.EnrichmentData); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.EnrichmentData); i++ {
-		if swag.IsZero(m.EnrichmentData[i]) { // not required
-			continue
-		}
-
-		if m.EnrichmentData[i] != nil {
-			if err := m.EnrichmentData[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("EnrichmentData" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("EnrichmentData" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -127,13 +100,36 @@ func (m *K8sassetsDeploymentEnrichmentResponse) validateMeta(formats strfmt.Regi
 	return nil
 }
 
+func (m *K8sassetsDeploymentEnrichmentResponse) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this k8sassets deployment enrichment response based on the context it is used
 func (m *K8sassetsDeploymentEnrichmentResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.contextValidateEnrichmentData(ctx, formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
 		res = append(res, err)
@@ -143,34 +139,13 @@ func (m *K8sassetsDeploymentEnrichmentResponse) ContextValidate(ctx context.Cont
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *K8sassetsDeploymentEnrichmentResponse) contextValidateEnrichmentData(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.EnrichmentData); i++ {
-
-		if m.EnrichmentData[i] != nil {
-
-			if swag.IsZero(m.EnrichmentData[i]) { // not required
-				return nil
-			}
-
-			if err := m.EnrichmentData[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("EnrichmentData" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("EnrichmentData" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -211,6 +186,31 @@ func (m *K8sassetsDeploymentEnrichmentResponse) contextValidateMeta(ctx context.
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *K8sassetsDeploymentEnrichmentResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
