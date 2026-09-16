@@ -102,7 +102,7 @@ type DetectsBehavior struct {
 	RuleInstanceID string `json:"rule_instance_id,omitempty"`
 
 	// rule instance version
-	RuleInstanceVersion int32 `json:"rule_instance_version,omitempty"`
+	RuleInstanceVersion string `json:"rule_instance_version,omitempty"`
 
 	// scenario
 	// Required: true
