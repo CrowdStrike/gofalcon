@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	jsonext "encoding/json"
 
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -18,7 +19,7 @@ import (
 type AccessscopemanagerV1Error struct {
 
 	// code
-	Code string `json:"code,omitempty"`
+	Code jsonext.Number `json:"code,omitempty"`
 
 	// id
 	ID string `json:"id,omitempty"`

@@ -731,6 +731,12 @@
 | .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.business_unit += {"x-nullable": true}
 | .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.environment += {"x-nullable": true}
 
+# The gateway fronting these cloud-security endpoints returns the error "code" as a JSON number
+# (e.g. 403 on a missing-scope response) while the spec types it as a string, so decoding fails.
+# json.Number decodes from both a JSON number and a numeric JSON string into a string-backed type.
+| .definitions."assetgroupmanager.v1.Error".properties.code."x-go-type" = {type: "Number", import: {package: "encoding/json"}, hints: {noValidation: true}}
+| .definitions."accessscopemanager.v1.Error".properties.code."x-go-type" = {type: "Number", import: {package: "encoding/json"}, hints: {noValidation: true}}
+
 # 201 is a valid response for POST /policy/entities/sv-exclusions/v1 200 is not.
 | .paths."/policy/entities/sv-exclusions/v1".post.responses."201" = .paths."/policy/entities/sv-exclusions/v1".post.responses."200"
 | del(.paths."/policy/entities/sv-exclusions/v1".post.responses."200")
