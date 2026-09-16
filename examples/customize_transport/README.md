@@ -5,7 +5,7 @@ This example builds on the falcon_host_details example to demonstrate the use of
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/customize_transport
+go install github.com/crowdstrike/gofalcon/examples/customize_transport@latest
 ```
 
 ## Exemplary Usage

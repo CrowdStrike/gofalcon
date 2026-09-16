@@ -5,7 +5,7 @@ Stand-alone tool that uses cloud security posture management (CSPM) to list even
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_cspm_ioms
+go install github.com/crowdstrike/gofalcon/examples/falcon_cspm_ioms@latest
 ```
 
 ## Example Run

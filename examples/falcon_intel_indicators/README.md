@@ -5,7 +5,7 @@ This page represents a stand-alone tool that uses Falcon Intelligence API to que
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_intel_indicators
+go install github.com/crowdstrike/gofalcon/examples/falcon_intel_indicators@latest
 ```
 
 ## Exemplary Usage

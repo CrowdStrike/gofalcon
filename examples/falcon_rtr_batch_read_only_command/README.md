@@ -2,7 +2,7 @@ This is a working standalone example of a program to run a basic read-only RTR c
 
 ## Build
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_rtr_batch_read_only_command
+go install github.com/crowdstrike/gofalcon/examples/falcon_rtr_batch_read_only_command@latest
 ```
 
 ## Setup Environment Variables
