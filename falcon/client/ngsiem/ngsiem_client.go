@@ -7,6 +7,7 @@ package ngsiem
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -98,13 +99,13 @@ type ClientService interface {
 
 	GetDashboardTemplate(params *GetDashboardTemplateParams, opts ...ClientOption) (*GetDashboardTemplateOK, error)
 
-	GetLookupFile(params *GetLookupFileParams, opts ...ClientOption) (*GetLookupFileOK, error)
+	GetLookupFile(params *GetLookupFileParams, writer io.Writer, opts ...ClientOption) (*GetLookupFileOK, error)
 
-	GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, opts ...ClientOption) (*GetLookupFromPackageV1OK, error)
+	GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, writer io.Writer, opts ...ClientOption) (*GetLookupFromPackageV1OK, error)
 
-	GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackageWithNamespaceV1Params, opts ...ClientOption) (*GetLookupFromPackageWithNamespaceV1OK, error)
+	GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackageWithNamespaceV1Params, writer io.Writer, opts ...ClientOption) (*GetLookupFromPackageWithNamespaceV1OK, error)
 
-	GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*GetLookupV1OK, error)
+	GetLookupV1(params *GetLookupV1Params, writer io.Writer, opts ...ClientOption) (*GetLookupV1OK, error)
 
 	GetParser(params *GetParserParams, opts ...ClientOption) (*GetParserOK, error)
 
@@ -1484,7 +1485,7 @@ func (a *Client) GetDashboardTemplate(params *GetDashboardTemplateParams, opts .
 /*
 GetLookupFile retrieves lookup file in n g s i e m
 */
-func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption) (*GetLookupFileOK, error) {
+func (a *Client) GetLookupFile(params *GetLookupFileParams, writer io.Writer, opts ...ClientOption) (*GetLookupFileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLookupFileParams()
@@ -1497,7 +1498,7 @@ func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &GetLookupFileReader{formats: a.formats},
+		Reader:             &GetLookupFileReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1522,7 +1523,7 @@ func (a *Client) GetLookupFile(params *GetLookupFileParams, opts ...ClientOption
 /*
 GetLookupFromPackageV1 downloads lookup file in package from n g s i e m
 */
-func (a *Client) GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, opts ...ClientOption) (*GetLookupFromPackageV1OK, error) {
+func (a *Client) GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, writer io.Writer, opts ...ClientOption) (*GetLookupFromPackageV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLookupFromPackageV1Params()
@@ -1535,7 +1536,7 @@ func (a *Client) GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, op
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &GetLookupFromPackageV1Reader{formats: a.formats},
+		Reader:             &GetLookupFromPackageV1Reader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1560,7 +1561,7 @@ func (a *Client) GetLookupFromPackageV1(params *GetLookupFromPackageV1Params, op
 /*
 GetLookupFromPackageWithNamespaceV1 downloads lookup file in namespaced package from n g s i e m
 */
-func (a *Client) GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackageWithNamespaceV1Params, opts ...ClientOption) (*GetLookupFromPackageWithNamespaceV1OK, error) {
+func (a *Client) GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackageWithNamespaceV1Params, writer io.Writer, opts ...ClientOption) (*GetLookupFromPackageWithNamespaceV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLookupFromPackageWithNamespaceV1Params()
@@ -1573,7 +1574,7 @@ func (a *Client) GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackag
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &GetLookupFromPackageWithNamespaceV1Reader{formats: a.formats},
+		Reader:             &GetLookupFromPackageWithNamespaceV1Reader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1598,7 +1599,7 @@ func (a *Client) GetLookupFromPackageWithNamespaceV1(params *GetLookupFromPackag
 /*
 GetLookupV1 downloads lookup file from n g s i e m
 */
-func (a *Client) GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*GetLookupV1OK, error) {
+func (a *Client) GetLookupV1(params *GetLookupV1Params, writer io.Writer, opts ...ClientOption) (*GetLookupV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLookupV1Params()
@@ -1611,7 +1612,7 @@ func (a *Client) GetLookupV1(params *GetLookupV1Params, opts ...ClientOption) (*
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &GetLookupV1Reader{formats: a.formats},
+		Reader:             &GetLookupV1Reader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -20,13 +20,14 @@ import (
 // GetLookupFromPackageV1Reader is a Reader for the GetLookupFromPackageV1 structure.
 type GetLookupFromPackageV1Reader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *GetLookupFromPackageV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetLookupFromPackageV1OK()
+		result := NewGetLookupFromPackageV1OK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -61,8 +62,11 @@ func (o *GetLookupFromPackageV1Reader) ReadResponse(response runtime.ClientRespo
 }
 
 // NewGetLookupFromPackageV1OK creates a GetLookupFromPackageV1OK with default headers values
-func NewGetLookupFromPackageV1OK() *GetLookupFromPackageV1OK {
-	return &GetLookupFromPackageV1OK{}
+func NewGetLookupFromPackageV1OK(writer io.Writer) *GetLookupFromPackageV1OK {
+	return &GetLookupFromPackageV1OK{
+
+		Payload: writer,
+	}
 }
 
 /*
@@ -83,6 +87,8 @@ type GetLookupFromPackageV1OK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload io.Writer
 }
 
 // IsSuccess returns true when this get lookup from package v1 o k response has a 2xx status code
@@ -116,11 +122,15 @@ func (o *GetLookupFromPackageV1OK) Code() int {
 }
 
 func (o *GetLookupFromPackageV1OK) Error() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{package}/{filename}][%d] getLookupFromPackageV1OK ", 200)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{package}/{filename}][%d] getLookupFromPackageV1OK  %+v", 200, o.Payload)
 }
 
 func (o *GetLookupFromPackageV1OK) String() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{package}/{filename}][%d] getLookupFromPackageV1OK ", 200)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{package}/{filename}][%d] getLookupFromPackageV1OK  %+v", 200, o.Payload)
+}
+
+func (o *GetLookupFromPackageV1OK) GetPayload() io.Writer {
+	return o.Payload
 }
 
 func (o *GetLookupFromPackageV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -152,6 +162,11 @@ func (o *GetLookupFromPackageV1OK) readResponse(response runtime.ClientResponse,
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil

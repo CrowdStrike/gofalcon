@@ -20,13 +20,14 @@ import (
 // GetLookupFromPackageWithNamespaceV1Reader is a Reader for the GetLookupFromPackageWithNamespaceV1 structure.
 type GetLookupFromPackageWithNamespaceV1Reader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *GetLookupFromPackageWithNamespaceV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetLookupFromPackageWithNamespaceV1OK()
+		result := NewGetLookupFromPackageWithNamespaceV1OK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -61,8 +62,11 @@ func (o *GetLookupFromPackageWithNamespaceV1Reader) ReadResponse(response runtim
 }
 
 // NewGetLookupFromPackageWithNamespaceV1OK creates a GetLookupFromPackageWithNamespaceV1OK with default headers values
-func NewGetLookupFromPackageWithNamespaceV1OK() *GetLookupFromPackageWithNamespaceV1OK {
-	return &GetLookupFromPackageWithNamespaceV1OK{}
+func NewGetLookupFromPackageWithNamespaceV1OK(writer io.Writer) *GetLookupFromPackageWithNamespaceV1OK {
+	return &GetLookupFromPackageWithNamespaceV1OK{
+
+		Payload: writer,
+	}
 }
 
 /*
@@ -83,6 +87,8 @@ type GetLookupFromPackageWithNamespaceV1OK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload io.Writer
 }
 
 // IsSuccess returns true when this get lookup from package with namespace v1 o k response has a 2xx status code
@@ -116,11 +122,15 @@ func (o *GetLookupFromPackageWithNamespaceV1OK) Code() int {
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1OK) Error() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK ", 200)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK  %+v", 200, o.Payload)
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1OK) String() string {
-	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK ", 200)
+	return fmt.Sprintf("[GET /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}][%d] getLookupFromPackageWithNamespaceV1OK  %+v", 200, o.Payload)
+}
+
+func (o *GetLookupFromPackageWithNamespaceV1OK) GetPayload() io.Writer {
+	return o.Payload
 }
 
 func (o *GetLookupFromPackageWithNamespaceV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -152,6 +162,11 @@ func (o *GetLookupFromPackageWithNamespaceV1OK) readResponse(response runtime.Cl
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil
