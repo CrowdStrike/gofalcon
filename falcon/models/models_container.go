@@ -23,8 +23,16 @@ type ModelsContainer struct {
 	// agents
 	Agents []ModelsContainerAgents `json:"agents"`
 
+	// ai related
+	// Required: true
+	AiRelated *bool `json:"ai_related"`
+
 	// allow privilege escalation
 	AllowPrivilegeEscalation bool `json:"allow_privilege_escalation,omitempty"`
+
+	// app name
+	// Required: true
+	AppName *string `json:"app_name"`
 
 	// cid
 	// Required: true
@@ -33,11 +41,19 @@ type ModelsContainer struct {
 	// cloud account id
 	CloudAccountID string `json:"cloud_account_id,omitempty"`
 
+	// cloud instance id
+	// Required: true
+	CloudInstanceID *string `json:"cloud_instance_id"`
+
 	// cloud name
 	CloudName *string `json:"cloud_name"`
 
 	// cloud region
 	CloudRegion string `json:"cloud_region,omitempty"`
+
+	// cloud service
+	// Required: true
+	CloudService *string `json:"cloud_service"`
 
 	// cluster id
 	ClusterID string `json:"cluster_id,omitempty"`
@@ -139,6 +155,10 @@ type ModelsContainer struct {
 	// ipv6
 	IPV6 string `json:"ipv6,omitempty"`
 
+	// kac agent id
+	// Required: true
+	KacAgentID *string `json:"kac_agent_id"`
+
 	// kpa coverage
 	KpaCoverage bool `json:"kpa_coverage,omitempty"`
 
@@ -223,11 +243,31 @@ func (m *ModelsContainer) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAiRelated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAppName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
 
+	if err := m.validateCloudInstanceID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudService(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateContainerID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKacAgentID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -264,6 +304,24 @@ func (m *ModelsContainer) validateAgents(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ModelsContainer) validateAiRelated(formats strfmt.Registry) error {
+
+	if err := validate.Required("ai_related", "body", m.AiRelated); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsContainer) validateAppName(formats strfmt.Registry) error {
+
+	if err := validate.Required("app_name", "body", m.AppName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsContainer) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
@@ -273,9 +331,36 @@ func (m *ModelsContainer) validateCid(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ModelsContainer) validateCloudInstanceID(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_instance_id", "body", m.CloudInstanceID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsContainer) validateCloudService(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloud_service", "body", m.CloudService); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsContainer) validateContainerID(formats strfmt.Registry) error {
 
 	if err := validate.Required("container_id", "body", m.ContainerID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsContainer) validateKacAgentID(formats strfmt.Registry) error {
+
+	if err := validate.Required("kac_agent_id", "body", m.KacAgentID); err != nil {
 		return err
 	}
 

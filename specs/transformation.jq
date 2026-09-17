@@ -328,6 +328,12 @@
 | del(.definitions."models.Container".properties.cloud)
 | .definitions."models.Container".properties.ports = .definitions."models.Container".properties.port_list
 | del(.definitions."models.Container".properties.port_list)
+| .definitions."models.Container".properties.ai_related = {"type": "boolean", "x-nullable": true}
+| .definitions."models.Container".properties.app_name = {"type": "string", "x-nullable": true}
+| .definitions."models.Container".properties.cloud_instance_id = {"type": "string", "x-nullable": true}
+| .definitions."models.Container".properties.cloud_service = {"type": "string", "x-nullable": true}
+| .definitions."models.Container".properties.kac_agent_id = {"type": "string", "x-nullable": true}
+| .definitions."models.Container".required += ["ai_related", "app_name", "cloud_instance_id", "cloud_service", "kac_agent_id"]
 
 # add intel.CVSSv2 model definition
 | .definitions."intel.CVSSv2" = {
