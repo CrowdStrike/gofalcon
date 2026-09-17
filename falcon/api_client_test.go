@@ -685,3 +685,59 @@ type readerFromBuffer struct {
 func (r *readerFromBuffer) ReadFrom(src io.Reader) (int64, error) {
 	return r.buf.ReadFrom(src)
 }
+
+func TestBinaryDownloadMediaTypes(t *testing.T) {
+	got := binaryDownloadMediaTypes()
+
+	t.Run("covers the case-attachment binary types", func(t *testing.T) {
+		// These are the CaseDownloadAttachment produced content types that the
+		// go-openapi runtime does not register a consumer for by default. Without
+		// registration the runtime returns a "no consumer" error for the download.
+		want := []string{
+			"application/msword",
+			"application/vnd.ms-excel",
+			"application/vnd.openxmlformats-officedocument.presentationml.presentation",
+			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+			"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+			"application/zip",
+			"image/bmp",
+			"image/gif",
+			"image/jpeg",
+			"image/jpg",
+			"image/png",
+		}
+		if !reflect.DeepEqual(got, want) {
+			t.Fatalf("expected %v, got %v", want, got)
+		}
+	})
+
+	t.Run("excludes types handled elsewhere", func(t *testing.T) {
+		// application/pdf and application/json have dedicated registrations, and
+		// text/plain is served by the runtime's default text consumer. Registering
+		// them here would clobber that handling.
+		excluded := map[string]struct{}{
+			"application/pdf":  {},
+			"application/json": {},
+			"text/plain":       {},
+		}
+		for _, mediaType := range got {
+			if _, bad := excluded[mediaType]; bad {
+				t.Fatalf("media type %q must not be in binaryDownloadMediaTypes", mediaType)
+			}
+		}
+	})
+
+	t.Run("byte-stream consumer preserves binary payloads verbatim", func(t *testing.T) {
+		// The registered consumer must stream raw bytes into the string payload
+		// without decoding. Bytes here include a NUL and high bytes that a text or
+		// CSV round-trip would alter.
+		raw := string([]byte{0x00, 0xFF, 0x0D, 0x0A, 'P', 'K', 0x03, 0x04})
+		var payload string
+		if err := httpruntime.ByteStreamConsumer().Consume(strings.NewReader(raw), &payload); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if payload != raw {
+			t.Fatalf("expected %q, got %q", raw, payload)
+		}
+	})
+}
