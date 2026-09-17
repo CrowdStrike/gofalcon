@@ -1119,3 +1119,23 @@
 | .definitions."ipwhitelistinteractor.AllowlistRule".properties.rule.description = "The allowlisted value: an IP or CIDR block for ip_range, a domain for fqdn, a DNS server IP for ip_dns. Immutable, since it forms part of the rule ID."
 | .definitions."ipwhitelistinteractor.AllowlistRule".properties.created_by.description = "UUID of the user who created the rule. Returned empty by update."
 | .definitions."ipwhitelistinteractor.RuleOption".properties.allow_subdomain.description = "For fqdn rules, also allow one level of subdomains beyond the given domain (example.com allows mail.example.com but not my.maps.example.com). Returned as false on other rule types, where it has no effect."
+
+# Fix the ML exclusion update body model. The spec maps PATCH /policy/entities/ml-exclusions/v1
+# to sv_exclusions.UpdateReqV1 (the sensor-visibility model), which lacks excluded_from and so
+# makes it impossible to change which ML modes (e.g. "blocking") an exclusion applies to. The
+# matching create op (createMLExclusionsV1) correctly uses exclusions.CreateReqV1, which carries
+# excluded_from; only the update op is misrouted. Define an ML-specific update model that mirrors
+# the create model plus the required id, and repoint the update body at it.
+| .definitions."ml_exclusions.UpdateReqV1" = {
+    "required": ["id"],
+    "properties": {
+      "id": {"type": "string", "description": "ID of the ML exclusion to update."},
+      "excluded_from": {"type": "array", "items": {"type": "string"}, "description": "ML modes the exclusion applies to, e.g. blocking or extraction."},
+      "groups": {"type": "array", "items": {"type": "string"}, "description": "Host group IDs the exclusion is assigned to."},
+      "value": {"type": "string", "description": "Glob pattern the exclusion matches."},
+      "comment": {"type": "string", "description": "Audit-log comment for the update."}
+    }
+  }
+| .paths."/policy/entities/ml-exclusions/v1".patch.parameters =
+    [ .paths."/policy/entities/ml-exclusions/v1".patch.parameters[]
+      | if .in == "body" then .schema."$ref" = "#/definitions/ml_exclusions.UpdateReqV1" else . end ]
