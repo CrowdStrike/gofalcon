@@ -797,6 +797,13 @@
 | .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.business_unit += {"x-nullable": true}
 | .definitions."assetgroupmanager.v1.UpdateCloudGroupMessage".properties.environment += {"x-nullable": true}
 
+# The gateway fronting these cloud-security endpoints returns the error "code" as a JSON number
+# (e.g. 403 on a missing-scope response), while the service itself returns arbitrary string codes
+# (e.g. "NotFound", "name"), so a plain string field fails to decode the numeric form. StringOrNumber
+# (hand-written in pkg/falcon_util/json.go) accepts either token and keeps a string underneath.
+| .definitions."assetgroupmanager.v1.Error".properties.code."x-go-type" = {type: "StringOrNumber", import: {package: "github.com/crowdstrike/gofalcon/pkg/falcon_util"}, hints: {noValidation: true}}
+| .definitions."accessscopemanager.v1.Error".properties.code."x-go-type" = {type: "StringOrNumber", import: {package: "github.com/crowdstrike/gofalcon/pkg/falcon_util"}, hints: {noValidation: true}}
+
 # 201 is a valid response for POST /policy/entities/sv-exclusions/v1 200 is not.
 | .paths."/policy/entities/sv-exclusions/v1".post.responses."201" = .paths."/policy/entities/sv-exclusions/v1".post.responses."200"
 | del(.paths."/policy/entities/sv-exclusions/v1".post.responses."200")

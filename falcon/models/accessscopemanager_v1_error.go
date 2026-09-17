@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 
+	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -18,7 +19,7 @@ import (
 type AccessscopemanagerV1Error struct {
 
 	// code
-	Code string `json:"code,omitempty"`
+	Code falcon_util.StringOrNumber `json:"code,omitempty"`
 
 	// id
 	ID string `json:"id,omitempty"`
