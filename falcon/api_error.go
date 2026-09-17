@@ -21,7 +21,17 @@ func AssertNoError(payloadErrors []*models.MsaAPIError) error {
 	var sb strings.Builder
 
 	for _, payloadError := range payloadErrors {
-		sb.WriteString("API Error " + payloadError.ID + ": " + *payloadError.Message)
+		if payloadError == nil {
+			continue
+		}
+		msg := "(no message)"
+		if payloadError.Message != nil {
+			msg = *payloadError.Message
+		}
+		sb.WriteString("API Error ")
+		sb.WriteString(payloadError.ID)
+		sb.WriteString(": ")
+		sb.WriteString(msg)
 	}
 	return errors.New(sb.String())
 }
