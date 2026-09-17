@@ -273,6 +273,22 @@
   | .paths."/container-security/combined/kubernetes-ioms/v1".get.operationId = "KubernetesIomEntitiesCombined"
   | .paths."/container-security/queries/kubernetes-ioms/v1".get.operationId = "QueryKubernetesIoms"
 
+# The k8sassets enrichment responses (cluster/container/deployment/node/pod) declare
+# their results array under the property "EnrichmentData", but the API returns the
+# standard Falcon envelope key "resources". As specified the generated Payload never
+# populates. Rename the property and its required entry to "resources" for all five.
+  | reduce (
+      "k8sassets.ClusterEnrichmentResponse",
+      "k8sassets.ContainerEnrichmentResponse",
+      "k8sassets.DeploymentEnrichmentResponse",
+      "k8sassets.NodeEnrichmentResponse",
+      "k8sassets.PodEnrichmentResponse"
+    ) as $def (.;
+      .definitions[$def].properties.resources = .definitions[$def].properties.EnrichmentData
+      | del(.definitions[$def].properties.EnrichmentData)
+      | .definitions[$def].required = (.definitions[$def].required | map(if . == "EnrichmentData" then "resources" else . end))
+    )
+
 # Allow an empty string be passed to assignment_rule
  | .definitions."host_groups.UpdateGroupReqV1".properties.assignment_rule += {"x-nullable": true}
 
