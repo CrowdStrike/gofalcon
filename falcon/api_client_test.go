@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"mime"
 	"net/http"
 	"reflect"
 	"strings"
@@ -16,6 +17,9 @@ import (
 	"time"
 
 	httpruntime "github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
+
+	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
 // fakeTransport returns responses from a pre-configured sequence, repeating the
@@ -686,39 +690,109 @@ func (r *readerFromBuffer) ReadFrom(src io.Reader) (int64, error) {
 	return r.buf.ReadFrom(src)
 }
 
+func TestDownloadAwareYAMLConsumer(t *testing.T) {
+	// Generated models carry only json struct tags. A tag-unaware YAML decoder
+	// maps fields by lowercased Go field name, so snake_case wire names such as
+	// created_timestamp and trace_id silently drop and decode as nil. Decoding
+	// into a real generated model here proves the consumer routes YAML through
+	// JSON so those json tags drive the mapping.
+	const configYAML = `meta:
+  trace_id: trace-123
+resources:
+  - id: cfg-1
+    name: my-config
+    created_timestamp: "2024-01-02T03:04:05Z"
+`
+	consumer := downloadAwareConsumer(yamlJSONConsumer())
+
+	t.Run("snake_case YAML populates json-tagged model fields", func(t *testing.T) {
+		var payload models.DomainEntitiesConfigurationsResponseV1
+		if err := consumer.Consume(strings.NewReader(configYAML), &payload); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+
+		if payload.Meta == nil || payload.Meta.TraceID == nil {
+			t.Fatalf("meta.trace_id not decoded: %+v", payload.Meta)
+		}
+		if got := *payload.Meta.TraceID; got != "trace-123" {
+			t.Fatalf("expected trace_id trace-123, got %q", got)
+		}
+
+		if len(payload.Resources) != 1 {
+			t.Fatalf("expected 1 resource, got %d", len(payload.Resources))
+		}
+		res := payload.Resources[0]
+		if res.ID == nil || *res.ID != "cfg-1" {
+			t.Fatalf("expected id cfg-1, got %v", res.ID)
+		}
+		if res.Name == nil || *res.Name != "my-config" {
+			t.Fatalf("expected name my-config, got %v", res.Name)
+		}
+
+		wantTS, err := time.Parse(time.RFC3339, "2024-01-02T03:04:05Z")
+		if err != nil {
+			t.Fatalf("parse expected timestamp: %v", err)
+		}
+		if res.CreatedTimestamp == nil || !time.Time(*res.CreatedTimestamp).Equal(wantTS) {
+			t.Fatalf("expected created_timestamp %s, got %v", wantTS, res.CreatedTimestamp)
+		}
+	})
+
+	t.Run("io.Writer target streams YAML verbatim", func(t *testing.T) {
+		// Download endpoints that advertise YAML pass an io.Writer target; the
+		// download-aware wrapper must stream the exact bytes rather than decode.
+		var buf bytes.Buffer
+		if err := consumer.Consume(strings.NewReader(configYAML), &buf); err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if buf.String() != configYAML {
+			t.Fatalf("expected verbatim YAML, got %q", buf.String())
+		}
+	})
+}
+
 func TestBinaryDownloadMediaTypes(t *testing.T) {
 	got := binaryDownloadMediaTypes()
 
-	t.Run("covers the case-attachment binary types", func(t *testing.T) {
-		// These are the CaseDownloadAttachment produced content types that the
-		// go-openapi runtime does not register a consumer for by default. Without
-		// registration the runtime returns a "no consumer" error for the download.
+	t.Run("covers the download and streaming binary types", func(t *testing.T) {
+		// These are the produced content types that the go-openapi runtime does
+		// not register a consumer for by default. Without registration the runtime
+		// returns a "no consumer" error for the download or stream.
 		want := []string{
+			"application/gzip",
 			"application/msword",
+			"application/pdf",
 			"application/vnd.ms-excel",
 			"application/vnd.openxmlformats-officedocument.presentationml.presentation",
 			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 			"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+			"application/x-7z-compressed",
 			"application/zip",
 			"image/bmp",
 			"image/gif",
 			"image/jpeg",
 			"image/jpg",
 			"image/png",
+			"text/event-stream",
 		}
 		if !reflect.DeepEqual(got, want) {
 			t.Fatalf("expected %v, got %v", want, got)
 		}
 	})
 
-	t.Run("excludes types handled elsewhere", func(t *testing.T) {
-		// application/pdf and application/json have dedicated registrations, and
-		// text/plain is served by the runtime's default text consumer. Registering
-		// them here would clobber that handling.
+	t.Run("excludes types that need structured decoding", func(t *testing.T) {
+		// These content types decode into typed models (or, for a download target,
+		// stream through the download-aware consumer), and text/plain is served by
+		// the runtime's default text consumer. Byte-streaming them here would clobber
+		// that handling.
 		excluded := map[string]struct{}{
-			"application/pdf":  {},
-			"application/json": {},
-			"text/plain":       {},
+			"application/json":        {},
+			"application/schema+json": {},
+			"application/x-ndjson":    {},
+			"application/yaml":        {},
+			"application/x-yaml":      {},
+			"text/csv":                {},
+			"text/plain":              {},
 		}
 		for _, mediaType := range got {
 			if _, bad := excluded[mediaType]; bad {
@@ -740,4 +814,52 @@ func TestBinaryDownloadMediaTypes(t *testing.T) {
 			t.Fatalf("expected %q, got %q", raw, payload)
 		}
 	})
+}
+
+func TestRegisterDownloadConsumers(t *testing.T) {
+	// producedMediaTypes are the content types the swagger spec advertises in a
+	// response `produces` block that the go-openapi runtime does not resolve to a
+	// consumer on its own. If a new endpoint introduces another such type, this
+	// test fails until registerDownloadConsumers covers it, guarding against the
+	// "no consumer" download regressions that PRs #725 and #731 addressed.
+	producedMediaTypes := []string{
+		"application/gzip",
+		"application/json",
+		"application/msword",
+		"application/pdf",
+		"application/schema+json",
+		"application/vnd.ms-excel",
+		"application/vnd.openxmlformats-officedocument.presentationml.presentation",
+		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+		"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		"application/x-7z-compressed",
+		"application/x-ndjson",
+		"application/x-yaml",
+		"application/yaml",
+		"application/zip",
+		"image/bmp",
+		"image/gif",
+		"image/jpeg",
+		"image/jpg",
+		"image/png",
+		"text/csv",
+		"text/event-stream",
+		// charset params must be stripped before lookup, as the runtime does.
+		"application/json; charset=utf-8",
+	}
+
+	transport := httptransport.New("example.com", "/", []string{"https"})
+	registerDownloadConsumers(transport)
+
+	for _, mediaType := range producedMediaTypes {
+		t.Run(mediaType, func(t *testing.T) {
+			key, _, err := mime.ParseMediaType(mediaType)
+			if err != nil {
+				t.Fatalf("parse media type %q: %v", mediaType, err)
+			}
+			if _, ok := transport.Consumers[key]; !ok {
+				t.Fatalf("no consumer registered for produced media type %q", mediaType)
+			}
+		})
+	}
 }

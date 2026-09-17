@@ -20,11 +20,18 @@ import (
 // StreamInvocationResponseV1Reader is a Reader for the StreamInvocationResponseV1 structure.
 type StreamInvocationResponseV1Reader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *StreamInvocationResponseV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
+	case 200:
+		result := NewStreamInvocationResponseV1OK(o.writer)
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewStreamInvocationResponseV1BadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -58,6 +65,75 @@ func (o *StreamInvocationResponseV1Reader) ReadResponse(response runtime.ClientR
 	default:
 		return nil, runtime.NewAPIError("[GET /agentic-studio-streaming/entities/agent-invocations/v1] StreamInvocationResponseV1", response, response.Code())
 	}
+}
+
+// NewStreamInvocationResponseV1OK creates a StreamInvocationResponseV1OK with default headers values
+func NewStreamInvocationResponseV1OK(writer io.Writer) *StreamInvocationResponseV1OK {
+	return &StreamInvocationResponseV1OK{
+
+		Payload: writer,
+	}
+}
+
+/*
+StreamInvocationResponseV1OK describes a response with status code 200, with default header values.
+
+OK
+*/
+type StreamInvocationResponseV1OK struct {
+	Payload io.Writer
+}
+
+// IsSuccess returns true when this stream invocation response v1 o k response has a 2xx status code
+func (o *StreamInvocationResponseV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this stream invocation response v1 o k response has a 3xx status code
+func (o *StreamInvocationResponseV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stream invocation response v1 o k response has a 4xx status code
+func (o *StreamInvocationResponseV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this stream invocation response v1 o k response has a 5xx status code
+func (o *StreamInvocationResponseV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stream invocation response v1 o k response a status code equal to that given
+func (o *StreamInvocationResponseV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the stream invocation response v1 o k response
+func (o *StreamInvocationResponseV1OK) Code() int {
+	return 200
+}
+
+func (o *StreamInvocationResponseV1OK) Error() string {
+	return fmt.Sprintf("[GET /agentic-studio-streaming/entities/agent-invocations/v1][%d] streamInvocationResponseV1OK  %+v", 200, o.Payload)
+}
+
+func (o *StreamInvocationResponseV1OK) String() string {
+	return fmt.Sprintf("[GET /agentic-studio-streaming/entities/agent-invocations/v1][%d] streamInvocationResponseV1OK  %+v", 200, o.Payload)
+}
+
+func (o *StreamInvocationResponseV1OK) GetPayload() io.Writer {
+	return o.Payload
+}
+
+func (o *StreamInvocationResponseV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
 }
 
 // NewStreamInvocationResponseV1BadRequest creates a StreamInvocationResponseV1BadRequest with default headers values

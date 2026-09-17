@@ -650,7 +650,7 @@ func (a *Client) WorkflowExecuteSingleNodeV1(params *WorkflowExecuteSingleNodeV1
 }
 
 /*
-WorkflowExecutionsCombined searches workflow executions based on the provided filter
+WorkflowExecutionsCombined searches workflow executions based on the provided filter note the entity filter matches associated entity values e g hostnames i ps emails detection i ds by exact match only the first 1024 characters of each entity value are indexed for filtering
 */
 func (a *Client) WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error) {
 	// TODO: Validate the params before sending

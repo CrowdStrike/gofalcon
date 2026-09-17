@@ -3,6 +3,7 @@ package falcon
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -21,6 +22,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/clientcredentials"
+	"gopkg.in/yaml.v3"
 )
 
 // NewClient return newly configured API Client based on configuration supplied by user.
@@ -54,17 +56,59 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 
 	customTransport := httptransport.NewWithClient(ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
 	customTransport.Debug = ac.Debug
-	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
-	customTransport.Consumers["application/x-7z-compressed"] = httpruntime.ByteStreamConsumer()
-	customTransport.Consumers["application/json"] = downloadAwareConsumer(httpruntime.JSONConsumer())
-	customTransport.Consumers["text/csv"] = downloadAwareConsumer(httpruntime.CSVConsumer())
-
-	byteStream := httpruntime.ByteStreamConsumer()
-	for _, mediaType := range binaryDownloadMediaTypes() {
-		customTransport.Consumers[mediaType] = byteStream
-	}
+	registerDownloadConsumers(customTransport)
 
 	return client.New(customTransport, strfmt.Default), nil
+}
+
+// registerDownloadConsumers registers response consumers for the content types
+// that CrowdStrike download and export endpoints advertise but the go-openapi
+// runtime leaves unhandled by default. Binary payloads stream through verbatim.
+// The structured JSON, CSV, and YAML types decode normally, unless the caller
+// passes an io.Writer or io.ReaderFrom target, in which case the download-aware
+// consumer streams the raw response bytes instead of decoding them.
+func registerDownloadConsumers(t *httptransport.Runtime) {
+	byteStream := httpruntime.ByteStreamConsumer()
+	for _, mediaType := range binaryDownloadMediaTypes() {
+		t.Consumers[mediaType] = byteStream
+	}
+
+	jsonConsumer := downloadAwareConsumer(httpruntime.JSONConsumer())
+	yamlConsumer := downloadAwareConsumer(yamlJSONConsumer())
+	t.Consumers["application/json"] = jsonConsumer
+	t.Consumers["application/schema+json"] = jsonConsumer
+	t.Consumers["application/x-ndjson"] = jsonConsumer
+	t.Consumers["text/csv"] = downloadAwareConsumer(httpruntime.CSVConsumer())
+	t.Consumers["application/yaml"] = yamlConsumer
+	t.Consumers["application/x-yaml"] = yamlConsumer
+}
+
+// yamlJSONConsumer decodes YAML response bodies by converting them to JSON and
+// unmarshaling with encoding/json. Generated models carry only json struct tags,
+// so decoding YAML directly maps fields by lowercased Go field name and silently
+// drops any whose wire name differs (for example created_timestamp or trace_id).
+// Routing through JSON makes those json tags authoritative and keeps decoding
+// consistent with the JSON consumer.
+func yamlJSONConsumer() httpruntime.Consumer {
+	return httpruntime.ConsumerFunc(func(reader io.Reader, data any) error {
+		var intermediate any
+		if err := yaml.NewDecoder(reader).Decode(&intermediate); err != nil {
+			if errors.Is(err, io.EOF) {
+				return nil
+			}
+			return fmt.Errorf("decode yaml: %w", err)
+		}
+
+		encoded, err := json.Marshal(intermediate)
+		if err != nil {
+			return fmt.Errorf("convert yaml to json: %w", err)
+		}
+
+		if err := json.Unmarshal(encoded, data); err != nil {
+			return fmt.Errorf("decode json: %w", err)
+		}
+		return nil
+	})
 }
 
 // downloadAwareConsumer streams download payloads (io.Writer / io.ReaderFrom targets)
@@ -83,24 +127,28 @@ func downloadAwareConsumer(fallback httpruntime.Consumer) httpruntime.Consumer {
 }
 
 // binaryDownloadMediaTypes lists the binary content types returned by download
-// endpoints, such as message-center case-attachment downloads, that the
-// go-openapi runtime does not register a consumer for by default. Each is
-// streamed verbatim into the response payload rather than decoded. The
-// application/pdf, application/json, and text/plain content types those
-// endpoints also advertise are handled separately and are intentionally absent.
+// and streaming endpoints, such as message-center case-attachment downloads and
+// the workflow event stream, that the go-openapi runtime does not register a
+// consumer for by default. Each is streamed verbatim into the response payload
+// rather than decoded. The structured JSON, CSV, and YAML content types those
+// endpoints also advertise are registered separately and are intentionally absent.
 func binaryDownloadMediaTypes() []string {
 	return []string{
+		"application/gzip",
 		"application/msword",
+		"application/pdf",
 		"application/vnd.ms-excel",
 		"application/vnd.openxmlformats-officedocument.presentationml.presentation",
 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 		"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		"application/x-7z-compressed",
 		"application/zip",
 		"image/bmp",
 		"image/gif",
 		"image/jpeg",
 		"image/jpg",
 		"image/png",
+		"text/event-stream",
 	}
 }
 
