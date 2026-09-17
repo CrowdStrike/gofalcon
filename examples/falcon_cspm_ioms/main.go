@@ -2,14 +2,13 @@ package main
 
 import (
 	"context"
-	"errors"
 	"flag"
 	"fmt"
 	"os"
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client"
-	"github.com/crowdstrike/gofalcon/falcon/client/cspm_registration"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_detections"
 	"github.com/crowdstrike/gofalcon/falcon/models"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
@@ -56,39 +55,48 @@ Falcon Client Secret`)
 	fmt.Println(json)
 }
 
-func GetIOMs(client *client.CrowdStrikeAPISpecification) (ioms []models.RegistrationIOMEvent, err error) {
-	limit := 200
+func GetIOMs(client *client.CrowdStrikeAPISpecification) (ioms []*models.EvaluationsEvaluation, err error) {
+	limit := int64(500)
 
-	for nextToken := ""; ; {
-		params := cspm_registration.NewGetConfigurationDetectionsParams().WithDefaults()
-		params.NextToken = &nextToken
+	for after := ""; ; {
+		queryParams := cloud_security_detections.NewCspmEvaluationsIomQueriesParams()
+		queryParams.Limit = &limit
+		if after != "" {
+			queryParams.After = &after
+		}
 
-		res, err := client.CspmRegistration.GetConfigurationDetections(params)
+		queryRes, err := client.CloudSecurityDetections.CspmEvaluationsIomQueries(queryParams)
 		if err != nil {
 			return ioms, err
 		}
-		if err = falcon.AssertNoError(res.GetPayload().Errors); err != nil {
+		if err = falcon.AssertNoError(queryRes.GetPayload().Errors); err != nil {
 			return ioms, err
 		}
 
-		events := res.GetPayload().Resources.Events
-		if len(events) == 0 {
+		ids := queryRes.GetPayload().Resources
+		if len(ids) == 0 {
 			break
 		}
 
-		for _, iom := range events {
-			ioms = append(ioms, *iom)
+		entityParams := cloud_security_detections.NewCspmEvaluationsIomEntitiesPostParams()
+		entityParams.Body = &models.EvaluationsGetIOMsRequest{Ids: ids}
+
+		entityRes, err := client.CloudSecurityDetections.CspmEvaluationsIomEntitiesPost(entityParams)
+		if err != nil {
+			return ioms, err
+		}
+		if err = falcon.AssertNoError(entityRes.GetPayload().Errors); err != nil {
+			return ioms, err
 		}
 
-		if len(events) < limit {
-			break // received last page as results are less than the limit
+		ioms = append(ioms, entityRes.GetPayload().Resources...)
+
+		meta := queryRes.GetPayload().Meta
+		if meta == nil || meta.Next == "" {
+			break // no further pages available
 		}
 
-		if res.Payload.Meta == nil && res.Payload.Meta.Pagination == nil && res.Payload.Meta.Pagination.NextToken == "" {
-			return ioms, errors.New("cannot paginate IOMs, pagination information missing")
-		}
-
-		nextToken = res.Payload.Meta.Pagination.NextToken
+		after = meta.Next
 	}
 
 	return ioms, err
