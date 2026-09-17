@@ -115,3 +115,54 @@ func TestAuthActivityAuditEventExtraError(t *testing.T) {
 		t.Fatal("expected error for invalid json, got nil")
 	}
 }
+
+func TestAuthActivityAuditEventExtraCaseVariant(t *testing.T) {
+	t.Parallel()
+	// encoding/json matches field names case-insensitively, so a case variant
+	// of a known key populates the typed field. It must not also linger in Extra.
+	var e AuthActivityAuditEvent
+	if err := json.Unmarshal([]byte(`{"operationname":"x"}`), &e); err != nil {
+		t.Fatalf("Unmarshal: %v", err)
+	}
+	if e.OperationName == nil || *e.OperationName != "x" {
+		t.Fatalf("OperationName = %v, want x", e.OperationName)
+	}
+	if _, ok := e.Extra["operationname"]; ok {
+		t.Fatalf("Extra should not contain case-variant of known key, got %v", e.Extra)
+	}
+}
+
+func TestAuthActivityAuditEventMarshalRoundTrip(t *testing.T) {
+	t.Parallel()
+	var e AuthActivityAuditEvent
+	if err := json.Unmarshal([]byte(`{"OperationName":"x","NewApiField":"keepme"}`), &e); err != nil {
+		t.Fatalf("Unmarshal: %v", err)
+	}
+	out, err := json.Marshal(e)
+	if err != nil {
+		t.Fatalf("Marshal: %v", err)
+	}
+	var round map[string]json.RawMessage
+	if err := json.Unmarshal(out, &round); err != nil {
+		t.Fatalf("re-decode: %v", err)
+	}
+	if _, ok := round["OperationName"]; !ok {
+		t.Fatalf("marshal dropped typed field, got %s", out)
+	}
+	if _, ok := round["NewApiField"]; !ok {
+		t.Fatalf("marshal dropped preserved Extra key, got %s", out)
+	}
+}
+
+func TestAuthActivityAuditEventMarshalNoExtra(t *testing.T) {
+	t.Parallel()
+	op := "x"
+	e := AuthActivityAuditEvent{OperationName: &op}
+	out, err := json.Marshal(e)
+	if err != nil {
+		t.Fatalf("Marshal: %v", err)
+	}
+	if want := `{"OperationName":"x"}`; string(out) != want {
+		t.Fatalf("Marshal = %s, want %s", out, want)
+	}
+}
