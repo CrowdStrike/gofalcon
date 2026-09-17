@@ -346,12 +346,17 @@
 | del(.definitions."models.Container".properties.cloud)
 | .definitions."models.Container".properties.ports = .definitions."models.Container".properties.port_list
 | del(.definitions."models.Container".properties.port_list)
-| .definitions."models.Container".properties.ai_related = {"type": "boolean", "x-nullable": true}
-| .definitions."models.Container".properties.app_name = {"type": "string", "x-nullable": true}
-| .definitions."models.Container".properties.cloud_instance_id = {"type": "string", "x-nullable": true}
-| .definitions."models.Container".properties.cloud_service = {"type": "string", "x-nullable": true}
-| .definitions."models.Container".properties.kac_agent_id = {"type": "string", "x-nullable": true}
-| .definitions."models.Container".required += ["ai_related", "app_name", "cloud_instance_id", "cloud_service", "kac_agent_id"]
+
+# The Container API also returns these five fields, which the upstream spec omits
+# entirely, so they decode as nothing. Re-add them with the nullability v0.21.1
+# generated. They stay out of the definition's required array on purpose: the API
+# omits cloud_instance_id, cloud_service and kac_agent_id on a large share of
+# records, so marking them required would make Validate() fail on real responses.
+| .definitions."models.Container".properties.ai_related = {"type": "boolean", "x-nullable": true, "x-omitempty": false}
+| .definitions."models.Container".properties.app_name = {"type": "string", "x-nullable": true, "x-omitempty": false}
+| .definitions."models.Container".properties.cloud_instance_id = {"type": "string", "x-nullable": true, "x-omitempty": false}
+| .definitions."models.Container".properties.cloud_service = {"type": "string", "x-nullable": true, "x-omitempty": false}
+| .definitions."models.Container".properties.kac_agent_id = {"type": "string", "x-nullable": true, "x-omitempty": false}
 
 # add intel.CVSSv2 model definition
 | .definitions."intel.CVSSv2" = {
