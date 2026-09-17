@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	jsonext "encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -102,7 +103,7 @@ type DetectsBehavior struct {
 	RuleInstanceID string `json:"rule_instance_id,omitempty"`
 
 	// rule instance version
-	RuleInstanceVersion string `json:"rule_instance_version,omitempty"`
+	RuleInstanceVersion jsonext.Number `json:"rule_instance_version,omitempty"`
 
 	// scenario
 	// Required: true

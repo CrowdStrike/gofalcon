@@ -629,10 +629,13 @@
   }
 }
 
-# The API returns detects.Behavior.rule_instance_version as a string (an opaque
-# identifier, matching detects.Alert.cms_rule_instance_version), but the spec types it
-# as int32, which breaks alert deserialization. Retype it to string. See issue #537.
-| .definitions."detects.Behavior".properties.rule_instance_version = {"type": "string"}
+# detects.Behavior is reached via domain.APIDetectionDocument from the legacy
+# /detects/entities/summaries/GET/v1 (GetDetectSummaries) endpoint. The spec types
+# rule_instance_version as int32, but the field is an incrementing rule version that
+# can arrive on the wire as either a JSON number or a quoted string, which breaks
+# deserialization. Map it to encoding/json.Number so both wire forms decode. See
+# issue #537.
+| .definitions."detects.Behavior".properties.rule_instance_version."x-go-type"={type: "Number", import: {package: "encoding/json"}, hints: {noValidation: true}}
 
 # Add new credential definitions for nested response structure
 | .definitions."common.Credentials" = {
