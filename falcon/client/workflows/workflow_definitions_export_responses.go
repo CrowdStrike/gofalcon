@@ -20,19 +20,20 @@ import (
 // WorkflowDefinitionsExportReader is a Reader for the WorkflowDefinitionsExport structure.
 type WorkflowDefinitionsExportReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *WorkflowDefinitionsExportReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewWorkflowDefinitionsExportOK()
+		result := NewWorkflowDefinitionsExportOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 299:
-		result := NewWorkflowDefinitionsExportStatus299()
+		result := NewWorkflowDefinitionsExportStatus299(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -73,8 +74,11 @@ func (o *WorkflowDefinitionsExportReader) ReadResponse(response runtime.ClientRe
 }
 
 // NewWorkflowDefinitionsExportOK creates a WorkflowDefinitionsExportOK with default headers values
-func NewWorkflowDefinitionsExportOK() *WorkflowDefinitionsExportOK {
-	return &WorkflowDefinitionsExportOK{}
+func NewWorkflowDefinitionsExportOK(writer io.Writer) *WorkflowDefinitionsExportOK {
+	return &WorkflowDefinitionsExportOK{
+
+		Payload: writer,
+	}
 }
 
 /*
@@ -83,6 +87,14 @@ WorkflowDefinitionsExportOK describes a response with status code 200, with defa
 OK
 */
 type WorkflowDefinitionsExportOK struct {
+
+	/* Attachment disposition carrying the exported filename, e.g. attachment;filename=<workflow>.yaml
+	 */
+	ContentDisposition string
+
+	/* Media type of the exported definition, e.g. application/yaml or application/json
+	 */
+	ContentType string
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -96,7 +108,7 @@ type WorkflowDefinitionsExportOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload []int64
+	Payload io.Writer
 }
 
 // IsSuccess returns true when this workflow definitions export o k response has a 2xx status code
@@ -137,11 +149,25 @@ func (o *WorkflowDefinitionsExportOK) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportOK  %+v", 200, o.Payload)
 }
 
-func (o *WorkflowDefinitionsExportOK) GetPayload() []int64 {
+func (o *WorkflowDefinitionsExportOK) GetPayload() io.Writer {
 	return o.Payload
 }
 
 func (o *WorkflowDefinitionsExportOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header Content-Disposition
+	hdrContentDisposition := response.GetHeader("Content-Disposition")
+
+	if hdrContentDisposition != "" {
+		o.ContentDisposition = hdrContentDisposition
+	}
+
+	// hydrates response header Content-Type
+	hdrContentType := response.GetHeader("Content-Type")
+
+	if hdrContentType != "" {
+		o.ContentType = hdrContentType
+	}
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -173,7 +199,7 @@ func (o *WorkflowDefinitionsExportOK) readResponse(response runtime.ClientRespon
 	}
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
@@ -181,8 +207,11 @@ func (o *WorkflowDefinitionsExportOK) readResponse(response runtime.ClientRespon
 }
 
 // NewWorkflowDefinitionsExportStatus299 creates a WorkflowDefinitionsExportStatus299 with default headers values
-func NewWorkflowDefinitionsExportStatus299() *WorkflowDefinitionsExportStatus299 {
-	return &WorkflowDefinitionsExportStatus299{}
+func NewWorkflowDefinitionsExportStatus299(writer io.Writer) *WorkflowDefinitionsExportStatus299 {
+	return &WorkflowDefinitionsExportStatus299{
+
+		Payload: writer,
+	}
 }
 
 /*
@@ -210,7 +239,7 @@ type WorkflowDefinitionsExportStatus299 struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload []int64
+	Payload io.Writer
 }
 
 // IsSuccess returns true when this workflow definitions export status299 response has a 2xx status code
@@ -251,7 +280,7 @@ func (o *WorkflowDefinitionsExportStatus299) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportStatus299  %+v", 299, o.Payload)
 }
 
-func (o *WorkflowDefinitionsExportStatus299) GetPayload() []int64 {
+func (o *WorkflowDefinitionsExportStatus299) GetPayload() io.Writer {
 	return o.Payload
 }
 
@@ -294,7 +323,7 @@ func (o *WorkflowDefinitionsExportStatus299) readResponse(response runtime.Clien
 	}
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
@@ -325,7 +354,7 @@ type WorkflowDefinitionsExportBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload []int64
+	Payload *models.MsaReplyMetaOnly
 }
 
 // IsSuccess returns true when this workflow definitions export bad request response has a 2xx status code
@@ -366,7 +395,7 @@ func (o *WorkflowDefinitionsExportBadRequest) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *WorkflowDefinitionsExportBadRequest) GetPayload() []int64 {
+func (o *WorkflowDefinitionsExportBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
@@ -401,8 +430,10 @@ func (o *WorkflowDefinitionsExportBadRequest) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
+	o.Payload = new(models.MsaReplyMetaOnly)
+
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
@@ -543,7 +574,7 @@ type WorkflowDefinitionsExportNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload []int64
+	Payload *models.MsaReplyMetaOnly
 }
 
 // IsSuccess returns true when this workflow definitions export not found response has a 2xx status code
@@ -584,7 +615,7 @@ func (o *WorkflowDefinitionsExportNotFound) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportNotFound  %+v", 404, o.Payload)
 }
 
-func (o *WorkflowDefinitionsExportNotFound) GetPayload() []int64 {
+func (o *WorkflowDefinitionsExportNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
@@ -619,8 +650,10 @@ func (o *WorkflowDefinitionsExportNotFound) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
+	o.Payload = new(models.MsaReplyMetaOnly)
+
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
@@ -776,7 +809,7 @@ type WorkflowDefinitionsExportInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload []int64
+	Payload *models.MsaReplyMetaOnly
 }
 
 // IsSuccess returns true when this workflow definitions export internal server error response has a 2xx status code
@@ -817,7 +850,7 @@ func (o *WorkflowDefinitionsExportInternalServerError) String() string {
 	return fmt.Sprintf("[GET /workflows/entities/definitions/export/v1][%d] workflowDefinitionsExportInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *WorkflowDefinitionsExportInternalServerError) GetPayload() []int64 {
+func (o *WorkflowDefinitionsExportInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
@@ -852,8 +885,10 @@ func (o *WorkflowDefinitionsExportInternalServerError) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
+	o.Payload = new(models.MsaReplyMetaOnly)
+
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
