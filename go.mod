@@ -12,6 +12,7 @@ require (
 	github.com/go-openapi/validate v0.23.1
 	github.com/sirupsen/logrus v1.9.3
 	golang.org/x/oauth2 v0.30.0
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
@@ -35,5 +36,4 @@ require (
 	go.opentelemetry.io/otel/trace v1.21.0 // indirect
 	golang.org/x/sync v0.8.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

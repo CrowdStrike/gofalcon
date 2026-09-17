@@ -36,6 +36,10 @@
   # exported filename straight from the download response.
   | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."200"."headers"."Content-Type" = {"type": "string", "description": "Media type of the exported definition, e.g. application/yaml or application/json"}
   | .paths."/workflows/entities/definitions/export/v1"."get"."responses"."200"."headers"."Content-Disposition" = {"type": "string", "description": "Attachment disposition carrying the exported filename, e.g. attachment;filename=<workflow>.yaml"}
+  # StreamInvocationResponseV1 streams the agent invocation response over text/event-stream, but the
+  # spec declares no 200, so the generated client treats every success as an API error. Declare a
+  # streamable 200 body so it reads into an io.Writer payload.
+  | .paths."/agentic-studio-streaming/entities/agent-invocations/v1"."get"."responses"."200"={"description": "OK", "schema": {"$ref": "#/definitions/domain.DownloadItem"}}
   # The report-executions-download 200 response carries Content-Type and Content-Disposition
   # (verified live: application/json and attachment;filename=<report>.json), but the spec declares
   # neither, so the generated OK struct drops them. A report can be delivered in different formats
