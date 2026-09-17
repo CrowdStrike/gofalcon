@@ -73,6 +73,7 @@ type Event struct {
 	Tactic            *string           `json:"Tactic,omitempty"`
 	Technique         *string           `json:"Technique,omitempty"`
 	AuditKeyValues    *[]AuditKeyValues `json:"AuditKeyValues,omitempty"`
+	Attributes        *[]AuditKeyValues `json:"Attributes,omitempty"`
 	IncidentType      *String           `json:"IncidentType,omitempty"`
 	IncidentStartTime *json.Number      `json:"IncidentStartTime,omitempty"`
 	IncidentEndTime   *json.Number      `json:"IncidentEndTime,omitempty"`
