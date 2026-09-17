@@ -30,11 +30,11 @@ type ModelsContainer struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
-	// cloud
-	Cloud string `json:"cloud,omitempty"`
-
 	// cloud account id
 	CloudAccountID string `json:"cloud_account_id,omitempty"`
+
+	// cloud name
+	CloudName *string `json:"cloud_name"`
 
 	// cloud region
 	CloudRegion string `json:"cloud_region,omitempty"`
@@ -51,8 +51,15 @@ type ModelsContainer struct {
 	// config user
 	ConfigUser string `json:"config_user,omitempty"`
 
+	// container id
+	// Required: true
+	ContainerID *string `json:"container_id"`
+
 	// container image id
 	ContainerImageID string `json:"container_image_id,omitempty"`
+
+	// container name
+	ContainerName *string `json:"container_name"`
 
 	// created at
 	CreatedAt int64 `json:"created_at,omitempty"`
@@ -65,10 +72,6 @@ type ModelsContainer struct {
 
 	// host config devices
 	HostConfigDevices string `json:"host_config_devices,omitempty"`
-
-	// id
-	// Required: true
-	ID *string `json:"id"`
 
 	// image application package count
 	ImageApplicationPackageCount int32 `json:"image_application_package_count,omitempty"`
@@ -106,8 +109,8 @@ type ModelsContainer struct {
 	// image registry
 	ImageRegistry string `json:"image_registry,omitempty"`
 
-	// image repo
-	ImageRepo string `json:"image_repo,omitempty"`
+	// image repository
+	ImageRepository *string `json:"image_repository"`
 
 	// image tag
 	ImageTag string `json:"image_tag,omitempty"`
@@ -166,17 +169,14 @@ type ModelsContainer struct {
 	// lumos sensor coverage
 	LumosSensorCoverage bool `json:"lumos_sensor_coverage,omitempty"`
 
-	// name
-	Name string `json:"name,omitempty"`
-
 	// namespace
 	Namespace string `json:"namespace,omitempty"`
 
-	// node id
-	NodeID string `json:"node_id,omitempty"`
-
 	// node name
 	NodeName string `json:"node_name,omitempty"`
+
+	// node uid
+	NodeUID *string `json:"node_uid"`
 
 	// pod id
 	PodID string `json:"pod_id,omitempty"`
@@ -184,8 +184,8 @@ type ModelsContainer struct {
 	// pod name
 	PodName string `json:"pod_name,omitempty"`
 
-	// port list
-	PortList []ModelsContainerPortList `json:"port_list"`
+	// ports
+	Ports []ModelsContainerPortList `json:"ports"`
 
 	// privileged
 	Privileged bool `json:"privileged,omitempty"`
@@ -227,11 +227,11 @@ func (m *ModelsContainer) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateID(formats); err != nil {
+	if err := m.validateContainerID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePortList(formats); err != nil {
+	if err := m.validatePorts(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -273,28 +273,28 @@ func (m *ModelsContainer) validateCid(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ModelsContainer) validateID(formats strfmt.Registry) error {
+func (m *ModelsContainer) validateContainerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("id", "body", m.ID); err != nil {
+	if err := validate.Required("container_id", "body", m.ContainerID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *ModelsContainer) validatePortList(formats strfmt.Registry) error {
-	if swag.IsZero(m.PortList) { // not required
+func (m *ModelsContainer) validatePorts(formats strfmt.Registry) error {
+	if swag.IsZero(m.Ports) { // not required
 		return nil
 	}
 
-	for i := 0; i < len(m.PortList); i++ {
+	for i := 0; i < len(m.Ports); i++ {
 
-		if m.PortList[i] != nil {
-			if err := m.PortList[i].Validate(formats); err != nil {
+		if m.Ports[i] != nil {
+			if err := m.Ports[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("port_list" + "." + strconv.Itoa(i))
+					return ve.ValidateName("ports" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("port_list" + "." + strconv.Itoa(i))
+					return ce.ValidateName("ports" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -313,7 +313,7 @@ func (m *ModelsContainer) ContextValidate(ctx context.Context, formats strfmt.Re
 		res = append(res, err)
 	}
 
-	if err := m.contextValidatePortList(ctx, formats); err != nil {
+	if err := m.contextValidatePorts(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -345,19 +345,19 @@ func (m *ModelsContainer) contextValidateAgents(ctx context.Context, formats str
 	return nil
 }
 
-func (m *ModelsContainer) contextValidatePortList(ctx context.Context, formats strfmt.Registry) error {
+func (m *ModelsContainer) contextValidatePorts(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.PortList); i++ {
+	for i := 0; i < len(m.Ports); i++ {
 
-		if swag.IsZero(m.PortList[i]) { // not required
+		if swag.IsZero(m.Ports[i]) { // not required
 			return nil
 		}
 
-		if err := m.PortList[i].ContextValidate(ctx, formats); err != nil {
+		if err := m.Ports[i].ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("port_list" + "." + strconv.Itoa(i))
+				return ve.ValidateName("ports" + "." + strconv.Itoa(i))
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("port_list" + "." + strconv.Itoa(i))
+				return ce.ValidateName("ports" + "." + strconv.Itoa(i))
 			}
 			return err
 		}
