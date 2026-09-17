@@ -11,6 +11,13 @@
   | .paths."/intel/entities/malware-mitre-reports/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/real-time-response/entities/extracted-file-contents/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/reports/entities/report-executions-download/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  # NGSIEM lookup-file downloads produce application/octet-stream but declare no 200 schema, so the
+  # generated OK struct only reads headers and discards the file body. Declare the binary schema so
+  # the body streams into an io.Writer payload, matching the other file-download endpoints above.
+  | .paths."/ngsiem-content/entities/lookupfiles/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  | .paths."/humio/api/v1/repositories/{repository}/files/{filename}"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  | .paths."/humio/api/v1/repositories/{repository}/files/{package}/{filename}"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
+  | .paths."/humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   # The report-executions-download 200 response carries Content-Type and Content-Disposition
   # (verified live: application/json and attachment;filename=<report>.json), but the spec declares
   # neither, so the generated OK struct drops them. A report can be delivered in different formats
