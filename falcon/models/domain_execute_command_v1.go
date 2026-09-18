@@ -42,6 +42,9 @@ type DomainExecuteCommandV1 struct {
 	// Required: true
 	OperationID *string `json:"operation_id"`
 
+	// Redirect options. When enabled, overrides the definition's redirect settings for this execution.
+	Redirect *DomainRedirect `json:"redirect,omitempty"`
+
 	// The request params/body to execute the command. The data model for this section is determined at runtime via the request schema.
 	// Required: true
 	Request *DomainRequest `json:"request"`
@@ -76,6 +79,10 @@ func (m *DomainExecuteCommandV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOperationID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRedirect(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -157,6 +164,25 @@ func (m *DomainExecuteCommandV1) validateOperationID(formats strfmt.Registry) er
 	return nil
 }
 
+func (m *DomainExecuteCommandV1) validateRedirect(formats strfmt.Registry) error {
+	if swag.IsZero(m.Redirect) { // not required
+		return nil
+	}
+
+	if m.Redirect != nil {
+		if err := m.Redirect.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("redirect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("redirect")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainExecuteCommandV1) validateRequest(formats strfmt.Registry) error {
 
 	if err := validate.Required("request", "body", m.Request); err != nil {
@@ -194,6 +220,10 @@ func (m *DomainExecuteCommandV1) ContextValidate(ctx context.Context, formats st
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateRedirect(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateRequest(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -217,6 +247,27 @@ func (m *DomainExecuteCommandV1) contextValidateConfig(ctx context.Context, form
 				return ve.ValidateName("config")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainExecuteCommandV1) contextValidateRedirect(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Redirect != nil {
+
+		if swag.IsZero(m.Redirect) { // not required
+			return nil
+		}
+
+		if err := m.Redirect.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("redirect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("redirect")
 			}
 			return err
 		}
@@ -258,4 +309,17 @@ func (m *DomainExecuteCommandV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain execute command v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainExecuteCommandV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

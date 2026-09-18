@@ -516,6 +516,9 @@ swagger:model DismissSecurityCheckV3Body
 */
 type DismissSecurityCheckV3Body struct {
 
+	// Snooze the dismiss for this many days (1-365). Omit to dismiss indefinitely
+	DurationInDays int64 `json:"duration_in_days,omitempty"`
+
 	// Dismiss reason
 	Reason string `json:"reason,omitempty"`
 }
@@ -546,4 +549,17 @@ func (o *DismissSecurityCheckV3Body) UnmarshalBinary(b []byte) error {
 	}
 	*o = res
 	return nil
+}
+
+// String returns the JSON body of this dismiss security check v3 body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *DismissSecurityCheckV3Body) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

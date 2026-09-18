@@ -86,6 +86,7 @@ type QueryRuleParams struct {
 	*rule_resource_type*
 	*rule_resource_type_name*
 	*rule_risk_factor*
+	*rule_annotation_status*
 	*rule_service*
 	*rule_severity*
 	*rule_short_code*
@@ -135,6 +136,7 @@ type QueryRuleParams struct {
 	*rule_resource_type*
 	*rule_resource_type_name*
 	*rule_risk_factor*
+	*rule_annotation_status*
 	*rule_service*
 	*rule_severity*
 	*rule_short_code*

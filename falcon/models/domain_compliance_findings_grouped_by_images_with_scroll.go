@@ -139,3 +139,16 @@ func (m *DomainComplianceFindingsGroupedByImagesWithScroll) UnmarshalBinary(b []
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this domain compliance findings grouped by images with scroll. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainComplianceFindingsGroupedByImagesWithScroll) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

@@ -30,7 +30,7 @@ type V2Trigger struct {
 	Next []string `json:"next"`
 
 	// parameters
-	Parameters *JsonschemaSchema `json:"parameters,omitempty"`
+	Parameters string `json:"parameters,omitempty"`
 
 	// schedule
 	Schedule *GraphTimerEventDefinition `json:"schedule,omitempty"`
@@ -53,10 +53,6 @@ func (m *V2Trigger) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateParameters(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateSchedule(formats); err != nil {
 		res = append(res, err)
 	}
@@ -75,25 +71,6 @@ func (m *V2Trigger) validateNext(formats strfmt.Registry) error {
 
 	if err := validate.Required("next", "body", m.Next); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *V2Trigger) validateParameters(formats strfmt.Registry) error {
-	if swag.IsZero(m.Parameters) { // not required
-		return nil
-	}
-
-	if m.Parameters != nil {
-		if err := m.Parameters.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("parameters")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("parameters")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -141,10 +118,6 @@ func (m *V2Trigger) validateWebhookConfig(formats strfmt.Registry) error {
 func (m *V2Trigger) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateParameters(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateSchedule(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -156,27 +129,6 @@ func (m *V2Trigger) ContextValidate(ctx context.Context, formats strfmt.Registry
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *V2Trigger) contextValidateParameters(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Parameters != nil {
-
-		if swag.IsZero(m.Parameters) { // not required
-			return nil
-		}
-
-		if err := m.Parameters.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("parameters")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("parameters")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -238,4 +190,17 @@ func (m *V2Trigger) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this v2 trigger. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *V2Trigger) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

@@ -7,7 +7,9 @@ package models
 
 import (
 	"context"
+	"strconv"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -17,6 +19,9 @@ import (
 // swagger:model restapi.File
 type RestapiFile struct {
 
+	// App classification for the clean file
+	AppClassification []string `json:"AppClassification"`
+
 	// This can be one of: `C2Config`, `Phishing`, `ProxyScript`, `RansomNote`, `Certificate`, `JA3`, `PEResource`, `PEOverlay`, `PESection`
 	FileProperties []string `json:"FileProperties"`
 
@@ -25,6 +30,9 @@ type RestapiFile struct {
 
 	// Type of the file
 	FileType []string `json:"FileType"`
+
+	// Published filename(s) for the clean file
+	Filename []string `json:"Filename"`
 
 	// MD5 hash of the file
 	MD5 string `json:"MD5,omitempty"`
@@ -37,15 +45,90 @@ type RestapiFile struct {
 
 	// SHA256 hash of the file
 	SHA256 string `json:"SHA256,omitempty"`
+
+	// Known-good software matches for the clean file
+	Vendor []*RestapiVendor `json:"Vendor"`
+
+	// Clean-file record version from CAO Labs
+	Version int32 `json:"Version,omitempty"`
 }
 
 // Validate validates this restapi file
 func (m *RestapiFile) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateVendor(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this restapi file based on context it is used
+func (m *RestapiFile) validateVendor(formats strfmt.Registry) error {
+	if swag.IsZero(m.Vendor) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Vendor); i++ {
+		if swag.IsZero(m.Vendor[i]) { // not required
+			continue
+		}
+
+		if m.Vendor[i] != nil {
+			if err := m.Vendor[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("Vendor" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Vendor" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this restapi file based on the context it is used
 func (m *RestapiFile) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateVendor(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RestapiFile) contextValidateVendor(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Vendor); i++ {
+
+		if m.Vendor[i] != nil {
+
+			if swag.IsZero(m.Vendor[i]) { // not required
+				return nil
+			}
+
+			if err := m.Vendor[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("Vendor" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Vendor" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -65,4 +148,17 @@ func (m *RestapiFile) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this restapi file. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *RestapiFile) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

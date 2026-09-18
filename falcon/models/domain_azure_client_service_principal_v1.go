@@ -47,6 +47,9 @@ type DomainAzureClientServicePrincipalV1 struct {
 	// default subscription id
 	DefaultSubscriptionID string `json:"default_subscription_id,omitempty"`
 
+	// display name
+	DisplayName string `json:"display_name,omitempty"`
+
 	// encrypted private key
 	EncryptedPrivateKey string `json:"encrypted_private_key,omitempty"`
 
@@ -290,4 +293,17 @@ func (m *DomainAzureClientServicePrincipalV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain azure client service principal v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainAzureClientServicePrincipalV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

@@ -55,6 +55,10 @@ type ContentParser struct {
 	// Required: true
 	Product []string `json:"product"`
 
+	// rollback available
+	// Required: true
+	RollbackAvailable *bool `json:"rollback_available"`
+
 	// update available
 	UpdateAvailable bool `json:"update_available,omitempty"`
 
@@ -92,6 +96,10 @@ func (m *ContentParser) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProduct(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRollbackAvailable(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -163,6 +171,15 @@ func (m *ContentParser) validateProduct(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ContentParser) validateRollbackAvailable(formats strfmt.Registry) error {
+
+	if err := validate.Required("rollback_available", "body", m.RollbackAvailable); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ContentParser) validateVendor(formats strfmt.Registry) error {
 
 	if err := validate.Required("vendor", "body", m.Vendor); err != nil {
@@ -202,4 +219,17 @@ func (m *ContentParser) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this content parser. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *ContentParser) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

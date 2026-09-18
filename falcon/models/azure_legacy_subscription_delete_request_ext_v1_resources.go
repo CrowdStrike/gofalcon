@@ -103,3 +103,16 @@ func (m *AzureLegacySubscriptionDeleteRequestExtV1Resources) UnmarshalBinary(b [
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this azure legacy subscription delete request ext v1 resources. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AzureLegacySubscriptionDeleteRequestExtV1Resources) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

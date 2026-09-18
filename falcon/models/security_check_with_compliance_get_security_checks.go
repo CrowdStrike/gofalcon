@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -27,9 +28,26 @@ type SecurityCheckWithComplianceGetSecurityChecks struct {
 	// Required: true
 	Affected *int64 `json:"affected"`
 
+	// Affected impact percentage
+	// Required: true
+	AffectedImpactPercentage *int64 `json:"affected_impact_percentage"`
+
+	// Affected impact total
+	// Required: true
+	AffectedImpactTotal *int64 `json:"affected_impact_total"`
+
+	// Affected impact type
+	// Required: true
+	// Min Length: 1
+	AffectedImpactType *string `json:"affected_impact_type"`
+
 	// Base check id
 	// Required: true
 	BaseCheckID *string `json:"base_check_id"`
+
+	// business owners
+	// Required: true
+	BusinessOwners []map[string]*string `json:"business_owners"`
 
 	// check tags
 	// Required: true
@@ -91,6 +109,10 @@ type SecurityCheckWithComplianceGetSecurityChecks struct {
 	// Min Length: 1
 	Name *string `json:"name"`
 
+	// org domains
+	// Required: true
+	OrgDomains []string `json:"org_domains"`
+
 	// Remediation plan
 	// Required: true
 	// Min Length: 1
@@ -144,7 +166,23 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) Validate(formats strfmt.R
 		res = append(res, err)
 	}
 
+	if err := m.validateAffectedImpactPercentage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAffectedImpactTotal(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAffectedImpactType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateBaseCheckID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBusinessOwners(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -197,6 +235,10 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) Validate(formats strfmt.R
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOrgDomains(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -256,9 +298,49 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) validateAffected(formats 
 	return nil
 }
 
+func (m *SecurityCheckWithComplianceGetSecurityChecks) validateAffectedImpactPercentage(formats strfmt.Registry) error {
+
+	if err := validate.Required("affected_impact_percentage", "body", m.AffectedImpactPercentage); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SecurityCheckWithComplianceGetSecurityChecks) validateAffectedImpactTotal(formats strfmt.Registry) error {
+
+	if err := validate.Required("affected_impact_total", "body", m.AffectedImpactTotal); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SecurityCheckWithComplianceGetSecurityChecks) validateAffectedImpactType(formats strfmt.Registry) error {
+
+	if err := validate.Required("affected_impact_type", "body", m.AffectedImpactType); err != nil {
+		return err
+	}
+
+	if err := validate.MinLength("affected_impact_type", "body", *m.AffectedImpactType, 1); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *SecurityCheckWithComplianceGetSecurityChecks) validateBaseCheckID(formats strfmt.Registry) error {
 
 	if err := validate.Required("base_check_id", "body", m.BaseCheckID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SecurityCheckWithComplianceGetSecurityChecks) validateBusinessOwners(formats strfmt.Registry) error {
+
+	if err := validate.Required("business_owners", "body", m.BusinessOwners); err != nil {
 		return err
 	}
 
@@ -414,6 +496,23 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) validateName(formats strf
 	return nil
 }
 
+func (m *SecurityCheckWithComplianceGetSecurityChecks) validateOrgDomains(formats strfmt.Registry) error {
+
+	if err := validate.Required("org_domains", "body", m.OrgDomains); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.OrgDomains); i++ {
+
+		if err := validate.MinLength("org_domains"+"."+strconv.Itoa(i), "body", m.OrgDomains[i], 1); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
 func (m *SecurityCheckWithComplianceGetSecurityChecks) validateRemediationPlan(formats strfmt.Registry) error {
 
 	if err := validate.Required("remediation_plan", "body", m.RemediationPlan); err != nil {
@@ -539,4 +638,17 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) UnmarshalBinary(b []byte)
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this security check with compliance get security checks. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *SecurityCheckWithComplianceGetSecurityChecks) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

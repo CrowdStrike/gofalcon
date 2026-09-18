@@ -19,6 +19,9 @@ import (
 // swagger:model domain.KnowledgeBase
 type DomainKnowledgeBase struct {
 
+	// attribution
+	Attribution *DomainAttribution `json:"attribution,omitempty"`
+
 	// created at
 	// Required: true
 	// Format: date-time
@@ -66,6 +69,10 @@ type DomainKnowledgeBase struct {
 func (m *DomainKnowledgeBase) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAttribution(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedAt(formats); err != nil {
 		res = append(res, err)
 	}
@@ -109,6 +116,25 @@ func (m *DomainKnowledgeBase) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainKnowledgeBase) validateAttribution(formats strfmt.Registry) error {
+	if swag.IsZero(m.Attribution) { // not required
+		return nil
+	}
+
+	if m.Attribution != nil {
+		if err := m.Attribution.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("attribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attribution")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -236,6 +262,10 @@ func (m *DomainKnowledgeBase) validateUpdatedBy(formats strfmt.Registry) error {
 func (m *DomainKnowledgeBase) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAttribution(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -247,6 +277,27 @@ func (m *DomainKnowledgeBase) ContextValidate(ctx context.Context, formats strfm
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainKnowledgeBase) contextValidateAttribution(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Attribution != nil {
+
+		if swag.IsZero(m.Attribution) { // not required
+			return nil
+		}
+
+		if err := m.Attribution.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("attribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attribution")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -300,4 +351,17 @@ func (m *DomainKnowledgeBase) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain knowledge base. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainKnowledgeBase) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

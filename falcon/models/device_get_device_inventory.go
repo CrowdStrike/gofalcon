@@ -488,6 +488,19 @@ func (m *DeviceGetDeviceInventory) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this device get device inventory. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DeviceGetDeviceInventory) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // DeviceGetDeviceInventoryReportedAppsItems0 device get device inventory reported apps items0
 //
 // swagger:model DeviceGetDeviceInventoryReportedAppsItems0
@@ -601,6 +614,19 @@ func (m *DeviceGetDeviceInventoryReportedAppsItems0) UnmarshalBinary(b []byte) e
 	return nil
 }
 
+// String returns the JSON body of this device get device inventory reported apps items0. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DeviceGetDeviceInventoryReportedAppsItems0) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // DeviceGetDeviceInventoryReportersItems0 device get device inventory reporters items0
 //
 // swagger:model DeviceGetDeviceInventoryReportersItems0
@@ -642,4 +668,17 @@ func (m *DeviceGetDeviceInventoryReportersItems0) UnmarshalBinary(b []byte) erro
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this device get device inventory reporters items0. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DeviceGetDeviceInventoryReportersItems0) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

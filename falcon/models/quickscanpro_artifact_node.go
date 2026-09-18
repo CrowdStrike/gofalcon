@@ -33,7 +33,7 @@ type QuickscanproArtifactNode struct {
 	MalwareFamily string `json:"malware_family,omitempty"`
 
 	// properties
-	Properties map[string]string `json:"properties,omitempty"`
+	Properties interface{} `json:"properties,omitempty"`
 
 	// type
 	Type string `json:"type,omitempty"`
@@ -95,4 +95,17 @@ func (m *QuickscanproArtifactNode) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this quickscanpro artifact node. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *QuickscanproArtifactNode) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

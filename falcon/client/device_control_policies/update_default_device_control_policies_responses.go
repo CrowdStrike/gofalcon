@@ -43,6 +43,12 @@ func (o *UpdateDefaultDeviceControlPoliciesReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 410:
+		result := NewUpdateDefaultDeviceControlPoliciesGone()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewUpdateDefaultDeviceControlPoliciesTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -350,6 +356,116 @@ func (o *UpdateDefaultDeviceControlPoliciesNotFound) GetPayload() *models.Device
 }
 
 func (o *UpdateDefaultDeviceControlPoliciesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.DeviceControlRespV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUpdateDefaultDeviceControlPoliciesGone creates a UpdateDefaultDeviceControlPoliciesGone with default headers values
+func NewUpdateDefaultDeviceControlPoliciesGone() *UpdateDefaultDeviceControlPoliciesGone {
+	return &UpdateDefaultDeviceControlPoliciesGone{}
+}
+
+/*
+UpdateDefaultDeviceControlPoliciesGone describes a response with status code 410, with default header values.
+
+Gone
+*/
+type UpdateDefaultDeviceControlPoliciesGone struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.DeviceControlRespV1
+}
+
+// IsSuccess returns true when this update default device control policies gone response has a 2xx status code
+func (o *UpdateDefaultDeviceControlPoliciesGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update default device control policies gone response has a 3xx status code
+func (o *UpdateDefaultDeviceControlPoliciesGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update default device control policies gone response has a 4xx status code
+func (o *UpdateDefaultDeviceControlPoliciesGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update default device control policies gone response has a 5xx status code
+func (o *UpdateDefaultDeviceControlPoliciesGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update default device control policies gone response a status code equal to that given
+func (o *UpdateDefaultDeviceControlPoliciesGone) IsCode(code int) bool {
+	return code == 410
+}
+
+// Code gets the status code for the update default device control policies gone response
+func (o *UpdateDefaultDeviceControlPoliciesGone) Code() int {
+	return 410
+}
+
+func (o *UpdateDefaultDeviceControlPoliciesGone) Error() string {
+	return fmt.Sprintf("[PATCH /policy/entities/default-device-control/v1][%d] updateDefaultDeviceControlPoliciesGone  %+v", 410, o.Payload)
+}
+
+func (o *UpdateDefaultDeviceControlPoliciesGone) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/default-device-control/v1][%d] updateDefaultDeviceControlPoliciesGone  %+v", 410, o.Payload)
+}
+
+func (o *UpdateDefaultDeviceControlPoliciesGone) GetPayload() *models.DeviceControlRespV1 {
+	return o.Payload
+}
+
+func (o *UpdateDefaultDeviceControlPoliciesGone) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

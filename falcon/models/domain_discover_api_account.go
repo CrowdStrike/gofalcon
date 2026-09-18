@@ -48,6 +48,9 @@ type DomainDiscoverAPIAccount struct {
 	// The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
 	LastFailedLoginType string `json:"last_failed_login_type,omitempty"`
 
+	// The agent ID of the asset on which the account last successfully logged in.
+	LastSuccessfulLoginAid string `json:"last_successful_login_aid,omitempty"`
+
 	// The name of the city where the asset is located on which the account last successfully logged in.
 	LastSuccessfulLoginHostCity string `json:"last_successful_login_host_city,omitempty"`
 
@@ -139,4 +142,17 @@ func (m *DomainDiscoverAPIAccount) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain discover API account. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainDiscoverAPIAccount) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

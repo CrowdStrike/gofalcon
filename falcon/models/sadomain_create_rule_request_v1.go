@@ -27,6 +27,9 @@ type SadomainCreateRuleRequestV1 struct {
 	// Required: true
 	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
 
+	// exposed data match type
+	ExposedDataMatchType string `json:"exposed_data_match_type,omitempty"`
+
 	// The FQL filter to be used for searching
 	// Required: true
 	Filter *string `json:"filter"`
@@ -61,6 +64,9 @@ type SadomainCreateRuleRequestV1 struct {
 	// The topic of a given rule. Possible values: [`SA_BRAND_PRODUCT (Brands and products)`, `SA_VIP (High-profile-employees)`, `SA_THIRD_PARTY (Supply chain vendors)`, `SA_IP (IP addresses)`, `SA_CVE (Vulnerabilities (CVEs))`, `SA_BIN (Bank identification numbers (BINs))`, `SA_DOMAIN (Company domains)`, `SA_EMAIL (Email addresses)`, `SA_ALIAS (Company names)`, `SA_AUTHOR (Authors)`, `SA_CUSTOM (Custom)`, `SA_TYPOSQUATTING (Typosquatting)`]
 	// Required: true
 	Topic *string `json:"topic"`
+
+	// The edit distance to be used with the loosely_matches(~) filter operator(eg: typosquatting_term:~'yourdomain') in the context of Typosquatting topic rules. Possible values: [`auto`, `1`, `2`]. Not permitted with other rule topics and/or operators.
+	TsqMatchEditDistance string `json:"tsq_match_edit_distance,omitempty"`
 }
 
 // Validate validates this sadomain create rule request v1
@@ -224,4 +230,17 @@ func (m *SadomainCreateRuleRequestV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this sadomain create rule request v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *SadomainCreateRuleRequestV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

@@ -247,6 +247,19 @@ func (m *AffectedEntityGetAffected) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this affected entity get affected. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AffectedEntityGetAffected) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // AffectedEntityGetAffectedUsage Usage
 //
 // swagger:model AffectedEntityGetAffectedUsage
@@ -327,4 +340,17 @@ func (m *AffectedEntityGetAffectedUsage) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this affected entity get affected usage. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AffectedEntityGetAffectedUsage) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

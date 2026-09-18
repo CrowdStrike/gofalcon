@@ -67,8 +67,10 @@ type SearchAndReadContainerAlertsParams struct {
 	     Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields:
 	- `cid`
 	- `container_id`
+	- `context_image_filename`
 	- `last_seen`
 	- `name`
+	- `sensor_type`
 	- `severity`
 	*/
 	Filter *string

@@ -84,7 +84,7 @@ func (a *Client) EntitiesKnowledgeBaseFilesCreateV1(params *EntitiesKnowledgeBas
 }
 
 /*
-EntitiesKnowledgeBaseFilesDeleteV1 deletes document from knowledge base
+EntitiesKnowledgeBaseFilesDeleteV1 deletes a knowledge base file
 */
 func (a *Client) EntitiesKnowledgeBaseFilesDeleteV1(params *EntitiesKnowledgeBaseFilesDeleteV1Params, opts ...ClientOption) (*EntitiesKnowledgeBaseFilesDeleteV1OK, error) {
 	// TODO: Validate the params before sending

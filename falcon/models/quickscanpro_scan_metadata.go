@@ -28,6 +28,9 @@ type QuickscanproScanMetadata struct {
 	// errors
 	Errors []*QuickscanproError `json:"errors"`
 
+	// mode
+	Mode string `json:"mode,omitempty"`
+
 	// sha256
 	// Required: true
 	Sha256 *string `json:"sha256"`
@@ -197,4 +200,17 @@ func (m *QuickscanproScanMetadata) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this quickscanpro scan metadata. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *QuickscanproScanMetadata) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

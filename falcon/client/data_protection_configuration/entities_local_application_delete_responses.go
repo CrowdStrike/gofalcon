@@ -31,6 +31,12 @@ func (o *EntitiesLocalApplicationDeleteReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return result, nil
+	case 207:
+		result := NewEntitiesLocalApplicationDeleteMultiStatus()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewEntitiesLocalApplicationDeleteBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -136,6 +142,116 @@ func (o *EntitiesLocalApplicationDeleteOK) GetPayload() *models.APILocalApplicat
 }
 
 func (o *EntitiesLocalApplicationDeleteOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APILocalApplicationMSAResponseV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesLocalApplicationDeleteMultiStatus creates a EntitiesLocalApplicationDeleteMultiStatus with default headers values
+func NewEntitiesLocalApplicationDeleteMultiStatus() *EntitiesLocalApplicationDeleteMultiStatus {
+	return &EntitiesLocalApplicationDeleteMultiStatus{}
+}
+
+/*
+EntitiesLocalApplicationDeleteMultiStatus describes a response with status code 207, with default header values.
+
+Multi-Status
+*/
+type EntitiesLocalApplicationDeleteMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APILocalApplicationMSAResponseV1
+}
+
+// IsSuccess returns true when this entities local application delete multi status response has a 2xx status code
+func (o *EntitiesLocalApplicationDeleteMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this entities local application delete multi status response has a 3xx status code
+func (o *EntitiesLocalApplicationDeleteMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities local application delete multi status response has a 4xx status code
+func (o *EntitiesLocalApplicationDeleteMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities local application delete multi status response has a 5xx status code
+func (o *EntitiesLocalApplicationDeleteMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities local application delete multi status response a status code equal to that given
+func (o *EntitiesLocalApplicationDeleteMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
+// Code gets the status code for the entities local application delete multi status response
+func (o *EntitiesLocalApplicationDeleteMultiStatus) Code() int {
+	return 207
+}
+
+func (o *EntitiesLocalApplicationDeleteMultiStatus) Error() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/local-applications/v1][%d] entitiesLocalApplicationDeleteMultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesLocalApplicationDeleteMultiStatus) String() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/local-applications/v1][%d] entitiesLocalApplicationDeleteMultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesLocalApplicationDeleteMultiStatus) GetPayload() *models.APILocalApplicationMSAResponseV1 {
+	return o.Payload
+}
+
+func (o *EntitiesLocalApplicationDeleteMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

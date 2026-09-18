@@ -78,7 +78,7 @@ type RunningContainerImagesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ModelsContainerImage
+	Payload *models.ModelsContainerImageResponse
 }
 
 // IsSuccess returns true when this running container images o k response has a 2xx status code
@@ -119,7 +119,7 @@ func (o *RunningContainerImagesOK) String() string {
 	return fmt.Sprintf("[GET /container-security/combined/container-images/v1][%d] runningContainerImagesOK  %+v", 200, o.Payload)
 }
 
-func (o *RunningContainerImagesOK) GetPayload() *models.ModelsContainerImage {
+func (o *RunningContainerImagesOK) GetPayload() *models.ModelsContainerImageResponse {
 	return o.Payload
 }
 
@@ -154,7 +154,7 @@ func (o *RunningContainerImagesOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ModelsContainerImage)
+	o.Payload = new(models.ModelsContainerImageResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

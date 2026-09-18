@@ -23,6 +23,9 @@ type MalqueryExternalHuntOptions struct {
 	// Limit results to files of certain types such as EMAIL, PCAP, PDF, PE32. Full list can be found in the documentation
 	FilterFiletypes []string `json:"filter_filetypes"`
 
+	// Limit results to files with specific labels. Possible values: clean, malware, pua, unknown
+	FilterLabels []string `json:"filter_labels"`
+
 	// Specify a subset of metadata fields to return in the results. Possible values: sha256, md5, type, size, first_seen, label, family
 	FilterMeta []string `json:"filter_meta"`
 
@@ -71,4 +74,17 @@ func (m *MalqueryExternalHuntOptions) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this malquery external hunt options. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *MalqueryExternalHuntOptions) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

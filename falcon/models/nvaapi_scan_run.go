@@ -21,6 +21,12 @@ import (
 // swagger:model nvaapi.ScanRun
 type NvaapiScanRun struct {
 
+	// Number of assets found in the scan.
+	AssetsCount int32 `json:"assets_count,omitempty"`
+
+	// Number of assets with vulnerabilities found in the scan.
+	AssetsWithVulnerabilitiesCount int32 `json:"assets_with_vulnerabilities_count,omitempty"`
+
 	// The customer to which the scan run belongs
 	// Required: true
 	Cid *string `json:"cid"`
@@ -56,6 +62,10 @@ type NvaapiScanRun struct {
 	// The progress of the scan run
 	// Required: true
 	ProgressPct *int32 `json:"progress_pct"`
+
+	// Whether the scan report has been generated and is available for download
+	// Required: true
+	ReportGenerated *bool `json:"report_generated"`
 
 	// The scan ID from which the scan run is configured
 	// Required: true
@@ -113,6 +123,9 @@ type NvaapiScanRun struct {
 
 	// The time at which the scan run was updated
 	UpdatedTimestamp string `json:"updated_timestamp,omitempty"`
+
+	// Number of vulnerabilities found in the scan.
+	VulnerabilitiesCount int32 `json:"vulnerabilities_count,omitempty"`
 }
 
 // Validate validates this nvaapi scan run
@@ -148,6 +161,10 @@ func (m *NvaapiScanRun) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProgressPct(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReportGenerated(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -291,6 +308,15 @@ func (m *NvaapiScanRun) validateID(formats strfmt.Registry) error {
 func (m *NvaapiScanRun) validateProgressPct(formats strfmt.Registry) error {
 
 	if err := validate.Required("progress_pct", "body", m.ProgressPct); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NvaapiScanRun) validateReportGenerated(formats strfmt.Registry) error {
+
+	if err := validate.Required("report_generated", "body", m.ReportGenerated); err != nil {
 		return err
 	}
 
@@ -651,4 +677,17 @@ func (m *NvaapiScanRun) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this nvaapi scan run. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *NvaapiScanRun) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

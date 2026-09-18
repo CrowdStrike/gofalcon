@@ -28,6 +28,9 @@ type RestapiIndicator struct {
 	// certificates
 	Certificates []*RestapiX509Certificate `json:"Certificates"`
 
+	// Automated assessment of the indicator, one of: `Clean`, `LikelyBenign`, `Suspicious`, `Malicious`, `Unknown`. Derived from the available observations and NOT human reviewed, so it is a triage aid rather than a verdict: for files from the file reputation tags and `MaliciousConfidence`, for IP addresses from the honeypot observations under `IPv4Details.HoneypotIntelligence` and `MaliciousConfidence`, and for every other type from `MaliciousConfidence` alone. Absent when no source contributed to the indicator.
+	Classification string `json:"Classification,omitempty"`
+
 	// coin address details
 	CoinAddressDetails *RestapiCoinAddress `json:"CoinAddressDetails,omitempty"`
 
@@ -66,6 +69,9 @@ type RestapiIndicator struct {
 
 	// last updated
 	LastUpdated string `json:"LastUpdated,omitempty"`
+
+	// m i t r e attacks
+	MITREAttacks []*RestapiMITREAttack `json:"MITREAttacks"`
 
 	// Indicates a confidence level by which an indicator is considered to be malicious, this can be one of: `Low`, `Medium`, `High`
 	MaliciousConfidence string `json:"MaliciousConfidence,omitempty"`
@@ -148,6 +154,10 @@ func (m *RestapiIndicator) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIPV6Details(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMITREAttacks(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -400,6 +410,32 @@ func (m *RestapiIndicator) validateIPV6Details(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *RestapiIndicator) validateMITREAttacks(formats strfmt.Registry) error {
+	if swag.IsZero(m.MITREAttacks) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MITREAttacks); i++ {
+		if swag.IsZero(m.MITREAttacks[i]) { // not required
+			continue
+		}
+
+		if m.MITREAttacks[i] != nil {
+			if err := m.MITREAttacks[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("MITREAttacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("MITREAttacks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *RestapiIndicator) validateReports(formats strfmt.Registry) error {
 	if swag.IsZero(m.Reports) { // not required
 		return nil
@@ -628,6 +664,10 @@ func (m *RestapiIndicator) ContextValidate(ctx context.Context, formats strfmt.R
 	}
 
 	if err := m.contextValidateIPV6Details(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMITREAttacks(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -891,6 +931,31 @@ func (m *RestapiIndicator) contextValidateIPV6Details(ctx context.Context, forma
 	return nil
 }
 
+func (m *RestapiIndicator) contextValidateMITREAttacks(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MITREAttacks); i++ {
+
+		if m.MITREAttacks[i] != nil {
+
+			if swag.IsZero(m.MITREAttacks[i]) { // not required
+				return nil
+			}
+
+			if err := m.MITREAttacks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("MITREAttacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("MITREAttacks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *RestapiIndicator) contextValidateReports(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Reports); i++ {
@@ -1095,4 +1160,17 @@ func (m *RestapiIndicator) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this restapi indicator. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *RestapiIndicator) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

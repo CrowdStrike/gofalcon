@@ -70,7 +70,7 @@ type QueriesLocalApplicationGetParams struct {
 
 	/* Filter.
 
-	   Optional filter for searching local applications. Allowed filters are 'name' (string), is_deleted (boolean), 'created_at' and 'updated_at'
+	   Optional filter for searching local applications. Allowed filters are 'name' (string), is_deleted (boolean), 'created' and 'last_updated'
 	*/
 	Filter *string
 
@@ -87,6 +87,12 @@ type QueriesLocalApplicationGetParams struct {
 	   The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
 	*/
 	Offset *int64
+
+	/* Sort.
+
+	   The sort instructions to order by on. Allowed values are 'name', 'executable_name', 'created' and 'last_updated'
+	*/
+	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -196,6 +202,17 @@ func (o *QueriesLocalApplicationGetParams) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithSort adds the sort to the queries local application get params
+func (o *QueriesLocalApplicationGetParams) WithSort(sort *string) *QueriesLocalApplicationGetParams {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the queries local application get params
+func (o *QueriesLocalApplicationGetParams) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *QueriesLocalApplicationGetParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -255,6 +272,23 @@ func (o *QueriesLocalApplicationGetParams) WriteToRequest(r runtime.ClientReques
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}

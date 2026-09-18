@@ -22,6 +22,9 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_clients"
 	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
+	"github.com/crowdstrike/gofalcon/falcon/client/application_abuse_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/aspmapi"
+	"github.com/crowdstrike/gofalcon/falcon/client/audit"
 	"github.com/crowdstrike/gofalcon/falcon/client/cao_hunting"
 	"github.com/crowdstrike/gofalcon/falcon/client/case_files"
 	"github.com/crowdstrike/gofalcon/falcon/client/case_management"
@@ -40,6 +43,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_registration_combined"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_security_risks"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
+	"github.com/crowdstrike/gofalcon/falcon/client/code_security_scm_integration"
+	"github.com/crowdstrike/gofalcon/falcon/client/code_security_scm_inventory"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_alerts"
@@ -63,7 +68,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_content"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
-	"github.com/crowdstrike/gofalcon/falcon/client/device_control_with_bluetooth"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover_iot"
 	"github.com/crowdstrike/gofalcon/falcon/client/downloads_api"
@@ -111,6 +115,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/mobile_enrollment"
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
+	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_detections"
 	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_global_configs"
 	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_networks"
 	"github.com/crowdstrike/gofalcon/falcon/client/network_scan_scan_run_reports"
@@ -145,8 +150,10 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_usage_api"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/seraphic_enterprise_browser"
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_exports"
 	"github.com/crowdstrike/gofalcon/falcon/client/serverless_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/skills"
 	"github.com/crowdstrike/gofalcon/falcon/client/spans"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_supported_evaluation"
@@ -216,6 +223,9 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Alerts = alerts.New(transport, formats)
 	cli.APIClients = api_clients.New(transport, formats)
 	cli.APIIntegrations = api_integrations.New(transport, formats)
+	cli.ApplicationAbuseExclusions = application_abuse_exclusions.New(transport, formats)
+	cli.Aspmapi = aspmapi.New(transport, formats)
+	cli.Audit = audit.New(transport, formats)
 	cli.CaoHunting = cao_hunting.New(transport, formats)
 	cli.CaseFiles = case_files.New(transport, formats)
 	cli.CaseManagement = case_management.New(transport, formats)
@@ -234,6 +244,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.CloudSecurityRegistrationCombined = cloud_security_registration_combined.New(transport, formats)
 	cli.CloudSecurityRisks = cloud_security_risks.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
+	cli.CodeSecurityScmIntegration = code_security_scm_integration.New(transport, formats)
+	cli.CodeSecurityScmInventory = code_security_scm_inventory.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
 	cli.ContainerAlerts = container_alerts.New(transport, formats)
@@ -257,7 +269,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceContent = device_content.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
-	cli.DeviceControlWithBluetooth = device_control_with_bluetooth.New(transport, formats)
 	cli.Discover = discover.New(transport, formats)
 	cli.DiscoverIot = discover_iot.New(transport, formats)
 	cli.DownloadsAPI = downloads_api.New(transport, formats)
@@ -305,6 +316,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
 	cli.MobileEnrollment = mobile_enrollment.New(transport, formats)
 	cli.Mssp = mssp.New(transport, formats)
+	cli.NetworkScanDetections = network_scan_detections.New(transport, formats)
 	cli.NetworkScanGlobalConfigs = network_scan_global_configs.New(transport, formats)
 	cli.NetworkScanNetworks = network_scan_networks.New(transport, formats)
 	cli.NetworkScanScanRunReports = network_scan_scan_run_reports.New(transport, formats)
@@ -339,8 +351,10 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
 	cli.SensorUsageAPI = sensor_usage_api.New(transport, formats)
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
+	cli.SeraphicEnterpriseBrowser = seraphic_enterprise_browser.New(transport, formats)
 	cli.ServerlessExports = serverless_exports.New(transport, formats)
 	cli.ServerlessVulnerabilities = serverless_vulnerabilities.New(transport, formats)
+	cli.Skills = skills.New(transport, formats)
 	cli.Spans = spans.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightSupportedEvaluation = spotlight_supported_evaluation.New(transport, formats)
@@ -422,6 +436,12 @@ type CrowdStrikeAPISpecification struct {
 
 	APIIntegrations api_integrations.ClientService
 
+	ApplicationAbuseExclusions application_abuse_exclusions.ClientService
+
+	Aspmapi aspmapi.ClientService
+
+	Audit audit.ClientService
+
 	CaoHunting cao_hunting.ClientService
 
 	CaseFiles case_files.ClientService
@@ -457,6 +477,10 @@ type CrowdStrikeAPISpecification struct {
 	CloudSecurityRisks cloud_security_risks.ClientService
 
 	CloudSnapshots cloud_snapshots.ClientService
+
+	CodeSecurityScmIntegration code_security_scm_integration.ClientService
+
+	CodeSecurityScmInventory code_security_scm_inventory.ClientService
 
 	ConfigurationAssessment configuration_assessment.ClientService
 
@@ -503,8 +527,6 @@ type CrowdStrikeAPISpecification struct {
 	DeviceContent device_content.ClientService
 
 	DeviceControlPolicies device_control_policies.ClientService
-
-	DeviceControlWithBluetooth device_control_with_bluetooth.ClientService
 
 	Discover discover.ClientService
 
@@ -600,6 +622,8 @@ type CrowdStrikeAPISpecification struct {
 
 	Mssp mssp.ClientService
 
+	NetworkScanDetections network_scan_detections.ClientService
+
 	NetworkScanGlobalConfigs network_scan_global_configs.ClientService
 
 	NetworkScanNetworks network_scan_networks.ClientService
@@ -668,9 +692,13 @@ type CrowdStrikeAPISpecification struct {
 
 	SensorVisibilityExclusions sensor_visibility_exclusions.ClientService
 
+	SeraphicEnterpriseBrowser seraphic_enterprise_browser.ClientService
+
 	ServerlessExports serverless_exports.ClientService
 
 	ServerlessVulnerabilities serverless_vulnerabilities.ClientService
+
+	Skills skills.ClientService
 
 	Spans spans.ClientService
 
@@ -716,6 +744,9 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Alerts.SetTransport(transport)
 	c.APIClients.SetTransport(transport)
 	c.APIIntegrations.SetTransport(transport)
+	c.ApplicationAbuseExclusions.SetTransport(transport)
+	c.Aspmapi.SetTransport(transport)
+	c.Audit.SetTransport(transport)
 	c.CaoHunting.SetTransport(transport)
 	c.CaseFiles.SetTransport(transport)
 	c.CaseManagement.SetTransport(transport)
@@ -734,6 +765,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.CloudSecurityRegistrationCombined.SetTransport(transport)
 	c.CloudSecurityRisks.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
+	c.CodeSecurityScmIntegration.SetTransport(transport)
+	c.CodeSecurityScmInventory.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
 	c.ContainerAlerts.SetTransport(transport)
@@ -757,7 +790,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Detects.SetTransport(transport)
 	c.DeviceContent.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
-	c.DeviceControlWithBluetooth.SetTransport(transport)
 	c.Discover.SetTransport(transport)
 	c.DiscoverIot.SetTransport(transport)
 	c.DownloadsAPI.SetTransport(transport)
@@ -805,6 +837,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.MlExclusions.SetTransport(transport)
 	c.MobileEnrollment.SetTransport(transport)
 	c.Mssp.SetTransport(transport)
+	c.NetworkScanDetections.SetTransport(transport)
 	c.NetworkScanGlobalConfigs.SetTransport(transport)
 	c.NetworkScanNetworks.SetTransport(transport)
 	c.NetworkScanScanRunReports.SetTransport(transport)
@@ -839,8 +872,10 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorUpdatePolicies.SetTransport(transport)
 	c.SensorUsageAPI.SetTransport(transport)
 	c.SensorVisibilityExclusions.SetTransport(transport)
+	c.SeraphicEnterpriseBrowser.SetTransport(transport)
 	c.ServerlessExports.SetTransport(transport)
 	c.ServerlessVulnerabilities.SetTransport(transport)
+	c.Skills.SetTransport(transport)
 	c.Spans.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightSupportedEvaluation.SetTransport(transport)

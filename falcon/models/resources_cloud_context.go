@@ -27,6 +27,9 @@ type ResourcesCloudContext struct {
 	// asset graph
 	AssetGraph *ResourcesAssetGraph `json:"asset_graph,omitempty"`
 
+	// business context
+	BusinessContext *BusinesscontextData `json:"business_context,omitempty"`
+
 	// cloud risks
 	CloudRisks *ResourcesCloudRisks `json:"cloud_risks,omitempty"`
 
@@ -87,6 +90,10 @@ func (m *ResourcesCloudContext) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateBusinessContext(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCloudRisks(formats); err != nil {
 		res = append(res, err)
 	}
@@ -124,6 +131,25 @@ func (m *ResourcesCloudContext) validateAssetGraph(formats strfmt.Registry) erro
 				return ve.ValidateName("asset_graph")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("asset_graph")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesCloudContext) validateBusinessContext(formats strfmt.Registry) error {
+	if swag.IsZero(m.BusinessContext) { // not required
+		return nil
+	}
+
+	if m.BusinessContext != nil {
+		if err := m.BusinessContext.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("business_context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("business_context")
 			}
 			return err
 		}
@@ -235,6 +261,10 @@ func (m *ResourcesCloudContext) ContextValidate(ctx context.Context, formats str
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateBusinessContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCloudRisks(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -274,6 +304,27 @@ func (m *ResourcesCloudContext) contextValidateAssetGraph(ctx context.Context, f
 				return ve.ValidateName("asset_graph")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("asset_graph")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ResourcesCloudContext) contextValidateBusinessContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BusinessContext != nil {
+
+		if swag.IsZero(m.BusinessContext) { // not required
+			return nil
+		}
+
+		if err := m.BusinessContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("business_context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("business_context")
 			}
 			return err
 		}
@@ -403,4 +454,17 @@ func (m *ResourcesCloudContext) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this resources cloud context. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *ResourcesCloudContext) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

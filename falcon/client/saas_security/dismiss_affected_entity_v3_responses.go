@@ -516,6 +516,9 @@ swagger:model DismissAffectedEntityV3Body
 */
 type DismissAffectedEntityV3Body struct {
 
+	// Snooze the dismiss for this many days (1-365). Omit to dismiss indefinitely
+	DurationInDays int64 `json:"duration_in_days,omitempty"`
+
 	// Comma separated list of entity names to dismiss
 	Entities string `json:"entities,omitempty"`
 
@@ -549,4 +552,17 @@ func (o *DismissAffectedEntityV3Body) UnmarshalBinary(b []byte) error {
 	}
 	*o = res
 	return nil
+}
+
+// String returns the JSON body of this dismiss affected entity v3 body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *DismissAffectedEntityV3Body) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

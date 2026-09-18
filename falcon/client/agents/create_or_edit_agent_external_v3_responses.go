@@ -520,7 +520,7 @@ func NewCreateOrEditAgentExternalV3NotFound() *CreateOrEditAgentExternalV3NotFou
 /*
 CreateOrEditAgentExternalV3NotFound describes a response with status code 404, with default header values.
 
-Agent not found (when updating an existing agent by ID)
+Not Found
 */
 type CreateOrEditAgentExternalV3NotFound struct {
 

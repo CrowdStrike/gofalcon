@@ -24,6 +24,12 @@ type DefinitionsActivityMetadata struct {
 	// Required: true
 	Dependencies []*ActivitiesDependency `json:"dependencies"`
 
+	// Latest semantic version of this activity
+	LatestSemanticVersion string `json:"latest_semantic_version,omitempty"`
+
+	// Latest version constraint of this activity
+	LatestVersionConstraint string `json:"latest_version_constraint,omitempty"`
+
 	// Use cases associated with this activity
 	UseCases []string `json:"use_cases"`
 
@@ -141,4 +147,17 @@ func (m *DefinitionsActivityMetadata) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this definitions activity metadata. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DefinitionsActivityMetadata) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

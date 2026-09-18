@@ -21,7 +21,7 @@ type JsonschemaSchema struct {
 
 	// sub schema
 	// Required: true
-	SubSchema *JsonschemaSubSchema `json:"SubSchema"`
+	SubSchema *string `json:"SubSchema"`
 
 	// definitions
 	Definitions map[string]JsonschemaSubSchema `json:"definitions,omitempty"`
@@ -49,17 +49,6 @@ func (m *JsonschemaSchema) validateSubSchema(formats strfmt.Registry) error {
 
 	if err := validate.Required("SubSchema", "body", m.SubSchema); err != nil {
 		return err
-	}
-
-	if m.SubSchema != nil {
-		if err := m.SubSchema.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("SubSchema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("SubSchema")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -95,10 +84,6 @@ func (m *JsonschemaSchema) validateDefinitions(formats strfmt.Registry) error {
 func (m *JsonschemaSchema) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateSubSchema(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateDefinitions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -106,23 +91,6 @@ func (m *JsonschemaSchema) ContextValidate(ctx context.Context, formats strfmt.R
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *JsonschemaSchema) contextValidateSubSchema(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.SubSchema != nil {
-
-		if err := m.SubSchema.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("SubSchema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("SubSchema")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -157,4 +125,17 @@ func (m *JsonschemaSchema) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this jsonschema schema. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *JsonschemaSchema) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

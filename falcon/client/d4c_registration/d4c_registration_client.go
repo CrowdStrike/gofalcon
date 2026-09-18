@@ -32,20 +32,25 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	ConnectD4CGCPAccount(params *ConnectD4CGCPAccountParams, opts ...ClientOption) (*ConnectD4CGCPAccountCreated, *ConnectD4CGCPAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateD4CAwsAccount(params *CreateD4CAwsAccountParams, opts ...ClientOption) (*CreateD4CAwsAccountCreated, *CreateD4CAwsAccountMultiStatus, error)
 
 	CreateD4CGcpAccount(params *CreateD4CGcpAccountParams, opts ...ClientOption) (*CreateD4CGcpAccountCreated, *CreateD4CGcpAccountMultiStatus, error)
 
 	CreateDiscoverCloudAzureAccount(params *CreateDiscoverCloudAzureAccountParams, opts ...ClientOption) (*CreateDiscoverCloudAzureAccountCreated, *CreateDiscoverCloudAzureAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DeleteD4CAwsAccount(params *DeleteD4CAwsAccountParams, opts ...ClientOption) (*DeleteD4CAwsAccountOK, *DeleteD4CAwsAccountMultiStatus, error)
 
 	DeleteD4CGCPAccount(params *DeleteD4CGCPAccountParams, opts ...ClientOption) (*DeleteD4CGCPAccountOK, *DeleteD4CGCPAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetD4CAWSAccountScriptsAttachment(params *GetD4CAWSAccountScriptsAttachmentParams, opts ...ClientOption) (*GetD4CAWSAccountScriptsAttachmentOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetD4CAwsAccount(params *GetD4CAwsAccountParams, opts ...ClientOption) (*GetD4CAwsAccountOK, *GetD4CAwsAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetD4CAwsConsoleSetupURLs(params *GetD4CAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetD4CAwsConsoleSetupURLsOK, *GetD4CAwsConsoleSetupURLsMultiStatus, error)
 
 	GetD4CGCPServiceAccountsExt(params *GetD4CGCPServiceAccountsExtParams, opts ...ClientOption) (*GetD4CGCPServiceAccountsExtOK, error)
@@ -114,6 +119,8 @@ func (a *Client) ConnectD4CGCPAccount(params *ConnectD4CGCPAccountParams, opts .
 
 /*
 CreateD4CAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateD4CAwsAccount(params *CreateD4CAwsAccountParams, opts ...ClientOption) (*CreateD4CAwsAccountCreated, *CreateD4CAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -231,6 +238,8 @@ func (a *Client) CreateDiscoverCloudAzureAccount(params *CreateDiscoverCloudAzur
 
 /*
 DeleteD4CAwsAccount deletes an existing a w s account or organization in our system
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DeleteD4CAwsAccount(params *DeleteD4CAwsAccountParams, opts ...ClientOption) (*DeleteD4CAwsAccountOK, *DeleteD4CAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -309,6 +318,8 @@ func (a *Client) DeleteD4CGCPAccount(params *DeleteD4CGCPAccountParams, opts ...
 
 /*
 GetD4CAWSAccountScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their a w s environment as a downloadable attachment
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetD4CAWSAccountScriptsAttachment(params *GetD4CAWSAccountScriptsAttachmentParams, opts ...ClientOption) (*GetD4CAWSAccountScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -347,6 +358,8 @@ func (a *Client) GetD4CAWSAccountScriptsAttachment(params *GetD4CAWSAccountScrip
 
 /*
 GetD4CAwsAccount returns information about the current status of an a w s account
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetD4CAwsAccount(params *GetD4CAwsAccountParams, opts ...ClientOption) (*GetD4CAwsAccountOK, *GetD4CAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -386,6 +399,8 @@ func (a *Client) GetD4CAwsAccount(params *GetD4CAwsAccountParams, opts ...Client
 
 /*
 GetD4CAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetD4CAwsConsoleSetupURLs(params *GetD4CAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetD4CAwsConsoleSetupURLsOK, *GetD4CAwsConsoleSetupURLsMultiStatus, error) {
 	// TODO: Validate the params before sending

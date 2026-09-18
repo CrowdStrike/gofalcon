@@ -29,11 +29,26 @@ type JsonschemaPivot struct {
 	// entity value
 	EntityValue string `json:"entityValue,omitempty"`
 
+	// ids
+	Ids string `json:"ids,omitempty"`
+
+	// limit
+	Limit int32 `json:"limit,omitempty"`
+
+	// q
+	Q string `json:"q,omitempty"`
+
 	// query string
 	QueryString string `json:"queryString,omitempty"`
 
 	// query string on load
 	QueryStringOnLoad string `json:"queryStringOnLoad,omitempty"`
+
+	// search
+	Search string `json:"search,omitempty"`
+
+	// search q
+	Searchq string `json:"search_q,omitempty"`
 
 	// searchable
 	Searchable bool `json:"searchable,omitempty"`
@@ -77,4 +92,17 @@ func (m *JsonschemaPivot) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this jsonschema pivot. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *JsonschemaPivot) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

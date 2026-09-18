@@ -40,7 +40,7 @@ type ClientService interface {
 
 	EntitiesCloudApplicationCreate(params *EntitiesCloudApplicationCreateParams, opts ...ClientOption) (*EntitiesCloudApplicationCreateOK, error)
 
-	EntitiesCloudApplicationDelete(params *EntitiesCloudApplicationDeleteParams, opts ...ClientOption) (*EntitiesCloudApplicationDeleteOK, error)
+	EntitiesCloudApplicationDelete(params *EntitiesCloudApplicationDeleteParams, opts ...ClientOption) (*EntitiesCloudApplicationDeleteOK, *EntitiesCloudApplicationDeleteMultiStatus, error)
 
 	EntitiesCloudApplicationGet(params *EntitiesCloudApplicationGetParams, opts ...ClientOption) (*EntitiesCloudApplicationGetOK, error)
 
@@ -48,7 +48,7 @@ type ClientService interface {
 
 	EntitiesContentPatternCreate(params *EntitiesContentPatternCreateParams, opts ...ClientOption) (*EntitiesContentPatternCreateOK, error)
 
-	EntitiesContentPatternDelete(params *EntitiesContentPatternDeleteParams, opts ...ClientOption) (*EntitiesContentPatternDeleteOK, error)
+	EntitiesContentPatternDelete(params *EntitiesContentPatternDeleteParams, opts ...ClientOption) (*EntitiesContentPatternDeleteOK, *EntitiesContentPatternDeleteMultiStatus, error)
 
 	EntitiesContentPatternGet(params *EntitiesContentPatternGetParams, opts ...ClientOption) (*EntitiesContentPatternGetOK, error)
 
@@ -56,7 +56,7 @@ type ClientService interface {
 
 	EntitiesEnterpriseAccountCreate(params *EntitiesEnterpriseAccountCreateParams, opts ...ClientOption) (*EntitiesEnterpriseAccountCreateOK, error)
 
-	EntitiesEnterpriseAccountDelete(params *EntitiesEnterpriseAccountDeleteParams, opts ...ClientOption) (*EntitiesEnterpriseAccountDeleteOK, error)
+	EntitiesEnterpriseAccountDelete(params *EntitiesEnterpriseAccountDeleteParams, opts ...ClientOption) (*EntitiesEnterpriseAccountDeleteOK, *EntitiesEnterpriseAccountDeleteMultiStatus, error)
 
 	EntitiesEnterpriseAccountGet(params *EntitiesEnterpriseAccountGetParams, opts ...ClientOption) (*EntitiesEnterpriseAccountGetOK, error)
 
@@ -66,7 +66,7 @@ type ClientService interface {
 
 	EntitiesLocalApplicationGroupCreate(params *EntitiesLocalApplicationGroupCreateParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupCreateOK, error)
 
-	EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplicationGroupDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupDeleteOK, error)
+	EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplicationGroupDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupDeleteOK, *EntitiesLocalApplicationGroupDeleteMultiStatus, error)
 
 	EntitiesLocalApplicationGroupGet(params *EntitiesLocalApplicationGroupGetParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupGetOK, error)
 
@@ -74,7 +74,7 @@ type ClientService interface {
 
 	EntitiesLocalApplicationCreate(params *EntitiesLocalApplicationCreateParams, opts ...ClientOption) (*EntitiesLocalApplicationCreateOK, error)
 
-	EntitiesLocalApplicationDelete(params *EntitiesLocalApplicationDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationDeleteOK, error)
+	EntitiesLocalApplicationDelete(params *EntitiesLocalApplicationDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationDeleteOK, *EntitiesLocalApplicationDeleteMultiStatus, error)
 
 	EntitiesLocalApplicationGet(params *EntitiesLocalApplicationGetParams, opts ...ClientOption) (*EntitiesLocalApplicationGetOK, error)
 
@@ -92,13 +92,13 @@ type ClientService interface {
 
 	EntitiesSensitivityLabelCreateV2(params *EntitiesSensitivityLabelCreateV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelCreateV2OK, error)
 
-	EntitiesSensitivityLabelDeleteV2(params *EntitiesSensitivityLabelDeleteV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelDeleteV2OK, error)
+	EntitiesSensitivityLabelDeleteV2(params *EntitiesSensitivityLabelDeleteV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelDeleteV2OK, *EntitiesSensitivityLabelDeleteV2MultiStatus, error)
 
 	EntitiesSensitivityLabelGetV2(params *EntitiesSensitivityLabelGetV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelGetV2OK, error)
 
 	EntitiesWebLocationGroupCreate(params *EntitiesWebLocationGroupCreateParams, opts ...ClientOption) (*EntitiesWebLocationGroupCreateOK, error)
 
-	EntitiesWebLocationGroupDelete(params *EntitiesWebLocationGroupDeleteParams, opts ...ClientOption) (*EntitiesWebLocationGroupDeleteOK, error)
+	EntitiesWebLocationGroupDelete(params *EntitiesWebLocationGroupDeleteParams, opts ...ClientOption) (*EntitiesWebLocationGroupDeleteOK, *EntitiesWebLocationGroupDeleteMultiStatus, error)
 
 	EntitiesWebLocationGroupGet(params *EntitiesWebLocationGroupGetParams, opts ...ClientOption) (*EntitiesWebLocationGroupGetOK, error)
 
@@ -106,7 +106,7 @@ type ClientService interface {
 
 	EntitiesWebLocationCreateV2(params *EntitiesWebLocationCreateV2Params, opts ...ClientOption) (*EntitiesWebLocationCreateV2OK, error)
 
-	EntitiesWebLocationDeleteV2(params *EntitiesWebLocationDeleteV2Params, opts ...ClientOption) (*EntitiesWebLocationDeleteV2OK, error)
+	EntitiesWebLocationDeleteV2(params *EntitiesWebLocationDeleteV2Params, opts ...ClientOption) (*EntitiesWebLocationDeleteV2OK, *EntitiesWebLocationDeleteV2MultiStatus, error)
 
 	EntitiesWebLocationGetV2(params *EntitiesWebLocationGetV2Params, opts ...ClientOption) (*EntitiesWebLocationGetV2OK, error)
 
@@ -290,7 +290,7 @@ func (a *Client) EntitiesClassificationPostV2(params *EntitiesClassificationPost
 }
 
 /*
-EntitiesCloudApplicationCreate persists the given cloud application for the provided entity instance
+EntitiesCloudApplicationCreate persists the given cloud application for the provided entity instance each URL is normalized f q d n and path lowercased and validated if not compliant it is rejected with a 400
 */
 func (a *Client) EntitiesCloudApplicationCreate(params *EntitiesCloudApplicationCreateParams, opts ...ClientOption) (*EntitiesCloudApplicationCreateOK, error) {
 	// TODO: Validate the params before sending
@@ -330,7 +330,7 @@ func (a *Client) EntitiesCloudApplicationCreate(params *EntitiesCloudApplication
 /*
 EntitiesCloudApplicationDelete deletes cloud application
 */
-func (a *Client) EntitiesCloudApplicationDelete(params *EntitiesCloudApplicationDeleteParams, opts ...ClientOption) (*EntitiesCloudApplicationDeleteOK, error) {
+func (a *Client) EntitiesCloudApplicationDelete(params *EntitiesCloudApplicationDeleteParams, opts ...ClientOption) (*EntitiesCloudApplicationDeleteOK, *EntitiesCloudApplicationDeleteMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesCloudApplicationDeleteParams()
@@ -353,15 +353,16 @@ func (a *Client) EntitiesCloudApplicationDelete(params *EntitiesCloudApplication
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesCloudApplicationDeleteOK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesCloudApplicationDeleteOK:
+		return value, nil, nil
+	case *EntitiesCloudApplicationDeleteMultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.cloud-application.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -404,7 +405,7 @@ func (a *Client) EntitiesCloudApplicationGet(params *EntitiesCloudApplicationGet
 }
 
 /*
-EntitiesCloudApplicationPatch updates a cloud application
+EntitiesCloudApplicationPatch updates a cloud application every URL in the request payload is normalized f q d n and path lowercased and validated with the same rules as create the whole payload is checked not just newly added u r ls
 */
 func (a *Client) EntitiesCloudApplicationPatch(params *EntitiesCloudApplicationPatchParams, opts ...ClientOption) (*EntitiesCloudApplicationPatchOK, error) {
 	// TODO: Validate the params before sending
@@ -482,7 +483,7 @@ func (a *Client) EntitiesContentPatternCreate(params *EntitiesContentPatternCrea
 /*
 EntitiesContentPatternDelete deletes content pattern
 */
-func (a *Client) EntitiesContentPatternDelete(params *EntitiesContentPatternDeleteParams, opts ...ClientOption) (*EntitiesContentPatternDeleteOK, error) {
+func (a *Client) EntitiesContentPatternDelete(params *EntitiesContentPatternDeleteParams, opts ...ClientOption) (*EntitiesContentPatternDeleteOK, *EntitiesContentPatternDeleteMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesContentPatternDeleteParams()
@@ -505,15 +506,16 @@ func (a *Client) EntitiesContentPatternDelete(params *EntitiesContentPatternDele
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesContentPatternDeleteOK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesContentPatternDeleteOK:
+		return value, nil, nil
+	case *EntitiesContentPatternDeleteMultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.content-pattern.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -634,7 +636,7 @@ func (a *Client) EntitiesEnterpriseAccountCreate(params *EntitiesEnterpriseAccou
 /*
 EntitiesEnterpriseAccountDelete deletes enterprise account
 */
-func (a *Client) EntitiesEnterpriseAccountDelete(params *EntitiesEnterpriseAccountDeleteParams, opts ...ClientOption) (*EntitiesEnterpriseAccountDeleteOK, error) {
+func (a *Client) EntitiesEnterpriseAccountDelete(params *EntitiesEnterpriseAccountDeleteParams, opts ...ClientOption) (*EntitiesEnterpriseAccountDeleteOK, *EntitiesEnterpriseAccountDeleteMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesEnterpriseAccountDeleteParams()
@@ -657,15 +659,16 @@ func (a *Client) EntitiesEnterpriseAccountDelete(params *EntitiesEnterpriseAccou
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesEnterpriseAccountDeleteOK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesEnterpriseAccountDeleteOK:
+		return value, nil, nil
+	case *EntitiesEnterpriseAccountDeleteMultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.enterprise-account.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -824,7 +827,7 @@ func (a *Client) EntitiesLocalApplicationGroupCreate(params *EntitiesLocalApplic
 /*
 EntitiesLocalApplicationGroupDelete softs delete local application the application won t be visible anymore but will still be in the database
 */
-func (a *Client) EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplicationGroupDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupDeleteOK, error) {
+func (a *Client) EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplicationGroupDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationGroupDeleteOK, *EntitiesLocalApplicationGroupDeleteMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesLocalApplicationGroupDeleteParams()
@@ -847,15 +850,16 @@ func (a *Client) EntitiesLocalApplicationGroupDelete(params *EntitiesLocalApplic
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesLocalApplicationGroupDeleteOK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesLocalApplicationGroupDeleteOK:
+		return value, nil, nil
+	case *EntitiesLocalApplicationGroupDeleteMultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.local-application-group.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -976,7 +980,7 @@ func (a *Client) EntitiesLocalApplicationCreate(params *EntitiesLocalApplication
 /*
 EntitiesLocalApplicationDelete softs delete local application the application wont be visible anymore but will still be in the database
 */
-func (a *Client) EntitiesLocalApplicationDelete(params *EntitiesLocalApplicationDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationDeleteOK, error) {
+func (a *Client) EntitiesLocalApplicationDelete(params *EntitiesLocalApplicationDeleteParams, opts ...ClientOption) (*EntitiesLocalApplicationDeleteOK, *EntitiesLocalApplicationDeleteMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesLocalApplicationDeleteParams()
@@ -999,15 +1003,16 @@ func (a *Client) EntitiesLocalApplicationDelete(params *EntitiesLocalApplication
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesLocalApplicationDeleteOK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesLocalApplicationDeleteOK:
+		return value, nil, nil
+	case *EntitiesLocalApplicationDeleteMultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.local-application.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1318,7 +1323,7 @@ func (a *Client) EntitiesSensitivityLabelCreateV2(params *EntitiesSensitivityLab
 /*
 EntitiesSensitivityLabelDeleteV2 deletes sensitivity labels matching the i ds v2
 */
-func (a *Client) EntitiesSensitivityLabelDeleteV2(params *EntitiesSensitivityLabelDeleteV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelDeleteV2OK, error) {
+func (a *Client) EntitiesSensitivityLabelDeleteV2(params *EntitiesSensitivityLabelDeleteV2Params, opts ...ClientOption) (*EntitiesSensitivityLabelDeleteV2OK, *EntitiesSensitivityLabelDeleteV2MultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesSensitivityLabelDeleteV2Params()
@@ -1341,15 +1346,16 @@ func (a *Client) EntitiesSensitivityLabelDeleteV2(params *EntitiesSensitivityLab
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesSensitivityLabelDeleteV2OK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesSensitivityLabelDeleteV2OK:
+		return value, nil, nil
+	case *EntitiesSensitivityLabelDeleteV2MultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.sensitivity-label.delete-v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1432,7 +1438,7 @@ func (a *Client) EntitiesWebLocationGroupCreate(params *EntitiesWebLocationGroup
 /*
 EntitiesWebLocationGroupDelete softs delete web location groups
 */
-func (a *Client) EntitiesWebLocationGroupDelete(params *EntitiesWebLocationGroupDeleteParams, opts ...ClientOption) (*EntitiesWebLocationGroupDeleteOK, error) {
+func (a *Client) EntitiesWebLocationGroupDelete(params *EntitiesWebLocationGroupDeleteParams, opts ...ClientOption) (*EntitiesWebLocationGroupDeleteOK, *EntitiesWebLocationGroupDeleteMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesWebLocationGroupDeleteParams()
@@ -1455,15 +1461,16 @@ func (a *Client) EntitiesWebLocationGroupDelete(params *EntitiesWebLocationGroup
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesWebLocationGroupDeleteOK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesWebLocationGroupDeleteOK:
+		return value, nil, nil
+	case *EntitiesWebLocationGroupDeleteMultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.web-location-group.delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1584,7 +1591,7 @@ func (a *Client) EntitiesWebLocationCreateV2(params *EntitiesWebLocationCreateV2
 /*
 EntitiesWebLocationDeleteV2 deletes web location
 */
-func (a *Client) EntitiesWebLocationDeleteV2(params *EntitiesWebLocationDeleteV2Params, opts ...ClientOption) (*EntitiesWebLocationDeleteV2OK, error) {
+func (a *Client) EntitiesWebLocationDeleteV2(params *EntitiesWebLocationDeleteV2Params, opts ...ClientOption) (*EntitiesWebLocationDeleteV2OK, *EntitiesWebLocationDeleteV2MultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesWebLocationDeleteV2Params()
@@ -1607,15 +1614,16 @@ func (a *Client) EntitiesWebLocationDeleteV2(params *EntitiesWebLocationDeleteV2
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*EntitiesWebLocationDeleteV2OK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *EntitiesWebLocationDeleteV2OK:
+		return value, nil, nil
+	case *EntitiesWebLocationDeleteV2MultiStatus:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for entities.web-location.delete-v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for data_protection_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

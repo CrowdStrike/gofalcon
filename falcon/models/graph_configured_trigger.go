@@ -38,7 +38,7 @@ type GraphConfiguredTrigger struct {
 	OutgoingFlow *string `json:"outgoing_flow"`
 
 	// JSON Schema defining parameters required for an on-demand trigger.
-	Parameters *JsonschemaSchema `json:"parameters,omitempty"`
+	Parameters string `json:"parameters,omitempty"`
 
 	// The position of the activity as rendered in the UI.
 	Position *GraphNodePosition `json:"position,omitempty"`
@@ -73,10 +73,6 @@ func (m *GraphConfiguredTrigger) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOutgoingFlow(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateParameters(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -139,25 +135,6 @@ func (m *GraphConfiguredTrigger) validateOutgoingFlow(formats strfmt.Registry) e
 
 	if err := validate.Required("outgoing_flow", "body", m.OutgoingFlow); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *GraphConfiguredTrigger) validateParameters(formats strfmt.Registry) error {
-	if swag.IsZero(m.Parameters) { // not required
-		return nil
-	}
-
-	if m.Parameters != nil {
-		if err := m.Parameters.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("parameters")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("parameters")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -228,10 +205,6 @@ func (m *GraphConfiguredTrigger) ContextValidate(ctx context.Context, formats st
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateParameters(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidatePosition(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -263,27 +236,6 @@ func (m *GraphConfiguredTrigger) contextValidateMockOutput(ctx context.Context, 
 				return ve.ValidateName("mock_output")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("mock_output")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *GraphConfiguredTrigger) contextValidateParameters(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Parameters != nil {
-
-		if swag.IsZero(m.Parameters) { // not required
-			return nil
-		}
-
-		if err := m.Parameters.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("parameters")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("parameters")
 			}
 			return err
 		}
@@ -371,4 +323,17 @@ func (m *GraphConfiguredTrigger) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this graph configured trigger. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *GraphConfiguredTrigger) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

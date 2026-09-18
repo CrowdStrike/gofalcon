@@ -70,22 +70,22 @@ type ExtAggregateImageAssessmentsParams struct {
 	/* Filter.
 
 	     Filter results using a query in Falcon Query Language (FQL). Supported Filters:
-	cloud_info.cloud_provider: Cloud provider
-	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
-	compliance_finding.framework: Compliance finding framework (available values: CIS)
-	cloud_info.cloud_region: Cloud region
+	image_digest: Image digest (sha256 digest)
+	image_id: Image ID
+	image_tag: Image tag
+	image_registry: Image registry
+	cloud_info.cluster_name: Kubernetes cluster name
+	asset_type: asset type (container, image)
 	cloud_info.namespace: Kubernetes namespace
+	cloud_info.cloud_account_id: Cloud account ID
+	cloud_info.cloud_provider: Cloud provider
+	compliance_finding.framework: Compliance finding framework (available values: CIS)
+	image_repository: Image repository
+	compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low)
 	cid: Customer ID
 	compliance_finding.id: Compliance finding ID
-	image_id: Image ID
-	image_digest: Image digest (sha256 digest)
-	image_tag: Image tag
-	asset_type: asset type (container, image)
+	cloud_info.cloud_region: Cloud region
 	compliance_finding.name: Compliance finding Name
-	image_registry: Image registry
-	image_repository: Image repository
-	cloud_info.cloud_account_id: Cloud account ID
-	cloud_info.cluster_name: Kubernetes cluster name
 
 	*/
 	Filter *string

@@ -63,19 +63,19 @@ type EntitiesKnowledgeBaseFilesUpdateV1Params struct {
 
 	/* File.
 
-	   New file content to replace the existing document
+	   New file content to replace the existing knowledge base file
 	*/
 	File runtime.NamedReadCloser
 
 	/* FileDescription.
 
-	   New description for the document
+	   New description for the knowledge base file
 	*/
 	FileDescription *string
 
 	/* ID.
 
-	   ID of the document to update
+	   ID of the knowledge base file to update
 	*/
 	ID string
 

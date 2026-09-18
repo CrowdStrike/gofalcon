@@ -28,6 +28,9 @@ type DomainDiscoverAPIApplicationHost struct {
 	// The name of the country where the asset is located.
 	Country string `json:"country,omitempty"`
 
+	// The criticality of the asset.
+	Criticality string `json:"criticality,omitempty"`
+
 	// The last seen MAC address of the asset.
 	CurrentMacAddress string `json:"current_mac_address,omitempty"`
 
@@ -53,6 +56,9 @@ type DomainDiscoverAPIApplicationHost struct {
 	// For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
 	KernelVersion string `json:"kernel_version,omitempty"`
 
+	// The date the asset was last seen.
+	LastSeenDate string `json:"last_seen_date,omitempty"`
+
 	// The domain name the asset is currently joined to.
 	MachineDomain string `json:"machine_domain,omitempty"`
 
@@ -76,6 +82,9 @@ type DomainDiscoverAPIApplicationHost struct {
 
 	// The asset's system manufacturer.
 	SystemManufacturer string `json:"system_manufacturer,omitempty"`
+
+	// The asset's system serial number.
+	SystemSerialNumber string `json:"system_serial_number,omitempty"`
 
 	// The sensor and cloud tags of the asset.
 	Tags []string `json:"tags"`
@@ -125,4 +134,17 @@ func (m *DomainDiscoverAPIApplicationHost) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain discover API application host. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainDiscoverAPIApplicationHost) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

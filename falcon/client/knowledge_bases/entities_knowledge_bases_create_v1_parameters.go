@@ -65,7 +65,7 @@ type EntitiesKnowledgeBasesCreateV1Params struct {
 
 	/* Body.
 
-	   Knowledge base definition to create or update
+	   Knowledge base definition to create or update.
 	*/
 	Body *models.DomainKnowledgeBase
 

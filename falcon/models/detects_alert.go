@@ -2519,6 +2519,19 @@ func (m *DetectsAlert) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this detects alert. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlert) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // DetectsAlertCrawlEdgeIds detects alert crawl edge ids
 //
 // swagger:model DetectsAlertCrawlEdgeIds
@@ -2556,6 +2569,19 @@ func (m *DetectsAlertCrawlEdgeIds) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this detects alert crawl edge ids. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertCrawlEdgeIds) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // DetectsAlertCrawlVertexIds detects alert crawl vertex ids
 //
 // swagger:model DetectsAlertCrawlVertexIds
@@ -2591,6 +2617,19 @@ func (m *DetectsAlertCrawlVertexIds) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this detects alert crawl vertex ids. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertCrawlVertexIds) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }
 
 // DetectsAlertDevice detects alert device
@@ -2858,6 +2897,19 @@ func (m *DetectsAlertDevice) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this detects alert device. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertDevice) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // DetectsAlertDeviceHostinfo detects alert device hostinfo
 //
 // swagger:model DetectsAlertDeviceHostinfo
@@ -2896,6 +2948,19 @@ func (m *DetectsAlertDeviceHostinfo) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this detects alert device hostinfo. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertDeviceHostinfo) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }
 
 // DetectsAlertGrandparentDetails detects alert grandparent details
@@ -2990,6 +3055,19 @@ func (m *DetectsAlertGrandparentDetails) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this detects alert grandparent details. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertGrandparentDetails) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // DetectsAlertIocContextItems0 detects alert ioc context items0
 //
 // swagger:model DetectsAlertIocContextItems0
@@ -3043,6 +3121,19 @@ func (m *DetectsAlertIocContextItems0) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this detects alert ioc context items0. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertIocContextItems0) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }
 
 // DetectsAlertParentDetails detects alert parent details
@@ -3113,6 +3204,19 @@ func (m *DetectsAlertParentDetails) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this detects alert parent details. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertParentDetails) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }
 
 // DetectsAlertPatternDispositionDetails detects alert pattern disposition details
@@ -3233,6 +3337,19 @@ func (m *DetectsAlertPatternDispositionDetails) UnmarshalBinary(b []byte) error 
 	return nil
 }
 
+// String returns the JSON body of this detects alert pattern disposition details. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertPatternDispositionDetails) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // DetectsAlertQuarantinedFilesItems0 detects alert quarantined files items0
 //
 // swagger:model DetectsAlertQuarantinedFilesItems0
@@ -3277,4 +3394,17 @@ func (m *DetectsAlertQuarantinedFilesItems0) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this detects alert quarantined files items0. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectsAlertQuarantinedFilesItems0) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

@@ -64,7 +64,7 @@ type QueriesWebLocationGetV2Params struct {
 
 	/* Filter.
 
-	   The filter to use when finding web locations. Allowed filters are 'name', 'type', 'deleted', 'application_id', 'provider_location_id' and 'enterprise_account_id'
+	   The filter to use when finding web locations. Allowed filters are 'name', 'type', 'deleted', 'application_id', 'provider_location_id', 'enterprise_account_id', 'created' and 'last_updated'
 	*/
 	Filter *string
 
@@ -81,6 +81,12 @@ type QueriesWebLocationGetV2Params struct {
 	   The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
 	*/
 	Offset *int64
+
+	/* Sort.
+
+	   The sort instructions to order by on. Allowed values are 'name', 'type', 'deleted', 'application_id', 'provider_location_id', 'enterprise_account_id', 'created' and 'last_updated'
+	*/
+	Sort *string
 
 	/* Type.
 
@@ -185,6 +191,17 @@ func (o *QueriesWebLocationGetV2Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithSort adds the sort to the queries web location get v2 params
+func (o *QueriesWebLocationGetV2Params) WithSort(sort *string) *QueriesWebLocationGetV2Params {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the queries web location get v2 params
+func (o *QueriesWebLocationGetV2Params) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WithType adds the typeVar to the queries web location get v2 params
 func (o *QueriesWebLocationGetV2Params) WithType(typeVar *string) *QueriesWebLocationGetV2Params {
 	o.SetType(typeVar)
@@ -250,6 +267,23 @@ func (o *QueriesWebLocationGetV2Params) WriteToRequest(r runtime.ClientRequest, 
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}

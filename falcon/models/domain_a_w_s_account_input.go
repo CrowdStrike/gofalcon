@@ -207,3 +207,16 @@ func (m *DomainAWSAccountInput) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this domain a w s account input. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainAWSAccountInput) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

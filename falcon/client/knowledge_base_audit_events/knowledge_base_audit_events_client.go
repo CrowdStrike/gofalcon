@@ -30,8 +30,6 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregatesKnowledgeBaseAuditEventsV1(params *AggregatesKnowledgeBaseAuditEventsV1Params, opts ...ClientOption) (*AggregatesKnowledgeBaseAuditEventsV1OK, error)
-
 	CombinedKnowledgeBaseAuditEventsV1(params *CombinedKnowledgeBaseAuditEventsV1Params, opts ...ClientOption) (*CombinedKnowledgeBaseAuditEventsV1OK, error)
 
 	EntitiesKnowledgeBaseAuditEventsV1(params *EntitiesKnowledgeBaseAuditEventsV1Params, opts ...ClientOption) (*EntitiesKnowledgeBaseAuditEventsV1OK, error)
@@ -39,44 +37,6 @@ type ClientService interface {
 	QueriesKnowledgeBaseAuditEventsV1(params *QueriesKnowledgeBaseAuditEventsV1Params, opts ...ClientOption) (*QueriesKnowledgeBaseAuditEventsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-AggregatesKnowledgeBaseAuditEventsV1 aggregates knowledge base audit events based on the provided msa criteria
-*/
-func (a *Client) AggregatesKnowledgeBaseAuditEventsV1(params *AggregatesKnowledgeBaseAuditEventsV1Params, opts ...ClientOption) (*AggregatesKnowledgeBaseAuditEventsV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAggregatesKnowledgeBaseAuditEventsV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "AggregatesKnowledgeBaseAuditEventsV1",
-		Method:             "POST",
-		PathPattern:        "/agentic-studio/aggregates/knowledge_base_audit_events/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &AggregatesKnowledgeBaseAuditEventsV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*AggregatesKnowledgeBaseAuditEventsV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AggregatesKnowledgeBaseAuditEventsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
 }
 
 /*

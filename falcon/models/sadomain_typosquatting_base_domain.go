@@ -45,6 +45,9 @@ type SadomainTyposquattingBaseDomain struct {
 	// Required: true
 	UnicodeFormat *string `json:"unicode_format"`
 
+	// The URL scan capture for the domain
+	URLScan *SadomainURLScan `json:"url_scan,omitempty"`
+
 	// The Whois record for the domain
 	Whois *SadomainWhoisRecord `json:"whois,omitempty"`
 }
@@ -78,6 +81,10 @@ func (m *SadomainTyposquattingBaseDomain) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateUnicodeFormat(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateURLScan(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -177,6 +184,25 @@ func (m *SadomainTyposquattingBaseDomain) validateUnicodeFormat(formats strfmt.R
 	return nil
 }
 
+func (m *SadomainTyposquattingBaseDomain) validateURLScan(formats strfmt.Registry) error {
+	if swag.IsZero(m.URLScan) { // not required
+		return nil
+	}
+
+	if m.URLScan != nil {
+		if err := m.URLScan.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("url_scan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("url_scan")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SadomainTyposquattingBaseDomain) validateWhois(formats strfmt.Registry) error {
 	if swag.IsZero(m.Whois) { // not required
 		return nil
@@ -205,6 +231,10 @@ func (m *SadomainTyposquattingBaseDomain) ContextValidate(ctx context.Context, f
 	}
 
 	if err := m.contextValidateSubmitForTakedownInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateURLScan(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -260,6 +290,27 @@ func (m *SadomainTyposquattingBaseDomain) contextValidateSubmitForTakedownInfo(c
 	return nil
 }
 
+func (m *SadomainTyposquattingBaseDomain) contextValidateURLScan(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.URLScan != nil {
+
+		if swag.IsZero(m.URLScan) { // not required
+			return nil
+		}
+
+		if err := m.URLScan.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("url_scan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("url_scan")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SadomainTyposquattingBaseDomain) contextValidateWhois(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Whois != nil {
@@ -297,4 +348,17 @@ func (m *SadomainTyposquattingBaseDomain) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this sadomain typosquatting base domain. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *SadomainTyposquattingBaseDomain) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

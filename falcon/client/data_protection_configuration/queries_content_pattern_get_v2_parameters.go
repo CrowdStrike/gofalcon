@@ -64,7 +64,7 @@ type QueriesContentPatternGetV2Params struct {
 
 	/* Filter.
 
-	   The filter to use when finding content patterns. Allowed filters are 'name', 'type', 'category', 'region', 'example', 'created_at', 'updated_at' and 'deleted'
+	   The filter to use when finding content patterns. Allowed filters are 'name', 'type', 'category', 'region', 'example', 'created', 'last_updated' and 'deleted'
 	*/
 	Filter *string
 
@@ -84,7 +84,7 @@ type QueriesContentPatternGetV2Params struct {
 
 	/* Sort.
 
-	   The sort instructions to order by on. Allowed values are 'name', 'type', 'category', 'region', 'created_at', 'updated_at', 'example' and 'deleted'
+	   The sort instructions to order by on. Allowed values are 'name', 'type', 'category', 'region', 'created', 'last_updated', 'example' and 'deleted'
 	*/
 	Sort *string
 

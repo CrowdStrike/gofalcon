@@ -22,6 +22,9 @@ type JsonschemaUIExtensions struct {
 	// supported file extensions for file upload, eg. '.yaml', '.json'
 	Accept []string `json:"accept"`
 
+	// show a create-new button alongside the select dropdown
+	AddButton bool `json:"add-button,omitempty"`
+
 	// component
 	Component string `json:"component,omitempty"`
 
@@ -34,14 +37,26 @@ type JsonschemaUIExtensions struct {
 	// supported encoding for file upload, eg. 'base64'
 	Encoding string `json:"encoding,omitempty"`
 
+	// trailing option added to selects that trigger events
+	FooterAction *JsonschemaFooterAction `json:"footerAction,omitempty"`
+
 	// helper text
 	HelperText string `json:"helperText,omitempty"`
 
 	// generate a hidden card during mobiledoc generation
 	Hide bool `json:"hide,omitempty"`
 
+	// input type
+	InputType string `json:"inputType,omitempty"`
+
+	// specify the position of the label relative to its associated element
+	LabelPosition string `json:"labelPosition,omitempty"`
+
 	// meta
 	Meta *JsonschemaMeta `json:"meta,omitempty"`
+
+	// navigate to a specified route after successful action
+	NavigateOnSuccess string `json:"navigateOnSuccess,omitempty"`
 
 	// placeholder default text for form field
 	Placeholder string `json:"placeholder,omitempty"`
@@ -70,6 +85,10 @@ func (m *JsonschemaUIExtensions) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDurationOptions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFooterAction(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -108,6 +127,25 @@ func (m *JsonschemaUIExtensions) validateDurationOptions(formats strfmt.Registry
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) validateFooterAction(formats strfmt.Registry) error {
+	if swag.IsZero(m.FooterAction) { // not required
+		return nil
+	}
+
+	if m.FooterAction != nil {
+		if err := m.FooterAction.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("footerAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("footerAction")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -159,6 +197,10 @@ func (m *JsonschemaUIExtensions) ContextValidate(ctx context.Context, formats st
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateFooterAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMeta(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -193,6 +235,27 @@ func (m *JsonschemaUIExtensions) contextValidateDurationOptions(ctx context.Cont
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) contextValidateFooterAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FooterAction != nil {
+
+		if swag.IsZero(m.FooterAction) { // not required
+			return nil
+		}
+
+		if err := m.FooterAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("footerAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("footerAction")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -256,4 +319,17 @@ func (m *JsonschemaUIExtensions) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this jsonschema UI extensions. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *JsonschemaUIExtensions) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

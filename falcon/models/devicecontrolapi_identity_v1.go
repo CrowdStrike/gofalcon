@@ -20,7 +20,7 @@ import (
 // swagger:model devicecontrolapi.IdentityV1
 type DevicecontrolapiIdentityV1 struct {
 
-	// Domain name the id belongs to
+	// Domain name the id belongs to. Not required for well-known SIDs.
 	Domain string `json:"domain,omitempty"`
 
 	// ID of the user or group
@@ -119,4 +119,17 @@ func (m *DevicecontrolapiIdentityV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this devicecontrolapi identity v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DevicecontrolapiIdentityV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

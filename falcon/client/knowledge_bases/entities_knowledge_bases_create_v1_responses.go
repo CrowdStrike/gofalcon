@@ -43,6 +43,12 @@ func (o *EntitiesKnowledgeBasesCreateV1Reader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewEntitiesKnowledgeBasesCreateV1NotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesKnowledgeBasesCreateV1TooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -381,6 +387,116 @@ func (o *EntitiesKnowledgeBasesCreateV1Forbidden) readResponse(response runtime.
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesKnowledgeBasesCreateV1NotFound creates a EntitiesKnowledgeBasesCreateV1NotFound with default headers values
+func NewEntitiesKnowledgeBasesCreateV1NotFound() *EntitiesKnowledgeBasesCreateV1NotFound {
+	return &EntitiesKnowledgeBasesCreateV1NotFound{}
+}
+
+/*
+EntitiesKnowledgeBasesCreateV1NotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type EntitiesKnowledgeBasesCreateV1NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIErrorResponse
+}
+
+// IsSuccess returns true when this entities knowledge bases create v1 not found response has a 2xx status code
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities knowledge bases create v1 not found response has a 3xx status code
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities knowledge bases create v1 not found response has a 4xx status code
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities knowledge bases create v1 not found response has a 5xx status code
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities knowledge bases create v1 not found response a status code equal to that given
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the entities knowledge bases create v1 not found response
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) Code() int {
+	return 404
+}
+
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) Error() string {
+	return fmt.Sprintf("[POST /agentic-studio/entities/knowledge_bases/v1][%d] entitiesKnowledgeBasesCreateV1NotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) String() string {
+	return fmt.Sprintf("[POST /agentic-studio/entities/knowledge_bases/v1][%d] entitiesKnowledgeBasesCreateV1NotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) GetPayload() *models.APIErrorResponse {
+	return o.Payload
+}
+
+func (o *EntitiesKnowledgeBasesCreateV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIErrorResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

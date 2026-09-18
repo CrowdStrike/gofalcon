@@ -57,3 +57,16 @@ func (m *FalconxEntity) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this falconx entity. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *FalconxEntity) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

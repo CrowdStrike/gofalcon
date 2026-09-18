@@ -75,10 +75,8 @@ type CloudSecurityAssetsCombinedComplianceByAccountParams struct {
 	- `account_name`
 	- `aspm.cloud_account`
 	- `aspm.cloud_region`
-	- `aspm.cloud_tag_key`
-	- `aspm.cloud_tag_value`
-	- `aspm.cloud_tags`
 	- `aspm.deployment_provider`
+	- `aspm.deployment_type`
 	- `assessment_id`
 	- `business_impact`
 	- `cloud_group`
