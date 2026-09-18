@@ -19,106 +19,106 @@ import (
 type DeviceapiMappedDevicePoliciesSwagger struct {
 
 	// aidr
-	Aidr *DeviceDevicePolicy `json:"aidr,omitempty"`
+	Aidr *DeviceapiDevicePolicySwagger `json:"aidr,omitempty"`
 
 	// airlock
-	Airlock *DeviceDevicePolicy `json:"airlock,omitempty"`
+	Airlock *DeviceapiDevicePolicySwagger `json:"airlock,omitempty"`
 
 	// application abuse prevention
-	ApplicationAbusePrevention *DeviceDevicePolicy `json:"application-abuse-prevention,omitempty"`
+	ApplicationAbusePrevention *DeviceapiDevicePolicySwagger `json:"application-abuse-prevention,omitempty"`
 
 	// automox
-	Automox *DeviceDevicePolicy `json:"automox,omitempty"`
+	Automox *DeviceapiDevicePolicySwagger `json:"automox,omitempty"`
 
 	// aws verified access
-	AwsVerifiedAccess *DeviceDevicePolicy `json:"aws-verified-access,omitempty"`
+	AwsVerifiedAccess *DeviceapiDevicePolicySwagger `json:"aws-verified-access,omitempty"`
 
 	// browser extension
-	BrowserExtension *DeviceDevicePolicy `json:"browser-extension,omitempty"`
+	BrowserExtension *DeviceapiDevicePolicySwagger `json:"browser-extension,omitempty"`
 
 	// cloud ml
-	CloudMl *DeviceDevicePolicy `json:"cloud-ml,omitempty"`
+	CloudMl *DeviceapiDevicePolicySwagger `json:"cloud-ml,omitempty"`
 
 	// content update
-	ContentUpdate *DeviceDevicePolicy `json:"content-update,omitempty"`
+	ContentUpdate *DeviceapiDevicePolicySwagger `json:"content-update,omitempty"`
 
 	// customer entitlements
-	CustomerEntitlements *DeviceDevicePolicy `json:"customer-entitlements,omitempty"`
+	CustomerEntitlements *DeviceapiDevicePolicySwagger `json:"customer-entitlements,omitempty"`
 
 	// data protection
-	DataProtection *DeviceDevicePolicy `json:"data-protection,omitempty"`
+	DataProtection *DeviceapiDevicePolicySwagger `json:"data-protection,omitempty"`
 
 	// data protection cloud
-	DataProtectionCloud *DeviceDevicePolicy `json:"data-protection-cloud,omitempty"`
+	DataProtectionCloud *DeviceapiDevicePolicySwagger `json:"data-protection-cloud,omitempty"`
 
 	// device control
-	DeviceControl *DeviceDevicePolicy `json:"device_control,omitempty"`
+	DeviceControl *DeviceapiDevicePolicySwagger `json:"device_control,omitempty"`
 
 	// exposure management
-	ExposureManagement *DeviceDevicePolicy `json:"exposure-management,omitempty"`
+	ExposureManagement *DeviceapiDevicePolicySwagger `json:"exposure-management,omitempty"`
 
 	// fem browser extension control
-	FemBrowserExtensionControl *DeviceDevicePolicy `json:"fem-browser-extension-control,omitempty"`
+	FemBrowserExtensionControl *DeviceapiDevicePolicySwagger `json:"fem-browser-extension-control,omitempty"`
 
 	// fim
-	Fim *DeviceDevicePolicy `json:"fim,omitempty"`
+	Fim *DeviceapiDevicePolicySwagger `json:"fim,omitempty"`
 
 	// firewall
-	Firewall *DeviceDevicePolicy `json:"firewall,omitempty"`
+	Firewall *DeviceapiDevicePolicySwagger `json:"firewall,omitempty"`
 
 	// global config
-	GlobalConfig *DeviceDevicePolicy `json:"global_config,omitempty"`
+	GlobalConfig *DeviceapiDevicePolicySwagger `json:"global_config,omitempty"`
 
 	// host retention
-	HostRetention *DeviceDevicePolicy `json:"host-retention,omitempty"`
+	HostRetention *DeviceapiDevicePolicySwagger `json:"host-retention,omitempty"`
 
 	// identity endpoint
-	IdentityEndpoint *DeviceDevicePolicy `json:"identity-endpoint,omitempty"`
+	IdentityEndpoint *DeviceapiDevicePolicySwagger `json:"identity-endpoint,omitempty"`
 
 	// identity protection
-	IdentityProtection *DeviceDevicePolicy `json:"identity-protection,omitempty"`
+	IdentityProtection *DeviceapiDevicePolicySwagger `json:"identity-protection,omitempty"`
 
 	// it automation
-	ItAutomation *DeviceDevicePolicy `json:"it-automation,omitempty"`
+	ItAutomation *DeviceapiDevicePolicySwagger `json:"it-automation,omitempty"`
 
 	// jumpcloud
-	Jumpcloud *DeviceDevicePolicy `json:"jumpcloud,omitempty"`
+	Jumpcloud *DeviceapiDevicePolicySwagger `json:"jumpcloud,omitempty"`
 
 	// kubernetes admission control
-	KubernetesAdmissionControl *DeviceDevicePolicy `json:"kubernetes-admission-control,omitempty"`
+	KubernetesAdmissionControl *DeviceapiDevicePolicySwagger `json:"kubernetes-admission-control,omitempty"`
 
 	// logscale collector
-	LogscaleCollector *DeviceDevicePolicy `json:"logscale-collector,omitempty"`
+	LogscaleCollector *DeviceapiDevicePolicySwagger `json:"logscale-collector,omitempty"`
 
 	// mobile
-	Mobile *DeviceDevicePolicy `json:"mobile,omitempty"`
+	Mobile *DeviceapiDevicePolicySwagger `json:"mobile,omitempty"`
 
 	// netskope
-	Netskope *DeviceDevicePolicy `json:"netskope,omitempty"`
+	Netskope *DeviceapiDevicePolicySwagger `json:"netskope,omitempty"`
 
 	// network scan content
-	NetworkScanContent *DeviceDevicePolicy `json:"network-scan-content,omitempty"`
+	NetworkScanContent *DeviceapiDevicePolicySwagger `json:"network-scan-content,omitempty"`
 
 	// prevention
-	Prevention *DeviceDevicePolicy `json:"prevention,omitempty"`
+	Prevention *DeviceapiDevicePolicySwagger `json:"prevention,omitempty"`
 
 	// remote response
-	RemoteResponse *DeviceDevicePolicy `json:"remote_response,omitempty"`
+	RemoteResponse *DeviceapiDevicePolicySwagger `json:"remote_response,omitempty"`
 
 	// sca
-	Sca *DeviceDevicePolicy `json:"sca,omitempty"`
+	Sca *DeviceapiDevicePolicySwagger `json:"sca,omitempty"`
 
 	// sensor update
-	SensorUpdate *DeviceDevicePolicy `json:"sensor_update,omitempty"`
+	SensorUpdate *DeviceapiDevicePolicySwagger `json:"sensor_update,omitempty"`
 
 	// system tray
-	SystemTray *DeviceDevicePolicy `json:"system-tray,omitempty"`
+	SystemTray *DeviceapiDevicePolicySwagger `json:"system-tray,omitempty"`
 
 	// vulnerability management
-	VulnerabilityManagement *DeviceDevicePolicy `json:"vulnerability-management,omitempty"`
+	VulnerabilityManagement *DeviceapiDevicePolicySwagger `json:"vulnerability-management,omitempty"`
 
 	// ztl
-	Ztl *DeviceDevicePolicy `json:"ztl,omitempty"`
+	Ztl *DeviceapiDevicePolicySwagger `json:"ztl,omitempty"`
 }
 
 // Validate validates this deviceapi mapped device policies swagger
@@ -1789,4 +1789,17 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this deviceapi mapped device policies swagger. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DeviceapiMappedDevicePoliciesSwagger) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

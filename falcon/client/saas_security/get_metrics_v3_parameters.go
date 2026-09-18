@@ -62,6 +62,18 @@ GetMetricsV3Params contains all the parameters to send to the API endpoint
 */
 type GetMetricsV3Params struct {
 
+	/* BusinessOwner.
+
+	   Business owner email of the integration the check belongs to
+	*/
+	BusinessOwner *string
+
+	/* CheckTags.
+
+	   Comma separated list of check tags names or ids
+	*/
+	CheckTags *string
+
 	/* CheckType.
 
 	   Check Type
@@ -97,6 +109,12 @@ type GetMetricsV3Params struct {
 	   The starting index of the results
 	*/
 	Offset *int64
+
+	/* OrgDomain.
+
+	   Org domain of the integration the check belongs to
+	*/
+	OrgDomain *string
 
 	/* Status.
 
@@ -155,6 +173,28 @@ func (o *GetMetricsV3Params) WithHTTPClient(client *http.Client) *GetMetricsV3Pa
 // SetHTTPClient adds the HTTPClient to the get metrics v3 params
 func (o *GetMetricsV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithBusinessOwner adds the businessOwner to the get metrics v3 params
+func (o *GetMetricsV3Params) WithBusinessOwner(businessOwner *string) *GetMetricsV3Params {
+	o.SetBusinessOwner(businessOwner)
+	return o
+}
+
+// SetBusinessOwner adds the businessOwner to the get metrics v3 params
+func (o *GetMetricsV3Params) SetBusinessOwner(businessOwner *string) {
+	o.BusinessOwner = businessOwner
+}
+
+// WithCheckTags adds the checkTags to the get metrics v3 params
+func (o *GetMetricsV3Params) WithCheckTags(checkTags *string) *GetMetricsV3Params {
+	o.SetCheckTags(checkTags)
+	return o
+}
+
+// SetCheckTags adds the checkTags to the get metrics v3 params
+func (o *GetMetricsV3Params) SetCheckTags(checkTags *string) {
+	o.CheckTags = checkTags
 }
 
 // WithCheckType adds the checkType to the get metrics v3 params
@@ -223,6 +263,17 @@ func (o *GetMetricsV3Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithOrgDomain adds the orgDomain to the get metrics v3 params
+func (o *GetMetricsV3Params) WithOrgDomain(orgDomain *string) *GetMetricsV3Params {
+	o.SetOrgDomain(orgDomain)
+	return o
+}
+
+// SetOrgDomain adds the orgDomain to the get metrics v3 params
+func (o *GetMetricsV3Params) SetOrgDomain(orgDomain *string) {
+	o.OrgDomain = orgDomain
+}
+
 // WithStatus adds the status to the get metrics v3 params
 func (o *GetMetricsV3Params) WithStatus(status *string) *GetMetricsV3Params {
 	o.SetStatus(status)
@@ -241,6 +292,40 @@ func (o *GetMetricsV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
+
+	if o.BusinessOwner != nil {
+
+		// query param business_owner
+		var qrBusinessOwner string
+
+		if o.BusinessOwner != nil {
+			qrBusinessOwner = *o.BusinessOwner
+		}
+		qBusinessOwner := qrBusinessOwner
+		if qBusinessOwner != "" {
+
+			if err := r.SetQueryParam("business_owner", qBusinessOwner); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.CheckTags != nil {
+
+		// query param check_tags
+		var qrCheckTags string
+
+		if o.CheckTags != nil {
+			qrCheckTags = *o.CheckTags
+		}
+		qCheckTags := qrCheckTags
+		if qCheckTags != "" {
+
+			if err := r.SetQueryParam("check_tags", qCheckTags); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.CheckType != nil {
 
@@ -339,6 +424,23 @@ func (o *GetMetricsV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.OrgDomain != nil {
+
+		// query param org_domain
+		var qrOrgDomain string
+
+		if o.OrgDomain != nil {
+			qrOrgDomain = *o.OrgDomain
+		}
+		qOrgDomain := qrOrgDomain
+		if qOrgDomain != "" {
+
+			if err := r.SetQueryParam("org_domain", qOrgDomain); err != nil {
 				return err
 			}
 		}

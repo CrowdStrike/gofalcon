@@ -30,10 +30,14 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DownloadFile(params *DownloadFileParams, opts ...ClientOption) (*DownloadFileOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EnumerateFile(params *EnumerateFileParams, opts ...ClientOption) (*EnumerateFileOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	FetchFilesDownloadInfo(params *FetchFilesDownloadInfoParams, opts ...ClientOption) (*FetchFilesDownloadInfoOK, error)
 
 	FetchFilesDownloadInfoV2(params *FetchFilesDownloadInfoV2Params, opts ...ClientOption) (*FetchFilesDownloadInfoV2OK, error)
@@ -43,6 +47,8 @@ type ClientService interface {
 
 /*
 DownloadFile gets pre signed URL for the file
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DownloadFile(params *DownloadFileParams, opts ...ClientOption) (*DownloadFileOK, error) {
 	// TODO: Validate the params before sending
@@ -81,6 +87,8 @@ func (a *Client) DownloadFile(params *DownloadFileParams, opts ...ClientOption) 
 
 /*
 EnumerateFile enumerates a list of files available for c ID
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) EnumerateFile(params *EnumerateFileParams, opts ...ClientOption) (*EnumerateFileOK, error) {
 	// TODO: Validate the params before sending
@@ -119,6 +127,8 @@ func (a *Client) EnumerateFile(params *EnumerateFileParams, opts ...ClientOption
 
 /*
 FetchFilesDownloadInfo gets files info and pre signed download u r ls
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) FetchFilesDownloadInfo(params *FetchFilesDownloadInfoParams, opts ...ClientOption) (*FetchFilesDownloadInfoOK, error) {
 	// TODO: Validate the params before sending

@@ -31,6 +31,12 @@ func (o *EntitiesWebLocationDeleteV2Reader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return result, nil
+	case 207:
+		result := NewEntitiesWebLocationDeleteV2MultiStatus()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewEntitiesWebLocationDeleteV2BadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -39,6 +45,12 @@ func (o *EntitiesWebLocationDeleteV2Reader) ReadResponse(response runtime.Client
 		return nil, result
 	case 403:
 		result := NewEntitiesWebLocationDeleteV2Forbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 404:
+		result := NewEntitiesWebLocationDeleteV2NotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -130,6 +142,116 @@ func (o *EntitiesWebLocationDeleteV2OK) GetPayload() *models.APIWebLocationMSARe
 }
 
 func (o *EntitiesWebLocationDeleteV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIWebLocationMSAResponseV2)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesWebLocationDeleteV2MultiStatus creates a EntitiesWebLocationDeleteV2MultiStatus with default headers values
+func NewEntitiesWebLocationDeleteV2MultiStatus() *EntitiesWebLocationDeleteV2MultiStatus {
+	return &EntitiesWebLocationDeleteV2MultiStatus{}
+}
+
+/*
+EntitiesWebLocationDeleteV2MultiStatus describes a response with status code 207, with default header values.
+
+Multi-Status
+*/
+type EntitiesWebLocationDeleteV2MultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIWebLocationMSAResponseV2
+}
+
+// IsSuccess returns true when this entities web location delete v2 multi status response has a 2xx status code
+func (o *EntitiesWebLocationDeleteV2MultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this entities web location delete v2 multi status response has a 3xx status code
+func (o *EntitiesWebLocationDeleteV2MultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities web location delete v2 multi status response has a 4xx status code
+func (o *EntitiesWebLocationDeleteV2MultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities web location delete v2 multi status response has a 5xx status code
+func (o *EntitiesWebLocationDeleteV2MultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities web location delete v2 multi status response a status code equal to that given
+func (o *EntitiesWebLocationDeleteV2MultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
+// Code gets the status code for the entities web location delete v2 multi status response
+func (o *EntitiesWebLocationDeleteV2MultiStatus) Code() int {
+	return 207
+}
+
+func (o *EntitiesWebLocationDeleteV2MultiStatus) Error() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/web-locations/v2][%d] entitiesWebLocationDeleteV2MultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesWebLocationDeleteV2MultiStatus) String() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/web-locations/v2][%d] entitiesWebLocationDeleteV2MultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesWebLocationDeleteV2MultiStatus) GetPayload() *models.APIWebLocationMSAResponseV2 {
+	return o.Payload
+}
+
+func (o *EntitiesWebLocationDeleteV2MultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -381,6 +503,116 @@ func (o *EntitiesWebLocationDeleteV2Forbidden) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesWebLocationDeleteV2NotFound creates a EntitiesWebLocationDeleteV2NotFound with default headers values
+func NewEntitiesWebLocationDeleteV2NotFound() *EntitiesWebLocationDeleteV2NotFound {
+	return &EntitiesWebLocationDeleteV2NotFound{}
+}
+
+/*
+EntitiesWebLocationDeleteV2NotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type EntitiesWebLocationDeleteV2NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities web location delete v2 not found response has a 2xx status code
+func (o *EntitiesWebLocationDeleteV2NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities web location delete v2 not found response has a 3xx status code
+func (o *EntitiesWebLocationDeleteV2NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities web location delete v2 not found response has a 4xx status code
+func (o *EntitiesWebLocationDeleteV2NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities web location delete v2 not found response has a 5xx status code
+func (o *EntitiesWebLocationDeleteV2NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities web location delete v2 not found response a status code equal to that given
+func (o *EntitiesWebLocationDeleteV2NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the entities web location delete v2 not found response
+func (o *EntitiesWebLocationDeleteV2NotFound) Code() int {
+	return 404
+}
+
+func (o *EntitiesWebLocationDeleteV2NotFound) Error() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/web-locations/v2][%d] entitiesWebLocationDeleteV2NotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesWebLocationDeleteV2NotFound) String() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/web-locations/v2][%d] entitiesWebLocationDeleteV2NotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesWebLocationDeleteV2NotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesWebLocationDeleteV2NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

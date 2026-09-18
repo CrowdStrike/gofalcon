@@ -30,46 +30,67 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	AzureDownloadCertificate(params *AzureDownloadCertificateParams, opts ...ClientOption) (*AzureDownloadCertificateOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	AzureRefreshCertificate(params *AzureRefreshCertificateParams, opts ...ClientOption) (*AzureRefreshCertificateOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	ConnectCSPMGCPAccount(params *ConnectCSPMGCPAccountParams, opts ...ClientOption) (*ConnectCSPMGCPAccountCreated, *ConnectCSPMGCPAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts ...ClientOption) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, opts ...ClientOption) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateCSPMAzureManagementGroup(params *CreateCSPMAzureManagementGroupParams, opts ...ClientOption) (*CreateCSPMAzureManagementGroupCreated, *CreateCSPMAzureManagementGroupMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, opts ...ClientOption) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, opts ...ClientOption) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DeleteCSPMAzureManagementGroup(params *DeleteCSPMAzureManagementGroupParams, opts ...ClientOption) (*DeleteCSPMAzureManagementGroupOK, *DeleteCSPMAzureManagementGroupMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DeleteCSPMGCPAccount(params *DeleteCSPMGCPAccountParams, opts ...ClientOption) (*DeleteCSPMGCPAccountOK, *DeleteCSPMGCPAccountMultiStatus, error)
 
 	GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts ...ClientOption) (*GetBehaviorDetectionsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...ClientOption) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...ClientOption) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMAzureManagementGroup(params *GetCSPMAzureManagementGroupParams, opts ...ClientOption) (*GetCSPMAzureManagementGroupOK, *GetCSPMAzureManagementGroupMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsAttachmentOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMGCPAccount(params *GetCSPMGCPAccountParams, opts ...ClientOption) (*GetCSPMGCPAccountOK, *GetCSPMGCPAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMGCPServiceAccountsExt(params *GetCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPServiceAccountsExtOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCSPMGCPValidateAccountsExt(params *GetCSPMGCPValidateAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPValidateAccountsExtOK, error)
 
 	GetCSPMPoliciesDetails(params *GetCSPMPoliciesDetailsParams, opts ...ClientOption) (*GetCSPMPoliciesDetailsOK, *GetCSPMPoliciesDetailsMultiStatus, error)
@@ -84,26 +105,35 @@ type ClientService interface {
 
 	GetConfigurationDetectionIDsV2(params *GetConfigurationDetectionIDsV2Params, opts ...ClientOption) (*GetConfigurationDetectionIDsV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetConfigurationDetections(params *GetConfigurationDetectionsParams, opts ...ClientOption) (*GetConfigurationDetectionsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountOK, *PatchCSPMAwsAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateCSPMAzureAccount(params *UpdateCSPMAzureAccountParams, opts ...ClientOption) (*UpdateCSPMAzureAccountCreated, *UpdateCSPMAzureAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, opts ...ClientOption) (*UpdateCSPMAzureAccountClientIDCreated, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAzureTenantDefaultSubscriptionIDParams, opts ...ClientOption) (*UpdateCSPMAzureTenantDefaultSubscriptionIDCreated, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts ...ClientOption) (*UpdateCSPMGCPAccountOK, *UpdateCSPMGCPAccountMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateCSPMGCPServiceAccountsExt(params *UpdateCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*UpdateCSPMGCPServiceAccountsExtOK, error)
 
 	UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, opts ...ClientOption) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error)
 
 	UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, opts ...ClientOption) (*UpdateCSPMScanScheduleOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPServiceAccountExtParams, opts ...ClientOption) (*ValidateCSPMGCPServiceAccountExtOK, *ValidateCSPMGCPServiceAccountExtMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCloudEventIDs(params *GetCloudEventIDsParams, opts ...ClientOption) (*GetCloudEventIDsOK, *GetCloudEventIDsMultiStatus, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -111,6 +141,8 @@ type ClientService interface {
 
 /*
 AzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) AzureDownloadCertificate(params *AzureDownloadCertificateParams, opts ...ClientOption) (*AzureDownloadCertificateOK, error) {
 	// TODO: Validate the params before sending
@@ -149,6 +181,8 @@ func (a *Client) AzureDownloadCertificate(params *AzureDownloadCertificateParams
 
 /*
 AzureRefreshCertificate refreshes certificate and returns JSON object s that contain the base64 encoded certificate for a service principal
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) AzureRefreshCertificate(params *AzureRefreshCertificateParams, opts ...ClientOption) (*AzureRefreshCertificateOK, error) {
 	// TODO: Validate the params before sending
@@ -187,6 +221,8 @@ func (a *Client) AzureRefreshCertificate(params *AzureRefreshCertificateParams, 
 
 /*
 ConnectCSPMGCPAccount creates a new g c p account with newly uploaded service account or connects with existing service account with only the following fields parent id parent type and service account id
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) ConnectCSPMGCPAccount(params *ConnectCSPMGCPAccountParams, opts ...ClientOption) (*ConnectCSPMGCPAccountCreated, *ConnectCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -226,6 +262,8 @@ func (a *Client) ConnectCSPMGCPAccount(params *ConnectCSPMGCPAccountParams, opts
 
 /*
 CreateCSPMAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts ...ClientOption) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -265,6 +303,8 @@ func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts .
 
 /*
 CreateCSPMAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, opts ...ClientOption) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -304,6 +344,8 @@ func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, op
 
 /*
 CreateCSPMAzureManagementGroup creates a new management group in our system for a customer
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateCSPMAzureManagementGroup(params *CreateCSPMAzureManagementGroupParams, opts ...ClientOption) (*CreateCSPMAzureManagementGroupCreated, *CreateCSPMAzureManagementGroupMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -343,6 +385,8 @@ func (a *Client) CreateCSPMAzureManagementGroup(params *CreateCSPMAzureManagemen
 
 /*
 CreateCSPMGCPAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -382,6 +426,8 @@ func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts .
 
 /*
 DeleteCSPMAwsAccount deletes an existing a w s account or organization in our system
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, opts ...ClientOption) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -421,6 +467,8 @@ func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, opts .
 
 /*
 DeleteCSPMAzureAccount deletes an azure subscription from the system
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, opts ...ClientOption) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -460,6 +508,8 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, op
 
 /*
 DeleteCSPMAzureManagementGroup deletes azure management groups from the system
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DeleteCSPMAzureManagementGroup(params *DeleteCSPMAzureManagementGroupParams, opts ...ClientOption) (*DeleteCSPMAzureManagementGroupOK, *DeleteCSPMAzureManagementGroupMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -499,6 +549,8 @@ func (a *Client) DeleteCSPMAzureManagementGroup(params *DeleteCSPMAzureManagemen
 
 /*
 DeleteCSPMGCPAccount deletes a g c p account from the system
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DeleteCSPMGCPAccount(params *DeleteCSPMGCPAccountParams, opts ...ClientOption) (*DeleteCSPMGCPAccountOK, *DeleteCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -576,6 +628,8 @@ func (a *Client) GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts
 
 /*
 GetCSPMAwsAccount returns information about the current status of an a w s account
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...ClientOption) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -615,6 +669,8 @@ func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...Clie
 
 /*
 GetCSPMAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -654,6 +710,8 @@ func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsPa
 
 /*
 GetCSPMAzureAccount returns information about azure account registration
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...ClientOption) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -693,6 +751,8 @@ func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...
 
 /*
 GetCSPMAzureManagementGroup returns information about azure management group registration
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMAzureManagementGroup(params *GetCSPMAzureManagementGroupParams, opts ...ClientOption) (*GetCSPMAzureManagementGroupOK, *GetCSPMAzureManagementGroupMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -732,6 +792,8 @@ func (a *Client) GetCSPMAzureManagementGroup(params *GetCSPMAzureManagementGroup
 
 /*
 GetCSPMAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -770,6 +832,8 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 
 /*
 GetCSPMGCPAccount returns information about the current status of an g c p account
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMGCPAccount(params *GetCSPMGCPAccountParams, opts ...ClientOption) (*GetCSPMGCPAccountOK, *GetCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -809,6 +873,8 @@ func (a *Client) GetCSPMGCPAccount(params *GetCSPMGCPAccountParams, opts ...Clie
 
 /*
 GetCSPMGCPServiceAccountsExt returns the service account id and client email for external clients
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMGCPServiceAccountsExt(params *GetCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPServiceAccountsExtOK, error) {
 	// TODO: Validate the params before sending
@@ -847,6 +913,8 @@ func (a *Client) GetCSPMGCPServiceAccountsExt(params *GetCSPMGCPServiceAccountsE
 
 /*
 GetCSPMGCPUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their g c p environment as a downloadable attachment
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -885,6 +953,8 @@ func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAt
 
 /*
 GetCSPMGCPValidateAccountsExt runs a synchronous health check
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCSPMGCPValidateAccountsExt(params *GetCSPMGCPValidateAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPValidateAccountsExtOK, error) {
 	// TODO: Validate the params before sending
@@ -1154,6 +1224,8 @@ func (a *Client) GetConfigurationDetectionIDsV2(params *GetConfigurationDetectio
 
 /*
 GetConfigurationDetections gets list of active misconfigurations this endpoint is deprecated please use queries iom v2 and entities iom v2 instead
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetConfigurationDetections(params *GetConfigurationDetectionsParams, opts ...ClientOption) (*GetConfigurationDetectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -1192,6 +1264,8 @@ func (a *Client) GetConfigurationDetections(params *GetConfigurationDetectionsPa
 
 /*
 PatchCSPMAwsAccount patches a existing account in our system for a customer
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountOK, *PatchCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -1231,6 +1305,8 @@ func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...
 
 /*
 UpdateCSPMAzureAccount patches a existing account in our system for a customer
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateCSPMAzureAccount(params *UpdateCSPMAzureAccountParams, opts ...ClientOption) (*UpdateCSPMAzureAccountCreated, *UpdateCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -1270,6 +1346,8 @@ func (a *Client) UpdateCSPMAzureAccount(params *UpdateCSPMAzureAccountParams, op
 
 /*
 UpdateCSPMAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, opts ...ClientOption) (*UpdateCSPMAzureAccountClientIDCreated, error) {
 	// TODO: Validate the params before sending
@@ -1308,6 +1386,8 @@ func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountCl
 
 /*
 UpdateCSPMAzureTenantDefaultSubscriptionID updates an azure default subscription id in our system for given tenant id
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAzureTenantDefaultSubscriptionIDParams, opts ...ClientOption) (*UpdateCSPMAzureTenantDefaultSubscriptionIDCreated, error) {
 	// TODO: Validate the params before sending
@@ -1346,6 +1426,8 @@ func (a *Client) UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAz
 
 /*
 UpdateCSPMGCPAccount patches a existing account in our system for a customer
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts ...ClientOption) (*UpdateCSPMGCPAccountOK, *UpdateCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -1385,6 +1467,8 @@ func (a *Client) UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts .
 
 /*
 UpdateCSPMGCPServiceAccountsExt patches the service account key for external clients
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateCSPMGCPServiceAccountsExt(params *UpdateCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*UpdateCSPMGCPServiceAccountsExtOK, error) {
 	// TODO: Validate the params before sending
@@ -1500,6 +1584,8 @@ func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, op
 
 /*
 ValidateCSPMGCPServiceAccountExt validates credentials for a service account
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPServiceAccountExtParams, opts ...ClientOption) (*ValidateCSPMGCPServiceAccountExtOK, *ValidateCSPMGCPServiceAccountExtMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -1539,6 +1625,8 @@ func (a *Client) ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPService
 
 /*
 GetCloudEventIDs deprecateds use cdrapi entities event details v1 logscale related events query instead get list of related cloud event log scale i ds for a given i o a
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCloudEventIDs(params *GetCloudEventIDsParams, opts ...ClientOption) (*GetCloudEventIDsOK, *GetCloudEventIDsMultiStatus, error) {
 	// TODO: Validate the params before sending

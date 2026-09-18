@@ -31,6 +31,12 @@ func (o *EntitiesWebLocationGroupDeleteReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return result, nil
+	case 207:
+		result := NewEntitiesWebLocationGroupDeleteMultiStatus()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewEntitiesWebLocationGroupDeleteBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -136,6 +142,116 @@ func (o *EntitiesWebLocationGroupDeleteOK) GetPayload() *models.APIWebLocationGr
 }
 
 func (o *EntitiesWebLocationGroupDeleteOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIWebLocationGroupMSAResponseV2)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesWebLocationGroupDeleteMultiStatus creates a EntitiesWebLocationGroupDeleteMultiStatus with default headers values
+func NewEntitiesWebLocationGroupDeleteMultiStatus() *EntitiesWebLocationGroupDeleteMultiStatus {
+	return &EntitiesWebLocationGroupDeleteMultiStatus{}
+}
+
+/*
+EntitiesWebLocationGroupDeleteMultiStatus describes a response with status code 207, with default header values.
+
+Multi-Status
+*/
+type EntitiesWebLocationGroupDeleteMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIWebLocationGroupMSAResponseV2
+}
+
+// IsSuccess returns true when this entities web location group delete multi status response has a 2xx status code
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this entities web location group delete multi status response has a 3xx status code
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities web location group delete multi status response has a 4xx status code
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities web location group delete multi status response has a 5xx status code
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities web location group delete multi status response a status code equal to that given
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
+// Code gets the status code for the entities web location group delete multi status response
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) Code() int {
+	return 207
+}
+
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) Error() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/web-location-groups/v2][%d] entitiesWebLocationGroupDeleteMultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) String() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/web-location-groups/v2][%d] entitiesWebLocationGroupDeleteMultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) GetPayload() *models.APIWebLocationGroupMSAResponseV2 {
+	return o.Payload
+}
+
+func (o *EntitiesWebLocationGroupDeleteMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

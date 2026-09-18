@@ -62,6 +62,12 @@ GetSecurityChecksV3Params contains all the parameters to send to the API endpoin
 */
 type GetSecurityChecksV3Params struct {
 
+	/* BusinessOwner.
+
+	   Business owner email of the integration the check belongs to
+	*/
+	BusinessOwner *string
+
 	/* CheckTags.
 
 	   Comma separated list of check tags names or ids
@@ -109,6 +115,12 @@ type GetSecurityChecksV3Params struct {
 	   The starting index of the results
 	*/
 	Offset *int64
+
+	/* OrgDomain.
+
+	   Org domain of the integration the check belongs to
+	*/
+	OrgDomain *string
 
 	/* Status.
 
@@ -167,6 +179,17 @@ func (o *GetSecurityChecksV3Params) WithHTTPClient(client *http.Client) *GetSecu
 // SetHTTPClient adds the HTTPClient to the get security checks v3 params
 func (o *GetSecurityChecksV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithBusinessOwner adds the businessOwner to the get security checks v3 params
+func (o *GetSecurityChecksV3Params) WithBusinessOwner(businessOwner *string) *GetSecurityChecksV3Params {
+	o.SetBusinessOwner(businessOwner)
+	return o
+}
+
+// SetBusinessOwner adds the businessOwner to the get security checks v3 params
+func (o *GetSecurityChecksV3Params) SetBusinessOwner(businessOwner *string) {
+	o.BusinessOwner = businessOwner
 }
 
 // WithCheckTags adds the checkTags to the get security checks v3 params
@@ -257,6 +280,17 @@ func (o *GetSecurityChecksV3Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithOrgDomain adds the orgDomain to the get security checks v3 params
+func (o *GetSecurityChecksV3Params) WithOrgDomain(orgDomain *string) *GetSecurityChecksV3Params {
+	o.SetOrgDomain(orgDomain)
+	return o
+}
+
+// SetOrgDomain adds the orgDomain to the get security checks v3 params
+func (o *GetSecurityChecksV3Params) SetOrgDomain(orgDomain *string) {
+	o.OrgDomain = orgDomain
+}
+
 // WithStatus adds the status to the get security checks v3 params
 func (o *GetSecurityChecksV3Params) WithStatus(status *string) *GetSecurityChecksV3Params {
 	o.SetStatus(status)
@@ -275,6 +309,23 @@ func (o *GetSecurityChecksV3Params) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	if o.BusinessOwner != nil {
+
+		// query param business_owner
+		var qrBusinessOwner string
+
+		if o.BusinessOwner != nil {
+			qrBusinessOwner = *o.BusinessOwner
+		}
+		qBusinessOwner := qrBusinessOwner
+		if qBusinessOwner != "" {
+
+			if err := r.SetQueryParam("business_owner", qBusinessOwner); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.CheckTags != nil {
 
@@ -407,6 +458,23 @@ func (o *GetSecurityChecksV3Params) WriteToRequest(r runtime.ClientRequest, reg 
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.OrgDomain != nil {
+
+		// query param org_domain
+		var qrOrgDomain string
+
+		if o.OrgDomain != nil {
+			qrOrgDomain = *o.OrgDomain
+		}
+		qOrgDomain := qrOrgDomain
+		if qOrgDomain != "" {
+
+			if err := r.SetQueryParam("org_domain", qOrgDomain); err != nil {
 				return err
 			}
 		}

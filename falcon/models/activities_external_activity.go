@@ -59,7 +59,7 @@ type ActivitiesExternalActivity struct {
 	InputFields []*ActivitiesActivityExtField `json:"input_fields"`
 
 	// JSON Schema describing the structured input of the activity for execution
-	InputSchema *JsonschemaSchema `json:"input_schema,omitempty"`
+	InputSchema string `json:"input_schema,omitempty"`
 
 	// Legacy namespace for the activity.
 	LegacyNamespace string `json:"legacy_namespace,omitempty"`
@@ -78,7 +78,7 @@ type ActivitiesExternalActivity struct {
 	OutputFields []*ActivitiesActivityExtField `json:"output_fields"`
 
 	// JSON Schema describing the structured output of the activity once executed
-	OutputSchema *JsonschemaSchema `json:"output_schema,omitempty"`
+	OutputSchema string `json:"output_schema,omitempty"`
 
 	// Activity semantic version
 	SemanticVersion string `json:"semantic_version,omitempty"`
@@ -129,19 +129,11 @@ func (m *ActivitiesExternalActivity) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateInputSchema(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateOutputFields(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateOutputSchema(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -252,25 +244,6 @@ func (m *ActivitiesExternalActivity) validateInputFields(formats strfmt.Registry
 	return nil
 }
 
-func (m *ActivitiesExternalActivity) validateInputSchema(formats strfmt.Registry) error {
-	if swag.IsZero(m.InputSchema) { // not required
-		return nil
-	}
-
-	if m.InputSchema != nil {
-		if err := m.InputSchema.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("input_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("input_schema")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *ActivitiesExternalActivity) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -306,25 +279,6 @@ func (m *ActivitiesExternalActivity) validateOutputFields(formats strfmt.Registr
 	return nil
 }
 
-func (m *ActivitiesExternalActivity) validateOutputSchema(formats strfmt.Registry) error {
-	if swag.IsZero(m.OutputSchema) { // not required
-		return nil
-	}
-
-	if m.OutputSchema != nil {
-		if err := m.OutputSchema.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("output_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("output_schema")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *ActivitiesExternalActivity) validateUpdated(formats strfmt.Registry) error {
 	if swag.IsZero(m.Updated) { // not required
 		return nil
@@ -349,15 +303,7 @@ func (m *ActivitiesExternalActivity) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateInputSchema(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateOutputFields(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateOutputSchema(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -417,27 +363,6 @@ func (m *ActivitiesExternalActivity) contextValidateInputFields(ctx context.Cont
 	return nil
 }
 
-func (m *ActivitiesExternalActivity) contextValidateInputSchema(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.InputSchema != nil {
-
-		if swag.IsZero(m.InputSchema) { // not required
-			return nil
-		}
-
-		if err := m.InputSchema.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("input_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("input_schema")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *ActivitiesExternalActivity) contextValidateOutputFields(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.OutputFields); i++ {
@@ -463,27 +388,6 @@ func (m *ActivitiesExternalActivity) contextValidateOutputFields(ctx context.Con
 	return nil
 }
 
-func (m *ActivitiesExternalActivity) contextValidateOutputSchema(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.OutputSchema != nil {
-
-		if swag.IsZero(m.OutputSchema) { // not required
-			return nil
-		}
-
-		if err := m.OutputSchema.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("output_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("output_schema")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 // MarshalBinary interface implementation
 func (m *ActivitiesExternalActivity) MarshalBinary() ([]byte, error) {
 	if m == nil {
@@ -500,4 +404,17 @@ func (m *ActivitiesExternalActivity) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this activities external activity. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *ActivitiesExternalActivity) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

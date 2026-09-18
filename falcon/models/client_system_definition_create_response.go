@@ -188,3 +188,16 @@ func (m *ClientSystemDefinitionCreateResponse) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this client system definition create response. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *ClientSystemDefinitionCreateResponse) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

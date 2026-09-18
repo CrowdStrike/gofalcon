@@ -50,6 +50,7 @@ type ClientService interface {
 
 	QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts ...ClientOption) (*QueryDevicesByFilterOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, opts ...ClientOption) (*QueryDevicesByFilterScrollOK, error)
 
 	QueryGetNetworkAddressHistoryV1(params *QueryGetNetworkAddressHistoryV1Params, opts ...ClientOption) (*QueryGetNetworkAddressHistoryV1OK, error)
@@ -444,7 +445,9 @@ func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts .
 }
 
 /*
-QueryDevicesByFilterScroll searches for hosts in your environment by platform hostname IP and other criteria with continuous pagination capability based on offset pointer which expires after 2 minutes with no maximum limit
+QueryDevicesByFilterScroll deprecateds please use the g e t devices combined devices v1 endpoint search for hosts in your environment by platform hostname IP and other criteria with continuous pagination capability based on offset pointer which expires after 2 minutes with no maximum limit
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, opts ...ClientOption) (*QueryDevicesByFilterScrollOK, error) {
 	// TODO: Validate the params before sending

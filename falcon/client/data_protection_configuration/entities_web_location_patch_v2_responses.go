@@ -43,6 +43,18 @@ func (o *EntitiesWebLocationPatchV2Reader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewEntitiesWebLocationPatchV2NotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 409:
+		result := NewEntitiesWebLocationPatchV2Conflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesWebLocationPatchV2TooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -350,6 +362,226 @@ func (o *EntitiesWebLocationPatchV2Forbidden) GetPayload() *models.MsaspecRespon
 }
 
 func (o *EntitiesWebLocationPatchV2Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesWebLocationPatchV2NotFound creates a EntitiesWebLocationPatchV2NotFound with default headers values
+func NewEntitiesWebLocationPatchV2NotFound() *EntitiesWebLocationPatchV2NotFound {
+	return &EntitiesWebLocationPatchV2NotFound{}
+}
+
+/*
+EntitiesWebLocationPatchV2NotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type EntitiesWebLocationPatchV2NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities web location patch v2 not found response has a 2xx status code
+func (o *EntitiesWebLocationPatchV2NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities web location patch v2 not found response has a 3xx status code
+func (o *EntitiesWebLocationPatchV2NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities web location patch v2 not found response has a 4xx status code
+func (o *EntitiesWebLocationPatchV2NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities web location patch v2 not found response has a 5xx status code
+func (o *EntitiesWebLocationPatchV2NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities web location patch v2 not found response a status code equal to that given
+func (o *EntitiesWebLocationPatchV2NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the entities web location patch v2 not found response
+func (o *EntitiesWebLocationPatchV2NotFound) Code() int {
+	return 404
+}
+
+func (o *EntitiesWebLocationPatchV2NotFound) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/web-locations/v2][%d] entitiesWebLocationPatchV2NotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesWebLocationPatchV2NotFound) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/web-locations/v2][%d] entitiesWebLocationPatchV2NotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesWebLocationPatchV2NotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesWebLocationPatchV2NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesWebLocationPatchV2Conflict creates a EntitiesWebLocationPatchV2Conflict with default headers values
+func NewEntitiesWebLocationPatchV2Conflict() *EntitiesWebLocationPatchV2Conflict {
+	return &EntitiesWebLocationPatchV2Conflict{}
+}
+
+/*
+EntitiesWebLocationPatchV2Conflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type EntitiesWebLocationPatchV2Conflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities web location patch v2 conflict response has a 2xx status code
+func (o *EntitiesWebLocationPatchV2Conflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities web location patch v2 conflict response has a 3xx status code
+func (o *EntitiesWebLocationPatchV2Conflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities web location patch v2 conflict response has a 4xx status code
+func (o *EntitiesWebLocationPatchV2Conflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities web location patch v2 conflict response has a 5xx status code
+func (o *EntitiesWebLocationPatchV2Conflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities web location patch v2 conflict response a status code equal to that given
+func (o *EntitiesWebLocationPatchV2Conflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the entities web location patch v2 conflict response
+func (o *EntitiesWebLocationPatchV2Conflict) Code() int {
+	return 409
+}
+
+func (o *EntitiesWebLocationPatchV2Conflict) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/web-locations/v2][%d] entitiesWebLocationPatchV2Conflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesWebLocationPatchV2Conflict) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/web-locations/v2][%d] entitiesWebLocationPatchV2Conflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesWebLocationPatchV2Conflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesWebLocationPatchV2Conflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

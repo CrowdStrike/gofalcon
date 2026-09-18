@@ -223,6 +223,19 @@ func (m *CommonCredentials) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this common credentials. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *CommonCredentials) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // CommonCredentialsResources common credentials resources
 //
 // swagger:model CommonCredentialsResources
@@ -277,4 +290,17 @@ func (m *CommonCredentialsResources) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this common credentials resources. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *CommonCredentialsResources) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

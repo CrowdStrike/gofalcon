@@ -95,3 +95,16 @@ func (m *V1Platform) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this v1 platform. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *V1Platform) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

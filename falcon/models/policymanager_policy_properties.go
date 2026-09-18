@@ -24,17 +24,17 @@ type PolicymanagerPolicyProperties struct {
 	// Enum: [default custom]
 	AllowNotifications string `json:"allow_notifications,omitempty"`
 
-	// Length must be at most 2048 characters
+	// Length must be at most 4096 characters
 	BeExcludeDomains string `json:"be_exclude_domains,omitempty"`
 
-	// Must be a non-negative integer and max 65536
+	// Must be a non-negative integer and max 65536 bytes with consideration to the unit specified in be_paste_clipboard_max_size_unit
 	BePasteClipboardMaxSize float64 `json:"be_paste_clipboard_max_size,omitempty"`
 
 	// Accepts values: 'Bytes', 'KiB'
 	// Enum: [Bytes KiB]
 	BePasteClipboardMaxSizeUnit string `json:"be_paste_clipboard_max_size_unit,omitempty"`
 
-	// Must be a non-negative integer and max 65536
+	// Must be a non-negative integer and max 65536 bytes with consideration to the unit specified in be_paste_clipboard_min_size_unit
 	BePasteClipboardMinSize float64 `json:"be_paste_clipboard_min_size,omitempty"`
 
 	// Accepts values: 'Bytes', 'KiB'
@@ -119,6 +119,9 @@ type PolicymanagerPolicyProperties struct {
 	// Mac only. Enable or disable OCR
 	EnableOcr bool `json:"enable_ocr,omitempty"`
 
+	// Windows only. Enable or disable print monitoring
+	EnablePrintMonitor bool `json:"enable_print_monitor,omitempty"`
+
 	// Windows only. Enable screen capture before and after egress event
 	EnableScreenCapture bool `json:"enable_screen_capture,omitempty"`
 
@@ -137,26 +140,26 @@ type PolicymanagerPolicyProperties struct {
 	// If enabled, the user must provide additional details to justify the egress
 	EujRequireAdditionalDetails *bool `json:"euj_require_additional_details,omitempty"`
 
-	// Windows only. If enabled, Falcon Console users with Data Protection Forensics Manager role can request and download files for egress events. Data will be copied to the host's local storage when requested, or when matching a classification with storage enabled.
+	// If enabled, Falcon Console users with Data Protection Forensics Manager role can request and download files for egress events. Data will be copied to the host's local storage when requested, or when matching a classification with storage enabled.
 	EvidenceDownloadEnabled *bool `json:"evidence_download_enabled,omitempty"`
 
-	// Windows only. If enabled, data is copied to a protected evidence folder on the host at the time a download is requested to prevent tampering. Copies of data will be stored on the originating host for up to 30 days.
+	// If enabled, data is copied to a protected evidence folder on the host at the time a download is requested to prevent tampering. Copies of data will be stored on the originating host for up to 30 days.
 	EvidenceDuplicationEnabledDefault *bool `json:"evidence_duplication_enabled_default,omitempty"`
 
 	// Windows only. If enabled, when data encryption occurs, a copy of the original data is stored in a protected folder on the host. This ensures encrypted data is retrievable if it is part of an egress event within the following 30 days.
 	EvidenceEncryptedEnabled *bool `json:"evidence_encrypted_enabled,omitempty"`
 
-	// Windows only. Must be between 1 and 90
+	// Must be between 1 and 90
 	EvidenceStorageFreeDiskPerc float64 `json:"evidence_storage_free_disk_perc,omitempty"`
 
-	// Windows only. Must be between 1 and 100
+	// Must be between 1 and 100
 	EvidenceStorageMaxSize float64 `json:"evidence_storage_max_size,omitempty"`
 
 	// Inspection depth accepts values : 'balanced', 'high_performance', 'deep_scan'
 	// Enum: [balanced high_performance deep_scan]
 	InspectionDepth string `json:"inspection_depth,omitempty"`
 
-	// Must be between 512 and 524288000 bytes
+	// Must be between 512 and 524288000 bytes, with consideration to the unit specified in max_file_size_to_inspect_unit
 	MaxFileSizeToInspect float64 `json:"max_file_size_to_inspect,omitempty"`
 
 	// Must be either 'Bytes, KB or MB'
@@ -166,6 +169,9 @@ type PolicymanagerPolicyProperties struct {
 	// Confidence level accepts values: 'low', 'medium', 'high'
 	// Enum: [low medium high]
 	MinConfidenceLevel string `json:"min_confidence_level,omitempty"`
+
+	// Windows only. Network inspection exclusion list with at most 200 unique items
+	NetworkInspectionExcludeListV2 []string `json:"network_inspection_exclude_list_v2"`
 
 	// Windows only. Network inspection files exceeding size limit accepts values: 'block', 'allow'
 	// Enum: [block allow]
@@ -1061,4 +1067,17 @@ func (m *PolicymanagerPolicyProperties) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this policymanager policy properties. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *PolicymanagerPolicyProperties) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

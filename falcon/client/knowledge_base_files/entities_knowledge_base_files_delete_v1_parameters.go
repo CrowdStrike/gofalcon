@@ -63,7 +63,7 @@ type EntitiesKnowledgeBaseFilesDeleteV1Params struct {
 
 	/* ID.
 
-	   ID of the document to delete
+	   ID of the knowledge base file to delete
 	*/
 	ID string
 

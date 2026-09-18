@@ -65,6 +65,9 @@ type ModelsScanRequestType struct {
 	// scan request s3 key
 	// Required: true
 	ScanRequestS3Key *string `json:"scan_request_s3_key"`
+
+	// should preserve paths
+	ShouldPreservePaths bool `json:"should_preserve_paths,omitempty"`
 }
 
 // Validate validates this models scan request type
@@ -504,4 +507,17 @@ func (m *ModelsScanRequestType) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this models scan request type. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *ModelsScanRequestType) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

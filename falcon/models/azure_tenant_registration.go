@@ -128,6 +128,9 @@ type AzureTenantRegistration struct {
 	// microsoft graph permission ids readonly
 	MicrosoftGraphPermissionIdsReadonly bool `json:"microsoft_graph_permission_ids_readonly,omitempty"`
 
+	// object id
+	ObjectID string `json:"object_id,omitempty"`
+
 	// primary domain
 	// Required: true
 	PrimaryDomain *string `json:"primary_domain"`
@@ -833,4 +836,17 @@ func (m *AzureTenantRegistration) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this azure tenant registration. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AzureTenantRegistration) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

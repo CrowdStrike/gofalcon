@@ -38,6 +38,8 @@ type ClientService interface {
 
 	CloudRegistrationGcpGetRegistration(params *CloudRegistrationGcpGetRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpGetRegistrationOK, error)
 
+	CloudRegistrationGcpPostInfraManagerScript(params *CloudRegistrationGcpPostInfraManagerScriptParams, opts ...ClientOption) (*CloudRegistrationGcpPostInfraManagerScriptOK, *CloudRegistrationGcpPostInfraManagerScriptMultiStatus, error)
+
 	CloudRegistrationGcpPostTerraformScript(params *CloudRegistrationGcpPostTerraformScriptParams, opts ...ClientOption) (*CloudRegistrationGcpPostTerraformScriptOK, error)
 
 	CloudRegistrationGcpPutRegistration(params *CloudRegistrationGcpPutRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpPutRegistrationOK, error)
@@ -200,6 +202,47 @@ func (a *Client) CloudRegistrationGcpGetRegistration(params *CloudRegistrationGc
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-gcp-get-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationGcpPostInfraManagerScript generates google cloud infrastructure manager deployment commands
+
+Only supports infrastructure-manager deployment method. Returns gcloud infra-manager commands as structured JSON.
+*/
+func (a *Client) CloudRegistrationGcpPostInfraManagerScript(params *CloudRegistrationGcpPostInfraManagerScriptParams, opts ...ClientOption) (*CloudRegistrationGcpPostInfraManagerScriptOK, *CloudRegistrationGcpPostInfraManagerScriptMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationGcpPostInfraManagerScriptParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-gcp-post-infra-manager-script",
+		Method:             "POST",
+		PathPattern:        "/cloud-security-registration-google-cloud/entities/scripts-infra-manager/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationGcpPostInfraManagerScriptReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CloudRegistrationGcpPostInfraManagerScriptOK:
+		return value, nil, nil
+	case *CloudRegistrationGcpPostInfraManagerScriptMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud_google_cloud_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -122,3 +122,16 @@ func (m *SensorUpdateCreatePoliciesReqV2) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this sensor update create policies req v2. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *SensorUpdateCreatePoliciesReqV2) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

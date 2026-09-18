@@ -74,6 +74,7 @@ type CloudComplianceFrameworkPostureSummariesParams struct {
 	- `environment`
 	- `groups`
 	- `region`
+	- `resource_gcrn`
 	- `resource_type`
 	- `resource_type_name`
 	- `tag_key`

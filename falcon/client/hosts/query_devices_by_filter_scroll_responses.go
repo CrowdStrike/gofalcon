@@ -66,6 +66,24 @@ OK
 */
 type QueryDevicesByFilterScrollOK struct {
 
+	/* Date/Time when deprecation will be final.
+
+	   Format: dateTime
+	*/
+	XAPIDeprecationFinalDate string
+
+	/* Date/Time when deprecation started.
+
+	   Format: dateTime
+	*/
+	XAPIDeprecationStartDate string
+
+	/* Endpoint deprecation warning message which should include a link to the new endpoint.
+
+	   Format: string
+	*/
+	XAPIDeprecationWarning string
+
 	/* Trace-ID: submit to support if resolving an issue
 	 */
 	XCSTRACEID string
@@ -124,6 +142,27 @@ func (o *QueryDevicesByFilterScrollOK) GetPayload() *models.DeviceapiDeviceRespo
 }
 
 func (o *QueryDevicesByFilterScrollOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-Api-Deprecation-Final-Date
+	hdrXAPIDeprecationFinalDate := response.GetHeader("X-Api-Deprecation-Final-Date")
+
+	if hdrXAPIDeprecationFinalDate != "" {
+		o.XAPIDeprecationFinalDate = hdrXAPIDeprecationFinalDate
+	}
+
+	// hydrates response header X-Api-Deprecation-Start-Date
+	hdrXAPIDeprecationStartDate := response.GetHeader("X-Api-Deprecation-Start-Date")
+
+	if hdrXAPIDeprecationStartDate != "" {
+		o.XAPIDeprecationStartDate = hdrXAPIDeprecationStartDate
+	}
+
+	// hydrates response header X-Api-Deprecation-Warning
+	hdrXAPIDeprecationWarning := response.GetHeader("X-Api-Deprecation-Warning")
+
+	if hdrXAPIDeprecationWarning != "" {
+		o.XAPIDeprecationWarning = hdrXAPIDeprecationWarning
+	}
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

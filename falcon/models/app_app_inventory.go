@@ -421,6 +421,19 @@ func (m *AppAppInventory) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this app app inventory. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AppAppInventory) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // AppAppInventoryScopesItems0 app app inventory scopes items0
 //
 // swagger:model AppAppInventoryScopesItems0
@@ -465,4 +478,17 @@ func (m *AppAppInventoryScopesItems0) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this app app inventory scopes items0. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AppAppInventoryScopesItems0) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

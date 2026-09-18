@@ -40,6 +40,9 @@ type NvaapiScanCreateRequest struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// Scan exclusion configuration for the scan
+	ScanExclusion *NvaapiScanExclusion `json:"scan_exclusion,omitempty"`
+
 	// Scheduling configuration attached to the scan
 	Scheduling *NvaapiScanScheduling `json:"scheduling,omitempty"`
 
@@ -82,6 +85,10 @@ func (m *NvaapiScanCreateRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanExclusion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -170,6 +177,25 @@ func (m *NvaapiScanCreateRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *NvaapiScanCreateRequest) validateScanExclusion(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScanExclusion) { // not required
+		return nil
+	}
+
+	if m.ScanExclusion != nil {
+		if err := m.ScanExclusion.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scan_exclusion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scan_exclusion")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -331,6 +357,10 @@ func (m *NvaapiScanCreateRequest) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateScanExclusion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateScheduling(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -391,6 +421,27 @@ func (m *NvaapiScanCreateRequest) contextValidateCredentials(ctx context.Context
 				return ve.ValidateName("credentials")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("credentials")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NvaapiScanCreateRequest) contextValidateScanExclusion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScanExclusion != nil {
+
+		if swag.IsZero(m.ScanExclusion) { // not required
+			return nil
+		}
+
+		if err := m.ScanExclusion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scan_exclusion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scan_exclusion")
 			}
 			return err
 		}
@@ -520,4 +571,17 @@ func (m *NvaapiScanCreateRequest) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this nvaapi scan create request. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *NvaapiScanCreateRequest) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

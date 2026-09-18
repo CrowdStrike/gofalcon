@@ -36,6 +36,7 @@ type ClientService interface {
 
 	ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption) (*ArchiveListV1OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	ArchiveUploadV1(params *ArchiveUploadV1Params, opts ...ClientOption) (*ArchiveUploadV1OK, *ArchiveUploadV1Accepted, error)
 
 	ArchiveUploadV2(params *ArchiveUploadV2Params, opts ...ClientOption) (*ArchiveUploadV2OK, *ArchiveUploadV2Accepted, error)
@@ -171,6 +172,8 @@ func (a *Client) ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption
 
 /*
 ArchiveUploadV1 uploads an archive and extracts files list from it operation is asynchronous use archives entities archives v1 to check the status after uploading use archives entities extractions v1 to copy the file to internal storage making it available for content analysis this method is deprecated in favor of archives entities archives v2
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) ArchiveUploadV1(params *ArchiveUploadV1Params, opts ...ClientOption) (*ArchiveUploadV1OK, *ArchiveUploadV1Accepted, error) {
 	// TODO: Validate the params before sending

@@ -43,6 +43,12 @@ func (o *EntitiesLocalApplicationGroupPatchReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewEntitiesLocalApplicationGroupPatchNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewEntitiesLocalApplicationGroupPatchConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -356,6 +362,116 @@ func (o *EntitiesLocalApplicationGroupPatchForbidden) GetPayload() *models.Msasp
 }
 
 func (o *EntitiesLocalApplicationGroupPatchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesLocalApplicationGroupPatchNotFound creates a EntitiesLocalApplicationGroupPatchNotFound with default headers values
+func NewEntitiesLocalApplicationGroupPatchNotFound() *EntitiesLocalApplicationGroupPatchNotFound {
+	return &EntitiesLocalApplicationGroupPatchNotFound{}
+}
+
+/*
+EntitiesLocalApplicationGroupPatchNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type EntitiesLocalApplicationGroupPatchNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities local application group patch not found response has a 2xx status code
+func (o *EntitiesLocalApplicationGroupPatchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities local application group patch not found response has a 3xx status code
+func (o *EntitiesLocalApplicationGroupPatchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities local application group patch not found response has a 4xx status code
+func (o *EntitiesLocalApplicationGroupPatchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities local application group patch not found response has a 5xx status code
+func (o *EntitiesLocalApplicationGroupPatchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities local application group patch not found response a status code equal to that given
+func (o *EntitiesLocalApplicationGroupPatchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the entities local application group patch not found response
+func (o *EntitiesLocalApplicationGroupPatchNotFound) Code() int {
+	return 404
+}
+
+func (o *EntitiesLocalApplicationGroupPatchNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/local-application-groups/v1][%d] entitiesLocalApplicationGroupPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesLocalApplicationGroupPatchNotFound) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/local-application-groups/v1][%d] entitiesLocalApplicationGroupPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesLocalApplicationGroupPatchNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesLocalApplicationGroupPatchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

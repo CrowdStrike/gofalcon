@@ -23,13 +23,25 @@ type APIClientRequest struct {
 	// Required: true
 	Description *string `json:"description"`
 
+	// is confidential
+	// Required: true
+	IsConfidential *bool `json:"is_confidential"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`
 
+	// redirect uris
+	// Required: true
+	RedirectUris []string `json:"redirect_uris"`
+
 	// scopes
 	// Required: true
 	Scopes []string `json:"scopes"`
+
+	// type
+	// Required: true
+	Type *string `json:"type"`
 }
 
 // Validate validates this api client request
@@ -40,11 +52,23 @@ func (m *APIClientRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIsConfidential(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
+	if err := m.validateRedirectUris(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateScopes(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -63,6 +87,15 @@ func (m *APIClientRequest) validateDescription(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *APIClientRequest) validateIsConfidential(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_confidential", "body", m.IsConfidential); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *APIClientRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -72,9 +105,27 @@ func (m *APIClientRequest) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *APIClientRequest) validateRedirectUris(formats strfmt.Registry) error {
+
+	if err := validate.Required("redirect_uris", "body", m.RedirectUris); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *APIClientRequest) validateScopes(formats strfmt.Registry) error {
 
 	if err := validate.Required("scopes", "body", m.Scopes); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIClientRequest) validateType(formats strfmt.Registry) error {
+
+	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
 
@@ -102,4 +153,17 @@ func (m *APIClientRequest) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this api client request. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *APIClientRequest) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

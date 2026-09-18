@@ -43,6 +43,18 @@ func (o *EntitiesCloudApplicationPatchReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewEntitiesCloudApplicationPatchNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 409:
+		result := NewEntitiesCloudApplicationPatchConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesCloudApplicationPatchTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -350,6 +362,226 @@ func (o *EntitiesCloudApplicationPatchForbidden) GetPayload() *models.MsaspecRes
 }
 
 func (o *EntitiesCloudApplicationPatchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesCloudApplicationPatchNotFound creates a EntitiesCloudApplicationPatchNotFound with default headers values
+func NewEntitiesCloudApplicationPatchNotFound() *EntitiesCloudApplicationPatchNotFound {
+	return &EntitiesCloudApplicationPatchNotFound{}
+}
+
+/*
+EntitiesCloudApplicationPatchNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type EntitiesCloudApplicationPatchNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities cloud application patch not found response has a 2xx status code
+func (o *EntitiesCloudApplicationPatchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities cloud application patch not found response has a 3xx status code
+func (o *EntitiesCloudApplicationPatchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities cloud application patch not found response has a 4xx status code
+func (o *EntitiesCloudApplicationPatchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities cloud application patch not found response has a 5xx status code
+func (o *EntitiesCloudApplicationPatchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities cloud application patch not found response a status code equal to that given
+func (o *EntitiesCloudApplicationPatchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the entities cloud application patch not found response
+func (o *EntitiesCloudApplicationPatchNotFound) Code() int {
+	return 404
+}
+
+func (o *EntitiesCloudApplicationPatchNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/cloud-applications/v1][%d] entitiesCloudApplicationPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesCloudApplicationPatchNotFound) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/cloud-applications/v1][%d] entitiesCloudApplicationPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesCloudApplicationPatchNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesCloudApplicationPatchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesCloudApplicationPatchConflict creates a EntitiesCloudApplicationPatchConflict with default headers values
+func NewEntitiesCloudApplicationPatchConflict() *EntitiesCloudApplicationPatchConflict {
+	return &EntitiesCloudApplicationPatchConflict{}
+}
+
+/*
+EntitiesCloudApplicationPatchConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type EntitiesCloudApplicationPatchConflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities cloud application patch conflict response has a 2xx status code
+func (o *EntitiesCloudApplicationPatchConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities cloud application patch conflict response has a 3xx status code
+func (o *EntitiesCloudApplicationPatchConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities cloud application patch conflict response has a 4xx status code
+func (o *EntitiesCloudApplicationPatchConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities cloud application patch conflict response has a 5xx status code
+func (o *EntitiesCloudApplicationPatchConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities cloud application patch conflict response a status code equal to that given
+func (o *EntitiesCloudApplicationPatchConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the entities cloud application patch conflict response
+func (o *EntitiesCloudApplicationPatchConflict) Code() int {
+	return 409
+}
+
+func (o *EntitiesCloudApplicationPatchConflict) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/cloud-applications/v1][%d] entitiesCloudApplicationPatchConflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesCloudApplicationPatchConflict) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/cloud-applications/v1][%d] entitiesCloudApplicationPatchConflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesCloudApplicationPatchConflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesCloudApplicationPatchConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

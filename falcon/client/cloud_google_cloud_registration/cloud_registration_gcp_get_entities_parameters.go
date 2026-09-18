@@ -74,6 +74,12 @@ type CloudRegistrationGcpGetEntitiesParams struct {
 	*/
 	Ids []string
 
+	/* IncludeAllStatuses.
+
+	   Include entities with any registration status (default: false)
+	*/
+	IncludeAllStatuses *bool
+
 	/* Limit.
 
 	   Maximum number of records to return (default: 100, max: 500). Limit applies across all entity types.
@@ -112,14 +118,17 @@ func (o *CloudRegistrationGcpGetEntitiesParams) WithDefaults() *CloudRegistratio
 // All values with no default are reset to their zero value.
 func (o *CloudRegistrationGcpGetEntitiesParams) SetDefaults() {
 	var (
+		includeAllStatusesDefault = bool(false)
+
 		limitDefault = int64(100)
 
 		offsetDefault = int64(0)
 	)
 
 	val := CloudRegistrationGcpGetEntitiesParams{
-		Limit:  &limitDefault,
-		Offset: &offsetDefault,
+		IncludeAllStatuses: &includeAllStatusesDefault,
+		Limit:              &limitDefault,
+		Offset:             &offsetDefault,
 	}
 
 	val.timeout = o.timeout
@@ -181,6 +190,17 @@ func (o *CloudRegistrationGcpGetEntitiesParams) WithIds(ids []string) *CloudRegi
 // SetIds adds the ids to the cloud registration gcp get entities params
 func (o *CloudRegistrationGcpGetEntitiesParams) SetIds(ids []string) {
 	o.Ids = ids
+}
+
+// WithIncludeAllStatuses adds the includeAllStatuses to the cloud registration gcp get entities params
+func (o *CloudRegistrationGcpGetEntitiesParams) WithIncludeAllStatuses(includeAllStatuses *bool) *CloudRegistrationGcpGetEntitiesParams {
+	o.SetIncludeAllStatuses(includeAllStatuses)
+	return o
+}
+
+// SetIncludeAllStatuses adds the includeAllStatuses to the cloud registration gcp get entities params
+func (o *CloudRegistrationGcpGetEntitiesParams) SetIncludeAllStatuses(includeAllStatuses *bool) {
+	o.IncludeAllStatuses = includeAllStatuses
 }
 
 // WithLimit adds the limit to the cloud registration gcp get entities params
@@ -249,6 +269,23 @@ func (o *CloudRegistrationGcpGetEntitiesParams) WriteToRequest(r runtime.ClientR
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
+		}
+	}
+
+	if o.IncludeAllStatuses != nil {
+
+		// query param include_all_statuses
+		var qrIncludeAllStatuses bool
+
+		if o.IncludeAllStatuses != nil {
+			qrIncludeAllStatuses = *o.IncludeAllStatuses
+		}
+		qIncludeAllStatuses := swag.FormatBool(qrIncludeAllStatuses)
+		if qIncludeAllStatuses != "" {
+
+			if err := r.SetQueryParam("include_all_statuses", qIncludeAllStatuses); err != nil {
+				return err
+			}
 		}
 	}
 

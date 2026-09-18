@@ -64,7 +64,7 @@ type QueriesSensitivityLabelGetV2Params struct {
 
 	/* Filter.
 
-	   The filter to use when finding sensitivity labels. The only allowed filters are 'name', 'display_name', 'external_id' and 'deleted'
+	   The filter to use when finding sensitivity labels. The only allowed filters are 'name', 'display_name', 'external_id', 'deleted', 'created' and 'last_updated'
 	*/
 	Filter *string
 
@@ -84,7 +84,7 @@ type QueriesSensitivityLabelGetV2Params struct {
 
 	/* Sort.
 
-	   The sort instructions to order by on. Allowed values are 'name', 'display_name', 'deleted', 'created_at' and 'updated_at'
+	   The sort instructions to order by on. Allowed values are 'name', 'display_name', 'deleted', 'created' and 'last_updated'
 	*/
 	Sort *string
 

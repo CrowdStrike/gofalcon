@@ -35,6 +35,8 @@ type ClientService interface {
 
 	BulkCreateLookupFiles(params *BulkCreateLookupFilesParams, opts ...ClientOption) (*BulkCreateLookupFilesOK, error)
 
+	BulkCreatePersistedAggregations(params *BulkCreatePersistedAggregationsParams, opts ...ClientOption) (*BulkCreatePersistedAggregationsOK, error)
+
 	BulkCreateSavedQueriesFromTemplate(params *BulkCreateSavedQueriesFromTemplateParams, opts ...ClientOption) (*BulkCreateSavedQueriesFromTemplateOK, error)
 
 	BulkGetLookupFiles(params *BulkGetLookupFilesParams, opts ...ClientOption) (*BulkGetLookupFilesOK, error)
@@ -45,6 +47,8 @@ type ClientService interface {
 
 	BulkUpdateLookupFiles(params *BulkUpdateLookupFilesParams, opts ...ClientOption) (*BulkUpdateLookupFilesOK, error)
 
+	BulkUpdatePersistedAggregations(params *BulkUpdatePersistedAggregationsParams, opts ...ClientOption) (*BulkUpdatePersistedAggregationsOK, error)
+
 	BulkUpdateSavedQueriesFromTemplate(params *BulkUpdateSavedQueriesFromTemplateParams, opts ...ClientOption) (*BulkUpdateSavedQueriesFromTemplateOK, error)
 
 	CloneParser(params *CloneParserParams, opts ...ClientOption) (*CloneParserOK, error)
@@ -53,11 +57,14 @@ type ClientService interface {
 
 	CreateLookupFile(params *CreateLookupFileParams, opts ...ClientOption) (*CreateLookupFileOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateParser(params *CreateParserParams, opts ...ClientOption) (*CreateParserOK, error)
 
 	CreateParserExtension(params *CreateParserExtensionParams, opts ...ClientOption) (*CreateParserExtensionOK, error)
 
 	CreateParserFromTemplate(params *CreateParserFromTemplateParams, opts ...ClientOption) (*CreateParserFromTemplateOK, error)
+
+	CreatePersistedAggregation(params *CreatePersistedAggregationParams, opts ...ClientOption) (*CreatePersistedAggregationOK, error)
 
 	CreateSavedQuery(params *CreateSavedQueryParams, opts ...ClientOption) (*CreateSavedQueryOK, error)
 
@@ -66,6 +73,8 @@ type ClientService interface {
 	DeleteLookupFile(params *DeleteLookupFileParams, opts ...ClientOption) (*DeleteLookupFileOK, error)
 
 	DeleteParser(params *DeleteParserParams, opts ...ClientOption) (*DeleteParserOK, error)
+
+	DeletePersistedAggregation(params *DeletePersistedAggregationParams, opts ...ClientOption) (*DeletePersistedAggregationOK, error)
 
 	DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...ClientOption) (*DeleteSavedQueryOK, error)
 
@@ -107,9 +116,14 @@ type ClientService interface {
 
 	GetLookupV1(params *GetLookupV1Params, writer io.Writer, opts ...ClientOption) (*GetLookupV1OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetParser(params *GetParserParams, opts ...ClientOption) (*GetParserOK, error)
 
+	GetParserRollbackOptions(params *GetParserRollbackOptionsParams, opts ...ClientOption) (*GetParserRollbackOptionsOK, error)
+
 	GetParserTemplate(params *GetParserTemplateParams, opts ...ClientOption) (*GetParserTemplateOK, error)
+
+	GetPersistedAggregation(params *GetPersistedAggregationParams, opts ...ClientOption) (*GetPersistedAggregationOK, error)
 
 	GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts ...ClientOption) (*GetSavedQueryTemplateOK, error)
 
@@ -123,7 +137,11 @@ type ClientService interface {
 
 	ListParsers(params *ListParsersParams, opts ...ClientOption) (*ListParsersOK, error)
 
+	ListPersistedAggregations(params *ListPersistedAggregationsParams, opts ...ClientOption) (*ListPersistedAggregationsOK, error)
+
 	ListSavedQueries(params *ListSavedQueriesParams, opts ...ClientOption) (*ListSavedQueriesOK, error)
+
+	RollbackParser(params *RollbackParserParams, opts ...ClientOption) (*RollbackParserOK, error)
 
 	StartSearchV1(params *StartSearchV1Params, opts ...ClientOption) (*StartSearchV1OK, error)
 
@@ -137,6 +155,7 @@ type ClientService interface {
 
 	UpdateLookupFileEntries(params *UpdateLookupFileEntriesParams, opts ...ClientOption) (*UpdateLookupFileEntriesOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateParser(params *UpdateParserParams, opts ...ClientOption) (*UpdateParserOK, error)
 
 	UpdateParserAutoUpdatePolicy(params *UpdateParserAutoUpdatePolicyParams, opts ...ClientOption) (*UpdateParserAutoUpdatePolicyOK, error)
@@ -144,6 +163,8 @@ type ClientService interface {
 	UpdateParserExtension(params *UpdateParserExtensionParams, opts ...ClientOption) (*UpdateParserExtensionOK, error)
 
 	UpdateParserFromTemplate(params *UpdateParserFromTemplateParams, opts ...ClientOption) (*UpdateParserFromTemplateOK, error)
+
+	UpdatePersistedAggregation(params *UpdatePersistedAggregationParams, opts ...ClientOption) (*UpdatePersistedAggregationOK, error)
 
 	UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error)
 
@@ -261,6 +282,44 @@ func (a *Client) BulkCreateLookupFiles(params *BulkCreateLookupFilesParams, opts
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for BulkCreateLookupFiles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BulkCreatePersistedAggregations creates multiple persisted aggregations processes all items and returns per item success failure results
+*/
+func (a *Client) BulkCreatePersistedAggregations(params *BulkCreatePersistedAggregationsParams, opts ...ClientOption) (*BulkCreatePersistedAggregationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkCreatePersistedAggregationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkCreatePersistedAggregations",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/bulk-persisted-aggregations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkCreatePersistedAggregationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkCreatePersistedAggregationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkCreatePersistedAggregations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -455,6 +514,44 @@ func (a *Client) BulkUpdateLookupFiles(params *BulkUpdateLookupFilesParams, opts
 }
 
 /*
+BulkUpdatePersistedAggregations updates multiple persisted aggregations processes all items and returns per item success failure results
+*/
+func (a *Client) BulkUpdatePersistedAggregations(params *BulkUpdatePersistedAggregationsParams, opts ...ClientOption) (*BulkUpdatePersistedAggregationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdatePersistedAggregationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BulkUpdatePersistedAggregations",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/bulk-persisted-aggregations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BulkUpdatePersistedAggregationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*BulkUpdatePersistedAggregationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for BulkUpdatePersistedAggregations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 BulkUpdateSavedQueriesFromTemplate updates multiple saved queries from log scale y a m l templates processes all items and returns per item success failure results failed items are included in the errors array with appropriate HTTP status codes
 */
 func (a *Client) BulkUpdateSavedQueriesFromTemplate(params *BulkUpdateSavedQueriesFromTemplateParams, opts ...ClientOption) (*BulkUpdateSavedQueriesFromTemplateOK, error) {
@@ -608,6 +705,8 @@ func (a *Client) CreateLookupFile(params *CreateLookupFileParams, opts ...Client
 
 /*
 CreateParser creates parser in n g s i e m this endpoint has been deprecated in favour of the p o s t entities parsers template v1 API
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateParser(params *CreateParserParams, opts ...ClientOption) (*CreateParserOK, error) {
 	// TODO: Validate the params before sending
@@ -717,6 +816,44 @@ func (a *Client) CreateParserFromTemplate(params *CreateParserFromTemplateParams
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for CreateParserFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreatePersistedAggregation creates a persisted aggregation in log scale
+*/
+func (a *Client) CreatePersistedAggregation(params *CreatePersistedAggregationParams, opts ...ClientOption) (*CreatePersistedAggregationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreatePersistedAggregationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreatePersistedAggregation",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/persisted-aggregations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreatePersistedAggregationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreatePersistedAggregationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreatePersistedAggregation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -869,6 +1006,44 @@ func (a *Client) DeleteParser(params *DeleteParserParams, opts ...ClientOption) 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for DeleteParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeletePersistedAggregation deletes one or more persisted aggregations by ID
+*/
+func (a *Client) DeletePersistedAggregation(params *DeletePersistedAggregationParams, opts ...ClientOption) (*DeletePersistedAggregationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeletePersistedAggregationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeletePersistedAggregation",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/persisted-aggregations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeletePersistedAggregationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeletePersistedAggregationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeletePersistedAggregation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1636,6 +1811,8 @@ func (a *Client) GetLookupV1(params *GetLookupV1Params, writer io.Writer, opts .
 
 /*
 GetParser retrieves parser in n g s i e m this endpoint has been deprecated in favour of the g e t entities parsers template v1 API
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetParser(params *GetParserParams, opts ...ClientOption) (*GetParserOK, error) {
 	// TODO: Validate the params before sending
@@ -1669,6 +1846,44 @@ func (a *Client) GetParser(params *GetParserParams, opts ...ClientOption) (*GetP
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetParserRollbackOptions retrieves available rollback versions for a parser returns a list of previous versions that the parser can be rolled back to including version metadata changelog and author information
+*/
+func (a *Client) GetParserRollbackOptions(params *GetParserRollbackOptionsParams, opts ...ClientOption) (*GetParserRollbackOptionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetParserRollbackOptionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetParserRollbackOptions",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/parsers-rollback/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetParserRollbackOptionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetParserRollbackOptionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetParserRollbackOptions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1707,6 +1922,44 @@ func (a *Client) GetParserTemplate(params *GetParserTemplateParams, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetParserTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetPersistedAggregation gets a persisted aggregation by ID
+*/
+func (a *Client) GetPersistedAggregation(params *GetPersistedAggregationParams, opts ...ClientOption) (*GetPersistedAggregationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetPersistedAggregationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetPersistedAggregation",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/persisted-aggregations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetPersistedAggregationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetPersistedAggregationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetPersistedAggregation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1939,6 +2192,44 @@ func (a *Client) ListParsers(params *ListParsersParams, opts ...ClientOption) (*
 }
 
 /*
+ListPersistedAggregations lists persisted aggregations in a search domain with pagination
+*/
+func (a *Client) ListPersistedAggregations(params *ListPersistedAggregationsParams, opts ...ClientOption) (*ListPersistedAggregationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListPersistedAggregationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListPersistedAggregations",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/queries/persisted-aggregations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ListPersistedAggregationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListPersistedAggregationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListPersistedAggregations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ListSavedQueries lists saved queries in n g s i e m with pagination and filtering supports bulk listing with pagination default limit 50 and optional name filtering
 */
 func (a *Client) ListSavedQueries(params *ListSavedQueriesParams, opts ...ClientOption) (*ListSavedQueriesOK, error) {
@@ -1973,6 +2264,44 @@ func (a *Client) ListSavedQueries(params *ListSavedQueriesParams, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ListSavedQueries: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RollbackParser rollbacks a parser to a previously installed version this operation changes the active parser version to a specified earlier version the rollback is recorded in audit logs with the initiator s identity requires parser id and target version in the request body
+*/
+func (a *Client) RollbackParser(params *RollbackParserParams, opts ...ClientOption) (*RollbackParserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRollbackParserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RollbackParser",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/parsers-rollback/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &RollbackParserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RollbackParserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RollbackParser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -2206,6 +2535,8 @@ func (a *Client) UpdateLookupFileEntries(params *UpdateLookupFileEntriesParams, 
 
 /*
 UpdateParser updates parser in n g s i e m please note that name changes are not supported but rather should be created as a new parser this endpoint has been deprecated in favour of the p a t c h entities parsers template v1 API
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateParser(params *UpdateParserParams, opts ...ClientOption) (*UpdateParserOK, error) {
 	// TODO: Validate the params before sending
@@ -2353,6 +2684,44 @@ func (a *Client) UpdateParserFromTemplate(params *UpdateParserFromTemplateParams
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateParserFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdatePersistedAggregation updates a persisted aggregation supports renaming via current name new name
+*/
+func (a *Client) UpdatePersistedAggregation(params *UpdatePersistedAggregationParams, opts ...ClientOption) (*UpdatePersistedAggregationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdatePersistedAggregationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdatePersistedAggregation",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/persisted-aggregations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdatePersistedAggregationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdatePersistedAggregationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdatePersistedAggregation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

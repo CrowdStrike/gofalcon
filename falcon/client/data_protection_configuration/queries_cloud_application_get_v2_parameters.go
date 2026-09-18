@@ -64,7 +64,7 @@ type QueriesCloudApplicationGetV2Params struct {
 
 	/* Filter.
 
-	   Optional filter for searching cloud applications. Allowed filters are 'name' (string), 'type' (array of strings representing the tier, accepted values are: integrated, predefined, custom), 'deleted' (boolean), supports_network_inspection (boolean) and 'application_group_id' (string)
+	   Optional filter for searching cloud applications. Allowed filters are 'name' (string), 'type' (array of strings representing the tier, accepted values are: integrated, predefined, custom), 'deleted' (boolean), supports_network_inspection (boolean), 'application_group_id' (string), 'created' and 'last_updated'
 	*/
 	Filter *string
 
@@ -84,7 +84,7 @@ type QueriesCloudApplicationGetV2Params struct {
 
 	/* Sort.
 
-	   The sort instructions to order by on. Allowed values are 'name' (string), 'type' (array of strings representing the tier, accepted values are: integrated, predefined, custom), 'deleted' (boolean) and 'application_group_id' (string)
+	   The sort instructions to order by on. Allowed values are 'name' (string), 'type' (array of strings representing the tier, accepted values are: integrated, predefined, custom), 'deleted' (boolean), 'application_group_id' (string), 'created' and 'last_updated'
 	*/
 	Sort *string
 

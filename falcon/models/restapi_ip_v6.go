@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -20,6 +21,21 @@ type RestapiIPV6 struct {
 	// An array of Autonomous System Numbers (ASNs)
 	ASN []int64 `json:"ASN"`
 
+	// Organization that owns the Autonomous System
+	ASNOrg string `json:"ASNOrg,omitempty"`
+
+	// Name of the city the address is located in, absent when unknown
+	City string `json:"City,omitempty"`
+
+	// Name of the country the address is located in
+	Country string `json:"Country,omitempty"`
+
+	// ISO 3166-1 alpha-2 code of the country the address is located in
+	CountryCode string `json:"CountryCode,omitempty"`
+
+	// Honeypot-derived observations for the IP, covering the last 30 days of activity
+	HoneypotIntelligence *RestapiHoneypotIntelligence `json:"HoneypotIntelligence,omitempty"`
+
 	// This can be one of: `AdversaryControlled`, `CDN`, `PublicDNSResolver`, `CaptivePortal`, `DNSSinkhole`, `DNSRootServer`, `HoneypotHoneypot`, etc.
 	IPProperties []string `json:"IPProperties"`
 
@@ -28,15 +44,76 @@ type RestapiIPV6 struct {
 
 	// Internet service provider
 	ISP string `json:"ISP,omitempty"`
+
+	// Organization associated with the address, often but not always the ISP
+	Organization string `json:"Organization,omitempty"`
 }
 
 // Validate validates this restapi IPv6
 func (m *RestapiIPV6) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateHoneypotIntelligence(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this restapi IPv6 based on context it is used
+func (m *RestapiIPV6) validateHoneypotIntelligence(formats strfmt.Registry) error {
+	if swag.IsZero(m.HoneypotIntelligence) { // not required
+		return nil
+	}
+
+	if m.HoneypotIntelligence != nil {
+		if err := m.HoneypotIntelligence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("HoneypotIntelligence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("HoneypotIntelligence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this restapi IPv6 based on the context it is used
 func (m *RestapiIPV6) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateHoneypotIntelligence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RestapiIPV6) contextValidateHoneypotIntelligence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HoneypotIntelligence != nil {
+
+		if swag.IsZero(m.HoneypotIntelligence) { // not required
+			return nil
+		}
+
+		if err := m.HoneypotIntelligence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("HoneypotIntelligence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("HoneypotIntelligence")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -56,4 +133,17 @@ func (m *RestapiIPV6) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this restapi IPv6. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *RestapiIPV6) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

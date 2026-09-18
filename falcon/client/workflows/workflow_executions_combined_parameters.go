@@ -80,6 +80,12 @@ type WorkflowExecutionsCombinedParams struct {
 	*/
 	Offset *string
 
+	/* SkipFields.
+
+	   Fields to omit from the response; valid values are (trigger, activities, flows, submodels). When specified, the corresponding node-level details are skipped.
+	*/
+	SkipFields []string
+
 	/* Sort.
 
 	   Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
@@ -172,6 +178,17 @@ func (o *WorkflowExecutionsCombinedParams) SetOffset(offset *string) {
 	o.Offset = offset
 }
 
+// WithSkipFields adds the skipFields to the workflow executions combined params
+func (o *WorkflowExecutionsCombinedParams) WithSkipFields(skipFields []string) *WorkflowExecutionsCombinedParams {
+	o.SetSkipFields(skipFields)
+	return o
+}
+
+// SetSkipFields adds the skipFields to the workflow executions combined params
+func (o *WorkflowExecutionsCombinedParams) SetSkipFields(skipFields []string) {
+	o.SkipFields = skipFields
+}
+
 // WithSort adds the sort to the workflow executions combined params
 func (o *WorkflowExecutionsCombinedParams) WithSort(sort *string) *WorkflowExecutionsCombinedParams {
 	o.SetSort(sort)
@@ -233,6 +250,17 @@ func (o *WorkflowExecutionsCombinedParams) WriteToRequest(r runtime.ClientReques
 		}
 	}
 
+	if o.SkipFields != nil {
+
+		// binding items for skip_fields
+		joinedSkipFields := o.bindParamSkipFields(reg)
+
+		// query array param skip_fields
+		if err := r.SetQueryParam("skip_fields", joinedSkipFields...); err != nil {
+			return err
+		}
+	}
+
 	if o.Sort != nil {
 
 		// query param sort
@@ -254,4 +282,21 @@ func (o *WorkflowExecutionsCombinedParams) WriteToRequest(r runtime.ClientReques
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamWorkflowExecutionsCombined binds the parameter skip_fields
+func (o *WorkflowExecutionsCombinedParams) bindParamSkipFields(formats strfmt.Registry) []string {
+	skipFieldsIR := o.SkipFields
+
+	var skipFieldsIC []string
+	for _, skipFieldsIIR := range skipFieldsIR { // explode []string
+
+		skipFieldsIIV := skipFieldsIIR // string as string
+		skipFieldsIC = append(skipFieldsIC, skipFieldsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	skipFieldsIS := swag.JoinByFormat(skipFieldsIC, "csv")
+
+	return skipFieldsIS
 }

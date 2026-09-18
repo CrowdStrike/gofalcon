@@ -64,7 +64,7 @@ type QueriesFileTypeGetV2Params struct {
 
 	/* Filter.
 
-	   The filter to use when finding file types. Allowed filter is 'name', 'created_at' and 'updated_at'
+	   The filter to use when finding file types. Allowed filters are 'name', 'created', 'last_updated' and 'product'
 	*/
 	Filter *string
 
@@ -84,7 +84,7 @@ type QueriesFileTypeGetV2Params struct {
 
 	/* Sort.
 
-	   The sort instructions to order by on. Allowed values are 'name', 'created_at' and 'updated_at'
+	   The sort instructions to order by on. Allowed values are 'name', 'created' and 'last_updated'
 	*/
 	Sort *string
 

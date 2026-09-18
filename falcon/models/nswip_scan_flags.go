@@ -17,6 +17,9 @@ import (
 // swagger:model nswip.ScanFlags
 type NswipScanFlags struct {
 
+	// defeat icmp ratelimit
+	DefeatIcmpRatelimit bool `json:"defeat_icmp_ratelimit,omitempty"`
+
 	// defeat rst ratelimit
 	DefeatRstRatelimit bool `json:"defeat_rst_ratelimit,omitempty"`
 
@@ -86,4 +89,17 @@ func (m *NswipScanFlags) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this nswip scan flags. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *NswipScanFlags) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

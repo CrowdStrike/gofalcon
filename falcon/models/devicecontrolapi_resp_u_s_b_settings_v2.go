@@ -46,9 +46,6 @@ type DevicecontrolapiRespUSBSettingsV2 struct {
 	// Enforcement mode for Windows Storage Spaces
 	StorageSpaceEnforcementMode string `json:"storage_space_enforcement_mode,omitempty"`
 
-	// Enforcement mode for User Based exceptions
-	UserBasedEnforcementMode string `json:"user_based_enforcement_mode,omitempty"`
-
 	// Indicates whether the policy will include whitelist exceptions (ENABLE_ALWAYS, DISABLE_VIRTUAL)
 	WhitelistMode string `json:"whitelist_mode,omitempty"`
 }
@@ -249,4 +246,17 @@ func (m *DevicecontrolapiRespUSBSettingsV2) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this devicecontrolapi resp u s b settings v2. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DevicecontrolapiRespUSBSettingsV2) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

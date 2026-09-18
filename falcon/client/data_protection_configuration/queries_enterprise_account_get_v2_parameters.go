@@ -64,7 +64,7 @@ type QueriesEnterpriseAccountGetV2Params struct {
 
 	/* Filter.
 
-	   The filter to use when finding enterprise accounts. Allowed filters are 'name', 'application_group_id', 'deleted', 'created_at' and 'updated_at'
+	   The filter to use when finding enterprise accounts. Allowed filters are 'name', 'application_group_id', 'deleted', 'created' and 'last_updated'
 	*/
 	Filter *string
 
@@ -84,7 +84,7 @@ type QueriesEnterpriseAccountGetV2Params struct {
 
 	/* Sort.
 
-	   The sort instructions to order by on. Allowed values are 'name', 'application_group_id', 'deleted', 'created_at' and 'updated_at'
+	   The sort instructions to order by on. Allowed values are 'name', 'application_group_id', 'deleted', 'created' and 'last_updated'
 	*/
 	Sort *string
 

@@ -57,7 +57,7 @@ type JsonschemaSubSchema struct {
 	Description string `json:"description,omitempty"`
 
 	// else
-	Else *JsonschemaSubSchema `json:"else,omitempty"`
+	Else string `json:"else,omitempty"`
 
 	// enum
 	Enum []JsonschemaSubSchemaEnum `json:"enum"`
@@ -78,10 +78,10 @@ type JsonschemaSubSchema struct {
 	Format string `json:"format,omitempty"`
 
 	// if
-	If *JsonschemaSubSchema `json:"if,omitempty"`
+	If string `json:"if,omitempty"`
 
 	// items
-	Items *JsonschemaSubSchema `json:"items,omitempty"`
+	Items string `json:"items,omitempty"`
 
 	// max items
 	MaxItems int32 `json:"maxItems,omitempty"`
@@ -96,7 +96,7 @@ type JsonschemaSubSchema struct {
 	Maximum int32 `json:"maximum,omitempty"`
 
 	// media
-	Media *JsonschemaSubSchema `json:"media,omitempty"`
+	Media string `json:"media,omitempty"`
 
 	// min items
 	MinItems int32 `json:"minItems,omitempty"`
@@ -114,7 +114,7 @@ type JsonschemaSubSchema struct {
 	MultipleOf int32 `json:"multipleOf,omitempty"`
 
 	// not
-	Not *JsonschemaSubSchema `json:"not,omitempty"`
+	Not string `json:"not,omitempty"`
 
 	// one of
 	OneOf []*JsonschemaSubSchema `json:"oneOf"`
@@ -132,7 +132,7 @@ type JsonschemaSubSchema struct {
 	Required []string `json:"required"`
 
 	// then
-	Then *JsonschemaSubSchema `json:"then,omitempty"`
+	Then string `json:"then,omitempty"`
 
 	// title
 	Title string `json:"title,omitempty"`
@@ -163,6 +163,9 @@ type JsonschemaSubSchema struct {
 
 	// x cs error message
 	XCsErrorMessage map[string]string `json:"x-cs-errorMessage,omitempty"`
+
+	// x cs extensible enum
+	XCsExtensibleEnum []JsonschemaSubSchemaxCsExtensibleEnum `json:"x-cs-extensible-enum"`
 
 	// x cs immutable
 	XCsImmutable bool `json:"x-cs-immutable,omitempty"`
@@ -215,6 +218,12 @@ type JsonschemaSubSchema struct {
 	// x cs ucl cid specific
 	XCsUclCidSpecific bool `json:"x-cs-ucl-cid-specific,omitempty"`
 
+	// x cs ucl key value display
+	XCsUclKeyValueDisplay bool `json:"x-cs-ucl-key-value-display,omitempty"`
+
+	// x cs ucl key value display order
+	XCsUclKeyValueDisplayOrder int32 `json:"x-cs-ucl-key-value-display-order,omitempty"`
+
 	// x cs ui
 	XCsUI *JsonschemaUIExtensions `json:"x-cs-ui,omitempty"`
 
@@ -238,26 +247,6 @@ func (m *JsonschemaSubSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateElse(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIf(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateItems(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMedia(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateNot(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateOneOf(formats); err != nil {
 		res = append(res, err)
 	}
@@ -267,10 +256,6 @@ func (m *JsonschemaSubSchema) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProperties(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateThen(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -398,101 +383,6 @@ func (m *JsonschemaSubSchema) validateDependencies(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *JsonschemaSubSchema) validateElse(formats strfmt.Registry) error {
-	if swag.IsZero(m.Else) { // not required
-		return nil
-	}
-
-	if m.Else != nil {
-		if err := m.Else.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("else")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("else")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) validateIf(formats strfmt.Registry) error {
-	if swag.IsZero(m.If) { // not required
-		return nil
-	}
-
-	if m.If != nil {
-		if err := m.If.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("if")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("if")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) validateItems(formats strfmt.Registry) error {
-	if swag.IsZero(m.Items) { // not required
-		return nil
-	}
-
-	if m.Items != nil {
-		if err := m.Items.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("items")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("items")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) validateMedia(formats strfmt.Registry) error {
-	if swag.IsZero(m.Media) { // not required
-		return nil
-	}
-
-	if m.Media != nil {
-		if err := m.Media.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("media")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("media")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) validateNot(formats strfmt.Registry) error {
-	if swag.IsZero(m.Not) { // not required
-		return nil
-	}
-
-	if m.Not != nil {
-		if err := m.Not.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("not")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("not")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *JsonschemaSubSchema) validateOneOf(formats strfmt.Registry) error {
 	if swag.IsZero(m.OneOf) { // not required
 		return nil
@@ -566,25 +456,6 @@ func (m *JsonschemaSubSchema) validateProperties(formats strfmt.Registry) error 
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) validateThen(formats strfmt.Registry) error {
-	if swag.IsZero(m.Then) { // not required
-		return nil
-	}
-
-	if m.Then != nil {
-		if err := m.Then.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("then")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("then")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -803,26 +674,6 @@ func (m *JsonschemaSubSchema) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateElse(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateIf(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateItems(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateMedia(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateNot(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateOneOf(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -832,10 +683,6 @@ func (m *JsonschemaSubSchema) ContextValidate(ctx context.Context, formats strfm
 	}
 
 	if err := m.contextValidateProperties(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateThen(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -950,111 +797,6 @@ func (m *JsonschemaSubSchema) contextValidateDependencies(ctx context.Context, f
 	return nil
 }
 
-func (m *JsonschemaSubSchema) contextValidateElse(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Else != nil {
-
-		if swag.IsZero(m.Else) { // not required
-			return nil
-		}
-
-		if err := m.Else.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("else")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("else")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) contextValidateIf(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.If != nil {
-
-		if swag.IsZero(m.If) { // not required
-			return nil
-		}
-
-		if err := m.If.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("if")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("if")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) contextValidateItems(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Items != nil {
-
-		if swag.IsZero(m.Items) { // not required
-			return nil
-		}
-
-		if err := m.Items.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("items")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("items")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) contextValidateMedia(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Media != nil {
-
-		if swag.IsZero(m.Media) { // not required
-			return nil
-		}
-
-		if err := m.Media.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("media")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("media")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) contextValidateNot(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Not != nil {
-
-		if swag.IsZero(m.Not) { // not required
-			return nil
-		}
-
-		if err := m.Not.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("not")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("not")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *JsonschemaSubSchema) contextValidateOneOf(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.OneOf); i++ {
@@ -1105,27 +847,6 @@ func (m *JsonschemaSubSchema) contextValidateProperties(ctx context.Context, for
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) contextValidateThen(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Then != nil {
-
-		if swag.IsZero(m.Then) { // not required
-			return nil
-		}
-
-		if err := m.Then.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("then")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("then")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -1361,4 +1082,17 @@ func (m *JsonschemaSubSchema) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this jsonschema sub schema. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *JsonschemaSubSchema) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

@@ -126,3 +126,16 @@ func (m *RegistrationAWSAccountD4CExtV2) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this registration a w s account d4 c ext v2. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *RegistrationAWSAccountD4CExtV2) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

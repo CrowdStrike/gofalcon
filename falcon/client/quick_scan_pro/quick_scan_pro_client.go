@@ -160,7 +160,7 @@ func (a *Client) GetScanResult(params *GetScanResultParams, opts ...ClientOption
 }
 
 /*
-LaunchScan starts scanning a file uploaded through quickscanpro entities files v1
+LaunchScan starts scanning a file uploaded through quickscanpro entities files v1 each resource accepts an optional scan mode fast pipe standard pipe deep default standard
 */
 func (a *Client) LaunchScan(params *LaunchScanParams, opts ...ClientOption) (*LaunchScanOK, error) {
 	// TODO: Validate the params before sending

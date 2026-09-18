@@ -404,7 +404,7 @@ func NewGetScansNotFound() *GetScansNotFound {
 /*
 GetScansNotFound describes a response with status code 404, with default header values.
 
-Forbidden
+Not Found
 */
 type GetScansNotFound struct {
 
