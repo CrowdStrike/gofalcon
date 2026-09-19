@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/go-openapi/strfmt"
+
 	"github.com/crowdstrike/gofalcon/falcon/client"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
 	"github.com/crowdstrike/gofalcon/falcon/models"
@@ -36,6 +38,19 @@ func newStream(
 	offset uint64,
 	httpClient *http.Client,
 ) (*StreamingHandle, error) {
+	if stream == nil {
+		return nil, errors.New("no stream descriptor provided")
+	}
+	// the descriptor arrives from ListAvailableStreamsOAuth2 and nothing has checked it,
+	// so every field the spec marks required can still be nil by the time we read it
+	if err := stream.Validate(strfmt.Default); err != nil {
+		return nil, fmt.Errorf("incomplete stream descriptor: %w", err)
+	}
+	if *stream.RefreshActiveSessionInterval <= 0 {
+		return nil, fmt.Errorf("stream descriptor carries a non-positive refreshActiveSessionInterval: %d",
+			*stream.RefreshActiveSessionInterval)
+	}
+
 	ctx, cancel := context.WithCancel(ctx)
 
 	sh := &StreamingHandle{
