@@ -31,6 +31,12 @@ func (o *EntitiesSensitivityLabelDeleteV2Reader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return result, nil
+	case 207:
+		result := NewEntitiesSensitivityLabelDeleteV2MultiStatus()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewEntitiesSensitivityLabelDeleteV2BadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -136,6 +142,116 @@ func (o *EntitiesSensitivityLabelDeleteV2OK) GetPayload() *models.APISensitivity
 }
 
 func (o *EntitiesSensitivityLabelDeleteV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APISensitivityLabelMSAResponseV2)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesSensitivityLabelDeleteV2MultiStatus creates a EntitiesSensitivityLabelDeleteV2MultiStatus with default headers values
+func NewEntitiesSensitivityLabelDeleteV2MultiStatus() *EntitiesSensitivityLabelDeleteV2MultiStatus {
+	return &EntitiesSensitivityLabelDeleteV2MultiStatus{}
+}
+
+/*
+EntitiesSensitivityLabelDeleteV2MultiStatus describes a response with status code 207, with default header values.
+
+Multi-Status
+*/
+type EntitiesSensitivityLabelDeleteV2MultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APISensitivityLabelMSAResponseV2
+}
+
+// IsSuccess returns true when this entities sensitivity label delete v2 multi status response has a 2xx status code
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this entities sensitivity label delete v2 multi status response has a 3xx status code
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities sensitivity label delete v2 multi status response has a 4xx status code
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities sensitivity label delete v2 multi status response has a 5xx status code
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities sensitivity label delete v2 multi status response a status code equal to that given
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
+// Code gets the status code for the entities sensitivity label delete v2 multi status response
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) Code() int {
+	return 207
+}
+
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) Error() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/labels/v2][%d] entitiesSensitivityLabelDeleteV2MultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) String() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/labels/v2][%d] entitiesSensitivityLabelDeleteV2MultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) GetPayload() *models.APISensitivityLabelMSAResponseV2 {
+	return o.Payload
+}
+
+func (o *EntitiesSensitivityLabelDeleteV2MultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

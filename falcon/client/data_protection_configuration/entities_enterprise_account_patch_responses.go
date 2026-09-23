@@ -43,6 +43,18 @@ func (o *EntitiesEnterpriseAccountPatchReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewEntitiesEnterpriseAccountPatchNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 409:
+		result := NewEntitiesEnterpriseAccountPatchConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesEnterpriseAccountPatchTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -350,6 +362,226 @@ func (o *EntitiesEnterpriseAccountPatchForbidden) GetPayload() *models.MsaspecRe
 }
 
 func (o *EntitiesEnterpriseAccountPatchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesEnterpriseAccountPatchNotFound creates a EntitiesEnterpriseAccountPatchNotFound with default headers values
+func NewEntitiesEnterpriseAccountPatchNotFound() *EntitiesEnterpriseAccountPatchNotFound {
+	return &EntitiesEnterpriseAccountPatchNotFound{}
+}
+
+/*
+EntitiesEnterpriseAccountPatchNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type EntitiesEnterpriseAccountPatchNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities enterprise account patch not found response has a 2xx status code
+func (o *EntitiesEnterpriseAccountPatchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities enterprise account patch not found response has a 3xx status code
+func (o *EntitiesEnterpriseAccountPatchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities enterprise account patch not found response has a 4xx status code
+func (o *EntitiesEnterpriseAccountPatchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities enterprise account patch not found response has a 5xx status code
+func (o *EntitiesEnterpriseAccountPatchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities enterprise account patch not found response a status code equal to that given
+func (o *EntitiesEnterpriseAccountPatchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the entities enterprise account patch not found response
+func (o *EntitiesEnterpriseAccountPatchNotFound) Code() int {
+	return 404
+}
+
+func (o *EntitiesEnterpriseAccountPatchNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/enterprise-accounts/v1][%d] entitiesEnterpriseAccountPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesEnterpriseAccountPatchNotFound) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/enterprise-accounts/v1][%d] entitiesEnterpriseAccountPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesEnterpriseAccountPatchNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesEnterpriseAccountPatchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesEnterpriseAccountPatchConflict creates a EntitiesEnterpriseAccountPatchConflict with default headers values
+func NewEntitiesEnterpriseAccountPatchConflict() *EntitiesEnterpriseAccountPatchConflict {
+	return &EntitiesEnterpriseAccountPatchConflict{}
+}
+
+/*
+EntitiesEnterpriseAccountPatchConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type EntitiesEnterpriseAccountPatchConflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities enterprise account patch conflict response has a 2xx status code
+func (o *EntitiesEnterpriseAccountPatchConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities enterprise account patch conflict response has a 3xx status code
+func (o *EntitiesEnterpriseAccountPatchConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities enterprise account patch conflict response has a 4xx status code
+func (o *EntitiesEnterpriseAccountPatchConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities enterprise account patch conflict response has a 5xx status code
+func (o *EntitiesEnterpriseAccountPatchConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities enterprise account patch conflict response a status code equal to that given
+func (o *EntitiesEnterpriseAccountPatchConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the entities enterprise account patch conflict response
+func (o *EntitiesEnterpriseAccountPatchConflict) Code() int {
+	return 409
+}
+
+func (o *EntitiesEnterpriseAccountPatchConflict) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/enterprise-accounts/v1][%d] entitiesEnterpriseAccountPatchConflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesEnterpriseAccountPatchConflict) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/enterprise-accounts/v1][%d] entitiesEnterpriseAccountPatchConflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesEnterpriseAccountPatchConflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesEnterpriseAccountPatchConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

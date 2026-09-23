@@ -74,6 +74,11 @@ type UserGetUserInventory struct {
 	// Required: true
 	IntegrationsTotal *int64 `json:"integrations_total"`
 
+	// Item id
+	// Required: true
+	// Min Length: 1
+	ItemID *string `json:"item_id"`
+
 	// login names
 	// Required: true
 	LoginNames []string `json:"login_names"`
@@ -142,6 +147,10 @@ func (m *UserGetUserInventory) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIntegrationsTotal(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateItemID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -335,6 +344,19 @@ func (m *UserGetUserInventory) validateIntegrationsTotal(formats strfmt.Registry
 	return nil
 }
 
+func (m *UserGetUserInventory) validateItemID(formats strfmt.Registry) error {
+
+	if err := validate.Required("item_id", "body", m.ItemID); err != nil {
+		return err
+	}
+
+	if err := validate.MinLength("item_id", "body", *m.ItemID, 1); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *UserGetUserInventory) validateLoginNames(formats strfmt.Registry) error {
 
 	if err := validate.Required("login_names", "body", m.LoginNames); err != nil {
@@ -471,4 +493,17 @@ func (m *UserGetUserInventory) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this user get user inventory. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *UserGetUserInventory) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

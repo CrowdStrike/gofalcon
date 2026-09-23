@@ -83,8 +83,6 @@ type ReadRequestBodyOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
-
-	Payload models.MapStringInterface
 }
 
 // IsSuccess returns true when this read request body o k response has a 2xx status code
@@ -118,15 +116,11 @@ func (o *ReadRequestBodyOK) Code() int {
 }
 
 func (o *ReadRequestBodyOK) Error() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK ", 200)
 }
 
 func (o *ReadRequestBodyOK) String() string {
-	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK  %+v", 200, o.Payload)
-}
-
-func (o *ReadRequestBodyOK) GetPayload() models.MapStringInterface {
-	return o.Payload
+	return fmt.Sprintf("[GET /faas-gateway/entities/execution-request-body/v2][%d] readRequestBodyOK ", 200)
 }
 
 func (o *ReadRequestBodyOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -158,11 +152,6 @@ func (o *ReadRequestBodyOK) readResponse(response runtime.ClientResponse, consum
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
-		return err
 	}
 
 	return nil

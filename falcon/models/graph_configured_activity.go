@@ -342,3 +342,16 @@ func (m *GraphConfiguredActivity) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this graph configured activity. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *GraphConfiguredActivity) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

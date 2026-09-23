@@ -136,6 +136,9 @@ type DeviceapiDeviceSwagger struct {
 	// k8s cluster version
 	K8sClusterVersion string `json:"k8s_cluster_version,omitempty"`
 
+	// k8s node uid
+	K8sNodeUID string `json:"k8s_node_uid,omitempty"`
+
 	// kernel version
 	KernelVersion string `json:"kernel_version,omitempty"`
 
@@ -245,7 +248,7 @@ type DeviceapiDeviceSwagger struct {
 	PointerSize string `json:"pointer_size,omitempty"`
 
 	// policies
-	Policies []*DeviceDevicePolicy `json:"policies"`
+	Policies []*DeviceapiDevicePolicySwagger `json:"policies"`
 
 	// product type
 	ProductType string `json:"product_type,omitempty"`
@@ -567,4 +570,17 @@ func (m *DeviceapiDeviceSwagger) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this deviceapi device swagger. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DeviceapiDeviceSwagger) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

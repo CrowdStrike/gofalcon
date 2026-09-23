@@ -42,6 +42,9 @@ type DomainAPIEvaluationLogicV1 struct {
 	// Refers to the actual evaluation logic data
 	Logic []*DomainAPIEvaluationLogicItemV1 `json:"logic"`
 
+	// Logical operator that combines the logic items of this evaluation logic. This is the outermost level of the operators also found on comparisons and state comparisons
+	LogicOperator string `json:"logic_operator,omitempty"`
+
 	// Refers to the identifier of the scanner that generated the evaluation logic
 	ScannerID string `json:"scanner_id,omitempty"`
 
@@ -267,4 +270,17 @@ func (m *DomainAPIEvaluationLogicV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain API evaluation logic v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainAPIEvaluationLogicV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

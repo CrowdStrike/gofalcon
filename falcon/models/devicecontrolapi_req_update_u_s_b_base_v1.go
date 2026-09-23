@@ -42,10 +42,6 @@ type DevicecontrolapiReqUpdateUSBBaseV1 struct {
 	// Enum: [MONITOR_ONLY MONITOR_ENFORCE]
 	StorageSpaceEnforcementMode string `json:"storage_space_enforcement_mode,omitempty"`
 
-	// Enforcement mode for User Based exceptions
-	// Enum: [MONITOR_ONLY MONITOR_ENFORCE]
-	UserBasedEnforcementMode string `json:"user_based_enforcement_mode,omitempty"`
-
 	// Determines if the policy will include whitelist exceptions
 	// Enum: [ENABLE_ALWAYS DISABLE_VIRTUAL]
 	WhitelistMode string `json:"whitelist_mode,omitempty"`
@@ -72,10 +68,6 @@ func (m *DevicecontrolapiReqUpdateUSBBaseV1) Validate(formats strfmt.Registry) e
 	}
 
 	if err := m.validateStorageSpaceEnforcementMode(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUserBasedEnforcementMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -279,48 +271,6 @@ func (m *DevicecontrolapiReqUpdateUSBBaseV1) validateStorageSpaceEnforcementMode
 	return nil
 }
 
-var devicecontrolapiReqUpdateUSBBaseV1TypeUserBasedEnforcementModePropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		devicecontrolapiReqUpdateUSBBaseV1TypeUserBasedEnforcementModePropEnum = append(devicecontrolapiReqUpdateUSBBaseV1TypeUserBasedEnforcementModePropEnum, v)
-	}
-}
-
-const (
-
-	// DevicecontrolapiReqUpdateUSBBaseV1UserBasedEnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
-	DevicecontrolapiReqUpdateUSBBaseV1UserBasedEnforcementModeMONITORONLY string = "MONITOR_ONLY"
-
-	// DevicecontrolapiReqUpdateUSBBaseV1UserBasedEnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
-	DevicecontrolapiReqUpdateUSBBaseV1UserBasedEnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
-)
-
-// prop value enum
-func (m *DevicecontrolapiReqUpdateUSBBaseV1) validateUserBasedEnforcementModeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, devicecontrolapiReqUpdateUSBBaseV1TypeUserBasedEnforcementModePropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *DevicecontrolapiReqUpdateUSBBaseV1) validateUserBasedEnforcementMode(formats strfmt.Registry) error {
-	if swag.IsZero(m.UserBasedEnforcementMode) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateUserBasedEnforcementModeEnum("user_based_enforcement_mode", "body", m.UserBasedEnforcementMode); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 var devicecontrolapiReqUpdateUSBBaseV1TypeWhitelistModePropEnum []interface{}
 
 func init() {
@@ -414,4 +364,17 @@ func (m *DevicecontrolapiReqUpdateUSBBaseV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this devicecontrolapi req update u s b base v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DevicecontrolapiReqUpdateUSBBaseV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

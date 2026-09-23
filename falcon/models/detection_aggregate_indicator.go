@@ -107,3 +107,16 @@ func (m *DetectionAggregateIndicator) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this detection aggregate indicator. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DetectionAggregateIndicator) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

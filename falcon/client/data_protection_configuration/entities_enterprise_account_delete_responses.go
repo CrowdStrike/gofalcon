@@ -31,6 +31,12 @@ func (o *EntitiesEnterpriseAccountDeleteReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return result, nil
+	case 207:
+		result := NewEntitiesEnterpriseAccountDeleteMultiStatus()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewEntitiesEnterpriseAccountDeleteBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -130,6 +136,116 @@ func (o *EntitiesEnterpriseAccountDeleteOK) GetPayload() *models.APIEnterpriseAc
 }
 
 func (o *EntitiesEnterpriseAccountDeleteOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.APIEnterpriseAccountMSAResponseV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesEnterpriseAccountDeleteMultiStatus creates a EntitiesEnterpriseAccountDeleteMultiStatus with default headers values
+func NewEntitiesEnterpriseAccountDeleteMultiStatus() *EntitiesEnterpriseAccountDeleteMultiStatus {
+	return &EntitiesEnterpriseAccountDeleteMultiStatus{}
+}
+
+/*
+EntitiesEnterpriseAccountDeleteMultiStatus describes a response with status code 207, with default header values.
+
+Multi-Status
+*/
+type EntitiesEnterpriseAccountDeleteMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.APIEnterpriseAccountMSAResponseV1
+}
+
+// IsSuccess returns true when this entities enterprise account delete multi status response has a 2xx status code
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this entities enterprise account delete multi status response has a 3xx status code
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities enterprise account delete multi status response has a 4xx status code
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities enterprise account delete multi status response has a 5xx status code
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities enterprise account delete multi status response a status code equal to that given
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
+// Code gets the status code for the entities enterprise account delete multi status response
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) Code() int {
+	return 207
+}
+
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) Error() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/enterprise-accounts/v1][%d] entitiesEnterpriseAccountDeleteMultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) String() string {
+	return fmt.Sprintf("[DELETE /data-protection/entities/enterprise-accounts/v1][%d] entitiesEnterpriseAccountDeleteMultiStatus  %+v", 207, o.Payload)
+}
+
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) GetPayload() *models.APIEnterpriseAccountMSAResponseV1 {
+	return o.Payload
+}
+
+func (o *EntitiesEnterpriseAccountDeleteMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

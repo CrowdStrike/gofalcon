@@ -32,16 +32,20 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetAggregateV2(params *GetAggregateV2Params, opts ...ClientOption) (*GetAggregateV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetQueriesAlertsV1(params *GetQueriesAlertsV1Params, opts ...ClientOption) (*GetQueriesAlertsV1OK, error)
 
 	GetV2(params *GetV2Params, opts ...ClientOption) (*GetV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts ...ClientOption) (*PatchEntitiesAlertsV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, opts ...ClientOption) (*PostAggregatesAlertsV1OK, error)
 
 	PostCombinedAlertsV1(params *PostCombinedAlertsV1Params, opts ...ClientOption) (*PostCombinedAlertsV1OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	PostEntitiesAlertsV1(params *PostEntitiesAlertsV1Params, opts ...ClientOption) (*PostEntitiesAlertsV1OK, error)
 
 	QueryV2(params *QueryV2Params, opts ...ClientOption) (*QueryV2OK, error)
@@ -91,6 +95,8 @@ func (a *Client) GetAggregateV2(params *GetAggregateV2Params, opts ...ClientOpti
 
 /*
 GetQueriesAlertsV1 deprecateds please use version v2 of this endpoint retrieves all alerts ids that match a given query
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetQueriesAlertsV1(params *GetQueriesAlertsV1Params, opts ...ClientOption) (*GetQueriesAlertsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -167,6 +173,8 @@ func (a *Client) GetV2(params *GetV2Params, opts ...ClientOption) (*GetV2OK, err
 
 /*
 PatchEntitiesAlertsV2 deprecateds please use version v3 of this endpoint perform actions on alerts identified by composite ID s in request each action has a name and a description which describes what the action does if a request adds and removes tag in a single request the order of processing would be to remove tags before adding new ones in
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts ...ClientOption) (*PatchEntitiesAlertsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -205,6 +213,8 @@ func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts
 
 /*
 PostAggregatesAlertsV1 deprecateds please use version v2 of this endpoint retrieves aggregate values for alerts across all c i ds
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, opts ...ClientOption) (*PostAggregatesAlertsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -281,6 +291,8 @@ func (a *Client) PostCombinedAlertsV1(params *PostCombinedAlertsV1Params, opts .
 
 /*
 PostEntitiesAlertsV1 deprecateds please use version v2 of this endpoint retrieves all alerts given their ids
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) PostEntitiesAlertsV1(params *PostEntitiesAlertsV1Params, opts ...ClientOption) (*PostEntitiesAlertsV1OK, error) {
 	// TODO: Validate the params before sending

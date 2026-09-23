@@ -19,6 +19,10 @@ import (
 // swagger:model domain.DiscoverAPISuspiciousIndicator
 type DomainDiscoverAPISuspiciousIndicator struct {
 
+	// A description of the indicator
+	// Required: true
+	Description *string `json:"description"`
+
 	// The indicator name (e.g., low_prevalence, known_malicious)
 	// Required: true
 	Name *string `json:"name"`
@@ -32,6 +36,10 @@ type DomainDiscoverAPISuspiciousIndicator struct {
 func (m *DomainDiscoverAPISuspiciousIndicator) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -43,6 +51,15 @@ func (m *DomainDiscoverAPISuspiciousIndicator) Validate(formats strfmt.Registry)
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainDiscoverAPISuspiciousIndicator) validateDescription(formats strfmt.Registry) error {
+
+	if err := validate.Required("description", "body", m.Description); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -85,4 +102,17 @@ func (m *DomainDiscoverAPISuspiciousIndicator) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain discover API suspicious indicator. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainDiscoverAPISuspiciousIndicator) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

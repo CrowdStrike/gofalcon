@@ -122,3 +122,16 @@ func (m *ContentUpdateContentUpdateSettingsReqV1) UnmarshalBinary(b []byte) erro
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this content update content update settings req v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *ContentUpdateContentUpdateSettingsReqV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

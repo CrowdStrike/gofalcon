@@ -103,3 +103,16 @@ func (m *DomainSPAPIQueryPaging) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this domain s p API query paging. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainSPAPIQueryPaging) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

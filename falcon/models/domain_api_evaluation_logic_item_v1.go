@@ -20,6 +20,9 @@ import (
 // swagger:model domain.APIEvaluationLogicItemV1
 type DomainAPIEvaluationLogicItemV1 struct {
 
+	// assessment result
+	AssessmentResult string `json:"assessment_result,omitempty"`
+
 	// comparison check
 	ComparisonCheck string `json:"comparison_check,omitempty"`
 
@@ -163,4 +166,17 @@ func (m *DomainAPIEvaluationLogicItemV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain API evaluation logic item v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainAPIEvaluationLogicItemV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

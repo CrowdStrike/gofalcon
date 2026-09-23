@@ -123,6 +123,9 @@ type DomainDiscoverAPIIoTHost struct {
 	// The description the user entered when manually assigning a criticality level
 	CriticalityDescription string `json:"criticality_description,omitempty"`
 
+	// The numerical value for the criticality level (25 = Unassigned, 50 = Noncritical, 75 = High, 100 = Critical).
+	CriticalityNumerical int32 `json:"criticality_numerical,omitempty"`
+
 	// The ID of the criticality rule that has most recently applied to the asset.
 	CriticalityRuleID string `json:"criticality_rule_id,omitempty"`
 
@@ -237,6 +240,9 @@ type DomainDiscoverAPIIoTHost struct {
 	// The host management groups the asset is part of.
 	Groups []string `json:"groups"`
 
+	// The hardware version of the IoT Asset
+	HardwareVersion string `json:"hardware_version,omitempty"`
+
 	// The asset's hostname.
 	Hostname string `json:"hostname,omitempty"`
 
@@ -282,6 +288,9 @@ type DomainDiscoverAPIIoTHost struct {
 
 	// The most recent time the asset was seen in your environment.
 	LastSeenTimestamp string `json:"last_seen_timestamp,omitempty"`
+
+	// The fieldbus link address of the IoT Asset
+	LinkAddress string `json:"link_address,omitempty"`
 
 	// The sensor mode of the Linux asset.
 	LinuxSensorMode string `json:"linux_sensor_mode,omitempty"`
@@ -355,11 +364,17 @@ type DomainDiscoverAPIIoTHost struct {
 	// The OS version of the asset.
 	OsVersion string `json:"os_version,omitempty"`
 
+	// Protocol behaviour observed on the IoT Asset, grouped by protocol and category
+	OtBehavioralProfile []*DomainDiscoverAPIOtObservation `json:"ot_behavioral_profile"`
+
 	// A list of sources through which host is discovered
 	OtInformationSources []string `json:"ot_information_sources"`
 
 	// A list of network ids to which host belongs
 	OtNetworkIds []string `json:"ot_network_ids"`
+
+	// Operations observed being performed on or by the IoT Asset, grouped by protocol and category
+	OtObservedOperations []*DomainDiscoverAPIOtObservation `json:"ot_observed_operations"`
 
 	// The OT platform of the device
 	OtPlatform string `json:"ot_platform,omitempty"`
@@ -387,6 +402,9 @@ type DomainDiscoverAPIIoTHost struct {
 
 	// The first and last name of the person who owns this asset.
 	OwnedBy string `json:"owned_by,omitempty"`
+
+	// The ID of the asset discovered by CrowdStrike passive PCAP collection
+	PcapPassiveID string `json:"pcap_passive_id,omitempty"`
 
 	// The number of physical CPU cores available on the system.
 	PhysicalCoreCount int32 `json:"physical_core_count,omitempty"`
@@ -532,6 +550,14 @@ func (m *DomainDiscoverAPIIoTHost) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOsSecurity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOtBehavioralProfile(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOtObservedOperations(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -757,6 +783,58 @@ func (m *DomainDiscoverAPIIoTHost) validateOsSecurity(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *DomainDiscoverAPIIoTHost) validateOtBehavioralProfile(formats strfmt.Registry) error {
+	if swag.IsZero(m.OtBehavioralProfile) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.OtBehavioralProfile); i++ {
+		if swag.IsZero(m.OtBehavioralProfile[i]) { // not required
+			continue
+		}
+
+		if m.OtBehavioralProfile[i] != nil {
+			if err := m.OtBehavioralProfile[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ot_behavioral_profile" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ot_behavioral_profile" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIIoTHost) validateOtObservedOperations(formats strfmt.Registry) error {
+	if swag.IsZero(m.OtObservedOperations) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.OtObservedOperations); i++ {
+		if swag.IsZero(m.OtObservedOperations[i]) { // not required
+			continue
+		}
+
+		if m.OtObservedOperations[i] != nil {
+			if err := m.OtObservedOperations[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ot_observed_operations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ot_observed_operations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIIoTHost) validateTriage(formats strfmt.Registry) error {
 	if swag.IsZero(m.Triage) { // not required
 		return nil
@@ -809,6 +887,14 @@ func (m *DomainDiscoverAPIIoTHost) ContextValidate(ctx context.Context, formats 
 	}
 
 	if err := m.contextValidateOsSecurity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOtBehavioralProfile(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOtObservedOperations(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1004,6 +1090,56 @@ func (m *DomainDiscoverAPIIoTHost) contextValidateOsSecurity(ctx context.Context
 	return nil
 }
 
+func (m *DomainDiscoverAPIIoTHost) contextValidateOtBehavioralProfile(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.OtBehavioralProfile); i++ {
+
+		if m.OtBehavioralProfile[i] != nil {
+
+			if swag.IsZero(m.OtBehavioralProfile[i]) { // not required
+				return nil
+			}
+
+			if err := m.OtBehavioralProfile[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ot_behavioral_profile" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ot_behavioral_profile" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIIoTHost) contextValidateOtObservedOperations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.OtObservedOperations); i++ {
+
+		if m.OtObservedOperations[i] != nil {
+
+			if swag.IsZero(m.OtObservedOperations[i]) { // not required
+				return nil
+			}
+
+			if err := m.OtObservedOperations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ot_observed_operations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ot_observed_operations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIIoTHost) contextValidateTriage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Triage != nil {
@@ -1041,4 +1177,17 @@ func (m *DomainDiscoverAPIIoTHost) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain discover API io t host. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainDiscoverAPIIoTHost) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

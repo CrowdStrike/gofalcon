@@ -116,3 +116,16 @@ func (m *AssetgroupmanagerV1Meta) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this assetgroupmanager v1 meta. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AssetgroupmanagerV1Meta) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

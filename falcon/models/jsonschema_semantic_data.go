@@ -20,6 +20,9 @@ type JsonschemaSemanticData struct {
 	// The entity
 	DataFrame string `json:"data_frame,omitempty"`
 
+	// The semantic type to use when formatting the field value for display (e.g. system.semantic.DateTime)
+	DisplayFormat string `json:"display_format,omitempty"`
+
 	// The field name in an entity
 	FieldName string `json:"field_name,omitempty"`
 
@@ -53,4 +56,17 @@ func (m *JsonschemaSemanticData) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this jsonschema semantic data. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *JsonschemaSemanticData) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

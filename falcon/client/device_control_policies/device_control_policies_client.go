@@ -30,16 +30,31 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams, opts ...ClientOption) (*CreateDeviceControlPoliciesCreated, error)
 
 	DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams, opts ...ClientOption) (*DeleteDeviceControlPoliciesOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetDefaultDeviceControlPolicies(params *GetDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*GetDefaultDeviceControlPoliciesOK, error)
 
+	GetDefaultDeviceControlSettings(params *GetDefaultDeviceControlSettingsParams, opts ...ClientOption) (*GetDefaultDeviceControlSettingsOK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, opts ...ClientOption) (*GetDeviceControlPoliciesOK, error)
+
+	GetDeviceControlPoliciesV2(params *GetDeviceControlPoliciesV2Params, opts ...ClientOption) (*GetDeviceControlPoliciesV2OK, error)
+
+	PatchDeviceControlPoliciesClassesV1(params *PatchDeviceControlPoliciesClassesV1Params, opts ...ClientOption) (*PatchDeviceControlPoliciesClassesV1OK, error)
+
+	PatchDeviceControlPoliciesV2(params *PatchDeviceControlPoliciesV2Params, opts ...ClientOption) (*PatchDeviceControlPoliciesV2OK, error)
 
 	PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams, opts ...ClientOption) (*PerformDeviceControlPoliciesActionOK, error)
 
+	PostDeviceControlPoliciesV2(params *PostDeviceControlPoliciesV2Params, opts ...ClientOption) (*PostDeviceControlPoliciesV2OK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams, opts ...ClientOption) (*QueryCombinedDeviceControlPoliciesOK, error)
 
 	QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryCombinedDeviceControlPolicyMembersOK, error)
@@ -50,8 +65,12 @@ type ClientService interface {
 
 	SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams, opts ...ClientOption) (*SetDeviceControlPoliciesPrecedenceOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateDefaultDeviceControlPolicies(params *UpdateDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDefaultDeviceControlPoliciesOK, error)
 
+	UpdateDefaultDeviceControlSettings(params *UpdateDefaultDeviceControlSettingsParams, opts ...ClientOption) (*UpdateDefaultDeviceControlSettingsOK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDeviceControlPoliciesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -59,6 +78,8 @@ type ClientService interface {
 
 /*
 CreateDeviceControlPolicies creates device control policies by specifying details about the policy to create
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams, opts ...ClientOption) (*CreateDeviceControlPoliciesCreated, error) {
 	// TODO: Validate the params before sending
@@ -135,6 +156,8 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 
 /*
 GetDefaultDeviceControlPolicies retrieves the configuration for a default device control policy
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetDefaultDeviceControlPolicies(params *GetDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*GetDefaultDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -172,7 +195,47 @@ func (a *Client) GetDefaultDeviceControlPolicies(params *GetDefaultDeviceControl
 }
 
 /*
+GetDefaultDeviceControlSettings gets default device control settings
+*/
+func (a *Client) GetDefaultDeviceControlSettings(params *GetDefaultDeviceControlSettingsParams, opts ...ClientOption) (*GetDefaultDeviceControlSettingsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDefaultDeviceControlSettingsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getDefaultDeviceControlSettings",
+		Method:             "GET",
+		PathPattern:        "/policy/entities/device-control-default-settings/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetDefaultDeviceControlSettingsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDefaultDeviceControlSettingsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getDefaultDeviceControlSettings: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetDeviceControlPolicies retrieves a set of device control policies by specifying their i ds
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, opts ...ClientOption) (*GetDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -206,6 +269,120 @@ func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for getDeviceControlPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDeviceControlPoliciesV2 gets device control policies for the given filter criteria
+*/
+func (a *Client) GetDeviceControlPoliciesV2(params *GetDeviceControlPoliciesV2Params, opts ...ClientOption) (*GetDeviceControlPoliciesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDeviceControlPoliciesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getDeviceControlPoliciesV2",
+		Method:             "GET",
+		PathPattern:        "/policy/entities/device-control/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetDeviceControlPoliciesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDeviceControlPoliciesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getDeviceControlPoliciesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PatchDeviceControlPoliciesClassesV1 updates device control policy s classes
+*/
+func (a *Client) PatchDeviceControlPoliciesClassesV1(params *PatchDeviceControlPoliciesClassesV1Params, opts ...ClientOption) (*PatchDeviceControlPoliciesClassesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPatchDeviceControlPoliciesClassesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "patchDeviceControlPoliciesClassesV1",
+		Method:             "PATCH",
+		PathPattern:        "/policy/entities/device-control-classes/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PatchDeviceControlPoliciesClassesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PatchDeviceControlPoliciesClassesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for patchDeviceControlPoliciesClassesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PatchDeviceControlPoliciesV2 updates device control policy base
+*/
+func (a *Client) PatchDeviceControlPoliciesV2(params *PatchDeviceControlPoliciesV2Params, opts ...ClientOption) (*PatchDeviceControlPoliciesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPatchDeviceControlPoliciesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "patchDeviceControlPoliciesV2",
+		Method:             "PATCH",
+		PathPattern:        "/policy/entities/device-control/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PatchDeviceControlPoliciesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PatchDeviceControlPoliciesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for patchDeviceControlPoliciesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -248,7 +425,47 @@ func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControl
 }
 
 /*
+PostDeviceControlPoliciesV2 creates clone a device control policy
+*/
+func (a *Client) PostDeviceControlPoliciesV2(params *PostDeviceControlPoliciesV2Params, opts ...ClientOption) (*PostDeviceControlPoliciesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostDeviceControlPoliciesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "postDeviceControlPoliciesV2",
+		Method:             "POST",
+		PathPattern:        "/policy/entities/device-control/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostDeviceControlPoliciesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostDeviceControlPoliciesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for postDeviceControlPoliciesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueryCombinedDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policies which match the filter criteria
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams, opts ...ClientOption) (*QueryCombinedDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -439,6 +656,8 @@ func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoli
 
 /*
 UpdateDefaultDeviceControlPolicies updates the configuration for a default device control policy
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateDefaultDeviceControlPolicies(params *UpdateDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDefaultDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -476,7 +695,47 @@ func (a *Client) UpdateDefaultDeviceControlPolicies(params *UpdateDefaultDeviceC
 }
 
 /*
+UpdateDefaultDeviceControlSettings updates the configuration for default device control settings
+*/
+func (a *Client) UpdateDefaultDeviceControlSettings(params *UpdateDefaultDeviceControlSettingsParams, opts ...ClientOption) (*UpdateDefaultDeviceControlSettingsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDefaultDeviceControlSettingsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateDefaultDeviceControlSettings",
+		Method:             "PATCH",
+		PathPattern:        "/policy/entities/device-control-default-settings/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateDefaultDeviceControlSettingsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDefaultDeviceControlSettingsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateDefaultDeviceControlSettings: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 UpdateDeviceControlPolicies updates device control policies by specifying the ID of the policy and details to update
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending

@@ -410,7 +410,7 @@ func NewDeleteZonesNotFound() *DeleteZonesNotFound {
 /*
 DeleteZonesNotFound describes a response with status code 404, with default header values.
 
-Forbidden
+Not Found
 */
 type DeleteZonesNotFound struct {
 

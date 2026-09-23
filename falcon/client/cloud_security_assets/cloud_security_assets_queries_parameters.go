@@ -78,15 +78,15 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `application_name`
 	- `aspm.cloud_account`
 	- `aspm.cloud_region`
-	- `aspm.cloud_tag_key`
-	- `aspm.cloud_tag_value`
-	- `aspm.cloud_tags`
 	- `aspm.deployment_cloud_resource_id`
 	- `aspm.deployment_provider`
 	- `aspm.deployment_type`
 	- `aspm.technologies`
 	- `azure.resource_group`
 	- `azure.vm_id`
+	- `business_context.contributing_rule_ids`
+	- `business_context.criticality`
+	- `business_context.evaluated_at`
 	- `business_impact`
 	- `cloud_group`
 	- `cloud_label`
@@ -138,6 +138,14 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `instance_state`
 	- `ioa_count`
 	- `iom_count`
+	- `kubernetes.cluster_id`
+	- `kubernetes.cluster_name`
+	- `kubernetes.kind`
+	- `kubernetes.label_keys`
+	- `kubernetes.labels`
+	- `kubernetes.managed_cloud_provider`
+	- `kubernetes.name`
+	- `kubernetes.namespace`
 	- `legacy_resource_id`
 	- `legacy_uuid`
 	- `managed_by`
@@ -226,6 +234,12 @@ type CloudSecurityAssetsQueriesParams struct {
 	- `instance_state`
 	- `ioa_count`
 	- `iom_count`
+	- `kubernetes.cluster_id`
+	- `kubernetes.cluster_name`
+	- `kubernetes.kind`
+	- `kubernetes.managed_cloud_provider`
+	- `kubernetes.name`
+	- `kubernetes.namespace`
 	- `managed_by`
 	- `organization_Id`
 	- `os_version`

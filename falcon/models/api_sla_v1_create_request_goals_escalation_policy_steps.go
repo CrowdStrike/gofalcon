@@ -72,3 +72,16 @@ func (m *APISLAV1CreateRequestGoalsEscalationPolicySteps) UnmarshalBinary(b []by
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this api SLA v1 create request goals escalation policy steps. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *APISLAV1CreateRequestGoalsEscalationPolicySteps) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

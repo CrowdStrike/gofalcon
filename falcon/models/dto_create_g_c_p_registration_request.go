@@ -37,9 +37,6 @@ type DtoCreateGCPRegistrationRequest struct {
 	// excluded project patterns
 	ExcludedProjectPatterns []string `json:"excluded_project_patterns"`
 
-	// existing wif pool id
-	ExistingWifPoolID *string `json:"existing_wif_pool_id,omitempty"`
-
 	// falcon client key id
 	FalconClientKeyID string `json:"falcon_client_key_id,omitempty"`
 
@@ -449,4 +446,17 @@ func (m *DtoCreateGCPRegistrationRequest) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this dto create g c p registration request. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DtoCreateGCPRegistrationRequest) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

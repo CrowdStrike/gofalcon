@@ -186,3 +186,16 @@ func (m *CasesapiGetQueriesCasesV1Response) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this casesapi get queries cases v1 response. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *CasesapiGetQueriesCasesV1Response) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

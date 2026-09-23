@@ -43,6 +43,18 @@ func (o *EntitiesContentPatternPatchReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewEntitiesContentPatternPatchNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 409:
+		result := NewEntitiesContentPatternPatchConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewEntitiesContentPatternPatchTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -350,6 +362,226 @@ func (o *EntitiesContentPatternPatchForbidden) GetPayload() *models.MsaspecRespo
 }
 
 func (o *EntitiesContentPatternPatchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesContentPatternPatchNotFound creates a EntitiesContentPatternPatchNotFound with default headers values
+func NewEntitiesContentPatternPatchNotFound() *EntitiesContentPatternPatchNotFound {
+	return &EntitiesContentPatternPatchNotFound{}
+}
+
+/*
+EntitiesContentPatternPatchNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type EntitiesContentPatternPatchNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities content pattern patch not found response has a 2xx status code
+func (o *EntitiesContentPatternPatchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities content pattern patch not found response has a 3xx status code
+func (o *EntitiesContentPatternPatchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities content pattern patch not found response has a 4xx status code
+func (o *EntitiesContentPatternPatchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities content pattern patch not found response has a 5xx status code
+func (o *EntitiesContentPatternPatchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities content pattern patch not found response a status code equal to that given
+func (o *EntitiesContentPatternPatchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the entities content pattern patch not found response
+func (o *EntitiesContentPatternPatchNotFound) Code() int {
+	return 404
+}
+
+func (o *EntitiesContentPatternPatchNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/content-patterns/v1][%d] entitiesContentPatternPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesContentPatternPatchNotFound) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/content-patterns/v1][%d] entitiesContentPatternPatchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *EntitiesContentPatternPatchNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesContentPatternPatchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesContentPatternPatchConflict creates a EntitiesContentPatternPatchConflict with default headers values
+func NewEntitiesContentPatternPatchConflict() *EntitiesContentPatternPatchConflict {
+	return &EntitiesContentPatternPatchConflict{}
+}
+
+/*
+EntitiesContentPatternPatchConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type EntitiesContentPatternPatchConflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this entities content pattern patch conflict response has a 2xx status code
+func (o *EntitiesContentPatternPatchConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities content pattern patch conflict response has a 3xx status code
+func (o *EntitiesContentPatternPatchConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities content pattern patch conflict response has a 4xx status code
+func (o *EntitiesContentPatternPatchConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities content pattern patch conflict response has a 5xx status code
+func (o *EntitiesContentPatternPatchConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities content pattern patch conflict response a status code equal to that given
+func (o *EntitiesContentPatternPatchConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the entities content pattern patch conflict response
+func (o *EntitiesContentPatternPatchConflict) Code() int {
+	return 409
+}
+
+func (o *EntitiesContentPatternPatchConflict) Error() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/content-patterns/v1][%d] entitiesContentPatternPatchConflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesContentPatternPatchConflict) String() string {
+	return fmt.Sprintf("[PATCH /data-protection/entities/content-patterns/v1][%d] entitiesContentPatternPatchConflict  %+v", 409, o.Payload)
+}
+
+func (o *EntitiesContentPatternPatchConflict) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *EntitiesContentPatternPatchConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

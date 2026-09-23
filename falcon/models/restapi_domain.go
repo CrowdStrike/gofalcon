@@ -19,40 +19,64 @@ import (
 // swagger:model restapi.Domain
 type RestapiDomain struct {
 
-	// creation date
+	// Date the domain was registered
 	CreationDate string `json:"CreationDate,omitempty"`
 
-	// domain
+	// The domain name
 	Domain string `json:"Domain,omitempty"`
 
-	// domain updated date
+	// Date the domain record was last updated by the source
 	DomainUpdatedDate string `json:"DomainUpdatedDate,omitempty"`
 
-	// email addresses
+	// Email addresses associated with the domain, by contact role
 	EmailAddresses []*RestapiEmailAddress `json:"EmailAddresses"`
 
-	// expiration date
+	// Date the domain registration expires
 	ExpirationDate string `json:"ExpirationDate,omitempty"`
 
-	// IPv4 addresses
+	// HTTP response code returned when the domain was last crawled
+	HTTPStatus int32 `json:"HTTPStatus,omitempty"`
+
+	// Hosting providers (ISPs) of the IPv4 and IPv6 addresses the domain resolves to
+	HostingProvider []string `json:"HostingProvider"`
+
+	// IPv4 addresses the domain resolves to, with ISP and ASN
 	IPV4Addresses []*RestapiIPV4 `json:"IPv4Addresses"`
 
-	// IPv6 addresses
+	// IPv6 addresses the domain resolves to, with ISP and ASN
 	IPV6Addresses []*RestapiIPV6 `json:"IPv6Addresses"`
 
-	// m x records
+	// Mail exchange records for the domain
 	MXRecords []*RestapiMXRecord `json:"MXRecords"`
 
-	// name servers
+	// Name servers the domain resolves through
 	NameServers []*RestapiNameServer `json:"NameServers"`
 
-	// registrar
+	// HTML title of the page returned when the domain was last crawled
+	PageTitle string `json:"PageTitle,omitempty"`
+
+	// Popularity rank of the domain; only populated for a small subset of domains
+	PopularityRank int32 `json:"PopularityRank,omitempty"`
+
+	// Registered domain of the redirect destination
+	RedirectDomain string `json:"RedirectDomain,omitempty"`
+
+	// Redirect destination: usually a hostname, sometimes a bare IP, rarely a full URL
+	RedirectTarget string `json:"RedirectTarget,omitempty"`
+
+	// Registrar that the domain is registered with
 	Registrar string `json:"Registrar,omitempty"`
 
-	// registrar status
+	// EPP status codes reported by the registrar
 	RegistrarStatus []string `json:"RegistrarStatus"`
 
-	// who i s
+	// Categorical domain risk: NO_THREAT_LIKELY, LOW, MEDIUM, HIGH or CONFIRMED_THREAT
+	RiskScore string `json:"RiskScore,omitempty"`
+
+	// Top-level domain
+	TLD string `json:"TLD,omitempty"`
+
+	// WhoIS contact records for the domain
 	WhoIS *RestapiWhoIS `json:"WhoIS,omitempty"`
 }
 
@@ -435,4 +459,17 @@ func (m *RestapiDomain) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this restapi domain. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *RestapiDomain) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

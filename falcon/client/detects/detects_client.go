@@ -30,12 +30,17 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -45,6 +50,8 @@ type ClientService interface {
 GetAggregateDetects deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
 Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -85,6 +92,8 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...
 GetDetectSummaries deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
 Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error) {
 	// TODO: Validate the params before sending
@@ -125,6 +134,8 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...Cl
 QueryDetects deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
 Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -165,6 +176,8 @@ func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) 
 UpdateDetectsByIdsV2 deprecateds this endpoint will be decommissioned on september 30 2025 please check the notes section below for migration guidance
 
 Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error) {
 	// TODO: Validate the params before sending

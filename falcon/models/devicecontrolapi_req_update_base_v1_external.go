@@ -199,3 +199,16 @@ func (m *DevicecontrolapiReqUpdateBaseV1External) UnmarshalBinary(b []byte) erro
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this devicecontrolapi req update base v1 external. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DevicecontrolapiReqUpdateBaseV1External) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

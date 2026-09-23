@@ -24,6 +24,9 @@ type APIAgentInvocationTool struct {
 	// Required: true
 	Calls []*APIAgentInvocationToolCall `json:"calls"`
 
+	// result
+	Result *APIAgentInvocationToolResult `json:"result,omitempty"`
+
 	// tool id
 	// Required: true
 	ToolID *string `json:"tool_id"`
@@ -34,6 +37,10 @@ func (m *APIAgentInvocationTool) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCalls(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResult(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -74,6 +81,25 @@ func (m *APIAgentInvocationTool) validateCalls(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *APIAgentInvocationTool) validateResult(formats strfmt.Registry) error {
+	if swag.IsZero(m.Result) { // not required
+		return nil
+	}
+
+	if m.Result != nil {
+		if err := m.Result.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *APIAgentInvocationTool) validateToolID(formats strfmt.Registry) error {
 
 	if err := validate.Required("tool_id", "body", m.ToolID); err != nil {
@@ -88,6 +114,10 @@ func (m *APIAgentInvocationTool) ContextValidate(ctx context.Context, formats st
 	var res []error
 
 	if err := m.contextValidateCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResult(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -122,6 +152,27 @@ func (m *APIAgentInvocationTool) contextValidateCalls(ctx context.Context, forma
 	return nil
 }
 
+func (m *APIAgentInvocationTool) contextValidateResult(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Result != nil {
+
+		if swag.IsZero(m.Result) { // not required
+			return nil
+		}
+
+		if err := m.Result.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // MarshalBinary interface implementation
 func (m *APIAgentInvocationTool) MarshalBinary() ([]byte, error) {
 	if m == nil {
@@ -138,4 +189,17 @@ func (m *APIAgentInvocationTool) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this api agent invocation tool. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *APIAgentInvocationTool) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

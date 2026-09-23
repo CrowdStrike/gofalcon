@@ -22,10 +22,10 @@ type APIWebLocationGroupV2 struct {
 	// cid
 	Cid string `json:"cid,omitempty"`
 
-	// created at
+	// created
 	// Required: true
 	// Format: date-time
-	CreatedAt *strfmt.DateTime `json:"created_at"`
+	Created *strfmt.DateTime `json:"created"`
 
 	// deleted
 	// Required: true
@@ -43,14 +43,14 @@ type APIWebLocationGroupV2 struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// last updated
+	// Required: true
+	// Format: date-time
+	LastUpdated *strfmt.DateTime `json:"last_updated"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`
-
-	// updated at
-	// Required: true
-	// Format: date-time
-	UpdatedAt *strfmt.DateTime `json:"updated_at"`
 
 	// web location ids
 	// Required: true
@@ -61,7 +61,7 @@ type APIWebLocationGroupV2 struct {
 func (m *APIWebLocationGroupV2) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCreatedAt(formats); err != nil {
+	if err := m.validateCreated(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -81,11 +81,11 @@ func (m *APIWebLocationGroupV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateLastUpdated(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateUpdatedAt(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -99,13 +99,13 @@ func (m *APIWebLocationGroupV2) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIWebLocationGroupV2) validateCreatedAt(formats strfmt.Registry) error {
+func (m *APIWebLocationGroupV2) validateCreated(formats strfmt.Registry) error {
 
-	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
+	if err := validate.Required("created", "body", m.Created); err != nil {
 		return err
 	}
 
-	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
+	if err := validate.FormatOf("created", "body", "date-time", m.Created.String(), formats); err != nil {
 		return err
 	}
 
@@ -151,22 +151,22 @@ func (m *APIWebLocationGroupV2) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIWebLocationGroupV2) validateName(formats strfmt.Registry) error {
+func (m *APIWebLocationGroupV2) validateLastUpdated(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("last_updated", "body", m.LastUpdated); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("last_updated", "body", "date-time", m.LastUpdated.String(), formats); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIWebLocationGroupV2) validateUpdatedAt(formats strfmt.Registry) error {
+func (m *APIWebLocationGroupV2) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("updated_at", "body", m.UpdatedAt); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("updated_at", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
@@ -203,4 +203,17 @@ func (m *APIWebLocationGroupV2) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this api web location group v2. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *APIWebLocationGroupV2) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

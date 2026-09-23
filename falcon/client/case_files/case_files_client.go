@@ -44,6 +44,7 @@ type ClientService interface {
 
 	EntitiesFilesDownloadGetV1(params *EntitiesFilesDownloadGetV1Params, opts ...ClientOption) (*EntitiesFilesDownloadGetV1OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EntitiesFilesDownloadPostV1(params *EntitiesFilesDownloadPostV1Params, opts ...ClientOption) (*EntitiesFilesDownloadPostV1OK, error)
 
 	EntitiesFilesUploadPostV1(params *EntitiesFilesUploadPostV1Params, opts ...ClientOption) (*EntitiesFilesUploadPostV1OK, error)
@@ -327,6 +328,8 @@ func (a *Client) EntitiesFilesDownloadGetV1(params *EntitiesFilesDownloadGetV1Pa
 
 /*
 EntitiesFilesDownloadPostV1 downloads existing files from case
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) EntitiesFilesDownloadPostV1(params *EntitiesFilesDownloadPostV1Params, opts ...ClientOption) (*EntitiesFilesDownloadPostV1OK, error) {
 	// TODO: Validate the params before sending

@@ -8,7 +8,6 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -22,125 +21,19 @@ type V2InlineConfig struct {
 	Config interface{} `json:"config,omitempty"`
 
 	// input schema
-	InputSchema *JsonschemaSchema `json:"input_schema,omitempty"`
+	InputSchema string `json:"input_schema,omitempty"`
 
 	// output schema
-	OutputSchema *JsonschemaSchema `json:"output_schema,omitempty"`
+	OutputSchema string `json:"output_schema,omitempty"`
 }
 
 // Validate validates this v2 inline config
 func (m *V2InlineConfig) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateInputSchema(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateOutputSchema(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
 	return nil
 }
 
-func (m *V2InlineConfig) validateInputSchema(formats strfmt.Registry) error {
-	if swag.IsZero(m.InputSchema) { // not required
-		return nil
-	}
-
-	if m.InputSchema != nil {
-		if err := m.InputSchema.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("input_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("input_schema")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V2InlineConfig) validateOutputSchema(formats strfmt.Registry) error {
-	if swag.IsZero(m.OutputSchema) { // not required
-		return nil
-	}
-
-	if m.OutputSchema != nil {
-		if err := m.OutputSchema.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("output_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("output_schema")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-// ContextValidate validate this v2 inline config based on the context it is used
+// ContextValidate validates this v2 inline config based on context it is used
 func (m *V2InlineConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateInputSchema(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateOutputSchema(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *V2InlineConfig) contextValidateInputSchema(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.InputSchema != nil {
-
-		if swag.IsZero(m.InputSchema) { // not required
-			return nil
-		}
-
-		if err := m.InputSchema.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("input_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("input_schema")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V2InlineConfig) contextValidateOutputSchema(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.OutputSchema != nil {
-
-		if swag.IsZero(m.OutputSchema) { // not required
-			return nil
-		}
-
-		if err := m.OutputSchema.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("output_schema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("output_schema")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -160,4 +53,17 @@ func (m *V2InlineConfig) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this v2 inline config. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *V2InlineConfig) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

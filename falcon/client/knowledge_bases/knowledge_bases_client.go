@@ -30,8 +30,6 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregatesKnowledgeBasesV1(params *AggregatesKnowledgeBasesV1Params, opts ...ClientOption) (*AggregatesKnowledgeBasesV1OK, error)
-
 	CombinedKnowledgeBasesV1(params *CombinedKnowledgeBasesV1Params, opts ...ClientOption) (*CombinedKnowledgeBasesV1OK, error)
 
 	EntitiesKnowledgeBasesCreateV1(params *EntitiesKnowledgeBasesCreateV1Params, opts ...ClientOption) (*EntitiesKnowledgeBasesCreateV1OK, error)
@@ -43,44 +41,6 @@ type ClientService interface {
 	QueriesKnowledgeBasesV1(params *QueriesKnowledgeBasesV1Params, opts ...ClientOption) (*QueriesKnowledgeBasesV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-AggregatesKnowledgeBasesV1 aggregates knowledge bases based on the provided msa criteria
-*/
-func (a *Client) AggregatesKnowledgeBasesV1(params *AggregatesKnowledgeBasesV1Params, opts ...ClientOption) (*AggregatesKnowledgeBasesV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAggregatesKnowledgeBasesV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "AggregatesKnowledgeBasesV1",
-		Method:             "POST",
-		PathPattern:        "/agentic-studio/aggregates/knowledge_bases/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &AggregatesKnowledgeBasesV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*AggregatesKnowledgeBasesV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AggregatesKnowledgeBasesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
 }
 
 /*
@@ -122,7 +82,7 @@ func (a *Client) CombinedKnowledgeBasesV1(params *CombinedKnowledgeBasesV1Params
 }
 
 /*
-EntitiesKnowledgeBasesCreateV1 creates or update a knowledge base for deletion provide knowledge base with is deleted true
+EntitiesKnowledgeBasesCreateV1 creates or update a knowledge base to delete a knowledge base set is deleted to true
 */
 func (a *Client) EntitiesKnowledgeBasesCreateV1(params *EntitiesKnowledgeBasesCreateV1Params, opts ...ClientOption) (*EntitiesKnowledgeBasesCreateV1OK, error) {
 	// TODO: Validate the params before sending

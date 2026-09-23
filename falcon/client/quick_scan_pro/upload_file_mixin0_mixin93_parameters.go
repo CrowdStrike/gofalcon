@@ -70,7 +70,7 @@ type UploadFileMixin0Mixin93Params struct {
 
 	/* File.
 
-	   Binary file to be uploaded. Max file size: 256 MB. Use `--data-binary @$FILE_PATH` for octet-stream/cURL uploads
+	   Binary file to be uploaded. Max file size: 256 MB. Use `--data-binary @$FILE_PATH` for octet-stream/cURL uploads.
 	*/
 	File runtime.NamedReadCloser
 
@@ -88,9 +88,17 @@ type UploadFileMixin0Mixin93Params struct {
 
 	/* Scan.
 
-	   If true, after upload, it starts scanning immediately. Default scan mode is 'false'
+	   If true, after upload, it starts scanning immediately. Default scan mode is 'false'.
 	*/
 	Scan *bool
+
+	/* ScanMode.
+
+	   Sets the scan mode for the scan started when 'scan' is true. Default is 'standard'.
+
+	   Default: "standard"
+	*/
+	ScanMode *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -111,10 +119,13 @@ func (o *UploadFileMixin0Mixin93Params) WithDefaults() *UploadFileMixin0Mixin93P
 func (o *UploadFileMixin0Mixin93Params) SetDefaults() {
 	var (
 		scanDefault = bool(false)
+
+		scanModeDefault = string("standard")
 	)
 
 	val := UploadFileMixin0Mixin93Params{
-		Scan: &scanDefault,
+		Scan:     &scanDefault,
+		ScanMode: &scanModeDefault,
 	}
 
 	val.timeout = o.timeout
@@ -211,6 +222,17 @@ func (o *UploadFileMixin0Mixin93Params) SetScan(scan *bool) {
 	o.Scan = scan
 }
 
+// WithScanMode adds the scanMode to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) WithScanMode(scanMode *string) *UploadFileMixin0Mixin93Params {
+	o.SetScanMode(scanMode)
+	return o
+}
+
+// SetScanMode adds the scanMode to the upload file mixin0 mixin93 params
+func (o *UploadFileMixin0Mixin93Params) SetScanMode(scanMode *string) {
+	o.ScanMode = scanMode
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *UploadFileMixin0Mixin93Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -273,6 +295,21 @@ func (o *UploadFileMixin0Mixin93Params) WriteToRequest(r runtime.ClientRequest, 
 		fScan := swag.FormatBool(frScan)
 		if fScan != "" {
 			if err := r.SetFormParam("scan", fScan); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ScanMode != nil {
+
+		// form param scan_mode
+		var frScanMode string
+		if o.ScanMode != nil {
+			frScanMode = *o.ScanMode
+		}
+		fScanMode := frScanMode
+		if fScanMode != "" {
+			if err := r.SetFormParam("scan_mode", fScanMode); err != nil {
 				return err
 			}
 		}

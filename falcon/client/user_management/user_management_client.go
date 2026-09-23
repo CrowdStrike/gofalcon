@@ -32,30 +32,46 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	CombinedUserRolesV2(params *CombinedUserRolesV2Params, opts ...ClientOption) (*CombinedUserRolesV2OK, error)
 
+	CombinedUserRolesV3(params *CombinedUserRolesV3Params, opts ...ClientOption) (*CombinedUserRolesV3OK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...ClientOption) (*GetAvailableRoleIdsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOption) (*GetUserRoleIdsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...ClientOption) (*GrantUserRoleIdsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...ClientOption) (*RevokeUserRoleIdsOK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error)
 
 	AggregateUsersV1(params *AggregateUsersV1Params, opts ...ClientOption) (*AggregateUsersV1OK, error)
 
+	AggregateUsersV2(params *AggregateUsersV2Params, opts ...ClientOption) (*AggregateUsersV2OK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...ClientOption) (*CombinedUserRolesV1OK, error)
 
 	CreateUserV1(params *CreateUserV1Params, opts ...ClientOption) (*CreateUserV1Created, error)
@@ -64,21 +80,35 @@ type ClientService interface {
 
 	EntitiesRolesGETV2(params *EntitiesRolesGETV2Params, opts ...ClientOption) (*EntitiesRolesGETV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOption) (*EntitiesRolesV1OK, error)
+
+	GetUserInvitationsGETV1(params *GetUserInvitationsGETV1Params, opts ...ClientOption) (*GetUserInvitationsGETV1OK, error)
 
 	QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOption) (*QueriesRolesV1OK, error)
 
+	QueryUserInvitationsV1(params *QueryUserInvitationsV1Params, opts ...ClientOption) (*QueryUserInvitationsV1OK, error)
+
 	QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*QueryUserV1OK, error)
 
+	QueryUserV2(params *QueryUserV2Params, opts ...ClientOption) (*QueryUserV2OK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error)
 
 	RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...ClientOption) (*RetrieveUsersGETV1OK, error)
+
+	RetrieveUsersGETV2(params *RetrieveUsersGETV2Params, opts ...ClientOption) (*RetrieveUsersGETV2OK, error)
 
 	UpdateUserV1(params *UpdateUserV1Params, opts ...ClientOption) (*UpdateUserV1OK, error)
 
 	UserActionV1(params *UserActionV1Params, opts ...ClientOption) (*UserActionV1OK, error)
 
+	UserAllowedActionsV1(params *UserAllowedActionsV1Params, opts ...ClientOption) (*UserAllowedActionsV1OK, error)
+
 	UserRolesActionV1(params *UserRolesActionV1Params, opts ...ClientOption) (*UserRolesActionV1OK, error)
+
+	UserRolesActionV2(params *UserRolesActionV2Params, opts ...ClientOption) (*UserRolesActionV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -122,7 +152,47 @@ func (a *Client) CombinedUserRolesV2(params *CombinedUserRolesV2Params, opts ...
 }
 
 /*
+CombinedUserRolesV3 gets user grant s including external users this endpoint lists grants between a user and a customer where the user may be homed in a partner c ID
+*/
+func (a *Client) CombinedUserRolesV3(params *CombinedUserRolesV3Params, opts ...ClientOption) (*CombinedUserRolesV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedUserRolesV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CombinedUserRolesV3",
+		Method:             "GET",
+		PathPattern:        "/user-management/combined/user-roles/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CombinedUserRolesV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedUserRolesV3OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CombinedUserRolesV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CreateUser deprecateds please use p o s t user management entities users v1 create a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error) {
 	// TODO: Validate the params before sending
@@ -161,6 +231,8 @@ func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*Cr
 
 /*
 DeleteUser deprecateds please use d e l e t e user management entities users v1 delete a user permanently
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error) {
 	// TODO: Validate the params before sending
@@ -199,6 +271,8 @@ func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*De
 
 /*
 GetAvailableRoleIds deprecateds please use g e t user management queries roles v1 show role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...ClientOption) (*GetAvailableRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -237,6 +311,8 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...
 
 /*
 GetRoles deprecateds please use g e t user management entities roles v1 get info about a role
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error) {
 	// TODO: Validate the params before sending
@@ -275,6 +351,8 @@ func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRol
 
 /*
 GetUserRoleIds deprecateds please use g e t user management combined user roles v1 show role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOption) (*GetUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -313,6 +391,8 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOpti
 
 /*
 GrantUserRoleIds deprecateds please use p o s t user management entities user role actions v1 assign one or more roles to a user
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...ClientOption) (*GrantUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -351,6 +431,8 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...Client
 
 /*
 RetrieveEmailsByCID deprecateds please use p o s t user management entities users g e t v1 list the usernames usually an email address for all users in your customer account
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -389,6 +471,8 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...
 
 /*
 RetrieveUserUUID deprecateds please use g e t user management queries users v1 get a user s ID by providing a username usually an email address
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error) {
 	// TODO: Validate the params before sending
@@ -427,6 +511,8 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...Client
 
 /*
 RetrieveUserUUIDsByCID deprecateds please use g e t user management queries users v1 list user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -465,6 +551,8 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, op
 
 /*
 RevokeUserRoleIds deprecateds please use p o s t user management entities user role actions v1 revoke one or more roles from a user
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...ClientOption) (*RevokeUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -503,6 +591,8 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...Clie
 
 /*
 UpdateUser deprecateds please use p a t c h user management entities users v1 modify an existing user s first or last name
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error) {
 	// TODO: Validate the params before sending
@@ -578,7 +668,47 @@ func (a *Client) AggregateUsersV1(params *AggregateUsersV1Params, opts ...Client
 }
 
 /*
+AggregateUsersV2 gets user aggregates including external users as specified via json in request body
+*/
+func (a *Client) AggregateUsersV2(params *AggregateUsersV2Params, opts ...ClientOption) (*AggregateUsersV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAggregateUsersV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "aggregateUsersV2",
+		Method:             "POST",
+		PathPattern:        "/user-management/aggregates/users/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &AggregateUsersV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AggregateUsersV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for aggregateUsersV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CombinedUserRolesV1 deprecateds please use g e t user management combined user roles v2 get user grant s this endpoint lists both direct as well as flight control grants between a user and a customer
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...ClientOption) (*CombinedUserRolesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -731,6 +861,8 @@ func (a *Client) EntitiesRolesGETV2(params *EntitiesRolesGETV2Params, opts ...Cl
 
 /*
 EntitiesRolesV1 gets info about a role
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOption) (*EntitiesRolesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -764,6 +896,44 @@ func (a *Client) EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entitiesRolesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetUserInvitationsGETV1 gets one or more external user invitations by ID
+*/
+func (a *Client) GetUserInvitationsGETV1(params *GetUserInvitationsGETV1Params, opts ...ClientOption) (*GetUserInvitationsGETV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetUserInvitationsGETV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getUserInvitationsGETV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/user-invitations/GET/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUserInvitationsGETV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetUserInvitationsGETV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getUserInvitationsGETV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -806,6 +976,44 @@ func (a *Client) QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOpti
 }
 
 /*
+QueryUserInvitationsV1 queries external user invitation i ds using an f q l filter
+*/
+func (a *Client) QueryUserInvitationsV1(params *QueryUserInvitationsV1Params, opts ...ClientOption) (*QueryUserInvitationsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryUserInvitationsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryUserInvitationsV1",
+		Method:             "GET",
+		PathPattern:        "/user-management/queries/user-invitations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QueryUserInvitationsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryUserInvitationsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryUserInvitationsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueryUserV1 lists user i ds for all users in your customer account for more information on each user provide the user ID to user management entities users g e t v1
 */
 func (a *Client) QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*QueryUserV1OK, error) {
@@ -844,7 +1052,47 @@ func (a *Client) QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*
 }
 
 /*
+QueryUserV2 lists user i ds for all users in your customer account including external users who have roles assigned in your customer account for more information on each user provide the user ID to user management entities users g e t v1
+*/
+func (a *Client) QueryUserV2(params *QueryUserV2Params, opts ...ClientOption) (*QueryUserV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryUserV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryUserV2",
+		Method:             "GET",
+		PathPattern:        "/user-management/queries/users/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QueryUserV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryUserV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryUserV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 RetrieveUser deprecateds please use p o s t user management entities users g e t v1 get info about a user
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error) {
 	// TODO: Validate the params before sending
@@ -916,6 +1164,44 @@ func (a *Client) RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...Cl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for retrieveUsersGETV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RetrieveUsersGETV2 gets info about users including their name UID c ID and whether they are external by providing user u UI ds
+*/
+func (a *Client) RetrieveUsersGETV2(params *RetrieveUsersGETV2Params, opts ...ClientOption) (*RetrieveUsersGETV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRetrieveUsersGETV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "retrieveUsersGETV2",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/users/GET/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &RetrieveUsersGETV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RetrieveUsersGETV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for retrieveUsersGETV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -996,6 +1282,44 @@ func (a *Client) UserActionV1(params *UserActionV1Params, opts ...ClientOption) 
 }
 
 /*
+UserAllowedActionsV1 provides the list of actions that can performed on the user on the c ID
+*/
+func (a *Client) UserAllowedActionsV1(params *UserAllowedActionsV1Params, opts ...ClientOption) (*UserAllowedActionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUserAllowedActionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "userAllowedActionsV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/user-allowed-actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UserAllowedActionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UserAllowedActionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for userAllowedActionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 UserRolesActionV1 grants or revoke one or more role s to a user against a c ID user UUID c ID and role ID s can be provided in request payload available action s grant revoke
 */
 func (a *Client) UserRolesActionV1(params *UserRolesActionV1Params, opts ...ClientOption) (*UserRolesActionV1OK, error) {
@@ -1030,6 +1354,44 @@ func (a *Client) UserRolesActionV1(params *UserRolesActionV1Params, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for userRolesActionV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UserRolesActionV2 grants or revoke one or more role s to a user against a c ID the user can be a regular user or a invited external user to the c ID user UUID c ID and role ID s can be provided in request payload available action s assign role or grant a n d remove role or revoke
+*/
+func (a *Client) UserRolesActionV2(params *UserRolesActionV2Params, opts ...ClientOption) (*UserRolesActionV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUserRolesActionV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "userRolesActionV2",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/user-role-actions/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UserRolesActionV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UserRolesActionV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for userRolesActionV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

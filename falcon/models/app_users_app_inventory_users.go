@@ -162,6 +162,19 @@ func (m *AppUsersAppInventoryUsers) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
+// String returns the JSON body of this app users app inventory users. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AppUsersAppInventoryUsers) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
+
 // AppUsersAppInventoryUsersUsersItems0 app users app inventory users users items0
 //
 // swagger:model AppUsersAppInventoryUsersUsersItems0
@@ -200,4 +213,17 @@ func (m *AppUsersAppInventoryUsersUsersItems0) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this app users app inventory users users items0. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *AppUsersAppInventoryUsersUsersItems0) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

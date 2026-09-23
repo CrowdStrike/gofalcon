@@ -40,6 +40,7 @@ type ClientService interface {
 
 	CreateUserGroups(params *CreateUserGroupsParams, opts ...ClientOption) (*CreateUserGroupsOK, *CreateUserGroupsMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	DeleteCIDGroupMembers(params *DeleteCIDGroupMembersParams, opts ...ClientOption) (*DeleteCIDGroupMembersOK, *DeleteCIDGroupMembersMultiStatus, error)
 
 	DeleteCIDGroupMembersV2(params *DeleteCIDGroupMembersV2Params, opts ...ClientOption) (*DeleteCIDGroupMembersV2OK, *DeleteCIDGroupMembersV2MultiStatus, error)
@@ -52,10 +53,12 @@ type ClientService interface {
 
 	DeletedRoles(params *DeletedRolesParams, opts ...ClientOption) (*DeletedRolesOK, *DeletedRolesMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOption) (*GetCIDGroupByIDOK, *GetCIDGroupByIDMultiStatus, error)
 
 	GetCIDGroupByIDV2(params *GetCIDGroupByIDV2Params, opts ...ClientOption) (*GetCIDGroupByIDV2OK, *GetCIDGroupByIDV2MultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts ...ClientOption) (*GetCIDGroupMembersByOK, *GetCIDGroupMembersByMultiStatus, error)
 
 	GetCIDGroupMembersByV2(params *GetCIDGroupMembersByV2Params, opts ...ClientOption) (*GetCIDGroupMembersByV2OK, *GetCIDGroupMembersByV2MultiStatus, error)
@@ -66,10 +69,12 @@ type ClientService interface {
 
 	GetRolesByID(params *GetRolesByIDParams, opts ...ClientOption) (*GetRolesByIDOK, *GetRolesByIDMultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, opts ...ClientOption) (*GetUserGroupMembersByIDOK, *GetUserGroupMembersByIDMultiStatus, error)
 
 	GetUserGroupMembersByIDV2(params *GetUserGroupMembersByIDV2Params, opts ...ClientOption) (*GetUserGroupMembersByIDV2OK, *GetUserGroupMembersByIDV2MultiStatus, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...ClientOption) (*GetUserGroupsByIDOK, *GetUserGroupsByIDMultiStatus, error)
 
 	GetUserGroupsByIDV2(params *GetUserGroupsByIDV2Params, opts ...ClientOption) (*GetUserGroupsByIDV2OK, *GetUserGroupsByIDV2MultiStatus, error)
@@ -290,6 +295,8 @@ func (a *Client) CreateUserGroups(params *CreateUserGroupsParams, opts ...Client
 
 /*
 DeleteCIDGroupMembers deprecateds please use d e l e t e entities cid group members v2 delete c ID group members
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) DeleteCIDGroupMembers(params *DeleteCIDGroupMembersParams, opts ...ClientOption) (*DeleteCIDGroupMembersOK, *DeleteCIDGroupMembersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -524,6 +531,8 @@ func (a *Client) DeletedRoles(params *DeletedRolesParams, opts ...ClientOption) 
 
 /*
 GetCIDGroupByID deprecateds please use g e t mssp entities cid groups v2 get c ID groups by ID
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOption) (*GetCIDGroupByIDOK, *GetCIDGroupByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -602,6 +611,8 @@ func (a *Client) GetCIDGroupByIDV2(params *GetCIDGroupByIDV2Params, opts ...Clie
 
 /*
 GetCIDGroupMembersBy deprecateds please use g e t mssp entities cid group members v2 get c ID group members by c ID group ID
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts ...ClientOption) (*GetCIDGroupMembersByOK, *GetCIDGroupMembersByMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -797,6 +808,8 @@ func (a *Client) GetRolesByID(params *GetRolesByIDParams, opts ...ClientOption) 
 
 /*
 GetUserGroupMembersByID deprecateds please use g e t mssp entities user group members v2 get user group members by user group ID
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, opts ...ClientOption) (*GetUserGroupMembersByIDOK, *GetUserGroupMembersByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -875,6 +888,8 @@ func (a *Client) GetUserGroupMembersByIDV2(params *GetUserGroupMembersByIDV2Para
 
 /*
 GetUserGroupsByID deprecateds please use g e t entities user groups v2 get user groups by ID
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...ClientOption) (*GetUserGroupsByIDOK, *GetUserGroupsByIDMultiStatus, error) {
 	// TODO: Validate the params before sending

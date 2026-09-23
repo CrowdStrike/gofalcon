@@ -69,3 +69,16 @@ func (m *SdkLeadEvidenceSelector) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this sdk lead evidence selector. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *SdkLeadEvidenceSelector) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

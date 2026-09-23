@@ -181,3 +181,16 @@ func (m *IntegrationUserGetUserInventory) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this integration user get user inventory. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *IntegrationUserGetUserInventory) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

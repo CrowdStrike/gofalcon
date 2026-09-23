@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -38,6 +39,9 @@ type ModelsApplicationLibrary struct {
 	// path
 	Path string `json:"Path,omitempty"`
 
+	// paths
+	Paths []*ModelsPathInfo `json:"Paths"`
+
 	// version
 	Version string `json:"Version,omitempty"`
 
@@ -50,6 +54,10 @@ func (m *ModelsApplicationLibrary) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateLayerIndex(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePaths(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,8 +76,68 @@ func (m *ModelsApplicationLibrary) validateLayerIndex(formats strfmt.Registry) e
 	return nil
 }
 
-// ContextValidate validates this models application library based on context it is used
+func (m *ModelsApplicationLibrary) validatePaths(formats strfmt.Registry) error {
+	if swag.IsZero(m.Paths) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Paths); i++ {
+		if swag.IsZero(m.Paths[i]) { // not required
+			continue
+		}
+
+		if m.Paths[i] != nil {
+			if err := m.Paths[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("Paths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Paths" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this models application library based on the context it is used
 func (m *ModelsApplicationLibrary) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePaths(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ModelsApplicationLibrary) contextValidatePaths(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Paths); i++ {
+
+		if m.Paths[i] != nil {
+
+			if swag.IsZero(m.Paths[i]) { // not required
+				return nil
+			}
+
+			if err := m.Paths[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("Paths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Paths" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -89,4 +157,17 @@ func (m *ModelsApplicationLibrary) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this models application library. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *ModelsApplicationLibrary) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

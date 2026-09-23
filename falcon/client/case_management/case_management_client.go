@@ -32,6 +32,7 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	AggregatesAccessTagsPostV1(params *AggregatesAccessTagsPostV1Params, opts ...ClientOption) (*AggregatesAccessTagsPostV1OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	AggregatesNotificationGroupsPostV1(params *AggregatesNotificationGroupsPostV1Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV1OK, error)
 
 	AggregatesNotificationGroupsPostV2(params *AggregatesNotificationGroupsPostV2Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV2OK, error)
@@ -44,18 +45,22 @@ type ClientService interface {
 
 	EntitiesFieldsGetV1(params *EntitiesFieldsGetV1Params, opts ...ClientOption) (*EntitiesFieldsGetV1OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EntitiesNotificationGroupsDeleteV1(params *EntitiesNotificationGroupsDeleteV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsDeleteV1OK, error)
 
 	EntitiesNotificationGroupsDeleteV2(params *EntitiesNotificationGroupsDeleteV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsDeleteV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EntitiesNotificationGroupsGetV1(params *EntitiesNotificationGroupsGetV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsGetV1OK, error)
 
 	EntitiesNotificationGroupsGetV2(params *EntitiesNotificationGroupsGetV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsGetV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EntitiesNotificationGroupsPatchV1(params *EntitiesNotificationGroupsPatchV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsPatchV1OK, error)
 
 	EntitiesNotificationGroupsPatchV2(params *EntitiesNotificationGroupsPatchV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsPatchV2OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EntitiesNotificationGroupsPostV1(params *EntitiesNotificationGroupsPostV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsPostV1OK, error)
 
 	EntitiesNotificationGroupsPostV2(params *EntitiesNotificationGroupsPostV2Params, opts ...ClientOption) (*EntitiesNotificationGroupsPostV2OK, error)
@@ -86,6 +91,7 @@ type ClientService interface {
 
 	QueriesFieldsGetV1(params *QueriesFieldsGetV1Params, opts ...ClientOption) (*QueriesFieldsGetV1OK, error)
 
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	QueriesNotificationGroupsGetV1(params *QueriesNotificationGroupsGetV1Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV1OK, error)
 
 	QueriesNotificationGroupsGetV2(params *QueriesNotificationGroupsGetV2Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV2OK, error)
@@ -139,6 +145,8 @@ func (a *Client) AggregatesAccessTagsPostV1(params *AggregatesAccessTagsPostV1Pa
 
 /*
 AggregatesNotificationGroupsPostV1 gets notification groups aggregations
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) AggregatesNotificationGroupsPostV1(params *AggregatesNotificationGroupsPostV1Params, opts ...ClientOption) (*AggregatesNotificationGroupsPostV1OK, error) {
 	// TODO: Validate the params before sending
@@ -367,6 +375,8 @@ func (a *Client) EntitiesFieldsGetV1(params *EntitiesFieldsGetV1Params, opts ...
 
 /*
 EntitiesNotificationGroupsDeleteV1 deletes notification groups by ID
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) EntitiesNotificationGroupsDeleteV1(params *EntitiesNotificationGroupsDeleteV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsDeleteV1OK, error) {
 	// TODO: Validate the params before sending
@@ -443,6 +453,8 @@ func (a *Client) EntitiesNotificationGroupsDeleteV2(params *EntitiesNotification
 
 /*
 EntitiesNotificationGroupsGetV1 gets notification groups by ID
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) EntitiesNotificationGroupsGetV1(params *EntitiesNotificationGroupsGetV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsGetV1OK, error) {
 	// TODO: Validate the params before sending
@@ -519,6 +531,8 @@ func (a *Client) EntitiesNotificationGroupsGetV2(params *EntitiesNotificationGro
 
 /*
 EntitiesNotificationGroupsPatchV1 updates notification group
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) EntitiesNotificationGroupsPatchV1(params *EntitiesNotificationGroupsPatchV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsPatchV1OK, error) {
 	// TODO: Validate the params before sending
@@ -595,6 +609,8 @@ func (a *Client) EntitiesNotificationGroupsPatchV2(params *EntitiesNotificationG
 
 /*
 EntitiesNotificationGroupsPostV1 creates notification group
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) EntitiesNotificationGroupsPostV1(params *EntitiesNotificationGroupsPostV1Params, opts ...ClientOption) (*EntitiesNotificationGroupsPostV1OK, error) {
 	// TODO: Validate the params before sending
@@ -1165,6 +1181,8 @@ func (a *Client) QueriesFieldsGetV1(params *QueriesFieldsGetV1Params, opts ...Cl
 
 /*
 QueriesNotificationGroupsGetV1 queries notification groups
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
 */
 func (a *Client) QueriesNotificationGroupsGetV1(params *QueriesNotificationGroupsGetV1Params, opts ...ClientOption) (*QueriesNotificationGroupsGetV1OK, error) {
 	// TODO: Validate the params before sending

@@ -47,6 +47,9 @@ type DomainAPIRuleDetailsV1 struct {
 	// compliance mappings
 	ComplianceMappings []*DomainAPIComplianceMappingV1 `json:"compliance_mappings"`
 
+	// created by
+	CreatedBy string `json:"created_by,omitempty"`
+
 	// description
 	// Required: true
 	Description *string `json:"description"`
@@ -58,6 +61,9 @@ type DomainAPIRuleDetailsV1 struct {
 	// impact statement
 	// Required: true
 	ImpactStatement *string `json:"impact_statement"`
+
+	// modified by
+	ModifiedBy string `json:"modified_by,omitempty"`
 
 	// platform
 	// Required: true
@@ -77,6 +83,12 @@ type DomainAPIRuleDetailsV1 struct {
 	// remediation procedure
 	// Required: true
 	RemediationProcedure *string `json:"remediation_procedure"`
+
+	// rule type
+	RuleType string `json:"rule_type,omitempty"`
+
+	// script uuid
+	ScriptUUID string `json:"script_uuid,omitempty"`
 
 	// title
 	// Required: true
@@ -360,4 +372,17 @@ func (m *DomainAPIRuleDetailsV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain API rule details v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainAPIRuleDetailsV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

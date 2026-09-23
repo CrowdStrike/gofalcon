@@ -233,3 +233,16 @@ func (m *CorrelationrulesapiGetEntitiesTemplatesResponseV1) UnmarshalBinary(b []
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this correlationrulesapi get entities templates response v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *CorrelationrulesapiGetEntitiesTemplatesResponseV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}

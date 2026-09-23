@@ -17,6 +17,9 @@ import (
 // swagger:model malquery.FuzzyOptions
 type MalqueryFuzzyOptions struct {
 
+	// filter labels
+	FilterLabels []string `json:"filter_labels"`
+
 	// filter meta
 	FilterMeta []string `json:"filter_meta"`
 
@@ -50,4 +53,17 @@ func (m *MalqueryFuzzyOptions) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this malquery fuzzy options. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *MalqueryFuzzyOptions) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

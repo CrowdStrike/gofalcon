@@ -27,6 +27,9 @@ type DomainUpdateRuleRequestV1 struct {
 	// Required: true
 	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
 
+	// exposed data match type
+	ExposedDataMatchType string `json:"exposed_data_match_type,omitempty"`
+
 	// The FQL filter to be used for searching
 	// Required: true
 	Filter *string `json:"filter"`
@@ -54,6 +57,9 @@ type DomainUpdateRuleRequestV1 struct {
 	// Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
 	// Required: true
 	SubstringMatchingEnabled *bool `json:"substring_matching_enabled"`
+
+	// The edit distance to be used with the loosely_matches(~) filter operator(eg: typosquatting_term:~'yourdomain') in the context of Typosquatting topic rules. Possible values: [`auto`, `1`, `2`]. Not permitted with other rule topics and/or operators.
+	TsqMatchEditDistance string `json:"tsq_match_edit_distance,omitempty"`
 }
 
 // Validate validates this domain update rule request v1
@@ -204,4 +210,17 @@ func (m *DomainUpdateRuleRequestV1) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+// String returns the JSON body of this domain update rule request v1. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *DomainUpdateRuleRequestV1) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

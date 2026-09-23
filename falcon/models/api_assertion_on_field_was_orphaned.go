@@ -69,3 +69,16 @@ func (m *APIAssertionOnFieldWasOrphaned) UnmarshalBinary(b []byte) error {
 	*m = res
 	return nil
 }
+
+// String returns the JSON body of this api assertion on field was orphaned. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (m *APIAssertionOnFieldWasOrphaned) String() string {
+	if m == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(m)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
+}
