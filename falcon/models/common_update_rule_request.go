@@ -45,7 +45,7 @@ type CommonUpdateRuleRequest struct {
 	RuleLogicList []*ApimodelsRuleLogic `json:"rule_logic_list"`
 
 	// severity
-	Severity int64 `json:"severity,omitempty"`
+	Severity int64 `json:"severity"`
 
 	// uuid
 	// Required: true
