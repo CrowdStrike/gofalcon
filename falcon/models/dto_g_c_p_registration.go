@@ -112,6 +112,9 @@ type DtoGCPRegistration struct {
 	// vulnerability scanning settings
 	VulnerabilityScanningSettings *GcpAgentlessScanningSettings `json:"vulnerability_scanning_settings,omitempty"`
 
+	// wif pool registration id
+	WifPoolRegistrationID string `json:"wif_pool_registration_id,omitempty"`
+
 	// wif properties
 	WifProperties *DtoWIFProperties `json:"wif_properties,omitempty"`
 }
