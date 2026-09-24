@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"math"
 	"net/http"
 	"time"
 
@@ -27,6 +28,43 @@ type StreamingHandle struct {
 	HTTPClient    *http.Client
 }
 
+// refreshPeriodPerSecond is how much of the session lifetime the stream is
+// allowed to burn before refreshing: nine tenths of it, kept in time.Duration
+// so that short lifetimes do not truncate to zero.
+const refreshPeriodPerSecond = 9 * time.Second / 10
+
+// maxRefreshActiveSessionInterval is the largest interval, in seconds, that can
+// still be turned into a refresh period without overflowing a time.Duration.
+const maxRefreshActiveSessionInterval = int64(math.MaxInt64 / refreshPeriodPerSecond)
+
+// checkStreamDescriptor makes sure the descriptor carries the fields the stream
+// actually dereferences, and works out the session refresh period from it. The
+// descriptor comes back from ListAvailableStreamsOAuth2 with every field a
+// pointer, so a sparse response would otherwise panic on first use.
+func checkStreamDescriptor(stream *models.MainAvailableStreamV2) (time.Duration, error) {
+	if stream == nil {
+		return 0, errors.New("no stream descriptor provided")
+	}
+	if stream.DataFeedURL == nil {
+		return 0, errors.New("stream descriptor has no dataFeedURL")
+	}
+	if stream.SessionToken == nil {
+		return 0, errors.New("stream descriptor has no sessionToken")
+	}
+	if stream.SessionToken.Token == nil {
+		return 0, errors.New("stream descriptor has no sessionToken.token")
+	}
+	if stream.RefreshActiveSessionInterval == nil {
+		return 0, errors.New("stream descriptor has no refreshActiveSessionInterval")
+	}
+
+	interval := *stream.RefreshActiveSessionInterval
+	if interval <= 0 || interval > maxRefreshActiveSessionInterval {
+		return 0, fmt.Errorf("stream descriptor carries an unusable refreshActiveSessionInterval: %d", interval)
+	}
+	return time.Duration(interval) * refreshPeriodPerSecond, nil
+}
+
 // newStream initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
 func newStream(
 	ctx context.Context,
@@ -36,6 +74,11 @@ func newStream(
 	offset uint64,
 	httpClient *http.Client,
 ) (*StreamingHandle, error) {
+	refreshPeriod, err := checkStreamDescriptor(stream)
+	if err != nil {
+		return nil, err
+	}
+
 	ctx, cancel := context.WithCancel(ctx)
 
 	sh := &StreamingHandle{
@@ -49,9 +92,8 @@ func newStream(
 		Errors:        make(chan StreamingError),
 		HTTPClient:    httpClient,
 	}
-	sh.maintainSession()
-	err := sh.open()
-	if err != nil {
+	sh.maintainSession(refreshPeriod)
+	if err := sh.open(); err != nil {
 		sh.Close()
 		return nil, err
 	}
@@ -84,10 +126,8 @@ func NewStream(
 	return newStream(ctx, client, appId, stream, offset, &http.Client{})
 }
 
-func (sh *StreamingHandle) maintainSession() {
-	ticker := time.NewTicker(
-		time.Duration(*sh.stream.RefreshActiveSessionInterval*9/10) * time.Second,
-	)
+func (sh *StreamingHandle) maintainSession(refreshPeriod time.Duration) {
+	ticker := time.NewTicker(refreshPeriod)
 	go func() {
 		defer ticker.Stop()
 		for {
