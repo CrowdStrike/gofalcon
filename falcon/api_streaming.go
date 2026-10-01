@@ -101,6 +101,7 @@ func newStream(
 }
 
 // NewStreamWithClient initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
+// It rejects the same unusable stream descriptors as NewStream.
 func NewStreamWithClient(
 	ctx context.Context,
 	client *client.CrowdStrikeAPISpecification,
@@ -116,6 +117,7 @@ func NewStreamWithClient(
 // The streams need to be discovered first by event_streams.ListAvailableStreamsOAuth2() method.
 // The appId must be an ID that is unique within your CrowdStrike account. Each running instance of your application must provide unique ID.
 // The offset value can then be used to skip seen events, should the stream disconnect. Users are advised to use zero (0) value at start. Each event then contains its own offset.
+// It returns an error without connecting if the stream lacks dataFeedURL, sessionToken.token or refreshActiveSessionInterval, or if refreshActiveSessionInterval is not a usable positive number of seconds.
 func NewStream(
 	ctx context.Context,
 	client *client.CrowdStrikeAPISpecification,
