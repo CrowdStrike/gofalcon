@@ -37,6 +37,12 @@ func (o *QueryUserInvitationsV1Reader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewQueryUserInvitationsV1Unauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewQueryUserInvitationsV1Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *QueryUserInvitationsV1BadRequest) readResponse(response runtime.ClientR
 	}
 
 	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryUserInvitationsV1Unauthorized creates a QueryUserInvitationsV1Unauthorized with default headers values
+func NewQueryUserInvitationsV1Unauthorized() *QueryUserInvitationsV1Unauthorized {
+	return &QueryUserInvitationsV1Unauthorized{}
+}
+
+/*
+QueryUserInvitationsV1Unauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type QueryUserInvitationsV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this query user invitations v1 unauthorized response has a 2xx status code
+func (o *QueryUserInvitationsV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query user invitations v1 unauthorized response has a 3xx status code
+func (o *QueryUserInvitationsV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user invitations v1 unauthorized response has a 4xx status code
+func (o *QueryUserInvitationsV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query user invitations v1 unauthorized response has a 5xx status code
+func (o *QueryUserInvitationsV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user invitations v1 unauthorized response a status code equal to that given
+func (o *QueryUserInvitationsV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the query user invitations v1 unauthorized response
+func (o *QueryUserInvitationsV1Unauthorized) Code() int {
+	return 401
+}
+
+func (o *QueryUserInvitationsV1Unauthorized) Error() string {
+	return fmt.Sprintf("[GET /user-management/queries/user-invitations/v1][%d] queryUserInvitationsV1Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *QueryUserInvitationsV1Unauthorized) String() string {
+	return fmt.Sprintf("[GET /user-management/queries/user-invitations/v1][%d] queryUserInvitationsV1Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *QueryUserInvitationsV1Unauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *QueryUserInvitationsV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

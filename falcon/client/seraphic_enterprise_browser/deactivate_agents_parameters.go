@@ -65,9 +65,9 @@ type DeactivateAgentsParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The IDs of the agents to deactivate. Required, must be non-empty.
 	*/
-	Body *models.APIAgentIDsRequest
+	Body *models.AgentIDsRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *DeactivateAgentsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the deactivate agents params
-func (o *DeactivateAgentsParams) WithBody(body *models.APIAgentIDsRequest) *DeactivateAgentsParams {
+func (o *DeactivateAgentsParams) WithBody(body *models.AgentIDsRequest) *DeactivateAgentsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the deactivate agents params
-func (o *DeactivateAgentsParams) SetBody(body *models.APIAgentIDsRequest) {
+func (o *DeactivateAgentsParams) SetBody(body *models.AgentIDsRequest) {
 	o.Body = body
 }
 

@@ -64,6 +64,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/data_protection_configuration"
 	"github.com/crowdstrike/gofalcon/falcon/client/delivery_settings"
+	"github.com/crowdstrike/gofalcon/falcon/client/deployment_configs"
+	"github.com/crowdstrike/gofalcon/falcon/client/deployment_executions"
 	"github.com/crowdstrike/gofalcon/falcon/client/deployments"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_content"
@@ -72,6 +74,11 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/discover_iot"
 	"github.com/crowdstrike/gofalcon/falcon/client/downloads_api"
 	"github.com/crowdstrike/gofalcon/falcon/client/drift_indicators"
+	"github.com/crowdstrike/gofalcon/falcon/client/eval_cases"
+	"github.com/crowdstrike/gofalcon/falcon/client/eval_dataset_entries"
+	"github.com/crowdstrike/gofalcon/falcon/client/eval_datasets"
+	"github.com/crowdstrike/gofalcon/falcon/client/eval_evaluators"
+	"github.com/crowdstrike/gofalcon/falcon/client/eval_runs"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_schema"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
 	"github.com/crowdstrike/gofalcon/falcon/client/execution"
@@ -89,6 +96,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/foundry_logscale"
 	"github.com/crowdstrike/gofalcon/falcon/client/foundry_lookup_files"
+	"github.com/crowdstrike/gofalcon/falcon/client/host_deployment_patches"
+	"github.com/crowdstrike/gofalcon/falcon/client/host_deployments"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_migration"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
@@ -128,6 +137,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
 	"github.com/crowdstrike/gofalcon/falcon/client/operations"
+	"github.com/crowdstrike/gofalcon/falcon/client/patch_mgmt"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/profile_groups"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
@@ -265,6 +275,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
 	cli.DataProtectionConfiguration = data_protection_configuration.New(transport, formats)
 	cli.DeliverySettings = delivery_settings.New(transport, formats)
+	cli.DeploymentConfigs = deployment_configs.New(transport, formats)
+	cli.DeploymentExecutions = deployment_executions.New(transport, formats)
 	cli.Deployments = deployments.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceContent = device_content.New(transport, formats)
@@ -273,6 +285,11 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.DiscoverIot = discover_iot.New(transport, formats)
 	cli.DownloadsAPI = downloads_api.New(transport, formats)
 	cli.DriftIndicators = drift_indicators.New(transport, formats)
+	cli.EvalCases = eval_cases.New(transport, formats)
+	cli.EvalDatasetEntries = eval_dataset_entries.New(transport, formats)
+	cli.EvalDatasets = eval_datasets.New(transport, formats)
+	cli.EvalEvaluators = eval_evaluators.New(transport, formats)
+	cli.EvalRuns = eval_runs.New(transport, formats)
 	cli.EventSchema = event_schema.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
 	cli.Execution = execution.New(transport, formats)
@@ -290,6 +307,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
 	cli.FoundryLogscale = foundry_logscale.New(transport, formats)
 	cli.FoundryLookupFiles = foundry_lookup_files.New(transport, formats)
+	cli.HostDeploymentPatches = host_deployment_patches.New(transport, formats)
+	cli.HostDeployments = host_deployments.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
 	cli.HostMigration = host_migration.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
@@ -329,6 +348,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
 	cli.Operations = operations.New(transport, formats)
+	cli.PatchMgmt = patch_mgmt.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.ProfileGroups = profile_groups.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
@@ -520,6 +540,10 @@ type CrowdStrikeAPISpecification struct {
 
 	DeliverySettings delivery_settings.ClientService
 
+	DeploymentConfigs deployment_configs.ClientService
+
+	DeploymentExecutions deployment_executions.ClientService
+
 	Deployments deployments.ClientService
 
 	Detects detects.ClientService
@@ -535,6 +559,16 @@ type CrowdStrikeAPISpecification struct {
 	DownloadsAPI downloads_api.ClientService
 
 	DriftIndicators drift_indicators.ClientService
+
+	EvalCases eval_cases.ClientService
+
+	EvalDatasetEntries eval_dataset_entries.ClientService
+
+	EvalDatasets eval_datasets.ClientService
+
+	EvalEvaluators eval_evaluators.ClientService
+
+	EvalRuns eval_runs.ClientService
 
 	EventSchema event_schema.ClientService
 
@@ -569,6 +603,10 @@ type CrowdStrikeAPISpecification struct {
 	FoundryLogscale foundry_logscale.ClientService
 
 	FoundryLookupFiles foundry_lookup_files.ClientService
+
+	HostDeploymentPatches host_deployment_patches.ClientService
+
+	HostDeployments host_deployments.ClientService
 
 	HostGroup host_group.ClientService
 
@@ -647,6 +685,8 @@ type CrowdStrikeAPISpecification struct {
 	Ods ods.ClientService
 
 	Operations operations.ClientService
+
+	PatchMgmt patch_mgmt.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
 
@@ -786,6 +826,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.D4cRegistration.SetTransport(transport)
 	c.DataProtectionConfiguration.SetTransport(transport)
 	c.DeliverySettings.SetTransport(transport)
+	c.DeploymentConfigs.SetTransport(transport)
+	c.DeploymentExecutions.SetTransport(transport)
 	c.Deployments.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceContent.SetTransport(transport)
@@ -794,6 +836,11 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.DiscoverIot.SetTransport(transport)
 	c.DownloadsAPI.SetTransport(transport)
 	c.DriftIndicators.SetTransport(transport)
+	c.EvalCases.SetTransport(transport)
+	c.EvalDatasetEntries.SetTransport(transport)
+	c.EvalDatasets.SetTransport(transport)
+	c.EvalEvaluators.SetTransport(transport)
+	c.EvalRuns.SetTransport(transport)
 	c.EventSchema.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
 	c.Execution.SetTransport(transport)
@@ -811,6 +858,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FirewallPolicies.SetTransport(transport)
 	c.FoundryLogscale.SetTransport(transport)
 	c.FoundryLookupFiles.SetTransport(transport)
+	c.HostDeploymentPatches.SetTransport(transport)
+	c.HostDeployments.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
 	c.HostMigration.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
@@ -850,6 +899,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
 	c.Operations.SetTransport(transport)
+	c.PatchMgmt.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.ProfileGroups.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)

@@ -37,6 +37,12 @@ func (o *PromoteReader) ReadResponse(response runtime.ClientResponse, consumer r
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewPromoteUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewPromoteForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *PromoteBadRequest) readResponse(response runtime.ClientResponse, consum
 	}
 
 	o.Payload = new(models.ClientSystemDefinitionCreateResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPromoteUnauthorized creates a PromoteUnauthorized with default headers values
+func NewPromoteUnauthorized() *PromoteUnauthorized {
+	return &PromoteUnauthorized{}
+}
+
+/*
+PromoteUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type PromoteUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this promote unauthorized response has a 2xx status code
+func (o *PromoteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this promote unauthorized response has a 3xx status code
+func (o *PromoteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote unauthorized response has a 4xx status code
+func (o *PromoteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this promote unauthorized response has a 5xx status code
+func (o *PromoteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote unauthorized response a status code equal to that given
+func (o *PromoteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the promote unauthorized response
+func (o *PromoteUnauthorized) Code() int {
+	return 401
+}
+
+func (o *PromoteUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PromoteUnauthorized) String() string {
+	return fmt.Sprintf("[POST /workflows/system-definitions/promote/v1][%d] promoteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PromoteUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *PromoteUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

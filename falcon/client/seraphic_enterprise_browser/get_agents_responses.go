@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type GetAgentsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *GetAgentsOKBody
 }
 
 // IsSuccess returns true when this get agents o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *GetAgentsOK) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/agents/v1][%d] getAgentsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetAgentsOK) GetPayload() *models.APIEnvelope {
+func (o *GetAgentsOK) GetPayload() *GetAgentsOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *GetAgentsOK) readResponse(response runtime.ClientResponse, consumer run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(GetAgentsOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type GetAgentsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get agents bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *GetAgentsBadRequest) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/agents/v1][%d] getAgentsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetAgentsBadRequest) GetPayload() *models.APIEnvelope {
+func (o *GetAgentsBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *GetAgentsBadRequest) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type GetAgentsUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get agents unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *GetAgentsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/agents/v1][%d] getAgentsUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetAgentsUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *GetAgentsUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *GetAgentsUnauthorized) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type GetAgentsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get agents forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *GetAgentsForbidden) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/agents/v1][%d] getAgentsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetAgentsForbidden) GetPayload() *models.APIEnvelope {
+func (o *GetAgentsForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *GetAgentsForbidden) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type GetAgentsTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get agents too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *GetAgentsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/agents/v1][%d] getAgentsTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetAgentsTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *GetAgentsTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *GetAgentsTooManyRequests) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewGetAgentsInternalServerError() *GetAgentsInternalServerError {
 /*
 GetAgentsInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type GetAgentsInternalServerError struct {
 
@@ -661,7 +664,7 @@ type GetAgentsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get agents internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *GetAgentsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/agents/v1][%d] getAgentsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetAgentsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetAgentsInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *GetAgentsInternalServerError) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type GetAgentsBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get agents bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *GetAgentsBadGateway) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/agents/v1][%d] getAgentsBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *GetAgentsBadGateway) GetPayload() *models.APIEnvelope {
+func (o *GetAgentsBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *GetAgentsBadGateway) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *GetAgentsBadGateway) readResponse(response runtime.ClientResponse, cons
 	}
 
 	return nil
+}
+
+/*
+GetAgentsOKBody get agents o k body
+swagger:model GetAgentsOKBody
+*/
+type GetAgentsOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.Agent `json:"resources"`
+}
+
+// Validate validates this get agents o k body
+func (o *GetAgentsOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetAgentsOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("getAgentsOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetAgentsOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("getAgentsOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getAgentsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getAgentsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *GetAgentsOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("getAgentsOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this get agents o k body based on the context it is used
+func (o *GetAgentsOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetAgentsOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetAgentsOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getAgentsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getAgentsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *GetAgentsOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *GetAgentsOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *GetAgentsOKBody) UnmarshalBinary(b []byte) error {
+	var res GetAgentsOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this get agents o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *GetAgentsOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

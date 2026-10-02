@@ -23,6 +23,10 @@ type OperationsCaseFieldChanges struct {
 	// access tags
 	AccessTags []*SdkCaseAccessTag `json:"access_tags"`
 
+	// assigned to group ids
+	// Required: true
+	AssignedToGroupIds []string `json:"assigned_to_group_ids"`
+
 	// assigned to user uuid
 	// Required: true
 	AssignedToUserUUID *string `json:"assigned_to_user_uuid"`
@@ -44,6 +48,10 @@ type OperationsCaseFieldChanges struct {
 	// name
 	// Required: true
 	Name *string `json:"name"`
+
+	// remove group assignment
+	// Required: true
+	RemoveGroupAssignment *bool `json:"remove_group_assignment"`
 
 	// remove user assignment
 	// Required: true
@@ -68,6 +76,9 @@ type OperationsCaseFieldChanges struct {
 	// template
 	Template *SdkTemplateSelector `json:"template,omitempty"`
 
+	// templates
+	Templates []*SdkTemplateSelector `json:"templates"`
+
 	// workflows
 	Workflows []*SdkWorkflow `json:"workflows"`
 }
@@ -77,6 +88,10 @@ func (m *OperationsCaseFieldChanges) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAccessTags(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAssignedToGroupIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -93,6 +108,10 @@ func (m *OperationsCaseFieldChanges) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRemoveGroupAssignment(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -117,6 +136,10 @@ func (m *OperationsCaseFieldChanges) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTemplate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTemplates(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,6 +174,15 @@ func (m *OperationsCaseFieldChanges) validateAccessTags(formats strfmt.Registry)
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *OperationsCaseFieldChanges) validateAssignedToGroupIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("assigned_to_group_ids", "body", m.AssignedToGroupIds); err != nil {
+		return err
 	}
 
 	return nil
@@ -204,6 +236,15 @@ func (m *OperationsCaseFieldChanges) validateDescription(formats strfmt.Registry
 func (m *OperationsCaseFieldChanges) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OperationsCaseFieldChanges) validateRemoveGroupAssignment(formats strfmt.Registry) error {
+
+	if err := validate.Required("remove_group_assignment", "body", m.RemoveGroupAssignment); err != nil {
 		return err
 	}
 
@@ -285,6 +326,32 @@ func (m *OperationsCaseFieldChanges) validateTemplate(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *OperationsCaseFieldChanges) validateTemplates(formats strfmt.Registry) error {
+	if swag.IsZero(m.Templates) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Templates); i++ {
+		if swag.IsZero(m.Templates[i]) { // not required
+			continue
+		}
+
+		if m.Templates[i] != nil {
+			if err := m.Templates[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("templates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("templates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *OperationsCaseFieldChanges) validateWorkflows(formats strfmt.Registry) error {
 	if swag.IsZero(m.Workflows) { // not required
 		return nil
@@ -328,6 +395,10 @@ func (m *OperationsCaseFieldChanges) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTemplates(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -424,6 +495,31 @@ func (m *OperationsCaseFieldChanges) contextValidateTemplate(ctx context.Context
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *OperationsCaseFieldChanges) contextValidateTemplates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Templates); i++ {
+
+		if m.Templates[i] != nil {
+
+			if swag.IsZero(m.Templates[i]) { // not required
+				return nil
+			}
+
+			if err := m.Templates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("templates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("templates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

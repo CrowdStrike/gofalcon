@@ -37,6 +37,12 @@ func (o *TokensUpdateReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewTokensUpdateUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewTokensUpdateForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *TokensUpdateBadRequest) readResponse(response runtime.ClientResponse, c
 	}
 
 	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTokensUpdateUnauthorized creates a TokensUpdateUnauthorized with default headers values
+func NewTokensUpdateUnauthorized() *TokensUpdateUnauthorized {
+	return &TokensUpdateUnauthorized{}
+}
+
+/*
+TokensUpdateUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type TokensUpdateUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this tokens update unauthorized response has a 2xx status code
+func (o *TokensUpdateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens update unauthorized response has a 3xx status code
+func (o *TokensUpdateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens update unauthorized response has a 4xx status code
+func (o *TokensUpdateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens update unauthorized response has a 5xx status code
+func (o *TokensUpdateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens update unauthorized response a status code equal to that given
+func (o *TokensUpdateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the tokens update unauthorized response
+func (o *TokensUpdateUnauthorized) Code() int {
+	return 401
+}
+
+func (o *TokensUpdateUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *TokensUpdateUnauthorized) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *TokensUpdateUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *TokensUpdateUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

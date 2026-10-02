@@ -37,6 +37,12 @@ func (o *GetCSPMGCPValidateAccountsExtReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewGetCSPMGCPValidateAccountsExtUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetCSPMGCPValidateAccountsExtForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *GetCSPMGCPValidateAccountsExtBadRequest) readResponse(response runtime.
 	}
 
 	o.Payload = new(models.RegistrationGCPAccountValidationResponseV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetCSPMGCPValidateAccountsExtUnauthorized creates a GetCSPMGCPValidateAccountsExtUnauthorized with default headers values
+func NewGetCSPMGCPValidateAccountsExtUnauthorized() *GetCSPMGCPValidateAccountsExtUnauthorized {
+	return &GetCSPMGCPValidateAccountsExtUnauthorized{}
+}
+
+/*
+GetCSPMGCPValidateAccountsExtUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type GetCSPMGCPValidateAccountsExtUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get c s p m g c p validate accounts ext unauthorized response has a 2xx status code
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m g c p validate accounts ext unauthorized response has a 3xx status code
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m g c p validate accounts ext unauthorized response has a 4xx status code
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m g c p validate accounts ext unauthorized response has a 5xx status code
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m g c p validate accounts ext unauthorized response a status code equal to that given
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the get c s p m g c p validate accounts ext unauthorized response
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) Code() int {
+	return 401
+}
+
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/validate/v1][%d] getCSPMGCPValidateAccountsExtUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetCSPMGCPValidateAccountsExtUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

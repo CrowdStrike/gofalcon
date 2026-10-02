@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type UpdateDestinationGroupOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *UpdateDestinationGroupOKBody
 }
 
 // IsSuccess returns true when this update destination group o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *UpdateDestinationGroupOK) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/destination-groups/v1][%d] updateDestinationGroupOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateDestinationGroupOK) GetPayload() *models.APIEnvelope {
+func (o *UpdateDestinationGroupOK) GetPayload() *UpdateDestinationGroupOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *UpdateDestinationGroupOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(UpdateDestinationGroupOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type UpdateDestinationGroupBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update destination group bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *UpdateDestinationGroupBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/destination-groups/v1][%d] updateDestinationGroupBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateDestinationGroupBadRequest) GetPayload() *models.APIEnvelope {
+func (o *UpdateDestinationGroupBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *UpdateDestinationGroupBadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type UpdateDestinationGroupUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update destination group unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *UpdateDestinationGroupUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/destination-groups/v1][%d] updateDestinationGroupUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *UpdateDestinationGroupUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *UpdateDestinationGroupUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *UpdateDestinationGroupUnauthorized) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type UpdateDestinationGroupForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update destination group forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *UpdateDestinationGroupForbidden) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/destination-groups/v1][%d] updateDestinationGroupForbidden  %+v", 403, o.Payload)
 }
 
-func (o *UpdateDestinationGroupForbidden) GetPayload() *models.APIEnvelope {
+func (o *UpdateDestinationGroupForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *UpdateDestinationGroupForbidden) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type UpdateDestinationGroupTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update destination group too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *UpdateDestinationGroupTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/destination-groups/v1][%d] updateDestinationGroupTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *UpdateDestinationGroupTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *UpdateDestinationGroupTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *UpdateDestinationGroupTooManyRequests) readResponse(response runtime.Cl
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewUpdateDestinationGroupInternalServerError() *UpdateDestinationGroupInter
 /*
 UpdateDestinationGroupInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type UpdateDestinationGroupInternalServerError struct {
 
@@ -661,7 +664,7 @@ type UpdateDestinationGroupInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update destination group internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *UpdateDestinationGroupInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/destination-groups/v1][%d] updateDestinationGroupInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdateDestinationGroupInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UpdateDestinationGroupInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *UpdateDestinationGroupInternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type UpdateDestinationGroupBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update destination group bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *UpdateDestinationGroupBadGateway) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/destination-groups/v1][%d] updateDestinationGroupBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *UpdateDestinationGroupBadGateway) GetPayload() *models.APIEnvelope {
+func (o *UpdateDestinationGroupBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *UpdateDestinationGroupBadGateway) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *UpdateDestinationGroupBadGateway) readResponse(response runtime.ClientR
 	}
 
 	return nil
+}
+
+/*
+UpdateDestinationGroupOKBody update destination group o k body
+swagger:model UpdateDestinationGroupOKBody
+*/
+type UpdateDestinationGroupOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.DestinationGroupResource `json:"resources"`
+}
+
+// Validate validates this update destination group o k body
+func (o *UpdateDestinationGroupOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *UpdateDestinationGroupOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("updateDestinationGroupOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updateDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *UpdateDestinationGroupOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("updateDestinationGroupOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("updateDestinationGroupOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updateDestinationGroupOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *UpdateDestinationGroupOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("updateDestinationGroupOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updateDestinationGroupOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateDestinationGroupOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update destination group o k body based on the context it is used
+func (o *UpdateDestinationGroupOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *UpdateDestinationGroupOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updateDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *UpdateDestinationGroupOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("updateDestinationGroupOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updateDestinationGroupOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *UpdateDestinationGroupOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updateDestinationGroupOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateDestinationGroupOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *UpdateDestinationGroupOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *UpdateDestinationGroupOKBody) UnmarshalBinary(b []byte) error {
+	var res UpdateDestinationGroupOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this update destination group o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *UpdateDestinationGroupOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

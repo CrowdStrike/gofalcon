@@ -19,6 +19,10 @@ import (
 // swagger:model sdk.EvidenceVM
 type SdkEvidenceVM struct {
 
+	// adversary evidence
+	// Required: true
+	AdversaryEvidence *SdkAdversaryEvidenceVM `json:"adversary_evidence"`
+
 	// alerts
 	// Required: true
 	Alerts *SdkAlertEvidenceVM `json:"alerts"`
@@ -31,9 +35,25 @@ type SdkEvidenceVM struct {
 	// Required: true
 	Events *SdkEventEvidenceVM `json:"events"`
 
+	// hash evidence
+	// Required: true
+	HashEvidence *SdkHashEvidenceVM `json:"hash_evidence"`
+
+	// host evidence
+	// Required: true
+	HostEvidence *SdkHostEvidenceVM `json:"host_evidence"`
+
+	// host group evidence
+	// Required: true
+	HostGroupEvidence *SdkHostGroupEvidenceVM `json:"host_group_evidence"`
+
 	// leads
 	// Required: true
 	Leads *SdkLeadEvidenceVM `json:"leads"`
+
+	// report evidence
+	// Required: true
+	ReportEvidence *SdkReportEvidenceVM `json:"report_evidence"`
 
 	// users
 	// Required: true
@@ -43,6 +63,10 @@ type SdkEvidenceVM struct {
 // Validate validates this sdk evidence VM
 func (m *SdkEvidenceVM) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAdversaryEvidence(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateAlerts(formats); err != nil {
 		res = append(res, err)
@@ -56,7 +80,23 @@ func (m *SdkEvidenceVM) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateHashEvidence(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHostEvidence(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHostGroupEvidence(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLeads(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReportEvidence(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -67,6 +107,26 @@ func (m *SdkEvidenceVM) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SdkEvidenceVM) validateAdversaryEvidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("adversary_evidence", "body", m.AdversaryEvidence); err != nil {
+		return err
+	}
+
+	if m.AdversaryEvidence != nil {
+		if err := m.AdversaryEvidence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("adversary_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adversary_evidence")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -130,6 +190,66 @@ func (m *SdkEvidenceVM) validateEvents(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkEvidenceVM) validateHashEvidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("hash_evidence", "body", m.HashEvidence); err != nil {
+		return err
+	}
+
+	if m.HashEvidence != nil {
+		if err := m.HashEvidence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("hash_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hash_evidence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) validateHostEvidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("host_evidence", "body", m.HostEvidence); err != nil {
+		return err
+	}
+
+	if m.HostEvidence != nil {
+		if err := m.HostEvidence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host_evidence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) validateHostGroupEvidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("host_group_evidence", "body", m.HostGroupEvidence); err != nil {
+		return err
+	}
+
+	if m.HostGroupEvidence != nil {
+		if err := m.HostGroupEvidence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host_group_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host_group_evidence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkEvidenceVM) validateLeads(formats strfmt.Registry) error {
 
 	if err := validate.Required("leads", "body", m.Leads); err != nil {
@@ -142,6 +262,26 @@ func (m *SdkEvidenceVM) validateLeads(formats strfmt.Registry) error {
 				return ve.ValidateName("leads")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("leads")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) validateReportEvidence(formats strfmt.Registry) error {
+
+	if err := validate.Required("report_evidence", "body", m.ReportEvidence); err != nil {
+		return err
+	}
+
+	if m.ReportEvidence != nil {
+		if err := m.ReportEvidence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_evidence")
 			}
 			return err
 		}
@@ -174,6 +314,10 @@ func (m *SdkEvidenceVM) validateUsers(formats strfmt.Registry) error {
 func (m *SdkEvidenceVM) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAdversaryEvidence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateAlerts(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -186,7 +330,23 @@ func (m *SdkEvidenceVM) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateHashEvidence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHostEvidence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHostGroupEvidence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLeads(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReportEvidence(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -197,6 +357,23 @@ func (m *SdkEvidenceVM) ContextValidate(ctx context.Context, formats strfmt.Regi
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SdkEvidenceVM) contextValidateAdversaryEvidence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AdversaryEvidence != nil {
+
+		if err := m.AdversaryEvidence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("adversary_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adversary_evidence")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -251,6 +428,57 @@ func (m *SdkEvidenceVM) contextValidateEvents(ctx context.Context, formats strfm
 	return nil
 }
 
+func (m *SdkEvidenceVM) contextValidateHashEvidence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HashEvidence != nil {
+
+		if err := m.HashEvidence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("hash_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hash_evidence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) contextValidateHostEvidence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HostEvidence != nil {
+
+		if err := m.HostEvidence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host_evidence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) contextValidateHostGroupEvidence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HostGroupEvidence != nil {
+
+		if err := m.HostGroupEvidence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host_group_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host_group_evidence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SdkEvidenceVM) contextValidateLeads(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Leads != nil {
@@ -260,6 +488,23 @@ func (m *SdkEvidenceVM) contextValidateLeads(ctx context.Context, formats strfmt
 				return ve.ValidateName("leads")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("leads")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SdkEvidenceVM) contextValidateReportEvidence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReportEvidence != nil {
+
+		if err := m.ReportEvidence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_evidence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_evidence")
 			}
 			return err
 		}

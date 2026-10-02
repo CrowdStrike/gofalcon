@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type DeleteURLDomainListOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *DeleteURLDomainListOKBody
 }
 
 // IsSuccess returns true when this delete Url domain list o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *DeleteURLDomainListOK) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] deleteUrlDomainListOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteURLDomainListOK) GetPayload() *models.APIEnvelope {
+func (o *DeleteURLDomainListOK) GetPayload() *DeleteURLDomainListOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *DeleteURLDomainListOK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(DeleteURLDomainListOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type DeleteURLDomainListBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete Url domain list bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *DeleteURLDomainListBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] deleteUrlDomainListBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteURLDomainListBadRequest) GetPayload() *models.APIEnvelope {
+func (o *DeleteURLDomainListBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *DeleteURLDomainListBadRequest) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type DeleteURLDomainListUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete Url domain list unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *DeleteURLDomainListUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] deleteUrlDomainListUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *DeleteURLDomainListUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *DeleteURLDomainListUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *DeleteURLDomainListUnauthorized) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type DeleteURLDomainListForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete Url domain list forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *DeleteURLDomainListForbidden) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] deleteUrlDomainListForbidden  %+v", 403, o.Payload)
 }
 
-func (o *DeleteURLDomainListForbidden) GetPayload() *models.APIEnvelope {
+func (o *DeleteURLDomainListForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *DeleteURLDomainListForbidden) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type DeleteURLDomainListTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete Url domain list too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *DeleteURLDomainListTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] deleteUrlDomainListTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *DeleteURLDomainListTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *DeleteURLDomainListTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *DeleteURLDomainListTooManyRequests) readResponse(response runtime.Clien
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewDeleteURLDomainListInternalServerError() *DeleteURLDomainListInternalSer
 /*
 DeleteURLDomainListInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type DeleteURLDomainListInternalServerError struct {
 
@@ -661,7 +664,7 @@ type DeleteURLDomainListInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete Url domain list internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *DeleteURLDomainListInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] deleteUrlDomainListInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DeleteURLDomainListInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *DeleteURLDomainListInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *DeleteURLDomainListInternalServerError) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type DeleteURLDomainListBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete Url domain list bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *DeleteURLDomainListBadGateway) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] deleteUrlDomainListBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *DeleteURLDomainListBadGateway) GetPayload() *models.APIEnvelope {
+func (o *DeleteURLDomainListBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *DeleteURLDomainListBadGateway) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *DeleteURLDomainListBadGateway) readResponse(response runtime.ClientResp
 	}
 
 	return nil
+}
+
+/*
+DeleteURLDomainListOKBody delete URL domain list o k body
+swagger:model DeleteURLDomainListOKBody
+*/
+type DeleteURLDomainListOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.URLDomainListResult `json:"resources"`
+}
+
+// Validate validates this delete URL domain list o k body
+func (o *DeleteURLDomainListOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *DeleteURLDomainListOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleteUrlDomainListOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("deleteUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deleteUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *DeleteURLDomainListOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleteUrlDomainListOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deleteUrlDomainListOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteUrlDomainListOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *DeleteURLDomainListOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleteUrlDomainListOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("deleteUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deleteUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this delete URL domain list o k body based on the context it is used
+func (o *DeleteURLDomainListOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *DeleteURLDomainListOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("deleteUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deleteUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *DeleteURLDomainListOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deleteUrlDomainListOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteUrlDomainListOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *DeleteURLDomainListOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("deleteUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deleteUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *DeleteURLDomainListOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *DeleteURLDomainListOKBody) UnmarshalBinary(b []byte) error {
+	var res DeleteURLDomainListOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this delete URL domain list o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *DeleteURLDomainListOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

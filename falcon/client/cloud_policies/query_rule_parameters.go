@@ -75,6 +75,7 @@ type QueryRuleParams struct {
 	*rule_control_requirement*
 	*rule_control_section*
 	*rule_created_at*
+	*rule_deleted_at*
 	*rule_description*
 	*rule_domain*
 	*rule_mitre_tactic*
@@ -125,6 +126,7 @@ type QueryRuleParams struct {
 	*rule_control_requirement*
 	*rule_control_section*
 	*rule_created_at*
+	*rule_deleted_at*
 	*rule_description*
 	*rule_domain*
 	*rule_mitre_tactic*

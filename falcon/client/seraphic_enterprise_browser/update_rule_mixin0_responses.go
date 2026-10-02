@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type UpdateRuleMixin0OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *UpdateRuleMixin0OKBody
 }
 
 // IsSuccess returns true when this update rule mixin0 o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *UpdateRuleMixin0OK) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/rules/v1][%d] updateRuleMixin0OK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateRuleMixin0OK) GetPayload() *models.APIEnvelope {
+func (o *UpdateRuleMixin0OK) GetPayload() *UpdateRuleMixin0OKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *UpdateRuleMixin0OK) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(UpdateRuleMixin0OKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type UpdateRuleMixin0BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update rule mixin0 bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *UpdateRuleMixin0BadRequest) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/rules/v1][%d] updateRuleMixin0BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateRuleMixin0BadRequest) GetPayload() *models.APIEnvelope {
+func (o *UpdateRuleMixin0BadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *UpdateRuleMixin0BadRequest) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type UpdateRuleMixin0Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update rule mixin0 unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *UpdateRuleMixin0Unauthorized) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/rules/v1][%d] updateRuleMixin0Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *UpdateRuleMixin0Unauthorized) GetPayload() *models.APIEnvelope {
+func (o *UpdateRuleMixin0Unauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *UpdateRuleMixin0Unauthorized) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type UpdateRuleMixin0Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update rule mixin0 forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *UpdateRuleMixin0Forbidden) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/rules/v1][%d] updateRuleMixin0Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *UpdateRuleMixin0Forbidden) GetPayload() *models.APIEnvelope {
+func (o *UpdateRuleMixin0Forbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *UpdateRuleMixin0Forbidden) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type UpdateRuleMixin0TooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update rule mixin0 too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *UpdateRuleMixin0TooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/rules/v1][%d] updateRuleMixin0TooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *UpdateRuleMixin0TooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *UpdateRuleMixin0TooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *UpdateRuleMixin0TooManyRequests) readResponse(response runtime.ClientRe
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewUpdateRuleMixin0InternalServerError() *UpdateRuleMixin0InternalServerErr
 /*
 UpdateRuleMixin0InternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type UpdateRuleMixin0InternalServerError struct {
 
@@ -661,7 +664,7 @@ type UpdateRuleMixin0InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update rule mixin0 internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *UpdateRuleMixin0InternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/rules/v1][%d] updateRuleMixin0InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdateRuleMixin0InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UpdateRuleMixin0InternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *UpdateRuleMixin0InternalServerError) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type UpdateRuleMixin0BadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this update rule mixin0 bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *UpdateRuleMixin0BadGateway) String() string {
 	return fmt.Sprintf("[PATCH /seraphic-enterprise-browser/entities/rules/v1][%d] updateRuleMixin0BadGateway  %+v", 502, o.Payload)
 }
 
-func (o *UpdateRuleMixin0BadGateway) GetPayload() *models.APIEnvelope {
+func (o *UpdateRuleMixin0BadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *UpdateRuleMixin0BadGateway) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,192 @@ func (o *UpdateRuleMixin0BadGateway) readResponse(response runtime.ClientRespons
 	}
 
 	return nil
+}
+
+/*
+UpdateRuleMixin0OKBody update rule mixin0 o k body
+swagger:model UpdateRuleMixin0OKBody
+*/
+type UpdateRuleMixin0OKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []interface{} `json:"resources"`
+}
+
+// Validate validates this update rule mixin0 o k body
+func (o *UpdateRuleMixin0OKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *UpdateRuleMixin0OKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("updateRuleMixin0OK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updateRuleMixin0OK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateRuleMixin0OK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *UpdateRuleMixin0OKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("updateRuleMixin0OK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("updateRuleMixin0OK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updateRuleMixin0OK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *UpdateRuleMixin0OKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("updateRuleMixin0OK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update rule mixin0 o k body based on the context it is used
+func (o *UpdateRuleMixin0OKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *UpdateRuleMixin0OKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updateRuleMixin0OK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateRuleMixin0OK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *UpdateRuleMixin0OKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("updateRuleMixin0OK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updateRuleMixin0OK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *UpdateRuleMixin0OKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *UpdateRuleMixin0OKBody) UnmarshalBinary(b []byte) error {
+	var res UpdateRuleMixin0OKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this update rule mixin0 o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *UpdateRuleMixin0OKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

@@ -25,6 +25,9 @@ type APICreateOrEditAgentRequest struct {
 	// id
 	ID string `json:"id,omitempty"`
 
+	// project id
+	ProjectID string `json:"project_id,omitempty"`
+
 	// template id
 	TemplateID string `json:"template_id,omitempty"`
 

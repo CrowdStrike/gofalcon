@@ -74,6 +74,8 @@ type ClientService interface {
 
 	GetSecurityCheckAffectedV3(params *GetSecurityCheckAffectedV3Params, opts ...ClientOption) (*GetSecurityCheckAffectedV3OK, error)
 
+	GetSecurityCheckChangeLogV3(params *GetSecurityCheckChangeLogV3Params, opts ...ClientOption) (*GetSecurityCheckChangeLogV3OK, error)
+
 	GetSecurityCheckComplianceV3(params *GetSecurityCheckComplianceV3Params, opts ...ClientOption) (*GetSecurityCheckComplianceV3OK, error)
 
 	GetSecurityChecksV3(params *GetSecurityChecksV3Params, opts ...ClientOption) (*GetSecurityChecksV3OK, error)
@@ -99,6 +101,8 @@ type ClientService interface {
 	RestoreAffectedEntityV3(params *RestoreAffectedEntityV3Params, opts ...ClientOption) (*RestoreAffectedEntityV3OK, error)
 
 	RestoreSecurityCheckV3(params *RestoreSecurityCheckV3Params, opts ...ClientOption) (*RestoreSecurityCheckV3OK, error)
+
+	SetCheckImpactV3(params *SetCheckImpactV3Params, opts ...ClientOption) (*SetCheckImpactV3OK, error)
 
 	SetCheckParamV3(params *SetCheckParamV3Params, opts ...ClientOption) (*SetCheckParamV3OK, error)
 
@@ -986,6 +990,46 @@ func (a *Client) GetSecurityCheckAffectedV3(params *GetSecurityCheckAffectedV3Pa
 }
 
 /*
+GetSecurityCheckChangeLogV3 gs e t security check change log
+
+Get the log of CrowdStrike's own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count=true is passed.
+*/
+func (a *Client) GetSecurityCheckChangeLogV3(params *GetSecurityCheckChangeLogV3Params, opts ...ClientOption) (*GetSecurityCheckChangeLogV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSecurityCheckChangeLogV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSecurityCheckChangeLogV3",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/checks-change-log/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSecurityCheckChangeLogV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSecurityCheckChangeLogV3OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSecurityCheckChangeLogV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetSecurityCheckComplianceV3 gs e t compliance
 
 Get a list of compliance standards attached to a check
@@ -1502,6 +1546,46 @@ func (a *Client) RestoreSecurityCheckV3(params *RestoreSecurityCheckV3Params, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for RestoreSecurityCheckV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SetCheckImpactV3 ps o s t set a security check impact
+
+Set the impact of one instance of a security check. Set `all_future_instances` to also apply it to instances of the same SaaS connected in the future; it does not change instances that already exist. The check is not re-evaluated, only its impact changes
+*/
+func (a *Client) SetCheckImpactV3(params *SetCheckImpactV3Params, opts ...ClientOption) (*SetCheckImpactV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSetCheckImpactV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SetCheckImpactV3",
+		Method:             "POST",
+		PathPattern:        "/saas-security/entities/check-impact/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &SetCheckImpactV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SetCheckImpactV3OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SetCheckImpactV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

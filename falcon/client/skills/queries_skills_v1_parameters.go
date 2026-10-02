@@ -88,6 +88,12 @@ type QueriesSkillsV1Params struct {
 	*/
 	Offset *int64
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	/* Sort.
 
 	   Possible order by fields: name. Ex: 'name|asc'.
@@ -205,6 +211,17 @@ func (o *QueriesSkillsV1Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithProjectID adds the projectID to the queries skills v1 params
+func (o *QueriesSkillsV1Params) WithProjectID(projectID *string) *QueriesSkillsV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the queries skills v1 params
+func (o *QueriesSkillsV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WithSort adds the sort to the queries skills v1 params
 func (o *QueriesSkillsV1Params) WithSort(sort *string) *QueriesSkillsV1Params {
 	o.SetSort(sort)
@@ -287,6 +304,23 @@ func (o *QueriesSkillsV1Params) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
 				return err
 			}
 		}

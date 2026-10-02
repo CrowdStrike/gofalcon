@@ -23,6 +23,9 @@ type APIAgentInvocationResponseResource struct {
 	// ai trace id
 	AiTraceID string `json:"ai_trace_id,omitempty"`
 
+	// budget approvals
+	BudgetApprovals []*APIBudgetApproval `json:"budget_approvals"`
+
 	// compaction
 	Compaction *APICompactionMetadata `json:"compaction,omitempty"`
 
@@ -44,6 +47,10 @@ type APIAgentInvocationResponseResource struct {
 func (m *APIAgentInvocationResponseResource) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBudgetApprovals(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCompaction(formats); err != nil {
 		res = append(res, err)
 	}
@@ -59,6 +66,32 @@ func (m *APIAgentInvocationResponseResource) Validate(formats strfmt.Registry) e
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIAgentInvocationResponseResource) validateBudgetApprovals(formats strfmt.Registry) error {
+	if swag.IsZero(m.BudgetApprovals) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BudgetApprovals); i++ {
+		if swag.IsZero(m.BudgetApprovals[i]) { // not required
+			continue
+		}
+
+		if m.BudgetApprovals[i] != nil {
+			if err := m.BudgetApprovals[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("budget_approvals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("budget_approvals" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -138,6 +171,10 @@ func (m *APIAgentInvocationResponseResource) validateToolApprovals(formats strfm
 func (m *APIAgentInvocationResponseResource) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateBudgetApprovals(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCompaction(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -153,6 +190,31 @@ func (m *APIAgentInvocationResponseResource) ContextValidate(ctx context.Context
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIAgentInvocationResponseResource) contextValidateBudgetApprovals(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.BudgetApprovals); i++ {
+
+		if m.BudgetApprovals[i] != nil {
+
+			if swag.IsZero(m.BudgetApprovals[i]) { // not required
+				return nil
+			}
+
+			if err := m.BudgetApprovals[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("budget_approvals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("budget_approvals" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

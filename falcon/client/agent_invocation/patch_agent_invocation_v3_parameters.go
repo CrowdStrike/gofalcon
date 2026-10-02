@@ -69,6 +69,12 @@ type PatchAgentInvocationV3Params struct {
 	*/
 	Body *models.APIPatchAgentInvocationRequest
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -133,6 +139,17 @@ func (o *PatchAgentInvocationV3Params) SetBody(body *models.APIPatchAgentInvocat
 	o.Body = body
 }
 
+// WithProjectID adds the projectID to the patch agent invocation v3 params
+func (o *PatchAgentInvocationV3Params) WithProjectID(projectID *string) *PatchAgentInvocationV3Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the patch agent invocation v3 params
+func (o *PatchAgentInvocationV3Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PatchAgentInvocationV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -143,6 +160,23 @@ func (o *PatchAgentInvocationV3Params) WriteToRequest(r runtime.ClientRequest, r
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
+				return err
+			}
 		}
 	}
 

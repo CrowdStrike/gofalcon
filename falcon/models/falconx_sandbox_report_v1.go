@@ -171,6 +171,9 @@ type FalconxSandboxReportV1 struct {
 	// processes
 	Processes []*FalconxProcess `json:"processes"`
 
+	// report id
+	ReportID string `json:"report_id,omitempty"`
+
 	// sample flags
 	SampleFlags []string `json:"sample_flags"`
 

@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type DeleteDestinationGroupOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *DeleteDestinationGroupOKBody
 }
 
 // IsSuccess returns true when this delete destination group o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *DeleteDestinationGroupOK) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/destination-groups/v1][%d] deleteDestinationGroupOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteDestinationGroupOK) GetPayload() *models.APIEnvelope {
+func (o *DeleteDestinationGroupOK) GetPayload() *DeleteDestinationGroupOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *DeleteDestinationGroupOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(DeleteDestinationGroupOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type DeleteDestinationGroupBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete destination group bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *DeleteDestinationGroupBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/destination-groups/v1][%d] deleteDestinationGroupBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteDestinationGroupBadRequest) GetPayload() *models.APIEnvelope {
+func (o *DeleteDestinationGroupBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *DeleteDestinationGroupBadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type DeleteDestinationGroupUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete destination group unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *DeleteDestinationGroupUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/destination-groups/v1][%d] deleteDestinationGroupUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *DeleteDestinationGroupUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *DeleteDestinationGroupUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *DeleteDestinationGroupUnauthorized) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type DeleteDestinationGroupForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete destination group forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *DeleteDestinationGroupForbidden) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/destination-groups/v1][%d] deleteDestinationGroupForbidden  %+v", 403, o.Payload)
 }
 
-func (o *DeleteDestinationGroupForbidden) GetPayload() *models.APIEnvelope {
+func (o *DeleteDestinationGroupForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *DeleteDestinationGroupForbidden) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type DeleteDestinationGroupTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete destination group too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *DeleteDestinationGroupTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/destination-groups/v1][%d] deleteDestinationGroupTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *DeleteDestinationGroupTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *DeleteDestinationGroupTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *DeleteDestinationGroupTooManyRequests) readResponse(response runtime.Cl
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewDeleteDestinationGroupInternalServerError() *DeleteDestinationGroupInter
 /*
 DeleteDestinationGroupInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type DeleteDestinationGroupInternalServerError struct {
 
@@ -661,7 +664,7 @@ type DeleteDestinationGroupInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete destination group internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *DeleteDestinationGroupInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/destination-groups/v1][%d] deleteDestinationGroupInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DeleteDestinationGroupInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *DeleteDestinationGroupInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *DeleteDestinationGroupInternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type DeleteDestinationGroupBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this delete destination group bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *DeleteDestinationGroupBadGateway) String() string {
 	return fmt.Sprintf("[DELETE /seraphic-enterprise-browser/entities/destination-groups/v1][%d] deleteDestinationGroupBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *DeleteDestinationGroupBadGateway) GetPayload() *models.APIEnvelope {
+func (o *DeleteDestinationGroupBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *DeleteDestinationGroupBadGateway) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,192 @@ func (o *DeleteDestinationGroupBadGateway) readResponse(response runtime.ClientR
 	}
 
 	return nil
+}
+
+/*
+DeleteDestinationGroupOKBody delete destination group o k body
+swagger:model DeleteDestinationGroupOKBody
+*/
+type DeleteDestinationGroupOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []interface{} `json:"resources"`
+}
+
+// Validate validates this delete destination group o k body
+func (o *DeleteDestinationGroupOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *DeleteDestinationGroupOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleteDestinationGroupOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("deleteDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deleteDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *DeleteDestinationGroupOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleteDestinationGroupOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deleteDestinationGroupOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteDestinationGroupOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *DeleteDestinationGroupOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("deleteDestinationGroupOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this delete destination group o k body based on the context it is used
+func (o *DeleteDestinationGroupOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *DeleteDestinationGroupOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("deleteDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deleteDestinationGroupOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *DeleteDestinationGroupOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deleteDestinationGroupOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteDestinationGroupOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *DeleteDestinationGroupOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *DeleteDestinationGroupOKBody) UnmarshalBinary(b []byte) error {
+	var res DeleteDestinationGroupOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this delete destination group o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *DeleteDestinationGroupOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

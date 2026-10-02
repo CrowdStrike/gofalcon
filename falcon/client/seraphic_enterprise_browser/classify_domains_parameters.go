@@ -65,9 +65,9 @@ type ClassifyDomainsParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The domains to classify. At least one domain is required.
 	*/
-	Body *models.APIDomainClassificationRequest
+	Body *models.DomainClassificationRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *ClassifyDomainsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the classify domains params
-func (o *ClassifyDomainsParams) WithBody(body *models.APIDomainClassificationRequest) *ClassifyDomainsParams {
+func (o *ClassifyDomainsParams) WithBody(body *models.DomainClassificationRequest) *ClassifyDomainsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the classify domains params
-func (o *ClassifyDomainsParams) SetBody(body *models.APIDomainClassificationRequest) {
+func (o *ClassifyDomainsParams) SetBody(body *models.DomainClassificationRequest) {
 	o.Body = body
 }
 

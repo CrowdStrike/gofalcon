@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -69,6 +70,14 @@ type CreateOrEditAgentExternalV3Params struct {
 	*/
 	Body *models.APICreateOrEditAgentRequest
 
+	/* WaitForReady.
+
+	   Wait for the new version to finish registering before responding. Set to false to respond immediately and poll GET /entities/agent-versions/v1 for is_in_sync instead.
+
+	   Default: true
+	*/
+	WaitForReady *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -86,7 +95,18 @@ func (o *CreateOrEditAgentExternalV3Params) WithDefaults() *CreateOrEditAgentExt
 //
 // All values with no default are reset to their zero value.
 func (o *CreateOrEditAgentExternalV3Params) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		waitForReadyDefault = bool(true)
+	)
+
+	val := CreateOrEditAgentExternalV3Params{
+		WaitForReady: &waitForReadyDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the create or edit agent external v3 params
@@ -133,6 +153,17 @@ func (o *CreateOrEditAgentExternalV3Params) SetBody(body *models.APICreateOrEdit
 	o.Body = body
 }
 
+// WithWaitForReady adds the waitForReady to the create or edit agent external v3 params
+func (o *CreateOrEditAgentExternalV3Params) WithWaitForReady(waitForReady *bool) *CreateOrEditAgentExternalV3Params {
+	o.SetWaitForReady(waitForReady)
+	return o
+}
+
+// SetWaitForReady adds the waitForReady to the create or edit agent external v3 params
+func (o *CreateOrEditAgentExternalV3Params) SetWaitForReady(waitForReady *bool) {
+	o.WaitForReady = waitForReady
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *CreateOrEditAgentExternalV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -143,6 +174,23 @@ func (o *CreateOrEditAgentExternalV3Params) WriteToRequest(r runtime.ClientReque
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.WaitForReady != nil {
+
+		// query param wait_for_ready
+		var qrWaitForReady bool
+
+		if o.WaitForReady != nil {
+			qrWaitForReady = *o.WaitForReady
+		}
+		qWaitForReady := swag.FormatBool(qrWaitForReady)
+		if qWaitForReady != "" {
+
+			if err := r.SetQueryParam("wait_for_ready", qWaitForReady); err != nil {
+				return err
+			}
 		}
 	}
 

@@ -67,6 +67,12 @@ type EntitiesSkillsDeleteV1Params struct {
 	*/
 	ID string
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -131,6 +137,17 @@ func (o *EntitiesSkillsDeleteV1Params) SetID(id string) {
 	o.ID = id
 }
 
+// WithProjectID adds the projectID to the entities skills delete v1 params
+func (o *EntitiesSkillsDeleteV1Params) WithProjectID(projectID *string) *EntitiesSkillsDeleteV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the entities skills delete v1 params
+func (o *EntitiesSkillsDeleteV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *EntitiesSkillsDeleteV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -146,6 +163,23 @@ func (o *EntitiesSkillsDeleteV1Params) WriteToRequest(r runtime.ClientRequest, r
 
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
+				return err
+			}
 		}
 	}
 

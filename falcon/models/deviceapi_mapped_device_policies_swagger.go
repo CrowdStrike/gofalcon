@@ -36,6 +36,9 @@ type DeviceapiMappedDevicePoliciesSwagger struct {
 	// browser extension
 	BrowserExtension *DeviceapiDevicePolicySwagger `json:"browser-extension,omitempty"`
 
+	// cloud container workload
+	CloudContainerWorkload *DeviceapiDevicePolicySwagger `json:"cloud-container-workload,omitempty"`
+
 	// cloud ml
 	CloudMl *DeviceapiDevicePolicySwagger `json:"cloud-ml,omitempty"`
 
@@ -146,6 +149,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) Validate(formats strfmt.Registry)
 	}
 
 	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudContainerWorkload(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -373,6 +380,25 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) validateBrowserExtension(formats 
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) validateCloudContainerWorkload(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudContainerWorkload) { // not required
+		return nil
+	}
+
+	if m.CloudContainerWorkload != nil {
+		if err := m.CloudContainerWorkload.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-container-workload")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-container-workload")
 			}
 			return err
 		}
@@ -941,6 +967,10 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) ContextValidate(ctx context.Conte
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCloudContainerWorkload(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCloudMl(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -1177,6 +1207,27 @@ func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateBrowserExtension(c
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceapiMappedDevicePoliciesSwagger) contextValidateCloudContainerWorkload(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudContainerWorkload != nil {
+
+		if swag.IsZero(m.CloudContainerWorkload) { // not required
+			return nil
+		}
+
+		if err := m.CloudContainerWorkload.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-container-workload")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-container-workload")
 			}
 			return err
 		}

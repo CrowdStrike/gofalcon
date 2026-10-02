@@ -77,6 +77,12 @@ type RestCloudAWSAccountCreateExtV1 struct {
 	// products
 	Products []*RestAccountProductRequestExtV1 `json:"products"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
+	// registration name
+	RegistrationName string `json:"registration_name,omitempty"`
+
 	// resource name prefix
 	ResourceNamePrefix string `json:"resource_name_prefix,omitempty"`
 

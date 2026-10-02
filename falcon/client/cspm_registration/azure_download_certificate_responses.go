@@ -37,6 +37,12 @@ func (o *AzureDownloadCertificateReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewAzureDownloadCertificateUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewAzureDownloadCertificateForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *AzureDownloadCertificateBadRequest) readResponse(response runtime.Clien
 	}
 
 	o.Payload = new(models.RegistrationAzureDownloadCertificateResponseV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAzureDownloadCertificateUnauthorized creates a AzureDownloadCertificateUnauthorized with default headers values
+func NewAzureDownloadCertificateUnauthorized() *AzureDownloadCertificateUnauthorized {
+	return &AzureDownloadCertificateUnauthorized{}
+}
+
+/*
+AzureDownloadCertificateUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type AzureDownloadCertificateUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this azure download certificate unauthorized response has a 2xx status code
+func (o *AzureDownloadCertificateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this azure download certificate unauthorized response has a 3xx status code
+func (o *AzureDownloadCertificateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this azure download certificate unauthorized response has a 4xx status code
+func (o *AzureDownloadCertificateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this azure download certificate unauthorized response has a 5xx status code
+func (o *AzureDownloadCertificateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this azure download certificate unauthorized response a status code equal to that given
+func (o *AzureDownloadCertificateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the azure download certificate unauthorized response
+func (o *AzureDownloadCertificateUnauthorized) Code() int {
+	return 401
+}
+
+func (o *AzureDownloadCertificateUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *AzureDownloadCertificateUnauthorized) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *AzureDownloadCertificateUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *AzureDownloadCertificateUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

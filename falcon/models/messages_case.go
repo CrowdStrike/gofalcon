@@ -87,6 +87,9 @@ type MessagesCase struct {
 	// Required: true
 	ReconRuleType *string `json:"recon_rule_type"`
 
+	// resolution time
+	ResolutionTime string `json:"resolution_time,omitempty"`
+
 	// rfi id
 	// Required: true
 	RfiID *string `json:"rfi_id"`

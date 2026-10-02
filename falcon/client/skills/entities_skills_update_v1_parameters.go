@@ -67,6 +67,12 @@ type EntitiesSkillsUpdateV1Params struct {
 	*/
 	ID string
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	/* SkillBlob.
 
 	   Updated skill zip archive
@@ -137,6 +143,17 @@ func (o *EntitiesSkillsUpdateV1Params) SetID(id string) {
 	o.ID = id
 }
 
+// WithProjectID adds the projectID to the entities skills update v1 params
+func (o *EntitiesSkillsUpdateV1Params) WithProjectID(projectID *string) *EntitiesSkillsUpdateV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the entities skills update v1 params
+func (o *EntitiesSkillsUpdateV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WithSkillBlob adds the skillBlob to the entities skills update v1 params
 func (o *EntitiesSkillsUpdateV1Params) WithSkillBlob(skillBlob runtime.NamedReadCloser) *EntitiesSkillsUpdateV1Params {
 	o.SetSkillBlob(skillBlob)
@@ -162,6 +179,21 @@ func (o *EntitiesSkillsUpdateV1Params) WriteToRequest(r runtime.ClientRequest, r
 	if fID != "" {
 		if err := r.SetFormParam("id", fID); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// form param project_id
+		var frProjectID string
+		if o.ProjectID != nil {
+			frProjectID = *o.ProjectID
+		}
+		fProjectID := frProjectID
+		if fProjectID != "" {
+			if err := r.SetFormParam("project_id", fProjectID); err != nil {
+				return err
+			}
 		}
 	}
 	// form file param skill_blob

@@ -37,6 +37,12 @@ func (o *QueryRuleReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewQueryRuleUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewQueryRuleForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *QueryRuleBadRequest) readResponse(response runtime.ClientResponse, cons
 	}
 
 	o.Payload = new(models.CommonQueryResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryRuleUnauthorized creates a QueryRuleUnauthorized with default headers values
+func NewQueryRuleUnauthorized() *QueryRuleUnauthorized {
+	return &QueryRuleUnauthorized{}
+}
+
+/*
+QueryRuleUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type QueryRuleUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this query rule unauthorized response has a 2xx status code
+func (o *QueryRuleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule unauthorized response has a 3xx status code
+func (o *QueryRuleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule unauthorized response has a 4xx status code
+func (o *QueryRuleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule unauthorized response has a 5xx status code
+func (o *QueryRuleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule unauthorized response a status code equal to that given
+func (o *QueryRuleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the query rule unauthorized response
+func (o *QueryRuleUnauthorized) Code() int {
+	return 401
+}
+
+func (o *QueryRuleUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *QueryRuleUnauthorized) String() string {
+	return fmt.Sprintf("[GET /cloud-policies/queries/rules/v1][%d] queryRuleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *QueryRuleUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *QueryRuleUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

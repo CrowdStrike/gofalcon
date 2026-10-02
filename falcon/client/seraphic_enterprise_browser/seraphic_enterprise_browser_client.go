@@ -42,9 +42,13 @@ type ClientService interface {
 
 	CreateDestinationGroup(params *CreateDestinationGroupParams, opts ...ClientOption) (*CreateDestinationGroupCreated, error)
 
+	CreateSensitiveDataProfile(params *CreateSensitiveDataProfileParams, opts ...ClientOption) (*CreateSensitiveDataProfileCreated, error)
+
 	DeactivateAgents(params *DeactivateAgentsParams, opts ...ClientOption) (*DeactivateAgentsOK, error)
 
 	DeleteDestinationGroup(params *DeleteDestinationGroupParams, opts ...ClientOption) (*DeleteDestinationGroupOK, error)
+
+	DeleteSensitiveDataProfile(params *DeleteSensitiveDataProfileParams, opts ...ClientOption) (*DeleteSensitiveDataProfileOK, error)
 
 	DeleteURLDomainList(params *DeleteURLDomainListParams, opts ...ClientOption) (*DeleteURLDomainListOK, error)
 
@@ -58,6 +62,8 @@ type ClientService interface {
 
 	GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error)
 
+	GetSensitiveDataProfiles(params *GetSensitiveDataProfilesParams, opts ...ClientOption) (*GetSensitiveDataProfilesOK, error)
+
 	GetTenantSettings(params *GetTenantSettingsParams, opts ...ClientOption) (*GetTenantSettingsOK, error)
 
 	GetURLDomainLists(params *GetURLDomainListsParams, opts ...ClientOption) (*GetURLDomainListsOK, error)
@@ -68,9 +74,13 @@ type ClientService interface {
 
 	QueryRulesMixin0(params *QueryRulesMixin0Params, opts ...ClientOption) (*QueryRulesMixin0OK, error)
 
+	QuerySensitiveDataProfiles(params *QuerySensitiveDataProfilesParams, opts ...ClientOption) (*QuerySensitiveDataProfilesOK, error)
+
 	UpdateDestinationGroup(params *UpdateDestinationGroupParams, opts ...ClientOption) (*UpdateDestinationGroupOK, error)
 
 	UpdateRuleMixin0(params *UpdateRuleMixin0Params, opts ...ClientOption) (*UpdateRuleMixin0OK, error)
+
+	UpdateSensitiveDataProfile(params *UpdateSensitiveDataProfileParams, opts ...ClientOption) (*UpdateSensitiveDataProfileOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -304,6 +314,44 @@ func (a *Client) CreateDestinationGroup(params *CreateDestinationGroupParams, op
 }
 
 /*
+CreateSensitiveDataProfile creates a sensitive data profile
+*/
+func (a *Client) CreateSensitiveDataProfile(params *CreateSensitiveDataProfileParams, opts ...ClientOption) (*CreateSensitiveDataProfileCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateSensitiveDataProfileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateSensitiveDataProfile",
+		Method:             "POST",
+		PathPattern:        "/seraphic-enterprise-browser/entities/sensitive-data-profiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreateSensitiveDataProfileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateSensitiveDataProfileCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateSensitiveDataProfile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 DeactivateAgents deactivates agents by ID
 */
 func (a *Client) DeactivateAgents(params *DeactivateAgentsParams, opts ...ClientOption) (*DeactivateAgentsOK, error) {
@@ -376,6 +424,44 @@ func (a *Client) DeleteDestinationGroup(params *DeleteDestinationGroupParams, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for DeleteDestinationGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteSensitiveDataProfile deletes a sensitive data profile
+*/
+func (a *Client) DeleteSensitiveDataProfile(params *DeleteSensitiveDataProfileParams, opts ...ClientOption) (*DeleteSensitiveDataProfileOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteSensitiveDataProfileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteSensitiveDataProfile",
+		Method:             "DELETE",
+		PathPattern:        "/seraphic-enterprise-browser/entities/sensitive-data-profiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteSensitiveDataProfileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteSensitiveDataProfileOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteSensitiveDataProfile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -608,6 +694,44 @@ func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRul
 }
 
 /*
+GetSensitiveDataProfiles retrieves sensitive data profiles by ID with the rules that reference them
+*/
+func (a *Client) GetSensitiveDataProfiles(params *GetSensitiveDataProfilesParams, opts ...ClientOption) (*GetSensitiveDataProfilesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSensitiveDataProfilesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSensitiveDataProfiles",
+		Method:             "GET",
+		PathPattern:        "/seraphic-enterprise-browser/entities/sensitive-data-profiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSensitiveDataProfilesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSensitiveDataProfilesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSensitiveDataProfiles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetTenantSettings retrieves seraphic enterprise browser tenant settings
 */
 func (a *Client) GetTenantSettings(params *GetTenantSettingsParams, opts ...ClientOption) (*GetTenantSettingsOK, error) {
@@ -798,6 +922,44 @@ func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params, opts ...Client
 }
 
 /*
+QuerySensitiveDataProfiles queries sensitive data profiles by filter sort and pagination
+*/
+func (a *Client) QuerySensitiveDataProfiles(params *QuerySensitiveDataProfilesParams, opts ...ClientOption) (*QuerySensitiveDataProfilesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQuerySensitiveDataProfilesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QuerySensitiveDataProfiles",
+		Method:             "POST",
+		PathPattern:        "/seraphic-enterprise-browser/queries/sensitive-data-profiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QuerySensitiveDataProfilesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QuerySensitiveDataProfilesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QuerySensitiveDataProfiles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 UpdateDestinationGroup partials update a destination group
 */
 func (a *Client) UpdateDestinationGroup(params *UpdateDestinationGroupParams, opts ...ClientOption) (*UpdateDestinationGroupOK, error) {
@@ -870,6 +1032,44 @@ func (a *Client) UpdateRuleMixin0(params *UpdateRuleMixin0Params, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateRuleMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateSensitiveDataProfile partials update a sensitive data profile
+*/
+func (a *Client) UpdateSensitiveDataProfile(params *UpdateSensitiveDataProfileParams, opts ...ClientOption) (*UpdateSensitiveDataProfileOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateSensitiveDataProfileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateSensitiveDataProfile",
+		Method:             "PATCH",
+		PathPattern:        "/seraphic-enterprise-browser/entities/sensitive-data-profiles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateSensitiveDataProfileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateSensitiveDataProfileOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateSensitiveDataProfile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

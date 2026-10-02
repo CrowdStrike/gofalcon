@@ -158,6 +158,9 @@ type JsonschemaSubSchema struct {
 	// x cs default table column
 	XCsDefaultTableColumn bool `json:"x-cs-default-table-column,omitempty"`
 
+	// x cs depends on
+	XCsDependsOn []string `json:"x-cs-dependsOn"`
+
 	// x cs do not hide
 	XCsDoNotHide bool `json:"x-cs-do-not-hide,omitempty"`
 

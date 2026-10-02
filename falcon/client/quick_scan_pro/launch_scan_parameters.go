@@ -63,7 +63,16 @@ LaunchScanParams contains all the parameters to send to the API endpoint
 */
 type LaunchScanParams struct {
 
-	// Body.
+	/* Body.
+
+	     Each resource must include 'sha256' (required); 'password' and 'scan_mode' are optional:
+	<b>sha256</b> (required): SHA256 of a file uploaded through '/quickscanpro/entities/files/v1'.
+	<b>password</b> (optional): Password for encrypted archives or documents.
+	<b>scan_mode</b> (optional): How thorough the scan should be. Default is 'standard':
+	&nbsp;&nbsp;&nbsp;&nbsp; • fast: less than 5 seconds, ML-based detection and signature matching.
+	&nbsp;&nbsp;&nbsp;&nbsp; • standard: less than 30 seconds, adds heuristic analysis to fast scan coverage.
+	&nbsp;&nbsp;&nbsp;&nbsp; • deep: less than 90 seconds, adds static analysis and dynamic execution monitoring to standard scan coverage.
+	*/
 	Body *models.QuickscanproLaunchScanRequest
 
 	timeout    time.Duration

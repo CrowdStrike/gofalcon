@@ -22,6 +22,9 @@ type ApidomainSavedSearchExecuteRequestV1 struct {
 	// end
 	End string `json:"end,omitempty"`
 
+	// extra log fields
+	ExtraLogFields map[string]string `json:"extra_log_fields,omitempty"`
+
 	// id
 	ID string `json:"id,omitempty"`
 

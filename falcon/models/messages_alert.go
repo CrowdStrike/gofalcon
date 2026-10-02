@@ -23,6 +23,9 @@ type MessagesAlert struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// kestrel url
+	KestrelURL string `json:"kestrel_url,omitempty"`
+
 	// product
 	// Required: true
 	Product *string `json:"product"`

@@ -31,6 +31,12 @@ func (o *SsIoaExclusionsUpdateV2Reader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewSsIoaExclusionsUpdateV2Unauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewSsIoaExclusionsUpdateV2Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *SsIoaExclusionsUpdateV2OK) readResponse(response runtime.ClientResponse
 	}
 
 	o.Payload = new(models.DomainSsIoaExclusionsRespV2)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSsIoaExclusionsUpdateV2Unauthorized creates a SsIoaExclusionsUpdateV2Unauthorized with default headers values
+func NewSsIoaExclusionsUpdateV2Unauthorized() *SsIoaExclusionsUpdateV2Unauthorized {
+	return &SsIoaExclusionsUpdateV2Unauthorized{}
+}
+
+/*
+SsIoaExclusionsUpdateV2Unauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type SsIoaExclusionsUpdateV2Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this ss ioa exclusions update v2 unauthorized response has a 2xx status code
+func (o *SsIoaExclusionsUpdateV2Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this ss ioa exclusions update v2 unauthorized response has a 3xx status code
+func (o *SsIoaExclusionsUpdateV2Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this ss ioa exclusions update v2 unauthorized response has a 4xx status code
+func (o *SsIoaExclusionsUpdateV2Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this ss ioa exclusions update v2 unauthorized response has a 5xx status code
+func (o *SsIoaExclusionsUpdateV2Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this ss ioa exclusions update v2 unauthorized response a status code equal to that given
+func (o *SsIoaExclusionsUpdateV2Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the ss ioa exclusions update v2 unauthorized response
+func (o *SsIoaExclusionsUpdateV2Unauthorized) Code() int {
+	return 401
+}
+
+func (o *SsIoaExclusionsUpdateV2Unauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /exclusions/entities/ss-ioa-exclusions/v2][%d] ssIoaExclusionsUpdateV2Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *SsIoaExclusionsUpdateV2Unauthorized) String() string {
+	return fmt.Sprintf("[PATCH /exclusions/entities/ss-ioa-exclusions/v2][%d] ssIoaExclusionsUpdateV2Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *SsIoaExclusionsUpdateV2Unauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *SsIoaExclusionsUpdateV2Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

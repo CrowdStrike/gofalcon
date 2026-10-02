@@ -95,6 +95,8 @@ This method supports flexible parameter input through both query parameters and 
 - **Query-only:** Use query parameters for simple requests
 - **Body-only:** Use JSON body for complex configurations
 - **Hybrid:** Combine both, following precedence rules above
+
+For more information, see the [official CrowdStrike documentation](https://docs.crowdstrike.com/r/en-US/kgsgkjd3/k978e55e).
 */
 func (a *Client) SearchIndicators(params *SearchIndicatorsParams, opts ...ClientOption) (*SearchIndicatorsOK, error) {
 	// TODO: Validate the params before sending

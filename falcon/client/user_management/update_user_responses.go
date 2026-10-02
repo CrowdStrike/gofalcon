@@ -37,6 +37,12 @@ func (o *UpdateUserReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewUpdateUserUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewUpdateUserForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *UpdateUserBadRequest) readResponse(response runtime.ClientResponse, con
 	}
 
 	o.Payload = new(models.MsaEntitiesResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUpdateUserUnauthorized creates a UpdateUserUnauthorized with default headers values
+func NewUpdateUserUnauthorized() *UpdateUserUnauthorized {
+	return &UpdateUserUnauthorized{}
+}
+
+/*
+UpdateUserUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type UpdateUserUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this update user unauthorized response has a 2xx status code
+func (o *UpdateUserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user unauthorized response has a 3xx status code
+func (o *UpdateUserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user unauthorized response has a 4xx status code
+func (o *UpdateUserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user unauthorized response has a 5xx status code
+func (o *UpdateUserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user unauthorized response a status code equal to that given
+func (o *UpdateUserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the update user unauthorized response
+func (o *UpdateUserUnauthorized) Code() int {
+	return 401
+}
+
+func (o *UpdateUserUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *UpdateUserUnauthorized) String() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *UpdateUserUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *UpdateUserUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -94,9 +94,13 @@ type UploadFileMixin0Mixin93Params struct {
 
 	/* ScanMode.
 
-	   Sets the scan mode for the scan started when 'scan' is true. Default is 'standard'.
+	     Sets the scan mode for the scan started when 'scan' is true. Default is 'standard'.
 
-	   Default: "standard"
+	'fast': less than 5 seconds, ML-based detection and signature matching.
+	'standard': less than 30 seconds, adds heuristic analysis to fast scan coverage.
+	'deep': less than 90 seconds, adds static analysis and dynamic execution monitoring to standard scan coverage.
+
+	     Default: "standard"
 	*/
 	ScanMode *string
 

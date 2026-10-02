@@ -34,6 +34,9 @@ type SdkWorkflow struct {
 	// status
 	// Required: true
 	Status *string `json:"status"`
+
+	// template id
+	TemplateID string `json:"template_id,omitempty"`
 }
 
 // Validate validates this sdk workflow

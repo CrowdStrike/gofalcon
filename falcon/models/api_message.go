@@ -19,6 +19,9 @@ import (
 // swagger:model api.Message
 type APIMessage struct {
 
+	// budget approval
+	BudgetApproval *APIBudgetApproval `json:"budget_approval,omitempty"`
+
 	// content
 	// Required: true
 	Content *string `json:"content"`
@@ -44,6 +47,10 @@ type APIMessage struct {
 func (m *APIMessage) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBudgetApproval(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateContent(formats); err != nil {
 		res = append(res, err)
 	}
@@ -67,6 +74,25 @@ func (m *APIMessage) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIMessage) validateBudgetApproval(formats strfmt.Registry) error {
+	if swag.IsZero(m.BudgetApproval) { // not required
+		return nil
+	}
+
+	if m.BudgetApproval != nil {
+		if err := m.BudgetApproval.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("budget_approval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("budget_approval")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -149,6 +175,10 @@ func (m *APIMessage) validateToolApproval(formats strfmt.Registry) error {
 func (m *APIMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateBudgetApproval(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateError(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -164,6 +194,27 @@ func (m *APIMessage) ContextValidate(ctx context.Context, formats strfmt.Registr
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIMessage) contextValidateBudgetApproval(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BudgetApproval != nil {
+
+		if swag.IsZero(m.BudgetApproval) { // not required
+			return nil
+		}
+
+		if err := m.BudgetApproval.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("budget_approval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("budget_approval")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

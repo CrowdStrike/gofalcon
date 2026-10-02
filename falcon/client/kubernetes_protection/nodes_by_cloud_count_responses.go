@@ -31,6 +31,12 @@ func (o *NodesByCloudCountReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewNodesByCloudCountUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewNodesByCloudCountForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *NodesByCloudCountOK) readResponse(response runtime.ClientResponse, cons
 	}
 
 	o.Payload = new(models.ModelsAggregateValuesByFieldResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewNodesByCloudCountUnauthorized creates a NodesByCloudCountUnauthorized with default headers values
+func NewNodesByCloudCountUnauthorized() *NodesByCloudCountUnauthorized {
+	return &NodesByCloudCountUnauthorized{}
+}
+
+/*
+NodesByCloudCountUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type NodesByCloudCountUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this nodes by cloud count unauthorized response has a 2xx status code
+func (o *NodesByCloudCountUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this nodes by cloud count unauthorized response has a 3xx status code
+func (o *NodesByCloudCountUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this nodes by cloud count unauthorized response has a 4xx status code
+func (o *NodesByCloudCountUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this nodes by cloud count unauthorized response has a 5xx status code
+func (o *NodesByCloudCountUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this nodes by cloud count unauthorized response a status code equal to that given
+func (o *NodesByCloudCountUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the nodes by cloud count unauthorized response
+func (o *NodesByCloudCountUnauthorized) Code() int {
+	return 401
+}
+
+func (o *NodesByCloudCountUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-cloud/v1][%d] nodesByCloudCountUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *NodesByCloudCountUnauthorized) String() string {
+	return fmt.Sprintf("[GET /container-security/aggregates/nodes/count-by-cloud/v1][%d] nodesByCloudCountUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *NodesByCloudCountUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *NodesByCloudCountUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

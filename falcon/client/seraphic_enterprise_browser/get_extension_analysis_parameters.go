@@ -69,7 +69,7 @@ type GetExtensionAnalysisParams struct {
 
 	/* Store.
 
-	   The extension store.
+	   The extension store platform.
 	*/
 	Store string
 

@@ -65,9 +65,9 @@ type UpdateDestinationGroupParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The fields to change on the destination group. Every field is optional; only those present are updated.
 	*/
-	Body *models.APIDestinationGroup
+	Body *models.DestinationGroup
 
 	/* ID.
 
@@ -129,13 +129,13 @@ func (o *UpdateDestinationGroupParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update destination group params
-func (o *UpdateDestinationGroupParams) WithBody(body *models.APIDestinationGroup) *UpdateDestinationGroupParams {
+func (o *UpdateDestinationGroupParams) WithBody(body *models.DestinationGroup) *UpdateDestinationGroupParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update destination group params
-func (o *UpdateDestinationGroupParams) SetBody(body *models.APIDestinationGroup) {
+func (o *UpdateDestinationGroupParams) SetBody(body *models.DestinationGroup) {
 	o.Body = body
 }
 

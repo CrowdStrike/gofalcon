@@ -49,8 +49,7 @@ type DomainScanProfile struct {
 	CreatedOn strfmt.DateTime `json:"created_on,omitempty"`
 
 	// deleted
-	// Required: true
-	Deleted *bool `json:"deleted"`
+	Deleted bool `json:"deleted,omitempty"`
 
 	// description
 	Description string `json:"description,omitempty"`
@@ -165,10 +164,6 @@ func (m *DomainScanProfile) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateDeleted(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -197,15 +192,6 @@ func (m *DomainScanProfile) validateCreatedOn(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("created_on", "body", "date-time", m.CreatedOn.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainScanProfile) validateDeleted(formats strfmt.Registry) error {
-
-	if err := validate.Required("deleted", "body", m.Deleted); err != nil {
 		return err
 	}
 

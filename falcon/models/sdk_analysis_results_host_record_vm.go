@@ -31,6 +31,10 @@ type SdkAnalysisResultsHostRecordVM struct {
 	// Required: true
 	CloudInstanceID *string `json:"cloud_instance_id"`
 
+	// device ip
+	// Required: true
+	DeviceIP *string `json:"device_ip"`
+
 	// hostname
 	// Required: true
 	Hostname *string `json:"hostname"`
@@ -38,6 +42,10 @@ type SdkAnalysisResultsHostRecordVM struct {
 	// local ip
 	// Required: true
 	LocalIP *string `json:"local_ip"`
+
+	// observed ip
+	// Required: true
+	ObservedIP *string `json:"observed_ip"`
 }
 
 // Validate validates this sdk analysis results host record VM
@@ -56,11 +64,19 @@ func (m *SdkAnalysisResultsHostRecordVM) Validate(formats strfmt.Registry) error
 		res = append(res, err)
 	}
 
+	if err := m.validateDeviceIP(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateHostname(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateLocalIP(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateObservedIP(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -97,6 +113,15 @@ func (m *SdkAnalysisResultsHostRecordVM) validateCloudInstanceID(formats strfmt.
 	return nil
 }
 
+func (m *SdkAnalysisResultsHostRecordVM) validateDeviceIP(formats strfmt.Registry) error {
+
+	if err := validate.Required("device_ip", "body", m.DeviceIP); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *SdkAnalysisResultsHostRecordVM) validateHostname(formats strfmt.Registry) error {
 
 	if err := validate.Required("hostname", "body", m.Hostname); err != nil {
@@ -109,6 +134,15 @@ func (m *SdkAnalysisResultsHostRecordVM) validateHostname(formats strfmt.Registr
 func (m *SdkAnalysisResultsHostRecordVM) validateLocalIP(formats strfmt.Registry) error {
 
 	if err := validate.Required("local_ip", "body", m.LocalIP); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SdkAnalysisResultsHostRecordVM) validateObservedIP(formats strfmt.Registry) error {
+
+	if err := validate.Required("observed_ip", "body", m.ObservedIP); err != nil {
 		return err
 	}
 

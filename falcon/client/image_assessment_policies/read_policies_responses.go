@@ -31,6 +31,12 @@ func (o *ReadPoliciesReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewReadPoliciesUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewReadPoliciesForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *ReadPoliciesOK) readResponse(response runtime.ClientResponse, consumer 
 	}
 
 	o.Payload = new(models.ModelsPolicyEntityResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewReadPoliciesUnauthorized creates a ReadPoliciesUnauthorized with default headers values
+func NewReadPoliciesUnauthorized() *ReadPoliciesUnauthorized {
+	return &ReadPoliciesUnauthorized{}
+}
+
+/*
+ReadPoliciesUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type ReadPoliciesUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this read policies unauthorized response has a 2xx status code
+func (o *ReadPoliciesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this read policies unauthorized response has a 3xx status code
+func (o *ReadPoliciesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this read policies unauthorized response has a 4xx status code
+func (o *ReadPoliciesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this read policies unauthorized response has a 5xx status code
+func (o *ReadPoliciesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this read policies unauthorized response a status code equal to that given
+func (o *ReadPoliciesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the read policies unauthorized response
+func (o *ReadPoliciesUnauthorized) Code() int {
+	return 401
+}
+
+func (o *ReadPoliciesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ReadPoliciesUnauthorized) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-assessment-policies/v1][%d] readPoliciesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ReadPoliciesUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ReadPoliciesUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

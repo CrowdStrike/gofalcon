@@ -55,6 +55,9 @@ type DomainKnowledgeBase struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// project id
+	ProjectID string `json:"project_id,omitempty"`
+
 	// updated at
 	// Required: true
 	// Format: date-time

@@ -71,9 +71,9 @@ type ApplyAgentTasksParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The actions to queue on the agent, and an optional ttl in hours (default 72, 1-168). Each action is one of remove_browsing_data, close_all_windows, refresh_all_tabs or dispatch_notification; its args depend on the action type.
 	*/
-	Body *models.APIAgentTasksRequest
+	Body *models.AgentTasksRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -140,13 +140,13 @@ func (o *ApplyAgentTasksParams) SetAgentID(agentID string) {
 }
 
 // WithBody adds the body to the apply agent tasks params
-func (o *ApplyAgentTasksParams) WithBody(body *models.APIAgentTasksRequest) *ApplyAgentTasksParams {
+func (o *ApplyAgentTasksParams) WithBody(body *models.AgentTasksRequest) *ApplyAgentTasksParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the apply agent tasks params
-func (o *ApplyAgentTasksParams) SetBody(body *models.APIAgentTasksRequest) {
+func (o *ApplyAgentTasksParams) SetBody(body *models.AgentTasksRequest) {
 	o.Body = body
 }
 

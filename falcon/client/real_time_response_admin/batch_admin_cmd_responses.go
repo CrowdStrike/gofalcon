@@ -37,6 +37,12 @@ func (o *BatchAdminCmdReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewBatchAdminCmdUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewBatchAdminCmdForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *BatchAdminCmdBadRequest) readResponse(response runtime.ClientResponse, 
 	}
 
 	o.Payload = new(models.DomainAPIError)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewBatchAdminCmdUnauthorized creates a BatchAdminCmdUnauthorized with default headers values
+func NewBatchAdminCmdUnauthorized() *BatchAdminCmdUnauthorized {
+	return &BatchAdminCmdUnauthorized{}
+}
+
+/*
+BatchAdminCmdUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type BatchAdminCmdUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this batch admin cmd unauthorized response has a 2xx status code
+func (o *BatchAdminCmdUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch admin cmd unauthorized response has a 3xx status code
+func (o *BatchAdminCmdUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch admin cmd unauthorized response has a 4xx status code
+func (o *BatchAdminCmdUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch admin cmd unauthorized response has a 5xx status code
+func (o *BatchAdminCmdUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch admin cmd unauthorized response a status code equal to that given
+func (o *BatchAdminCmdUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the batch admin cmd unauthorized response
+func (o *BatchAdminCmdUnauthorized) Code() int {
+	return 401
+}
+
+func (o *BatchAdminCmdUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *BatchAdminCmdUnauthorized) String() string {
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *BatchAdminCmdUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *BatchAdminCmdUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -31,6 +31,12 @@ func (o *ExternalPatchConnectorConfigReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewExternalPatchConnectorConfigUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewExternalPatchConnectorConfigForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *ExternalPatchConnectorConfigOK) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(models.MsaReplyAffectedEntities)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewExternalPatchConnectorConfigUnauthorized creates a ExternalPatchConnectorConfigUnauthorized with default headers values
+func NewExternalPatchConnectorConfigUnauthorized() *ExternalPatchConnectorConfigUnauthorized {
+	return &ExternalPatchConnectorConfigUnauthorized{}
+}
+
+/*
+ExternalPatchConnectorConfigUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type ExternalPatchConnectorConfigUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this external patch connector config unauthorized response has a 2xx status code
+func (o *ExternalPatchConnectorConfigUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this external patch connector config unauthorized response has a 3xx status code
+func (o *ExternalPatchConnectorConfigUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this external patch connector config unauthorized response has a 4xx status code
+func (o *ExternalPatchConnectorConfigUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this external patch connector config unauthorized response has a 5xx status code
+func (o *ExternalPatchConnectorConfigUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this external patch connector config unauthorized response a status code equal to that given
+func (o *ExternalPatchConnectorConfigUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the external patch connector config unauthorized response
+func (o *ExternalPatchConnectorConfigUnauthorized) Code() int {
+	return 401
+}
+
+func (o *ExternalPatchConnectorConfigUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /ngsiem/entities/connectors/configs/v1][%d] externalPatchConnectorConfigUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ExternalPatchConnectorConfigUnauthorized) String() string {
+	return fmt.Sprintf("[PATCH /ngsiem/entities/connectors/configs/v1][%d] externalPatchConnectorConfigUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ExternalPatchConnectorConfigUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ExternalPatchConnectorConfigUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

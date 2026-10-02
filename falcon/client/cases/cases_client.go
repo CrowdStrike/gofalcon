@@ -32,6 +32,12 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	EntitiesAlertEvidencePostV1(params *EntitiesAlertEvidencePostV1Params, opts ...ClientOption) (*EntitiesAlertEvidencePostV1OK, error)
 
+	EntitiesAlertEvidencePostV2(params *EntitiesAlertEvidencePostV2Params, opts ...ClientOption) (*EntitiesAlertEvidencePostV2OK, error)
+
+	EntitiesCaseAccessTagsDeleteV1(params *EntitiesCaseAccessTagsDeleteV1Params, opts ...ClientOption) (*EntitiesCaseAccessTagsDeleteV1OK, error)
+
+	EntitiesCaseAccessTagsPostV1(params *EntitiesCaseAccessTagsPostV1Params, opts ...ClientOption) (*EntitiesCaseAccessTagsPostV1OK, error)
+
 	EntitiesCaseTagsDeleteV1(params *EntitiesCaseTagsDeleteV1Params, opts ...ClientOption) (*EntitiesCaseTagsDeleteV1OK, error)
 
 	EntitiesCaseTagsPostV1(params *EntitiesCaseTagsPostV1Params, opts ...ClientOption) (*EntitiesCaseTagsPostV1OK, error)
@@ -42,9 +48,13 @@ type ClientService interface {
 
 	EntitiesCasesPutV2(params *EntitiesCasesPutV2Params, opts ...ClientOption) (*EntitiesCasesPutV2Created, error)
 
+	EntitiesCustomEvidencePostV1(params *EntitiesCustomEvidencePostV1Params, opts ...ClientOption) (*EntitiesCustomEvidencePostV1OK, error)
+
 	EntitiesEventEvidencePostV1(params *EntitiesEventEvidencePostV1Params, opts ...ClientOption) (*EntitiesEventEvidencePostV1OK, error)
 
 	EntitiesMergePostV1(params *EntitiesMergePostV1Params, opts ...ClientOption) (*EntitiesMergePostV1OK, error)
+
+	EntitiesUserEvidencePostV1(params *EntitiesUserEvidencePostV1Params, opts ...ClientOption) (*EntitiesUserEvidencePostV1OK, error)
 
 	QueriesCasesGetV1(params *QueriesCasesGetV1Params, opts ...ClientOption) (*QueriesCasesGetV1OK, error)
 
@@ -86,6 +96,120 @@ func (a *Client) EntitiesAlertEvidencePostV1(params *EntitiesAlertEvidencePostV1
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities.alert-evidence.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesAlertEvidencePostV2 adds the given list of alert evidence to the specified case and returns the created evidence records
+*/
+func (a *Client) EntitiesAlertEvidencePostV2(params *EntitiesAlertEvidencePostV2Params, opts ...ClientOption) (*EntitiesAlertEvidencePostV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesAlertEvidencePostV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.alert-evidence.post.v2",
+		Method:             "POST",
+		PathPattern:        "/cases/entities/alert-evidence/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesAlertEvidencePostV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesAlertEvidencePostV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.alert-evidence.post.v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesCaseAccessTagsDeleteV1 removes the specified access tags from the specified case
+*/
+func (a *Client) EntitiesCaseAccessTagsDeleteV1(params *EntitiesCaseAccessTagsDeleteV1Params, opts ...ClientOption) (*EntitiesCaseAccessTagsDeleteV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesCaseAccessTagsDeleteV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.case-access-tags.delete.v1",
+		Method:             "DELETE",
+		PathPattern:        "/cases/entities/case-access-tags/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesCaseAccessTagsDeleteV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesCaseAccessTagsDeleteV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.case-access-tags.delete.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesCaseAccessTagsPostV1 adds the given list of access tags to the specified case
+*/
+func (a *Client) EntitiesCaseAccessTagsPostV1(params *EntitiesCaseAccessTagsPostV1Params, opts ...ClientOption) (*EntitiesCaseAccessTagsPostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesCaseAccessTagsPostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.case-access-tags.post.v1",
+		Method:             "POST",
+		PathPattern:        "/cases/entities/case-access-tags/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesCaseAccessTagsPostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesCaseAccessTagsPostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.case-access-tags.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -280,6 +404,44 @@ func (a *Client) EntitiesCasesPutV2(params *EntitiesCasesPutV2Params, opts ...Cl
 }
 
 /*
+EntitiesCustomEvidencePostV1 adds the given custom evidence to the specified case
+*/
+func (a *Client) EntitiesCustomEvidencePostV1(params *EntitiesCustomEvidencePostV1Params, opts ...ClientOption) (*EntitiesCustomEvidencePostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesCustomEvidencePostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.custom-evidence.post.v1",
+		Method:             "POST",
+		PathPattern:        "/cases/entities/custom-evidence/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesCustomEvidencePostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesCustomEvidencePostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.custom-evidence.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesEventEvidencePostV1 adds the given list of event evidence to the specified case
 */
 func (a *Client) EntitiesEventEvidencePostV1(params *EntitiesEventEvidencePostV1Params, opts ...ClientOption) (*EntitiesEventEvidencePostV1OK, error) {
@@ -352,6 +514,44 @@ func (a *Client) EntitiesMergePostV1(params *EntitiesMergePostV1Params, opts ...
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for entities.merge.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesUserEvidencePostV1 adds user evidence to the specified case
+*/
+func (a *Client) EntitiesUserEvidencePostV1(params *EntitiesUserEvidencePostV1Params, opts ...ClientOption) (*EntitiesUserEvidencePostV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesUserEvidencePostV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.user-evidence.post.v1",
+		Method:             "POST",
+		PathPattern:        "/cases/entities/user-evidence/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesUserEvidencePostV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesUserEvidencePostV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entities.user-evidence.post.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
