@@ -2,6 +2,7 @@ package streaming_models
 
 import (
 	"encoding/json"
+	"errors"
 	"testing"
 )
 
@@ -34,6 +35,33 @@ func TestAuthActivityAuditEventKnownFields(t *testing.T) {
 				}
 				if (*e.Attributes)[0].Key != "foo" || (*e.Attributes)[0].Value != "bar" {
 					t.Fatalf("Attributes[0] = %+v", (*e.Attributes)[0])
+				}
+			},
+		},
+		{
+			name:  "attributes sent as an object",
+			input: `{"OperationName":"userAuthenticate","Attributes":{"foo":"bar"}}`,
+			check: func(t *testing.T, e AuthActivityAuditEvent) {
+				if e.Attributes == nil || len(*e.Attributes) != 1 {
+					t.Fatalf("Attributes len = %v, want 1", e.Attributes)
+				}
+				if (*e.Attributes)[0].Key != "foo" || (*e.Attributes)[0].Value != "bar" {
+					t.Fatalf("Attributes[0] = %+v", (*e.Attributes)[0])
+				}
+				if e.Extra != nil {
+					t.Fatalf("Extra = %v, want nil: Attributes is a known field", e.Extra)
+				}
+			},
+		},
+		{
+			name:  "lowercase attributes key sent as an object",
+			input: `{"OperationName":"userAuthenticate","attributes":{"foo":"bar"}}`,
+			check: func(t *testing.T, e AuthActivityAuditEvent) {
+				if e.Attributes == nil || len(*e.Attributes) != 1 || (*e.Attributes)[0] != (AuditKeyValues{Key: "foo", Value: "bar"}) {
+					t.Fatalf("Attributes = %v, want [{foo bar}]", e.Attributes)
+				}
+				if e.Extra != nil {
+					t.Fatalf("Extra = %v, want nil: a case variant of Attributes is a known field", e.Extra)
 				}
 			},
 		},
@@ -113,6 +141,33 @@ func TestAuthActivityAuditEventExtraError(t *testing.T) {
 	var e AuthActivityAuditEvent
 	if err := json.Unmarshal([]byte(`not json`), &e); err == nil {
 		t.Fatal("expected error for invalid json, got nil")
+	}
+}
+
+func TestAuthActivityAuditEventAttributesError(t *testing.T) {
+	t.Parallel()
+	var e AuthActivityAuditEvent
+	err := json.Unmarshal([]byte(`{"OperationName":"x","Attributes":"text"}`), &e)
+	var typeErr *json.UnmarshalTypeError
+	if !errors.As(err, &typeErr) {
+		t.Fatalf("Unmarshal error = %v, want a *json.UnmarshalTypeError", err)
+	}
+}
+
+// Attributes sent as an object re-marshal as the modeled list, sorted by key.
+func TestAuthActivityAuditEventMarshalObjectAttributes(t *testing.T) {
+	t.Parallel()
+	var e AuthActivityAuditEvent
+	if err := json.Unmarshal([]byte(`{"OperationName":"x","Attributes":{"b":"2","a":"1"}}`), &e); err != nil {
+		t.Fatalf("Unmarshal: %v", err)
+	}
+	out, err := json.Marshal(e)
+	if err != nil {
+		t.Fatalf("Marshal: %v", err)
+	}
+	want := `{"OperationName":"x","Attributes":[{"Key":"a","ValueString":"1"},{"Key":"b","ValueString":"2"}]}`
+	if string(out) != want {
+		t.Fatalf("Marshal = %s, want %s", out, want)
 	}
 }
 
