@@ -1,6 +1,11 @@
 package streaming_models
 
-import "encoding/json"
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"slices"
+)
 
 // EventItem - The structure for parent model
 type EventItem struct {
@@ -73,7 +78,7 @@ type Event struct {
 	Tactic            *string           `json:"Tactic,omitempty"`
 	Technique         *string           `json:"Technique,omitempty"`
 	AuditKeyValues    *[]AuditKeyValues `json:"AuditKeyValues,omitempty"`
-	Attributes        *[]AuditKeyValues `json:"Attributes,omitempty"`
+	Attributes        *AuditAttributes  `json:"Attributes,omitempty"`
 	IncidentType      *String           `json:"IncidentType,omitempty"`
 	IncidentStartTime *json.Number      `json:"IncidentStartTime,omitempty"`
 	IncidentEndTime   *json.Number      `json:"IncidentEndTime,omitempty"`
@@ -117,6 +122,51 @@ type DocumentsAccessed struct {
 type AuditKeyValues struct {
 	Key   string `json:"Key"`
 	Value string `json:"ValueString"`
+}
+
+// AuditAttributes is the Attributes field of audit events. The model was written
+// for a list of Key/ValueString pairs, but APIActivityAuditEvent,
+// UserActivityAuditEvent and AuthActivityAuditEvent send an object that maps
+// each key to its value, so both forms are accepted.
+type AuditAttributes []AuditKeyValues
+
+// UnmarshalJSON decodes Attributes sent either as a list of Key/ValueString
+// pairs or as an object. Object entries come back sorted by key. A JSON null
+// value becomes an empty string, and any other value that is not a JSON string
+// keeps its JSON text.
+func (a *AuditAttributes) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(data, []byte("null")) {
+		return nil
+	}
+	if !bytes.HasPrefix(data, []byte("{")) {
+		var pairs []AuditKeyValues
+		if err := json.Unmarshal(data, &pairs); err != nil {
+			return fmt.Errorf("decode Attributes: %w", err)
+		}
+		*a = pairs
+		return nil
+	}
+
+	var object map[string]json.RawMessage
+	if err := json.Unmarshal(data, &object); err != nil {
+		return fmt.Errorf("decode Attributes: %w", err)
+	}
+	keys := make([]string, 0, len(object))
+	for key := range object {
+		keys = append(keys, key)
+	}
+	slices.Sort(keys)
+
+	pairs := make(AuditAttributes, 0, len(keys))
+	for _, key := range keys {
+		var value string
+		if err := json.Unmarshal(object[key], &value); err != nil {
+			value = string(object[key])
+		}
+		pairs = append(pairs, AuditKeyValues{Key: key, Value: value})
+	}
+	*a = pairs
+	return nil
 }
 
 // NetworkAccess - Network access information for this detection
