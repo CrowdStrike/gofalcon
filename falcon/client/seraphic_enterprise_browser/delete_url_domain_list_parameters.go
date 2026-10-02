@@ -65,9 +65,9 @@ type DeleteURLDomainListParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The integration to remove from, and the URLs and domains to remove. Both fields are required and urls must be non-empty.
 	*/
-	Body *models.APIURLDomainListRequest
+	Body *models.URLDomainListRequest
 
 	/* ID.
 
@@ -129,13 +129,13 @@ func (o *DeleteURLDomainListParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the delete Url domain list params
-func (o *DeleteURLDomainListParams) WithBody(body *models.APIURLDomainListRequest) *DeleteURLDomainListParams {
+func (o *DeleteURLDomainListParams) WithBody(body *models.URLDomainListRequest) *DeleteURLDomainListParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the delete Url domain list params
-func (o *DeleteURLDomainListParams) SetBody(body *models.APIURLDomainListRequest) {
+func (o *DeleteURLDomainListParams) SetBody(body *models.URLDomainListRequest) {
 	o.Body = body
 }
 

@@ -22,6 +22,9 @@ type ApidomainDynamicExecuteSearchRequestV1 struct {
 	// end
 	End string `json:"end,omitempty"`
 
+	// extra log fields
+	ExtraLogFields map[string]string `json:"extra_log_fields,omitempty"`
+
 	// repo or view
 	// Required: true
 	RepoOrView *string `json:"repo_or_view"`

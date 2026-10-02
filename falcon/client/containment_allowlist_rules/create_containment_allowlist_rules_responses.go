@@ -37,6 +37,12 @@ func (o *CreateContainmentAllowlistRulesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewCreateContainmentAllowlistRulesUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewCreateContainmentAllowlistRulesForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -233,6 +239,116 @@ func (o *CreateContainmentAllowlistRulesBadRequest) GetPayload() *models.MsaRepl
 }
 
 func (o *CreateContainmentAllowlistRulesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateContainmentAllowlistRulesUnauthorized creates a CreateContainmentAllowlistRulesUnauthorized with default headers values
+func NewCreateContainmentAllowlistRulesUnauthorized() *CreateContainmentAllowlistRulesUnauthorized {
+	return &CreateContainmentAllowlistRulesUnauthorized{}
+}
+
+/*
+CreateContainmentAllowlistRulesUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type CreateContainmentAllowlistRulesUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this create containment allowlist rules unauthorized response has a 2xx status code
+func (o *CreateContainmentAllowlistRulesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create containment allowlist rules unauthorized response has a 3xx status code
+func (o *CreateContainmentAllowlistRulesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create containment allowlist rules unauthorized response has a 4xx status code
+func (o *CreateContainmentAllowlistRulesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create containment allowlist rules unauthorized response has a 5xx status code
+func (o *CreateContainmentAllowlistRulesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create containment allowlist rules unauthorized response a status code equal to that given
+func (o *CreateContainmentAllowlistRulesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the create containment allowlist rules unauthorized response
+func (o *CreateContainmentAllowlistRulesUnauthorized) Code() int {
+	return 401
+}
+
+func (o *CreateContainmentAllowlistRulesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /customers/entities/containment-allowlist-rules/v1][%d] createContainmentAllowlistRulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CreateContainmentAllowlistRulesUnauthorized) String() string {
+	return fmt.Sprintf("[POST /customers/entities/containment-allowlist-rules/v1][%d] createContainmentAllowlistRulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CreateContainmentAllowlistRulesUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *CreateContainmentAllowlistRulesUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

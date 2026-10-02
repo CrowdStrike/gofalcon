@@ -31,6 +31,12 @@ func (o *UploadFileMixin0Mixin93Reader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewUploadFileMixin0Mixin93Unauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewUploadFileMixin0Mixin93Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *UploadFileMixin0Mixin93OK) readResponse(response runtime.ClientResponse
 	}
 
 	o.Payload = new(models.QuickscanproFileUploadResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUploadFileMixin0Mixin93Unauthorized creates a UploadFileMixin0Mixin93Unauthorized with default headers values
+func NewUploadFileMixin0Mixin93Unauthorized() *UploadFileMixin0Mixin93Unauthorized {
+	return &UploadFileMixin0Mixin93Unauthorized{}
+}
+
+/*
+UploadFileMixin0Mixin93Unauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type UploadFileMixin0Mixin93Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this upload file mixin0 mixin93 unauthorized response has a 2xx status code
+func (o *UploadFileMixin0Mixin93Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload file mixin0 mixin93 unauthorized response has a 3xx status code
+func (o *UploadFileMixin0Mixin93Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload file mixin0 mixin93 unauthorized response has a 4xx status code
+func (o *UploadFileMixin0Mixin93Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this upload file mixin0 mixin93 unauthorized response has a 5xx status code
+func (o *UploadFileMixin0Mixin93Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload file mixin0 mixin93 unauthorized response a status code equal to that given
+func (o *UploadFileMixin0Mixin93Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the upload file mixin0 mixin93 unauthorized response
+func (o *UploadFileMixin0Mixin93Unauthorized) Code() int {
+	return 401
+}
+
+func (o *UploadFileMixin0Mixin93Unauthorized) Error() string {
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *UploadFileMixin0Mixin93Unauthorized) String() string {
+	return fmt.Sprintf("[POST /quickscanpro/entities/files/v1][%d] uploadFileMixin0Mixin93Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *UploadFileMixin0Mixin93Unauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *UploadFileMixin0Mixin93Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

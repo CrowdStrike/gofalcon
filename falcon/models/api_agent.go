@@ -45,6 +45,9 @@ type APIAgent struct {
 	// Required: true
 	IsInSync *bool `json:"is_in_sync"`
 
+	// project id
+	ProjectID string `json:"project_id,omitempty"`
+
 	// published version ids
 	// Required: true
 	PublishedVersionIds []string `json:"published_version_ids"`

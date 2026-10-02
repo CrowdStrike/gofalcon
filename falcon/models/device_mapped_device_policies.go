@@ -36,6 +36,9 @@ type DeviceMappedDevicePolicies struct {
 	// browser extension
 	BrowserExtension *DeviceDevicePolicy `json:"browser-extension,omitempty"`
 
+	// cloud container workload
+	CloudContainerWorkload *DeviceDevicePolicy `json:"cloud-container-workload,omitempty"`
+
 	// cloud ml
 	CloudMl *DeviceDevicePolicy `json:"cloud-ml,omitempty"`
 
@@ -149,6 +152,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudContainerWorkload(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -380,6 +387,25 @@ func (m *DeviceMappedDevicePolicies) validateBrowserExtension(formats strfmt.Reg
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateCloudContainerWorkload(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudContainerWorkload) { // not required
+		return nil
+	}
+
+	if m.CloudContainerWorkload != nil {
+		if err := m.CloudContainerWorkload.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-container-workload")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-container-workload")
 			}
 			return err
 		}
@@ -967,6 +993,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCloudContainerWorkload(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCloudMl(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -1207,6 +1237,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateBrowserExtension(ctx context
 				return ve.ValidateName("browser-extension")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("browser-extension")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateCloudContainerWorkload(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudContainerWorkload != nil {
+
+		if swag.IsZero(m.CloudContainerWorkload) { // not required
+			return nil
+		}
+
+		if err := m.CloudContainerWorkload.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud-container-workload")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud-container-workload")
 			}
 			return err
 		}

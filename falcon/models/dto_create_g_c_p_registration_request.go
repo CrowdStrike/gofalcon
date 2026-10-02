@@ -38,7 +38,7 @@ type DtoCreateGCPRegistrationRequest struct {
 	ExcludedProjectPatterns []string `json:"excluded_project_patterns"`
 
 	// existing wif pool id
-	ExistingWifPoolID *string `json:"existing_wif_pool_id,omitempty"`
+	ExistingWifPoolID string `json:"existing_wif_pool_id,omitempty"`
 
 	// falcon client key id
 	FalconClientKeyID string `json:"falcon_client_key_id,omitempty"`

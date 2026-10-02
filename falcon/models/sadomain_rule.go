@@ -71,6 +71,10 @@ type SadomainRule struct {
 	// Required: true
 	Permissions *string `json:"permissions"`
 
+	// The PIR IDs associated with the rule
+	// Required: true
+	PirIds []string `json:"pir_ids"`
+
 	// The priority of a given rule
 	// Required: true
 	Priority *string `json:"priority"`
@@ -153,6 +157,10 @@ func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePermissions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePirIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -284,6 +292,15 @@ func (m *SadomainRule) validateOwnershipAssets(formats strfmt.Registry) error {
 func (m *SadomainRule) validatePermissions(formats strfmt.Registry) error {
 
 	if err := validate.Required("permissions", "body", m.Permissions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SadomainRule) validatePirIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("pir_ids", "body", m.PirIds); err != nil {
 		return err
 	}
 

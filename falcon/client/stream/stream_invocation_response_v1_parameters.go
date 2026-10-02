@@ -67,6 +67,12 @@ type StreamInvocationResponseV1Params struct {
 	*/
 	ID string
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -131,6 +137,17 @@ func (o *StreamInvocationResponseV1Params) SetID(id string) {
 	o.ID = id
 }
 
+// WithProjectID adds the projectID to the stream invocation response v1 params
+func (o *StreamInvocationResponseV1Params) WithProjectID(projectID *string) *StreamInvocationResponseV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the stream invocation response v1 params
+func (o *StreamInvocationResponseV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *StreamInvocationResponseV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -146,6 +163,23 @@ func (o *StreamInvocationResponseV1Params) WriteToRequest(r runtime.ClientReques
 
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
+				return err
+			}
 		}
 	}
 

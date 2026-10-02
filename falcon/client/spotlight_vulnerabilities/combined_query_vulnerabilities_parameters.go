@@ -83,7 +83,7 @@ type CombinedQueryVulnerabilitiesParams struct {
 				Available filter fields that supports exact match: aid, cid, last_seen_within, status, cve.id, cve.is_cisa_kev, cve.remediation_level, cve.cps_rating,
 						cve.exprt_rating, cve.exploit_status_to_include, cve.severity, cve.base_score, cve.types, host_info.asset_criticality, host_info.asset_roles,
 						host_info.internet_exposure, host_info.tags, host_info.groups, host_info.product_type_desc, host_info.platform_name, suppression_info.is_suppressed,
-						suppression_info.reason, host_info.instance_state, assessment_status, assessment_reason, rule.name, rule.recommendation_id, rule.cs_id,
+						suppression_info.reason, host_info.instance_state, assessment_status, assessment_reason, rule.name, rule.recommendation_id, rule.cs_id, rule.type,
 						data_providers.policy_id, data_providers.rule_group_id
 				Available filter fields that supports wildcard (*): N/A
 				Available filter fields that supports range comparisons (>, <, >=, <=): created_timestamp, closed_timestamp, updated_timestamp, cve.base_score

@@ -94,6 +94,12 @@ type QueriesKnowledgeBaseFilesV1Params struct {
 	*/
 	Offset *int64
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -216,6 +222,17 @@ func (o *QueriesKnowledgeBaseFilesV1Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithProjectID adds the projectID to the queries knowledge base files v1 params
+func (o *QueriesKnowledgeBaseFilesV1Params) WithProjectID(projectID *string) *QueriesKnowledgeBaseFilesV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the queries knowledge base files v1 params
+func (o *QueriesKnowledgeBaseFilesV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *QueriesKnowledgeBaseFilesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -297,6 +314,23 @@ func (o *QueriesKnowledgeBaseFilesV1Params) WriteToRequest(r runtime.ClientReque
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
 				return err
 			}
 		}

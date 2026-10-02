@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type GetTenantSettingsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *GetTenantSettingsOKBody
 }
 
 // IsSuccess returns true when this get tenant settings o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *GetTenantSettingsOK) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/tenant-settings/v1][%d] getTenantSettingsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetTenantSettingsOK) GetPayload() *models.APIEnvelope {
+func (o *GetTenantSettingsOK) GetPayload() *GetTenantSettingsOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *GetTenantSettingsOK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(GetTenantSettingsOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type GetTenantSettingsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get tenant settings bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *GetTenantSettingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/tenant-settings/v1][%d] getTenantSettingsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetTenantSettingsBadRequest) GetPayload() *models.APIEnvelope {
+func (o *GetTenantSettingsBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *GetTenantSettingsBadRequest) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type GetTenantSettingsUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get tenant settings unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *GetTenantSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/tenant-settings/v1][%d] getTenantSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetTenantSettingsUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *GetTenantSettingsUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *GetTenantSettingsUnauthorized) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type GetTenantSettingsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get tenant settings forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *GetTenantSettingsForbidden) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/tenant-settings/v1][%d] getTenantSettingsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetTenantSettingsForbidden) GetPayload() *models.APIEnvelope {
+func (o *GetTenantSettingsForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *GetTenantSettingsForbidden) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type GetTenantSettingsTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get tenant settings too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *GetTenantSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/tenant-settings/v1][%d] getTenantSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetTenantSettingsTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *GetTenantSettingsTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *GetTenantSettingsTooManyRequests) readResponse(response runtime.ClientR
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewGetTenantSettingsInternalServerError() *GetTenantSettingsInternalServerE
 /*
 GetTenantSettingsInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type GetTenantSettingsInternalServerError struct {
 
@@ -661,7 +664,7 @@ type GetTenantSettingsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get tenant settings internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *GetTenantSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/tenant-settings/v1][%d] getTenantSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetTenantSettingsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetTenantSettingsInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *GetTenantSettingsInternalServerError) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type GetTenantSettingsBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get tenant settings bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *GetTenantSettingsBadGateway) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/tenant-settings/v1][%d] getTenantSettingsBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *GetTenantSettingsBadGateway) GetPayload() *models.APIEnvelope {
+func (o *GetTenantSettingsBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *GetTenantSettingsBadGateway) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *GetTenantSettingsBadGateway) readResponse(response runtime.ClientRespon
 	}
 
 	return nil
+}
+
+/*
+GetTenantSettingsOKBody get tenant settings o k body
+swagger:model GetTenantSettingsOKBody
+*/
+type GetTenantSettingsOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.TenantSettingsResource `json:"resources"`
+}
+
+// Validate validates this get tenant settings o k body
+func (o *GetTenantSettingsOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetTenantSettingsOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("getTenantSettingsOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getTenantSettingsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getTenantSettingsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetTenantSettingsOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("getTenantSettingsOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getTenantSettingsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getTenantSettingsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *GetTenantSettingsOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("getTenantSettingsOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getTenantSettingsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getTenantSettingsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this get tenant settings o k body based on the context it is used
+func (o *GetTenantSettingsOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetTenantSettingsOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getTenantSettingsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getTenantSettingsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetTenantSettingsOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getTenantSettingsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getTenantSettingsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *GetTenantSettingsOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getTenantSettingsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getTenantSettingsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *GetTenantSettingsOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *GetTenantSettingsOKBody) UnmarshalBinary(b []byte) error {
+	var res GetTenantSettingsOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this get tenant settings o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *GetTenantSettingsOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

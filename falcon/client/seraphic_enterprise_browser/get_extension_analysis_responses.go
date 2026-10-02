@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type GetExtensionAnalysisOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *GetExtensionAnalysisOKBody
 }
 
 // IsSuccess returns true when this get extension analysis o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *GetExtensionAnalysisOK) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/extension-analysis/v1][%d] getExtensionAnalysisOK  %+v", 200, o.Payload)
 }
 
-func (o *GetExtensionAnalysisOK) GetPayload() *models.APIEnvelope {
+func (o *GetExtensionAnalysisOK) GetPayload() *GetExtensionAnalysisOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *GetExtensionAnalysisOK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(GetExtensionAnalysisOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type GetExtensionAnalysisBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get extension analysis bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *GetExtensionAnalysisBadRequest) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/extension-analysis/v1][%d] getExtensionAnalysisBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetExtensionAnalysisBadRequest) GetPayload() *models.APIEnvelope {
+func (o *GetExtensionAnalysisBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *GetExtensionAnalysisBadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type GetExtensionAnalysisUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get extension analysis unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *GetExtensionAnalysisUnauthorized) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/extension-analysis/v1][%d] getExtensionAnalysisUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetExtensionAnalysisUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *GetExtensionAnalysisUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *GetExtensionAnalysisUnauthorized) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type GetExtensionAnalysisForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get extension analysis forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *GetExtensionAnalysisForbidden) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/extension-analysis/v1][%d] getExtensionAnalysisForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetExtensionAnalysisForbidden) GetPayload() *models.APIEnvelope {
+func (o *GetExtensionAnalysisForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *GetExtensionAnalysisForbidden) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type GetExtensionAnalysisTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get extension analysis too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *GetExtensionAnalysisTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/extension-analysis/v1][%d] getExtensionAnalysisTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetExtensionAnalysisTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *GetExtensionAnalysisTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *GetExtensionAnalysisTooManyRequests) readResponse(response runtime.Clie
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewGetExtensionAnalysisInternalServerError() *GetExtensionAnalysisInternalS
 /*
 GetExtensionAnalysisInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type GetExtensionAnalysisInternalServerError struct {
 
@@ -661,7 +664,7 @@ type GetExtensionAnalysisInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get extension analysis internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *GetExtensionAnalysisInternalServerError) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/extension-analysis/v1][%d] getExtensionAnalysisInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetExtensionAnalysisInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetExtensionAnalysisInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *GetExtensionAnalysisInternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type GetExtensionAnalysisBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get extension analysis bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *GetExtensionAnalysisBadGateway) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/extension-analysis/v1][%d] getExtensionAnalysisBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *GetExtensionAnalysisBadGateway) GetPayload() *models.APIEnvelope {
+func (o *GetExtensionAnalysisBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *GetExtensionAnalysisBadGateway) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,192 @@ func (o *GetExtensionAnalysisBadGateway) readResponse(response runtime.ClientRes
 	}
 
 	return nil
+}
+
+/*
+GetExtensionAnalysisOKBody get extension analysis o k body
+swagger:model GetExtensionAnalysisOKBody
+*/
+type GetExtensionAnalysisOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []interface{} `json:"resources"`
+}
+
+// Validate validates this get extension analysis o k body
+func (o *GetExtensionAnalysisOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetExtensionAnalysisOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("getExtensionAnalysisOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getExtensionAnalysisOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getExtensionAnalysisOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetExtensionAnalysisOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("getExtensionAnalysisOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getExtensionAnalysisOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getExtensionAnalysisOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *GetExtensionAnalysisOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("getExtensionAnalysisOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this get extension analysis o k body based on the context it is used
+func (o *GetExtensionAnalysisOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetExtensionAnalysisOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getExtensionAnalysisOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getExtensionAnalysisOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetExtensionAnalysisOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getExtensionAnalysisOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getExtensionAnalysisOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *GetExtensionAnalysisOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *GetExtensionAnalysisOKBody) UnmarshalBinary(b []byte) error {
+	var res GetExtensionAnalysisOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this get extension analysis o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *GetExtensionAnalysisOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

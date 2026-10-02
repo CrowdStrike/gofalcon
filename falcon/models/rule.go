@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -16,75 +17,212 @@ import (
 
 // Rule rule
 //
-// swagger:model .rule
+// swagger:model Rule
 type Rule struct {
 
-	// cloud provider
-	// Required: true
-	CloudProvider *string `json:"cloud_provider"`
+	// advanced settings
+	AdvancedSettings *RuleAdvancedSettings `json:"advanced_settings,omitempty"`
 
-	// platform
-	// Required: true
-	Platform *string `json:"platform"`
+	// alert type
+	AlertType string `json:"alertType,omitempty"`
 
-	// rule category
+	// any target
 	// Required: true
-	RuleCategory *string `json:"rule_category"`
+	AnyTarget *bool `json:"anyTarget"`
 
-	// rule name
-	// Required: true
-	RuleName *string `json:"rule_name"`
+	// button text
+	ButtonText string `json:"buttonText,omitempty"`
 
-	// rule type
+	// category
 	// Required: true
-	RuleType *string `json:"rule_type"`
+	Category *string `json:"category"`
 
-	// rule uuid
-	// Required: true
-	RuleUUID *string `json:"rule_uuid"`
+	// conditions
+	Conditions []*RuleCondition `json:"conditions"`
 
-	// service
+	// created at
+	CreatedAt string `json:"createdAt,omitempty"`
+
+	// created by
+	CreatedBy string `json:"createdBy,omitempty"`
+
+	// description
+	Description string `json:"description,omitempty"`
+
+	// description params
+	DescriptionParams string `json:"description_params,omitempty"`
+
+	// display name
+	DisplayName string `json:"displayName,omitempty"`
+
+	// enabled
+	Enabled bool `json:"enabled,omitempty"`
+
+	// excluded targets
+	ExcludedTargets []*RuleTarget `json:"excluded_targets"`
+
+	// has destinations
 	// Required: true
-	Service *string `json:"service"`
+	HasDestinations *bool `json:"has_destinations"`
+
+	// has two destinations
+	// Required: true
+	HasTwoDestinations *bool `json:"has_two_destinations"`
+
+	// id
+	// Required: true
+	ID *int32 `json:"id"`
+
+	// input description
+	InputDescription string `json:"input_description,omitempty"`
+
+	// input type
+	// Required: true
+	InputType *string `json:"input_type"`
+
+	// is default
+	// Required: true
+	IsDefault *bool `json:"isDefault"`
+
+	// is accumulative
+	// Required: true
+	IsAccumulative *bool `json:"is_accumulative"`
+
+	// message
+	Message string `json:"message,omitempty"`
+
+	// message title
+	MessageTitle string `json:"message_title,omitempty"`
+
+	// name
+	// Required: true
+	Name *string `json:"name"`
+
+	// notification enabled
+	NotificationEnabled bool `json:"notification_enabled,omitempty"`
+
+	// notification text
+	NotificationText string `json:"notification_text,omitempty"`
+
+	// priority
+	// Required: true
+	Priority *int32 `json:"priority"`
+
+	// rule destinations
+	RuleDestinations []*RuleDestination `json:"ruleDestinations"`
+
+	// rule option Id
+	RuleOptionID int32 `json:"ruleOptionId,omitempty"`
+
+	// selected option
+	SelectedOption string `json:"selected_option,omitempty"`
 
 	// severity
+	Severity string `json:"severity,omitempty"`
+
+	// source rule destinations
+	SourceRuleDestinations []*RuleDestination `json:"sourceRuleDestinations"`
+
+	// status
+	Status string `json:"status,omitempty"`
+
+	// stop processing
 	// Required: true
-	Severity *int32 `json:"severity"`
+	StopProcessing *bool `json:"stop_processing"`
+
+	// targets
+	Targets []*RuleTarget `json:"targets"`
+
+	// updated at
+	UpdatedAt string `json:"updatedAt,omitempty"`
+
+	// updated by
+	UpdatedBy string `json:"updatedBy,omitempty"`
+
+	// value
+	Value string `json:"value,omitempty"`
+
+	// values
+	Values []string `json:"values"`
+
+	// version
+	// Required: true
+	Version *int32 `json:"version"`
 }
 
 // Validate validates this rule
 func (m *Rule) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCloudProvider(formats); err != nil {
+	if err := m.validateAdvancedSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePlatform(formats); err != nil {
+	if err := m.validateAnyTarget(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuleCategory(formats); err != nil {
+	if err := m.validateCategory(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuleName(formats); err != nil {
+	if err := m.validateConditions(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuleType(formats); err != nil {
+	if err := m.validateExcludedTargets(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuleUUID(formats); err != nil {
+	if err := m.validateHasDestinations(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateService(formats); err != nil {
+	if err := m.validateHasTwoDestinations(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSeverity(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInputType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsDefault(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsAccumulative(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePriority(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRuleDestinations(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSourceRuleDestinations(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStopProcessing(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTargets(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,80 +232,440 @@ func (m *Rule) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Rule) validateCloudProvider(formats strfmt.Registry) error {
+func (m *Rule) validateAdvancedSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.AdvancedSettings) { // not required
+		return nil
+	}
 
-	if err := validate.Required("cloud_provider", "body", m.CloudProvider); err != nil {
+	if m.AdvancedSettings != nil {
+		if err := m.AdvancedSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("advanced_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("advanced_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Rule) validateAnyTarget(formats strfmt.Registry) error {
+
+	if err := validate.Required("anyTarget", "body", m.AnyTarget); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Rule) validatePlatform(formats strfmt.Registry) error {
+func (m *Rule) validateCategory(formats strfmt.Registry) error {
 
-	if err := validate.Required("platform", "body", m.Platform); err != nil {
+	if err := validate.Required("category", "body", m.Category); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Rule) validateRuleCategory(formats strfmt.Registry) error {
+func (m *Rule) validateConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.Conditions) { // not required
+		return nil
+	}
 
-	if err := validate.Required("rule_category", "body", m.RuleCategory); err != nil {
+	for i := 0; i < len(m.Conditions); i++ {
+		if swag.IsZero(m.Conditions[i]) { // not required
+			continue
+		}
+
+		if m.Conditions[i] != nil {
+			if err := m.Conditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) validateExcludedTargets(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExcludedTargets) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ExcludedTargets); i++ {
+		if swag.IsZero(m.ExcludedTargets[i]) { // not required
+			continue
+		}
+
+		if m.ExcludedTargets[i] != nil {
+			if err := m.ExcludedTargets[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("excluded_targets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("excluded_targets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) validateHasDestinations(formats strfmt.Registry) error {
+
+	if err := validate.Required("has_destinations", "body", m.HasDestinations); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Rule) validateRuleName(formats strfmt.Registry) error {
+func (m *Rule) validateHasTwoDestinations(formats strfmt.Registry) error {
 
-	if err := validate.Required("rule_name", "body", m.RuleName); err != nil {
+	if err := validate.Required("has_two_destinations", "body", m.HasTwoDestinations); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Rule) validateRuleType(formats strfmt.Registry) error {
+func (m *Rule) validateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("rule_type", "body", m.RuleType); err != nil {
+	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Rule) validateRuleUUID(formats strfmt.Registry) error {
+func (m *Rule) validateInputType(formats strfmt.Registry) error {
 
-	if err := validate.Required("rule_uuid", "body", m.RuleUUID); err != nil {
+	if err := validate.Required("input_type", "body", m.InputType); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Rule) validateService(formats strfmt.Registry) error {
+func (m *Rule) validateIsDefault(formats strfmt.Registry) error {
 
-	if err := validate.Required("service", "body", m.Service); err != nil {
+	if err := validate.Required("isDefault", "body", m.IsDefault); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Rule) validateSeverity(formats strfmt.Registry) error {
+func (m *Rule) validateIsAccumulative(formats strfmt.Registry) error {
 
-	if err := validate.Required("severity", "body", m.Severity); err != nil {
+	if err := validate.Required("is_accumulative", "body", m.IsAccumulative); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-// ContextValidate validates this rule based on context it is used
+func (m *Rule) validateName(formats strfmt.Registry) error {
+
+	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Rule) validatePriority(formats strfmt.Registry) error {
+
+	if err := validate.Required("priority", "body", m.Priority); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Rule) validateRuleDestinations(formats strfmt.Registry) error {
+	if swag.IsZero(m.RuleDestinations) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RuleDestinations); i++ {
+		if swag.IsZero(m.RuleDestinations[i]) { // not required
+			continue
+		}
+
+		if m.RuleDestinations[i] != nil {
+			if err := m.RuleDestinations[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ruleDestinations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleDestinations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) validateSourceRuleDestinations(formats strfmt.Registry) error {
+	if swag.IsZero(m.SourceRuleDestinations) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SourceRuleDestinations); i++ {
+		if swag.IsZero(m.SourceRuleDestinations[i]) { // not required
+			continue
+		}
+
+		if m.SourceRuleDestinations[i] != nil {
+			if err := m.SourceRuleDestinations[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sourceRuleDestinations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sourceRuleDestinations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) validateStopProcessing(formats strfmt.Registry) error {
+
+	if err := validate.Required("stop_processing", "body", m.StopProcessing); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Rule) validateTargets(formats strfmt.Registry) error {
+	if swag.IsZero(m.Targets) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Targets); i++ {
+		if swag.IsZero(m.Targets[i]) { // not required
+			continue
+		}
+
+		if m.Targets[i] != nil {
+			if err := m.Targets[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("targets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("targets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) validateVersion(formats strfmt.Registry) error {
+
+	if err := validate.Required("version", "body", m.Version); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this rule based on the context it is used
 func (m *Rule) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdvancedSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExcludedTargets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRuleDestinations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSourceRuleDestinations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTargets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Rule) contextValidateAdvancedSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AdvancedSettings != nil {
+
+		if swag.IsZero(m.AdvancedSettings) { // not required
+			return nil
+		}
+
+		if err := m.AdvancedSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("advanced_settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("advanced_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Rule) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Conditions); i++ {
+
+		if m.Conditions[i] != nil {
+
+			if swag.IsZero(m.Conditions[i]) { // not required
+				return nil
+			}
+
+			if err := m.Conditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) contextValidateExcludedTargets(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExcludedTargets); i++ {
+
+		if m.ExcludedTargets[i] != nil {
+
+			if swag.IsZero(m.ExcludedTargets[i]) { // not required
+				return nil
+			}
+
+			if err := m.ExcludedTargets[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("excluded_targets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("excluded_targets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) contextValidateRuleDestinations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RuleDestinations); i++ {
+
+		if m.RuleDestinations[i] != nil {
+
+			if swag.IsZero(m.RuleDestinations[i]) { // not required
+				return nil
+			}
+
+			if err := m.RuleDestinations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ruleDestinations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleDestinations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) contextValidateSourceRuleDestinations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SourceRuleDestinations); i++ {
+
+		if m.SourceRuleDestinations[i] != nil {
+
+			if swag.IsZero(m.SourceRuleDestinations[i]) { // not required
+				return nil
+			}
+
+			if err := m.SourceRuleDestinations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sourceRuleDestinations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sourceRuleDestinations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Rule) contextValidateTargets(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Targets); i++ {
+
+		if m.Targets[i] != nil {
+
+			if swag.IsZero(m.Targets[i]) { // not required
+				return nil
+			}
+
+			if err := m.Targets[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("targets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("targets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

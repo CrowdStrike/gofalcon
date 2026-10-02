@@ -37,6 +37,12 @@ func (o *GetCSPMScanScheduleReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewGetCSPMScanScheduleUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetCSPMScanScheduleForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *GetCSPMScanScheduleBadRequest) readResponse(response runtime.ClientResp
 	}
 
 	o.Payload = new(models.RegistrationScanScheduleResponseV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetCSPMScanScheduleUnauthorized creates a GetCSPMScanScheduleUnauthorized with default headers values
+func NewGetCSPMScanScheduleUnauthorized() *GetCSPMScanScheduleUnauthorized {
+	return &GetCSPMScanScheduleUnauthorized{}
+}
+
+/*
+GetCSPMScanScheduleUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type GetCSPMScanScheduleUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get c s p m scan schedule unauthorized response has a 2xx status code
+func (o *GetCSPMScanScheduleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m scan schedule unauthorized response has a 3xx status code
+func (o *GetCSPMScanScheduleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m scan schedule unauthorized response has a 4xx status code
+func (o *GetCSPMScanScheduleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m scan schedule unauthorized response has a 5xx status code
+func (o *GetCSPMScanScheduleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m scan schedule unauthorized response a status code equal to that given
+func (o *GetCSPMScanScheduleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the get c s p m scan schedule unauthorized response
+func (o *GetCSPMScanScheduleUnauthorized) Code() int {
+	return 401
+}
+
+func (o *GetCSPMScanScheduleUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetCSPMScanScheduleUnauthorized) String() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetCSPMScanScheduleUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetCSPMScanScheduleUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

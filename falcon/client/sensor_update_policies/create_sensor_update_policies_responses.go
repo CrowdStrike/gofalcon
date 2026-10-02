@@ -37,6 +37,12 @@ func (o *CreateSensorUpdatePoliciesReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewCreateSensorUpdatePoliciesUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewCreateSensorUpdatePoliciesForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *CreateSensorUpdatePoliciesBadRequest) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.SensorUpdateRespV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateSensorUpdatePoliciesUnauthorized creates a CreateSensorUpdatePoliciesUnauthorized with default headers values
+func NewCreateSensorUpdatePoliciesUnauthorized() *CreateSensorUpdatePoliciesUnauthorized {
+	return &CreateSensorUpdatePoliciesUnauthorized{}
+}
+
+/*
+CreateSensorUpdatePoliciesUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type CreateSensorUpdatePoliciesUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this create sensor update policies unauthorized response has a 2xx status code
+func (o *CreateSensorUpdatePoliciesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create sensor update policies unauthorized response has a 3xx status code
+func (o *CreateSensorUpdatePoliciesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create sensor update policies unauthorized response has a 4xx status code
+func (o *CreateSensorUpdatePoliciesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create sensor update policies unauthorized response has a 5xx status code
+func (o *CreateSensorUpdatePoliciesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create sensor update policies unauthorized response a status code equal to that given
+func (o *CreateSensorUpdatePoliciesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the create sensor update policies unauthorized response
+func (o *CreateSensorUpdatePoliciesUnauthorized) Code() int {
+	return 401
+}
+
+func (o *CreateSensorUpdatePoliciesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CreateSensorUpdatePoliciesUnauthorized) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CreateSensorUpdatePoliciesUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *CreateSensorUpdatePoliciesUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

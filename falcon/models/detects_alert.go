@@ -187,6 +187,10 @@ type DetectsAlert struct {
 	// Required: true
 	LinkedCaseIds []string `json:"linked_case_ids"`
 
+	// Linked Investigation Ids are investigations that are associated with this alert
+	// Required: true
+	LinkedInvestigationIds []string `json:"linked_investigation_ids"`
+
 	// local process id
 	LocalProcessID string `json:"local_process_id,omitempty"`
 
@@ -524,6 +528,10 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 		// Required: true
 		LinkedCaseIds []string `json:"linked_case_ids"`
 
+		// Linked Investigation Ids are investigations that are associated with this alert
+		// Required: true
+		LinkedInvestigationIds []string `json:"linked_investigation_ids"`
+
 		// local process id
 		LocalProcessID string `json:"local_process_id,omitempty"`
 
@@ -737,6 +745,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	rcv.IsSyntheticQuarantineDisposition = stage1.IsSyntheticQuarantineDisposition
 	rcv.LinkedBehavioralDetections = stage1.LinkedBehavioralDetections
 	rcv.LinkedCaseIds = stage1.LinkedCaseIds
+	rcv.LinkedInvestigationIds = stage1.LinkedInvestigationIds
 	rcv.LocalProcessID = stage1.LocalProcessID
 	rcv.LogonDomain = stage1.LogonDomain
 	rcv.Md5 = stage1.Md5
@@ -836,6 +845,7 @@ func (m *DetectsAlert) UnmarshalJSON(data []byte) error {
 	delete(stage2, "is_synthetic_quarantine_disposition")
 	delete(stage2, "linked_behavioral_detections")
 	delete(stage2, "linked_case_ids")
+	delete(stage2, "linked_investigation_ids")
 	delete(stage2, "local_process_id")
 	delete(stage2, "logon_domain")
 	delete(stage2, "md5")
@@ -1067,6 +1077,10 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 		// Required: true
 		LinkedCaseIds []string `json:"linked_case_ids"`
 
+		// Linked Investigation Ids are investigations that are associated with this alert
+		// Required: true
+		LinkedInvestigationIds []string `json:"linked_investigation_ids"`
+
 		// local process id
 		LocalProcessID string `json:"local_process_id,omitempty"`
 
@@ -1276,6 +1290,7 @@ func (m DetectsAlert) MarshalJSON() ([]byte, error) {
 	stage1.IsSyntheticQuarantineDisposition = m.IsSyntheticQuarantineDisposition
 	stage1.LinkedBehavioralDetections = m.LinkedBehavioralDetections
 	stage1.LinkedCaseIds = m.LinkedCaseIds
+	stage1.LinkedInvestigationIds = m.LinkedInvestigationIds
 	stage1.LocalProcessID = m.LocalProcessID
 	stage1.LogonDomain = m.LogonDomain
 	stage1.Md5 = m.Md5
@@ -1471,6 +1486,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLinkedCaseIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLinkedInvestigationIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1933,6 +1952,15 @@ func (m *DetectsAlert) validateLinkedBehavioralDetections(formats strfmt.Registr
 func (m *DetectsAlert) validateLinkedCaseIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("linked_case_ids", "body", m.LinkedCaseIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateLinkedInvestigationIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("linked_investigation_ids", "body", m.LinkedInvestigationIds); err != nil {
 		return err
 	}
 

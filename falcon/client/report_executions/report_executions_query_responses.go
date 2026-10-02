@@ -37,6 +37,12 @@ func (o *ReportExecutionsQueryReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewReportExecutionsQueryUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewReportExecutionsQueryForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -240,6 +246,116 @@ func (o *ReportExecutionsQueryBadRequest) GetPayload() *models.MsaReplyMetaOnly 
 }
 
 func (o *ReportExecutionsQueryBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewReportExecutionsQueryUnauthorized creates a ReportExecutionsQueryUnauthorized with default headers values
+func NewReportExecutionsQueryUnauthorized() *ReportExecutionsQueryUnauthorized {
+	return &ReportExecutionsQueryUnauthorized{}
+}
+
+/*
+ReportExecutionsQueryUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type ReportExecutionsQueryUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this report executions query unauthorized response has a 2xx status code
+func (o *ReportExecutionsQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions query unauthorized response has a 3xx status code
+func (o *ReportExecutionsQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions query unauthorized response has a 4xx status code
+func (o *ReportExecutionsQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions query unauthorized response has a 5xx status code
+func (o *ReportExecutionsQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions query unauthorized response a status code equal to that given
+func (o *ReportExecutionsQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the report executions query unauthorized response
+func (o *ReportExecutionsQueryUnauthorized) Code() int {
+	return 401
+}
+
+func (o *ReportExecutionsQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /reports/queries/report-executions/v1][%d] reportExecutionsQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ReportExecutionsQueryUnauthorized) String() string {
+	return fmt.Sprintf("[GET /reports/queries/report-executions/v1][%d] reportExecutionsQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ReportExecutionsQueryUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ReportExecutionsQueryUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

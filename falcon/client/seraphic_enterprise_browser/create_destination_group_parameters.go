@@ -65,9 +65,9 @@ type CreateDestinationGroupParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The destination group to create. name is required; the IP, domain, country and classification lists are all optional and combine into one group.
 	*/
-	Body *models.APIDestinationGroup
+	Body *models.DestinationGroup
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *CreateDestinationGroupParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the create destination group params
-func (o *CreateDestinationGroupParams) WithBody(body *models.APIDestinationGroup) *CreateDestinationGroupParams {
+func (o *CreateDestinationGroupParams) WithBody(body *models.DestinationGroup) *CreateDestinationGroupParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create destination group params
-func (o *CreateDestinationGroupParams) SetBody(body *models.APIDestinationGroup) {
+func (o *CreateDestinationGroupParams) SetBody(body *models.DestinationGroup) {
 	o.Body = body
 }
 

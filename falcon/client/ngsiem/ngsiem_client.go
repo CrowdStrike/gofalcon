@@ -68,6 +68,8 @@ type ClientService interface {
 
 	CreateSavedQuery(params *CreateSavedQueryParams, opts ...ClientOption) (*CreateSavedQueryOK, error)
 
+	CreateScheduledReport(params *CreateScheduledReportParams, opts ...ClientOption) (*CreateScheduledReportOK, error)
+
 	DeleteDashboard(params *DeleteDashboardParams, opts ...ClientOption) (*DeleteDashboardOK, error)
 
 	DeleteLookupFile(params *DeleteLookupFileParams, opts ...ClientOption) (*DeleteLookupFileOK, error)
@@ -77,6 +79,8 @@ type ClientService interface {
 	DeletePersistedAggregation(params *DeletePersistedAggregationParams, opts ...ClientOption) (*DeletePersistedAggregationOK, error)
 
 	DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...ClientOption) (*DeleteSavedQueryOK, error)
+
+	DeleteScheduledReport(params *DeleteScheduledReportParams, opts ...ClientOption) (*DeleteScheduledReportOK, error)
 
 	ExternalCreateConnectorConfig(params *ExternalCreateConnectorConfigParams, opts ...ClientOption) (*ExternalCreateConnectorConfigCreated, error)
 
@@ -127,6 +131,8 @@ type ClientService interface {
 
 	GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts ...ClientOption) (*GetSavedQueryTemplateOK, error)
 
+	GetScheduledReport(params *GetScheduledReportParams, opts ...ClientOption) (*GetScheduledReportOK, error)
+
 	GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...ClientOption) (*GetSearchStatusV1OK, error)
 
 	InstallParser(params *InstallParserParams, opts ...ClientOption) (*InstallParserOK, error)
@@ -140,6 +146,8 @@ type ClientService interface {
 	ListPersistedAggregations(params *ListPersistedAggregationsParams, opts ...ClientOption) (*ListPersistedAggregationsOK, error)
 
 	ListSavedQueries(params *ListSavedQueriesParams, opts ...ClientOption) (*ListSavedQueriesOK, error)
+
+	ListScheduledReports(params *ListScheduledReportsParams, opts ...ClientOption) (*ListScheduledReportsOK, error)
 
 	RollbackParser(params *RollbackParserParams, opts ...ClientOption) (*RollbackParserOK, error)
 
@@ -167,6 +175,8 @@ type ClientService interface {
 	UpdatePersistedAggregation(params *UpdatePersistedAggregationParams, opts ...ClientOption) (*UpdatePersistedAggregationOK, error)
 
 	UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTemplateParams, opts ...ClientOption) (*UpdateSavedQueryFromTemplateOK, error)
+
+	UpdateScheduledReport(params *UpdateScheduledReportParams, opts ...ClientOption) (*UpdateScheduledReportOK, error)
 
 	UploadLookupV1(params *UploadLookupV1Params, opts ...ClientOption) (*UploadLookupV1OK, error)
 
@@ -896,6 +906,44 @@ func (a *Client) CreateSavedQuery(params *CreateSavedQueryParams, opts ...Client
 }
 
 /*
+CreateScheduledReport creates a scheduled report in log scale
+*/
+func (a *Client) CreateScheduledReport(params *CreateScheduledReportParams, opts ...ClientOption) (*CreateScheduledReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateScheduledReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateScheduledReport",
+		Method:             "POST",
+		PathPattern:        "/ngsiem-content/entities/scheduled-reports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreateScheduledReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateScheduledReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateScheduledReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 DeleteDashboard deletes dashboard in n g s i e m
 */
 func (a *Client) DeleteDashboard(params *DeleteDashboardParams, opts ...ClientOption) (*DeleteDashboardOK, error) {
@@ -1082,6 +1130,44 @@ func (a *Client) DeleteSavedQuery(params *DeleteSavedQueryParams, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for DeleteSavedQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteScheduledReport deletes scheduled report s in log scale
+*/
+func (a *Client) DeleteScheduledReport(params *DeleteScheduledReportParams, opts ...ClientOption) (*DeleteScheduledReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteScheduledReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteScheduledReport",
+		Method:             "DELETE",
+		PathPattern:        "/ngsiem-content/entities/scheduled-reports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteScheduledReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteScheduledReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteScheduledReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -2002,6 +2088,44 @@ func (a *Client) GetSavedQueryTemplate(params *GetSavedQueryTemplateParams, opts
 }
 
 /*
+GetScheduledReport gets scheduled report s in log scale
+*/
+func (a *Client) GetScheduledReport(params *GetScheduledReportParams, opts ...ClientOption) (*GetScheduledReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetScheduledReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetScheduledReport",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/entities/scheduled-reports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetScheduledReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetScheduledReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetScheduledReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetSearchStatusV1 gets status of search
 */
 func (a *Client) GetSearchStatusV1(params *GetSearchStatusV1Params, opts ...ClientOption) (*GetSearchStatusV1OK, error) {
@@ -2264,6 +2388,44 @@ func (a *Client) ListSavedQueries(params *ListSavedQueriesParams, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ListSavedQueries: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ListScheduledReports lists scheduled reports in a view with pagination and filtering returns scheduled report details supports pagination default limit 50 and optional name filtering
+*/
+func (a *Client) ListScheduledReports(params *ListScheduledReportsParams, opts ...ClientOption) (*ListScheduledReportsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListScheduledReportsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListScheduledReports",
+		Method:             "GET",
+		PathPattern:        "/ngsiem-content/queries/scheduled-reports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ListScheduledReportsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListScheduledReportsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListScheduledReports: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -2760,6 +2922,44 @@ func (a *Client) UpdateSavedQueryFromTemplate(params *UpdateSavedQueryFromTempla
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateSavedQueryFromTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateScheduledReport updates a scheduled report in log scale
+*/
+func (a *Client) UpdateScheduledReport(params *UpdateScheduledReportParams, opts ...ClientOption) (*UpdateScheduledReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateScheduledReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateScheduledReport",
+		Method:             "PATCH",
+		PathPattern:        "/ngsiem-content/entities/scheduled-reports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateScheduledReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateScheduledReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateScheduledReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

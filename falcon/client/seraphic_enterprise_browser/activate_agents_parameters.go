@@ -65,9 +65,9 @@ type ActivateAgentsParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The IDs of the agents to activate. Required, must be non-empty.
 	*/
-	Body *models.APIAgentIDsRequest
+	Body *models.AgentIDsRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *ActivateAgentsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the activate agents params
-func (o *ActivateAgentsParams) WithBody(body *models.APIAgentIDsRequest) *ActivateAgentsParams {
+func (o *ActivateAgentsParams) WithBody(body *models.AgentIDsRequest) *ActivateAgentsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the activate agents params
-func (o *ActivateAgentsParams) SetBody(body *models.APIAgentIDsRequest) {
+func (o *ActivateAgentsParams) SetBody(body *models.AgentIDsRequest) {
 	o.Body = body
 }
 

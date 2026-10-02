@@ -31,6 +31,12 @@ func (o *GetRuleOverrideReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewGetRuleOverrideUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetRuleOverrideForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -161,6 +167,116 @@ func (o *GetRuleOverrideOK) readResponse(response runtime.ClientResponse, consum
 	}
 
 	o.Payload = new(models.CommonGetRuleOverrideResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetRuleOverrideUnauthorized creates a GetRuleOverrideUnauthorized with default headers values
+func NewGetRuleOverrideUnauthorized() *GetRuleOverrideUnauthorized {
+	return &GetRuleOverrideUnauthorized{}
+}
+
+/*
+GetRuleOverrideUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type GetRuleOverrideUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get rule override unauthorized response has a 2xx status code
+func (o *GetRuleOverrideUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule override unauthorized response has a 3xx status code
+func (o *GetRuleOverrideUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule override unauthorized response has a 4xx status code
+func (o *GetRuleOverrideUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule override unauthorized response has a 5xx status code
+func (o *GetRuleOverrideUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule override unauthorized response a status code equal to that given
+func (o *GetRuleOverrideUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the get rule override unauthorized response
+func (o *GetRuleOverrideUnauthorized) Code() int {
+	return 401
+}
+
+func (o *GetRuleOverrideUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/rule-overrides/v1][%d] getRuleOverrideUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRuleOverrideUnauthorized) String() string {
+	return fmt.Sprintf("[GET /cloud-policies/entities/rule-overrides/v1][%d] getRuleOverrideUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRuleOverrideUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetRuleOverrideUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

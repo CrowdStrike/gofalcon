@@ -31,6 +31,10 @@ type SdkCaseVM struct {
 	// Required: true
 	AssignedTo *SdkFalconUserVM `json:"assigned_to"`
 
+	// assigned to groups
+	// Required: true
+	AssignedToGroups []*SdkAssigneeGroupVM `json:"assigned_to_groups"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
@@ -120,6 +124,9 @@ type SdkCaseVM struct {
 	// template
 	Template *SdkTemplateVM `json:"template,omitempty"`
 
+	// templates
+	Templates []*SdkTemplateVM `json:"templates"`
+
 	// update actor
 	// Required: true
 	UpdateActor *SdkActorVM `json:"update_actor"`
@@ -150,6 +157,10 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAssignedTo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAssignedToGroups(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -230,6 +241,10 @@ func (m *SdkCaseVM) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTemplate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTemplates(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -316,6 +331,33 @@ func (m *SdkCaseVM) validateAssignedTo(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *SdkCaseVM) validateAssignedToGroups(formats strfmt.Registry) error {
+
+	if err := validate.Required("assigned_to_groups", "body", m.AssignedToGroups); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.AssignedToGroups); i++ {
+		if swag.IsZero(m.AssignedToGroups[i]) { // not required
+			continue
+		}
+
+		if m.AssignedToGroups[i] != nil {
+			if err := m.AssignedToGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assigned_to_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assigned_to_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -627,6 +669,32 @@ func (m *SdkCaseVM) validateTemplate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SdkCaseVM) validateTemplates(formats strfmt.Registry) error {
+	if swag.IsZero(m.Templates) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Templates); i++ {
+		if swag.IsZero(m.Templates[i]) { // not required
+			continue
+		}
+
+		if m.Templates[i] != nil {
+			if err := m.Templates[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("templates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("templates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *SdkCaseVM) validateUpdateActor(formats strfmt.Registry) error {
 
 	if err := validate.Required("update_actor", "body", m.UpdateActor); err != nil {
@@ -711,6 +779,10 @@ func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateAssignedToGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateConsistency(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -748,6 +820,10 @@ func (m *SdkCaseVM) ContextValidate(ctx context.Context, formats strfmt.Registry
 	}
 
 	if err := m.contextValidateTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTemplates(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -819,6 +895,31 @@ func (m *SdkCaseVM) contextValidateAssignedTo(ctx context.Context, formats strfm
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *SdkCaseVM) contextValidateAssignedToGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignedToGroups); i++ {
+
+		if m.AssignedToGroups[i] != nil {
+
+			if swag.IsZero(m.AssignedToGroups[i]) { // not required
+				return nil
+			}
+
+			if err := m.AssignedToGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assigned_to_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assigned_to_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -1005,6 +1106,31 @@ func (m *SdkCaseVM) contextValidateTemplate(ctx context.Context, formats strfmt.
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *SdkCaseVM) contextValidateTemplates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Templates); i++ {
+
+		if m.Templates[i] != nil {
+
+			if swag.IsZero(m.Templates[i]) { // not required
+				return nil
+			}
+
+			if err := m.Templates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("templates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("templates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

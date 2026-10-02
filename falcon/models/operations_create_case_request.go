@@ -23,9 +23,16 @@ type OperationsCreateCaseRequest struct {
 	// access tags
 	AccessTags []*SdkCaseAccessTag `json:"access_tags"`
 
+	// assigned to group ids
+	// Required: true
+	AssignedToGroupIds []string `json:"assigned_to_group_ids"`
+
 	// assigned to user uuid
 	// Required: true
 	AssignedToUserUUID *string `json:"assigned_to_user_uuid"`
+
+	// custom fields
+	CustomFields []*SdkCustomField `json:"custom_fields"`
 
 	// description
 	// Required: true
@@ -62,6 +69,9 @@ type OperationsCreateCaseRequest struct {
 
 	// template
 	Template *SdkTemplateSelector `json:"template,omitempty"`
+
+	// templates
+	Templates []*SdkTemplateSelector `json:"templates"`
 }
 
 // Validate validates this operations create case request
@@ -72,7 +82,15 @@ func (m *OperationsCreateCaseRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAssignedToGroupIds(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAssignedToUserUUID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCustomFields(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -101,6 +119,10 @@ func (m *OperationsCreateCaseRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTemplate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTemplates(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -136,10 +158,45 @@ func (m *OperationsCreateCaseRequest) validateAccessTags(formats strfmt.Registry
 	return nil
 }
 
+func (m *OperationsCreateCaseRequest) validateAssignedToGroupIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("assigned_to_group_ids", "body", m.AssignedToGroupIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *OperationsCreateCaseRequest) validateAssignedToUserUUID(formats strfmt.Registry) error {
 
 	if err := validate.Required("assigned_to_user_uuid", "body", m.AssignedToUserUUID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *OperationsCreateCaseRequest) validateCustomFields(formats strfmt.Registry) error {
+	if swag.IsZero(m.CustomFields) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CustomFields); i++ {
+		if swag.IsZero(m.CustomFields[i]) { // not required
+			continue
+		}
+
+		if m.CustomFields[i] != nil {
+			if err := m.CustomFields[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("custom_fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("custom_fields" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -240,11 +297,41 @@ func (m *OperationsCreateCaseRequest) validateTemplate(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *OperationsCreateCaseRequest) validateTemplates(formats strfmt.Registry) error {
+	if swag.IsZero(m.Templates) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Templates); i++ {
+		if swag.IsZero(m.Templates[i]) { // not required
+			continue
+		}
+
+		if m.Templates[i] != nil {
+			if err := m.Templates[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("templates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("templates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this operations create case request based on the context it is used
 func (m *OperationsCreateCaseRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateAccessTags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCustomFields(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -257,6 +344,10 @@ func (m *OperationsCreateCaseRequest) ContextValidate(ctx context.Context, forma
 	}
 
 	if err := m.contextValidateTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTemplates(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -281,6 +372,31 @@ func (m *OperationsCreateCaseRequest) contextValidateAccessTags(ctx context.Cont
 					return ve.ValidateName("access_tags" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("access_tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *OperationsCreateCaseRequest) contextValidateCustomFields(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CustomFields); i++ {
+
+		if m.CustomFields[i] != nil {
+
+			if swag.IsZero(m.CustomFields[i]) { // not required
+				return nil
+			}
+
+			if err := m.CustomFields[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("custom_fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("custom_fields" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -341,6 +457,31 @@ func (m *OperationsCreateCaseRequest) contextValidateTemplate(ctx context.Contex
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *OperationsCreateCaseRequest) contextValidateTemplates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Templates); i++ {
+
+		if m.Templates[i] != nil {
+
+			if swag.IsZero(m.Templates[i]) { // not required
+				return nil
+			}
+
+			if err := m.Templates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("templates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("templates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

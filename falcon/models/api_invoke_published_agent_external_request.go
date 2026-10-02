@@ -33,6 +33,9 @@ type APIInvokePublishedAgentExternalRequest struct {
 	// messages
 	// Required: true
 	Messages []*APIMessage `json:"messages"`
+
+	// project id
+	ProjectID string `json:"project_id,omitempty"`
 }
 
 // Validate validates this api invoke published agent external request

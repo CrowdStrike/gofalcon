@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,13 +20,14 @@ import (
 // swagger:model quickscanpro.LaunchScanRequestResource
 type QuickscanproLaunchScanRequestResource struct {
 
-	// password
+	// Password for encrypted archives and documents. Optional.
 	Password string `json:"password,omitempty"`
 
-	// scan mode
+	// Scan mode for this resource. Optional, default is 'standard'. 'fast': less than 5 seconds, ML-based detection and signature matching. 'standard': less than 30 seconds, adds heuristic analysis to fast scan coverage. 'deep': less than 90 seconds, adds static analysis and dynamic execution monitoring to standard scan coverage.
+	// Enum: [fast standard deep]
 	ScanMode string `json:"scan_mode,omitempty"`
 
-	// sha256
+	// SHA256 of a file previously uploaded via '/quickscanpro/entities/files/v1'. Required.
 	// Required: true
 	Sha256 *string `json:"sha256"`
 }
@@ -34,6 +36,10 @@ type QuickscanproLaunchScanRequestResource struct {
 func (m *QuickscanproLaunchScanRequestResource) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateScanMode(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSha256(formats); err != nil {
 		res = append(res, err)
 	}
@@ -41,6 +47,51 @@ func (m *QuickscanproLaunchScanRequestResource) Validate(formats strfmt.Registry
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var quickscanproLaunchScanRequestResourceTypeScanModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["fast","standard","deep"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		quickscanproLaunchScanRequestResourceTypeScanModePropEnum = append(quickscanproLaunchScanRequestResourceTypeScanModePropEnum, v)
+	}
+}
+
+const (
+
+	// QuickscanproLaunchScanRequestResourceScanModeFast captures enum value "fast"
+	QuickscanproLaunchScanRequestResourceScanModeFast string = "fast"
+
+	// QuickscanproLaunchScanRequestResourceScanModeStandard captures enum value "standard"
+	QuickscanproLaunchScanRequestResourceScanModeStandard string = "standard"
+
+	// QuickscanproLaunchScanRequestResourceScanModeDeep captures enum value "deep"
+	QuickscanproLaunchScanRequestResourceScanModeDeep string = "deep"
+)
+
+// prop value enum
+func (m *QuickscanproLaunchScanRequestResource) validateScanModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, quickscanproLaunchScanRequestResourceTypeScanModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *QuickscanproLaunchScanRequestResource) validateScanMode(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScanMode) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateScanModeEnum("scan_mode", "body", m.ScanMode); err != nil {
+		return err
+	}
+
 	return nil
 }
 

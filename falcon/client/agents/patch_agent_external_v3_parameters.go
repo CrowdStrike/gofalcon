@@ -82,6 +82,20 @@ type PatchAgentExternalV3Params struct {
 	*/
 	ID string
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
+	/* WaitForReady.
+
+	   Wait for the change to finish propagating downstream before responding. Set to false to respond immediately and poll GET /entities/agent-versions/v1 for is_in_sync instead.
+
+	   Default: true
+	*/
+	WaitForReady *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -101,10 +115,13 @@ func (o *PatchAgentExternalV3Params) WithDefaults() *PatchAgentExternalV3Params 
 func (o *PatchAgentExternalV3Params) SetDefaults() {
 	var (
 		dryRunDefault = bool(false)
+
+		waitForReadyDefault = bool(true)
 	)
 
 	val := PatchAgentExternalV3Params{
-		DryRun: &dryRunDefault,
+		DryRun:       &dryRunDefault,
+		WaitForReady: &waitForReadyDefault,
 	}
 
 	val.timeout = o.timeout
@@ -179,6 +196,28 @@ func (o *PatchAgentExternalV3Params) SetID(id string) {
 	o.ID = id
 }
 
+// WithProjectID adds the projectID to the patch agent external v3 params
+func (o *PatchAgentExternalV3Params) WithProjectID(projectID *string) *PatchAgentExternalV3Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the patch agent external v3 params
+func (o *PatchAgentExternalV3Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
+// WithWaitForReady adds the waitForReady to the patch agent external v3 params
+func (o *PatchAgentExternalV3Params) WithWaitForReady(waitForReady *bool) *PatchAgentExternalV3Params {
+	o.SetWaitForReady(waitForReady)
+	return o
+}
+
+// SetWaitForReady adds the waitForReady to the patch agent external v3 params
+func (o *PatchAgentExternalV3Params) SetWaitForReady(waitForReady *bool) {
+	o.WaitForReady = waitForReady
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PatchAgentExternalV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -216,6 +255,40 @@ func (o *PatchAgentExternalV3Params) WriteToRequest(r runtime.ClientRequest, reg
 
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.WaitForReady != nil {
+
+		// query param wait_for_ready
+		var qrWaitForReady bool
+
+		if o.WaitForReady != nil {
+			qrWaitForReady = *o.WaitForReady
+		}
+		qWaitForReady := swag.FormatBool(qrWaitForReady)
+		if qWaitForReady != "" {
+
+			if err := r.SetQueryParam("wait_for_ready", qWaitForReady); err != nil {
+				return err
+			}
 		}
 	}
 

@@ -68,6 +68,12 @@ type GetAgentVersionsV1Params struct {
 	*/
 	Ids []string
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -132,6 +138,17 @@ func (o *GetAgentVersionsV1Params) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithProjectID adds the projectID to the get agent versions v1 params
+func (o *GetAgentVersionsV1Params) WithProjectID(projectID *string) *GetAgentVersionsV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the get agent versions v1 params
+func (o *GetAgentVersionsV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetAgentVersionsV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -148,6 +165,23 @@ func (o *GetAgentVersionsV1Params) WriteToRequest(r runtime.ClientRequest, reg s
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
+				return err
+			}
 		}
 	}
 

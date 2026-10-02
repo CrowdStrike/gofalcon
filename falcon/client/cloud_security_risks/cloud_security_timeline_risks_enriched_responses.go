@@ -37,6 +37,12 @@ func (o *CloudSecurityTimelineRisksEnrichedReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewCloudSecurityTimelineRisksEnrichedUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewCloudSecurityTimelineRisksEnrichedForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *CloudSecurityTimelineRisksEnrichedBadRequest) readResponse(response run
 	}
 
 	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCloudSecurityTimelineRisksEnrichedUnauthorized creates a CloudSecurityTimelineRisksEnrichedUnauthorized with default headers values
+func NewCloudSecurityTimelineRisksEnrichedUnauthorized() *CloudSecurityTimelineRisksEnrichedUnauthorized {
+	return &CloudSecurityTimelineRisksEnrichedUnauthorized{}
+}
+
+/*
+CloudSecurityTimelineRisksEnrichedUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type CloudSecurityTimelineRisksEnrichedUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this cloud security timeline risks enriched unauthorized response has a 2xx status code
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this cloud security timeline risks enriched unauthorized response has a 3xx status code
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this cloud security timeline risks enriched unauthorized response has a 4xx status code
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this cloud security timeline risks enriched unauthorized response has a 5xx status code
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this cloud security timeline risks enriched unauthorized response a status code equal to that given
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the cloud security timeline risks enriched unauthorized response
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) Code() int {
+	return 401
+}
+
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /cloud-security-timeline/entities/cloud-risks-enriched-timeline/v1][%d] cloudSecurityTimelineRisksEnrichedUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) String() string {
+	return fmt.Sprintf("[GET /cloud-security-timeline/entities/cloud-risks-enriched-timeline/v1][%d] cloudSecurityTimelineRisksEnrichedUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *CloudSecurityTimelineRisksEnrichedUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

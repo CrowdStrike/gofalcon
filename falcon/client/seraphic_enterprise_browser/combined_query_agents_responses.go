@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type CombinedQueryAgentsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *CombinedQueryAgentsOKBody
 }
 
 // IsSuccess returns true when this combined query agents o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *CombinedQueryAgentsOK) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/combined/agents/v1][%d] combinedQueryAgentsOK  %+v", 200, o.Payload)
 }
 
-func (o *CombinedQueryAgentsOK) GetPayload() *models.APIEnvelope {
+func (o *CombinedQueryAgentsOK) GetPayload() *CombinedQueryAgentsOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *CombinedQueryAgentsOK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(CombinedQueryAgentsOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type CombinedQueryAgentsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this combined query agents bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *CombinedQueryAgentsBadRequest) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/combined/agents/v1][%d] combinedQueryAgentsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CombinedQueryAgentsBadRequest) GetPayload() *models.APIEnvelope {
+func (o *CombinedQueryAgentsBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *CombinedQueryAgentsBadRequest) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type CombinedQueryAgentsUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this combined query agents unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *CombinedQueryAgentsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/combined/agents/v1][%d] combinedQueryAgentsUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *CombinedQueryAgentsUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *CombinedQueryAgentsUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *CombinedQueryAgentsUnauthorized) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type CombinedQueryAgentsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this combined query agents forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *CombinedQueryAgentsForbidden) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/combined/agents/v1][%d] combinedQueryAgentsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *CombinedQueryAgentsForbidden) GetPayload() *models.APIEnvelope {
+func (o *CombinedQueryAgentsForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *CombinedQueryAgentsForbidden) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type CombinedQueryAgentsTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this combined query agents too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *CombinedQueryAgentsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/combined/agents/v1][%d] combinedQueryAgentsTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *CombinedQueryAgentsTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *CombinedQueryAgentsTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *CombinedQueryAgentsTooManyRequests) readResponse(response runtime.Clien
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewCombinedQueryAgentsInternalServerError() *CombinedQueryAgentsInternalSer
 /*
 CombinedQueryAgentsInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type CombinedQueryAgentsInternalServerError struct {
 
@@ -661,7 +664,7 @@ type CombinedQueryAgentsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this combined query agents internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *CombinedQueryAgentsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/combined/agents/v1][%d] combinedQueryAgentsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CombinedQueryAgentsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CombinedQueryAgentsInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *CombinedQueryAgentsInternalServerError) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type CombinedQueryAgentsBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this combined query agents bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *CombinedQueryAgentsBadGateway) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/combined/agents/v1][%d] combinedQueryAgentsBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *CombinedQueryAgentsBadGateway) GetPayload() *models.APIEnvelope {
+func (o *CombinedQueryAgentsBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *CombinedQueryAgentsBadGateway) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *CombinedQueryAgentsBadGateway) readResponse(response runtime.ClientResp
 	}
 
 	return nil
+}
+
+/*
+CombinedQueryAgentsOKBody combined query agents o k body
+swagger:model CombinedQueryAgentsOKBody
+*/
+type CombinedQueryAgentsOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.AgentPage `json:"resources"`
+}
+
+// Validate validates this combined query agents o k body
+func (o *CombinedQueryAgentsOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *CombinedQueryAgentsOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("combinedQueryAgentsOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("combinedQueryAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("combinedQueryAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *CombinedQueryAgentsOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("combinedQueryAgentsOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("combinedQueryAgentsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("combinedQueryAgentsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *CombinedQueryAgentsOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("combinedQueryAgentsOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("combinedQueryAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("combinedQueryAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this combined query agents o k body based on the context it is used
+func (o *CombinedQueryAgentsOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *CombinedQueryAgentsOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("combinedQueryAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("combinedQueryAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *CombinedQueryAgentsOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("combinedQueryAgentsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("combinedQueryAgentsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *CombinedQueryAgentsOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("combinedQueryAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("combinedQueryAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *CombinedQueryAgentsOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *CombinedQueryAgentsOKBody) UnmarshalBinary(b []byte) error {
+	var res CombinedQueryAgentsOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this combined query agents o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *CombinedQueryAgentsOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

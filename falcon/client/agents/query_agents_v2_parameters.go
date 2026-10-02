@@ -82,6 +82,12 @@ type QueryAgentsV2Params struct {
 	*/
 	Offset *int64
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	/* Sort.
 
 	   Possible order by fields: created_date. Ex: 'created_date|desc'.
@@ -185,6 +191,17 @@ func (o *QueryAgentsV2Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithProjectID adds the projectID to the query agents v2 params
+func (o *QueryAgentsV2Params) WithProjectID(projectID *string) *QueryAgentsV2Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the query agents v2 params
+func (o *QueryAgentsV2Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WithSort adds the sort to the query agents v2 params
 func (o *QueryAgentsV2Params) WithSort(sort *string) *QueryAgentsV2Params {
 	o.SetSort(sort)
@@ -250,6 +267,23 @@ func (o *QueryAgentsV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
 				return err
 			}
 		}

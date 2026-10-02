@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type GetURLDomainListsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *GetURLDomainListsOKBody
 }
 
 // IsSuccess returns true when this get Url domain lists o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *GetURLDomainListsOK) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] getUrlDomainListsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetURLDomainListsOK) GetPayload() *models.APIEnvelope {
+func (o *GetURLDomainListsOK) GetPayload() *GetURLDomainListsOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *GetURLDomainListsOK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(GetURLDomainListsOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type GetURLDomainListsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get Url domain lists bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *GetURLDomainListsBadRequest) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] getUrlDomainListsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetURLDomainListsBadRequest) GetPayload() *models.APIEnvelope {
+func (o *GetURLDomainListsBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *GetURLDomainListsBadRequest) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type GetURLDomainListsUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get Url domain lists unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *GetURLDomainListsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] getUrlDomainListsUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetURLDomainListsUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *GetURLDomainListsUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *GetURLDomainListsUnauthorized) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type GetURLDomainListsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get Url domain lists forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *GetURLDomainListsForbidden) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] getUrlDomainListsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetURLDomainListsForbidden) GetPayload() *models.APIEnvelope {
+func (o *GetURLDomainListsForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *GetURLDomainListsForbidden) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type GetURLDomainListsTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get Url domain lists too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *GetURLDomainListsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] getUrlDomainListsTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetURLDomainListsTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *GetURLDomainListsTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *GetURLDomainListsTooManyRequests) readResponse(response runtime.ClientR
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewGetURLDomainListsInternalServerError() *GetURLDomainListsInternalServerE
 /*
 GetURLDomainListsInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type GetURLDomainListsInternalServerError struct {
 
@@ -661,7 +664,7 @@ type GetURLDomainListsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get Url domain lists internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *GetURLDomainListsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] getUrlDomainListsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetURLDomainListsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetURLDomainListsInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *GetURLDomainListsInternalServerError) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type GetURLDomainListsBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this get Url domain lists bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *GetURLDomainListsBadGateway) String() string {
 	return fmt.Sprintf("[GET /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] getUrlDomainListsBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *GetURLDomainListsBadGateway) GetPayload() *models.APIEnvelope {
+func (o *GetURLDomainListsBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *GetURLDomainListsBadGateway) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *GetURLDomainListsBadGateway) readResponse(response runtime.ClientRespon
 	}
 
 	return nil
+}
+
+/*
+GetURLDomainListsOKBody get URL domain lists o k body
+swagger:model GetURLDomainListsOKBody
+*/
+type GetURLDomainListsOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.URLDomainListPage `json:"resources"`
+}
+
+// Validate validates this get URL domain lists o k body
+func (o *GetURLDomainListsOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetURLDomainListsOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("getUrlDomainListsOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getUrlDomainListsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getUrlDomainListsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetURLDomainListsOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("getUrlDomainListsOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getUrlDomainListsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getUrlDomainListsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *GetURLDomainListsOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("getUrlDomainListsOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getUrlDomainListsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getUrlDomainListsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this get URL domain lists o k body based on the context it is used
+func (o *GetURLDomainListsOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *GetURLDomainListsOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getUrlDomainListsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getUrlDomainListsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *GetURLDomainListsOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("getUrlDomainListsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("getUrlDomainListsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *GetURLDomainListsOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("getUrlDomainListsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("getUrlDomainListsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *GetURLDomainListsOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *GetURLDomainListsOKBody) UnmarshalBinary(b []byte) error {
+	var res GetURLDomainListsOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this get URL domain lists o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *GetURLDomainListsOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

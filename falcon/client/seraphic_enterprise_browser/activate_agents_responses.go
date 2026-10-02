@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type ActivateAgentsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *ActivateAgentsOKBody
 }
 
 // IsSuccess returns true when this activate agents o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *ActivateAgentsOK) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/agent-activation/v1][%d] activateAgentsOK  %+v", 200, o.Payload)
 }
 
-func (o *ActivateAgentsOK) GetPayload() *models.APIEnvelope {
+func (o *ActivateAgentsOK) GetPayload() *ActivateAgentsOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *ActivateAgentsOK) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(ActivateAgentsOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type ActivateAgentsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this activate agents bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *ActivateAgentsBadRequest) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/agent-activation/v1][%d] activateAgentsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *ActivateAgentsBadRequest) GetPayload() *models.APIEnvelope {
+func (o *ActivateAgentsBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *ActivateAgentsBadRequest) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type ActivateAgentsUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this activate agents unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *ActivateAgentsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/agent-activation/v1][%d] activateAgentsUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *ActivateAgentsUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *ActivateAgentsUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *ActivateAgentsUnauthorized) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type ActivateAgentsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this activate agents forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *ActivateAgentsForbidden) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/agent-activation/v1][%d] activateAgentsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *ActivateAgentsForbidden) GetPayload() *models.APIEnvelope {
+func (o *ActivateAgentsForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *ActivateAgentsForbidden) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type ActivateAgentsTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this activate agents too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *ActivateAgentsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/agent-activation/v1][%d] activateAgentsTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *ActivateAgentsTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *ActivateAgentsTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *ActivateAgentsTooManyRequests) readResponse(response runtime.ClientResp
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewActivateAgentsInternalServerError() *ActivateAgentsInternalServerError {
 /*
 ActivateAgentsInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type ActivateAgentsInternalServerError struct {
 
@@ -661,7 +664,7 @@ type ActivateAgentsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this activate agents internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *ActivateAgentsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/agent-activation/v1][%d] activateAgentsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *ActivateAgentsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ActivateAgentsInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *ActivateAgentsInternalServerError) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type ActivateAgentsBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this activate agents bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *ActivateAgentsBadGateway) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/agent-activation/v1][%d] activateAgentsBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *ActivateAgentsBadGateway) GetPayload() *models.APIEnvelope {
+func (o *ActivateAgentsBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *ActivateAgentsBadGateway) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *ActivateAgentsBadGateway) readResponse(response runtime.ClientResponse,
 	}
 
 	return nil
+}
+
+/*
+ActivateAgentsOKBody activate agents o k body
+swagger:model ActivateAgentsOKBody
+*/
+type ActivateAgentsOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.Agent `json:"resources"`
+}
+
+// Validate validates this activate agents o k body
+func (o *ActivateAgentsOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *ActivateAgentsOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("activateAgentsOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activateAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activateAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *ActivateAgentsOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("activateAgentsOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("activateAgentsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activateAgentsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *ActivateAgentsOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("activateAgentsOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activateAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activateAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this activate agents o k body based on the context it is used
+func (o *ActivateAgentsOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *ActivateAgentsOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activateAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activateAgentsOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *ActivateAgentsOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("activateAgentsOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activateAgentsOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *ActivateAgentsOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activateAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activateAgentsOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *ActivateAgentsOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *ActivateAgentsOKBody) UnmarshalBinary(b []byte) error {
+	var res ActivateAgentsOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this activate agents o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *ActivateAgentsOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

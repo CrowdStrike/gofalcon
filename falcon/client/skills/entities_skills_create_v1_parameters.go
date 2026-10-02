@@ -61,6 +61,12 @@ EntitiesSkillsCreateV1Params contains all the parameters to send to the API endp
 */
 type EntitiesSkillsCreateV1Params struct {
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	/* SkillBlob.
 
 	   Skill zip archive to upload
@@ -120,6 +126,17 @@ func (o *EntitiesSkillsCreateV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithProjectID adds the projectID to the entities skills create v1 params
+func (o *EntitiesSkillsCreateV1Params) WithProjectID(projectID *string) *EntitiesSkillsCreateV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the entities skills create v1 params
+func (o *EntitiesSkillsCreateV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WithSkillBlob adds the skillBlob to the entities skills create v1 params
 func (o *EntitiesSkillsCreateV1Params) WithSkillBlob(skillBlob runtime.NamedReadCloser) *EntitiesSkillsCreateV1Params {
 	o.SetSkillBlob(skillBlob)
@@ -138,6 +155,21 @@ func (o *EntitiesSkillsCreateV1Params) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
+
+	if o.ProjectID != nil {
+
+		// form param project_id
+		var frProjectID string
+		if o.ProjectID != nil {
+			frProjectID = *o.ProjectID
+		}
+		fProjectID := frProjectID
+		if fProjectID != "" {
+			if err := r.SetFormParam("project_id", fProjectID); err != nil {
+				return err
+			}
+		}
+	}
 	// form file param skill_blob
 	if err := r.SetFileParam("skill_blob", o.SkillBlob); err != nil {
 		return err

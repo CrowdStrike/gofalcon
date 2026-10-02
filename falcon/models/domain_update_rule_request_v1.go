@@ -50,6 +50,10 @@ type DomainUpdateRuleRequestV1 struct {
 	// Required: true
 	Permissions *string `json:"permissions"`
 
+	// The PIR(priority intelligence requirement) IDs associated with the rule. One rule can pertain to multiple PIRs
+	// Required: true
+	PirIds []string `json:"pir_ids"`
+
 	// The priority for a given rule. Possible values: [`none`, `low`, `medium`, `high`, `critical`]
 	// Required: true
 	Priority *string `json:"priority"`
@@ -91,6 +95,10 @@ func (m *DomainUpdateRuleRequestV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePermissions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePirIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -165,6 +173,15 @@ func (m *DomainUpdateRuleRequestV1) validateName(formats strfmt.Registry) error 
 func (m *DomainUpdateRuleRequestV1) validatePermissions(formats strfmt.Registry) error {
 
 	if err := validate.Required("permissions", "body", m.Permissions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainUpdateRuleRequestV1) validatePirIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("pir_ids", "body", m.PirIds); err != nil {
 		return err
 	}
 

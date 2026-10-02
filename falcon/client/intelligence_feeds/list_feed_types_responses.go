@@ -37,6 +37,12 @@ func (o *ListFeedTypesReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewListFeedTypesUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewListFeedTypesForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -262,6 +268,116 @@ func (o *ListFeedTypesBadRequest) readResponse(response runtime.ClientResponse, 
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	return nil
+}
+
+// NewListFeedTypesUnauthorized creates a ListFeedTypesUnauthorized with default headers values
+func NewListFeedTypesUnauthorized() *ListFeedTypesUnauthorized {
+	return &ListFeedTypesUnauthorized{}
+}
+
+/*
+ListFeedTypesUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type ListFeedTypesUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this list feed types unauthorized response has a 2xx status code
+func (o *ListFeedTypesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list feed types unauthorized response has a 3xx status code
+func (o *ListFeedTypesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list feed types unauthorized response has a 4xx status code
+func (o *ListFeedTypesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list feed types unauthorized response has a 5xx status code
+func (o *ListFeedTypesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list feed types unauthorized response a status code equal to that given
+func (o *ListFeedTypesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the list feed types unauthorized response
+func (o *ListFeedTypesUnauthorized) Code() int {
+	return 401
+}
+
+func (o *ListFeedTypesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ListFeedTypesUnauthorized) String() string {
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed/v1][%d] listFeedTypesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ListFeedTypesUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ListFeedTypesUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil

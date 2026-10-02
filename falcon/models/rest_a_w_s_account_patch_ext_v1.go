@@ -72,6 +72,12 @@ type RestAWSAccountPatchExtV1 struct {
 	// reader role arn
 	ReaderRoleArn string `json:"reader_role_arn,omitempty"`
 
+	// registration description
+	RegistrationDescription string `json:"registration_description,omitempty"`
+
+	// registration name
+	RegistrationName string `json:"registration_name,omitempty"`
+
 	// remediation region
 	RemediationRegion string `json:"remediation_region,omitempty"`
 

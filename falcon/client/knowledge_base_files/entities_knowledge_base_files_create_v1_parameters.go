@@ -79,6 +79,12 @@ type EntitiesKnowledgeBaseFilesCreateV1Params struct {
 	*/
 	KnowledgeBaseID string
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -165,6 +171,17 @@ func (o *EntitiesKnowledgeBaseFilesCreateV1Params) SetKnowledgeBaseID(knowledgeB
 	o.KnowledgeBaseID = knowledgeBaseID
 }
 
+// WithProjectID adds the projectID to the entities knowledge base files create v1 params
+func (o *EntitiesKnowledgeBaseFilesCreateV1Params) WithProjectID(projectID *string) *EntitiesKnowledgeBaseFilesCreateV1Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the entities knowledge base files create v1 params
+func (o *EntitiesKnowledgeBaseFilesCreateV1Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *EntitiesKnowledgeBaseFilesCreateV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -198,6 +215,21 @@ func (o *EntitiesKnowledgeBaseFilesCreateV1Params) WriteToRequest(r runtime.Clie
 	if fKnowledgeBaseID != "" {
 		if err := r.SetFormParam("knowledge_base_id", fKnowledgeBaseID); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// form param project_id
+		var frProjectID string
+		if o.ProjectID != nil {
+			frProjectID = *o.ProjectID
+		}
+		fProjectID := frProjectID
+		if fProjectID != "" {
+			if err := r.SetFormParam("project_id", fProjectID); err != nil {
+				return err
+			}
 		}
 	}
 

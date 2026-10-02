@@ -85,6 +85,12 @@ type EntitiesPerformActionParams struct {
 	*/
 	Ids []string
 
+	/* SkipMembershipValidation.
+
+	   Skip membership validation on remove (allows removing unmatched hosts)
+	*/
+	SkipMembershipValidation *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -104,10 +110,13 @@ func (o *EntitiesPerformActionParams) WithDefaults() *EntitiesPerformActionParam
 func (o *EntitiesPerformActionParams) SetDefaults() {
 	var (
 		disableHostnameCheckDefault = bool(false)
+
+		skipMembershipValidationDefault = bool(false)
 	)
 
 	val := EntitiesPerformActionParams{
-		DisableHostnameCheck: &disableHostnameCheckDefault,
+		DisableHostnameCheck:     &disableHostnameCheckDefault,
+		SkipMembershipValidation: &skipMembershipValidationDefault,
 	}
 
 	val.timeout = o.timeout
@@ -193,6 +202,17 @@ func (o *EntitiesPerformActionParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithSkipMembershipValidation adds the skipMembershipValidation to the entities perform action params
+func (o *EntitiesPerformActionParams) WithSkipMembershipValidation(skipMembershipValidation *bool) *EntitiesPerformActionParams {
+	o.SetSkipMembershipValidation(skipMembershipValidation)
+	return o
+}
+
+// SetSkipMembershipValidation adds the skipMembershipValidation to the entities perform action params
+func (o *EntitiesPerformActionParams) SetSkipMembershipValidation(skipMembershipValidation *bool) {
+	o.SkipMembershipValidation = skipMembershipValidation
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *EntitiesPerformActionParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -241,6 +261,23 @@ func (o *EntitiesPerformActionParams) WriteToRequest(r runtime.ClientRequest, re
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
+		}
+	}
+
+	if o.SkipMembershipValidation != nil {
+
+		// query param skip_membership_validation
+		var qrSkipMembershipValidation bool
+
+		if o.SkipMembershipValidation != nil {
+			qrSkipMembershipValidation = *o.SkipMembershipValidation
+		}
+		qSkipMembershipValidation := swag.FormatBool(qrSkipMembershipValidation)
+		if qSkipMembershipValidation != "" {
+
+			if err := r.SetQueryParam("skip_membership_validation", qSkipMembershipValidation); err != nil {
+				return err
+			}
 		}
 	}
 

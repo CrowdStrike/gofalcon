@@ -65,9 +65,9 @@ type QueryRulesMixin0Params struct {
 
 	/* Body.
 
-	   Request body.
+	   Filter, advanced filter, rule-ID selection, sort and pagination for the rule search. Applies within the category given in the query string.
 	*/
-	Body *models.APIRuleQuery
+	Body *models.RuleQuery
 
 	/* Category.
 
@@ -129,13 +129,13 @@ func (o *QueryRulesMixin0Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the query rules mixin0 params
-func (o *QueryRulesMixin0Params) WithBody(body *models.APIRuleQuery) *QueryRulesMixin0Params {
+func (o *QueryRulesMixin0Params) WithBody(body *models.RuleQuery) *QueryRulesMixin0Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the query rules mixin0 params
-func (o *QueryRulesMixin0Params) SetBody(body *models.APIRuleQuery) {
+func (o *QueryRulesMixin0Params) SetBody(body *models.RuleQuery) {
 	o.Body = body
 }
 

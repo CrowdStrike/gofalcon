@@ -37,6 +37,12 @@ func (o *EntitiesPolicyPrecedencePostV1Reader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewEntitiesPolicyPrecedencePostV1Unauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewEntitiesPolicyPrecedencePostV1Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *EntitiesPolicyPrecedencePostV1BadRequest) readResponse(response runtime
 	}
 
 	o.Payload = new(models.PolicymanagerPoliciesResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEntitiesPolicyPrecedencePostV1Unauthorized creates a EntitiesPolicyPrecedencePostV1Unauthorized with default headers values
+func NewEntitiesPolicyPrecedencePostV1Unauthorized() *EntitiesPolicyPrecedencePostV1Unauthorized {
+	return &EntitiesPolicyPrecedencePostV1Unauthorized{}
+}
+
+/*
+EntitiesPolicyPrecedencePostV1Unauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type EntitiesPolicyPrecedencePostV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this entities policy precedence post v1 unauthorized response has a 2xx status code
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities policy precedence post v1 unauthorized response has a 3xx status code
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities policy precedence post v1 unauthorized response has a 4xx status code
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities policy precedence post v1 unauthorized response has a 5xx status code
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities policy precedence post v1 unauthorized response a status code equal to that given
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the entities policy precedence post v1 unauthorized response
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) Code() int {
+	return 401
+}
+
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) Error() string {
+	return fmt.Sprintf("[POST /data-protection/entities/data-protection-precedence/v1][%d] entitiesPolicyPrecedencePostV1Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) String() string {
+	return fmt.Sprintf("[POST /data-protection/entities/data-protection-precedence/v1][%d] entitiesPolicyPrecedencePostV1Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *EntitiesPolicyPrecedencePostV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

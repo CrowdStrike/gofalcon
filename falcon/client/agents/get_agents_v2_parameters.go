@@ -68,6 +68,12 @@ type GetAgentsV2Params struct {
 	*/
 	Ids []string
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -132,6 +138,17 @@ func (o *GetAgentsV2Params) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithProjectID adds the projectID to the get agents v2 params
+func (o *GetAgentsV2Params) WithProjectID(projectID *string) *GetAgentsV2Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the get agents v2 params
+func (o *GetAgentsV2Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetAgentsV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -148,6 +165,23 @@ func (o *GetAgentsV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
+				return err
+			}
 		}
 	}
 

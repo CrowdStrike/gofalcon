@@ -6,13 +6,16 @@ package seraphic_enterprise_browser
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"fmt"
 	"io"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -96,7 +99,7 @@ type AddURLDomainListOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *AddURLDomainListOKBody
 }
 
 // IsSuccess returns true when this add Url domain list o k response has a 2xx status code
@@ -137,7 +140,7 @@ func (o *AddURLDomainListOK) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] addUrlDomainListOK  %+v", 200, o.Payload)
 }
 
-func (o *AddURLDomainListOK) GetPayload() *models.APIEnvelope {
+func (o *AddURLDomainListOK) GetPayload() *AddURLDomainListOKBody {
 	return o.Payload
 }
 
@@ -172,7 +175,7 @@ func (o *AddURLDomainListOK) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(AddURLDomainListOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -206,7 +209,7 @@ type AddURLDomainListBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this add Url domain list bad request response has a 2xx status code
@@ -247,7 +250,7 @@ func (o *AddURLDomainListBadRequest) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] addUrlDomainListBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *AddURLDomainListBadRequest) GetPayload() *models.APIEnvelope {
+func (o *AddURLDomainListBadRequest) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -282,7 +285,7 @@ func (o *AddURLDomainListBadRequest) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +319,7 @@ type AddURLDomainListUnauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this add Url domain list unauthorized response has a 2xx status code
@@ -357,7 +360,7 @@ func (o *AddURLDomainListUnauthorized) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] addUrlDomainListUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *AddURLDomainListUnauthorized) GetPayload() *models.APIEnvelope {
+func (o *AddURLDomainListUnauthorized) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -392,7 +395,7 @@ func (o *AddURLDomainListUnauthorized) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +429,7 @@ type AddURLDomainListForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this add Url domain list forbidden response has a 2xx status code
@@ -467,7 +470,7 @@ func (o *AddURLDomainListForbidden) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] addUrlDomainListForbidden  %+v", 403, o.Payload)
 }
 
-func (o *AddURLDomainListForbidden) GetPayload() *models.APIEnvelope {
+func (o *AddURLDomainListForbidden) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -502,7 +505,7 @@ func (o *AddURLDomainListForbidden) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -540,7 +543,7 @@ type AddURLDomainListTooManyRequests struct {
 	 */
 	XRateLimitRetryAfter int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this add Url domain list too many requests response has a 2xx status code
@@ -581,7 +584,7 @@ func (o *AddURLDomainListTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] addUrlDomainListTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *AddURLDomainListTooManyRequests) GetPayload() *models.APIEnvelope {
+func (o *AddURLDomainListTooManyRequests) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -627,7 +630,7 @@ func (o *AddURLDomainListTooManyRequests) readResponse(response runtime.ClientRe
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -645,7 +648,7 @@ func NewAddURLDomainListInternalServerError() *AddURLDomainListInternalServerErr
 /*
 AddURLDomainListInternalServerError describes a response with status code 500, with default header values.
 
-Unexpected Error
+Internal server error
 */
 type AddURLDomainListInternalServerError struct {
 
@@ -661,7 +664,7 @@ type AddURLDomainListInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this add Url domain list internal server error response has a 2xx status code
@@ -702,7 +705,7 @@ func (o *AddURLDomainListInternalServerError) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] addUrlDomainListInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *AddURLDomainListInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *AddURLDomainListInternalServerError) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -737,7 +740,7 @@ func (o *AddURLDomainListInternalServerError) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +774,7 @@ type AddURLDomainListBadGateway struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIEnvelope
+	Payload *models.Envelope
 }
 
 // IsSuccess returns true when this add Url domain list bad gateway response has a 2xx status code
@@ -812,7 +815,7 @@ func (o *AddURLDomainListBadGateway) String() string {
 	return fmt.Sprintf("[POST /seraphic-enterprise-browser/entities/url-domain-lists/v1][%d] addUrlDomainListBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *AddURLDomainListBadGateway) GetPayload() *models.APIEnvelope {
+func (o *AddURLDomainListBadGateway) GetPayload() *models.Envelope {
 	return o.Payload
 }
 
@@ -847,7 +850,7 @@ func (o *AddURLDomainListBadGateway) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIEnvelope)
+	o.Payload = new(models.Envelope)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -855,4 +858,239 @@ func (o *AddURLDomainListBadGateway) readResponse(response runtime.ClientRespons
 	}
 
 	return nil
+}
+
+/*
+AddURLDomainListOKBody add URL domain list o k body
+swagger:model AddURLDomainListOKBody
+*/
+type AddURLDomainListOKBody struct {
+
+	// Per-resource failures. Present and empty when the whole request succeeded. The get-by-ID operations report partial success here: IDs that could not be resolved appear as individual entries while the records that were found are still returned in resources.
+	// Required: true
+	Errors []*models.APIError `json:"errors"`
+
+	// meta
+	// Required: true
+	Meta *models.Meta `json:"meta"`
+
+	// resources
+	// Required: true
+	Resources []*models.URLDomainListResult `json:"resources"`
+}
+
+// Validate validates this add URL domain list o k body
+func (o *AddURLDomainListOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateErrors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateMeta(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *AddURLDomainListOKBody) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("addUrlDomainListOK"+"."+"errors", "body", o.Errors); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Errors); i++ {
+		if swag.IsZero(o.Errors[i]) { // not required
+			continue
+		}
+
+		if o.Errors[i] != nil {
+			if err := o.Errors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *AddURLDomainListOKBody) validateMeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("addUrlDomainListOK"+"."+"meta", "body", o.Meta); err != nil {
+		return err
+	}
+
+	if o.Meta != nil {
+		if err := o.Meta.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("addUrlDomainListOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("addUrlDomainListOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *AddURLDomainListOKBody) validateResources(formats strfmt.Registry) error {
+
+	if err := validate.Required("addUrlDomainListOK"+"."+"resources", "body", o.Resources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Resources); i++ {
+		if swag.IsZero(o.Resources[i]) { // not required
+			continue
+		}
+
+		if o.Resources[i] != nil {
+			if err := o.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this add URL domain list o k body based on the context it is used
+func (o *AddURLDomainListOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *AddURLDomainListOKBody) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Errors); i++ {
+
+		if o.Errors[i] != nil {
+
+			if swag.IsZero(o.Errors[i]) { // not required
+				return nil
+			}
+
+			if err := o.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addUrlDomainListOK" + "." + "errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (o *AddURLDomainListOKBody) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Meta != nil {
+
+		if err := o.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("addUrlDomainListOK" + "." + "meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("addUrlDomainListOK" + "." + "meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (o *AddURLDomainListOKBody) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Resources); i++ {
+
+		if o.Resources[i] != nil {
+
+			if swag.IsZero(o.Resources[i]) { // not required
+				return nil
+			}
+
+			if err := o.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addUrlDomainListOK" + "." + "resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *AddURLDomainListOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *AddURLDomainListOKBody) UnmarshalBinary(b []byte) error {
+	var res AddURLDomainListOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+// String returns the JSON body of this add URL domain list o k body. It implements
+// fmt.Stringer so that %v and %+v render the value instead of a pointer address.
+func (o *AddURLDomainListOKBody) String() string {
+	if o == nil {
+		return "<nil>"
+	}
+	b, err := swag.WriteJSON(o)
+	if err != nil {
+		return err.Error()
+	}
+	return string(b)
 }

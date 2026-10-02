@@ -37,6 +37,12 @@ func (o *RTRDeleteFileReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewRTRDeleteFileUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewRTRDeleteFileForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *RTRDeleteFileBadRequest) readResponse(response runtime.ClientResponse, 
 	}
 
 	o.Payload = new(models.DomainAPIError)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewRTRDeleteFileUnauthorized creates a RTRDeleteFileUnauthorized with default headers values
+func NewRTRDeleteFileUnauthorized() *RTRDeleteFileUnauthorized {
+	return &RTRDeleteFileUnauthorized{}
+}
+
+/*
+RTRDeleteFileUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type RTRDeleteFileUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this r t r delete file unauthorized response has a 2xx status code
+func (o *RTRDeleteFileUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete file unauthorized response has a 3xx status code
+func (o *RTRDeleteFileUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete file unauthorized response has a 4xx status code
+func (o *RTRDeleteFileUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete file unauthorized response has a 5xx status code
+func (o *RTRDeleteFileUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete file unauthorized response a status code equal to that given
+func (o *RTRDeleteFileUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the r t r delete file unauthorized response
+func (o *RTRDeleteFileUnauthorized) Code() int {
+	return 401
+}
+
+func (o *RTRDeleteFileUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *RTRDeleteFileUnauthorized) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *RTRDeleteFileUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *RTRDeleteFileUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -37,6 +37,12 @@ func (o *ITAutomationRerunTaskExecutionReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewITAutomationRerunTaskExecutionUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewITAutomationRerunTaskExecutionForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *ITAutomationRerunTaskExecutionBadRequest) readResponse(response runtime
 	}
 
 	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewITAutomationRerunTaskExecutionUnauthorized creates a ITAutomationRerunTaskExecutionUnauthorized with default headers values
+func NewITAutomationRerunTaskExecutionUnauthorized() *ITAutomationRerunTaskExecutionUnauthorized {
+	return &ITAutomationRerunTaskExecutionUnauthorized{}
+}
+
+/*
+ITAutomationRerunTaskExecutionUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type ITAutomationRerunTaskExecutionUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this i t automation rerun task execution unauthorized response has a 2xx status code
+func (o *ITAutomationRerunTaskExecutionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this i t automation rerun task execution unauthorized response has a 3xx status code
+func (o *ITAutomationRerunTaskExecutionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this i t automation rerun task execution unauthorized response has a 4xx status code
+func (o *ITAutomationRerunTaskExecutionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this i t automation rerun task execution unauthorized response has a 5xx status code
+func (o *ITAutomationRerunTaskExecutionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this i t automation rerun task execution unauthorized response a status code equal to that given
+func (o *ITAutomationRerunTaskExecutionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the i t automation rerun task execution unauthorized response
+func (o *ITAutomationRerunTaskExecutionUnauthorized) Code() int {
+	return 401
+}
+
+func (o *ITAutomationRerunTaskExecutionUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-rerun/v1][%d] iTAutomationRerunTaskExecutionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ITAutomationRerunTaskExecutionUnauthorized) String() string {
+	return fmt.Sprintf("[POST /it-automation/entities/task-execution-rerun/v1][%d] iTAutomationRerunTaskExecutionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ITAutomationRerunTaskExecutionUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ITAutomationRerunTaskExecutionUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

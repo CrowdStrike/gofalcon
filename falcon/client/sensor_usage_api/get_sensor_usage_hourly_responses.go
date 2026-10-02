@@ -37,6 +37,12 @@ func (o *GetSensorUsageHourlyReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewGetSensorUsageHourlyUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetSensorUsageHourlyForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *GetSensorUsageHourlyBadRequest) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(models.APIHourlyAverageResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSensorUsageHourlyUnauthorized creates a GetSensorUsageHourlyUnauthorized with default headers values
+func NewGetSensorUsageHourlyUnauthorized() *GetSensorUsageHourlyUnauthorized {
+	return &GetSensorUsageHourlyUnauthorized{}
+}
+
+/*
+GetSensorUsageHourlyUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type GetSensorUsageHourlyUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get sensor usage hourly unauthorized response has a 2xx status code
+func (o *GetSensorUsageHourlyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor usage hourly unauthorized response has a 3xx status code
+func (o *GetSensorUsageHourlyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor usage hourly unauthorized response has a 4xx status code
+func (o *GetSensorUsageHourlyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor usage hourly unauthorized response has a 5xx status code
+func (o *GetSensorUsageHourlyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor usage hourly unauthorized response a status code equal to that given
+func (o *GetSensorUsageHourlyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the get sensor usage hourly unauthorized response
+func (o *GetSensorUsageHourlyUnauthorized) Code() int {
+	return 401
+}
+
+func (o *GetSensorUsageHourlyUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/hourly-average/v1][%d] getSensorUsageHourlyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSensorUsageHourlyUnauthorized) String() string {
+	return fmt.Sprintf("[GET /billing-dashboards-usage/aggregates/hourly-average/v1][%d] getSensorUsageHourlyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSensorUsageHourlyUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetSensorUsageHourlyUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -37,6 +37,12 @@ func (o *ProvisionReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewProvisionUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewProvisionForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -277,6 +283,116 @@ func (o *ProvisionBadRequest) readResponse(response runtime.ClientResponse, cons
 	}
 
 	o.Payload = new(models.ClientSystemDefinitionCreateResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewProvisionUnauthorized creates a ProvisionUnauthorized with default headers values
+func NewProvisionUnauthorized() *ProvisionUnauthorized {
+	return &ProvisionUnauthorized{}
+}
+
+/*
+ProvisionUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type ProvisionUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this provision unauthorized response has a 2xx status code
+func (o *ProvisionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this provision unauthorized response has a 3xx status code
+func (o *ProvisionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this provision unauthorized response has a 4xx status code
+func (o *ProvisionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this provision unauthorized response has a 5xx status code
+func (o *ProvisionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this provision unauthorized response a status code equal to that given
+func (o *ProvisionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the provision unauthorized response
+func (o *ProvisionUnauthorized) Code() int {
+	return 401
+}
+
+func (o *ProvisionUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ProvisionUnauthorized) String() string {
+	return fmt.Sprintf("[POST /workflows/system-definitions/provision/v1][%d] provisionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *ProvisionUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *ProvisionUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

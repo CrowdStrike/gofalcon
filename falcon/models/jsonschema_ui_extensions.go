@@ -70,6 +70,9 @@ type JsonschemaUIExtensions struct {
 	// skip generating a card during mobiledoc generation
 	Skip bool `json:"skip,omitempty"`
 
+	// SkyCheck expression controlling whether the field is rendered
+	SkyCheck string `json:"skyCheck,omitempty"`
+
 	// statement
 	Statement *JsonschemaStatement `json:"statement,omitempty"`
 

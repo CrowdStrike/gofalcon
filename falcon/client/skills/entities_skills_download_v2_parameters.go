@@ -74,6 +74,12 @@ type EntitiesSkillsDownloadV2Params struct {
 	*/
 	IncludeDeleted *bool
 
+	/* ProjectID.
+
+	   Scope the operation to a project.
+	*/
+	ProjectID *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -160,6 +166,17 @@ func (o *EntitiesSkillsDownloadV2Params) SetIncludeDeleted(includeDeleted *bool)
 	o.IncludeDeleted = includeDeleted
 }
 
+// WithProjectID adds the projectID to the entities skills download v2 params
+func (o *EntitiesSkillsDownloadV2Params) WithProjectID(projectID *string) *EntitiesSkillsDownloadV2Params {
+	o.SetProjectID(projectID)
+	return o
+}
+
+// SetProjectID adds the projectId to the entities skills download v2 params
+func (o *EntitiesSkillsDownloadV2Params) SetProjectID(projectID *string) {
+	o.ProjectID = projectID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *EntitiesSkillsDownloadV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -190,6 +207,23 @@ func (o *EntitiesSkillsDownloadV2Params) WriteToRequest(r runtime.ClientRequest,
 		if qIncludeDeleted != "" {
 
 			if err := r.SetQueryParam("include_deleted", qIncludeDeleted); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ProjectID != nil {
+
+		// query param project_id
+		var qrProjectID string
+
+		if o.ProjectID != nil {
+			qrProjectID = *o.ProjectID
+		}
+		qProjectID := qrProjectID
+		if qProjectID != "" {
+
+			if err := r.SetQueryParam("project_id", qProjectID); err != nil {
 				return err
 			}
 		}

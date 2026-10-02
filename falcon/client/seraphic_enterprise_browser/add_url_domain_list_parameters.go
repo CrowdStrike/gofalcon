@@ -65,9 +65,9 @@ type AddURLDomainListParams struct {
 
 	/* Body.
 
-	   Request body.
+	   The integration to add to, and the URLs and domains to add. Both fields are required and urls must be non-empty.
 	*/
-	Body *models.APIURLDomainListRequest
+	Body *models.URLDomainListRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *AddURLDomainListParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the add Url domain list params
-func (o *AddURLDomainListParams) WithBody(body *models.APIURLDomainListRequest) *AddURLDomainListParams {
+func (o *AddURLDomainListParams) WithBody(body *models.URLDomainListRequest) *AddURLDomainListParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the add Url domain list params
-func (o *AddURLDomainListParams) SetBody(body *models.APIURLDomainListRequest) {
+func (o *AddURLDomainListParams) SetBody(body *models.URLDomainListRequest) {
 	o.Body = body
 }
 

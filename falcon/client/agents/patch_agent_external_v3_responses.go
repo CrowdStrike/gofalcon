@@ -43,6 +43,12 @@ func (o *PatchAgentExternalV3Reader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewPatchAgentExternalV3Unauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewPatchAgentExternalV3Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -86,7 +92,7 @@ func NewPatchAgentExternalV3OK() *PatchAgentExternalV3OK {
 /*
 PatchAgentExternalV3OK describes a response with status code 200, with default header values.
 
-Successfully modified
+Successfully modified. The change has finished registration or the request didn't ask to wait for the confirmation of the registration.
 */
 type PatchAgentExternalV3OK struct {
 
@@ -196,7 +202,7 @@ func NewPatchAgentExternalV3Accepted() *PatchAgentExternalV3Accepted {
 /*
 PatchAgentExternalV3Accepted describes a response with status code 202, with default header values.
 
-The request was accepted. The agent is not ready for invocations yet.
+The request was accepted, but registration was still in progress when the wait expired, so the agent is not ready for invocations yet. Only returned when wait_for_ready is true.
 */
 type PatchAgentExternalV3Accepted struct {
 
@@ -399,6 +405,116 @@ func (o *PatchAgentExternalV3BadRequest) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(models.APIErrorResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPatchAgentExternalV3Unauthorized creates a PatchAgentExternalV3Unauthorized with default headers values
+func NewPatchAgentExternalV3Unauthorized() *PatchAgentExternalV3Unauthorized {
+	return &PatchAgentExternalV3Unauthorized{}
+}
+
+/*
+PatchAgentExternalV3Unauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type PatchAgentExternalV3Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this patch agent external v3 unauthorized response has a 2xx status code
+func (o *PatchAgentExternalV3Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch agent external v3 unauthorized response has a 3xx status code
+func (o *PatchAgentExternalV3Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch agent external v3 unauthorized response has a 4xx status code
+func (o *PatchAgentExternalV3Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch agent external v3 unauthorized response has a 5xx status code
+func (o *PatchAgentExternalV3Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch agent external v3 unauthorized response a status code equal to that given
+func (o *PatchAgentExternalV3Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the patch agent external v3 unauthorized response
+func (o *PatchAgentExternalV3Unauthorized) Code() int {
+	return 401
+}
+
+func (o *PatchAgentExternalV3Unauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /agentic-studio/entities/agents/v3][%d] patchAgentExternalV3Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchAgentExternalV3Unauthorized) String() string {
+	return fmt.Sprintf("[PATCH /agentic-studio/entities/agents/v3][%d] patchAgentExternalV3Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchAgentExternalV3Unauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *PatchAgentExternalV3Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

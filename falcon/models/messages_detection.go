@@ -23,6 +23,9 @@ type MessagesDetection struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// kestrel url
+	KestrelURL string `json:"kestrel_url,omitempty"`
+
 	// url
 	// Required: true
 	URL *string `json:"url"`

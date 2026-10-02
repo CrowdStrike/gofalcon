@@ -74,6 +74,9 @@ type GcpProjectDetails struct {
 	// registration scope
 	RegistrationScope string `json:"registration_scope,omitempty"`
 
+	// root folder id
+	RootFolderID string `json:"root_folder_id,omitempty"`
+
 	// service account
 	ServiceAccount string `json:"service_account,omitempty"`
 

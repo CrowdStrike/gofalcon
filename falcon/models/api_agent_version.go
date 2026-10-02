@@ -60,6 +60,10 @@ type APIAgentVersion struct {
 	// Required: true
 	IsEnabled *bool `json:"is_enabled"`
 
+	// is in sync
+	// Required: true
+	IsInSync *bool `json:"is_in_sync"`
+
 	// is published
 	// Required: true
 	IsPublished *bool `json:"is_published"`
@@ -95,6 +99,9 @@ type APIAgentVersion struct {
 	// parent version ids
 	// Required: true
 	ParentVersionIds []string `json:"parent_version_ids"`
+
+	// project id
+	ProjectID string `json:"project_id,omitempty"`
 
 	// semantic version
 	SemanticVersion string `json:"semantic_version,omitempty"`
@@ -166,6 +173,10 @@ func (m *APIAgentVersion) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIsEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsInSync(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -362,6 +373,15 @@ func (m *APIAgentVersion) validateInputFormat(formats strfmt.Registry) error {
 func (m *APIAgentVersion) validateIsEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_enabled", "body", m.IsEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIAgentVersion) validateIsInSync(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_in_sync", "body", m.IsInSync); err != nil {
 		return err
 	}
 

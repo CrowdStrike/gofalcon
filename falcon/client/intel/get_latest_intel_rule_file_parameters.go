@@ -93,23 +93,25 @@ type GetLatestIntelRuleFileParams struct {
 
 	snort-suricata-update
 
-	snort-suricata-changelog
+	snort-suricata-changelog (deprecated)
 
 	yara-master
 
 	yara-update
 
-	yara-changelog
+	yara-changelog (deprecated)
 
 	common-event-format
 
 	netwitness
 
-	cql-master
+	cql-master (deprecated)
 
-	cql-update
+	cql-update (deprecated)
 
-	cql-changelog
+	cql-changelog (deprecated)
+
+	Note: CQL rules (cql-master, cql-update, cql-changelog) and Changelog rules (snort-suricata-changelog, yara-changelog) are deprecated starting 28 September 2026. cql-changelog belongs to both families. No new rules of these types will be published after that date. Already-published rules will continue to be available via other means (e.g. direct ID-based download, email notifications).
 	*/
 	Type string
 

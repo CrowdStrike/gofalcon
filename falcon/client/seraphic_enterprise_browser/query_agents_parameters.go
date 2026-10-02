@@ -65,9 +65,9 @@ type QueryAgentsParams struct {
 
 	/* Body.
 
-	   Request body.
+	   Filter, sort and pagination for the agent search. limit accepts up to 1000. filter.protection_type is honoured here.
 	*/
-	Body *models.APIAgentQuery
+	Body *models.AgentQuery
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *QueryAgentsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the query agents params
-func (o *QueryAgentsParams) WithBody(body *models.APIAgentQuery) *QueryAgentsParams {
+func (o *QueryAgentsParams) WithBody(body *models.AgentQuery) *QueryAgentsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the query agents params
-func (o *QueryAgentsParams) SetBody(body *models.APIAgentQuery) {
+func (o *QueryAgentsParams) SetBody(body *models.AgentQuery) {
 	o.Body = body
 }
 

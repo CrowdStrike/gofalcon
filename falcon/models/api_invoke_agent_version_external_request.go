@@ -34,6 +34,9 @@ type APIInvokeAgentVersionExternalRequest struct {
 	// Required: true
 	Messages []*APIMessage `json:"messages"`
 
+	// project id
+	ProjectID string `json:"project_id,omitempty"`
+
 	// version id
 	// Required: true
 	VersionID *string `json:"version_id"`

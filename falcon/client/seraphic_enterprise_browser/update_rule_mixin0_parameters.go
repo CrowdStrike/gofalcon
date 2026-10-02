@@ -65,9 +65,9 @@ type UpdateRuleMixin0Params struct {
 
 	/* Body.
 
-	   Request body.
+	   The changes to apply. Each field is an independent partial update — extension IDs and names to add or remove, target and destination-group changes, and activation status. These are not applied transactionally; a combined body can half-apply.
 	*/
-	Body *models.APIRulePatch
+	Body *models.RulePatch
 
 	/* ID.
 
@@ -129,13 +129,13 @@ func (o *UpdateRuleMixin0Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update rule mixin0 params
-func (o *UpdateRuleMixin0Params) WithBody(body *models.APIRulePatch) *UpdateRuleMixin0Params {
+func (o *UpdateRuleMixin0Params) WithBody(body *models.RulePatch) *UpdateRuleMixin0Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update rule mixin0 params
-func (o *UpdateRuleMixin0Params) SetBody(body *models.APIRulePatch) {
+func (o *UpdateRuleMixin0Params) SetBody(body *models.RulePatch) {
 	o.Body = body
 }
 

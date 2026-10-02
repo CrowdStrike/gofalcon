@@ -78,12 +78,20 @@ type ClientService interface {
 
 	DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) (*DeleteUserV1OK, error)
 
+	EntitiesPermissionGroupsGETV1(params *EntitiesPermissionGroupsGETV1Params, opts ...ClientOption) (*EntitiesPermissionGroupsGETV1OK, error)
+
+	EntitiesPermissionsGETV1(params *EntitiesPermissionsGETV1Params, opts ...ClientOption) (*EntitiesPermissionsGETV1OK, error)
+
+	EntitiesRolePermissionsV1(params *EntitiesRolePermissionsV1Params, opts ...ClientOption) (*EntitiesRolePermissionsV1OK, error)
+
 	EntitiesRolesGETV2(params *EntitiesRolesGETV2Params, opts ...ClientOption) (*EntitiesRolesGETV2OK, error)
 
 	// Deprecated: this operation has been deprecated and may be removed in a future release.
 	EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOption) (*EntitiesRolesV1OK, error)
 
 	GetUserInvitationsGETV1(params *GetUserInvitationsGETV1Params, opts ...ClientOption) (*GetUserInvitationsGETV1OK, error)
+
+	QueriesPermissionsV1(params *QueriesPermissionsV1Params, opts ...ClientOption) (*QueriesPermissionsV1OK, error)
 
 	QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOption) (*QueriesRolesV1OK, error)
 
@@ -822,6 +830,120 @@ func (a *Client) DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) 
 }
 
 /*
+EntitiesPermissionGroupsGETV1 gets details about permission groups including name and description
+*/
+func (a *Client) EntitiesPermissionGroupsGETV1(params *EntitiesPermissionGroupsGETV1Params, opts ...ClientOption) (*EntitiesPermissionGroupsGETV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesPermissionGroupsGETV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entitiesPermissionGroupsGETV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/permission-groups/GET/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesPermissionGroupsGETV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesPermissionGroupsGETV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entitiesPermissionGroupsGETV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesPermissionsGETV1 gets details about permissions including name description and which permission groups they belong to
+*/
+func (a *Client) EntitiesPermissionsGETV1(params *EntitiesPermissionsGETV1Params, opts ...ClientOption) (*EntitiesPermissionsGETV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesPermissionsGETV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entitiesPermissionsGETV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/permissions/GET/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesPermissionsGETV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesPermissionsGETV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entitiesPermissionsGETV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+EntitiesRolePermissionsV1 gets permission i ds assigned to a given role
+*/
+func (a *Client) EntitiesRolePermissionsV1(params *EntitiesRolePermissionsV1Params, opts ...ClientOption) (*EntitiesRolePermissionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRolePermissionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entitiesRolePermissionsV1",
+		Method:             "GET",
+		PathPattern:        "/user-management/entities/role-permissions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &EntitiesRolePermissionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRolePermissionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entitiesRolePermissionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 EntitiesRolesGETV2 gets info about a role
 */
 func (a *Client) EntitiesRolesGETV2(params *EntitiesRolesGETV2Params, opts ...ClientOption) (*EntitiesRolesGETV2OK, error) {
@@ -934,6 +1056,44 @@ func (a *Client) GetUserInvitationsGETV1(params *GetUserInvitationsGETV1Params, 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for getUserInvitationsGETV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueriesPermissionsV1 lists all permission i ds available to your c ID based on product subscriptions
+*/
+func (a *Client) QueriesPermissionsV1(params *QueriesPermissionsV1Params, opts ...ClientOption) (*QueriesPermissionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesPermissionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queriesPermissionsV1",
+		Method:             "GET",
+		PathPattern:        "/user-management/queries/permissions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &QueriesPermissionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesPermissionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queriesPermissionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

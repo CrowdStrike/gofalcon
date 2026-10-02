@@ -27,6 +27,9 @@ type SdkTemplateVM struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// owner group ids
+	OwnerGroupIds []string `json:"owner_group_ids"`
+
 	// snapshot id
 	// Required: true
 	SnapshotID *string `json:"snapshot_id"`

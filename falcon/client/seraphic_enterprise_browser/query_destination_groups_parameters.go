@@ -65,9 +65,9 @@ type QueryDestinationGroupsParams struct {
 
 	/* Body.
 
-	   Request body.
+	   Filter, sort, pagination and name exclusions for the destination-group search.
 	*/
-	Body *models.APIDestinationGroupQuery
+	Body *models.DestinationGroupQuery
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *QueryDestinationGroupsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the query destination groups params
-func (o *QueryDestinationGroupsParams) WithBody(body *models.APIDestinationGroupQuery) *QueryDestinationGroupsParams {
+func (o *QueryDestinationGroupsParams) WithBody(body *models.DestinationGroupQuery) *QueryDestinationGroupsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the query destination groups params
-func (o *QueryDestinationGroupsParams) SetBody(body *models.APIDestinationGroupQuery) {
+func (o *QueryDestinationGroupsParams) SetBody(body *models.DestinationGroupQuery) {
 	o.Body = body
 }
 

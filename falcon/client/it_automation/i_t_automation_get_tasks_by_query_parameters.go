@@ -64,7 +64,7 @@ type ITAutomationGetTasksByQueryParams struct {
 
 	/* Filter.
 
-	   The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:'example@example.com'+example_date_field:>='2024-08-27T03:21:32Z'
+	   The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, has_task_parameters, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:'example@example.com'+example_date_field:>='2024-08-27T03:21:32Z'
 	*/
 	Filter *string
 
