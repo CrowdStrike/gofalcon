@@ -212,6 +212,21 @@ func feedOf(messages string) func(*http.Request) io.Reader {
 	}
 }
 
+// endlessFeed is a data feed that sends events until the request is cancelled.
+func endlessFeed(req *http.Request) io.Reader {
+	const event = `{"metadata":{"eventType":"UserActivityAuditEvent"},"event":{}}` + "\n"
+	var wire strings.Reader
+	return readerFunc(func(p []byte) (int, error) {
+		if err := req.Context().Err(); err != nil {
+			return 0, err
+		}
+		if wire.Len() == 0 {
+			wire.Reset(event)
+		}
+		return wire.Read(p)
+	})
+}
+
 // feedBody is a data feed response body that records when it is closed.
 type feedBody struct {
 	io.Reader
@@ -631,6 +646,131 @@ func TestCloseEndsStreamWithoutReadingErrors(t *testing.T) {
 		case <-timeout:
 			t.Fatal("Events was not closed within 5s of Close while Errors went unread")
 		}
+	}
+}
+
+// A consumer that keeps reading after Close must get the final error before
+// the channels close, however Close lands against the reader's sends.
+func TestCloseDeliversFinalErrorToConsumerStillReading(t *testing.T) {
+	t.Parallel()
+
+	// Repeat it so that a delivery left to chance cannot pass.
+	for i := range 200 {
+		feed := &fakeFeed{status: http.StatusOK, body: endlessFeed}
+		sh, err := NewStreamWithClient(context.Background(), nil, "app", completeStream(), 0, feed.client())
+		if err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		select {
+		case <-sh.Events:
+		case <-time.After(5 * time.Second):
+			sh.Close()
+			t.Fatalf("round %d: no event within 5s", i)
+		}
+		sh.Close()
+		_, errs := drain(t, sh)
+
+		if len(errs) != 1 || !errs[0].Fatal || errs[0].Err != ErrStreamClosed {
+			t.Fatalf("round %d: expected exactly one fatal ErrStreamClosed after Close, got %v", i, errs)
+		}
+	}
+}
+
+// An error the consumer has not read must not hold back the final one: after
+// Close, the final error takes its place, so a consumer that reads Errors only
+// once Events has closed still learns how the stream ended.
+func TestCloseReplacesUnreadErrorWithFinalError(t *testing.T) {
+	t.Parallel()
+
+	event := `{"metadata":{"eventType":"UserActivityAuditEvent"},"event":{}}`
+	feed := &fakeFeed{status: http.StatusOK, body: func(req *http.Request) io.Reader {
+		return io.MultiReader(strings.NewReader("[1,2]\n"+event+"\n"), idleFeed(req))
+	}}
+	sh, err := NewStreamWithClient(context.Background(), nil, "app", completeStream(), 0, feed.client())
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	t.Cleanup(sh.Close)
+
+	// The event follows a message that is not an event, so by the time the
+	// event arrives, that message's error is waiting unread.
+	select {
+	case <-sh.Events:
+	case <-time.After(5 * time.Second):
+		t.Fatal("the event after an unread error was not delivered within 5s")
+	}
+	sh.Close()
+
+	timeout := time.After(5 * time.Second)
+	for open := true; open; {
+		select {
+		case _, open = <-sh.Events:
+		case <-timeout:
+			t.Fatal("Events was not closed within 5s of Close")
+		}
+	}
+	_, errs := drain(t, sh)
+	if len(errs) != 1 || !errs[0].Fatal || errs[0].Err != ErrStreamClosed {
+		t.Fatalf("expected only the final ErrStreamClosed, got %v", errs)
+	}
+}
+
+// Until Close the consumer is still expected to read, so a stream that ends on
+// its own must not drop an error left unread: it waits for that error to be
+// received and sends the final error after it.
+func TestStreamEndKeepsUnreadError(t *testing.T) {
+	t.Parallel()
+
+	event := `{"metadata":{"eventType":"UserActivityAuditEvent"},"event":{}}`
+	feed := &fakeFeed{status: http.StatusOK, body: feedOf("[1,2]\n" + event + "\n")}
+	sh, err := NewStreamWithClient(context.Background(), nil, "app", completeStream(), 0, feed.client())
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	t.Cleanup(sh.Close)
+
+	// The event follows a message that is not an event, so by the time the
+	// event arrives, that message's error is waiting unread.
+	select {
+	case <-sh.Events:
+	case <-time.After(5 * time.Second):
+		t.Fatal("the event after an unread error was not delivered within 5s")
+	}
+	// The feed has now ended. A stream that dropped the unread error would
+	// close its channels at once, so give it a moment to show that.
+	select {
+	case _, ok := <-sh.Events:
+		t.Fatalf("expected the stream to wait for the unread error, but Events was received from (ok=%v)", ok)
+	case <-time.After(100 * time.Millisecond):
+	}
+
+	_, errs := drain(t, sh)
+	if len(errs) != 2 || errs[0].Fatal || !errs[1].Fatal || errs[1].Err != ErrStreamClosed {
+		t.Fatalf("expected the unread non-fatal error, then the final ErrStreamClosed, got %v", errs)
+	}
+}
+
+// A StreamingError received after Errors has closed is the zero value, so
+// printing one must not panic.
+func TestStreamingErrorText(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name string
+		err  StreamingError
+		want string
+	}{
+		{name: "error", err: StreamingError{Err: ErrStreamClosed}, want: ErrStreamClosed.Error()},
+		{name: "zero value", err: StreamingError{}, want: "<nil>"},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := tc.err.Error(); got != tc.want {
+				t.Fatalf("Error() = %q, want %q", got, tc.want)
+			}
+		})
 	}
 }
 
