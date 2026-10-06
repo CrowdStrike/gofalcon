@@ -25,7 +25,7 @@ type AuthActivityAuditEvent struct {
 	Success        *bool             `json:"Success,omitempty"`
 	UTCTimestamp   *uint64           `json:"UTCTimestamp,omitempty"`
 	AuditKeyValues *[]AuditKeyValues `json:"AuditKeyValues,omitempty"`
-	Attributes     *[]AuditKeyValues `json:"Attributes,omitempty"`
+	Attributes     *AuditAttributes  `json:"Attributes,omitempty"`
 
 	// Extra holds any wire fields not represented by a typed field above, so
 	// newly-added API fields survive a decode and are re-emitted on marshal.

@@ -5,8 +5,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"math"
 	"net/http"
+	"strings"
+	"sync"
 	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon/client"
@@ -26,7 +29,16 @@ type StreamingHandle struct {
 	Events        chan *streaming_models.EventItem
 	Errors        chan StreamingError
 	HTTPClient    *http.Client
+
+	// stopped is closed by Close to tell senders that nothing will read again.
+	stopped  chan struct{}
+	stopOnce sync.Once
 }
+
+// ErrStreamClosed is the error of the fatal StreamingError sent when the
+// streaming connection ends. If a read or decode failure ended it, the error
+// sent wraps both ErrStreamClosed and that failure.
+var ErrStreamClosed = errors.New("streaming connection closed")
 
 // refreshPeriodPerSecond is how much of the session lifetime the stream is
 // allowed to burn before refreshing: nine tenths of it, kept in time.Duration
@@ -81,26 +93,50 @@ func newStream(
 
 	ctx, cancel := context.WithCancel(ctx)
 
+	// Errors has room for one error, so that the final one can wait for a
+	// consumer still reading after Close without blocking on one that is not.
 	sh := &StreamingHandle{
 		ctx:           ctx,
 		ctxCancelFunc: cancel,
+		stopped:       make(chan struct{}),
 		client:        client,
 		appId:         appId,
 		stream:        stream,
 		offset:        offset,
 		Events:        make(chan *streaming_models.EventItem),
-		Errors:        make(chan StreamingError),
+		Errors:        make(chan StreamingError, 1),
 		HTTPClient:    httpClient,
 	}
-	sh.maintainSession(refreshPeriod)
-	if err := sh.open(); err != nil {
+	body, err := sh.open()
+	if err != nil {
 		sh.Close()
 		return nil, err
 	}
+
+	var senders sync.WaitGroup
+	var final StreamingError
+	senders.Add(2)
+	go func() {
+		defer senders.Done()
+		sh.maintainSession(refreshPeriod)
+	}()
+	go func() {
+		defer senders.Done()
+		final = sh.read(body)
+	}()
+	// Both goroutines send on Errors, so neither may close it. Once both have
+	// stopped nothing else can send, so the final error goes last.
+	go func() {
+		senders.Wait()
+		sh.sendFinal(final)
+		close(sh.Errors)
+		close(sh.Events)
+	}()
 	return sh, nil
 }
 
 // NewStreamWithClient initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
+// It rejects the same unusable stream descriptors as NewStream.
 func NewStreamWithClient(
 	ctx context.Context,
 	client *client.CrowdStrikeAPISpecification,
@@ -116,6 +152,12 @@ func NewStreamWithClient(
 // The streams need to be discovered first by event_streams.ListAvailableStreamsOAuth2() method.
 // The appId must be an ID that is unique within your CrowdStrike account. Each running instance of your application must provide unique ID.
 // The offset value can then be used to skip seen events, should the stream disconnect. Users are advised to use zero (0) value at start. Each event then contains its own offset.
+// It returns an error without connecting if the stream lacks dataFeedURL, sessionToken.token or refreshActiveSessionInterval, or if refreshActiveSessionInterval is not a usable positive number of seconds.
+// It also returns an error if the data feed answers with a non-2xx status.
+// When the connection ends, including when ctx is cancelled or Close is called, a fatal StreamingError whose error is or wraps ErrStreamClosed is sent on Errors and then both channels are closed.
+// A failed session refresh is also sent as a fatal StreamingError, but the connection keeps running until it ends; use errors.Is(err, ErrStreamClosed) to tell the end of the stream apart.
+// Read Errors as well as Events: until Close is called, an error left unread holds the stream up, and neither channel is closed before the final error has been sent.
+// Errors holds one error until it is received, so an error may be received after events that were sent after it.
 func NewStream(
 	ctx context.Context,
 	client *client.CrowdStrikeAPISpecification,
@@ -126,40 +168,41 @@ func NewStream(
 	return newStream(ctx, client, appId, stream, offset, &http.Client{})
 }
 
+// maintainSession refreshes the stream session every refreshPeriod until the
+// handle is closed or a refresh fails.
 func (sh *StreamingHandle) maintainSession(refreshPeriod time.Duration) {
 	ticker := time.NewTicker(refreshPeriod)
-	go func() {
-		defer ticker.Stop()
-		for {
-			select {
-			case <-sh.ctx.Done():
-				return
-			case <-ticker.C:
-				_, err := sh.client.EventStreams.RefreshActiveStreamSession(
-					&event_streams.RefreshActiveStreamSessionParams{
-						AppID:      sh.appId,
-						ActionName: "refresh_active_stream_session",
-						Partition:  0,
-						Context:    sh.ctx,
-					},
-				)
+	defer ticker.Stop()
+	for {
+		select {
+		case <-sh.ctx.Done():
+			return
+		case <-ticker.C:
+			_, err := sh.client.EventStreams.RefreshActiveStreamSession(
+				&event_streams.RefreshActiveStreamSessionParams{
+					AppID:      sh.appId,
+					ActionName: "refresh_active_stream_session",
+					Partition:  0,
+					Context:    sh.ctx,
+				},
+			)
 
-				if err != nil {
-					sh.Errors <- StreamingError{
-						Fatal: true,
-						Err:   err,
-					}
-					return
+			if err != nil {
+				// A refresh cut short by Close is not a failure worth reporting.
+				if sh.ctx.Err() == nil {
+					sh.sendError(StreamingError{Fatal: true, Err: err})
 				}
+				return
 			}
 		}
-	}()
+	}
 }
 
-func (sh *StreamingHandle) open() error {
+// open connects to the data feed and returns the body the events are read from.
+func (sh *StreamingHandle) open() (io.ReadCloser, error) {
 	req, err := http.NewRequestWithContext(sh.ctx, "GET", sh.url(), nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Add("Authorization", "Token "+*sh.stream.SessionToken.Token)
@@ -171,64 +214,102 @@ func (sh *StreamingHandle) open() error {
 	}
 	resp, err := sh.HTTPClient.Do(req)
 	if err != nil {
-		return err
+		return nil, err
 	}
-
-	sh.Events = make(chan *streaming_models.EventItem)
-	go func() {
-		defer func() {
-			err := resp.Body.Close()
-
-			if err != nil {
-				sh.Errors <- StreamingError{
-					Fatal: false,
-					Err:   err,
-				}
-			}
-
-			sh.Errors <- StreamingError{
-				Fatal: true,
-				Err:   errors.New("streaming connection closed"),
-			}
-
-			close(sh.Errors)
-			close(sh.Events)
-		}()
-
-		dec := json.NewDecoder(resp.Body)
-		for {
-			select {
-			case <-sh.ctx.Done():
-				return
-			default:
-				if dec.More() {
-					var detection streaming_models.EventItem
-					var rawMessage json.RawMessage
-					err := dec.Decode(&rawMessage)
-					if err != nil {
-						sh.Errors <- StreamingError{Fatal: false, Err: err}
-						continue
-					}
-
-					err = json.Unmarshal(rawMessage, &detection)
-					if err != nil {
-						sh.Errors <- StreamingError{Fatal: false, Err: err}
-						continue
-					}
-
-					detection.RawMessage = rawMessage
-					sh.Events <- &detection
-				}
-			}
+	if resp.StatusCode < 200 || resp.StatusCode > 299 {
+		// The body usually says why, for example an expired session token. The
+		// data feed pretty-prints it, so put it on one line.
+		detail, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
+		_ = resp.Body.Close()
+		if reason := strings.Join(strings.Fields(string(detail)), " "); reason != "" {
+			return nil, fmt.Errorf("open streaming connection: unexpected status %d: %s", resp.StatusCode, reason)
 		}
-	}()
-
-	return nil
+		return nil, fmt.Errorf("open streaming connection: unexpected status %d", resp.StatusCode)
+	}
+	return resp.Body, nil
 }
 
-// Close the StreamingHandle after use.
+// read decodes events from body until the data feed ends or the handle is
+// closed, then stops the session refresh and returns the error that reports
+// the end of the stream.
+func (sh *StreamingHandle) read(body io.ReadCloser) (final StreamingError) {
+	var cause error
+	defer func() {
+		// Nothing more can arrive on this handle, so stop refreshing its session.
+		sh.ctxCancelFunc()
+		if err := body.Close(); err != nil {
+			sh.sendError(StreamingError{Fatal: false, Err: err})
+		}
+		closed := ErrStreamClosed
+		if cause != nil {
+			closed = fmt.Errorf("%w: %w", ErrStreamClosed, cause)
+		}
+		final = StreamingError{Fatal: true, Err: closed}
+	}()
+
+	dec := json.NewDecoder(body)
+	for sh.ctx.Err() == nil {
+		var rawMessage json.RawMessage
+		if err := dec.Decode(&rawMessage); err != nil {
+			// The decoder returns the same error on every later call, so any
+			// failure ends the stream. EOF and Close are its normal ends.
+			if !errors.Is(err, io.EOF) && sh.ctx.Err() == nil {
+				cause = err
+			}
+			return
+		}
+
+		var detection streaming_models.EventItem
+		if err := json.Unmarshal(rawMessage, &detection); err != nil {
+			sh.sendError(StreamingError{Fatal: false, Err: err})
+			continue
+		}
+		detection.RawMessage = rawMessage
+		select {
+		case sh.Events <- &detection:
+		case <-sh.ctx.Done():
+			return
+		}
+	}
+	return
+}
+
+// sendError delivers err unless Close is called first, so that no goroutine is
+// left blocked on a consumer that has stopped reading. A cancelled ctx alone
+// does not drop err, because the consumer may still be reading.
+func (sh *StreamingHandle) sendError(err StreamingError) {
+	select {
+	case sh.Errors <- err:
+	case <-sh.stopped:
+	}
+}
+
+// sendFinal sends err, the error that ends the stream, once no other sender is
+// left. After Close the consumer may have stopped reading, so instead of
+// waiting it drops an older error still unread to make room and leaves err in
+// Errors: a consumer still reading receives it before Errors is closed, and one
+// that has stopped reading leaves nothing blocked.
+func (sh *StreamingHandle) sendFinal(err StreamingError) {
+	select {
+	case sh.Errors <- err:
+		return
+	case <-sh.stopped:
+	}
+	select {
+	case <-sh.Errors:
+	default:
+	}
+	// No other sender is left and Errors now has room, so this cannot block.
+	sh.Errors <- err
+}
+
+// Close the StreamingHandle after use. Events and Errors are closed once the
+// connection and the session refresh have stopped. Errors not yet received
+// when Close is called may be dropped, but the final ErrStreamClosed is always
+// sent before Errors is closed, so a consumer that keeps reading receives it.
 func (sh *StreamingHandle) Close() {
 	sh.ctxCancelFunc()
+	sh.stopOnce.Do(func() { close(sh.stopped) })
 	if sh.HTTPClient != nil {
 		sh.HTTPClient.CloseIdleConnections()
 	}
@@ -247,6 +328,11 @@ type StreamingError struct {
 	Err   error
 }
 
+// Error returns the text of Err, or "<nil>" for a StreamingError without one,
+// such as the zero value received once Errors is closed.
 func (e StreamingError) Error() string {
+	if e.Err == nil {
+		return "<nil>"
+	}
 	return e.Err.Error()
 }
