@@ -45,7 +45,7 @@ jobs:
     - name: Run golangci-lint
       uses: golangci/golangci-lint-action@4afd733a84b1f43292c63897423277bb7f4313a9
       with:
-        args: --timeout=3m12s
+        args: --timeout=10m
         skip-cache: true
 
     - name: "Check: go fmt"
