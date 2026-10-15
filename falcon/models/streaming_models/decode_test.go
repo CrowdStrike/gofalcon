@@ -25,7 +25,7 @@ func TestAsHappyPath(t *testing.T) {
 	t.Parallel()
 	item := eventItemFromWire(t, `{
 		"metadata": {"eventType": "AuthActivityAuditEvent"},
-		"event": {"OperationName": "userAuthenticate", "Attributes": [{"Key": "k", "ValueString": "v"}]}
+		"event": {"OperationName": "userAuthenticate", "Attributes": {"k": "v"}}
 	}`)
 	got, err := As[AuthActivityAuditEvent](item)
 	if err != nil {
@@ -34,11 +34,8 @@ func TestAsHappyPath(t *testing.T) {
 	if got.OperationName == nil || *got.OperationName != "userAuthenticate" {
 		t.Fatalf("OperationName = %v", got.OperationName)
 	}
-	if got.Attributes == nil || len(*got.Attributes) != 1 {
-		t.Fatalf("Attributes = %v", got.Attributes)
-	}
-	if (*got.Attributes)[0].Key != "k" || (*got.Attributes)[0].Value != "v" {
-		t.Fatalf("Attributes[0] = %+v", (*got.Attributes)[0])
+	if len(got.Attributes) != 1 || got.Attributes["k"] != "v" {
+		t.Fatalf("Attributes = %#v, want k=v", got.Attributes)
 	}
 	if got.Extra != nil {
 		t.Fatalf("Extra = %v, want nil (envelope keys must not leak into Extra)", got.Extra)

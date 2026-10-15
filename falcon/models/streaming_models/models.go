@@ -1,6 +1,10 @@
 package streaming_models
 
-import "encoding/json"
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+)
 
 // EventItem - The structure for parent model
 type EventItem struct {
@@ -73,7 +77,7 @@ type Event struct {
 	Tactic            *string           `json:"Tactic,omitempty"`
 	Technique         *string           `json:"Technique,omitempty"`
 	AuditKeyValues    *[]AuditKeyValues `json:"AuditKeyValues,omitempty"`
-	Attributes        *[]AuditKeyValues `json:"Attributes,omitempty"`
+	Attributes        AuditAttributes   `json:"Attributes,omitempty"`
 	IncidentType      *String           `json:"IncidentType,omitempty"`
 	IncidentStartTime *json.Number      `json:"IncidentStartTime,omitempty"`
 	IncidentEndTime   *json.Number      `json:"IncidentEndTime,omitempty"`
@@ -117,6 +121,41 @@ type DocumentsAccessed struct {
 type AuditKeyValues struct {
 	Key   string `json:"Key"`
 	Value string `json:"ValueString"`
+}
+
+// AuditAttributes is the Attributes field of audit events, mapping each key to
+// its value. APIActivityAuditEvent, UserActivityAuditEvent and
+// AuthActivityAuditEvent send it as an object, and it marshals as one, with
+// every value a string.
+type AuditAttributes map[string]string
+
+// UnmarshalJSON decodes Attributes sent as an object. A JSON null value becomes
+// an empty string, and any other value that is not a JSON string keeps its
+// JSON text. Any other form of Attributes fails to decode.
+func (a *AuditAttributes) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(data, []byte("null")) {
+		return nil
+	}
+	var object map[string]json.RawMessage
+	if err := json.Unmarshal(data, &object); err != nil {
+		return fmt.Errorf("decode Attributes: %w", err)
+	}
+	attributes := make(AuditAttributes, len(object))
+	for key, value := range object {
+		attributes[key] = auditValue(value)
+	}
+	*a = attributes
+	return nil
+}
+
+// auditValue returns the text of an Attributes value: the string itself for a
+// JSON string, empty for null, and the JSON text otherwise.
+func auditValue(raw json.RawMessage) string {
+	var value string
+	if err := json.Unmarshal(raw, &value); err != nil {
+		return string(raw)
+	}
+	return value
 }
 
 // NetworkAccess - Network access information for this detection
