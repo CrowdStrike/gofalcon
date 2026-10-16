@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"os/signal"
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
@@ -53,6 +54,12 @@ Falcon Client Secret`,
 		)
 	}
 
+	// Ctrl-C cancels ctx, which ends the stream like Close does. From Go 1.26
+	// on, NotifyContext gives that cancel a cause, which the final error then
+	// wraps.
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
+	defer stop()
+
 	client, err := falcon.NewClient(&falcon.ApiConfig{
 		ClientId:     *clientId,
 		ClientSecret: *clientSecret,
@@ -70,7 +77,7 @@ Falcon Client Secret`,
 		&event_streams.ListAvailableStreamsOAuth2Params{
 			AppID:   *appName,
 			Format:  &json,
-			Context: context.Background(),
+			Context: ctx,
 		},
 	)
 	if err != nil {
@@ -86,32 +93,57 @@ Falcon Client Secret`,
 			"No available stream was found. This may be caused by second instance of this application already running in your environment with ID=%s, or by missing streaming api capability\n",
 			*appName,
 		)
+		return
 	}
-	for _, availableStream := range availableStreams {
-		stream, err := falcon.NewStream(context.Background(), client, *appName, availableStream, 0)
-		if err != nil {
-			panic(err)
-		}
-		defer stream.Close()
+	// Step 2: Read the first stream until it ends. A listed stream must be
+	// connected before its sessionToken.expiration, minutes after listing, so
+	// a program reading several streams connects to all of them at once.
+	stream, err := falcon.NewStream(ctx, client, *appName, availableStreams[0], 0)
+	if err != nil {
+		panic(err)
+	}
+	err = printEvents(stream)
+	stream.Close()
+	fmt.Fprintln(os.Stderr, err)
+	if code := exitCode(err, ctx.Err() != nil); code != 0 {
+		stop()
+		os.Exit(code)
+	}
+}
 
-		var fatal error
-		for fatal == nil {
-			select {
-			case err := <-stream.Errors:
-				if err.Fatal {
-					fatal = err.Err
-				} else {
-					fmt.Fprintln(os.Stderr, err)
-				}
-			case event := <-stream.Events:
-				pretty, err := falcon_util.PrettyJson(event)
-				if err != nil {
-					panic(err)
-				}
-				fmt.Println(pretty)
-				fmt.Println(event.Metadata.EventType)
+// exitCode is the status to exit with once the stream has ended with err: 0
+// when the data feed simply ended or Ctrl-C asked to stop, and 1 otherwise.
+func exitCode(err error, interrupted bool) int {
+	// The final error is ErrStreamClosed itself when the stream ended with
+	// nothing to report.
+	if err == falcon.ErrStreamClosed || interrupted {
+		return 0
+	}
+	return 1
+}
+
+// printEvents prints the events of stream, and the errors that do not end it,
+// until it ends, and returns the error that ended it.
+func printEvents(stream *falcon.StreamingHandle) error {
+	for {
+		select {
+		case err := <-stream.Errors:
+			if err.Fatal {
+				return err.Err
 			}
+			fmt.Fprintln(os.Stderr, err)
+		case event, ok := <-stream.Events:
+			if !ok {
+				// Events closes as the stream ends, and the error that
+				// ended it is then waiting in Errors.
+				return (<-stream.Errors).Err
+			}
+			pretty, err := falcon_util.PrettyJson(event)
+			if err != nil {
+				return err
+			}
+			fmt.Println(pretty)
+			fmt.Println(event.Metadata.EventType)
 		}
-		panic(fatal)
 	}
 }

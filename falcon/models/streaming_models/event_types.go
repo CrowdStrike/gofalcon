@@ -16,7 +16,9 @@ type StreamEvent interface {
 // AuthActivityAuditEvent is the typed payload for AuthActivityAuditEvent
 // streaming events. Wire fields not represented by a typed field are preserved
 // in Extra and are re-emitted on marshal, so a decode/encode round-trip does
-// not drop newly-added API fields.
+// not drop newly-added API fields. Attributes is the exception: it comes back
+// as an object of strings, so values that were not strings come back as their
+// JSON text, and an empty Attributes is left out.
 type AuthActivityAuditEvent struct {
 	OperationName  *string           `json:"OperationName,omitempty"`
 	ServiceName    *string           `json:"ServiceName,omitempty"`
@@ -25,7 +27,7 @@ type AuthActivityAuditEvent struct {
 	Success        *bool             `json:"Success,omitempty"`
 	UTCTimestamp   *uint64           `json:"UTCTimestamp,omitempty"`
 	AuditKeyValues *[]AuditKeyValues `json:"AuditKeyValues,omitempty"`
-	Attributes     *[]AuditKeyValues `json:"Attributes,omitempty"`
+	Attributes     AuditAttributes   `json:"Attributes,omitempty"`
 
 	// Extra holds any wire fields not represented by a typed field above, so
 	// newly-added API fields survive a decode and are re-emitted on marshal.
