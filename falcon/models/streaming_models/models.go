@@ -4,6 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"maps"
+	"reflect"
+	"slices"
+	"strings"
 )
 
 // EventItem - The structure for parent model
@@ -90,6 +94,122 @@ type Event struct {
 	HostnameField  *string      `json:"HostnameField,omitempty"`
 	StartTimestamp *json.Number `json:"StartTimestamp,omitempty"`
 	EndTimestamp   *json.Number `json:"EndTimestamp,omitempty"`
+
+	// Additional holds the fields of the event that the typed fields above do
+	// not: fields that Event does not declare, and fields whose value does
+	// not fit the type of their typed field, such as a UTCTimestamp sent as a
+	// string. Each value is kept as it came off the wire. Additional is
+	// filled only when the Event is decoded as part of an EventItem, and is
+	// left out when the Event is marshaled. EventItem.RawMessage keeps the
+	// whole message.
+	Additional map[string]json.RawMessage `json:"-"`
+}
+
+// eventFields and eventFieldsFolded map the json name of each typed field of
+// Event, as declared and lowercased, to the index of the field.
+var eventFields, eventFieldsFolded = jsonFieldIndex(reflect.TypeFor[Event]())
+
+// jsonFieldIndex maps the json name of each field of struct type t, as
+// declared and lowercased, to the index of the field, skipping the fields
+// that encoding/json skips: unexported ones and those with a "-" tag.
+func jsonFieldIndex(t reflect.Type) (declared, folded map[string]int) {
+	declared = make(map[string]int, t.NumField())
+	folded = make(map[string]int, t.NumField())
+	for i := 0; i < t.NumField(); i++ {
+		if !t.Field(i).IsExported() {
+			continue
+		}
+		name, _, _ := strings.Cut(t.Field(i).Tag.Get("json"), ",")
+		if name == "-" {
+			continue
+		}
+		if name == "" {
+			name = t.Field(i).Name
+		}
+		declared[name] = i
+		folded[strings.ToLower(name)] = i
+	}
+	return declared, folded
+}
+
+// UnmarshalJSON decodes the metadata as usual, and the event one field at a
+// time so that none is lost: each field goes to its typed field when Event has
+// one and the value fits, and to Event.Additional otherwise. A name matches a
+// typed field whatever its case. When several names match the same typed
+// field, the exact name is tried first and then the others in sorted order,
+// and the first whose value fits takes the field. Decoding replaces the whole
+// item, except that a JSON null leaves it as it was. Only a message that is
+// not a JSON object, an event that is not an object, or metadata that does not
+// fit fails to decode.
+func (item *EventItem) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(data, []byte("null")) {
+		return nil
+	}
+	// The event field of envelope shadows the one of plain, which has the
+	// fields of EventItem but not this method.
+	type plain EventItem
+	var envelope struct {
+		Event json.RawMessage `json:"event"`
+		plain
+	}
+	if err := json.Unmarshal(data, &envelope); err != nil {
+		return fmt.Errorf("decode EventItem: %w", err)
+	}
+	event, err := decodeEvent(envelope.Event)
+	if err != nil {
+		return err
+	}
+	*item = EventItem(envelope.plain)
+	item.Event = event
+	return nil
+}
+
+// decodeEvent decodes the fields of an event payload into an Event, as
+// EventItem.UnmarshalJSON describes. A missing or null payload is an empty
+// Event.
+func decodeEvent(data json.RawMessage) (Event, error) {
+	var event Event
+	if len(data) == 0 {
+		return event, nil
+	}
+	var fields map[string]json.RawMessage
+	if err := json.Unmarshal(data, &fields); err != nil {
+		return event, fmt.Errorf("decode event: %w", err)
+	}
+	typed := reflect.ValueOf(&event).Elem()
+	held := make(map[int]bool, len(fields))
+	take := func(name string, i int) {
+		if !held[i] && decodeField(typed.Field(i), fields[name]) {
+			held[i] = true
+			delete(fields, name)
+		}
+	}
+	for name := range fields {
+		if i, ok := eventFields[name]; ok {
+			take(name, i)
+		}
+	}
+	// Sorted, so that the same case variant takes a field every time.
+	for _, name := range slices.Sorted(maps.Keys(fields)) {
+		if i, ok := eventFieldsFolded[strings.ToLower(name)]; ok {
+			take(name, i)
+		}
+	}
+	if len(fields) > 0 {
+		event.Additional = fields
+	}
+	return event, nil
+}
+
+// decodeField decodes value into field and reports whether it fits. A field
+// that the value does not fit is left zero, since encoding/json may have
+// filled part of it before failing.
+func decodeField(field reflect.Value, value json.RawMessage) bool {
+	if err := json.Unmarshal(value, field.Addr().Interface()); err != nil {
+		field.SetZero()
+		return false
+	}
+	return true
 }
 
 type PatternDispositionFlags struct {

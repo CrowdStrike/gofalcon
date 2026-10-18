@@ -665,6 +665,43 @@ func TestStreamDeliversEvents(t *testing.T) {
 	wantEnd{}.check(t, errs)
 }
 
+// An event with a field that does not fit streaming_models.Event is delivered
+// like any other, with that field kept in Event.Additional, and nothing is
+// reported on Errors.
+func TestStreamDeliversEventThatDoesNotFitTheModel(t *testing.T) {
+	t.Parallel()
+
+	wire := `{"metadata":{"offset":7,"eventType":"UserActivityAuditEvent"},"event":{"OperationName":"x","UTCTimestamp":"soon"}}`
+	feed := &fakeFeed{status: http.StatusOK, body: feedOf(wire + "\n")}
+	sh := feed.connect(context.Background(), t)
+
+	var item *streaming_models.EventItem
+	select {
+	case item = <-sh.Events:
+	case se := <-sh.Errors:
+		t.Fatalf("expected the event, got error %v", se)
+	case <-time.After(5 * time.Second):
+		t.Fatal("expected the event within 5s")
+	}
+	if item == nil {
+		t.Fatal("Events was closed before the event was delivered")
+	}
+	if item.Metadata.Offset != 7 || item.Event.OperationName == nil || *item.Event.OperationName != "x" {
+		t.Fatalf("event = offset %d, OperationName %v, want offset 7 and OperationName x", item.Metadata.Offset, item.Event.OperationName)
+	}
+	if got := string(item.Event.Additional["UTCTimestamp"]); got != `"soon"` {
+		t.Fatalf("Additional[UTCTimestamp] = %s, want \"soon\"", got)
+	}
+	if string(item.RawMessage) != wire {
+		t.Fatalf("RawMessage = %s, want the wire bytes %s", item.RawMessage, wire)
+	}
+	events, errs := drain(t, sh)
+	if events != 0 {
+		t.Fatalf("expected no event after the one sent, got %d", events)
+	}
+	wantEnd{}.check(t, errs)
+}
+
 // Close only ends the stream. It leaves alone the idle connections of the
 // http.Client, which the rest of the program may share.
 func TestCloseLeavesIdleConnections(t *testing.T) {
@@ -844,7 +881,7 @@ func TestStreamEndsWithDataFeed(t *testing.T) {
 			wantEvents: 2,
 		},
 		{
-			name:       "event that does not fit the model is reported and skipped",
+			name:       "event that is not an object is reported and skipped",
 			feed:       `{"event":[]}` + "\n" + eventMessage,
 			wantEvents: 1,
 			want:       wantEnd{nonFatal: 1},
