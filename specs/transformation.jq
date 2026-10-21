@@ -768,6 +768,10 @@
 | .paths."/scanner/queries/scans/v1".get.operationId = "QuerySubmissionsMixin0"
 | .paths."/quickscanpro/entities/files/v1".post.operationId = "UploadFileMixin0Mixin93"
 | .paths."/oauth2/token".post.responses."400".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
+# The 10-20 spec makes client_secret optional, for the new authorization-code (PKCE) flow. Client-credentials
+# requests are unchanged, so keep it required: optional would make Oauth2AccessTokenParams.ClientSecret a
+# *string and break every caller. An empty ClientSecret is still left out of the request.
+| (.paths."/oauth2/token".post.parameters[] | select(.name == "client_secret")).required = true
 | .paths."/oauth2/token".post.responses."403".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
 | .paths."/oauth2/token".post.responses."500".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
 | .paths."/oauth2/revoke".post.responses."200".schema = {"$ref": "#/definitions/msa.ReplyMetaOnly"}
