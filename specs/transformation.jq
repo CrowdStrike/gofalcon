@@ -1228,3 +1228,6 @@
 | .paths."/policy/entities/ml-exclusions/v1".patch.parameters =
     [ .paths."/policy/entities/ml-exclusions/v1".patch.parameters[]
       | if .in == "body" then .schema."$ref" = "#/definitions/ml_exclusions.UpdateReqV1" else . end ]
+# The 2026-10-20 spec lists sensor update stage's empty value as the two-character string `""` instead
+# of an empty string. The API sends an empty string, so restore it.
+| .definitions."sensor_update.SettingsRespV2".properties.stage.enum |= map(if . == "\"\"" then "" else . end)
