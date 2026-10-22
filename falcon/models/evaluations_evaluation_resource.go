@@ -25,7 +25,7 @@ type EvaluationsEvaluationResource struct {
 	Captured strfmt.DateTime `json:"captured,omitempty"`
 
 	// cloud groups
-	CloudGroups []*DomainCloudScope `json:"cloud_groups"`
+	CloudGroups []*CloudScope `json:"cloud_groups"`
 
 	// cloud labels
 	CloudLabels []*ClassificationLabel `json:"cloud_labels"`
@@ -42,6 +42,9 @@ type EvaluationsEvaluationResource struct {
 
 	// id
 	ID string `json:"id,omitempty"`
+
+	// namespace
+	Namespace string `json:"namespace,omitempty"`
 
 	// resource id
 	ResourceID string `json:"resource_id,omitempty"`

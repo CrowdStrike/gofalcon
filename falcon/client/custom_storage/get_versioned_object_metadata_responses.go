@@ -31,6 +31,12 @@ func (o *GetVersionedObjectMetadataReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewGetVersionedObjectMetadataUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetVersionedObjectMetadataForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *GetVersionedObjectMetadataOK) readResponse(response runtime.ClientRespo
 	}
 
 	o.Payload = new(models.CustomStorageResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetVersionedObjectMetadataUnauthorized creates a GetVersionedObjectMetadataUnauthorized with default headers values
+func NewGetVersionedObjectMetadataUnauthorized() *GetVersionedObjectMetadataUnauthorized {
+	return &GetVersionedObjectMetadataUnauthorized{}
+}
+
+/*
+GetVersionedObjectMetadataUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type GetVersionedObjectMetadataUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get versioned object metadata unauthorized response has a 2xx status code
+func (o *GetVersionedObjectMetadataUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get versioned object metadata unauthorized response has a 3xx status code
+func (o *GetVersionedObjectMetadataUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get versioned object metadata unauthorized response has a 4xx status code
+func (o *GetVersionedObjectMetadataUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get versioned object metadata unauthorized response has a 5xx status code
+func (o *GetVersionedObjectMetadataUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get versioned object metadata unauthorized response a status code equal to that given
+func (o *GetVersionedObjectMetadataUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the get versioned object metadata unauthorized response
+func (o *GetVersionedObjectMetadataUnauthorized) Code() int {
+	return 401
+}
+
+func (o *GetVersionedObjectMetadataUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetVersionedObjectMetadataUnauthorized) String() string {
+	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata][%d] getVersionedObjectMetadataUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetVersionedObjectMetadataUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetVersionedObjectMetadataUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

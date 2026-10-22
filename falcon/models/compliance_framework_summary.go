@@ -24,6 +24,22 @@ type ComplianceFrameworkSummary struct {
 	// Required: true
 	Authority *string `json:"authority"`
 
+	// created at
+	// Required: true
+	// Format: date-time
+	CreatedAt *strfmt.DateTime `json:"created_at"`
+
+	// created by
+	// Required: true
+	CreatedBy *string `json:"created_by"`
+
+	// deleted at
+	// Format: date-time
+	DeletedAt strfmt.DateTime `json:"deleted_at,omitempty"`
+
+	// deleted by
+	DeletedBy string `json:"deleted_by,omitempty"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`
@@ -40,6 +56,16 @@ type ComplianceFrameworkSummary struct {
 	// Required: true
 	Sections []*ComplianceSectionSummary `json:"sections"`
 
+	// update reason
+	UpdateReason string `json:"update_reason,omitempty"`
+
+	// updated at
+	// Format: date-time
+	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
+
+	// updated by
+	UpdatedBy string `json:"updated_by,omitempty"`
+
 	// version
 	// Required: true
 	Version *string `json:"version"`
@@ -50,6 +76,18 @@ func (m *ComplianceFrameworkSummary) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAuthority(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreatedBy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeletedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -69,6 +107,10 @@ func (m *ComplianceFrameworkSummary) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateUpdatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateVersion(formats); err != nil {
 		res = append(res, err)
 	}
@@ -82,6 +124,40 @@ func (m *ComplianceFrameworkSummary) Validate(formats strfmt.Registry) error {
 func (m *ComplianceFrameworkSummary) validateAuthority(formats strfmt.Registry) error {
 
 	if err := validate.Required("authority", "body", m.Authority); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ComplianceFrameworkSummary) validateCreatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ComplianceFrameworkSummary) validateCreatedBy(formats strfmt.Registry) error {
+
+	if err := validate.Required("created_by", "body", m.CreatedBy); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ComplianceFrameworkSummary) validateDeletedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.DeletedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("deleted_at", "body", "date-time", m.DeletedAt.String(), formats); err != nil {
 		return err
 	}
 
@@ -148,6 +224,18 @@ func (m *ComplianceFrameworkSummary) validateSections(formats strfmt.Registry) e
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *ComplianceFrameworkSummary) validateUpdatedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.UpdatedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("updated_at", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

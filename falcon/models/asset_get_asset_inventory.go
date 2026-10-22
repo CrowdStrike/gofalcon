@@ -24,10 +24,6 @@ type AssetGetAssetInventory struct {
 	// Min Length: 1
 	AccessLevel string `json:"access_level,omitempty"`
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Created
 	// Required: true
 	// Min Length: 1
@@ -118,10 +114,6 @@ func (m *AssetGetAssetInventory) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCreated(formats); err != nil {
 		res = append(res, err)
 	}
@@ -202,15 +194,6 @@ func (m *AssetGetAssetInventory) validateAccessLevel(formats strfmt.Registry) er
 	}
 
 	if err := validate.MinLength("access_level", "body", m.AccessLevel, 1); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AssetGetAssetInventory) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
 		return err
 	}
 

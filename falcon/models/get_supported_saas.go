@@ -26,7 +26,7 @@ type GetSupportedSaas struct {
 	Meta *MetaGetSupportedSaas `json:"meta,omitempty"`
 
 	// resources
-	Resources []*SupportedIntegrationGetSupportedSaas `json:"resources"`
+	Resources []*SupportedIntegrationWithCreationSchemaGetSupportedSaas `json:"resources"`
 }
 
 // Validate validates this get supported saas

@@ -32,6 +32,10 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	Oauth2AccessToken(params *Oauth2AccessTokenParams, opts ...ClientOption) (*Oauth2AccessTokenCreated, error)
 
+	Oauth2Auth(params *Oauth2AuthParams, opts ...ClientOption) error
+
+	Oauth2AuthorizationServerMetadata(params *Oauth2AuthorizationServerMetadataParams, opts ...ClientOption) (*Oauth2AuthorizationServerMetadataOK, error)
+
 	Oauth2RevokeToken(params *Oauth2RevokeTokenParams, opts ...ClientOption) (*Oauth2RevokeTokenOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -72,6 +76,75 @@ func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for oauth2AccessToken: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+Oauth2Auth begins the o auth2 authorization code grant
+*/
+func (a *Client) Oauth2Auth(params *Oauth2AuthParams, opts ...ClientOption) error {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewOauth2AuthParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "oauth2Auth",
+		Method:             "GET",
+		PathPattern:        "/oauth2/auth",
+		ProducesMediaTypes: []string{"application/json", "text/html"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded", "text/html"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &Oauth2AuthReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	_, err := a.transport.Submit(op)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+/*
+Oauth2AuthorizationServerMetadata oauth2 authorization server metadata API
+*/
+func (a *Client) Oauth2AuthorizationServerMetadata(params *Oauth2AuthorizationServerMetadataParams, opts ...ClientOption) (*Oauth2AuthorizationServerMetadataOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewOauth2AuthorizationServerMetadataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "oauth2AuthorizationServerMetadata",
+		Method:             "GET",
+		PathPattern:        "/.well-known/oauth-authorization-server",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &Oauth2AuthorizationServerMetadataReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*Oauth2AuthorizationServerMetadataOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for oauth2AuthorizationServerMetadata: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

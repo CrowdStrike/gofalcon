@@ -39,6 +39,10 @@ type APILocalApplicationUpdateRequestV1 struct {
 	// Required: true
 	GroupIds []string `json:"group_ids"`
 
+	// mac block on timeout
+	// Required: true
+	MacBlockOnTimeout *bool `json:"mac_block_on_timeout"`
+
 	// name
 	Name string `json:"name,omitempty"`
 }
@@ -64,6 +68,10 @@ func (m *APILocalApplicationUpdateRequestV1) Validate(formats strfmt.Registry) e
 	}
 
 	if err := m.validateGroupIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMacBlockOnTimeout(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -112,6 +120,15 @@ func (m *APILocalApplicationUpdateRequestV1) validateExecutableName(formats strf
 func (m *APILocalApplicationUpdateRequestV1) validateGroupIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("group_ids", "body", m.GroupIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APILocalApplicationUpdateRequestV1) validateMacBlockOnTimeout(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_block_on_timeout", "body", m.MacBlockOnTimeout); err != nil {
 		return err
 	}
 

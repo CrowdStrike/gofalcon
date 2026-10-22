@@ -19,53 +19,61 @@ import (
 // swagger:model api.LocalApplication
 type APILocalApplication struct {
 
-	// apply rules for children processes
+	// Whether rules for this application also apply to its child processes
 	// Required: true
 	ApplyRulesForChildrenProcesses *bool `json:"apply_rules_for_children_processes"`
 
-	// cid
+	// Customer identifier that owns the local application
 	// Required: true
 	Cid *string `json:"cid"`
 
-	// created at
+	// Timestamp when the local application was created
 	// Required: true
 	// Format: date-time
 	CreatedAt *strfmt.DateTime `json:"created_at"`
 
-	// deleted
+	// Whether the local application is soft-deleted
 	// Required: true
 	Deleted *bool `json:"deleted"`
 
-	// deleted at
+	// Timestamp when the local application was soft-deleted
 	// Required: true
 	// Format: date-time
 	DeletedAt *strfmt.DateTime `json:"deleted_at"`
 
-	// emit rule matched events only
+	// Whether to emit only events that match a rule
 	// Required: true
 	EmitRuleMatchedEventsOnly *bool `json:"emit_rule_matched_events_only"`
 
-	// enable rename detection
+	// Whether executable rename detection is enabled
 	// Required: true
 	EnableRenameDetection *bool `json:"enable_rename_detection"`
 
-	// executable name
+	// Name of the executable used to identify the local application
 	// Required: true
 	ExecutableName *string `json:"executable_name"`
 
-	// group ids
+	// Identifiers of the local application groups that contain this application
 	// Required: true
 	GroupIds []string `json:"group_ids"`
 
-	// id
+	// Unique identifier of the local application
 	// Required: true
 	ID *string `json:"id"`
 
-	// name
+	// Mac only. Whether to block application activity when inspection times out. Defaults is false
+	// Required: true
+	MacBlockOnTimeout *bool `json:"mac_block_on_timeout"`
+
+	// Display name of the local application
 	// Required: true
 	Name *string `json:"name"`
 
-	// updated at
+	// Operating system platform of the local application; accepts 'win' or 'mac'
+	// Required: true
+	Platform *string `json:"platform"`
+
+	// Timestamp when the local application was last updated
 	// Required: true
 	// Format: date-time
 	UpdatedAt *strfmt.DateTime `json:"updated_at"`
@@ -115,7 +123,15 @@ func (m *APILocalApplication) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMacBlockOnTimeout(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlatform(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -227,9 +243,27 @@ func (m *APILocalApplication) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *APILocalApplication) validateMacBlockOnTimeout(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_block_on_timeout", "body", m.MacBlockOnTimeout); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *APILocalApplication) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APILocalApplication) validatePlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("platform", "body", m.Platform); err != nil {
 		return err
 	}
 

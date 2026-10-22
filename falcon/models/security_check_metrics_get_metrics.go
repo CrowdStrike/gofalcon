@@ -19,10 +19,6 @@ import (
 // swagger:model SecurityCheckMetrics_GetMetrics
 type SecurityCheckMetricsGetMetrics struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Integrations count
 	// Required: true
 	IntegrationsCount *int64 `json:"integrations_count"`
@@ -48,10 +44,6 @@ type SecurityCheckMetricsGetMetrics struct {
 func (m *SecurityCheckMetricsGetMetrics) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateIntegrationsCount(formats); err != nil {
 		res = append(res, err)
 	}
@@ -75,15 +67,6 @@ func (m *SecurityCheckMetricsGetMetrics) Validate(formats strfmt.Registry) error
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *SecurityCheckMetricsGetMetrics) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

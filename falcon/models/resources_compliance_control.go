@@ -33,7 +33,7 @@ type ResourcesComplianceControl struct {
 	AssessmentID *string `json:"assessment_id"`
 
 	// cloud groups
-	CloudGroups []*DomainCloudScope `json:"cloud_groups"`
+	CloudGroups []*CloudScope `json:"cloud_groups"`
 
 	// cloud groups v2
 	CloudGroupsV2 []*DomainCloudGroup `json:"cloud_groups_v2"`

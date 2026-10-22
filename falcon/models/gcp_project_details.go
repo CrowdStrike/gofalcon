@@ -29,6 +29,9 @@ type GcpProjectDetails struct {
 	// dspm status
 	DspmStatus string `json:"dspm_status,omitempty"`
 
+	// google workspace status
+	GoogleWorkspaceStatus string `json:"google_workspace_status,omitempty"`
+
 	// ioa failed permissions
 	IoaFailedPermissions []string `json:"ioa_failed_permissions"`
 

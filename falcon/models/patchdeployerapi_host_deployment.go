@@ -24,6 +24,10 @@ type PatchdeployerapiHostDeployment struct {
 	// Required: true
 	Aid *string `json:"aid"`
 
+	// completed at
+	// Format: date-time
+	CompletedAt strfmt.DateTime `json:"completed_at,omitempty"`
+
 	// country
 	// Required: true
 	Country *string `json:"country"`
@@ -73,6 +77,10 @@ type PatchdeployerapiHostDeployment struct {
 	// Required: true
 	Stages []*PatchdeployerapiStageStatus `json:"stages"`
 
+	// started at
+	// Format: date-time
+	StartedAt strfmt.DateTime `json:"started_at,omitempty"`
+
 	// status
 	// Required: true
 	Status *string `json:"status"`
@@ -90,6 +98,10 @@ func (m *PatchdeployerapiHostDeployment) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateAid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCompletedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -133,6 +145,10 @@ func (m *PatchdeployerapiHostDeployment) Validate(formats strfmt.Registry) error
 		res = append(res, err)
 	}
 
+	if err := m.validateStartedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
@@ -150,6 +166,18 @@ func (m *PatchdeployerapiHostDeployment) Validate(formats strfmt.Registry) error
 func (m *PatchdeployerapiHostDeployment) validateAid(formats strfmt.Registry) error {
 
 	if err := validate.Required("aid", "body", m.Aid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatchdeployerapiHostDeployment) validateCompletedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.CompletedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("completed_at", "body", "date-time", m.CompletedAt.String(), formats); err != nil {
 		return err
 	}
 
@@ -259,6 +287,18 @@ func (m *PatchdeployerapiHostDeployment) validateStages(formats strfmt.Registry)
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *PatchdeployerapiHostDeployment) validateStartedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.StartedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("started_at", "body", "date-time", m.StartedAt.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

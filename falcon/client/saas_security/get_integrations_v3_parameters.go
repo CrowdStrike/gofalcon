@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetIntegrationsV3Params creates a new GetIntegrationsV3Params object,
@@ -61,11 +62,71 @@ GetIntegrationsV3Params contains all the parameters to send to the API endpoint
 */
 type GetIntegrationsV3Params struct {
 
+	/* Alias.
+
+	   Integration aliases. Comma separated or repeated param, case insensitive, matches any
+	*/
+	Alias *string
+
+	/* BusinessOwners.
+
+	   Business owner names or emails. Comma separated or repeated param, case insensitive, matches any
+	*/
+	BusinessOwners *string
+
+	/* Enabled.
+
+	   Enabled
+	*/
+	Enabled *bool
+
+	/* IntegrationID.
+
+	   Comma separated integration ID's. Also matches the parent of a multi-instance integration (as returned by POST create), which the unfiltered list does not show
+	*/
+	IntegrationID *string
+
+	/* IntegrationProgress.
+
+	   Integration progress (0-100). Format: 'less than value', 'greater than value', 'is equal to value' or 'value' (implies 'is equal to value')
+	*/
+	IntegrationProgress *string
+
+	/* IsBeta.
+
+	   SaaS is in beta
+	*/
+	IsBeta *bool
+
+	/* LastRun.
+
+	   Last run was or was not within the last 'value' days. Format: 'was value' or 'was not value' or 'value' (implies 'was value'). 'was not' includes never run
+	*/
+	LastRun *string
+
+	/* OrgDomain.
+
+	   Organization domains. Comma separated or repeated param, case insensitive, matches any. `organization_domain` is an alias
+	*/
+	OrgDomain *string
+
 	/* SaasID.
 
 	   Comma separated SaaS ID's
 	*/
 	SaasID *string
+
+	/* SaasName.
+
+	   SaaS names. Comma separated or repeated param, case insensitive, matches any
+	*/
+	SaasName *string
+
+	/* Status.
+
+	   Integration status: succeeded, partial, failed. Comma separated
+	*/
+	Status *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,6 +181,94 @@ func (o *GetIntegrationsV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAlias adds the alias to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithAlias(alias *string) *GetIntegrationsV3Params {
+	o.SetAlias(alias)
+	return o
+}
+
+// SetAlias adds the alias to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetAlias(alias *string) {
+	o.Alias = alias
+}
+
+// WithBusinessOwners adds the businessOwners to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithBusinessOwners(businessOwners *string) *GetIntegrationsV3Params {
+	o.SetBusinessOwners(businessOwners)
+	return o
+}
+
+// SetBusinessOwners adds the businessOwners to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetBusinessOwners(businessOwners *string) {
+	o.BusinessOwners = businessOwners
+}
+
+// WithEnabled adds the enabled to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithEnabled(enabled *bool) *GetIntegrationsV3Params {
+	o.SetEnabled(enabled)
+	return o
+}
+
+// SetEnabled adds the enabled to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetEnabled(enabled *bool) {
+	o.Enabled = enabled
+}
+
+// WithIntegrationID adds the integrationID to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithIntegrationID(integrationID *string) *GetIntegrationsV3Params {
+	o.SetIntegrationID(integrationID)
+	return o
+}
+
+// SetIntegrationID adds the integrationId to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetIntegrationID(integrationID *string) {
+	o.IntegrationID = integrationID
+}
+
+// WithIntegrationProgress adds the integrationProgress to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithIntegrationProgress(integrationProgress *string) *GetIntegrationsV3Params {
+	o.SetIntegrationProgress(integrationProgress)
+	return o
+}
+
+// SetIntegrationProgress adds the integrationProgress to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetIntegrationProgress(integrationProgress *string) {
+	o.IntegrationProgress = integrationProgress
+}
+
+// WithIsBeta adds the isBeta to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithIsBeta(isBeta *bool) *GetIntegrationsV3Params {
+	o.SetIsBeta(isBeta)
+	return o
+}
+
+// SetIsBeta adds the isBeta to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetIsBeta(isBeta *bool) {
+	o.IsBeta = isBeta
+}
+
+// WithLastRun adds the lastRun to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithLastRun(lastRun *string) *GetIntegrationsV3Params {
+	o.SetLastRun(lastRun)
+	return o
+}
+
+// SetLastRun adds the lastRun to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetLastRun(lastRun *string) {
+	o.LastRun = lastRun
+}
+
+// WithOrgDomain adds the orgDomain to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithOrgDomain(orgDomain *string) *GetIntegrationsV3Params {
+	o.SetOrgDomain(orgDomain)
+	return o
+}
+
+// SetOrgDomain adds the orgDomain to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetOrgDomain(orgDomain *string) {
+	o.OrgDomain = orgDomain
+}
+
 // WithSaasID adds the saasID to the get integrations v3 params
 func (o *GetIntegrationsV3Params) WithSaasID(saasID *string) *GetIntegrationsV3Params {
 	o.SetSaasID(saasID)
@@ -131,6 +280,28 @@ func (o *GetIntegrationsV3Params) SetSaasID(saasID *string) {
 	o.SaasID = saasID
 }
 
+// WithSaasName adds the saasName to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithSaasName(saasName *string) *GetIntegrationsV3Params {
+	o.SetSaasName(saasName)
+	return o
+}
+
+// SetSaasName adds the saasName to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetSaasName(saasName *string) {
+	o.SaasName = saasName
+}
+
+// WithStatus adds the status to the get integrations v3 params
+func (o *GetIntegrationsV3Params) WithStatus(status *string) *GetIntegrationsV3Params {
+	o.SetStatus(status)
+	return o
+}
+
+// SetStatus adds the status to the get integrations v3 params
+func (o *GetIntegrationsV3Params) SetStatus(status *string) {
+	o.Status = status
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetIntegrationsV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -138,6 +309,142 @@ func (o *GetIntegrationsV3Params) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.Alias != nil {
+
+		// query param alias
+		var qrAlias string
+
+		if o.Alias != nil {
+			qrAlias = *o.Alias
+		}
+		qAlias := qrAlias
+		if qAlias != "" {
+
+			if err := r.SetQueryParam("alias", qAlias); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.BusinessOwners != nil {
+
+		// query param business_owners
+		var qrBusinessOwners string
+
+		if o.BusinessOwners != nil {
+			qrBusinessOwners = *o.BusinessOwners
+		}
+		qBusinessOwners := qrBusinessOwners
+		if qBusinessOwners != "" {
+
+			if err := r.SetQueryParam("business_owners", qBusinessOwners); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Enabled != nil {
+
+		// query param enabled
+		var qrEnabled bool
+
+		if o.Enabled != nil {
+			qrEnabled = *o.Enabled
+		}
+		qEnabled := swag.FormatBool(qrEnabled)
+		if qEnabled != "" {
+
+			if err := r.SetQueryParam("enabled", qEnabled); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IntegrationID != nil {
+
+		// query param integration_id
+		var qrIntegrationID string
+
+		if o.IntegrationID != nil {
+			qrIntegrationID = *o.IntegrationID
+		}
+		qIntegrationID := qrIntegrationID
+		if qIntegrationID != "" {
+
+			if err := r.SetQueryParam("integration_id", qIntegrationID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IntegrationProgress != nil {
+
+		// query param integration_progress
+		var qrIntegrationProgress string
+
+		if o.IntegrationProgress != nil {
+			qrIntegrationProgress = *o.IntegrationProgress
+		}
+		qIntegrationProgress := qrIntegrationProgress
+		if qIntegrationProgress != "" {
+
+			if err := r.SetQueryParam("integration_progress", qIntegrationProgress); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IsBeta != nil {
+
+		// query param is_beta
+		var qrIsBeta bool
+
+		if o.IsBeta != nil {
+			qrIsBeta = *o.IsBeta
+		}
+		qIsBeta := swag.FormatBool(qrIsBeta)
+		if qIsBeta != "" {
+
+			if err := r.SetQueryParam("is_beta", qIsBeta); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.LastRun != nil {
+
+		// query param last_run
+		var qrLastRun string
+
+		if o.LastRun != nil {
+			qrLastRun = *o.LastRun
+		}
+		qLastRun := qrLastRun
+		if qLastRun != "" {
+
+			if err := r.SetQueryParam("last_run", qLastRun); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.OrgDomain != nil {
+
+		// query param org_domain
+		var qrOrgDomain string
+
+		if o.OrgDomain != nil {
+			qrOrgDomain = *o.OrgDomain
+		}
+		qOrgDomain := qrOrgDomain
+		if qOrgDomain != "" {
+
+			if err := r.SetQueryParam("org_domain", qOrgDomain); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.SaasID != nil {
 
@@ -151,6 +458,40 @@ func (o *GetIntegrationsV3Params) WriteToRequest(r runtime.ClientRequest, reg st
 		if qSaasID != "" {
 
 			if err := r.SetQueryParam("saas_id", qSaasID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.SaasName != nil {
+
+		// query param saas_name
+		var qrSaasName string
+
+		if o.SaasName != nil {
+			qrSaasName = *o.SaasName
+		}
+		qSaasName := qrSaasName
+		if qSaasName != "" {
+
+			if err := r.SetQueryParam("saas_name", qSaasName); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Status != nil {
+
+		// query param status
+		var qrStatus string
+
+		if o.Status != nil {
+			qrStatus = *o.Status
+		}
+		qStatus := qrStatus
+		if qStatus != "" {
+
+			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}

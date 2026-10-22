@@ -421,6 +421,12 @@ type DomainDiscoverAPIIoTHost struct {
 	// The product type of the asset (Workstation, Domain Controller, Server).
 	ProductTypeDesc string `json:"product_type_desc,omitempty"`
 
+	// The list of encrypted drives on the host whose protection is suspended, meaning the volume key is stored in the clear
+	ProtectionSuspendedDrives []string `json:"protection_suspended_drives"`
+
+	// The count of encrypted drives on the host whose protection is suspended
+	ProtectionSuspendedDrivesCount int32 `json:"protection_suspended_drives_count,omitempty"`
+
 	// The list of protocols supported by the device
 	Protocols []string `json:"protocols"`
 

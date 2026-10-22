@@ -20,10 +20,6 @@ import (
 // swagger:model SecurityCheckWithCompliance_GetSecurityChecks
 type SecurityCheckWithComplianceGetSecurityChecks struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Affected
 	// Required: true
 	Affected *int64 `json:"affected"`
@@ -158,10 +154,6 @@ type SecurityCheckWithComplianceGetSecurityChecks struct {
 func (m *SecurityCheckWithComplianceGetSecurityChecks) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAffected(formats); err != nil {
 		res = append(res, err)
 	}
@@ -277,15 +269,6 @@ func (m *SecurityCheckWithComplianceGetSecurityChecks) Validate(formats strfmt.R
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *SecurityCheckWithComplianceGetSecurityChecks) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

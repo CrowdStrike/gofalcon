@@ -78,12 +78,18 @@ type CspmEvaluationsCombinedIomByRuleParams struct {
 	- `cloud_label_id`
 	- `cloud_provider`
 	- `cloud_scope`
+	- `cloud_service`
+	- `cluster_id`
+	- `cluster_name`
 	- `created_at`
 	- `environment`
 	- `extension_status`
 	- `first_detected`
 	- `framework`
+	- `infrastructure_provider`
 	- `last_detected`
+	- `namespace`
+	- `organization_id`
 	- `policy_id`
 	- `policy_name`
 	- `region`
@@ -94,7 +100,6 @@ type CspmEvaluationsCombinedIomByRuleParams struct {
 	- `resource_status`
 	- `resource_type`
 	- `resource_type_name`
-	- `rule_group`
 	- `rule_id`
 	- `rule_name`
 	- `rule_origin`

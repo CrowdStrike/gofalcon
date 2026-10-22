@@ -19,10 +19,6 @@ import (
 // swagger:model AffectedEntity_GetAffected
 type AffectedEntityGetAffected struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Dismiss expiration date
 	// Format: date-time
 	DismissExpirationDate *strfmt.DateTime `json:"dismiss_expiration_date,omitempty"`
@@ -60,10 +56,6 @@ type AffectedEntityGetAffected struct {
 func (m *AffectedEntityGetAffected) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateDismissExpirationDate(formats); err != nil {
 		res = append(res, err)
 	}
@@ -95,15 +87,6 @@ func (m *AffectedEntityGetAffected) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AffectedEntityGetAffected) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

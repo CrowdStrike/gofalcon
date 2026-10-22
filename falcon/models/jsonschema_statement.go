@@ -26,6 +26,10 @@ type JsonschemaStatement struct {
 	// severity
 	// Required: true
 	Severity *string `json:"severity"`
+
+	// title
+	// Required: true
+	Title *string `json:"title"`
 }
 
 // Validate validates this jsonschema statement
@@ -37,6 +41,10 @@ func (m *JsonschemaStatement) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSeverity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTitle(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -58,6 +66,15 @@ func (m *JsonschemaStatement) validateDescription(formats strfmt.Registry) error
 func (m *JsonschemaStatement) validateSeverity(formats strfmt.Registry) error {
 
 	if err := validate.Required("severity", "body", m.Severity); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *JsonschemaStatement) validateTitle(formats strfmt.Registry) error {
+
+	if err := validate.Required("title", "body", m.Title); err != nil {
 		return err
 	}
 

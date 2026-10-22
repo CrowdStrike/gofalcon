@@ -73,11 +73,41 @@ type Oauth2AccessTokenParams struct {
 	*/
 	ClientSecret string
 
+	/* Code.
+
+	   The authorization code returned by the /oauth2/auth endpoint. Mandatory for grant_type=authorization_code.
+	*/
+	Code *string
+
+	/* CodeVerifier.
+
+	   The PKCE code verifier. Mandatory for grant_type=authorization_code.
+	*/
+	CodeVerifier *string
+
+	/* GrantType.
+
+	   The OAuth2 grant type. Supported values: client_credentials (the default when omitted), authorization_code, refresh_token.
+	*/
+	GrantType *string
+
 	/* MemberCid.
 
 	   For MSSP Master CIDs, optionally lock the token to act on behalf of this member CID
 	*/
 	MemberCid *string
+
+	/* RedirectURI.
+
+	   The redirect URI used in the original authorization request. Mandatory for grant_type=authorization_code.
+	*/
+	RedirectURI *string
+
+	/* Resource.
+
+	   A URI indicating the target service/resource where the requested token will be used (RFC 8707). Optional; when supplied it must be an absolute URI.
+	*/
+	Resource *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -154,6 +184,39 @@ func (o *Oauth2AccessTokenParams) SetClientSecret(clientSecret string) {
 	o.ClientSecret = clientSecret
 }
 
+// WithCode adds the code to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) WithCode(code *string) *Oauth2AccessTokenParams {
+	o.SetCode(code)
+	return o
+}
+
+// SetCode adds the code to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) SetCode(code *string) {
+	o.Code = code
+}
+
+// WithCodeVerifier adds the codeVerifier to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) WithCodeVerifier(codeVerifier *string) *Oauth2AccessTokenParams {
+	o.SetCodeVerifier(codeVerifier)
+	return o
+}
+
+// SetCodeVerifier adds the codeVerifier to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) SetCodeVerifier(codeVerifier *string) {
+	o.CodeVerifier = codeVerifier
+}
+
+// WithGrantType adds the grantType to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) WithGrantType(grantType *string) *Oauth2AccessTokenParams {
+	o.SetGrantType(grantType)
+	return o
+}
+
+// SetGrantType adds the grantType to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) SetGrantType(grantType *string) {
+	o.GrantType = grantType
+}
+
 // WithMemberCid adds the memberCid to the oauth2 access token params
 func (o *Oauth2AccessTokenParams) WithMemberCid(memberCid *string) *Oauth2AccessTokenParams {
 	o.SetMemberCid(memberCid)
@@ -163,6 +226,28 @@ func (o *Oauth2AccessTokenParams) WithMemberCid(memberCid *string) *Oauth2Access
 // SetMemberCid adds the memberCid to the oauth2 access token params
 func (o *Oauth2AccessTokenParams) SetMemberCid(memberCid *string) {
 	o.MemberCid = memberCid
+}
+
+// WithRedirectURI adds the redirectURI to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) WithRedirectURI(redirectURI *string) *Oauth2AccessTokenParams {
+	o.SetRedirectURI(redirectURI)
+	return o
+}
+
+// SetRedirectURI adds the redirectUri to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) SetRedirectURI(redirectURI *string) {
+	o.RedirectURI = redirectURI
+}
+
+// WithResource adds the resource to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) WithResource(resource *string) *Oauth2AccessTokenParams {
+	o.SetResource(resource)
+	return o
+}
+
+// SetResource adds the resource to the oauth2 access token params
+func (o *Oauth2AccessTokenParams) SetResource(resource *string) {
+	o.Resource = resource
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -191,6 +276,51 @@ func (o *Oauth2AccessTokenParams) WriteToRequest(r runtime.ClientRequest, reg st
 		}
 	}
 
+	if o.Code != nil {
+
+		// form param code
+		var frCode string
+		if o.Code != nil {
+			frCode = *o.Code
+		}
+		fCode := frCode
+		if fCode != "" {
+			if err := r.SetFormParam("code", fCode); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.CodeVerifier != nil {
+
+		// form param code_verifier
+		var frCodeVerifier string
+		if o.CodeVerifier != nil {
+			frCodeVerifier = *o.CodeVerifier
+		}
+		fCodeVerifier := frCodeVerifier
+		if fCodeVerifier != "" {
+			if err := r.SetFormParam("code_verifier", fCodeVerifier); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.GrantType != nil {
+
+		// form param grant_type
+		var frGrantType string
+		if o.GrantType != nil {
+			frGrantType = *o.GrantType
+		}
+		fGrantType := frGrantType
+		if fGrantType != "" {
+			if err := r.SetFormParam("grant_type", fGrantType); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.MemberCid != nil {
 
 		// form param member_cid
@@ -201,6 +331,36 @@ func (o *Oauth2AccessTokenParams) WriteToRequest(r runtime.ClientRequest, reg st
 		fMemberCid := frMemberCid
 		if fMemberCid != "" {
 			if err := r.SetFormParam("member_cid", fMemberCid); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.RedirectURI != nil {
+
+		// form param redirect_uri
+		var frRedirectURI string
+		if o.RedirectURI != nil {
+			frRedirectURI = *o.RedirectURI
+		}
+		fRedirectURI := frRedirectURI
+		if fRedirectURI != "" {
+			if err := r.SetFormParam("redirect_uri", fRedirectURI); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Resource != nil {
+
+		// form param resource
+		var frResource string
+		if o.Resource != nil {
+			frResource = *o.Resource
+		}
+		fResource := frResource
+		if fResource != "" {
+			if err := r.SetFormParam("resource", fResource); err != nil {
 				return err
 			}
 		}

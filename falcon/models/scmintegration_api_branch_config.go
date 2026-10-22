@@ -19,6 +19,10 @@ import (
 // swagger:model scmintegration.APIBranchConfig
 type ScmintegrationAPIBranchConfig struct {
 
+	// branches
+	// Required: true
+	Branches []string `json:"branches"`
+
 	// connection id
 	// Required: true
 	ConnectionID *string `json:"connection_id"`
@@ -36,10 +40,6 @@ type ScmintegrationAPIBranchConfig struct {
 	// Required: true
 	Mode *string `json:"mode"`
 
-	// patterns
-	// Required: true
-	Patterns []string `json:"patterns"`
-
 	// repository id
 	RepositoryID string `json:"repository_id,omitempty"`
 
@@ -52,6 +52,10 @@ type ScmintegrationAPIBranchConfig struct {
 // Validate validates this scmintegration API branch config
 func (m *ScmintegrationAPIBranchConfig) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateBranches(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateConnectionID(formats); err != nil {
 		res = append(res, err)
@@ -69,10 +73,6 @@ func (m *ScmintegrationAPIBranchConfig) Validate(formats strfmt.Registry) error 
 		res = append(res, err)
 	}
 
-	if err := m.validatePatterns(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateUpdatedAt(formats); err != nil {
 		res = append(res, err)
 	}
@@ -80,6 +80,15 @@ func (m *ScmintegrationAPIBranchConfig) Validate(formats strfmt.Registry) error 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ScmintegrationAPIBranchConfig) validateBranches(formats strfmt.Registry) error {
+
+	if err := validate.Required("branches", "body", m.Branches); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -117,15 +126,6 @@ func (m *ScmintegrationAPIBranchConfig) validateID(formats strfmt.Registry) erro
 func (m *ScmintegrationAPIBranchConfig) validateMode(formats strfmt.Registry) error {
 
 	if err := validate.Required("mode", "body", m.Mode); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ScmintegrationAPIBranchConfig) validatePatterns(formats strfmt.Registry) error {
-
-	if err := validate.Required("patterns", "body", m.Patterns); err != nil {
 		return err
 	}
 

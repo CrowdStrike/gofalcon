@@ -24,26 +24,34 @@ type PatchdeployerapiStageStatus struct {
 	// Format: date-time
 	CompletedAt strfmt.DateTime `json:"completed_at,omitempty"`
 
-	// failure reason
-	FailureReason string `json:"failure_reason,omitempty"`
+	// error
+	Error string `json:"error,omitempty"`
 
-	// initiated at
+	// error code
+	ErrorCode int32 `json:"error_code,omitempty"`
+
+	// error output
+	ErrorOutput string `json:"error_output,omitempty"`
+
+	// name
 	// Required: true
+	Name *string `json:"name"`
+
+	// order
+	// Required: true
+	Order *int32 `json:"order"`
+
+	// output
+	Output string `json:"output,omitempty"`
+
+	// started at
 	// Format: date-time
-	InitiatedAt *strfmt.DateTime `json:"initiated_at"`
+	StartedAt strfmt.DateTime `json:"started_at,omitempty"`
 
-	// stage name
+	// status
 	// Required: true
-	StageName *string `json:"stage_name"`
-
-	// stage order
-	// Required: true
-	StageOrder *int32 `json:"stage_order"`
-
-	// stage status
-	// Required: true
-	// Enum: [Running Completed Failed]
-	StageStatus *string `json:"stage_status"`
+	// Enum: [Pending Running Completed Failed]
+	Status *string `json:"status"`
 }
 
 // Validate validates this patchdeployerapi stage status
@@ -54,19 +62,19 @@ func (m *PatchdeployerapiStageStatus) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateInitiatedAt(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateStageName(formats); err != nil {
+	if err := m.validateOrder(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateStageOrder(formats); err != nil {
+	if err := m.validateStartedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateStageStatus(formats); err != nil {
+	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -88,77 +96,79 @@ func (m *PatchdeployerapiStageStatus) validateCompletedAt(formats strfmt.Registr
 	return nil
 }
 
-func (m *PatchdeployerapiStageStatus) validateInitiatedAt(formats strfmt.Registry) error {
+func (m *PatchdeployerapiStageStatus) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("initiated_at", "body", m.InitiatedAt); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("initiated_at", "body", "date-time", m.InitiatedAt.String(), formats); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *PatchdeployerapiStageStatus) validateStageName(formats strfmt.Registry) error {
+func (m *PatchdeployerapiStageStatus) validateOrder(formats strfmt.Registry) error {
 
-	if err := validate.Required("stage_name", "body", m.StageName); err != nil {
+	if err := validate.Required("order", "body", m.Order); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *PatchdeployerapiStageStatus) validateStageOrder(formats strfmt.Registry) error {
+func (m *PatchdeployerapiStageStatus) validateStartedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.StartedAt) { // not required
+		return nil
+	}
 
-	if err := validate.Required("stage_order", "body", m.StageOrder); err != nil {
+	if err := validate.FormatOf("started_at", "body", "date-time", m.StartedAt.String(), formats); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-var patchdeployerapiStageStatusTypeStageStatusPropEnum []interface{}
+var patchdeployerapiStageStatusTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Running","Completed","Failed"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Pending","Running","Completed","Failed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
-		patchdeployerapiStageStatusTypeStageStatusPropEnum = append(patchdeployerapiStageStatusTypeStageStatusPropEnum, v)
+		patchdeployerapiStageStatusTypeStatusPropEnum = append(patchdeployerapiStageStatusTypeStatusPropEnum, v)
 	}
 }
 
 const (
 
-	// PatchdeployerapiStageStatusStageStatusRunning captures enum value "Running"
-	PatchdeployerapiStageStatusStageStatusRunning string = "Running"
+	// PatchdeployerapiStageStatusStatusPending captures enum value "Pending"
+	PatchdeployerapiStageStatusStatusPending string = "Pending"
 
-	// PatchdeployerapiStageStatusStageStatusCompleted captures enum value "Completed"
-	PatchdeployerapiStageStatusStageStatusCompleted string = "Completed"
+	// PatchdeployerapiStageStatusStatusRunning captures enum value "Running"
+	PatchdeployerapiStageStatusStatusRunning string = "Running"
 
-	// PatchdeployerapiStageStatusStageStatusFailed captures enum value "Failed"
-	PatchdeployerapiStageStatusStageStatusFailed string = "Failed"
+	// PatchdeployerapiStageStatusStatusCompleted captures enum value "Completed"
+	PatchdeployerapiStageStatusStatusCompleted string = "Completed"
+
+	// PatchdeployerapiStageStatusStatusFailed captures enum value "Failed"
+	PatchdeployerapiStageStatusStatusFailed string = "Failed"
 )
 
 // prop value enum
-func (m *PatchdeployerapiStageStatus) validateStageStatusEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, patchdeployerapiStageStatusTypeStageStatusPropEnum, true); err != nil {
+func (m *PatchdeployerapiStageStatus) validateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, patchdeployerapiStageStatusTypeStatusPropEnum, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *PatchdeployerapiStageStatus) validateStageStatus(formats strfmt.Registry) error {
+func (m *PatchdeployerapiStageStatus) validateStatus(formats strfmt.Registry) error {
 
-	if err := validate.Required("stage_status", "body", m.StageStatus); err != nil {
+	if err := validate.Required("status", "body", m.Status); err != nil {
 		return err
 	}
 
 	// value enum
-	if err := m.validateStageStatusEnum("stage_status", "body", *m.StageStatus); err != nil {
+	if err := m.validateStatusEnum("status", "body", *m.Status); err != nil {
 		return err
 	}
 

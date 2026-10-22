@@ -19,10 +19,6 @@ import (
 // swagger:model Alert_GetAlertsResponse
 type AlertGetAlertsResponse struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// affected diff
 	// Required: true
 	AffectedDiff []*string `json:"affected_diff"`
@@ -87,10 +83,6 @@ type AlertGetAlertsResponse struct {
 func (m *AlertGetAlertsResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAffectedDiff(formats); err != nil {
 		res = append(res, err)
 	}
@@ -146,15 +138,6 @@ func (m *AlertGetAlertsResponse) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AlertGetAlertsResponse) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

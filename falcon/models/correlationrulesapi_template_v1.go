@@ -20,6 +20,9 @@ import (
 // swagger:model correlationrulesapi.TemplateV1
 type CorrelationrulesapiTemplateV1 struct {
 
+	// anomaly
+	Anomaly *CorrelationrulesapiAnomalyV1 `json:"anomaly,omitempty"`
+
 	// author
 	// Required: true
 	Author *string `json:"author"`
@@ -32,6 +35,9 @@ type CorrelationrulesapiTemplateV1 struct {
 	// description
 	// Required: true
 	Description *string `json:"description"`
+
+	// execution mode
+	ExecutionMode string `json:"execution_mode,omitempty"`
 
 	// id
 	// Required: true
@@ -79,6 +85,10 @@ type CorrelationrulesapiTemplateV1 struct {
 // Validate validates this correlationrulesapi template v1
 func (m *CorrelationrulesapiTemplateV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAnomaly(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateAuthor(formats); err != nil {
 		res = append(res, err)
@@ -135,6 +145,25 @@ func (m *CorrelationrulesapiTemplateV1) Validate(formats strfmt.Registry) error 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CorrelationrulesapiTemplateV1) validateAnomaly(formats strfmt.Registry) error {
+	if swag.IsZero(m.Anomaly) { // not required
+		return nil
+	}
+
+	if m.Anomaly != nil {
+		if err := m.Anomaly.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("anomaly")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("anomaly")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -318,6 +347,10 @@ func (m *CorrelationrulesapiTemplateV1) validateVendors(formats strfmt.Registry)
 func (m *CorrelationrulesapiTemplateV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAnomaly(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLicenseDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -341,6 +374,27 @@ func (m *CorrelationrulesapiTemplateV1) ContextValidate(ctx context.Context, for
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CorrelationrulesapiTemplateV1) contextValidateAnomaly(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Anomaly != nil {
+
+		if swag.IsZero(m.Anomaly) { // not required
+			return nil
+		}
+
+		if err := m.Anomaly.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("anomaly")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("anomaly")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -19,10 +19,6 @@ import (
 // swagger:model SystemUser_GetSystemUsers
 type SystemUserGetSystemUsers struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Bypass sso
 	// Required: true
 	BypassSso *bool `json:"bypass_sso"`
@@ -82,10 +78,6 @@ type SystemUserGetSystemUsers struct {
 func (m *SystemUserGetSystemUsers) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateBypassSso(formats); err != nil {
 		res = append(res, err)
 	}
@@ -137,15 +129,6 @@ func (m *SystemUserGetSystemUsers) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *SystemUserGetSystemUsers) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

@@ -40,6 +40,19 @@ type ClientService interface {
 
 	GetReportByScanID(params *GetReportByScanIDParams, opts ...ClientOption) (*GetReportByScanIDOK, error)
 
+	HandleGetReportByReference(params *HandleGetReportByReferenceParams, opts ...ClientOption) (*HandleGetReportByReferenceOK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
+	HandleGetReportByReferenceV2(params *HandleGetReportByReferenceV2Params, opts ...ClientOption) (*HandleGetReportByReferenceV2OK, error)
+
+	HandleGetReportByScanID(params *HandleGetReportByScanIDParams, opts ...ClientOption) (*HandleGetReportByScanIDOK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
+	HandleGetReportByScanIDV2(params *HandleGetReportByScanIDV2Params, opts ...ClientOption) (*HandleGetReportByScanIDV2OK, error)
+
+	// Deprecated: this operation has been deprecated and may be removed in a future release.
+	HandlePolicyCheck(params *HandlePolicyCheckParams, opts ...ClientOption) (*HandlePolicyCheckOK, error)
+
 	HeadImageScanInventory(params *HeadImageScanInventoryParams, opts ...ClientOption) (*HeadImageScanInventoryOK, error)
 
 	LaunchExportJob(params *LaunchExportJobParams, opts ...ClientOption) (*LaunchExportJobOK, error)
@@ -248,6 +261,202 @@ func (a *Client) GetReportByScanID(params *GetReportByScanIDParams, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetReportByScanID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+HandleGetReportByReference handle get report by reference API
+*/
+func (a *Client) HandleGetReportByReference(params *HandleGetReportByReferenceParams, opts ...ClientOption) (*HandleGetReportByReferenceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewHandleGetReportByReferenceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "HandleGetReportByReference",
+		Method:             "GET",
+		PathPattern:        "/reports",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &HandleGetReportByReferenceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*HandleGetReportByReferenceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for HandleGetReportByReference: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+HandleGetReportByReferenceV2 gets scan report by image reference v2 d e p r e c a t e d use the equivalent scan report endpoint in the image scan API instead
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
+*/
+func (a *Client) HandleGetReportByReferenceV2(params *HandleGetReportByReferenceV2Params, opts ...ClientOption) (*HandleGetReportByReferenceV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewHandleGetReportByReferenceV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "HandleGetReportByReferenceV2",
+		Method:             "GET",
+		PathPattern:        "/reports/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &HandleGetReportByReferenceV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*HandleGetReportByReferenceV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for HandleGetReportByReferenceV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+HandleGetReportByScanID handle get report by scan ID API
+*/
+func (a *Client) HandleGetReportByScanID(params *HandleGetReportByScanIDParams, opts ...ClientOption) (*HandleGetReportByScanIDOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewHandleGetReportByScanIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "HandleGetReportByScanID",
+		Method:             "GET",
+		PathPattern:        "/reports/{uuid}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &HandleGetReportByScanIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*HandleGetReportByScanIDOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for HandleGetReportByScanID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+HandleGetReportByScanIDV2 gets scan report by scan ID v2 d e p r e c a t e d use the equivalent scan report endpoint in the image scan API instead
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
+*/
+func (a *Client) HandleGetReportByScanIDV2(params *HandleGetReportByScanIDV2Params, opts ...ClientOption) (*HandleGetReportByScanIDV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewHandleGetReportByScanIDV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "HandleGetReportByScanIDV2",
+		Method:             "GET",
+		PathPattern:        "/reports/v2/{uuid}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &HandleGetReportByScanIDV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*HandleGetReportByScanIDV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for HandleGetReportByScanIDV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+HandlePolicyCheck checks image assessment policy d e p r e c a t e d use the equivalent scan report endpoint in the image scan API instead
+
+Deprecated: this operation has been deprecated and may be removed in a future release.
+*/
+func (a *Client) HandlePolicyCheck(params *HandlePolicyCheckParams, opts ...ClientOption) (*HandlePolicyCheckOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewHandlePolicyCheckParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "HandlePolicyCheck",
+		Method:             "GET",
+		PathPattern:        "/policy-checks",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &HandlePolicyCheckReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*HandlePolicyCheckOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for HandlePolicyCheck: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

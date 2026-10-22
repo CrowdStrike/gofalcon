@@ -39,9 +39,17 @@ type APILocalApplicationCreateRequestV1 struct {
 	// Required: true
 	GroupIds []string `json:"group_ids"`
 
+	// mac block on timeout
+	// Required: true
+	MacBlockOnTimeout *bool `json:"mac_block_on_timeout"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`
+
+	// platform
+	// Required: true
+	Platform *string `json:"platform"`
 }
 
 // Validate validates this api local application create request v1
@@ -68,7 +76,15 @@ func (m *APILocalApplicationCreateRequestV1) Validate(formats strfmt.Registry) e
 		res = append(res, err)
 	}
 
+	if err := m.validateMacBlockOnTimeout(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlatform(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -123,9 +139,27 @@ func (m *APILocalApplicationCreateRequestV1) validateGroupIds(formats strfmt.Reg
 	return nil
 }
 
+func (m *APILocalApplicationCreateRequestV1) validateMacBlockOnTimeout(formats strfmt.Registry) error {
+
+	if err := validate.Required("mac_block_on_timeout", "body", m.MacBlockOnTimeout); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *APILocalApplicationCreateRequestV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APILocalApplicationCreateRequestV1) validatePlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("platform", "body", m.Platform); err != nil {
 		return err
 	}
 

@@ -22,6 +22,9 @@ type CorrelationrulesapiPatchAnomalyV1 struct {
 	// event field names
 	EventFieldNames []string `json:"event_field_names"`
 
+	// event field operation
+	EventFieldOperation string `json:"event_field_operation,omitempty"`
+
 	// lookback timeframe
 	LookbackTimeframe string `json:"lookback_timeframe,omitempty"`
 

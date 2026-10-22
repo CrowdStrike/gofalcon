@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetSupportedSaasV3Params creates a new GetSupportedSaasV3Params object,
@@ -60,6 +61,19 @@ GetSupportedSaasV3Params contains all the parameters to send to the API endpoint
 	Typically these are written to a http.Request.
 */
 type GetSupportedSaasV3Params struct {
+
+	/* ID.
+
+	   SaaS ID
+	*/
+	ID *string
+
+	/* IncludeSchema.
+
+	   Include `creation_schema`: credential flags ('require', 'show' or '' = not offered), extra fields, and `additional_steps` that can only be completed in the Falcon UI
+	*/
+	IncludeSchema *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -113,6 +127,28 @@ func (o *GetSupportedSaasV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithID adds the id to the get supported saas v3 params
+func (o *GetSupportedSaasV3Params) WithID(id *string) *GetSupportedSaasV3Params {
+	o.SetID(id)
+	return o
+}
+
+// SetID adds the id to the get supported saas v3 params
+func (o *GetSupportedSaasV3Params) SetID(id *string) {
+	o.ID = id
+}
+
+// WithIncludeSchema adds the includeSchema to the get supported saas v3 params
+func (o *GetSupportedSaasV3Params) WithIncludeSchema(includeSchema *bool) *GetSupportedSaasV3Params {
+	o.SetIncludeSchema(includeSchema)
+	return o
+}
+
+// SetIncludeSchema adds the includeSchema to the get supported saas v3 params
+func (o *GetSupportedSaasV3Params) SetIncludeSchema(includeSchema *bool) {
+	o.IncludeSchema = includeSchema
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetSupportedSaasV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -120,6 +156,40 @@ func (o *GetSupportedSaasV3Params) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
+
+	if o.ID != nil {
+
+		// query param id
+		var qrID string
+
+		if o.ID != nil {
+			qrID = *o.ID
+		}
+		qID := qrID
+		if qID != "" {
+
+			if err := r.SetQueryParam("id", qID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IncludeSchema != nil {
+
+		// query param include_schema
+		var qrIncludeSchema bool
+
+		if o.IncludeSchema != nil {
+			qrIncludeSchema = *o.IncludeSchema
+		}
+		qIncludeSchema := swag.FormatBool(qrIncludeSchema)
+		if qIncludeSchema != "" {
+
+			if err := r.SetQueryParam("include_schema", qIncludeSchema); err != nil {
+				return err
+			}
+		}
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

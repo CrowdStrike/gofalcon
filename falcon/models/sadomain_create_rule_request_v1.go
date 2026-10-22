@@ -19,6 +19,9 @@ import (
 // swagger:model sadomain.CreateRuleRequestV1
 type SadomainCreateRuleRequestV1 struct {
 
+	// The minimum risk score threshold at or above which AI summaries are generated for matches. `off` excludes the rule from AI summarization. Possible values: [`off`, `auto`, `low`, `medium`, `high`, `critical`]. Default: auto.
+	AiSummariesRiskScoreThreshold string `json:"ai_summaries_risk_score_threshold,omitempty"`
+
 	// Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
 	// Required: true
 	BreachMonitorOnly *bool `json:"breach_monitor_only"`

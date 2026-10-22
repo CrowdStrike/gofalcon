@@ -36,6 +36,8 @@ type ClientService interface {
 
 	CreateCheckJournalCommentV3(params *CreateCheckJournalCommentV3Params, opts ...ClientOption) (*CreateCheckJournalCommentV3OK, error)
 
+	CreateDiscoveredVendorJournalCommentV3(params *CreateDiscoveredVendorJournalCommentV3Params, opts ...ClientOption) (*CreateDiscoveredVendorJournalCommentV3OK, error)
+
 	CreateUserJournalCommentV3(params *CreateUserJournalCommentV3Params, opts ...ClientOption) (*CreateUserJournalCommentV3OK, error)
 
 	DisconnectCheckTagV3(params *DisconnectCheckTagV3Params, opts ...ClientOption) (*DisconnectCheckTagV3OK, error)
@@ -68,6 +70,14 @@ type ClientService interface {
 
 	GetDeviceInventoryV3(params *GetDeviceInventoryV3Params, opts ...ClientOption) (*GetDeviceInventoryV3OK, error)
 
+	GetDiscoveredInstances(params *GetDiscoveredInstancesParams, opts ...ClientOption) (*GetDiscoveredInstancesOK, error)
+
+	GetDiscoveredVendorDevices(params *GetDiscoveredVendorDevicesParams, opts ...ClientOption) (*GetDiscoveredVendorDevicesOK, error)
+
+	GetDiscoveredVendorJournalV3(params *GetDiscoveredVendorJournalV3Params, opts ...ClientOption) (*GetDiscoveredVendorJournalV3OK, error)
+
+	GetDiscoveredVendors(params *GetDiscoveredVendorsParams, opts ...ClientOption) (*GetDiscoveredVendorsOK, error)
+
 	GetIntegrationsV3(params *GetIntegrationsV3Params, opts ...ClientOption) (*GetIntegrationsV3OK, error)
 
 	GetMetricsV3(params *GetMetricsV3Params, opts ...ClientOption) (*GetMetricsV3OK, error)
@@ -90,6 +100,8 @@ type ClientService interface {
 
 	GetUserJournalV3(params *GetUserJournalV3Params, opts ...ClientOption) (*GetUserJournalV3OK, error)
 
+	GetVendorDetails(params *GetVendorDetailsParams, opts ...ClientOption) (*GetVendorDetailsOK, error)
+
 	IntegrationBuilderEndTransactionV3(params *IntegrationBuilderEndTransactionV3Params, opts ...ClientOption) (*IntegrationBuilderEndTransactionV3OK, error)
 
 	IntegrationBuilderGetStatusV3(params *IntegrationBuilderGetStatusV3Params, opts ...ClientOption) (*IntegrationBuilderGetStatusV3OK, error)
@@ -102,9 +114,13 @@ type ClientService interface {
 
 	RestoreSecurityCheckV3(params *RestoreSecurityCheckV3Params, opts ...ClientOption) (*RestoreSecurityCheckV3OK, error)
 
+	SaveIntegrationV3(params *SaveIntegrationV3Params, opts ...ClientOption) (*SaveIntegrationV3OK, error)
+
 	SetCheckImpactV3(params *SetCheckImpactV3Params, opts ...ClientOption) (*SetCheckImpactV3OK, error)
 
 	SetCheckParamV3(params *SetCheckParamV3Params, opts ...ClientOption) (*SetCheckParamV3OK, error)
+
+	UpdateDiscoveredVendorRelevance(params *UpdateDiscoveredVendorRelevanceParams, opts ...ClientOption) (*UpdateDiscoveredVendorRelevanceOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -226,6 +242,46 @@ func (a *Client) CreateCheckJournalCommentV3(params *CreateCheckJournalCommentV3
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for CreateCheckJournalCommentV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateDiscoveredVendorJournalCommentV3 ps o s t discovered vendor journal comment
+
+Append a comment to one or more discovered vendors, identified by their primary domains
+*/
+func (a *Client) CreateDiscoveredVendorJournalCommentV3(params *CreateDiscoveredVendorJournalCommentV3Params, opts ...ClientOption) (*CreateDiscoveredVendorJournalCommentV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateDiscoveredVendorJournalCommentV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateDiscoveredVendorJournalCommentV3",
+		Method:             "POST",
+		PathPattern:        "/saas-security/entities/discovered-vendor-journal/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreateDiscoveredVendorJournalCommentV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateDiscoveredVendorJournalCommentV3OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateDiscoveredVendorJournalCommentV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -870,6 +926,166 @@ func (a *Client) GetDeviceInventoryV3(params *GetDeviceInventoryV3Params, opts .
 }
 
 /*
+GetDiscoveredInstances gs e t discovered vendor instances
+
+Get the instances (distinct subdomains or tenants observed in telemetry) of a discovered vendor, per vendor domain, sorted by device count (descending). Returns no resources when the domain isn't a discovered vendor
+*/
+func (a *Client) GetDiscoveredInstances(params *GetDiscoveredInstancesParams, opts ...ClientOption) (*GetDiscoveredInstancesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoveredInstancesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoveredInstances",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/discovered-instances/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetDiscoveredInstancesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDiscoveredInstancesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDiscoveredInstances: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDiscoveredVendorDevices gs e t discovered vendor devices
+
+Get the devices observed accessing a discovered vendor in the last 7 days, most recently seen first. Returns no resources when the domain isn't a discovered vendor, or when `domain` isn't one of its domains
+*/
+func (a *Client) GetDiscoveredVendorDevices(params *GetDiscoveredVendorDevicesParams, opts ...ClientOption) (*GetDiscoveredVendorDevicesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoveredVendorDevicesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoveredVendorDevices",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/discovered-vendor-devices/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetDiscoveredVendorDevicesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDiscoveredVendorDevicesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDiscoveredVendorDevices: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDiscoveredVendorJournalV3 gs e t discovered vendor journal
+
+Get the journal entries for a discovered vendor
+*/
+func (a *Client) GetDiscoveredVendorJournalV3(params *GetDiscoveredVendorJournalV3Params, opts ...ClientOption) (*GetDiscoveredVendorJournalV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoveredVendorJournalV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoveredVendorJournalV3",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/discovered-vendor-journal/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetDiscoveredVendorJournalV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDiscoveredVendorJournalV3OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDiscoveredVendorJournalV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDiscoveredVendors gs e t discovered vendors
+
+Get a list of SaaS vendors observed across the organization's endpoints, aggregated per vendor across all its domains, sorted by device count (descending)
+*/
+func (a *Client) GetDiscoveredVendors(params *GetDiscoveredVendorsParams, opts ...ClientOption) (*GetDiscoveredVendorsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoveredVendorsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoveredVendors",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/discovered-vendors/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetDiscoveredVendorsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDiscoveredVendorsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDiscoveredVendors: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetIntegrationsV3 gs e t integrations
 
 Get a list of connected integrations in your account
@@ -992,7 +1208,7 @@ func (a *Client) GetSecurityCheckAffectedV3(params *GetSecurityCheckAffectedV3Pa
 /*
 GetSecurityCheckChangeLogV3 gs e t security check change log
 
-Get the log of CrowdStrike's own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count=true is passed.
+Get the log of CrowdStrike's own changes to security checks - detection logic, impact, title and so on. meta.pagination.limit and offset describe the next page and are null on the last one.
 */
 func (a *Client) GetSecurityCheckChangeLogV3(params *GetSecurityCheckChangeLogV3Params, opts ...ClientOption) (*GetSecurityCheckChangeLogV3OK, error) {
 	// TODO: Validate the params before sending
@@ -1112,7 +1328,7 @@ func (a *Client) GetSecurityChecksV3(params *GetSecurityChecksV3Params, opts ...
 /*
 GetSupportedSaasV3 gs e t supported saa s
 
-Get a list of supported integrations
+Get a list of supported integrations. Set `include_schema` to also get, per SaaS, what `POST entities/integrations/v3` needs to create an integration of it
 */
 func (a *Client) GetSupportedSaasV3(params *GetSupportedSaasV3Params, opts ...ClientOption) (*GetSupportedSaasV3OK, error) {
 	// TODO: Validate the params before sending
@@ -1306,6 +1522,46 @@ func (a *Client) GetUserJournalV3(params *GetUserJournalV3Params, opts ...Client
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetUserJournalV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetVendorDetails gs e t vendor details
+
+Get the vendor intelligence of a discovered vendor by its primary domain: name, categories, privacy policy, certifications and security measures. Returns no resources when the domain isn't a discovered vendor
+*/
+func (a *Client) GetVendorDetails(params *GetVendorDetailsParams, opts ...ClientOption) (*GetVendorDetailsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetVendorDetailsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetVendorDetails",
+		Method:             "GET",
+		PathPattern:        "/saas-security/entities/vendor-details/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetVendorDetailsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetVendorDetailsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetVendorDetails: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1550,6 +1806,46 @@ func (a *Client) RestoreSecurityCheckV3(params *RestoreSecurityCheckV3Params, op
 }
 
 /*
+SaveIntegrationV3 ps o s t update or create an integration
+
+With `id`: replace the integration's `business_owners` and/or `org_domains`. For an instance of a multi-instance integration the change applies to all its instances. Without `id`: create an integration of `saas_id`, per the `creation_schema` of GET entities/supported-saas/v3. When `additional_steps` is returned, the integration was created disabled and must be completed in the Falcon UI. For a multi-instance SaaS the returned id is the parent integration: GET with `integration_id=<id>` returns it, and its instances are listed with their own ids once selected in the UI
+*/
+func (a *Client) SaveIntegrationV3(params *SaveIntegrationV3Params, opts ...ClientOption) (*SaveIntegrationV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSaveIntegrationV3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SaveIntegrationV3",
+		Method:             "POST",
+		PathPattern:        "/saas-security/entities/integrations/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &SaveIntegrationV3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SaveIntegrationV3OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for SaveIntegrationV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 SetCheckImpactV3 ps o s t set a security check impact
 
 Set the impact of one instance of a security check. Set `all_future_instances` to also apply it to instances of the same SaaS connected in the future; it does not change instances that already exist. The check is not re-evaluated, only its impact changes
@@ -1626,6 +1922,46 @@ func (a *Client) SetCheckParamV3(params *SetCheckParamV3Params, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for SetCheckParamV3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateDiscoveredVendorRelevance ps a t c h update discovered vendor relevance
+
+Update the relevance of a discovered vendor. Relevance is the only customer-managed attribute of a vendor; setting the same relevance again changes nothing, including its reason
+*/
+func (a *Client) UpdateDiscoveredVendorRelevance(params *UpdateDiscoveredVendorRelevanceParams, opts ...ClientOption) (*UpdateDiscoveredVendorRelevanceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDiscoveredVendorRelevanceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateDiscoveredVendorRelevance",
+		Method:             "PATCH",
+		PathPattern:        "/saas-security/entities/discovered-vendors/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateDiscoveredVendorRelevanceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDiscoveredVendorRelevanceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateDiscoveredVendorRelevance: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

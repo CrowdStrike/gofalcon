@@ -34,6 +34,8 @@ type ClientService interface {
 
 	CreateExclusionRule(params *CreateExclusionRuleParams, opts ...ClientOption) (*CreateExclusionRuleCreated, error)
 
+	CreatePullJob(params *CreatePullJobParams, opts ...ClientOption) (*CreatePullJobAccepted, error)
+
 	DeleteBranchConfig(params *DeleteBranchConfigParams, opts ...ClientOption) (*DeleteBranchConfigOK, error)
 
 	DeleteExclusionRule(params *DeleteExclusionRuleParams, opts ...ClientOption) (*DeleteExclusionRuleOK, error)
@@ -136,7 +138,45 @@ func (a *Client) CreateExclusionRule(params *CreateExclusionRuleParams, opts ...
 }
 
 /*
-DeleteBranchConfig deletes a branch config or exclude a specific repository from a connection level config when repository id query param is provided
+CreatePullJob triggers an on demand pull of a repository at a ref
+*/
+func (a *Client) CreatePullJob(params *CreatePullJobParams, opts ...ClientOption) (*CreatePullJobAccepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreatePullJobParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreatePullJob",
+		Method:             "POST",
+		PathPattern:        "/scm-integration/entities/repositories/v1/{repository_id}/pulls",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreatePullJobReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreatePullJobAccepted)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreatePullJob: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteBranchConfig deletes a branch config with multiple ids only repository level configs are deleted unknown or already deleted ids are skipped
 */
 func (a *Client) DeleteBranchConfig(params *DeleteBranchConfigParams, opts ...ClientOption) (*DeleteBranchConfigOK, error) {
 	// TODO: Validate the params before sending

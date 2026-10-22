@@ -37,6 +37,12 @@ func (o *DeleteTemplatesReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewDeleteTemplatesUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewDeleteTemplatesForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -283,6 +289,116 @@ func (o *DeleteTemplatesBadRequest) readResponse(response runtime.ClientResponse
 	}
 
 	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDeleteTemplatesUnauthorized creates a DeleteTemplatesUnauthorized with default headers values
+func NewDeleteTemplatesUnauthorized() *DeleteTemplatesUnauthorized {
+	return &DeleteTemplatesUnauthorized{}
+}
+
+/*
+DeleteTemplatesUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type DeleteTemplatesUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this delete templates unauthorized response has a 2xx status code
+func (o *DeleteTemplatesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete templates unauthorized response has a 3xx status code
+func (o *DeleteTemplatesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete templates unauthorized response has a 4xx status code
+func (o *DeleteTemplatesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete templates unauthorized response has a 5xx status code
+func (o *DeleteTemplatesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete templates unauthorized response a status code equal to that given
+func (o *DeleteTemplatesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the delete templates unauthorized response
+func (o *DeleteTemplatesUnauthorized) Code() int {
+	return 401
+}
+
+func (o *DeleteTemplatesUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /netscan/entities/templates/v1][%d] deleteTemplatesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteTemplatesUnauthorized) String() string {
+	return fmt.Sprintf("[DELETE /netscan/entities/templates/v1][%d] deleteTemplatesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteTemplatesUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *DeleteTemplatesUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

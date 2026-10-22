@@ -36,8 +36,6 @@ type ClientService interface {
 
 	EntitiesEvalRunsDeleteV1(params *EntitiesEvalRunsDeleteV1Params, opts ...ClientOption) (*EntitiesEvalRunsDeleteV1OK, error)
 
-	EntitiesEvalRunsUpdateV1(params *EntitiesEvalRunsUpdateV1Params, opts ...ClientOption) (*EntitiesEvalRunsUpdateV1OK, error)
-
 	EntitiesEvalRunsV1(params *EntitiesEvalRunsV1Params, opts ...ClientOption) (*EntitiesEvalRunsV1OK, error)
 
 	QueriesEvalRunsV1(params *QueriesEvalRunsV1Params, opts ...ClientOption) (*QueriesEvalRunsV1OK, error)
@@ -156,44 +154,6 @@ func (a *Client) EntitiesEvalRunsDeleteV1(params *EntitiesEvalRunsDeleteV1Params
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for EntitiesEvalRunsDeleteV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-EntitiesEvalRunsUpdateV1 updates an existing evaluation run metadata
-*/
-func (a *Client) EntitiesEvalRunsUpdateV1(params *EntitiesEvalRunsUpdateV1Params, opts ...ClientOption) (*EntitiesEvalRunsUpdateV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewEntitiesEvalRunsUpdateV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "EntitiesEvalRunsUpdateV1",
-		Method:             "PATCH",
-		PathPattern:        "/agentic-studio-evals/entities/runs/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &EntitiesEvalRunsUpdateV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*EntitiesEvalRunsUpdateV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for EntitiesEvalRunsUpdateV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

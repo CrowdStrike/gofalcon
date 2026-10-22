@@ -30,6 +30,9 @@ type MalqueryExternalQueryResponse struct {
 	// Query results
 	// Required: true
 	Resources []*MalqueryExternalResource `json:"resources"`
+
+	// shadow id
+	ShadowID string `json:"shadow_id,omitempty"`
 }
 
 // Validate validates this malquery external query response

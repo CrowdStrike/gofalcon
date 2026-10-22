@@ -31,6 +31,12 @@ func (o *DeleteObjectReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewDeleteObjectUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewDeleteObjectForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *DeleteObjectOK) readResponse(response runtime.ClientResponse, consumer 
 	}
 
 	o.Payload = new(models.CustomStorageResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDeleteObjectUnauthorized creates a DeleteObjectUnauthorized with default headers values
+func NewDeleteObjectUnauthorized() *DeleteObjectUnauthorized {
+	return &DeleteObjectUnauthorized{}
+}
+
+/*
+DeleteObjectUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type DeleteObjectUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this delete object unauthorized response has a 2xx status code
+func (o *DeleteObjectUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete object unauthorized response has a 3xx status code
+func (o *DeleteObjectUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete object unauthorized response has a 4xx status code
+func (o *DeleteObjectUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete object unauthorized response has a 5xx status code
+func (o *DeleteObjectUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete object unauthorized response a status code equal to that given
+func (o *DeleteObjectUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the delete object unauthorized response
+func (o *DeleteObjectUnauthorized) Code() int {
+	return 401
+}
+
+func (o *DeleteObjectUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] deleteObjectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteObjectUnauthorized) String() string {
+	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] deleteObjectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteObjectUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *DeleteObjectUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

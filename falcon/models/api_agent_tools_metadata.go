@@ -22,6 +22,12 @@ type APIAgentToolsMetadata struct {
 	// enabled
 	// Required: true
 	Enabled *bool `json:"enabled"`
+
+	// instruction to agents
+	InstructionToAgents string `json:"instruction_to_agents,omitempty"`
+
+	// require human approval
+	RequireHumanApproval bool `json:"require_human_approval,omitempty"`
 }
 
 // Validate validates this api agent tools metadata

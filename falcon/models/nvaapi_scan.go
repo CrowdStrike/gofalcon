@@ -50,7 +50,7 @@ type NvaapiScan struct {
 
 	// The frequency of the scan
 	// Required: true
-	// Enum: [not_scheduled,once,daily,weekly,monthly]
+	// Enum: [not_scheduled,once,daily,weekly,biweekly,monthly]
 	Frequency *string `json:"frequency"`
 
 	// The unique identifier for the scan
@@ -274,7 +274,7 @@ var nvaapiScanTypeFrequencyPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["not_scheduled,once,daily,weekly,monthly"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["not_scheduled,once,daily,weekly,biweekly,monthly"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -284,8 +284,8 @@ func init() {
 
 const (
 
-	// NvaapiScanFrequencyNotScheduledOnceDailyWeeklyMonthly captures enum value "not_scheduled,once,daily,weekly,monthly"
-	NvaapiScanFrequencyNotScheduledOnceDailyWeeklyMonthly string = "not_scheduled,once,daily,weekly,monthly"
+	// NvaapiScanFrequencyNotScheduledOnceDailyWeeklyBiweeklyMonthly captures enum value "not_scheduled,once,daily,weekly,biweekly,monthly"
+	NvaapiScanFrequencyNotScheduledOnceDailyWeeklyBiweeklyMonthly string = "not_scheduled,once,daily,weekly,biweekly,monthly"
 )
 
 // prop value enum

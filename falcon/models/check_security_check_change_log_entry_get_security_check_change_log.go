@@ -27,6 +27,10 @@ type CheckSecurityCheckChangeLogEntryGetSecurityCheckChangeLog struct {
 	// Required: true
 	// Min Length: 1
 	Integration *string `json:"integration"`
+
+	// Integration id
+	// Required: true
+	IntegrationID *string `json:"integration_id"`
 }
 
 // Validate validates this check security check change log entry get security check change log
@@ -38,6 +42,10 @@ func (m *CheckSecurityCheckChangeLogEntryGetSecurityCheckChangeLog) Validate(for
 	}
 
 	if err := m.validateIntegration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIntegrationID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -63,6 +71,15 @@ func (m *CheckSecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateInte
 	}
 
 	if err := validate.MinLength("integration", "body", *m.Integration, 1); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CheckSecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateIntegrationID(formats strfmt.Registry) error {
+
+	if err := validate.Required("integration_id", "body", m.IntegrationID); err != nil {
 		return err
 	}
 

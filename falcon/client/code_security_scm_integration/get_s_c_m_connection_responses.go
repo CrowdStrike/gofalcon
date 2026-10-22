@@ -31,6 +31,12 @@ func (o *GetSCMConnectionReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return result, nil
+	case 401:
+		result := NewGetSCMConnectionUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetSCMConnectionForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -155,6 +161,116 @@ func (o *GetSCMConnectionOK) readResponse(response runtime.ClientResponse, consu
 	}
 
 	o.Payload = new(models.APIResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSCMConnectionUnauthorized creates a GetSCMConnectionUnauthorized with default headers values
+func NewGetSCMConnectionUnauthorized() *GetSCMConnectionUnauthorized {
+	return &GetSCMConnectionUnauthorized{}
+}
+
+/*
+GetSCMConnectionUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type GetSCMConnectionUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this get s c m connection unauthorized response has a 2xx status code
+func (o *GetSCMConnectionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get s c m connection unauthorized response has a 3xx status code
+func (o *GetSCMConnectionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get s c m connection unauthorized response has a 4xx status code
+func (o *GetSCMConnectionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get s c m connection unauthorized response has a 5xx status code
+func (o *GetSCMConnectionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get s c m connection unauthorized response a status code equal to that given
+func (o *GetSCMConnectionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the get s c m connection unauthorized response
+func (o *GetSCMConnectionUnauthorized) Code() int {
+	return 401
+}
+
+func (o *GetSCMConnectionUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /scm-integration/entities/connections/v1/{uuid}][%d] getSCMConnectionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSCMConnectionUnauthorized) String() string {
+	return fmt.Sprintf("[GET /scm-integration/entities/connections/v1/{uuid}][%d] getSCMConnectionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSCMConnectionUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *GetSCMConnectionUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

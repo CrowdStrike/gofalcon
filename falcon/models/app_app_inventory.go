@@ -25,10 +25,6 @@ type AppAppInventory struct {
 	// Min Length: 1
 	AccessLevel *string `json:"access_level"`
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// App id
 	// Required: true
 	// Min Length: 1
@@ -101,10 +97,6 @@ func (m *AppAppInventory) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAppID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -170,15 +162,6 @@ func (m *AppAppInventory) validateAccessLevel(formats strfmt.Registry) error {
 	}
 
 	if err := validate.MinLength("access_level", "body", *m.AccessLevel, 1); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AppAppInventory) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
 		return err
 	}
 

@@ -108,12 +108,6 @@ type GetSecurityCheckChangeLogV3Params struct {
 	*/
 	ToDate *strfmt.DateTime
 
-	/* TotalCount.
-
-	   Fetch Total Count?
-	*/
-	TotalCount *bool
-
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -244,17 +238,6 @@ func (o *GetSecurityCheckChangeLogV3Params) SetToDate(toDate *strfmt.DateTime) {
 	o.ToDate = toDate
 }
 
-// WithTotalCount adds the totalCount to the get security check change log v3 params
-func (o *GetSecurityCheckChangeLogV3Params) WithTotalCount(totalCount *bool) *GetSecurityCheckChangeLogV3Params {
-	o.SetTotalCount(totalCount)
-	return o
-}
-
-// SetTotalCount adds the totalCount to the get security check change log v3 params
-func (o *GetSecurityCheckChangeLogV3Params) SetTotalCount(totalCount *bool) {
-	o.TotalCount = totalCount
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *GetSecurityCheckChangeLogV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -377,23 +360,6 @@ func (o *GetSecurityCheckChangeLogV3Params) WriteToRequest(r runtime.ClientReque
 		if qToDate != "" {
 
 			if err := r.SetQueryParam("to_date", qToDate); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.TotalCount != nil {
-
-		// query param total_count
-		var qrTotalCount bool
-
-		if o.TotalCount != nil {
-			qrTotalCount = *o.TotalCount
-		}
-		qTotalCount := swag.FormatBool(qrTotalCount)
-		if qTotalCount != "" {
-
-			if err := r.SetQueryParam("total_count", qTotalCount); err != nil {
 				return err
 			}
 		}
