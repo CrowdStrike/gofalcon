@@ -1231,3 +1231,26 @@
 # The 2026-10-20 spec lists sensor update stage's empty value as the two-character string `""` instead
 # of an empty string. The API sends an empty string, so restore it.
 | .definitions."sensor_update.SettingsRespV2".properties.stage.enum |= map(if . == "\"\"" then "" else . end)
+# The 10-20 spec adds GET /.well-known/oauth-authorization-server, the RFC 8414 metadata for the new
+# authorization-code (PKCE) flow, with a tag and operationId generated from its path (".well-known",
+# "GET.well-knownoauth-authorization-server") and no response schema, so generated clients discard the body.
+# Group it with the other OAuth2 operations, name it to match, and declare the metadata the API returns.
+| .definitions."oauth2.AuthorizationServerMetadata" = {
+    "type": "object",
+    "required": ["issuer", "response_types_supported"],
+    "properties": {
+      "issuer": {"type": "string"},
+      "authorization_endpoint": {"type": "string"},
+      "token_endpoint": {"type": "string"},
+      "response_types_supported": {"type": "array", "items": {"type": "string"}},
+      "grant_types_supported": {"type": "array", "items": {"type": "string"}},
+      "token_endpoint_auth_methods_supported": {"type": "array", "items": {"type": "string"}},
+      "code_challenge_methods_supported": {"type": "array", "items": {"type": "string"}},
+      "client_id_metadata_document_supported": {"type": "boolean"}
+    }
+  }
+| .paths."/.well-known/oauth-authorization-server".get |= (
+    .tags = ["oauth2"]
+    | .operationId = "oauth2AuthorizationServerMetadata"
+    | .responses."200".schema = {"$ref": "#/definitions/oauth2.AuthorizationServerMetadata"}
+  )
