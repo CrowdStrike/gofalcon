@@ -54,7 +54,7 @@ type RegistrationAzureAccountV1Ext struct {
 	ClientID string `json:"client_id,omitempty"`
 
 	// cloud scopes
-	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
+	CloudScopes []*CloudScope `json:"cloud_scopes"`
 
 	// conditions
 	Conditions []*StatemgmtCondition `json:"conditions"`

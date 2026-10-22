@@ -20,14 +20,14 @@ import (
 // swagger:model AccountIntegration_GetIntegrations
 type AccountIntegrationGetIntegrations struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Alias
 	// Required: true
 	// Min Length: 1
 	Alias *string `json:"alias"`
+
+	// business owners
+	// Required: true
+	BusinessOwners []*BusinessOwnerAccountIntegrationGetIntegrations `json:"business_owners"`
 
 	// Created time
 	// Required: true
@@ -42,10 +42,18 @@ type AccountIntegrationGetIntegrations struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// Integration progress
+	// Required: true
+	IntegrationProgress *int64 `json:"integration_progress"`
+
 	// Integration status
 	// Required: true
 	// Min Length: 1
 	IntegrationStatus *string `json:"integration_status"`
+
+	// Is beta
+	// Required: true
+	IsBeta *bool `json:"is_beta"`
 
 	// issues
 	// Required: true
@@ -55,6 +63,10 @@ type AccountIntegrationGetIntegrations struct {
 	// Required: true
 	// Format: date-time
 	LastRun *strfmt.DateTime `json:"last_run"`
+
+	// org domains
+	// Required: true
+	OrgDomains []string `json:"org_domains"`
 
 	// Saas id
 	// Required: true
@@ -71,11 +83,11 @@ type AccountIntegrationGetIntegrations struct {
 func (m *AccountIntegrationGetIntegrations) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
+	if err := m.validateAlias(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateAlias(formats); err != nil {
+	if err := m.validateBusinessOwners(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -91,7 +103,15 @@ func (m *AccountIntegrationGetIntegrations) Validate(formats strfmt.Registry) er
 		res = append(res, err)
 	}
 
+	if err := m.validateIntegrationProgress(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIntegrationStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsBeta(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -100,6 +120,10 @@ func (m *AccountIntegrationGetIntegrations) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateLastRun(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOrgDomains(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -117,15 +141,6 @@ func (m *AccountIntegrationGetIntegrations) Validate(formats strfmt.Registry) er
 	return nil
 }
 
-func (m *AccountIntegrationGetIntegrations) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *AccountIntegrationGetIntegrations) validateAlias(formats strfmt.Registry) error {
 
 	if err := validate.Required("alias", "body", m.Alias); err != nil {
@@ -134,6 +149,33 @@ func (m *AccountIntegrationGetIntegrations) validateAlias(formats strfmt.Registr
 
 	if err := validate.MinLength("alias", "body", *m.Alias, 1); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *AccountIntegrationGetIntegrations) validateBusinessOwners(formats strfmt.Registry) error {
+
+	if err := validate.Required("business_owners", "body", m.BusinessOwners); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.BusinessOwners); i++ {
+		if swag.IsZero(m.BusinessOwners[i]) { // not required
+			continue
+		}
+
+		if m.BusinessOwners[i] != nil {
+			if err := m.BusinessOwners[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("business_owners" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("business_owners" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -170,6 +212,15 @@ func (m *AccountIntegrationGetIntegrations) validateID(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *AccountIntegrationGetIntegrations) validateIntegrationProgress(formats strfmt.Registry) error {
+
+	if err := validate.Required("integration_progress", "body", m.IntegrationProgress); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AccountIntegrationGetIntegrations) validateIntegrationStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("integration_status", "body", m.IntegrationStatus); err != nil {
@@ -177,6 +228,15 @@ func (m *AccountIntegrationGetIntegrations) validateIntegrationStatus(formats st
 	}
 
 	if err := validate.MinLength("integration_status", "body", *m.IntegrationStatus, 1); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AccountIntegrationGetIntegrations) validateIsBeta(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_beta", "body", m.IsBeta); err != nil {
 		return err
 	}
 
@@ -223,6 +283,23 @@ func (m *AccountIntegrationGetIntegrations) validateLastRun(formats strfmt.Regis
 	return nil
 }
 
+func (m *AccountIntegrationGetIntegrations) validateOrgDomains(formats strfmt.Registry) error {
+
+	if err := validate.Required("org_domains", "body", m.OrgDomains); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.OrgDomains); i++ {
+
+		if err := validate.MinLength("org_domains"+"."+strconv.Itoa(i), "body", m.OrgDomains[i], 1); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
 func (m *AccountIntegrationGetIntegrations) validateSaasID(formats strfmt.Registry) error {
 
 	if err := validate.Required("saas_id", "body", m.SaasID); err != nil {
@@ -253,6 +330,10 @@ func (m *AccountIntegrationGetIntegrations) validateSaasName(formats strfmt.Regi
 func (m *AccountIntegrationGetIntegrations) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateBusinessOwners(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateIssues(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -260,6 +341,31 @@ func (m *AccountIntegrationGetIntegrations) ContextValidate(ctx context.Context,
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *AccountIntegrationGetIntegrations) contextValidateBusinessOwners(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.BusinessOwners); i++ {
+
+		if m.BusinessOwners[i] != nil {
+
+			if swag.IsZero(m.BusinessOwners[i]) { // not required
+				return nil
+			}
+
+			if err := m.BusinessOwners[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("business_owners" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("business_owners" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

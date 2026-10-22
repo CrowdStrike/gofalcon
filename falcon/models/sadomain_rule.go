@@ -19,6 +19,10 @@ import (
 // swagger:model sadomain.Rule
 type SadomainRule struct {
 
+	// The minimum risk score threshold at or above which AI summaries are generated for matches. `off` excludes the rule from AI summarization. Possible values: [`off`, `auto`, `low`, `medium`, `high`, `critical`].
+	// Required: true
+	AiSummariesRiskScoreThreshold *string `json:"ai_summaries_risk_score_threshold"`
+
 	// Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
 	// Required: true
 	BreachMonitorOnly *bool `json:"breach_monitor_only"`
@@ -120,6 +124,10 @@ type SadomainRule struct {
 func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAiSummariesRiskScoreThreshold(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateBreachMonitorOnly(formats); err != nil {
 		res = append(res, err)
 	}
@@ -191,6 +199,15 @@ func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SadomainRule) validateAiSummariesRiskScoreThreshold(formats strfmt.Registry) error {
+
+	if err := validate.Required("ai_summaries_risk_score_threshold", "body", m.AiSummariesRiskScoreThreshold); err != nil {
+		return err
+	}
+
 	return nil
 }
 

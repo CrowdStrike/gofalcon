@@ -42,7 +42,7 @@ type ResourcesCloudResource struct {
 	CloudContext *ResourcesCloudContext `json:"cloud_context,omitempty"`
 
 	// cloud groups
-	CloudGroups []*DomainCloudScope `json:"cloud_groups"`
+	CloudGroups []*CloudScope `json:"cloud_groups"`
 
 	// cloud groups v2
 	CloudGroupsV2 []*DomainCloudGroup `json:"cloud_groups_v2"`

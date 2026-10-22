@@ -37,6 +37,12 @@ func (o *UploadSampleV3Reader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewUploadSampleV3Unauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewUploadSampleV3Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *UploadSampleV3BadRequest) readResponse(response runtime.ClientResponse,
 	}
 
 	o.Payload = new(models.ClientSampleMetadataResponseV2)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUploadSampleV3Unauthorized creates a UploadSampleV3Unauthorized with default headers values
+func NewUploadSampleV3Unauthorized() *UploadSampleV3Unauthorized {
+	return &UploadSampleV3Unauthorized{}
+}
+
+/*
+UploadSampleV3Unauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type UploadSampleV3Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this upload sample v3 unauthorized response has a 2xx status code
+func (o *UploadSampleV3Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload sample v3 unauthorized response has a 3xx status code
+func (o *UploadSampleV3Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload sample v3 unauthorized response has a 4xx status code
+func (o *UploadSampleV3Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this upload sample v3 unauthorized response has a 5xx status code
+func (o *UploadSampleV3Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload sample v3 unauthorized response a status code equal to that given
+func (o *UploadSampleV3Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the upload sample v3 unauthorized response
+func (o *UploadSampleV3Unauthorized) Code() int {
+	return 401
+}
+
+func (o *UploadSampleV3Unauthorized) Error() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *UploadSampleV3Unauthorized) String() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Unauthorized  %+v", 401, o.Payload)
+}
+
+func (o *UploadSampleV3Unauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *UploadSampleV3Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

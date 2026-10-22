@@ -63,7 +63,7 @@ type DeleteBranchConfigParams struct {
 
 	/* Ids.
 
-	   Branch config UUID
+	   Comma-separated branch config UUIDs (max 100)
 	*/
 	Ids string
 

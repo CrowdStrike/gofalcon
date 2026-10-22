@@ -48,7 +48,7 @@ type DomainGCPAccountV1 struct {
 	CloudRegistrationEnabled *bool `json:"cloud_registration_enabled"`
 
 	// cloud scopes
-	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
+	CloudScopes []*CloudScope `json:"cloud_scopes"`
 
 	// conditions
 	Conditions []*StatemgmtCondition `json:"conditions"`

@@ -20,10 +20,6 @@ import (
 // swagger:model User_GetUserInventory
 type UserGetUserInventory struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Company
 	// Required: true
 	// Min Length: 1
@@ -102,10 +98,6 @@ type UserGetUserInventory struct {
 func (m *UserGetUserInventory) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCompany(formats); err != nil {
 		res = append(res, err)
 	}
@@ -173,15 +165,6 @@ func (m *UserGetUserInventory) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *UserGetUserInventory) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

@@ -27,6 +27,12 @@ type DtoGCPRegistration struct {
 	// Required: true
 	CloudRegistrationEnabled *bool `json:"cloud_registration_enabled"`
 
+	// connected through registration id
+	ConnectedThroughRegistrationID string `json:"connected_through_registration_id,omitempty"`
+
+	// connected through registration name
+	ConnectedThroughRegistrationName string `json:"connected_through_registration_name,omitempty"`
+
 	// created
 	// Format: date-time
 	Created strfmt.DateTime `json:"created,omitempty"`
@@ -52,6 +58,9 @@ type DtoGCPRegistration struct {
 
 	// folders
 	Folders []*DtoFolder `json:"folders"`
+
+	// google workspace
+	GoogleWorkspace *DtoWorkspaceProperties `json:"google_workspace,omitempty"`
 
 	// infra manager properties
 	InfraManagerProperties *DtoInfraManagerProperties `json:"infra_manager_properties,omitempty"`
@@ -140,6 +149,10 @@ func (m *DtoGCPRegistration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFolders(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGoogleWorkspace(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -267,6 +280,25 @@ func (m *DtoGCPRegistration) validateFolders(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DtoGCPRegistration) validateGoogleWorkspace(formats strfmt.Registry) error {
+	if swag.IsZero(m.GoogleWorkspace) { // not required
+		return nil
+	}
+
+	if m.GoogleWorkspace != nil {
+		if err := m.GoogleWorkspace.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("google_workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("google_workspace")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -512,6 +544,10 @@ func (m *DtoGCPRegistration) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateGoogleWorkspace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateInfraManagerProperties(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -599,6 +635,27 @@ func (m *DtoGCPRegistration) contextValidateFolders(ctx context.Context, formats
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DtoGCPRegistration) contextValidateGoogleWorkspace(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GoogleWorkspace != nil {
+
+		if swag.IsZero(m.GoogleWorkspace) { // not required
+			return nil
+		}
+
+		if err := m.GoogleWorkspace.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("google_workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("google_workspace")
+			}
+			return err
+		}
 	}
 
 	return nil

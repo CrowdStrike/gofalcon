@@ -25,6 +25,9 @@ type JsonschemaUIExtensions struct {
 	// show a create-new button alongside the select dropdown
 	AddButton bool `json:"add-button,omitempty"`
 
+	// column definitions for data-fabric-entity-table component
+	Columns []*JsonschemaColumnDefinition `json:"columns"`
+
 	// component
 	Component string `json:"component,omitempty"`
 
@@ -49,6 +52,9 @@ type JsonschemaUIExtensions struct {
 	// input type
 	InputType string `json:"inputType,omitempty"`
 
+	// label for each entry of a group-array input, e.g. Indicator
+	ItemLabel string `json:"itemLabel,omitempty"`
+
 	// specify the position of the label relative to its associated element
 	LabelPosition string `json:"labelPosition,omitempty"`
 
@@ -63,6 +69,9 @@ type JsonschemaUIExtensions struct {
 
 	// makes a form field read only
 	ReadOnly bool `json:"readOnly,omitempty"`
+
+	// column definitions for data-fabric-entity-table component
+	RowActions []*JsonschemaRowAction `json:"rowActions"`
 
 	// local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response
 	SchemaReference string `json:"schema_reference,omitempty"`
@@ -87,6 +96,10 @@ type JsonschemaUIExtensions struct {
 func (m *JsonschemaUIExtensions) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateColumns(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDurationOptions(formats); err != nil {
 		res = append(res, err)
 	}
@@ -99,6 +112,10 @@ func (m *JsonschemaUIExtensions) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateRowActions(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateStatement(formats); err != nil {
 		res = append(res, err)
 	}
@@ -106,6 +123,32 @@ func (m *JsonschemaUIExtensions) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) validateColumns(formats strfmt.Registry) error {
+	if swag.IsZero(m.Columns) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Columns); i++ {
+		if swag.IsZero(m.Columns[i]) { // not required
+			continue
+		}
+
+		if m.Columns[i] != nil {
+			if err := m.Columns[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("columns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("columns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -173,6 +216,32 @@ func (m *JsonschemaUIExtensions) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *JsonschemaUIExtensions) validateRowActions(formats strfmt.Registry) error {
+	if swag.IsZero(m.RowActions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RowActions); i++ {
+		if swag.IsZero(m.RowActions[i]) { // not required
+			continue
+		}
+
+		if m.RowActions[i] != nil {
+			if err := m.RowActions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("rowActions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rowActions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *JsonschemaUIExtensions) validateStatement(formats strfmt.Registry) error {
 	if swag.IsZero(m.Statement) { // not required
 		return nil
@@ -196,6 +265,10 @@ func (m *JsonschemaUIExtensions) validateStatement(formats strfmt.Registry) erro
 func (m *JsonschemaUIExtensions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateColumns(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDurationOptions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -208,6 +281,10 @@ func (m *JsonschemaUIExtensions) ContextValidate(ctx context.Context, formats st
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateRowActions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateStatement(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -215,6 +292,31 @@ func (m *JsonschemaUIExtensions) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) contextValidateColumns(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Columns); i++ {
+
+		if m.Columns[i] != nil {
+
+			if swag.IsZero(m.Columns[i]) { // not required
+				return nil
+			}
+
+			if err := m.Columns[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("columns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("columns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -280,6 +382,31 @@ func (m *JsonschemaUIExtensions) contextValidateMeta(ctx context.Context, format
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *JsonschemaUIExtensions) contextValidateRowActions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RowActions); i++ {
+
+		if m.RowActions[i] != nil {
+
+			if swag.IsZero(m.RowActions[i]) { // not required
+				return nil
+			}
+
+			if err := m.RowActions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("rowActions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rowActions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

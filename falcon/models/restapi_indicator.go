@@ -12,6 +12,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // RestapiIndicator restapi indicator
@@ -81,6 +82,10 @@ type RestapiIndicator struct {
 
 	// publish date
 	PublishDate string `json:"PublishDate,omitempty"`
+
+	// Whether CAO publishes this indicator
+	// Required: true
+	PublishedIndicator *bool `json:"PublishedIndicator"`
 
 	// reports
 	Reports []*RestapiReport `json:"Reports"`
@@ -158,6 +163,10 @@ func (m *RestapiIndicator) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMITREAttacks(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePublishedIndicator(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -431,6 +440,15 @@ func (m *RestapiIndicator) validateMITREAttacks(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RestapiIndicator) validatePublishedIndicator(formats strfmt.Registry) error {
+
+	if err := validate.Required("PublishedIndicator", "body", m.PublishedIndicator); err != nil {
+		return err
 	}
 
 	return nil

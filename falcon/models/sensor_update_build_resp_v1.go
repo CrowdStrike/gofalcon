@@ -38,7 +38,7 @@ type SensorUpdateBuildRespV1 struct {
 
 	// The release stage this build is in
 	// Required: true
-	// Enum: [prod early_adopter]
+	// Enum: [prod early_adopter ltv]
 	Stage *string `json:"stage"`
 }
 
@@ -112,7 +112,7 @@ var sensorUpdateBuildRespV1TypeStagePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["prod","early_adopter"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["prod","early_adopter","ltv"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -127,6 +127,9 @@ const (
 
 	// SensorUpdateBuildRespV1StageEarlyAdopter captures enum value "early_adopter"
 	SensorUpdateBuildRespV1StageEarlyAdopter string = "early_adopter"
+
+	// SensorUpdateBuildRespV1StageLtv captures enum value "ltv"
+	SensorUpdateBuildRespV1StageLtv string = "ltv"
 )
 
 // prop value enum

@@ -30,9 +30,13 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CloudRegistrationGcpCheckWorkspaceAvailability(params *CloudRegistrationGcpCheckWorkspaceAvailabilityParams, opts ...ClientOption) (*CloudRegistrationGcpCheckWorkspaceAvailabilityOK, error)
+
 	CloudRegistrationGcpCreateRegistration(params *CloudRegistrationGcpCreateRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpCreateRegistrationCreated, error)
 
 	CloudRegistrationGcpDeleteRegistration(params *CloudRegistrationGcpDeleteRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpDeleteRegistrationOK, error)
+
+	CloudRegistrationGcpDeleteWorkspaceRegistration(params *CloudRegistrationGcpDeleteWorkspaceRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpDeleteWorkspaceRegistrationOK, error)
 
 	CloudRegistrationGcpGetEntities(params *CloudRegistrationGcpGetEntitiesParams, opts ...ClientOption) (*CloudRegistrationGcpGetEntitiesOK, error)
 
@@ -49,6 +53,46 @@ type ClientService interface {
 	CloudRegistrationGcpUpdateRegistration(params *CloudRegistrationGcpUpdateRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpUpdateRegistrationOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CloudRegistrationGcpCheckWorkspaceAvailability reports whether a google workspace customer ID or organization ID is already registered
+
+A taken customer ID blocks registration, because it is unique per customer. An organization ID already in use does not block registration: more than one Google Workspace may share one Google Cloud organization. At least one of the two parameters is required.
+*/
+func (a *Client) CloudRegistrationGcpCheckWorkspaceAvailability(params *CloudRegistrationGcpCheckWorkspaceAvailabilityParams, opts ...ClientOption) (*CloudRegistrationGcpCheckWorkspaceAvailabilityOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationGcpCheckWorkspaceAvailabilityParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-gcp-check-workspace-availability",
+		Method:             "GET",
+		PathPattern:        "/cloud-security-registration-google-workspace/entities/availability/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationGcpCheckWorkspaceAvailabilityReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationGcpCheckWorkspaceAvailabilityOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-gcp-check-workspace-availability: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -124,6 +168,44 @@ func (a *Client) CloudRegistrationGcpDeleteRegistration(params *CloudRegistratio
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cloud-registration-gcp-delete-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CloudRegistrationGcpDeleteWorkspaceRegistration deletes the google workspace registration attached to a google cloud registration and returns the deleted workspace in the response body the google cloud registration itself is not affected
+*/
+func (a *Client) CloudRegistrationGcpDeleteWorkspaceRegistration(params *CloudRegistrationGcpDeleteWorkspaceRegistrationParams, opts ...ClientOption) (*CloudRegistrationGcpDeleteWorkspaceRegistrationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCloudRegistrationGcpDeleteWorkspaceRegistrationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "cloud-registration-gcp-delete-workspace-registration",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-security-registration-google-workspace/entities/registrations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CloudRegistrationGcpDeleteWorkspaceRegistrationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CloudRegistrationGcpDeleteWorkspaceRegistrationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cloud-registration-gcp-delete-workspace-registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

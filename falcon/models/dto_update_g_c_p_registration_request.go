@@ -40,6 +40,9 @@ type DtoUpdateGCPRegistrationRequest struct {
 	// falcon client key type
 	FalconClientKeyType string `json:"falcon_client_key_type,omitempty"`
 
+	// google workspace
+	GoogleWorkspace *DtoWorkspaceRequest `json:"google_workspace,omitempty"`
+
 	// infra manager region
 	InfraManagerRegion string `json:"infra_manager_region,omitempty"`
 
@@ -103,6 +106,10 @@ func (m *DtoUpdateGCPRegistrationRequest) Validate(formats strfmt.Registry) erro
 		res = append(res, err)
 	}
 
+	if err := m.validateGoogleWorkspace(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLabels(formats); err != nil {
 		res = append(res, err)
 	}
@@ -136,6 +143,25 @@ func (m *DtoUpdateGCPRegistrationRequest) validateDspmSettings(formats strfmt.Re
 				return ve.ValidateName("dspm_settings")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DtoUpdateGCPRegistrationRequest) validateGoogleWorkspace(formats strfmt.Registry) error {
+	if swag.IsZero(m.GoogleWorkspace) { // not required
+		return nil
+	}
+
+	if m.GoogleWorkspace != nil {
+		if err := m.GoogleWorkspace.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("google_workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("google_workspace")
 			}
 			return err
 		}
@@ -235,6 +261,10 @@ func (m *DtoUpdateGCPRegistrationRequest) ContextValidate(ctx context.Context, f
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateGoogleWorkspace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLabels(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -270,6 +300,27 @@ func (m *DtoUpdateGCPRegistrationRequest) contextValidateDspmSettings(ctx contex
 				return ve.ValidateName("dspm_settings")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("dspm_settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DtoUpdateGCPRegistrationRequest) contextValidateGoogleWorkspace(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GoogleWorkspace != nil {
+
+		if swag.IsZero(m.GoogleWorkspace) { // not required
+			return nil
+		}
+
+		if err := m.GoogleWorkspace.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("google_workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("google_workspace")
 			}
 			return err
 		}

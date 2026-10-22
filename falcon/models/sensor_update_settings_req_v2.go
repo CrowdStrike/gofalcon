@@ -31,6 +31,9 @@ type SensorUpdateSettingsReqV2 struct {
 	// If true, early adopter builds will be visible on the sensor update policy page
 	ShowEarlyAdopterBuilds bool `json:"show_early_adopter_builds,omitempty"`
 
+	// If true, LTV builds will be visible on the sensor update policy page
+	ShowLtvBuilds bool `json:"show_ltv_builds,omitempty"`
+
 	// The uninstall protection state to apply to the policy
 	// Enum: [ENABLED DISABLED MAINTENANCE_MODE IGNORE UNKNOWN]
 	UninstallProtection string `json:"uninstall_protection,omitempty"`

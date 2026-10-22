@@ -21,11 +21,6 @@ import (
 // swagger:model DataTransactionResponseDto_UploadDataResponse
 type DataTransactionResponseDtoUploadDataResponse struct {
 
-	// Account id
-	// Required: true
-	// Min Length: 1
-	AccountID *string `json:"account_id"`
-
 	// Account integration id
 	// Required: true
 	// Min Length: 1
@@ -50,10 +45,6 @@ type DataTransactionResponseDtoUploadDataResponse struct {
 func (m *DataTransactionResponseDtoUploadDataResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAccountIntegrationID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -73,19 +64,6 @@ func (m *DataTransactionResponseDtoUploadDataResponse) Validate(formats strfmt.R
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DataTransactionResponseDtoUploadDataResponse) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("account_id", "body", *m.AccountID, 1); err != nil {
-		return err
-	}
-
 	return nil
 }
 

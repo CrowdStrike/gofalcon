@@ -21,10 +21,6 @@ import (
 // swagger:model Device_GetDeviceInventory
 type DeviceGetDeviceInventory struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Apps count
 	// Required: true
 	AppsCount *int64 `json:"apps_count"`
@@ -103,10 +99,6 @@ type DeviceGetDeviceInventory struct {
 func (m *DeviceGetDeviceInventory) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAppsCount(formats); err != nil {
 		res = append(res, err)
 	}
@@ -174,15 +166,6 @@ func (m *DeviceGetDeviceInventory) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DeviceGetDeviceInventory) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

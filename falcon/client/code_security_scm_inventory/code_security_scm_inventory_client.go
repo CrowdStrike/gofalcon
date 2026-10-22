@@ -30,11 +30,53 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	GetPullJob(params *GetPullJobParams, opts ...ClientOption) (*GetPullJobOK, error)
+
 	GetSCMRepositoryAggregates(params *GetSCMRepositoryAggregatesParams, opts ...ClientOption) (*GetSCMRepositoryAggregatesOK, error)
 
 	ListSCMRepositories(params *ListSCMRepositoriesParams, opts ...ClientOption) (*ListSCMRepositoriesOK, error)
 
+	ListSCMRepositoryBranches(params *ListSCMRepositoryBranchesParams, opts ...ClientOption) (*ListSCMRepositoryBranchesOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+GetPullJob gets the status artifact of an on demand pull job
+*/
+func (a *Client) GetPullJob(params *GetPullJobParams, opts ...ClientOption) (*GetPullJobOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetPullJobParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetPullJob",
+		Method:             "GET",
+		PathPattern:        "/scm-integration/entities/pulls/v1/{pull_job_id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetPullJobReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetPullJobOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetPullJob: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -110,6 +152,44 @@ func (a *Client) ListSCMRepositories(params *ListSCMRepositoriesParams, opts ...
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ListSCMRepositories: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ListSCMRepositoryBranches lists branches for a repository
+*/
+func (a *Client) ListSCMRepositoryBranches(params *ListSCMRepositoryBranchesParams, opts ...ClientOption) (*ListSCMRepositoryBranchesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListSCMRepositoryBranchesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListSCMRepositoryBranches",
+		Method:             "GET",
+		PathPattern:        "/scm-integration/entities/repositories/v1/{repository_id}/branches",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ListSCMRepositoryBranchesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListSCMRepositoryBranchesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ListSCMRepositoryBranches: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

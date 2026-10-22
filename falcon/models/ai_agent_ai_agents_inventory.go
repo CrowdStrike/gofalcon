@@ -24,10 +24,6 @@ type AiAgentAiAgentsInventory struct {
 	// Min Length: 1
 	Access *string `json:"access"`
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Agent id
 	// Required: true
 	// Min Length: 1
@@ -94,10 +90,6 @@ func (m *AiAgentAiAgentsInventory) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAgentID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -159,15 +151,6 @@ func (m *AiAgentAiAgentsInventory) validateAccess(formats strfmt.Registry) error
 	}
 
 	if err := validate.MinLength("access", "body", *m.Access, 1); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AiAgentAiAgentsInventory) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
 		return err
 	}
 

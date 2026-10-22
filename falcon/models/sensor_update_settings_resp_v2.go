@@ -41,9 +41,13 @@ type SensorUpdateSettingsRespV2 struct {
 	// Required: true
 	ShowEarlyAdopterBuilds *bool `json:"show_early_adopter_builds"`
 
+	// If true, LTV builds will be visible on the sensor update policy page
+	// Required: true
+	ShowLtvBuilds *bool `json:"show_ltv_builds"`
+
 	// The release stage this build is in
 	// Required: true
-	// Enum: [prod early_adopter ]
+	// Enum: [prod early_adopter ltv ]
 	Stage *string `json:"stage"`
 
 	// The uninstall protection setting to apply to devices in the policy
@@ -77,6 +81,10 @@ func (m *SensorUpdateSettingsRespV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateShowEarlyAdopterBuilds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateShowLtvBuilds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -154,11 +162,20 @@ func (m *SensorUpdateSettingsRespV2) validateShowEarlyAdopterBuilds(formats strf
 	return nil
 }
 
+func (m *SensorUpdateSettingsRespV2) validateShowLtvBuilds(formats strfmt.Registry) error {
+
+	if err := validate.Required("show_ltv_builds", "body", m.ShowLtvBuilds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var sensorUpdateSettingsRespV2TypeStagePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["prod","early_adopter",""]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["prod","early_adopter","ltv",""]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -173,6 +190,9 @@ const (
 
 	// SensorUpdateSettingsRespV2StageEarlyAdopter captures enum value "early_adopter"
 	SensorUpdateSettingsRespV2StageEarlyAdopter string = "early_adopter"
+
+	// SensorUpdateSettingsRespV2StageLtv captures enum value "ltv"
+	SensorUpdateSettingsRespV2StageLtv string = "ltv"
 
 	// SensorUpdateSettingsRespV2StageEmpty captures enum value ""
 	SensorUpdateSettingsRespV2StageEmpty string = ""

@@ -20,10 +20,6 @@ import (
 // swagger:model AppUsers_AppInventoryUsers
 type AppUsersAppInventoryUsers struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Item id
 	// Required: true
 	// Min Length: 1
@@ -38,10 +34,6 @@ type AppUsersAppInventoryUsers struct {
 func (m *AppUsersAppInventoryUsers) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateItemID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -53,15 +45,6 @@ func (m *AppUsersAppInventoryUsers) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AppUsersAppInventoryUsers) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

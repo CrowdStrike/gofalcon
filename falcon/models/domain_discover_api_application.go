@@ -79,6 +79,9 @@ type DomainDiscoverAPIApplication struct {
 	// Timestamp when the application was installed on the host. We might not have this data.
 	InstallationTimestamp string `json:"installation_timestamp,omitempty"`
 
+	// Whether or not the application is malicious
+	IsMalicious bool `json:"is_malicious,omitempty"`
+
 	// Whether or not the application is normalized
 	IsNormalized bool `json:"is_normalized,omitempty"`
 
@@ -109,6 +112,9 @@ type DomainDiscoverAPIApplication struct {
 	// Whether the account has local admin privileges (Yes, No, or Unknown).
 	LocalAdminPrivileges string `json:"local_admin_privileges,omitempty"`
 
+	// List of malicious risk indicators for this application
+	MaliciousIndicators []*DomainDiscoverAPIMaliciousIndicator `json:"malicious_indicators"`
+
 	// The name of the application.
 	Name string `json:"name,omitempty"`
 
@@ -117,6 +123,9 @@ type DomainDiscoverAPIApplication struct {
 
 	// The combined field on which we will be able to group by app + version.
 	NameVendorVersion string `json:"name_vendor_version,omitempty"`
+
+	// The latest available stable version of the application
+	RegistryLatestVersionAvailable string `json:"registry_latest_version_available,omitempty"`
 
 	// The type of software of the application. Types are application, browser_extension, dev_package, ide_extension
 	SoftwareType string `json:"software_type,omitempty"`
@@ -129,6 +138,9 @@ type DomainDiscoverAPIApplication struct {
 
 	// List of security risk indicators for this application
 	SuspiciousIndicators []*DomainDiscoverAPISuspiciousIndicator `json:"suspicious_indicators"`
+
+	// The threat verdict for the application (Malicious, No verdict).
+	ThreatLevel string `json:"threat_level,omitempty"`
 
 	// The name the application's vendor.
 	Vendor string `json:"vendor,omitempty"`
@@ -165,6 +177,10 @@ func (m *DomainDiscoverAPIApplication) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIdeExtension(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMaliciousIndicators(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -272,6 +288,32 @@ func (m *DomainDiscoverAPIApplication) validateIdeExtension(formats strfmt.Regis
 	return nil
 }
 
+func (m *DomainDiscoverAPIApplication) validateMaliciousIndicators(formats strfmt.Registry) error {
+	if swag.IsZero(m.MaliciousIndicators) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MaliciousIndicators); i++ {
+		if swag.IsZero(m.MaliciousIndicators[i]) { // not required
+			continue
+		}
+
+		if m.MaliciousIndicators[i] != nil {
+			if err := m.MaliciousIndicators[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("malicious_indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("malicious_indicators" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIApplication) validateSuspiciousIndicators(formats strfmt.Registry) error {
 	if swag.IsZero(m.SuspiciousIndicators) { // not required
 		return nil
@@ -315,6 +357,10 @@ func (m *DomainDiscoverAPIApplication) ContextValidate(ctx context.Context, form
 	}
 
 	if err := m.contextValidateIdeExtension(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaliciousIndicators(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -407,6 +453,31 @@ func (m *DomainDiscoverAPIApplication) contextValidateIdeExtension(ctx context.C
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIApplication) contextValidateMaliciousIndicators(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MaliciousIndicators); i++ {
+
+		if m.MaliciousIndicators[i] != nil {
+
+			if swag.IsZero(m.MaliciousIndicators[i]) { // not required
+				return nil
+			}
+
+			if err := m.MaliciousIndicators[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("malicious_indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("malicious_indicators" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

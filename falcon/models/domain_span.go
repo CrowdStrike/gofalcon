@@ -49,6 +49,9 @@ type DomainSpan struct {
 	// parent span id
 	ParentSpanID string `json:"parent_span_id,omitempty"`
 
+	// project id
+	ProjectID string `json:"project_id,omitempty"`
+
 	// span id
 	// Required: true
 	SpanID *string `json:"span_id"`

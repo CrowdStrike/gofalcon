@@ -37,6 +37,12 @@ func (o *CreateDeploymentEntityReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 401:
+		result := NewCreateDeploymentEntityUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewCreateDeploymentEntityForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -271,6 +277,116 @@ func (o *CreateDeploymentEntityBadRequest) readResponse(response runtime.ClientR
 	}
 
 	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateDeploymentEntityUnauthorized creates a CreateDeploymentEntityUnauthorized with default headers values
+func NewCreateDeploymentEntityUnauthorized() *CreateDeploymentEntityUnauthorized {
+	return &CreateDeploymentEntityUnauthorized{}
+}
+
+/*
+CreateDeploymentEntityUnauthorized describes a response with status code 401, with default header values.
+
+Unauthorized
+*/
+type CreateDeploymentEntityUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaReplyMetaOnly
+}
+
+// IsSuccess returns true when this create deployment entity unauthorized response has a 2xx status code
+func (o *CreateDeploymentEntityUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create deployment entity unauthorized response has a 3xx status code
+func (o *CreateDeploymentEntityUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create deployment entity unauthorized response has a 4xx status code
+func (o *CreateDeploymentEntityUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create deployment entity unauthorized response has a 5xx status code
+func (o *CreateDeploymentEntityUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create deployment entity unauthorized response a status code equal to that given
+func (o *CreateDeploymentEntityUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
+// Code gets the status code for the create deployment entity unauthorized response
+func (o *CreateDeploymentEntityUnauthorized) Code() int {
+	return 401
+}
+
+func (o *CreateDeploymentEntityUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CreateDeploymentEntityUnauthorized) String() string {
+	return fmt.Sprintf("[POST /snapshots/entities/deployments/v1][%d] createDeploymentEntityUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *CreateDeploymentEntityUnauthorized) GetPayload() *models.MsaReplyMetaOnly {
+	return o.Payload
+}
+
+func (o *CreateDeploymentEntityUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -74,7 +74,7 @@ type DomainAWSAccountV2 struct {
 	CloudRegistrationEnabled bool `json:"cloud_registration_enabled,omitempty"`
 
 	// cloud scopes
-	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
+	CloudScopes []*CloudScope `json:"cloud_scopes"`
 
 	// cloudformation root stack arn
 	CloudformationRootStackArn string `json:"cloudformation_root_stack_arn,omitempty"`

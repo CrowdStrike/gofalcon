@@ -32,6 +32,10 @@ type DomainDeployAgentsRequest struct {
 
 	// proxy port
 	ProxyPort int64 `json:"proxy_port,omitempty"`
+
+	// queue offline
+	// Required: true
+	QueueOffline *bool `json:"queue_offline"`
 }
 
 // Validate validates this domain deploy agents request
@@ -39,6 +43,10 @@ func (m *DomainDeployAgentsRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAids(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQueueOffline(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -65,6 +73,15 @@ func (m *DomainDeployAgentsRequest) validateAids(formats strfmt.Registry) error 
 			return err
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainDeployAgentsRequest) validateQueueOffline(formats strfmt.Registry) error {
+
+	if err := validate.Required("queue_offline", "body", m.QueueOffline); err != nil {
+		return err
 	}
 
 	return nil

@@ -49,7 +49,7 @@ type RegistrationIOMEventV2 struct {
 	CloudProvider *string `json:"cloud_provider"`
 
 	// cloud scopes
-	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
+	CloudScopes []*CloudScope `json:"cloud_scopes"`
 
 	// custom policy id
 	CustomPolicyID int32 `json:"custom_policy_id,omitempty"`

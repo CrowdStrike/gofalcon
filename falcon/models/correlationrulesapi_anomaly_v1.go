@@ -24,6 +24,10 @@ type CorrelationrulesapiAnomalyV1 struct {
 	// Required: true
 	EventFieldNames []string `json:"event_field_names"`
 
+	// event field operation
+	// Required: true
+	EventFieldOperation *string `json:"event_field_operation"`
+
 	// lookback timeframe
 	// Required: true
 	LookbackTimeframe *string `json:"lookback_timeframe"`
@@ -46,6 +50,10 @@ func (m *CorrelationrulesapiAnomalyV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateEventFieldNames(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEventFieldOperation(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -74,6 +82,15 @@ func (m *CorrelationrulesapiAnomalyV1) Validate(formats strfmt.Registry) error {
 func (m *CorrelationrulesapiAnomalyV1) validateEventFieldNames(formats strfmt.Registry) error {
 
 	if err := validate.Required("event_field_names", "body", m.EventFieldNames); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CorrelationrulesapiAnomalyV1) validateEventFieldOperation(formats strfmt.Registry) error {
+
+	if err := validate.Required("event_field_operation", "body", m.EventFieldOperation); err != nil {
 		return err
 	}
 

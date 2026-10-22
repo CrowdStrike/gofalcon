@@ -19,41 +19,41 @@ import (
 // swagger:model api.LocalApplicationGroup
 type APILocalApplicationGroup struct {
 
-	// cid
+	// Customer identifier that owns the local application group
 	// Required: true
 	Cid *string `json:"cid"`
 
-	// created at
+	// Timestamp when the local application group was created
 	// Required: true
 	// Format: date-time
 	CreatedAt *strfmt.DateTime `json:"created_at"`
 
-	// deleted
+	// Whether the local application group is soft-deleted
 	// Required: true
 	Deleted *bool `json:"deleted"`
 
-	// deleted at
+	// Timestamp when the local application group was soft-deleted
 	// Required: true
 	// Format: date-time
 	DeletedAt *strfmt.DateTime `json:"deleted_at"`
 
-	// description
+	// Description of the local application group
 	// Required: true
 	Description *string `json:"description"`
 
-	// id
+	// Unique identifier of the local application group
 	// Required: true
 	ID *string `json:"id"`
 
-	// local application ids
+	// Identifiers of the local applications in this group
 	// Required: true
 	LocalApplicationIds []string `json:"local_application_ids"`
 
-	// name
+	// Name of the local application group
 	// Required: true
 	Name *string `json:"name"`
 
-	// updated at
+	// Timestamp when the local application group was last updated
 	// Required: true
 	// Format: date-time
 	UpdatedAt *strfmt.DateTime `json:"updated_at"`

@@ -31,6 +31,10 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	BatchGetObjects(params *BatchGetObjectsParams, opts ...ClientOption) (*BatchGetObjectsOK, *BatchGetObjectsMultiStatus, error)
+
+	BatchGetObjectsByVersion(params *BatchGetObjectsByVersionParams, opts ...ClientOption) (*BatchGetObjectsByVersionOK, *BatchGetObjectsByVersionMultiStatus, error)
+
 	DeleteObject(params *DeleteObjectParams, opts ...ClientOption) (*DeleteObjectOK, error)
 
 	DeleteVersionedObject(params *DeleteVersionedObjectParams, opts ...ClientOption) (*DeleteVersionedObjectOK, error)
@@ -68,6 +72,84 @@ type ClientService interface {
 	SearchObjectsByVersion(params *SearchObjectsByVersionParams, opts ...ClientOption) (*SearchObjectsByVersionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+BatchGetObjects fetches 1 100 objects by key in a single request duplicate keys are deduped so fewer items may be returned than requested when the response would exceed max configured limit the result is truncated the object that crosses the budget is always included and omitted keys are reported in the errors array worst case response size is the budget plus one maximum object size keys are passed as repeated object keys query parameters very long keys can hit ingress URL length limits
+*/
+func (a *Client) BatchGetObjects(params *BatchGetObjectsParams, opts ...ClientOption) (*BatchGetObjectsOK, *BatchGetObjectsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBatchGetObjectsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BatchGetObjects",
+		Method:             "GET",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects-batch",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BatchGetObjectsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *BatchGetObjectsOK:
+		return value, nil, nil
+	case *BatchGetObjectsMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for custom_storage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+BatchGetObjectsByVersion fetches 1 100 objects by key in a single request duplicate keys are deduped so fewer items may be returned than requested when the response would exceed max configured limit the result is truncated the object that crosses the budget is always included and omitted keys are reported in the errors array worst case response size is the budget plus one maximum object size keys are passed as repeated object keys query parameters very long keys can hit ingress URL length limits
+*/
+func (a *Client) BatchGetObjectsByVersion(params *BatchGetObjectsByVersionParams, opts ...ClientOption) (*BatchGetObjectsByVersionOK, *BatchGetObjectsByVersionMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBatchGetObjectsByVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "BatchGetObjectsByVersion",
+		Method:             "GET",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/{collection_version}/objects-batch",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &BatchGetObjectsByVersionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *BatchGetObjectsByVersionOK:
+		return value, nil, nil
+	case *BatchGetObjectsByVersionMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for custom_storage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

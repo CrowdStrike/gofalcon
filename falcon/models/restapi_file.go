@@ -48,9 +48,6 @@ type RestapiFile struct {
 
 	// Known-good software matches for the clean file
 	Vendor []*RestapiVendor `json:"Vendor"`
-
-	// Clean-file record version from CAO Labs
-	Version int32 `json:"Version,omitempty"`
 }
 
 // Validate validates this restapi file

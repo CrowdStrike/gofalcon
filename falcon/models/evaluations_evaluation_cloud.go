@@ -23,11 +23,23 @@ type EvaluationsEvaluationCloud struct {
 	// account name
 	AccountName string `json:"account_name,omitempty"`
 
+	// cluster id
+	ClusterID string `json:"cluster_id,omitempty"`
+
+	// cluster name
+	ClusterName string `json:"cluster_name,omitempty"`
+
+	// infrastructure provider
+	InfrastructureProvider string `json:"infrastructure_provider,omitempty"`
+
 	// provider
 	Provider string `json:"provider,omitempty"`
 
 	// region
 	Region string `json:"region,omitempty"`
+
+	// service name
+	ServiceName string `json:"service_name,omitempty"`
 }
 
 // Validate validates this evaluations evaluation cloud

@@ -20,28 +20,20 @@ import (
 // swagger:model SecurityCheckChangeLogEntry_GetSecurityCheckChangeLog
 type SecurityCheckChangeLogEntryGetSecurityCheckChangeLog struct {
 
-	// Account id
-	// Required: true
-	AccountID *string `json:"account_id"`
-
 	// Action
 	// Required: true
 	// Min Length: 1
 	Action *string `json:"action"`
 
-	// App display name
+	// App
 	// Required: true
 	// Min Length: 1
-	AppDisplayName *string `json:"app_display_name"`
+	App *string `json:"app"`
 
 	// Changed at
 	// Required: true
 	// Format: date-time
 	ChangedAt *strfmt.DateTime `json:"changed_at"`
-
-	// Check id
-	// Required: true
-	CheckID *string `json:"check_id"`
 
 	// Check title
 	// Required: true
@@ -79,34 +71,21 @@ type SecurityCheckChangeLogEntryGetSecurityCheckChangeLog struct {
 	// Required: true
 	// Min Length: 1
 	PreviousValue *string `json:"previous_value"`
-
-	// Saas name
-	// Required: true
-	// Min Length: 1
-	SaasName *string `json:"saas_name"`
 }
 
 // Validate validates this security check change log entry get security check change log
 func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAccountID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAction(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateAppDisplayName(formats); err != nil {
+	if err := m.validateApp(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateChangedAt(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCheckID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -142,22 +121,9 @@ func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) Validate(formats 
 		res = append(res, err)
 	}
 
-	if err := m.validateSaasName(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateAccountID(formats strfmt.Registry) error {
-
-	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -174,13 +140,13 @@ func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateAction(fo
 	return nil
 }
 
-func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateAppDisplayName(formats strfmt.Registry) error {
+func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateApp(formats strfmt.Registry) error {
 
-	if err := validate.Required("app_display_name", "body", m.AppDisplayName); err != nil {
+	if err := validate.Required("app", "body", m.App); err != nil {
 		return err
 	}
 
-	if err := validate.MinLength("app_display_name", "body", *m.AppDisplayName, 1); err != nil {
+	if err := validate.MinLength("app", "body", *m.App, 1); err != nil {
 		return err
 	}
 
@@ -194,15 +160,6 @@ func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateChangedAt
 	}
 
 	if err := validate.FormatOf("changed_at", "body", "date-time", m.ChangedAt.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateCheckID(formats strfmt.Registry) error {
-
-	if err := validate.Required("check_id", "body", m.CheckID); err != nil {
 		return err
 	}
 
@@ -313,19 +270,6 @@ func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validatePreviousV
 	}
 
 	if err := validate.MinLength("previous_value", "body", *m.PreviousValue, 1); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *SecurityCheckChangeLogEntryGetSecurityCheckChangeLog) validateSaasName(formats strfmt.Registry) error {
-
-	if err := validate.Required("saas_name", "body", m.SaasName); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("saas_name", "body", *m.SaasName, 1); err != nil {
 		return err
 	}
 
