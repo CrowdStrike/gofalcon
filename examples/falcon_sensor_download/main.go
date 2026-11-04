@@ -2,8 +2,11 @@ package main
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"sort"
@@ -19,12 +22,12 @@ import (
 func main() {
 	clientId := flag.String(
 		"client-id",
-		os.Getenv("FALCON_CLIENT_ID"),
+		"",
 		"Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)",
 	)
 	clientSecret := flag.String(
 		"client-secret",
-		os.Getenv("FALCON_CLIENT_SECRET"),
+		"",
 		"Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)",
 	)
 	memberCID := flag.String(
@@ -50,10 +53,16 @@ func main() {
 	flag.Parse()
 
 	if *clientId == "" {
+		*clientId = os.Getenv("FALCON_CLIENT_ID")
+	}
+	if *clientId == "" {
 		*clientId = falcon_util.PromptUser(
 			`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client ID`,
 		)
+	}
+	if *clientSecret == "" {
+		*clientSecret = os.Getenv("FALCON_CLIENT_SECRET")
 	}
 	if *clientSecret == "" {
 		*clientSecret = falcon_util.PromptUser(
@@ -126,17 +135,23 @@ func download(
 		panic(err)
 	}
 
+	hash := sha256.New()
 	_, err = client.SensorDownload.DownloadSensorInstallerByID(
 		&sensor_download.DownloadSensorInstallerByIDParams{
 			Context: context.Background(),
 			ID:      *sensor.Sha256,
-		}, file)
+		}, io.MultiWriter(file, hash))
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
 
 	if err := file.Close(); err != nil {
 		panic(err)
+	}
+
+	if got := hex.EncodeToString(hash.Sum(nil)); !strings.EqualFold(got, *sensor.Sha256) {
+		_ = os.Remove(file.Name())
+		panic(fmt.Sprintf("Removed %s: SHA-256 %s does not match the advertised %s", file.Name(), got, *sensor.Sha256))
 	}
 
 	fmt.Printf("Downloaded %s to %s\n", *sensor.Description, filename)
@@ -243,12 +258,6 @@ func downloadAllSensors(client *client.CrowdStrikeAPISpecification) {
 			strings.ReplaceAll(*sensor.Os, "/", "-"),
 			strings.ReplaceAll(*sensor.OsVersion, "/", "-"),
 		)
-		if dir != "" {
-			err := os.MkdirAll(dir, 0750)
-			if err != nil {
-				panic(fmt.Sprintf("Could not create directory %s: %v", dir, err))
-			}
-		}
 		download(client, sensor, dir, *sensor.Name)
 	}
 }
@@ -301,7 +310,10 @@ func openFileForWriting(dir, filename string) (*os.File, error) {
 	if strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
 		return nil, fmt.Errorf("refusing to download: Path '%s' looks suspicious", safeLocation)
 	}
-	return os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
+	if err := os.MkdirAll(filepath.Dir(safeLocation), 0750); err != nil {
+		return nil, fmt.Errorf("could not create directory for %s: %w", safeLocation, err)
+	}
+	return os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0600)
 }
 
 type void struct{}
