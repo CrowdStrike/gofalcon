@@ -234,12 +234,12 @@ func main() {
 
 	falconClientId := flag.String(
 		"client-id",
-		os.Getenv("FALCON_CLIENT_ID"),
+		"",
 		"Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)",
 	)
 	falconClientSecret := flag.String(
 		"client-secret",
-		os.Getenv("FALCON_CLIENT_SECRET"),
+		"",
 		"Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)",
 	)
 	clientCloud := flag.String(
@@ -256,6 +256,13 @@ func main() {
 	show := flag.String("show", "", "show details of given IOC")
 
 	flag.Parse()
+
+	if *falconClientId == "" {
+		*falconClientId = os.Getenv("FALCON_CLIENT_ID")
+	}
+	if *falconClientSecret == "" {
+		*falconClientSecret = os.Getenv("FALCON_CLIENT_SECRET")
+	}
 
 	if !*list && *add == "" && *deleteIOC == "" && *show == "" {
 		flag.Usage()

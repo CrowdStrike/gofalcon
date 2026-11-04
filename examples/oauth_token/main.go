@@ -12,13 +12,19 @@ import (
 )
 
 func main() {
-	clientId := flag.String("client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
-	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
+	clientId := flag.String("client-id", "", "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
+	clientSecret := flag.String("client-secret", "", "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
 	flag.Parse()
 
 	if *clientId == "" {
+		*clientId = os.Getenv("FALCON_CLIENT_ID")
+	}
+	if *clientId == "" {
 		*clientId = falcon_util.PromptUser("Please provide your Falcon Client ID")
+	}
+	if *clientSecret == "" {
+		*clientSecret = os.Getenv("FALCON_CLIENT_SECRET")
 	}
 	if *clientSecret == "" {
 		*clientSecret = falcon_util.PromptUser("Please provide your Falcon Client Secret")
