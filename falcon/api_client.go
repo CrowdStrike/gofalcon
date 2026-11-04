@@ -164,7 +164,7 @@ func credentialsOk(ac *ApiConfig) (bool, error) {
 
 func accessTokenHTTPClient(ac *ApiConfig) *http.Client {
 	ts := oauth2.StaticTokenSource(&oauth2.Token{AccessToken: ac.AccessToken})
-	return commonHTTPClientConfig(oauth2.NewClient(ac.Context, ts), ac)
+	return commonHTTPClientConfig(oauth2HTTPClient(ac, ts), ac)
 }
 
 func clientCredentialsHTTPClient(ac *ApiConfig) *http.Client {
@@ -179,7 +179,103 @@ func clientCredentialsHTTPClient(ac *ApiConfig) *http.Client {
 			"member_cid": []string{ac.MemberCID},
 		}
 	}
-	return commonHTTPClientConfig(config.Client(ac.Context), ac)
+	return commonHTTPClientConfig(oauth2HTTPClient(ac, config.TokenSource(tokenRequestContext(ac))), ac)
+}
+
+// oauth2HTTPClient builds the client oauth2.NewClient would, except that the
+// bearer token oauth2.Transport attaches to every request is removed from
+// redirect hops to hosts that may not receive credentials.
+func oauth2HTTPClient(ac *ApiConfig, src oauth2.TokenSource) *http.Client {
+	cc := contextHTTPClient(ac.Context)
+	return &http.Client{
+		Transport: &oauth2.Transport{
+			Base:   &redirectAuthStripper{T: cc.Transport, host: ac.Host()},
+			Source: oauth2.ReuseTokenSource(nil, src),
+		},
+		CheckRedirect: cc.CheckRedirect,
+		Jar:           cc.Jar,
+		Timeout:       cc.Timeout,
+	}
+}
+
+// tokenRequestContext returns ac.Context with an oauth2.HTTPClient that refuses
+// redirects to hosts that may not receive credentials. The token request
+// carries the client secret, so following such a redirect would hand it over.
+func tokenRequestContext(ac *ApiConfig) context.Context {
+	tc := *contextHTTPClient(ac.Context)
+	tc.CheckRedirect = refuseUntrustedRedirect(ac.Host(), tc.CheckRedirect)
+	return context.WithValue(ac.Context, oauth2.HTTPClient, &tc)
+}
+
+// contextHTTPClient returns the http.Client oauth2 uses for ctx: the one stored
+// under oauth2.HTTPClient, or http.DefaultClient.
+func contextHTTPClient(ctx context.Context) *http.Client {
+	if hc, ok := ctx.Value(oauth2.HTTPClient).(*http.Client); ok {
+		return hc
+	}
+	return http.DefaultClient
+}
+
+// credentialHost reports whether credentials may be sent to u: over https, to
+// apiHost or, on the default port, to a CrowdStrike cloud API host. CrowdStrike
+// redirects requests made to the wrong cloud to the right one (for example
+// api.us-2.crowdstrike.com to api.crowdstrike.com:443), and those hops must keep
+// their credentials.
+func credentialHost(u *url.URL, apiHost string) bool {
+	if u.Scheme != "https" {
+		return false
+	}
+	if u.Host == apiHost {
+		return true
+	}
+	if port := u.Port(); port != "" && port != "443" {
+		return false
+	}
+	for c := CloudType(CloudUs1); c <= CloudGov2; c++ {
+		if u.Hostname() == c.Host() {
+			return true
+		}
+	}
+	return false
+}
+
+// redirectAuthStripper sits beneath oauth2.Transport so it sees the
+// Authorization header oauth2 sets on each hop, and drops it when a redirect
+// goes to a host that may not receive credentials, such as the presigned
+// storage URL a feed download redirects to. The redirect is still followed.
+type redirectAuthStripper struct {
+	T    http.RoundTripper
+	host string
+}
+
+func (s *redirectAuthStripper) RoundTrip(req *http.Request) (*http.Response, error) {
+	if req.Response != nil && !credentialHost(req.URL, s.host) {
+		req = req.Clone(req.Context())
+		req.Header.Del("Authorization")
+	}
+	t := s.T
+	if t == nil {
+		t = http.DefaultTransport
+	}
+	return t.RoundTrip(req)
+}
+
+// refuseUntrustedRedirect returns a CheckRedirect policy that rejects redirects
+// to hosts that may not receive credentials, then defers to next. A nil next
+// keeps the net/http default of stopping after 10 redirects.
+func refuseUntrustedRedirect(apiHost string, next func(*http.Request, []*http.Request) error) func(*http.Request, []*http.Request) error {
+	return func(req *http.Request, via []*http.Request) error {
+		if !credentialHost(req.URL, apiHost) {
+			return fmt.Errorf("refusing redirect to %s://%s: credentials are only sent over https to %s or a CrowdStrike API host", req.URL.Scheme, req.URL.Host, apiHost)
+		}
+		if next != nil {
+			return next(req, via)
+		}
+		if len(via) >= 10 {
+			return errors.New("stopped after 10 redirects")
+		}
+		return nil
+	}
 }
 
 func commonHTTPClientConfig(c *http.Client, ac *ApiConfig) *http.Client {
