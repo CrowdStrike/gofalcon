@@ -7,6 +7,7 @@ package intelligence_feeds
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -30,7 +31,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DownloadFeedArchive(params *DownloadFeedArchiveParams, opts ...ClientOption) error
+	DownloadFeedArchive(params *DownloadFeedArchiveParams, writer io.Writer, opts ...ClientOption) (*DownloadFeedArchiveOK, error)
 
 	ListFeedTypes(params *ListFeedTypesParams, opts ...ClientOption) (*ListFeedTypesOK, error)
 
@@ -42,7 +43,7 @@ type ClientService interface {
 /*
 DownloadFeedArchive downloads the content as a zip archive for a given feed item ID
 */
-func (a *Client) DownloadFeedArchive(params *DownloadFeedArchiveParams, opts ...ClientOption) error {
+func (a *Client) DownloadFeedArchive(params *DownloadFeedArchiveParams, writer io.Writer, opts ...ClientOption) (*DownloadFeedArchiveOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadFeedArchiveParams()
@@ -55,7 +56,7 @@ func (a *Client) DownloadFeedArchive(params *DownloadFeedArchiveParams, opts ...
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
 		Params:             params,
-		Reader:             &DownloadFeedArchiveReader{formats: a.formats},
+		Reader:             &DownloadFeedArchiveReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -63,11 +64,18 @@ func (a *Client) DownloadFeedArchive(params *DownloadFeedArchiveParams, opts ...
 		opt(op)
 	}
 
-	_, err := a.transport.Submit(op)
+	result, err := a.transport.Submit(op)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	return nil
+	success, ok := result.(*DownloadFeedArchiveOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DownloadFeedArchive: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

@@ -20,11 +20,18 @@ import (
 // DownloadFeedArchiveReader is a Reader for the DownloadFeedArchive structure.
 type DownloadFeedArchiveReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *DownloadFeedArchiveReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
+	case 200:
+		result := NewDownloadFeedArchiveOK(o.writer)
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 308:
 		result := NewDownloadFeedArchivePermanentRedirect()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -64,6 +71,75 @@ func (o *DownloadFeedArchiveReader) ReadResponse(response runtime.ClientResponse
 	default:
 		return nil, runtime.NewAPIError("[GET /indicator-feed/entities/feed-download/v1] DownloadFeedArchive", response, response.Code())
 	}
+}
+
+// NewDownloadFeedArchiveOK creates a DownloadFeedArchiveOK with default headers values
+func NewDownloadFeedArchiveOK(writer io.Writer) *DownloadFeedArchiveOK {
+	return &DownloadFeedArchiveOK{
+
+		Payload: writer,
+	}
+}
+
+/*
+DownloadFeedArchiveOK describes a response with status code 200, with default header values.
+
+OK
+*/
+type DownloadFeedArchiveOK struct {
+	Payload io.Writer
+}
+
+// IsSuccess returns true when this download feed archive o k response has a 2xx status code
+func (o *DownloadFeedArchiveOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this download feed archive o k response has a 3xx status code
+func (o *DownloadFeedArchiveOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this download feed archive o k response has a 4xx status code
+func (o *DownloadFeedArchiveOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this download feed archive o k response has a 5xx status code
+func (o *DownloadFeedArchiveOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this download feed archive o k response a status code equal to that given
+func (o *DownloadFeedArchiveOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the download feed archive o k response
+func (o *DownloadFeedArchiveOK) Code() int {
+	return 200
+}
+
+func (o *DownloadFeedArchiveOK) Error() string {
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveOK  %+v", 200, o.Payload)
+}
+
+func (o *DownloadFeedArchiveOK) String() string {
+	return fmt.Sprintf("[GET /indicator-feed/entities/feed-download/v1][%d] downloadFeedArchiveOK  %+v", 200, o.Payload)
+}
+
+func (o *DownloadFeedArchiveOK) GetPayload() io.Writer {
+	return o.Payload
+}
+
+func (o *DownloadFeedArchiveOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
 }
 
 // NewDownloadFeedArchivePermanentRedirect creates a DownloadFeedArchivePermanentRedirect with default headers values
