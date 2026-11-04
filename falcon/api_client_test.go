@@ -8,7 +8,10 @@ import (
 	"fmt"
 	"io"
 	"mime"
+	"net"
 	"net/http"
+	"net/http/httptest"
+	"net/url"
 	"reflect"
 	"strings"
 	"sync"
@@ -18,6 +21,7 @@ import (
 
 	httpruntime "github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
+	"golang.org/x/oauth2"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -859,6 +863,223 @@ func TestRegisterDownloadConsumers(t *testing.T) {
 			}
 			if _, ok := transport.Consumers[key]; !ok {
 				t.Fatalf("no consumer registered for produced media type %q", mediaType)
+			}
+		})
+	}
+}
+
+func TestCredentialHost(t *testing.T) {
+	t.Parallel()
+	const apiHost = "gw.example.com"
+	tests := map[string]struct {
+		url  string
+		want bool
+	}{
+		"api host":                   {"https://gw.example.com/x", true},
+		"api host over http":         {"http://gw.example.com/x", false},
+		"api host on another port":   {"https://gw.example.com:8443/x", false},
+		"us-1":                       {"https://api.crowdstrike.com/x", true},
+		"us-1 on 443":                {"https://api.crowdstrike.com:443/x", true},
+		"us-2 on 443":                {"https://api.us-2.crowdstrike.com:443/x", true},
+		"us-3":                       {"https://api.us-3.crowdstrike.com/x", true},
+		"eu-1":                       {"https://api.eu-1.crowdstrike.com/x", true},
+		"gov-1":                      {"https://api.laggar.gcw.crowdstrike.com/x", true},
+		"gov-2":                      {"https://api.us-gov-2.crowdstrike.mil/x", true},
+		"cloud host over http":       {"http://api.crowdstrike.com/x", false},
+		"cloud host on another port": {"https://api.crowdstrike.com:8443/x", false},
+		"cloud host as prefix":       {"https://api.crowdstrike.com.evil.example.com/x", false},
+		"subdomain of a cloud host":  {"https://evil.api.crowdstrike.com/x", false},
+		"cloud host as userinfo":     {"https://api.crowdstrike.com@evil.example.com/x", false},
+		"other crowdstrike host":     {"https://falcon.crowdstrike.com/x", false},
+		"presigned storage host":     {"https://example-bucket.s3.us-west-2.amazonaws.com/x", false},
+	}
+	for name, tc := range tests {
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
+			u, err := url.Parse(tc.url)
+			if err != nil {
+				t.Fatalf("parse %q: %v", tc.url, err)
+			}
+			if got := credentialHost(u, apiHost); got != tc.want {
+				t.Fatalf("credentialHost(%q, %q) = %v, want %v", tc.url, apiHost, got, tc.want)
+			}
+		})
+	}
+}
+
+// redirectHop is one request received by a redirectTestServer.
+type redirectHop struct {
+	host          string
+	path          string
+	authorization string
+	body          string
+}
+
+// redirectTestServer is a TLS server that every hostname resolves to, so
+// redirects between hosts can be followed without leaving the test. Requests
+// for redirects[host+path] get a 307 to that URL, paths under /oauth2/token
+// issue a token, and everything else returns 200.
+type redirectTestServer struct {
+	srv       *httptest.Server
+	redirects map[string]string
+
+	mu   sync.Mutex
+	hops []redirectHop
+}
+
+func newRedirectTestServer(t *testing.T, redirects map[string]string) *redirectTestServer {
+	t.Helper()
+	s := &redirectTestServer{redirects: redirects}
+	s.srv = httptest.NewTLSServer(http.HandlerFunc(s.serve))
+	t.Cleanup(s.srv.Close)
+	return s
+}
+
+func (s *redirectTestServer) serve(w http.ResponseWriter, r *http.Request) {
+	body, _ := io.ReadAll(r.Body)
+	s.mu.Lock()
+	s.hops = append(s.hops, redirectHop{host: r.Host, path: r.URL.Path, authorization: r.Header.Get("Authorization"), body: string(body)})
+	s.mu.Unlock()
+
+	if target, ok := s.redirects[r.Host+r.URL.Path]; ok {
+		http.Redirect(w, r, target, http.StatusTemporaryRedirect)
+		return
+	}
+	if strings.HasPrefix(r.URL.Path, "/oauth2/token") {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = io.WriteString(w, `{"access_token":"issued-token","token_type":"bearer","expires_in":1799}`)
+		return
+	}
+	w.WriteHeader(http.StatusOK)
+}
+
+// recorded returns the requests received so far.
+func (s *redirectTestServer) recorded() []redirectHop {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	return append([]redirectHop(nil), s.hops...)
+}
+
+// context returns a context whose oauth2.HTTPClient sends every request to
+// the test server. TLS still verifies the server's certificate, but against
+// example.com, one of the names the httptest certificate covers.
+func (s *redirectTestServer) context(t *testing.T) context.Context {
+	t.Helper()
+	base, ok := s.srv.Client().Transport.(*http.Transport)
+	if !ok {
+		t.Fatalf("unexpected httptest transport %T", s.srv.Client().Transport)
+	}
+	tr := base.Clone()
+	tr.TLSClientConfig.ServerName = "example.com"
+	addr := s.srv.Listener.Addr().String()
+	tr.DialContext = func(ctx context.Context, network, _ string) (net.Conn, error) {
+		var d net.Dialer
+		return d.DialContext(ctx, network, addr)
+	}
+	return context.WithValue(context.Background(), oauth2.HTTPClient, &http.Client{Transport: tr})
+}
+
+func TestAPICallRedirectCredentials(t *testing.T) {
+	t.Parallel()
+	const apiHost = "gw.example.com"
+	tests := map[string]struct {
+		method   string
+		target   string
+		retry    bool
+		wantAuth bool
+	}{
+		"same host keeps the token":          {method: http.MethodGet, target: "https://gw.example.com/final", wantAuth: true},
+		"same host POST keeps the token":     {method: http.MethodPost, target: "https://gw.example.com/final", wantAuth: true},
+		"cloud API host on 443 keeps it":     {method: http.MethodGet, target: "https://api.crowdstrike.com:443/final", wantAuth: true},
+		"other host drops the token":         {method: http.MethodGet, target: "https://storage.example.com/final", wantAuth: false},
+		"other host POST drops the token":    {method: http.MethodPost, target: "https://storage.example.com/final", wantAuth: false},
+		"other port drops the token":         {method: http.MethodGet, target: "https://gw.example.com:8443/final", wantAuth: false},
+		"look-alike host drops the token":    {method: http.MethodGet, target: "https://gw.example.com.evil.example.com/final", wantAuth: false},
+		"non-API CrowdStrike host drops it":  {method: http.MethodGet, target: "https://falcon.crowdstrike.com/final", wantAuth: false},
+		"drops the token behind retry layer": {method: http.MethodPost, target: "https://storage.example.com/final", retry: true, wantAuth: false},
+		"keeps same-host token behind retry": {method: http.MethodPost, target: "https://gw.example.com/final", retry: true, wantAuth: true},
+	}
+	for name, tc := range tests {
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
+			s := newRedirectTestServer(t, map[string]string{apiHost + "/start": tc.target})
+			ac := &ApiConfig{AccessToken: "static-token", HostOverride: apiHost, Context: s.context(t)}
+			if tc.retry {
+				ac.RetryConfig = fastRetry(2)
+			}
+			c := accessTokenHTTPClient(ac)
+
+			req, err := http.NewRequestWithContext(context.Background(), tc.method, "https://"+apiHost+"/start", strings.NewReader("payload"))
+			if err != nil {
+				t.Fatal(err)
+			}
+			resp, err := c.Do(req)
+			if err != nil {
+				t.Fatalf("request failed: %v", err)
+			}
+			_ = resp.Body.Close()
+
+			hops := s.recorded()
+			if len(hops) != 2 {
+				t.Fatalf("expected the request and one redirect hop, got %+v", hops)
+			}
+			if hops[0].authorization != "Bearer static-token" {
+				t.Fatalf("request to the API host should carry the token, got %q", hops[0].authorization)
+			}
+			if gotAuth := hops[1].authorization != ""; gotAuth != tc.wantAuth {
+				t.Fatalf("redirect hop to %s: authorization present = %v, want %v", hops[1].host, gotAuth, tc.wantAuth)
+			}
+		})
+	}
+}
+
+func TestTokenRequestRedirectCredentials(t *testing.T) {
+	t.Parallel()
+	const (
+		apiHost = "gw.example.com"
+		secret  = "test-client-secret"
+	)
+	tests := map[string]struct {
+		target  string
+		wantErr bool
+	}{
+		"no redirect":                    {target: ""},
+		"same-host redirect followed":    {target: "https://gw.example.com/oauth2/token-moved"},
+		"cloud API host followed":        {target: "https://api.crowdstrike.com:443/oauth2/token"},
+		"other host refused":             {target: "https://evil.example.com/oauth2/token", wantErr: true},
+		"look-alike host refused":        {target: "https://gw.example.com.evil.example.com/oauth2/token", wantErr: true},
+		"other port on api host refused": {target: "https://gw.example.com:8443/oauth2/token", wantErr: true},
+	}
+	for name, tc := range tests {
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
+			redirects := map[string]string{}
+			if tc.target != "" {
+				redirects[apiHost+"/oauth2/token"] = tc.target
+			}
+			s := newRedirectTestServer(t, redirects)
+			c := clientCredentialsHTTPClient(&ApiConfig{ClientId: "test-id", ClientSecret: secret, HostOverride: apiHost, Context: s.context(t)})
+
+			req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, "https://"+apiHost+"/sensors", nil)
+			if err != nil {
+				t.Fatal(err)
+			}
+			resp, err := c.Do(req)
+			if resp != nil {
+				_ = resp.Body.Close()
+			}
+			if (err != nil) != tc.wantErr {
+				t.Fatalf("error = %v, wantErr %v", err, tc.wantErr)
+			}
+			if tc.wantErr && !strings.Contains(err.Error(), "refusing redirect") {
+				t.Fatalf("expected a refused redirect, got %v", err)
+			}
+
+			trusted := map[string]bool{apiHost: true, "api.crowdstrike.com:443": true}
+			for _, h := range s.recorded() {
+				if !trusted[h.host] && (strings.Contains(h.body, secret) || h.authorization != "") {
+					t.Fatalf("credentials reached %s%s", h.host, h.path)
+				}
 			}
 		})
 	}
