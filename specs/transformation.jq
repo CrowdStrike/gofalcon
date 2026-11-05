@@ -864,6 +864,9 @@
 | .definitions."dto.UpdateGCPRegistrationRequest".properties.wif_provider_name += {"x-nullable": true}
 | .definitions."dto.UpdateGCPRegistrationRequest".required = []
 
+# Make the Google Workspace enabled flag nullable, so a false value is sent
+| .definitions."dto.WorkspaceRequest".properties.enabled += {"x-nullable": true}
+
 # admission-control-policies fixes
 | .definitions."models.UpdatePolicyRequest".properties.is_enabled += {"x-nullable": true}
 | .definitions."models.CreatePolicyRequest".required = ["name"]

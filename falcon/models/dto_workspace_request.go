@@ -22,7 +22,7 @@ type DtoWorkspaceRequest struct {
 	CustomerID string `json:"customer_id,omitempty"`
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 
 	// infra manager region
 	InfraManagerRegion string `json:"infra_manager_region,omitempty"`
