@@ -17,9 +17,15 @@ type CommonAuthFlags struct {
 
 func (c *CommonAuthFlags) PromptForRequiredFlags() {
 	if c.ClientId == "" {
+		c.ClientId = os.Getenv("FALCON_CLIENT_ID")
+	}
+	if c.ClientId == "" {
 		c.ClientId = falcon_util.PromptUser("Please provide your OAuth2 API Client ID")
 	}
 
+	if c.ClientSecret == "" {
+		c.ClientSecret = os.Getenv("FALCON_CLIENT_SECRET")
+	}
 	if c.ClientSecret == "" {
 		c.ClientSecret = falcon_util.PromptUser("Please provide your OAuth2 API Client Secret")
 	}
@@ -28,8 +34,8 @@ func (c *CommonAuthFlags) PromptForRequiredFlags() {
 // SetupAuthFlags parses command line flags and returns a CommonAuthFlags struct.
 func SetupAuthFlags() *CommonAuthFlags {
 	commonAuthFlags := CommonAuthFlags{}
-	flag.StringVar(&commonAuthFlags.ClientId, "client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
-	flag.StringVar(&commonAuthFlags.ClientSecret, "client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
+	flag.StringVar(&commonAuthFlags.ClientId, "client-id", "", "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
+	flag.StringVar(&commonAuthFlags.ClientSecret, "client-secret", "", "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
 	flag.StringVar(&commonAuthFlags.MemberCID, "member-cid", os.Getenv("FALCON_MEMBER_CID"), "Member CID for MSSP (for cases when OAuth2 authenticates multiple CIDs)")
 	flag.StringVar(&commonAuthFlags.Cloud, "cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
 

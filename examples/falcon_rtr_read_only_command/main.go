@@ -12,16 +12,22 @@ import (
 )
 
 func main() {
-	clientId := flag.String("client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
-	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
+	clientId := flag.String("client-id", "", "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
+	clientSecret := flag.String("client-secret", "", "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1; default taken from FALCON_CLOUD)")
 	aid := flag.String("aid", os.Getenv("FALCON_AGENT_ID"), "Falcon agent ID on which to run the command (default taken from FALCON_AGENT_ID)")
 	cmd := flag.String("cmd", os.Getenv("FALCON_RTR_COMMAND"), "RTR command to run on the specified agent. (default taken from FALCON_RTR_COMMAND)")
 
 	flag.Parse()
 	if *clientId == "" {
+		*clientId = os.Getenv("FALCON_CLIENT_ID")
+	}
+	if *clientId == "" {
 		*clientId = falcon_util.PromptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client ID`)
+	}
+	if *clientSecret == "" {
+		*clientSecret = os.Getenv("FALCON_CLIENT_SECRET")
 	}
 	if *clientSecret == "" {
 		*clientSecret = falcon_util.PromptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
