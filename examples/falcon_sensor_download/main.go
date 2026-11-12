@@ -132,6 +132,8 @@ func download(
 			ID:      *sensor.Sha256,
 		}, file)
 	if err != nil {
+		_ = file.Close()
+		_ = os.Remove(file.Name())
 		panic(falcon.ErrorExplain(err))
 	}
 
