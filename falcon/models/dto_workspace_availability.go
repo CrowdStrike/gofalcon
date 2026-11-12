@@ -19,6 +19,9 @@ import (
 // swagger:model dto.WorkspaceAvailability
 type DtoWorkspaceAvailability struct {
 
+	// connected through registration
+	ConnectedThroughRegistration *DtoConnectedThroughRegistration `json:"connected_through_registration,omitempty"`
+
 	// customer id
 	CustomerID string `json:"customer_id,omitempty"`
 
@@ -40,6 +43,10 @@ type DtoWorkspaceAvailability struct {
 func (m *DtoWorkspaceAvailability) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateConnectedThroughRegistration(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateRegistered(formats); err != nil {
 		res = append(res, err)
 	}
@@ -47,6 +54,25 @@ func (m *DtoWorkspaceAvailability) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DtoWorkspaceAvailability) validateConnectedThroughRegistration(formats strfmt.Registry) error {
+	if swag.IsZero(m.ConnectedThroughRegistration) { // not required
+		return nil
+	}
+
+	if m.ConnectedThroughRegistration != nil {
+		if err := m.ConnectedThroughRegistration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("connected_through_registration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("connected_through_registration")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -59,8 +85,38 @@ func (m *DtoWorkspaceAvailability) validateRegistered(formats strfmt.Registry) e
 	return nil
 }
 
-// ContextValidate validates this dto workspace availability based on context it is used
+// ContextValidate validate this dto workspace availability based on the context it is used
 func (m *DtoWorkspaceAvailability) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConnectedThroughRegistration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DtoWorkspaceAvailability) contextValidateConnectedThroughRegistration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConnectedThroughRegistration != nil {
+
+		if swag.IsZero(m.ConnectedThroughRegistration) { // not required
+			return nil
+		}
+
+		if err := m.ConnectedThroughRegistration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("connected_through_registration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("connected_through_registration")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

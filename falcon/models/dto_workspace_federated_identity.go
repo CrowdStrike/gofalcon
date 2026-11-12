@@ -20,6 +20,12 @@ type DtoWorkspaceFederatedIdentity struct {
 	// identity pool id
 	IdentityPoolID string `json:"identity_pool_id,omitempty"`
 
+	// identity pool name
+	IdentityPoolName string `json:"identity_pool_name,omitempty"`
+
+	// identity source
+	IdentitySource string `json:"identity_source,omitempty"`
+
 	// project id
 	ProjectID string `json:"project_id,omitempty"`
 
@@ -29,11 +35,20 @@ type DtoWorkspaceFederatedIdentity struct {
 	// provider id
 	ProviderID string `json:"provider_id,omitempty"`
 
+	// provider name
+	ProviderName string `json:"provider_name,omitempty"`
+
 	// sa email
 	SaEmail string `json:"sa_email,omitempty"`
 
 	// sa unique id
 	SaUniqueID string `json:"sa_unique_id,omitempty"`
+
+	// service account id
+	ServiceAccountID string `json:"service_account_id,omitempty"`
+
+	// wif principal
+	WifPrincipal string `json:"wif_principal,omitempty"`
 }
 
 // Validate validates this dto workspace federated identity

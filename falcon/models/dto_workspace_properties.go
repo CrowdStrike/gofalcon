@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -18,6 +19,12 @@ import (
 //
 // swagger:model dto.WorkspaceProperties
 type DtoWorkspaceProperties struct {
+
+	// conditions
+	Conditions []*DtoWorkspaceCondition `json:"conditions"`
+
+	// connected through registration
+	ConnectedThroughRegistration *DtoConnectedThroughRegistration `json:"connected_through_registration,omitempty"`
 
 	// created
 	// Required: true
@@ -40,8 +47,15 @@ type DtoWorkspaceProperties struct {
 	// infra manager properties
 	InfraManagerProperties *DtoWorkspaceInfraManagerProperties `json:"infra_manager_properties,omitempty"`
 
+	// last scan completed at
+	// Format: date-time
+	LastScanCompletedAt strfmt.DateTime `json:"last_scan_completed_at,omitempty"`
+
 	// organization id
 	OrganizationID string `json:"organization_id,omitempty"`
+
+	// primary domain
+	PrimaryDomain string `json:"primary_domain,omitempty"`
 
 	// registration id
 	RegistrationID string `json:"registration_id,omitempty"`
@@ -59,6 +73,14 @@ type DtoWorkspaceProperties struct {
 func (m *DtoWorkspaceProperties) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateConditions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConnectedThroughRegistration(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreated(formats); err != nil {
 		res = append(res, err)
 	}
@@ -75,6 +97,10 @@ func (m *DtoWorkspaceProperties) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLastScanCompletedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateUpdated(formats); err != nil {
 		res = append(res, err)
 	}
@@ -82,6 +108,51 @@ func (m *DtoWorkspaceProperties) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DtoWorkspaceProperties) validateConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.Conditions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Conditions); i++ {
+		if swag.IsZero(m.Conditions[i]) { // not required
+			continue
+		}
+
+		if m.Conditions[i] != nil {
+			if err := m.Conditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DtoWorkspaceProperties) validateConnectedThroughRegistration(formats strfmt.Registry) error {
+	if swag.IsZero(m.ConnectedThroughRegistration) { // not required
+		return nil
+	}
+
+	if m.ConnectedThroughRegistration != nil {
+		if err := m.ConnectedThroughRegistration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("connected_through_registration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("connected_through_registration")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -145,6 +216,18 @@ func (m *DtoWorkspaceProperties) validateInfraManagerProperties(formats strfmt.R
 	return nil
 }
 
+func (m *DtoWorkspaceProperties) validateLastScanCompletedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.LastScanCompletedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("last_scan_completed_at", "body", "date-time", m.LastScanCompletedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DtoWorkspaceProperties) validateUpdated(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated", "body", m.Updated); err != nil {
@@ -162,6 +245,14 @@ func (m *DtoWorkspaceProperties) validateUpdated(formats strfmt.Registry) error 
 func (m *DtoWorkspaceProperties) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConnectedThroughRegistration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFederatedIdentity(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -173,6 +264,52 @@ func (m *DtoWorkspaceProperties) ContextValidate(ctx context.Context, formats st
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DtoWorkspaceProperties) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Conditions); i++ {
+
+		if m.Conditions[i] != nil {
+
+			if swag.IsZero(m.Conditions[i]) { // not required
+				return nil
+			}
+
+			if err := m.Conditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DtoWorkspaceProperties) contextValidateConnectedThroughRegistration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConnectedThroughRegistration != nil {
+
+		if swag.IsZero(m.ConnectedThroughRegistration) { // not required
+			return nil
+		}
+
+		if err := m.ConnectedThroughRegistration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("connected_through_registration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("connected_through_registration")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
