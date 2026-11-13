@@ -270,9 +270,6 @@ func main() {
 	}
 
 	// initialize api client
-	// falconClientId := os.Getenv("FALCON_CLIENT_ID")
-	// falconClientSecret := os.Getenv("FALCON_CLIENT_SECRET")
-	// clientCloud := os.Getenv("FALCON_CLOUD")
 	client, err := falcon.NewClient(&falcon.ApiConfig{
 		ClientId:     *falconClientId,
 		ClientSecret: *falconClientSecret,

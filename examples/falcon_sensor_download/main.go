@@ -142,6 +142,8 @@ func download(
 			ID:      *sensor.Sha256,
 		}, io.MultiWriter(file, hash))
 	if err != nil {
+		_ = file.Close()
+		_ = os.Remove(file.Name())
 		panic(falcon.ErrorExplain(err))
 	}
 
