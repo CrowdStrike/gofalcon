@@ -132,6 +132,8 @@ func downloadAwareConsumer(fallback httpruntime.Consumer) httpruntime.Consumer {
 // consumer for by default. Each is streamed verbatim into the response payload
 // rather than decoded. The structured JSON, CSV, and YAML content types those
 // endpoints also advertise are registered separately and are intentionally absent.
+// binary/octet-stream is not advertised by any endpoint: it is S3's default
+// content type, served by the presigned URL that feed downloads redirect to.
 func binaryDownloadMediaTypes() []string {
 	return []string{
 		"application/gzip",
@@ -143,6 +145,7 @@ func binaryDownloadMediaTypes() []string {
 		"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 		"application/x-7z-compressed",
 		"application/zip",
+		"binary/octet-stream",
 		"image/bmp",
 		"image/gif",
 		"image/jpeg",

@@ -40,6 +40,11 @@
   # spec declares no 200, so the generated client treats every success as an API error. Declare a
   # streamable 200 body so it reads into an io.Writer payload.
   | .paths."/agentic-studio-streaming/entities/agent-invocations/v1"."get"."responses"."200"={"description": "OK", "schema": {"$ref": "#/definitions/domain.DownloadItem"}}
+  # DownloadFeedArchive answers with a 308 to a presigned S3 URL, and net/http follows it, so the
+  # client reads S3's 200 carrying the archive. The spec declares no 200, so the generated client
+  # turns every successful download into an API error and has nowhere to put the bytes. Declare a
+  # binary 200 so the archive streams into an io.Writer payload.
+  | .paths."/indicator-feed/entities/feed-download/v1"."get"."responses"."200"={"description": "OK", "schema": {"$ref": "#/definitions/domain.DownloadItem"}}
   # The report-executions-download 200 response carries Content-Type and Content-Disposition
   # (verified live: application/json and attachment;filename=<report>.json), but the spec declares
   # neither, so the generated OK struct drops them. A report can be delivered in different formats
