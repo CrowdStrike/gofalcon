@@ -178,6 +178,31 @@ func TestRetryTransport_UnlimitedRetriesUntilContextCancellation(t *testing.T) {
 	}
 }
 
+// TestRetryTransport_NoElapsedTimeLimit verifies that the retries are not cut
+// short by the 15-minute default MaxElapsedTime of the backoff library: with a
+// first wait longer than that, the retry still waits, until the context is
+// cancelled.
+func TestRetryTransport_NoElapsedTimeLimit(t *testing.T) {
+	for _, maxTries := range []uint{0, 5} {
+		t.Run(fmt.Sprintf("MaxTries %d", maxTries), func(t *testing.T) {
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			time.AfterFunc(100*time.Millisecond, cancel)
+
+			fake := &fakeTransport{responses: []*http.Response{fakeResp(503)}, errors: []error{nil}}
+			rt := &retryTransport{
+				T:      fake,
+				config: &RetryConfig{MaxTries: maxTries, InitialInterval: 40 * time.Minute, MaxInterval: time.Hour},
+			}
+
+			req, _ := http.NewRequestWithContext(ctx, http.MethodGet, "http://example.com", nil)
+			if _, err := rt.RoundTrip(req); !errors.Is(err, context.Canceled) {
+				t.Fatalf("expected context.Canceled, got %v after %d call(s)", err, fake.calls)
+			}
+		})
+	}
+}
+
 // cancelAfterNTransport cancels the context after n calls.
 type cancelAfterNTransport struct {
 	wrapped http.RoundTripper
