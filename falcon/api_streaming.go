@@ -8,6 +8,9 @@ import (
 	"io"
 	"math"
 	"net/http"
+	"net/url"
+	"path"
+	"strconv"
 	"strings"
 	"time"
 
@@ -34,6 +37,9 @@ type StreamingHandle struct {
 	appId  string
 	offset uint64
 	stream *models.MainAvailableStreamV2
+	// partition is the partition the stream reads, which its session
+	// refreshes name.
+	partition int64
 
 	// Events delivers the events of the stream. It is closed when the stream
 	// ends, possibly before the final error has been received from Errors.
@@ -119,6 +125,25 @@ func checkStreamDescriptor(stream *models.MainAvailableStreamV2) (time.Duration,
 	return time.Duration(interval) * refreshPeriodPerSecond, nil
 }
 
+// streamPartition returns the partition of the stream, the last path element
+// of its refreshActiveSessionURL (.../datafeed-actions/v1/{partition}?...). A
+// descriptor without that URL, or with one that does not end in a partition
+// number, gets partition 0.
+func streamPartition(stream *models.MainAvailableStreamV2) int64 {
+	if stream.RefreshActiveSessionURL == nil {
+		return 0
+	}
+	u, err := url.Parse(*stream.RefreshActiveSessionURL)
+	if err != nil {
+		return 0
+	}
+	partition, err := strconv.ParseInt(path.Base(u.Path), 10, 64)
+	if err != nil || partition < 0 {
+		return 0
+	}
+	return partition
+}
+
 // newStream initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
 func newStream(
 	ctx context.Context,
@@ -155,6 +180,7 @@ func newStream(
 		client:        client,
 		appId:         appId,
 		stream:        stream,
+		partition:     streamPartition(stream),
 		offset:        offset,
 		Events:        make(chan *streaming_models.EventItem),
 		Errors:        make(chan StreamingError, 1),
@@ -270,7 +296,7 @@ func (sh *StreamingHandle) refreshSession(grace time.Duration) error {
 			&event_streams.RefreshActiveStreamSessionParams{
 				AppID:      sh.appId,
 				ActionName: "refresh_active_stream_session",
-				Partition:  0,
+				Partition:  sh.partition,
 				Context:    sh.readCtx,
 			},
 		)
