@@ -14,6 +14,7 @@ Some of these examples ready to be used as stand-alone programs.
  * [falcon_discover_host_details](falcon_discover_host_details) - stand-alone tool that can be used for auditing purposes and for gaining timely visibility into your environment
  * [falcon_host_details](falcon_host_details) - stand-alone tool that outputs inventory of hosts registered to CrowdStrike Falcon platform
  * [falcon_intel_indicators](falcon_intel_indicators) - stand-alone tool that queries CrowdStrike Intelligence Indicators
+ * [falcon_intelligence_feeds](falcon_intelligence_feeds) - example that queries Intelligence Feed archives and downloads them concurrently
  * [falcon_intel_rules_download](falcon_intel_rules_download) - stand-alone tool that downloads CrowdStrike Falcon Intelligence Rule files
  * [falcon_registry_token](falcon_registry_token) - helper to generate container registry logic information for `docker login`
  * [falcon_rtr_read_only_command](falcon_rtr_read_only_command) - stand-alone example to run basic read-only RTR (Real-Time Response) command against a specific agent
