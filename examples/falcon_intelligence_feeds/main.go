@@ -5,8 +5,6 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"io"
-	"net/http"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -19,53 +17,9 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-var errDownloadURLCaptured = errors.New("feed download URL captured")
-
-// downloadURLCapture stops net/http from automatically following the API's
-// redirect so each worker can download the signed URL to a file.
-type downloadURLCapture struct {
-	next      http.RoundTripper
-	locations sync.Map
-}
-
-func (c *downloadURLCapture) decorate(next http.RoundTripper) http.RoundTripper {
-	c.next = next
-	return c
-}
-
-func (c *downloadURLCapture) RoundTrip(req *http.Request) (*http.Response, error) {
-	resp, err := c.next.RoundTrip(req)
-	if err != nil {
-		return resp, err
-	}
-	if req.URL.Path != "/indicator-feed/entities/feed-download/v1" || resp.StatusCode != http.StatusPermanentRedirect {
-		return resp, nil
-	}
-
-	location := resp.Header.Get("Location")
-	feedItemID := req.URL.Query().Get("feed_item_id")
-	if location == "" || feedItemID == "" {
-		return resp, nil
-	}
-
-	c.locations.Store(feedItemID, location)
-	if resp.Body != nil {
-		resp.Body.Close()
-	}
-	return nil, errDownloadURLCaptured
-}
-
-func (c *downloadURLCapture) take(feedItemID string) (string, bool) {
-	location, ok := c.locations.LoadAndDelete(feedItemID)
-	if !ok {
-		return "", false
-	}
-	return location.(string), true
-}
-
 func main() {
-	clientID := flag.String("client-id", os.Getenv("FALCON_CLIENT_ID"), "Falcon OAuth2 client ID (defaults to FALCON_CLIENT_ID)")
-	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Falcon OAuth2 client secret (defaults to FALCON_CLIENT_SECRET)")
+	clientID := flag.String("client-id", "", "Falcon OAuth2 client ID (defaults to FALCON_CLIENT_ID)")
+	clientSecret := flag.String("client-secret", "", "Falcon OAuth2 client secret (defaults to FALCON_CLIENT_SECRET)")
 	memberCID := flag.String("member-cid", os.Getenv("FALCON_MEMBER_CID"), "Member CID for an OAuth2 client that can access multiple CIDs")
 	cloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation, such as us-1, us-2, eu-1, or us-gov-1")
 	feedName := flag.String("feed-name", "", "Name of an intelligence feed available to the customer")
@@ -75,6 +29,12 @@ func main() {
 	outputDir := flag.String("output-dir", "feeds", "Directory for downloaded feed archives")
 	flag.Parse()
 
+	if *clientID == "" {
+		*clientID = os.Getenv("FALCON_CLIENT_ID")
+	}
+	if *clientSecret == "" {
+		*clientSecret = os.Getenv("FALCON_CLIENT_SECRET")
+	}
 	if *clientID == "" || *clientSecret == "" {
 		fatal(errors.New("set FALCON_CLIENT_ID and FALCON_CLIENT_SECRET or pass --client-id and --client-secret"))
 	}
@@ -89,14 +49,12 @@ func main() {
 	}
 
 	ctx := context.Background()
-	capture := &downloadURLCapture{}
 	falconClient, err := falcon.NewClient(&falcon.ApiConfig{
-		ClientId:           *clientID,
-		ClientSecret:       *clientSecret,
-		MemberCID:          *memberCID,
-		Cloud:              falcon.Cloud(*cloud),
-		Context:            ctx,
-		TransportDecorator: capture.decorate,
+		ClientId:     *clientID,
+		ClientSecret: *clientSecret,
+		MemberCID:    *memberCID,
+		Cloud:        falcon.Cloud(*cloud),
+		Context:      ctx,
 	})
 	if err != nil {
 		fatal(err)
@@ -122,8 +80,7 @@ func main() {
 	}
 
 	fmt.Printf("Downloading %d feed archives with up to %d concurrent requests.\n", len(items), *concurrency)
-	downloader := &http.Client{Timeout: 10 * time.Minute}
-	if err := downloadFeedArchives(ctx, falconClient, capture, downloader, items, *outputDir, *concurrency); err != nil {
+	if err := downloadFeedArchives(ctx, falconClient, items, *outputDir, *concurrency); err != nil {
 		fatal(err)
 	}
 }
@@ -191,8 +148,6 @@ func queryFeedArchives(
 func downloadFeedArchives(
 	ctx context.Context,
 	falconClient *client.CrowdStrikeAPISpecification,
-	capture *downloadURLCapture,
-	downloader *http.Client,
 	items []*models.RestapiIndicatorFeedQueryItem,
 	outputDir string,
 	concurrency int,
@@ -202,14 +157,13 @@ func downloadFeedArchives(
 	var workers sync.WaitGroup
 
 	for _, item := range items {
-		item := item
 		workers.Add(1)
 		go func() {
 			defer workers.Done()
 			semaphore <- struct{}{}
 			defer func() { <-semaphore }()
 
-			if err := downloadFeedArchive(ctx, falconClient, capture, downloader, item.FeedItemID, outputDir); err != nil {
+			if err := downloadFeedArchive(ctx, falconClient, item.FeedItemID, outputDir); err != nil {
 				errorsCh <- err
 			}
 		}()
@@ -225,53 +179,16 @@ func downloadFeedArchives(
 	return errors.Join(downloadErrors...)
 }
 
+// downloadFeedArchive streams one archive into a temporary file and renames it
+// into place once complete. The API answers with a redirect to a presigned URL;
+// the client follows it without sending the Falcon bearer token.
 func downloadFeedArchive(
 	ctx context.Context,
 	falconClient *client.CrowdStrikeAPISpecification,
-	capture *downloadURLCapture,
-	downloader *http.Client,
 	feedItemID string,
 	outputDir string,
 ) error {
-	err := falconClient.IntelligenceFeeds.DownloadFeedArchive(
-		&intelligence_feeds.DownloadFeedArchiveParams{
-			Context:    ctx,
-			FeedItemID: feedItemID,
-		},
-	)
-
-	location, captured := capture.take(feedItemID)
-	if !captured {
-		var redirect *intelligence_feeds.DownloadFeedArchivePermanentRedirect
-		if errors.As(err, &redirect) && redirect.Location != "" {
-			location = redirect.Location
-			captured = true
-		}
-	}
-	if !captured {
-		return fmt.Errorf("request download URL for feed item %s: %w", feedItemID, err)
-	}
-	if err != nil && !errors.Is(err, errDownloadURLCaptured) {
-		var redirect *intelligence_feeds.DownloadFeedArchivePermanentRedirect
-		if !errors.As(err, &redirect) {
-			return fmt.Errorf("request download URL for feed item %s: %w", feedItemID, err)
-		}
-	}
-
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, location, nil)
-	if err != nil {
-		return fmt.Errorf("create download request for feed item %s: %w", feedItemID, err)
-	}
-	resp, err := downloader.Do(req)
-	if err != nil {
-		return fmt.Errorf("download feed item %s: %w", feedItemID, err)
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("download feed item %s: unexpected HTTP status %s", feedItemID, resp.Status)
-	}
-
-	temporary, err := os.CreateTemp(outputDir, ".feed-*.zip")
+	temporary, err := os.CreateTemp(outputDir, ".feed-*.ndjson.gz")
 	if err != nil {
 		return fmt.Errorf("create temporary file for feed item %s: %w", feedItemID, err)
 	}
@@ -282,15 +199,22 @@ func downloadFeedArchive(
 		temporary.Close()
 		return fmt.Errorf("set permissions for feed item %s: %w", feedItemID, err)
 	}
-	if _, err := io.Copy(temporary, resp.Body); err != nil {
+	_, err = falconClient.IntelligenceFeeds.DownloadFeedArchive(
+		&intelligence_feeds.DownloadFeedArchiveParams{
+			Context:    ctx,
+			FeedItemID: feedItemID,
+		},
+		temporary,
+	)
+	if err != nil {
 		temporary.Close()
-		return fmt.Errorf("write feed item %s: %w", feedItemID, err)
+		return fmt.Errorf("download feed item %s: %w", feedItemID, err)
 	}
 	if err := temporary.Close(); err != nil {
 		return fmt.Errorf("close feed item %s: %w", feedItemID, err)
 	}
 
-	destination := filepath.Join(outputDir, url.PathEscape(feedItemID)+".zip")
+	destination := filepath.Join(outputDir, url.PathEscape(feedItemID)+".ndjson.gz")
 	if err := os.Rename(temporaryName, destination); err != nil {
 		return fmt.Errorf("store feed item %s: %w", feedItemID, err)
 	}
