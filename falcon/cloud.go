@@ -3,10 +3,13 @@ package falcon
 import (
 	"context"
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/crowdstrike/gofalcon/falcon/client"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
+	httptransport "github.com/go-openapi/runtime/client"
+	"github.com/go-openapi/runtime/logger"
 	"github.com/go-openapi/strfmt"
 )
 
@@ -117,7 +120,7 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 	}
 
 	// (1) Request our cloud-region information from us-1 cloud-region
-	cli := client.NewHTTPClient(strfmt.Default)
+	cli := newAutodiscoverClient(client.DefaultTransportConfig())
 	token, err := cli.Oauth2.Oauth2AccessToken(&oauth2.Oauth2AccessTokenParams{
 		Context:      ctx,
 		ClientID:     clientId,
@@ -148,7 +151,7 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 	if (*c) != CloudUs1 {
 		// (4) Revocation needs to be done in our *local* region
 		transportConfig := client.DefaultTransportConfig().WithHost(c.Host())
-		cli = client.NewHTTPClientWithConfig(strfmt.Default, transportConfig)
+		cli = newAutodiscoverClient(transportConfig)
 	}
 
 	revocation, err := cli.Oauth2.Oauth2RevokeToken(&oauth2.Oauth2RevokeTokenParams{
@@ -164,4 +167,37 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 		return err
 	}
 	return nil
+}
+
+// newAutodiscoverClient builds the unauthenticated client used during cloud
+// autodiscovery. Its debug output (enabled by the DEBUG or SWAGGER_DEBUG
+// environment variables) has the client secret redacted. The redacting logger
+// is installed only when debug is on, because SetLogger also replaces
+// go-openapi's package-wide middleware logger.
+func newAutodiscoverClient(cfg *client.TransportConfig) *client.CrowdStrikeAPISpecification {
+	rt := httptransport.New(cfg.Host, cfg.BasePath, cfg.Schemes)
+	if rt.Debug {
+		rt.SetLogger(redactingLogger{logger.StandardLogger{}})
+	}
+	return client.New(rt, strfmt.Default)
+}
+
+// debugSecretPatterns match the client secret in go-openapi debug dumps of the
+// autodiscovery token request (form field) and revoke request (Basic auth).
+var debugSecretPatterns = []*regexp.Regexp{
+	regexp.MustCompile(`(client_secret=)[^&\s]+`),
+	regexp.MustCompile(`(?i)(Authorization:\s*basic\s+)\S+`),
+}
+
+// redactingLogger masks credentials in debug output before passing it on.
+type redactingLogger struct {
+	logger.Logger
+}
+
+func (l redactingLogger) Debugf(format string, args ...interface{}) {
+	s := fmt.Sprintf(format, args...)
+	for _, p := range debugSecretPatterns {
+		s = p.ReplaceAllString(s, "${1}[REDACTED]")
+	}
+	l.Logger.Debugf("%s\n", strings.TrimSuffix(s, "\n"))
 }
