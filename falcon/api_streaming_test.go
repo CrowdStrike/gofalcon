@@ -620,6 +620,65 @@ func TestNewStreamRefreshesOnComputedPeriod(t *testing.T) {
 	}
 }
 
+// The session refresh names the partition of the stream, taken from its
+// refreshActiveSessionURL, and partition 0 when the descriptor has no usable
+// one.
+func TestSessionRefreshUsesStreamPartition(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name       string
+		refreshURL *string
+		wantPath   string
+	}{
+		{
+			name:       "partition 1",
+			refreshURL: swag.String("https://api.example.com/sensors/entities/datafeed-actions/v1/1?appId=app&action_name=refresh_active_stream_session"),
+			wantPath:   "/sensors/entities/datafeed-actions/v1/1",
+		},
+		{
+			name:       "partition 0",
+			refreshURL: swag.String("https://api.example.com/sensors/entities/datafeed-actions/v1/0?appId=app&action_name=refresh_active_stream_session"),
+			wantPath:   "/sensors/entities/datafeed-actions/v1/0",
+		},
+		{
+			name:     "no refreshActiveSessionURL",
+			wantPath: "/sensors/entities/datafeed-actions/v1/0",
+		},
+		{
+			name:       "no partition number",
+			refreshURL: swag.String("https://api.example.com/sensors/entities/datafeed-actions/v1/?appId=app"),
+			wantPath:   "/sensors/entities/datafeed-actions/v1/0",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
+			refreshed := make(chan string, 1)
+			api := refreshAPI(func(req *http.Request) (*http.Response, error) {
+				select {
+				case refreshed <- req.URL.Path:
+				default:
+				}
+				return jsonResp(http.StatusOK, "{}"), nil
+			})
+			stream := withStream(func(s *models.MainAvailableStreamV2) {
+				s.RefreshActiveSessionInterval = swag.Int64(1)
+				s.RefreshActiveSessionURL = tt.refreshURL
+			})
+
+			feed := &fakeFeed{status: http.StatusOK, body: idleFeed}
+			sh := feed.connectWith(context.Background(), t, api, stream)
+			t.Cleanup(func() { closeAndDrain(t, sh) })
+
+			if got := within(t, refreshed, "a session refresh"); got != tt.wantPath {
+				t.Fatalf("expected refresh of %s, got %s", tt.wantPath, got)
+			}
+		})
+	}
+}
+
 // Each event is handed over as it came off the wire: decoded, and with the wire
 // bytes kept in RawMessage, which streaming_models.As decodes its typed payload
 // from. Each event keeps its own bytes once the next one has been read.
