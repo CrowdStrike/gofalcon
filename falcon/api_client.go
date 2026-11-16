@@ -428,7 +428,10 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 		return resp, nil
 	}
 
-	opts := []backoff.RetryOption{backoff.WithBackOff(bo)}
+	// Retry defaults to giving up after backoff.DefaultMaxElapsedTime (15
+	// minutes). Lift that limit, so that only MaxTries and the request
+	// context end the retries.
+	opts := []backoff.RetryOption{backoff.WithBackOff(bo), backoff.WithMaxElapsedTime(0)}
 	if rt.config.MaxTries > 0 {
 		opts = append(opts, backoff.WithMaxTries(rt.config.MaxTries))
 	}
