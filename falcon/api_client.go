@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -19,7 +20,6 @@ import (
 	httpruntime "github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	log "github.com/sirupsen/logrus"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/clientcredentials"
 	"gopkg.in/yaml.v3"
@@ -331,8 +331,8 @@ func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 	req.Header.Add("CrowdStrike-SDK", "crowdstrike-gofalcon/"+Version.String())
 
 	if delay := rt.proactiveDelay(); delay > 0 {
-		log.Debugf("Approaching CrowdStrike API rate limits (remaining=%d). Waiting %s.",
-			rt.remaining.Load(), delay)
+		slog.DebugContext(req.Context(), "approaching CrowdStrike API rate limits, delaying request",
+			"remaining", rt.remaining.Load(), "delay", delay)
 		timer := time.NewTimer(delay)
 		select {
 		case <-timer.C:
@@ -414,13 +414,13 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 				bo.override = wait
 				rt.setCooldown(wait)
 			}
-			log.Debugf("rate limited on %s, retrying", req.URL.Path)
+			slog.DebugContext(req.Context(), "rate limited, retrying request", "path", req.URL.Path)
 			drainBody(resp)
 			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
 		}
 
 		if resp.StatusCode >= 500 {
-			log.Debugf("retrying request to %s, status %d", req.URL.Path, resp.StatusCode)
+			slog.DebugContext(req.Context(), "retrying request", "path", req.URL.Path, "status", resp.StatusCode)
 			drainBody(resp)
 			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
 		}
@@ -468,7 +468,7 @@ func (rt *retryTransport) waitForCooldown(ctx context.Context) error {
 			wait.Round(time.Millisecond), context.DeadlineExceeded)
 	}
 
-	log.Debugf("waiting %s for rate-limit cooldown before sending request", wait.Round(time.Millisecond))
+	slog.DebugContext(ctx, "waiting for rate-limit cooldown before sending request", "wait", wait.Round(time.Millisecond))
 	timer := time.NewTimer(wait)
 	defer timer.Stop()
 
