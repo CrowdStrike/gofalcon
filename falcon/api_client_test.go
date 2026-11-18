@@ -100,9 +100,21 @@ func TestRetryTransport(t *testing.T) {
 			wantStatus: 200,
 			wantCalls:  3,
 		},
-		"stops after MaxTries": {
-			responses: []*http.Response{fakeResp(503)},
-			errors:    []error{nil},
+		"returns the last 5xx after MaxTries": {
+			responses:  []*http.Response{fakeResp(503)},
+			errors:     []error{nil},
+			wantStatus: 503,
+			wantCalls:  3,
+		},
+		"returns the last 429 after MaxTries": {
+			responses:  []*http.Response{fakeResp(429)},
+			errors:     []error{nil},
+			wantStatus: 429,
+			wantCalls:  3,
+		},
+		"returns the last network error after MaxTries": {
+			responses: []*http.Response{nil},
+			errors:    []error{errors.New("connection refused")},
 			wantErr:   true,
 			wantCalls: 3,
 		},
@@ -734,8 +746,10 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 
 	tests := map[string]struct {
 		roundTrip func(req *http.Request) (*http.Response, error)
-		wantErr   bool
-		want      []wantLog
+		// wantStatus is the status of the response RoundTrip returns. Zero
+		// means 200.
+		wantStatus int
+		want       []wantLog
 	}{
 		"proactive rate-limit delay": {
 			roundTrip: func(req *http.Request) (*http.Response, error) {
@@ -790,8 +804,8 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 				responses: []*http.Response{fakeResp(503)},
 				errors:    []error{nil},
 			}),
-			wantErr: true,
-			want:    []wantLog{retrying("1", "503", "retryable HTTP status: 503")},
+			wantStatus: 503,
+			want:       []wantLog{retrying("1", "503", "retryable HTTP status: 503")},
 		},
 		"rate-limit cooldown": {
 			roundTrip: func(req *http.Request) (*http.Response, error) {
@@ -818,13 +832,15 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 				t.Fatalf("NewRequestWithContext: %v", err)
 			}
 			resp, err := tc.roundTrip(req)
-			switch {
-			case tc.wantErr && err == nil:
-				t.Fatal("expected an error, got nil")
-			case !tc.wantErr && err != nil:
+			if err != nil {
 				t.Fatalf("RoundTrip: %v", err)
-			case !tc.wantErr && resp.StatusCode != 200:
-				t.Fatalf("expected status 200, got %d", resp.StatusCode)
+			}
+			wantStatus := tc.wantStatus
+			if wantStatus == 0 {
+				wantStatus = http.StatusOK
+			}
+			if resp.StatusCode != wantStatus {
+				t.Fatalf("expected status %d, got %d", wantStatus, resp.StatusCode)
 			}
 
 			records := h.captured()
@@ -1222,13 +1238,22 @@ func (s *redirectTestServer) recorded() []redirectHop {
 // example.com, one of the names the httptest certificate covers.
 func (s *redirectTestServer) context(t *testing.T) context.Context {
 	t.Helper()
-	base, ok := s.srv.Client().Transport.(*http.Transport)
+	return tlsTestServerContext(t, s.srv)
+}
+
+// tlsTestServerContext returns a context whose oauth2.HTTPClient sends every
+// request to srv, whatever host it names. TLS still verifies the server's
+// certificate, but against example.com, one of the names the httptest
+// certificate covers.
+func tlsTestServerContext(t *testing.T, srv *httptest.Server) context.Context {
+	t.Helper()
+	base, ok := srv.Client().Transport.(*http.Transport)
 	if !ok {
-		t.Fatalf("unexpected httptest transport %T", s.srv.Client().Transport)
+		t.Fatalf("unexpected httptest transport %T", srv.Client().Transport)
 	}
 	tr := base.Clone()
 	tr.TLSClientConfig.ServerName = "example.com"
-	addr := s.srv.Listener.Addr().String()
+	addr := srv.Listener.Addr().String()
 	tr.DialContext = func(ctx context.Context, network, _ string) (net.Conn, error) {
 		var d net.Dialer
 		return d.DialContext(ctx, network, addr)
@@ -1337,6 +1362,65 @@ func TestTokenRequestRedirectCredentials(t *testing.T) {
 				if !trusted[h.host] && (strings.Contains(h.body, secret) || h.authorization != "") {
 					t.Fatalf("credentials reached %s%s", h.host, h.path)
 				}
+			}
+		})
+	}
+}
+
+// TestRetryTransport_ExhaustedRetriesReturnLastResponse checks what the
+// authenticated client returns once RetryConfig runs out of attempts on a 429
+// or 5xx: the last response, unread, with its headers and no error. The
+// generated client builds its typed error from that response, as it does
+// without retries.
+func TestRetryTransport_ExhaustedRetriesReturnLastResponse(t *testing.T) {
+	t.Parallel()
+	const (
+		retryAfter = "1795016299"
+		body       = `{"errors":[{"message":"slow down"}]}`
+	)
+	for _, status := range []int{http.StatusTooManyRequests, http.StatusServiceUnavailable} {
+		t.Run(http.StatusText(status), func(t *testing.T) {
+			t.Parallel()
+			var requests atomic.Int32
+			srv := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				requests.Add(1)
+				w.Header().Set("X-RateLimit-Limit", "6000")
+				w.Header().Set("X-RateLimit-Remaining", "0")
+				// An epoch in the past, so the retry falls back to the short
+				// test backoff instead of waiting for it.
+				w.Header().Set("X-RateLimit-RetryAfter", retryAfter)
+				w.WriteHeader(status)
+				_, _ = io.WriteString(w, body)
+			}))
+			t.Cleanup(srv.Close)
+
+			c := accessTokenHTTPClient(&ApiConfig{
+				AccessToken:  "static-token",
+				HostOverride: "gw.example.com",
+				Context:      tlsTestServerContext(t, srv),
+				RetryConfig:  fastRetry(3),
+			})
+			req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, "https://gw.example.com/devices/queries/devices/v1", nil)
+			if err != nil {
+				t.Fatal(err)
+			}
+			resp, err := c.Do(req)
+			if err != nil {
+				t.Fatalf("expected the last response, got error %v", err)
+			}
+			defer resp.Body.Close()
+
+			if resp.StatusCode != status {
+				t.Errorf("status = %d, want %d", resp.StatusCode, status)
+			}
+			if got := resp.Header.Get("X-RateLimit-RetryAfter"); got != retryAfter {
+				t.Errorf("X-RateLimit-RetryAfter = %q, want %q", got, retryAfter)
+			}
+			if got, err := io.ReadAll(resp.Body); err != nil || string(got) != body {
+				t.Errorf("body = %q (err %v), want %q", got, err, body)
+			}
+			if got := requests.Load(); got != 3 {
+				t.Errorf("server got %d requests, want 3 (MaxTries)", got)
 			}
 		})
 	}

@@ -396,7 +396,8 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 
 	// attempt counts the requests sent so far, and status holds the last
 	// one's HTTP status, or 0 when it got no response.
-	attempt, status := 0, 0
+	var attempt uint
+	status := 0
 	operation := func() (*http.Response, error) {
 		if err := rt.waitForCooldown(req.Context()); err != nil {
 			return nil, backoff.Permanent(err)
@@ -414,17 +415,27 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 			return resp, err
 		}
 		status = resp.StatusCode
+		// The last attempt returns a 429 or 5xx as it is, so the caller gets
+		// the API's response, and the typed error the generated client builds
+		// from it, as it would without retries.
+		final := rt.config.MaxTries > 0 && attempt >= rt.config.MaxTries
 
 		if resp.StatusCode == http.StatusTooManyRequests {
 			if wait := parseRetryAfter(resp.Header.Get("X-RateLimit-RetryAfter")); wait > 0 {
 				bo.override = wait
 				rt.setCooldown(wait)
 			}
+			if final {
+				return resp, nil
+			}
 			drainBody(resp)
 			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
 		}
 
 		if resp.StatusCode >= 500 {
+			if final {
+				return resp, nil
+			}
 			drainBody(resp)
 			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
 		}
