@@ -38,7 +38,8 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	// If HostOverride is provided we do not need to discover the cloud
 	if ac.HostOverride == "" {
 		if ac.AccessToken == "" {
-			if err := ac.Cloud.Autodiscover(ac.Context, ac.ClientId, ac.ClientSecret); err != nil {
+			in := autodiscoverInput{clientID: ac.ClientId, clientSecret: ac.ClientSecret, retry: ac.RetryConfig}
+			if err := ac.Cloud.autodiscover(ac.Context, in); err != nil {
 				return nil, err
 			}
 		} else if ac.Cloud == CloudAutoDiscover {
