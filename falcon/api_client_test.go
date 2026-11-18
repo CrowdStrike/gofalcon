@@ -7,6 +7,8 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
+	"log/slog"
 	"mime"
 	"net"
 	"net/http"
@@ -627,6 +629,175 @@ func TestWaitForCooldown_PreflightDeadlineExceeded(t *testing.T) {
 	}
 	if !strings.Contains(err.Error(), "exceeds context deadline") {
 		t.Fatalf("expected descriptive error message, got: %v", err)
+	}
+}
+
+// capturedLog is one record received by captureHandler.
+type capturedLog struct {
+	level    slog.Level
+	message  string
+	attrs    map[string]slog.Value
+	ctxValue any
+}
+
+// captureHandler records every slog record it receives, along with the value
+// stored under logCtxKey in the record's context.
+type captureHandler struct {
+	mu      sync.Mutex
+	records []capturedLog
+}
+
+type logCtxKey struct{}
+
+func (h *captureHandler) Enabled(context.Context, slog.Level) bool { return true }
+
+func (h *captureHandler) Handle(ctx context.Context, r slog.Record) error {
+	attrs := make(map[string]slog.Value)
+	r.Attrs(func(a slog.Attr) bool {
+		attrs[a.Key] = a.Value
+		return true
+	})
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.records = append(h.records, capturedLog{
+		level:    r.Level,
+		message:  r.Message,
+		attrs:    attrs,
+		ctxValue: ctx.Value(logCtxKey{}),
+	})
+	return nil
+}
+
+// WithAttrs and WithGroup are unused by the code under test.
+func (h *captureHandler) WithAttrs([]slog.Attr) slog.Handler { return h }
+func (h *captureHandler) WithGroup(string) slog.Handler      { return h }
+
+func (h *captureHandler) captured() []capturedLog {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	return append([]capturedLog(nil), h.records...)
+}
+
+// captureDefaultSlog routes the default slog logger to a captureHandler for the
+// rest of the test. slog.SetDefault also redirects the standard log package,
+// and restoring the original slog logger does not undo that, so the log
+// package's output and flags are restored separately.
+func captureDefaultSlog(t *testing.T) *captureHandler {
+	t.Helper()
+	h := &captureHandler{}
+	origLogger := slog.Default()
+	origOutput, origFlags := log.Writer(), log.Flags()
+	t.Cleanup(func() {
+		slog.SetDefault(origLogger)
+		log.SetOutput(origOutput)
+		log.SetFlags(origFlags)
+	})
+	slog.SetDefault(slog.New(h))
+	return h
+}
+
+// TestTransportsLogThroughSlog checks that the rate-limit and retry paths log a
+// debug record to the default slog logger, with the request's context.
+// It replaces the process-wide default logger, so it does not run in parallel.
+func TestTransportsLogThroughSlog(t *testing.T) {
+	// A nil attribute value means the attribute must be present, with any value.
+	tests := map[string]struct {
+		roundTrip func(req *http.Request) (*http.Response, error)
+		message   string
+		attrs     map[string]any
+	}{
+		"proactive rate-limit delay": {
+			roundTrip: func(req *http.Request) (*http.Response, error) {
+				rt := &roundTripper{T: &funcTransport{fn: func(*http.Request) (*http.Response, error) {
+					return fakeResp(200), nil
+				}}, UserAgent: "test"}
+				rt.remaining.Store(8)
+				return rt.RoundTrip(req)
+			},
+			message: "approaching CrowdStrike API rate limits, delaying request",
+			attrs:   map[string]any{"remaining": int64(8), "delay": 200 * time.Millisecond},
+		},
+		"rate limited": {
+			roundTrip: func(req *http.Request) (*http.Response, error) {
+				fake := &fakeTransport{
+					responses: []*http.Response{fakeResp(429), fakeResp(200)},
+					errors:    []error{nil, nil},
+				}
+				rt := &retryTransport{T: fake, config: fastRetry(3)}
+				return rt.RoundTrip(req)
+			},
+			message: "rate limited, retrying request",
+			attrs:   map[string]any{"path": "/devices/queries/devices/v1"},
+		},
+		"server error": {
+			roundTrip: func(req *http.Request) (*http.Response, error) {
+				fake := &fakeTransport{
+					responses: []*http.Response{fakeResp(503), fakeResp(200)},
+					errors:    []error{nil, nil},
+				}
+				rt := &retryTransport{T: fake, config: fastRetry(3)}
+				return rt.RoundTrip(req)
+			},
+			message: "retrying request",
+			attrs:   map[string]any{"path": "/devices/queries/devices/v1", "status": int64(503)},
+		},
+		"rate-limit cooldown": {
+			roundTrip: func(req *http.Request) (*http.Response, error) {
+				fake := &fakeTransport{responses: []*http.Response{fakeResp(200)}, errors: []error{nil}}
+				rt := &retryTransport{T: fake, config: fastRetry(3)}
+				rt.setCooldown(20 * time.Millisecond)
+				return rt.RoundTrip(req)
+			},
+			message: "waiting for rate-limit cooldown before sending request",
+			attrs:   map[string]any{"wait": nil},
+		},
+	}
+
+	for name, tc := range tests {
+		t.Run(name, func(t *testing.T) {
+			h := captureDefaultSlog(t)
+
+			ctx := context.WithValue(context.Background(), logCtxKey{}, name)
+			req, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://example.com/devices/queries/devices/v1", nil)
+			if err != nil {
+				t.Fatalf("NewRequestWithContext: %v", err)
+			}
+			resp, err := tc.roundTrip(req)
+			if err != nil {
+				t.Fatalf("RoundTrip: %v", err)
+			}
+			if resp.StatusCode != 200 {
+				t.Fatalf("expected status 200, got %d", resp.StatusCode)
+			}
+
+			records := h.captured()
+			if len(records) != 1 {
+				t.Fatalf("expected 1 log record, got %d: %+v", len(records), records)
+			}
+			got := records[0]
+			if got.level != slog.LevelDebug {
+				t.Errorf("level = %v, want %v", got.level, slog.LevelDebug)
+			}
+			if got.message != tc.message {
+				t.Errorf("message = %q, want %q", got.message, tc.message)
+			}
+			if got.ctxValue != name {
+				t.Errorf("handler saw context value %v, want the request's context (%q)", got.ctxValue, name)
+			}
+			if len(got.attrs) != len(tc.attrs) {
+				t.Errorf("attrs = %v, want keys of %v", got.attrs, tc.attrs)
+			}
+			for key, want := range tc.attrs {
+				value, ok := got.attrs[key]
+				if !ok {
+					t.Errorf("missing attr %q in %v", key, got.attrs)
+					continue
+				}
+				if want != nil && value.Any() != want {
+					t.Errorf("attr %q = %v (%T), want %v (%T)", key, value.Any(), value.Any(), want, want)
+				}
+			}
+		})
 	}
 }
 
