@@ -394,6 +394,10 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 		bo.MaxInterval = time.Minute
 	}
 
+	// attempt counts the requests sent so far, and status holds the last
+	// one's HTTP status, or 0 when it got no response.
+	var attempt uint
+	status := 0
 	operation := func() (*http.Response, error) {
 		if err := rt.waitForCooldown(req.Context()); err != nil {
 			return nil, backoff.Permanent(err)
@@ -404,23 +408,34 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 			return nil, backoff.Permanent(fmt.Errorf("failed to clone request: %w", err))
 		}
 
+		attempt++
+		status = 0
 		resp, err := rt.T.RoundTrip(cloned)
 		if err != nil {
 			return resp, err
 		}
+		status = resp.StatusCode
+		// The last attempt returns a 429 or 5xx as it is, so the caller gets
+		// the API's response, and the typed error the generated client builds
+		// from it, as it would without retries.
+		final := rt.config.MaxTries > 0 && attempt >= rt.config.MaxTries
 
 		if resp.StatusCode == http.StatusTooManyRequests {
 			if wait := parseRetryAfter(resp.Header.Get("X-RateLimit-RetryAfter")); wait > 0 {
 				bo.override = wait
 				rt.setCooldown(wait)
 			}
-			slog.DebugContext(req.Context(), "rate limited, retrying request", "path", req.URL.Path)
+			if final {
+				return resp, nil
+			}
 			drainBody(resp)
 			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
 		}
 
 		if resp.StatusCode >= 500 {
-			slog.DebugContext(req.Context(), "retrying request", "path", req.URL.Path, "status", resp.StatusCode)
+			if final {
+				return resp, nil
+			}
 			drainBody(resp)
 			return nil, fmt.Errorf("retryable HTTP status: %d", resp.StatusCode)
 		}
@@ -428,10 +443,22 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 		return resp, nil
 	}
 
+	// Retry calls notify only when it is about to wait for another attempt,
+	// not after the last one or once the context has ended. The path is
+	// logged without the query string, which can carry FQL filters. A retry
+	// after a network error has no status to log.
+	notify := func(err error, wait time.Duration) {
+		args := []any{"method", req.Method, "path", req.URL.Path, "attempt", attempt, "wait", wait, "error", err}
+		if status != 0 {
+			args = append(args, "status", status)
+		}
+		slog.WarnContext(req.Context(), "retrying CrowdStrike API request", args...)
+	}
+
 	// Retry defaults to giving up after backoff.DefaultMaxElapsedTime (15
 	// minutes). Lift that limit, so that only MaxTries and the request
 	// context end the retries.
-	opts := []backoff.RetryOption{backoff.WithBackOff(bo), backoff.WithMaxElapsedTime(0)}
+	opts := []backoff.RetryOption{backoff.WithBackOff(bo), backoff.WithMaxElapsedTime(0), backoff.WithNotify(notify)}
 	if rt.config.MaxTries > 0 {
 		opts = append(opts, backoff.WithMaxTries(rt.config.MaxTries))
 	}

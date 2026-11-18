@@ -99,6 +99,8 @@ client, err := falcon.NewClient(&falcon.ApiConfig{
 
 When `RetryConfig` is nil (the default), no retries are performed. Retry behaviour is controlled entirely by the context passed to `ApiConfig` -- cancelling the context stops any in-progress retry loop.
 
+When the last attempt still gets a `429` or `5xx`, the call returns the same error as without retries, such as `*hosts.QueryDevicesByFilterTooManyRequests` with its rate-limit headers, so `errors.As` keeps working.
+
 ## Testing
 
 The `falcon/testing` package provides a fake client for testing GoFalcon applications without API credentials or network calls. It intercepts at the transport layer, so your application code requires zero changes.

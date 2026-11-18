@@ -100,9 +100,21 @@ func TestRetryTransport(t *testing.T) {
 			wantStatus: 200,
 			wantCalls:  3,
 		},
-		"stops after MaxTries": {
-			responses: []*http.Response{fakeResp(503)},
-			errors:    []error{nil},
+		"returns the last 5xx after MaxTries": {
+			responses:  []*http.Response{fakeResp(503)},
+			errors:     []error{nil},
+			wantStatus: 503,
+			wantCalls:  3,
+		},
+		"returns the last 429 after MaxTries": {
+			responses:  []*http.Response{fakeResp(429)},
+			errors:     []error{nil},
+			wantStatus: 429,
+			wantCalls:  3,
+		},
+		"returns the last network error after MaxTries": {
+			responses: []*http.Response{nil},
+			errors:    []error{errors.New("connection refused")},
 			wantErr:   true,
 			wantCalls: 3,
 		},
@@ -696,15 +708,48 @@ func captureDefaultSlog(t *testing.T) *captureHandler {
 	return h
 }
 
-// TestTransportsLogThroughSlog checks that the rate-limit and retry paths log a
-// debug record to the default slog logger, with the request's context.
-// It replaces the process-wide default logger, so it does not run in parallel.
+// wantLog describes one record expected by TestTransportsLogThroughSlog.
+type wantLog struct {
+	level   slog.Level
+	message string
+	// attrs maps each expected attribute to its value as slog prints it. An
+	// empty string accepts any value.
+	attrs map[string]string
+}
+
+// TestTransportsLogThroughSlog checks what the retry and rate-limit transports
+// log to the default slog logger: a warning before each retry, and debug
+// records for rate-limit pacing, all with the request's context. It replaces
+// the process-wide default logger, so it does not run in parallel.
 func TestTransportsLogThroughSlog(t *testing.T) {
-	// A nil attribute value means the attribute must be present, with any value.
+	const path = "/devices/queries/devices/v1"
+
+	// retrying builds the warning logged before a retry. An empty status means
+	// the attempt got no response, so the record carries no status attribute.
+	retrying := func(attempt, status, errText string) wantLog {
+		attrs := map[string]string{"method": "GET", "path": path, "attempt": attempt, "wait": "", "error": errText}
+		if status != "" {
+			attrs["status"] = status
+		}
+		return wantLog{
+			level:   slog.LevelWarn,
+			message: "retrying CrowdStrike API request",
+			attrs:   attrs,
+		}
+	}
+	viaRetry := func(maxTries uint, fake *fakeTransport) func(*http.Request) (*http.Response, error) {
+		return func(req *http.Request) (*http.Response, error) {
+			rt := &retryTransport{T: fake, config: fastRetry(maxTries)}
+			return rt.RoundTrip(req)
+		}
+	}
+
 	tests := map[string]struct {
 		roundTrip func(req *http.Request) (*http.Response, error)
-		message   string
-		attrs     map[string]any
+		// wantStatus is the status of the response RoundTrip returns. Zero
+		// means 200.
+		wantStatus int
+		want       []wantLog
 	}{
 		"proactive rate-limit delay": {
 			roundTrip: func(req *http.Request) (*http.Response, error) {
@@ -714,32 +759,53 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 				rt.remaining.Store(8)
 				return rt.RoundTrip(req)
 			},
-			message: "approaching CrowdStrike API rate limits, delaying request",
-			attrs:   map[string]any{"remaining": int64(8), "delay": 200 * time.Millisecond},
+			want: []wantLog{{
+				level:   slog.LevelDebug,
+				message: "approaching CrowdStrike API rate limits, delaying request",
+				attrs:   map[string]string{"remaining": "8", "delay": "200ms"},
+			}},
 		},
 		"rate limited": {
-			roundTrip: func(req *http.Request) (*http.Response, error) {
-				fake := &fakeTransport{
-					responses: []*http.Response{fakeResp(429), fakeResp(200)},
-					errors:    []error{nil, nil},
-				}
-				rt := &retryTransport{T: fake, config: fastRetry(3)}
-				return rt.RoundTrip(req)
-			},
-			message: "rate limited, retrying request",
-			attrs:   map[string]any{"path": "/devices/queries/devices/v1"},
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{fakeResp(429), fakeResp(200)},
+				errors:    []error{nil, nil},
+			}),
+			want: []wantLog{retrying("1", "429", "retryable HTTP status: 429")},
 		},
-		"server error": {
-			roundTrip: func(req *http.Request) (*http.Response, error) {
-				fake := &fakeTransport{
-					responses: []*http.Response{fakeResp(503), fakeResp(200)},
-					errors:    []error{nil, nil},
-				}
-				rt := &retryTransport{T: fake, config: fastRetry(3)}
-				return rt.RoundTrip(req)
+		"server errors": {
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{fakeResp(503), fakeResp(502), fakeResp(200)},
+				errors:    []error{nil, nil, nil},
+			}),
+			want: []wantLog{
+				retrying("1", "503", "retryable HTTP status: 503"),
+				retrying("2", "502", "retryable HTTP status: 502"),
 			},
-			message: "retrying request",
-			attrs:   map[string]any{"path": "/devices/queries/devices/v1", "status": int64(503)},
+		},
+		"network error": {
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{nil, fakeResp(200)},
+				errors:    []error{errors.New("connection refused"), nil},
+			}),
+			want: []wantLog{retrying("1", "", "connection refused")},
+		},
+		"network error after a rate limit": {
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{fakeResp(429), nil, fakeResp(200)},
+				errors:    []error{nil, errors.New("connection refused"), nil},
+			}),
+			want: []wantLog{
+				retrying("1", "429", "retryable HTTP status: 429"),
+				retrying("2", "", "connection refused"),
+			},
+		},
+		"no retry log after the last attempt": {
+			roundTrip: viaRetry(2, &fakeTransport{
+				responses: []*http.Response{fakeResp(503)},
+				errors:    []error{nil},
+			}),
+			wantStatus: 503,
+			want:       []wantLog{retrying("1", "503", "retryable HTTP status: 503")},
 		},
 		"rate-limit cooldown": {
 			roundTrip: func(req *http.Request) (*http.Response, error) {
@@ -748,8 +814,11 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 				rt.setCooldown(20 * time.Millisecond)
 				return rt.RoundTrip(req)
 			},
-			message: "waiting for rate-limit cooldown before sending request",
-			attrs:   map[string]any{"wait": nil},
+			want: []wantLog{{
+				level:   slog.LevelDebug,
+				message: "waiting for rate-limit cooldown before sending request",
+				attrs:   map[string]string{"wait": ""},
+			}},
 		},
 	}
 
@@ -758,7 +827,7 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 			h := captureDefaultSlog(t)
 
 			ctx := context.WithValue(context.Background(), logCtxKey{}, name)
-			req, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://example.com/devices/queries/devices/v1", nil)
+			req, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://example.com"+path, nil)
 			if err != nil {
 				t.Fatalf("NewRequestWithContext: %v", err)
 			}
@@ -766,35 +835,41 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 			if err != nil {
 				t.Fatalf("RoundTrip: %v", err)
 			}
-			if resp.StatusCode != 200 {
-				t.Fatalf("expected status 200, got %d", resp.StatusCode)
+			wantStatus := tc.wantStatus
+			if wantStatus == 0 {
+				wantStatus = http.StatusOK
+			}
+			if resp.StatusCode != wantStatus {
+				t.Fatalf("expected status %d, got %d", wantStatus, resp.StatusCode)
 			}
 
 			records := h.captured()
-			if len(records) != 1 {
-				t.Fatalf("expected 1 log record, got %d: %+v", len(records), records)
+			if len(records) != len(tc.want) {
+				t.Fatalf("got %d log records, want %d: %+v", len(records), len(tc.want), records)
 			}
-			got := records[0]
-			if got.level != slog.LevelDebug {
-				t.Errorf("level = %v, want %v", got.level, slog.LevelDebug)
-			}
-			if got.message != tc.message {
-				t.Errorf("message = %q, want %q", got.message, tc.message)
-			}
-			if got.ctxValue != name {
-				t.Errorf("handler saw context value %v, want the request's context (%q)", got.ctxValue, name)
-			}
-			if len(got.attrs) != len(tc.attrs) {
-				t.Errorf("attrs = %v, want keys of %v", got.attrs, tc.attrs)
-			}
-			for key, want := range tc.attrs {
-				value, ok := got.attrs[key]
-				if !ok {
-					t.Errorf("missing attr %q in %v", key, got.attrs)
-					continue
+			for i, want := range tc.want {
+				got := records[i]
+				if got.level != want.level {
+					t.Errorf("record %d: level = %v, want %v", i, got.level, want.level)
 				}
-				if want != nil && value.Any() != want {
-					t.Errorf("attr %q = %v (%T), want %v (%T)", key, value.Any(), value.Any(), want, want)
+				if got.message != want.message {
+					t.Errorf("record %d: message = %q, want %q", i, got.message, want.message)
+				}
+				if got.ctxValue != name {
+					t.Errorf("record %d: handler saw context value %v, want the request's context (%q)", i, got.ctxValue, name)
+				}
+				if len(got.attrs) != len(want.attrs) {
+					t.Errorf("record %d: attrs = %v, want keys of %v", i, got.attrs, want.attrs)
+				}
+				for key, wantValue := range want.attrs {
+					value, ok := got.attrs[key]
+					if !ok {
+						t.Errorf("record %d: missing attr %q in %v", i, key, got.attrs)
+						continue
+					}
+					if wantValue != "" && value.String() != wantValue {
+						t.Errorf("record %d: attr %q = %q, want %q", i, key, value.String(), wantValue)
+					}
 				}
 			}
 		})
@@ -1163,13 +1238,22 @@ func (s *redirectTestServer) recorded() []redirectHop {
 // example.com, one of the names the httptest certificate covers.
 func (s *redirectTestServer) context(t *testing.T) context.Context {
 	t.Helper()
-	base, ok := s.srv.Client().Transport.(*http.Transport)
+	return tlsTestServerContext(t, s.srv)
+}
+
+// tlsTestServerContext returns a context whose oauth2.HTTPClient sends every
+// request to srv, whatever host it names. TLS still verifies the server's
+// certificate, but against example.com, one of the names the httptest
+// certificate covers.
+func tlsTestServerContext(t *testing.T, srv *httptest.Server) context.Context {
+	t.Helper()
+	base, ok := srv.Client().Transport.(*http.Transport)
 	if !ok {
-		t.Fatalf("unexpected httptest transport %T", s.srv.Client().Transport)
+		t.Fatalf("unexpected httptest transport %T", srv.Client().Transport)
 	}
 	tr := base.Clone()
 	tr.TLSClientConfig.ServerName = "example.com"
-	addr := s.srv.Listener.Addr().String()
+	addr := srv.Listener.Addr().String()
 	tr.DialContext = func(ctx context.Context, network, _ string) (net.Conn, error) {
 		var d net.Dialer
 		return d.DialContext(ctx, network, addr)
@@ -1278,6 +1362,65 @@ func TestTokenRequestRedirectCredentials(t *testing.T) {
 				if !trusted[h.host] && (strings.Contains(h.body, secret) || h.authorization != "") {
 					t.Fatalf("credentials reached %s%s", h.host, h.path)
 				}
+			}
+		})
+	}
+}
+
+// TestRetryTransport_ExhaustedRetriesReturnLastResponse checks what the
+// authenticated client returns once RetryConfig runs out of attempts on a 429
+// or 5xx: the last response, unread, with its headers and no error. The
+// generated client builds its typed error from that response, as it does
+// without retries.
+func TestRetryTransport_ExhaustedRetriesReturnLastResponse(t *testing.T) {
+	t.Parallel()
+	const (
+		retryAfter = "1795016299"
+		body       = `{"errors":[{"message":"slow down"}]}`
+	)
+	for _, status := range []int{http.StatusTooManyRequests, http.StatusServiceUnavailable} {
+		t.Run(http.StatusText(status), func(t *testing.T) {
+			t.Parallel()
+			var requests atomic.Int32
+			srv := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				requests.Add(1)
+				w.Header().Set("X-RateLimit-Limit", "6000")
+				w.Header().Set("X-RateLimit-Remaining", "0")
+				// An epoch in the past, so the retry falls back to the short
+				// test backoff instead of waiting for it.
+				w.Header().Set("X-RateLimit-RetryAfter", retryAfter)
+				w.WriteHeader(status)
+				_, _ = io.WriteString(w, body)
+			}))
+			t.Cleanup(srv.Close)
+
+			c := accessTokenHTTPClient(&ApiConfig{
+				AccessToken:  "static-token",
+				HostOverride: "gw.example.com",
+				Context:      tlsTestServerContext(t, srv),
+				RetryConfig:  fastRetry(3),
+			})
+			req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, "https://gw.example.com/devices/queries/devices/v1", nil)
+			if err != nil {
+				t.Fatal(err)
+			}
+			resp, err := c.Do(req)
+			if err != nil {
+				t.Fatalf("expected the last response, got error %v", err)
+			}
+			defer resp.Body.Close()
+
+			if resp.StatusCode != status {
+				t.Errorf("status = %d, want %d", resp.StatusCode, status)
+			}
+			if got := resp.Header.Get("X-RateLimit-RetryAfter"); got != retryAfter {
+				t.Errorf("X-RateLimit-RetryAfter = %q, want %q", got, retryAfter)
+			}
+			if got, err := io.ReadAll(resp.Body); err != nil || string(got) != body {
+				t.Errorf("body = %q (err %v), want %q", got, err, body)
+			}
+			if got := requests.Load(); got != 3 {
+				t.Errorf("server got %d requests, want 3 (MaxTries)", got)
 			}
 		})
 	}
