@@ -1,6 +1,6 @@
 module github.com/crowdstrike/gofalcon
 
-go 1.23.0
+go 1.26.0
 
 require (
 	github.com/blang/semver/v4 v4.0.0
@@ -11,7 +11,7 @@ require (
 	github.com/go-openapi/swag v0.22.9
 	github.com/go-openapi/validate v0.23.1
 	github.com/sirupsen/logrus v1.10.2
-	golang.org/x/oauth2 v0.30.0
+	golang.org/x/oauth2 v0.37.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
