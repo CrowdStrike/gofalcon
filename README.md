@@ -101,6 +101,8 @@ When `RetryConfig` is nil (the default), no retries are performed. Retry behavio
 
 When the last attempt still gets a `429` or `5xx`, the call returns the same error as without retries, such as `*hosts.QueryDevicesByFilterTooManyRequests` with its rate-limit headers, so `errors.As` keeps working.
 
+`RetryConfig` also applies to the token and revoke requests `NewClient` sends to autodiscover the cloud.
+
 ## Testing
 
 The `falcon/testing` package provides a fake client for testing GoFalcon applications without API credentials or network calls. It intercepts at the transport layer, so your application code requires zero changes.

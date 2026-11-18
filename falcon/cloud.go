@@ -114,17 +114,32 @@ func (c CloudType) String() string {
 	}
 }
 
+// autodiscoverInput holds the credentials to autodiscover the cloud with and
+// the retry policy for its token and revoke requests, nil for none.
+type autodiscoverInput struct {
+	clientID     string
+	clientSecret string
+	retry        *RetryConfig
+}
+
+// Autodiscover replaces CloudAutoDiscover with the cloud region the client
+// credentials belong to. Its requests are not retried; NewClient retries them
+// as configured by ApiConfig.RetryConfig.
 func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret string) error {
+	return c.autodiscover(ctx, autodiscoverInput{clientID: clientId, clientSecret: clientSecret})
+}
+
+func (c *CloudType) autodiscover(ctx context.Context, in autodiscoverInput) error {
 	if *c != CloudAutoDiscover {
 		return nil
 	}
 
 	// (1) Request our cloud-region information from us-1 cloud-region
-	cli := newAutodiscoverClient(client.DefaultTransportConfig())
+	cli := newAutodiscoverClient(client.DefaultTransportConfig(), in.retry)
 	token, err := cli.Oauth2.Oauth2AccessToken(&oauth2.Oauth2AccessTokenParams{
 		Context:      ctx,
-		ClientID:     clientId,
-		ClientSecret: clientSecret,
+		ClientID:     in.clientID,
+		ClientSecret: in.clientSecret,
 	})
 	if err != nil {
 		switch e := err.(type) {
@@ -151,14 +166,14 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 	if (*c) != CloudUs1 {
 		// (4) Revocation needs to be done in our *local* region
 		transportConfig := client.DefaultTransportConfig().WithHost(c.Host())
-		cli = newAutodiscoverClient(transportConfig)
+		cli = newAutodiscoverClient(transportConfig, in.retry)
 	}
 
 	revocation, err := cli.Oauth2.Oauth2RevokeToken(&oauth2.Oauth2RevokeTokenParams{
 		Context: ctx,
 		Token:   token.Payload.AccessToken,
 	},
-		oauth2.AuthenticateRevocation(clientId, clientSecret),
+		oauth2.AuthenticateRevocation(in.clientID, in.clientSecret),
 	)
 	if err != nil {
 		return nil //nolint:nilerr
@@ -170,12 +185,16 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 }
 
 // newAutodiscoverClient builds the unauthenticated client used during cloud
-// autodiscovery. Its debug output (enabled by the DEBUG or SWAGGER_DEBUG
+// autodiscovery. A non-nil retry makes it retry network errors, 429 and 5xx
+// responses. Its debug output (enabled by the DEBUG or SWAGGER_DEBUG
 // environment variables) has the client secret redacted. The redacting logger
 // is installed only when debug is on, because SetLogger also replaces
 // go-openapi's package-wide middleware logger.
-func newAutodiscoverClient(cfg *client.TransportConfig) *client.CrowdStrikeAPISpecification {
+func newAutodiscoverClient(cfg *client.TransportConfig, retry *RetryConfig) *client.CrowdStrikeAPISpecification {
 	rt := httptransport.New(cfg.Host, cfg.BasePath, cfg.Schemes)
+	if retry != nil {
+		rt.Transport = &retryTransport{T: rt.Transport, config: retry}
+	}
 	if rt.Debug {
 		rt.SetLogger(redactingLogger{logger.StandardLogger{}})
 	}

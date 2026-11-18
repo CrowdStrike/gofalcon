@@ -46,6 +46,7 @@ type ApiConfig struct {
 	// UserAgentOverride allows to override default User-Agent HTTP header when talking with CrowdStrike API (default: gofalcon/$VERSION)
 	UserAgentOverride string
 	// RetryConfig enables automatic retry with exponential backoff for transient errors (network errors, 429, 5xx).
+	// It also covers the token and revoke requests NewClient makes to autodiscover the cloud.
 	// Nil disables retry entirely.
 	RetryConfig *RetryConfig
 	// TransportDecorator allows users to decorate and customize default authenticated client http.RoundTripper behavior.
