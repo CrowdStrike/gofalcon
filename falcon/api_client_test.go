@@ -696,15 +696,46 @@ func captureDefaultSlog(t *testing.T) *captureHandler {
 	return h
 }
 
-// TestTransportsLogThroughSlog checks that the rate-limit and retry paths log a
-// debug record to the default slog logger, with the request's context.
-// It replaces the process-wide default logger, so it does not run in parallel.
+// wantLog describes one record expected by TestTransportsLogThroughSlog.
+type wantLog struct {
+	level   slog.Level
+	message string
+	// attrs maps each expected attribute to its value as slog prints it. An
+	// empty string accepts any value.
+	attrs map[string]string
+}
+
+// TestTransportsLogThroughSlog checks what the retry and rate-limit transports
+// log to the default slog logger: a warning before each retry, and debug
+// records for rate-limit pacing, all with the request's context. It replaces
+// the process-wide default logger, so it does not run in parallel.
 func TestTransportsLogThroughSlog(t *testing.T) {
-	// A nil attribute value means the attribute must be present, with any value.
+	const path = "/devices/queries/devices/v1"
+
+	// retrying builds the warning logged before a retry. An empty status means
+	// the attempt got no response, so the record carries no status attribute.
+	retrying := func(attempt, status, errText string) wantLog {
+		attrs := map[string]string{"method": "GET", "path": path, "attempt": attempt, "wait": "", "error": errText}
+		if status != "" {
+			attrs["status"] = status
+		}
+		return wantLog{
+			level:   slog.LevelWarn,
+			message: "retrying CrowdStrike API request",
+			attrs:   attrs,
+		}
+	}
+	viaRetry := func(maxTries uint, fake *fakeTransport) func(*http.Request) (*http.Response, error) {
+		return func(req *http.Request) (*http.Response, error) {
+			rt := &retryTransport{T: fake, config: fastRetry(maxTries)}
+			return rt.RoundTrip(req)
+		}
+	}
+
 	tests := map[string]struct {
 		roundTrip func(req *http.Request) (*http.Response, error)
-		message   string
-		attrs     map[string]any
+		wantErr   bool
+		want      []wantLog
 	}{
 		"proactive rate-limit delay": {
 			roundTrip: func(req *http.Request) (*http.Response, error) {
@@ -714,32 +745,53 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 				rt.remaining.Store(8)
 				return rt.RoundTrip(req)
 			},
-			message: "approaching CrowdStrike API rate limits, delaying request",
-			attrs:   map[string]any{"remaining": int64(8), "delay": 200 * time.Millisecond},
+			want: []wantLog{{
+				level:   slog.LevelDebug,
+				message: "approaching CrowdStrike API rate limits, delaying request",
+				attrs:   map[string]string{"remaining": "8", "delay": "200ms"},
+			}},
 		},
 		"rate limited": {
-			roundTrip: func(req *http.Request) (*http.Response, error) {
-				fake := &fakeTransport{
-					responses: []*http.Response{fakeResp(429), fakeResp(200)},
-					errors:    []error{nil, nil},
-				}
-				rt := &retryTransport{T: fake, config: fastRetry(3)}
-				return rt.RoundTrip(req)
-			},
-			message: "rate limited, retrying request",
-			attrs:   map[string]any{"path": "/devices/queries/devices/v1"},
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{fakeResp(429), fakeResp(200)},
+				errors:    []error{nil, nil},
+			}),
+			want: []wantLog{retrying("1", "429", "retryable HTTP status: 429")},
 		},
-		"server error": {
-			roundTrip: func(req *http.Request) (*http.Response, error) {
-				fake := &fakeTransport{
-					responses: []*http.Response{fakeResp(503), fakeResp(200)},
-					errors:    []error{nil, nil},
-				}
-				rt := &retryTransport{T: fake, config: fastRetry(3)}
-				return rt.RoundTrip(req)
+		"server errors": {
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{fakeResp(503), fakeResp(502), fakeResp(200)},
+				errors:    []error{nil, nil, nil},
+			}),
+			want: []wantLog{
+				retrying("1", "503", "retryable HTTP status: 503"),
+				retrying("2", "502", "retryable HTTP status: 502"),
 			},
-			message: "retrying request",
-			attrs:   map[string]any{"path": "/devices/queries/devices/v1", "status": int64(503)},
+		},
+		"network error": {
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{nil, fakeResp(200)},
+				errors:    []error{errors.New("connection refused"), nil},
+			}),
+			want: []wantLog{retrying("1", "", "connection refused")},
+		},
+		"network error after a rate limit": {
+			roundTrip: viaRetry(3, &fakeTransport{
+				responses: []*http.Response{fakeResp(429), nil, fakeResp(200)},
+				errors:    []error{nil, errors.New("connection refused"), nil},
+			}),
+			want: []wantLog{
+				retrying("1", "429", "retryable HTTP status: 429"),
+				retrying("2", "", "connection refused"),
+			},
+		},
+		"no retry log after the last attempt": {
+			roundTrip: viaRetry(2, &fakeTransport{
+				responses: []*http.Response{fakeResp(503)},
+				errors:    []error{nil},
+			}),
+			wantErr: true,
+			want:    []wantLog{retrying("1", "503", "retryable HTTP status: 503")},
 		},
 		"rate-limit cooldown": {
 			roundTrip: func(req *http.Request) (*http.Response, error) {
@@ -748,8 +800,11 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 				rt.setCooldown(20 * time.Millisecond)
 				return rt.RoundTrip(req)
 			},
-			message: "waiting for rate-limit cooldown before sending request",
-			attrs:   map[string]any{"wait": nil},
+			want: []wantLog{{
+				level:   slog.LevelDebug,
+				message: "waiting for rate-limit cooldown before sending request",
+				attrs:   map[string]string{"wait": ""},
+			}},
 		},
 	}
 
@@ -758,43 +813,47 @@ func TestTransportsLogThroughSlog(t *testing.T) {
 			h := captureDefaultSlog(t)
 
 			ctx := context.WithValue(context.Background(), logCtxKey{}, name)
-			req, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://example.com/devices/queries/devices/v1", nil)
+			req, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://example.com"+path, nil)
 			if err != nil {
 				t.Fatalf("NewRequestWithContext: %v", err)
 			}
 			resp, err := tc.roundTrip(req)
-			if err != nil {
+			switch {
+			case tc.wantErr && err == nil:
+				t.Fatal("expected an error, got nil")
+			case !tc.wantErr && err != nil:
 				t.Fatalf("RoundTrip: %v", err)
-			}
-			if resp.StatusCode != 200 {
+			case !tc.wantErr && resp.StatusCode != 200:
 				t.Fatalf("expected status 200, got %d", resp.StatusCode)
 			}
 
 			records := h.captured()
-			if len(records) != 1 {
-				t.Fatalf("expected 1 log record, got %d: %+v", len(records), records)
+			if len(records) != len(tc.want) {
+				t.Fatalf("got %d log records, want %d: %+v", len(records), len(tc.want), records)
 			}
-			got := records[0]
-			if got.level != slog.LevelDebug {
-				t.Errorf("level = %v, want %v", got.level, slog.LevelDebug)
-			}
-			if got.message != tc.message {
-				t.Errorf("message = %q, want %q", got.message, tc.message)
-			}
-			if got.ctxValue != name {
-				t.Errorf("handler saw context value %v, want the request's context (%q)", got.ctxValue, name)
-			}
-			if len(got.attrs) != len(tc.attrs) {
-				t.Errorf("attrs = %v, want keys of %v", got.attrs, tc.attrs)
-			}
-			for key, want := range tc.attrs {
-				value, ok := got.attrs[key]
-				if !ok {
-					t.Errorf("missing attr %q in %v", key, got.attrs)
-					continue
+			for i, want := range tc.want {
+				got := records[i]
+				if got.level != want.level {
+					t.Errorf("record %d: level = %v, want %v", i, got.level, want.level)
 				}
-				if want != nil && value.Any() != want {
-					t.Errorf("attr %q = %v (%T), want %v (%T)", key, value.Any(), value.Any(), want, want)
+				if got.message != want.message {
+					t.Errorf("record %d: message = %q, want %q", i, got.message, want.message)
+				}
+				if got.ctxValue != name {
+					t.Errorf("record %d: handler saw context value %v, want the request's context (%q)", i, got.ctxValue, name)
+				}
+				if len(got.attrs) != len(want.attrs) {
+					t.Errorf("record %d: attrs = %v, want keys of %v", i, got.attrs, want.attrs)
+				}
+				for key, wantValue := range want.attrs {
+					value, ok := got.attrs[key]
+					if !ok {
+						t.Errorf("record %d: missing attr %q in %v", i, key, got.attrs)
+						continue
+					}
+					if wantValue != "" && value.String() != wantValue {
+						t.Errorf("record %d: attr %q = %q, want %q", i, key, value.String(), wantValue)
+					}
 				}
 			}
 		})
