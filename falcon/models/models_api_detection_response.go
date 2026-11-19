@@ -78,7 +78,7 @@ type ModelsAPIDetectionResponse struct {
 
 	// rule
 	// Required: true
-	Rule *Rule `json:"rule"`
+	Rule *ModelsAPIDetectionRule `json:"rule"`
 }
 
 // Validate validates this models API detection response

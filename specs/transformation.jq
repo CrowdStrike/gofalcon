@@ -1262,3 +1262,12 @@
     | .operationId = "oauth2AuthorizationServerMetadata"
     | .responses."200".schema = {"$ref": "#/definitions/oauth2.AuthorizationServerMetadata"}
   )
+# The IaC detection rule (".rule", GET /iac/combined/detections/v1) and the Seraphic Enterprise
+# Browser rule ("Rule") both generate models.Rule. The browser rule won, so detections lost
+# RuleUUID and the other rule fields, and decoding fails on the integer severity. Give the IaC
+# rule its own name.
+| if .definitions | has(".rule") then
+    .definitions."models.APIDetectionRule" = .definitions.".rule"
+    | .definitions."models.APIDetectionResponse".properties.rule."$ref" = "#/definitions/models.APIDetectionRule"
+    | del(.definitions.".rule")
+  else . end
