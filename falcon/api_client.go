@@ -413,6 +413,9 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 		status = 0
 		resp, err := rt.T.RoundTrip(cloned)
 		if err != nil {
+			if rejectedTokenRequest(err) {
+				return nil, backoff.Permanent(err)
+			}
 			return resp, err
 		}
 		status = resp.StatusCode
@@ -466,6 +469,24 @@ func (rt *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 
 	resp, err := backoff.Retry(req.Context(), operation, opts...)
 	return resp, err
+}
+
+// rejectedTokenRequest reports whether err is the token endpoint refusing the
+// credentials: 400 for an unknown client ID or a missing secret, 401 for a
+// request without credentials, and 403 for a wrong secret, an unknown member
+// CID or a blocked IP. Asking again gets the same answer. oauth2.Transport
+// fetches the token beneath the retry layer, so the refusal arrives as an
+// error instead of a response.
+func rejectedTokenRequest(err error) bool {
+	var re *oauth2.RetrieveError
+	if !errors.As(err, &re) || re.Response == nil {
+		return false
+	}
+	switch re.Response.StatusCode {
+	case http.StatusBadRequest, http.StatusUnauthorized, http.StatusForbidden:
+		return true
+	}
+	return false
 }
 
 // setCooldown updates the shared cooldown timestamp so subsequent requests
