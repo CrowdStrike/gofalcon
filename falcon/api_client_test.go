@@ -1425,3 +1425,72 @@ func TestRetryTransport_ExhaustedRetriesReturnLastResponse(t *testing.T) {
 		})
 	}
 }
+
+// TestRetryTransport_TokenRejection checks that RetryConfig does not retry the
+// token endpoint refusing the credentials. oauth2.Transport fetches the token
+// beneath the retry layer, so the refusal reaches it as an error, not a
+// response. Other token failures may pass and are still retried.
+func TestRetryTransport_TokenRejection(t *testing.T) {
+	t.Parallel()
+	tests := map[string]struct {
+		status       int
+		wantAttempts int32
+	}{
+		"400 unknown client ID": {status: http.StatusBadRequest, wantAttempts: 1},
+		"401 no credentials":    {status: http.StatusUnauthorized, wantAttempts: 1},
+		"403 wrong secret":      {status: http.StatusForbidden, wantAttempts: 1},
+		"408 is retried":        {status: http.StatusRequestTimeout, wantAttempts: 3},
+		"429 is retried":        {status: http.StatusTooManyRequests, wantAttempts: 3},
+		"503 is retried":        {status: http.StatusServiceUnavailable, wantAttempts: 3},
+	}
+	for name, tc := range tests {
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
+			var tokenRequests, apiRequests atomic.Int32
+			srv := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				if !strings.HasPrefix(r.URL.Path, "/oauth2/token") {
+					apiRequests.Add(1)
+					w.WriteHeader(http.StatusOK)
+					return
+				}
+				tokenRequests.Add(1)
+				w.Header().Set("Content-Type", "application/json")
+				w.WriteHeader(tc.status)
+				_, _ = fmt.Fprintf(w, `{"errors":[{"code":%d,"message":"refused"}]}`, tc.status)
+			}))
+			t.Cleanup(srv.Close)
+
+			c := clientCredentialsHTTPClient(&ApiConfig{
+				ClientId:     "test-id",
+				ClientSecret: "test-secret",
+				HostOverride: "gw.example.com",
+				Context:      tlsTestServerContext(t, srv),
+				RetryConfig:  fastRetry(3),
+			})
+			req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, "https://gw.example.com/devices/queries/devices/v1", nil)
+			if err != nil {
+				t.Fatal(err)
+			}
+			resp, err := c.Do(req)
+			if resp != nil {
+				_ = resp.Body.Close()
+			}
+
+			var re *oauth2.RetrieveError
+			if !errors.As(err, &re) || re.Response == nil {
+				t.Fatalf("expected an *oauth2.RetrieveError, got %v", err)
+			}
+			if re.Response.StatusCode != tc.status {
+				t.Errorf("token status = %d, want %d", re.Response.StatusCode, tc.status)
+			}
+			// oauth2 sends the credentials both ways it knows on every
+			// attempt, so each attempt is two token requests.
+			if got := tokenRequests.Load(); got != 2*tc.wantAttempts {
+				t.Errorf("token requests = %d, want %d (%d attempts)", got, 2*tc.wantAttempts, tc.wantAttempts)
+			}
+			if got := apiRequests.Load(); got != 0 {
+				t.Errorf("API requests = %d, want 0", got)
+			}
+		})
+	}
+}
