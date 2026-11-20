@@ -760,6 +760,17 @@
         }
     }
 }
+# The IaC endpoint nests the token one envelope deeper (resources.resources.token),
+# so point it at the nested model above. The snapshots endpoint returns resources
+# as an array, but the spec types it as a single object.
+| .paths."/iac/entities/image-registry-credentials/v1".get.responses."200".schema = {"$ref": "#/definitions/common.RegistryCredentialsResponse"}
+| .paths."/iac/entities/image-registry-credentials/v1".get.responses."500".schema = {"$ref": "#/definitions/common.RegistryCredentialsResponse"}
+| .definitions."models.RegistryCredentialsResponse".properties.resources = {
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/models.Credentials"
+    }
+}
 
 # Ngsiem search metadata are ints but are returned from the API as decimals https://github.com/CrowdStrike/gofalcon/issues/505
 | .definitions.".costs".properties.liveCost.format = "double" | .definitions.".costs".properties.liveCost.type = "number"
