@@ -30,7 +30,7 @@ type ModelsRegistryCredentialsResponse struct {
 
 	// resources
 	// Required: true
-	Resources *ModelsCredentials `json:"resources"`
+	Resources []*ModelsCredentials `json:"resources"`
 }
 
 // Validate validates this models registry credentials response
@@ -108,15 +108,22 @@ func (m *ModelsRegistryCredentialsResponse) validateResources(formats strfmt.Reg
 		return err
 	}
 
-	if m.Resources != nil {
-		if err := m.Resources.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("resources")
-			}
-			return err
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
 		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -188,16 +195,24 @@ func (m *ModelsRegistryCredentialsResponse) contextValidateMeta(ctx context.Cont
 
 func (m *ModelsRegistryCredentialsResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Resources != nil {
+	for i := 0; i < len(m.Resources); i++ {
 
-		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("resources")
+		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
 			}
-			return err
+
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
 		}
+
 	}
 
 	return nil
