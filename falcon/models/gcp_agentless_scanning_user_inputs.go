@@ -22,6 +22,9 @@ type GcpAgentlessScanningUserInputs struct {
 	// custom network
 	CustomNetwork *GcpNetworkConfig `json:"custom_network,omitempty"`
 
+	// dspm service permissions
+	DspmServicePermissions *GcpDSPMServicePermissions `json:"dspm_service_permissions,omitempty"`
+
 	// host project id
 	HostProjectID string `json:"host_project_id,omitempty"`
 
@@ -42,6 +45,10 @@ func (m *GcpAgentlessScanningUserInputs) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateCustomNetwork(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDspmServicePermissions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -78,6 +85,25 @@ func (m *GcpAgentlessScanningUserInputs) validateCustomNetwork(formats strfmt.Re
 	return nil
 }
 
+func (m *GcpAgentlessScanningUserInputs) validateDspmServicePermissions(formats strfmt.Registry) error {
+	if swag.IsZero(m.DspmServicePermissions) { // not required
+		return nil
+	}
+
+	if m.DspmServicePermissions != nil {
+		if err := m.DspmServicePermissions.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_service_permissions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_service_permissions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *GcpAgentlessScanningUserInputs) validateNetworkConfigurationType(formats strfmt.Registry) error {
 
 	if err := validate.Required("network_configuration_type", "body", m.NetworkConfigurationType); err != nil {
@@ -104,6 +130,10 @@ func (m *GcpAgentlessScanningUserInputs) ContextValidate(ctx context.Context, fo
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDspmServicePermissions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -123,6 +153,27 @@ func (m *GcpAgentlessScanningUserInputs) contextValidateCustomNetwork(ctx contex
 				return ve.ValidateName("custom_network")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("custom_network")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GcpAgentlessScanningUserInputs) contextValidateDspmServicePermissions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DspmServicePermissions != nil {
+
+		if swag.IsZero(m.DspmServicePermissions) { // not required
+			return nil
+		}
+
+		if err := m.DspmServicePermissions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dspm_service_permissions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dspm_service_permissions")
 			}
 			return err
 		}
